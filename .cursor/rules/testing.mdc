@@ -1,0 +1,28 @@
+---
+description: Write tests for game logic and give manual test steps for game feel
+alwaysApply: true
+---
+
+# Testing
+
+## Automated tests (logic)
+
+Write automated tests for pure logic, where a wrong number would silently break the game:
+
+- the damage formula and its order of operations
+- XP curve, level-up card rules, soft stat curves
+- gold banking, the quit rule (none before 5:00, 10% after), Swift Mode's scaled times
+- the persistence rule (what is saved, and when)
+- cloud-save merge rules (union, keep higher, gold from most recent)
+- seeded generation (same seed → same chunks, POIs, spawns)
+- JSON validation and the release content gate
+
+Use the GUT (Godot Unit Test) addon once approved under `dependencies.mdc`. Tests live in `res://tests/` and must all pass before a phase report is written.
+
+## Manual tests (feel)
+
+Movement, combat feel, readability, and fun can't be unit-tested. For these, give the owner short step-by-step manual tests, using debug-menu shortcuts, and list them in the phase report's "How to test" section.
+
+## Performance checks
+
+When a phase touches enemies, projectiles, or effects, report FPS and enemy count during the heaviest debug-menu stress test.

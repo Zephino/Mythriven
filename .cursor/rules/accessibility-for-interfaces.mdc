@@ -1,0 +1,27 @@
+---
+description: Make game menus and HUD usable with keyboard, gamepad, touch, and players with different needs
+globs: scenes/ui/**,scripts/ui/**,scenes/**/*menu*,scenes/**/*hud*
+alwaysApply: false
+---
+
+# Accessibility for Game Interfaces
+
+Apply this rule when creating or changing a menu, HUD element, or other interface in Godot.
+
+## Controls and navigation
+
+- Every menu must be fully usable with keyboard, gamepad, and touch. Set focus neighbors so the D-pad and arrow keys move between controls in a logical order, and give the first control focus when a menu opens.
+- Focused controls must have a clearly visible focus style.
+- Touch targets are at least 72 px; important buttons (god summons) are larger, per GAME_DESIGN.md.
+- Respect mobile safe areas (notches, rounded corners).
+- Never require holding or rapid tapping when a single press would do.
+
+## Feedback and content
+
+- Never communicate meaning by color alone: elements, weaknesses, and rarities also use icons or text (colorblind support is required by GAME_DESIGN.md).
+- Keep text readable at the smallest supported screen size and respect the Text size setting.
+- Make status changes understandable: important events (level-up, low HP, boss arrival) have a visual and a sound cue.
+- Respect the accessibility settings in GAME_DESIGN.md: effect opacity, screen shake and flash intensity, damage numbers, auto-summon.
+- All text goes through `tr()` and must fit when the pseudo-localization test makes it ~40% longer.
+
+Do not change unrelated screens solely to meet this rule; note broader issues in `docs/PROGRESS.md` separately.

@@ -1,0 +1,26 @@
+---
+description: Update maintained documentation when a change affects setup or operation
+alwaysApply: true
+---
+
+# Documentation Rule
+
+Update relevant maintained documentation as part of the same approved change when the work changes:
+
+- Setup, dependencies, addons, or export steps (`START_HERE.md`, `CREDITS.md`)
+- User-visible controls, settings, or debug-menu shortcuts (the phase report's "How to test" section)
+- Configuration keys, JSON data fields, or file formats (comments at the top of the relevant JSON or script, and the phase report)
+
+## Never edit GAME_DESIGN.md
+
+`GAME_DESIGN.md` is owned by the project owner and updated only through reviews with Claude. If the implementation differs from it, or the design didn't cover something, record it in `docs/DECISIONS.md` as "needs owner approval" instead.
+
+## How to update
+
+1. Find the document people already use for that topic.
+2. Edit that document instead of making a redundant copy.
+3. Make commands, examples, and instructions agree with the final implementation.
+4. Explain any manual step the owner must perform in the Godot editor, click by click.
+5. Never rewrite past entries in `docs/PROGRESS.md` or `docs/DECISIONS.md`; add new entries.
+
+If the approved change has no documentation impact, do not add filler documentation.

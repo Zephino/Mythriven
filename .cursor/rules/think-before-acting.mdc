@@ -1,0 +1,19 @@
+---
+description: Plan briefly, state assumptions, and ask when unsure before changing anything
+alwaysApply: true
+---
+
+# Think Before Acting
+
+Before changing any file:
+
+1. **Restate the task in two lines:** what you'll change and why, and which phase item in `docs/BUILD_PLAN.md` it belongs to.
+2. **Check it against the sources:** confirm it fits the current phase, `GAME_DESIGN.md`, and the project rules. If it belongs to a later phase or conflicts with the design, stop and say so.
+3. **List assumptions.** If an assumption affects gameplay, names, lore, data formats, or anything persistent, ask the owner instead of assuming.
+4. **State your confidence** (high / medium / low). If low, investigate first (read code, run a read-only check) or ask.
+5. **Keep the change small.** Touch only the files the task needs. Prefer extending existing systems over creating parallel ones.
+
+Never:
+- invent names, lore, or design details (see the naming rules in `GAME_DESIGN.md`);
+- add a dependency without approval (see `dependencies.mdc`);
+- delete or rewrite working code that the task didn't ask you to change.

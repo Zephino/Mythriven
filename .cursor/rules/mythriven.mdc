@@ -1,0 +1,35 @@
+---
+description: Mythriven project rules. Always apply.
+alwaysApply: true
+---
+
+# Mythriven — standing rules
+
+## Source of truth
+- Always read GAME_DESIGN.md and docs/BUILD_PLAN.md before starting a task.
+- Never edit GAME_DESIGN.md. Design changes come only from the owner (reviewed with Claude). If a task seems to conflict with GAME_DESIGN.md, stop and ask instead of guessing.
+- Work only on the current phase in docs/BUILD_PLAN.md. Never build ahead.
+- Only build features tagged [Launch] unless I say otherwise. Only build Pack 1 levels (Aegean Shore, Midgard's Edge, Two Lands, Misty Isles).
+
+## Content and naming
+- Never use anything from Final Fantasy or other games' designs; follow the Cultural care and IP section.
+- Only Tier A Heroes and gods may be enabled in release builds.
+- Never invent names or lore. Use names and details from public-domain sources per the naming rules; if none exists, ask me before inventing, and mark it invented: true.
+- All player-facing text uses translation keys through tr(); never hard-code text.
+
+## Code
+- Godot 4, GDScript with static typing. Keep scripts under ~300 lines.
+- All tuning numbers go in res://data JSON files, never hard-coded.
+- Players are always a list; game events go through GameAuthority.
+- Use object pooling and the spatial hash for enemies, projectiles, and effects.
+- Statuses are data on pooled enemies, ticked at 5 Hz. Respect effect budgets in config.json.
+- The files in reference/ are design notes, never loaded by the game.
+- Anything earned in a level that is used outside a level persists and is saved the moment it's earned (persists: true).
+- Never remove or rewrite working features unless asked.
+
+## Working with me
+- When a step needs the Godot editor, give exact click-by-click instructions.
+- End every task by telling me how to test what you built, including debug-menu shortcuts.
+- After every task, add a short entry to docs/PROGRESS.md (date, phase, what changed, files touched, anything unfinished).
+- Record any decision you had to make that GAME_DESIGN.md didn't cover in docs/DECISIONS.md, marked "needs owner approval".
+- When a phase's "Done when" list is complete, write docs/reports/PHASE_XX_REPORT.md using docs/reports/PHASE_REPORT_TEMPLATE.md, then stop and wait. Don't start the next phase until I say the review passed.

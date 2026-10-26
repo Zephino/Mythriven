@@ -1,0 +1,13 @@
+---
+description: Use Git so every approved step can be recovered
+alwaysApply: true
+---
+
+# Git Workflow
+
+- The project is a Git repository. If it isn't yet, propose initializing one with a Godot-appropriate `.gitignore` (ignore `.godot/`, `*.import` caches as appropriate, export builds, `*.tmp`, OS files).
+- Commit after each completed task with a message in the form: `vXX.XX.XX Phase N: short description`.
+- Never commit secrets: API keys, Epic Online Services credentials, Steam keys, signing certificates, or passwords. Keep them in a local, git-ignored file and document the file's expected format (not its contents).
+- Never rewrite history (no force-push, no rebasing shared history) unless the owner asks.
+- After a phase review is approved, the owner tags it: `phase-N-approved`. Suggest the command, but don't run it unasked.
+- Large binary assets (art, audio) are committed normally at first; propose Git LFS only if the repository grows large.
