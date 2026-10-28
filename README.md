@@ -9,7 +9,17 @@
 ![Development](https://img.shields.io/badge/Status-Early%20Development-orange)
 ![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey)
 
-**[Web development build](https://zephino.github.io/Mythriven/)** · **[Game design](GAME_DESIGN.md)** · **[Report an issue](https://github.com/Zephino/Mythriven/issues)**
+## 🎮 Play Mythriven Online
+
+### **[▶ PLAY MYTHRIVEN — OPEN THE GAME](https://zephino.github.io/Mythriven/)**
+
+**Direct game link:** https://zephino.github.io/Mythriven/
+
+*Browser-based development build — no installation needed. Works when the latest GitHub Pages deployment is available.*
+
+[![Play Mythriven](https://img.shields.io/badge/PLAY-MYTHRIVEN-brightgreen?style=for-the-badge)](https://zephino.github.io/Mythriven/)
+
+**[Game design](GAME_DESIGN.md)** · **[Report an issue](https://github.com/Zephino/Mythriven/issues)**
 
 > **Work in progress:** Mythriven is an early prototype, not a finished or released game. The web link is a debug/development build and depends on GitHub Pages being enabled and successfully deployed. Features described as *planned* below are not necessarily playable yet.
 
