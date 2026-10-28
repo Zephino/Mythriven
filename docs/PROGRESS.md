@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Phase 2 — Owner decisions recorded (v00.01.02)
+- What changed: marked three Phase 2 decisions in `docs/DECISIONS.md`. 8-direction snapping is approved by the owner. The placeholder size/speed/zoom and the joystick placement are approved with the choice delegated to Claude. No game code changed.
+- Files touched: `docs/DECISIONS.md`, `docs/PROGRESS.md`, `VERSION`, `project.godot` (version only).
+- Unfinished / next: owner to test Phases 1–2 at their PC.
+
 ## 2026-10-28 — Phase 2 — Player movement (v00.01.01)
 - Agent: Claude Code (cloud), developer mode. Started before Phase 1 was tested or reviewed, at the owner's request ("work on the next step, I'll test manually later").
 - What changed: `GameAuthority` autoload holding the list of players (`spawn_player`, `remove_player`, `local_player`); placeholder square player with a facing dot; 8-direction movement at full speed from WASD/arrows, gamepad stick/D-pad, or a floating touch joystick (left half of the screen, visible only while touched); facing = last movement direction; camera with frame-rate-independent smooth follow and slight look-ahead; dev-only reference grid so movement is visible before the map exists; debug menu now shows player count/position/facing/speed, a grid toggle, and "Move player back to start". The Phase 1 translation test label moved from the screen centre to the bottom centre so it doesn't cover the player.
