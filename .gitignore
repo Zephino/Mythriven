@@ -20,3 +20,6 @@ desktop.ini
 # Local secrets (keys, credentials); never commit
 secrets.local.json
 *.keystore
+
+# Godot-generated translation files (rebuilt from localization/*.csv on import)
+*.translation

@@ -1,0 +1,7 @@
+{
+  "_doc": "A valid test file. Break a field here (for example rename \"speed\" or change it to \"fast\") and use the debug menu's 'Check test data files' button to see the error.",
+  "speed": 1.5,
+  "label_key": "UI_TEST_LABEL",
+  "enabled": true,
+  "limits": { "max_count": 10 }
+}

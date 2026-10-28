@@ -1,0 +1,45 @@
+{
+  "_doc": "Schemas for the test fixtures used by tests/ and the debug menu. Not game data.",
+  "files": {
+    "example.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "speed": "number",
+          "label_key": "string",
+          "enabled": "bool",
+          "limits": { "type": "object", "fields": { "max_count": "int" } }
+        }
+      }
+    },
+    "broken_example.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "speed": "number",
+          "label_key": "string",
+          "enabled": "bool",
+          "limits": { "type": "object", "fields": { "max_count": "int" } }
+        }
+      }
+    },
+    "gate_entries.json": {
+      "gated": true,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "care_tier": "string",
+            "lore_source": "string",
+            "lore_verified": "bool"
+          }
+        }
+      }
+    }
+  }
+}

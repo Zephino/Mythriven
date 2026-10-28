@@ -1,0 +1,215 @@
+{
+  "_doc": "Every tuning number in Mythriven lives here, never in code. Values come from GAME_DESIGN.md; many are placeholders until their phase is built. Keys starting with '_' are notes and are ignored by the loader. The required fields and their types are listed in data/schemas.json; if you add, rename, or remove a key here, update that file too.",
+
+  "debug": {
+    "_doc": "Debug menu (dev builds only). F1 on PC, a tap with this many fingers on mobile.",
+    "menu_touch_fingers": 3,
+    "fps_refresh_s": 0.25,
+    "rng_test_seed": 12345,
+    "rng_test_count": 5
+  },
+
+  "localization": {
+    "_doc": "Pseudo-localization test settings (GAME_DESIGN.md: Translation-ready text). Text grows by expansion_ratio to catch clipped or hard-coded text.",
+    "pseudo_expansion_ratio": 0.4,
+    "pseudo_prefix": "[",
+    "pseudo_suffix": "]",
+    "pseudo_accents": true,
+    "pseudo_double_vowels": false,
+    "pseudo_fake_bidi": false,
+    "pseudo_skip_placeholders": true
+  },
+
+  "ui": {
+    "min_touch_target_px": 72,
+    "god_button_min_px": 72,
+    "screen_margin_px": 16
+  },
+
+  "performance": {
+    "enemy_cap": 500,
+    "spatial_hash_cell_px": 64,
+    "separation_hz": 30,
+    "separation_max_neighbors": 8,
+    "status_tick_hz": 5,
+    "retarget_interval_s": 0.1
+  },
+
+  "effect_budgets": {
+    "max_ground_hazards": 40,
+    "max_reactions_per_s": 30,
+    "max_enemy_projectiles": 20,
+    "max_identical_sounds": 8
+  },
+
+  "world": {
+    "tile_px": 16,
+    "chunk_tiles": 32,
+    "loaded_chunks_per_side": 5,
+    "origin_shift_px": 50000,
+    "region_chunks": 4,
+    "poi_chance": 0.35,
+    "max_pois_loaded": 3,
+    "compass_range_screens": 4,
+    "compass_reveal_screens": 2,
+    "coop_tether_screens": 1.5
+  },
+
+  "run_arc": {
+    "age_start_s": { "dusk": 0, "night": 600, "deep_night": 1200, "unraveling": 1800 },
+    "boss_times_s": [600, 1200, 1800],
+    "unraveling_latest_start_s": 1980,
+    "unraveling_shrink_pct_per_min": 0.10,
+    "milestone_gold": [50, 100, 200],
+    "elite_times_s": [300, 900, 1500],
+    "elite_modifiers_normal": 1,
+    "elite_modifiers_deep_night": 2,
+    "enemy_hp_mult_start": 1.0,
+    "enemy_hp_mult_at_30_min": 3.0
+  },
+
+  "swift_mode": {
+    "arc_time_scale": 0.7,
+    "enemy_speed_mult": 1.5,
+    "spawn_rate_mult": 1.5,
+    "player_speed_mult": 1.25,
+    "projectile_speed_mult": 1.25,
+    "xp_mult": 1.25,
+    "gold_mult": 1.5
+  },
+
+  "combat": {
+    "base_crit_chance": 0.05,
+    "crit_mult": 2.0,
+    "weak_mult": 1.5,
+    "resist_mult": 0.5,
+    "min_damage": 1,
+    "contact_damage_interval_s": 0.5,
+    "player_status_start_s": 1800,
+    "player_status_duration_mult": 0.5,
+    "player_status_immunity_s": 2.0,
+    "elite_cc_window_s": 10,
+    "elite_cc_duration_mults": [1.0, 0.5, 0.25],
+    "elite_cc_immunity_s": 5,
+    "expertise_attack_speed_pct": 25,
+    "expertise_damage_pct": 15
+  },
+
+  "stats": {
+    "_doc": "Soft curves instead of hard caps: cooldown = base / (1 + cooldown bonus); bonus above the soft cap counts at over_soft_cap_value.",
+    "move_speed_soft_cap_pct": 100,
+    "area_soft_cap_pct": 150,
+    "over_soft_cap_value": 0.5
+  },
+
+  "xp": {
+    "orb_values": [1, 5, 25],
+    "orb_merge_threshold": 300,
+    "level_2_xp": 5,
+    "growth_per_level": 0.10
+  },
+
+  "level_up": {
+    "cards": 3,
+    "cards_high_luck": 4,
+    "maxed_gold": 25,
+    "maxed_heal_pct": 0.30,
+    "smart_heal_below_hp_pct": 0.5,
+    "coop_turn_s": 20
+  },
+
+  "pickups": {
+    "pickup_chain_window_s": 0.4,
+    "pickup_chain_max_steps": 12,
+    "pickup_chain_reset_s": 0.6,
+    "pickup_sounds_per_s": 20,
+    "gold_drop_chance": 0.05,
+    "ambrosia_heal": 30
+  },
+
+  "economy": {
+    "quit_gold_pct": 0.10,
+    "quit_min_seconds": 300,
+    "trader_prices": { "reroll_token": 25, "travelers_bread": 50, "whetstone": 75, "incense": 40, "banish_token": 60 },
+    "trader_price_mult_per_age": 1.5
+  },
+
+  "gods": {
+    "max_bound": 2,
+    "shrine_interval_s": 180,
+    "shrine_distance_screens": [1.5, 2.0],
+    "shrine_lifetime_s": 90,
+    "rare_god_min_time_s": 480,
+    "peaceful_bind_s": 2,
+    "trial_ring_radius_screens": 1.0,
+    "duel_spawn_rate": 0.3,
+    "duel_time_limit_s": 60,
+    "endurance_s": 40,
+    "chase_s": 40,
+    "chase_touches": 3,
+    "summon_duration_s": [2, 6],
+    "auto_summon_min_enemies": 30,
+    "patronage_charge_bonus": 0.15,
+    "no_patron_charge_bonus": 0.08,
+    "offering_costs": [75, 150, 250, 400, 550, 750, 1000, 1300, 1600]
+  },
+
+  "enemies": {
+    "recycle_distance_screens": 2,
+    "swarm_pack_size": [10, 30],
+    "caster_telegraph_s": 0.5,
+    "bomber_fuse_s": 1.0,
+    "min_attack_telegraph_s": 0.5
+  },
+
+  "bosses": {
+    "arena_radius_screens": 1.2,
+    "fodder_spawn_rate": 0.25,
+    "telegraph_s": [0.6, 1.5],
+    "guard_break_s": 4,
+    "guard_break_damage_mult": 1.5,
+    "guard_weakness_fill_mult": 2,
+    "player_projectile_hurtbox_ratio": 0.4,
+    "bullet_gap_mult": 1.5
+  },
+
+  "events": {
+    "chaos_surge_s": 60,
+    "divine_storm_s": 45
+  },
+
+  "chests": {
+    "reveal_max_s": 3.0,
+    "reveal_skip_after_s": 0.5,
+    "buildup_s": 1.5,
+    "coop_pause_max_s": 3.0
+  },
+
+  "banter": {
+    "display_s": 3.0,
+    "summon_line_chance": 0.1
+  },
+
+  "coop": {
+    "max_players": 4,
+    "lobby_code_digits": 6,
+    "enemy_hp_per_extra_player": 0.6,
+    "spawns_per_extra_player": 0.5,
+    "boss_hp_per_extra_player": 0.75,
+    "bleed_out_s": 20,
+    "revive_stand_s": [3, 5],
+    "revives_per_player": 2,
+    "revive_hp_pct": 0.3,
+    "shade_god_charge_bonus": 0.1,
+    "sync_rate_hz": 20
+  },
+
+  "save": {
+    "save_version": 3,
+    "cloud_sync_min_interval_s": 30
+  },
+
+  "meta": {
+    "oracle_runs_per_hint": 5
+  }
+}

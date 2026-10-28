@@ -1,0 +1,7 @@
+{
+  "_doc": "Deliberately broken test file: 'speed' is text instead of a number and 'limits.max_count' is missing. Used by the automated tests.",
+  "speed": "fast",
+  "label_key": "UI_TEST_LABEL",
+  "enabled": true,
+  "limits": {}
+}

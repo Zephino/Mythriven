@@ -1,0 +1,5 @@
+[
+  { "id": "test_tier_a_verified", "name_key": "TEST_ENTRY_NAME", "care_tier": "A", "lore_source": "test fixture", "lore_verified": true },
+  { "id": "test_tier_a_unverified", "name_key": "TEST_ENTRY_NAME", "care_tier": "A", "lore_source": "test fixture", "lore_verified": false },
+  { "id": "test_tier_b", "name_key": "TEST_ENTRY_NAME", "care_tier": "B", "lore_source": "test fixture", "lore_verified": true }
+]

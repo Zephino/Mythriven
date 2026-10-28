@@ -1,0 +1,29 @@
+keys,en
+UI_TEST_LABEL,"Translation test: this text comes from the translation table."
+UI_VERSION_LABEL,v%s
+UI_DATA_ERRORS_TITLE,Data errors (also listed in Godot's Output panel):
+DEBUG_MENU_TITLE,Debug menu
+DEBUG_FPS_LABEL,FPS: %d
+DEBUG_VERSION_LABEL,Version %s
+DEBUG_PSEUDO_LOC,Pseudo-localization
+DEBUG_SIMULATE_RELEASE,Pretend this is a release build
+DEBUG_GATE_TEST,Run content gate test
+DEBUG_GATE_RESULT,"Content gate (%s): %d loaded, %d refused, %d warnings"
+DEBUG_MODE_RELEASE,release
+DEBUG_MODE_DEV,dev
+DEBUG_VALIDATE_FIXTURES,Check test data files
+DEBUG_VALIDATE_OK,No data errors found.
+DEBUG_RNG_TEST,Show seeded RNG sequences
+DEBUG_RNG_RESULT,Seed %d · %s: %s
+DEBUG_RNG_STREAM_WORLD,world
+DEBUG_RNG_STREAM_SPAWNS,spawns
+DEBUG_RNG_STREAM_LOOT,loot
+DEBUG_CLOSE,Close
+DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
+DATA_ERROR_FILE_MISSING,%s: file not found
+DATA_ERROR_MISSING_FIELD,%s: missing required field '%s'
+DATA_ERROR_WRONG_TYPE,"%s: field '%s' should be %s, but it is %s"
+DATA_ERROR_BAD_SCHEMA,"%s: the schema for field '%s' is invalid"
+DATA_WARN_UNKNOWN_FIELD,"%s: unknown field '%s' (not in data/schemas.json)"
+GATE_REFUSED,"%s: entry '%s' refused in release build (care_tier %s, lore_verified %s)"
+GATE_WARNING,"%s: entry '%s' loaded for testing, but a release build would refuse it (care_tier %s, lore_verified %s)"

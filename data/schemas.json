@@ -1,0 +1,318 @@
+{
+  "_doc": "Required fields and types for every file in res://data/. The loader checks each file at startup and reports errors naming the file and field. Types: number, int, string, bool, any, or an object {type: object, fields: {...}} / {type: array, items: <type>}. Add \"optional\": true to an object-form field that may be missing. A file with \"gated\": true is a list of entries checked by the release content gate (care_tier \"A\" and lore_verified true). Keys starting with '_' are notes.",
+  "files": {
+    "config.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "debug": {
+            "type": "object",
+            "fields": {
+              "menu_touch_fingers": "number",
+              "fps_refresh_s": "number",
+              "rng_test_seed": "number",
+              "rng_test_count": "number"
+            }
+          },
+          "localization": {
+            "type": "object",
+            "fields": {
+              "pseudo_expansion_ratio": "number",
+              "pseudo_prefix": "string",
+              "pseudo_suffix": "string",
+              "pseudo_accents": "bool",
+              "pseudo_double_vowels": "bool",
+              "pseudo_fake_bidi": "bool",
+              "pseudo_skip_placeholders": "bool"
+            }
+          },
+          "ui": {
+            "type": "object",
+            "fields": {
+              "min_touch_target_px": "number",
+              "god_button_min_px": "number",
+              "screen_margin_px": "number"
+            }
+          },
+          "performance": {
+            "type": "object",
+            "fields": {
+              "enemy_cap": "number",
+              "spatial_hash_cell_px": "number",
+              "separation_hz": "number",
+              "separation_max_neighbors": "number",
+              "status_tick_hz": "number",
+              "retarget_interval_s": "number"
+            }
+          },
+          "effect_budgets": {
+            "type": "object",
+            "fields": {
+              "max_ground_hazards": "number",
+              "max_reactions_per_s": "number",
+              "max_enemy_projectiles": "number",
+              "max_identical_sounds": "number"
+            }
+          },
+          "world": {
+            "type": "object",
+            "fields": {
+              "tile_px": "number",
+              "chunk_tiles": "number",
+              "loaded_chunks_per_side": "number",
+              "origin_shift_px": "number",
+              "region_chunks": "number",
+              "poi_chance": "number",
+              "max_pois_loaded": "number",
+              "compass_range_screens": "number",
+              "compass_reveal_screens": "number",
+              "coop_tether_screens": "number"
+            }
+          },
+          "run_arc": {
+            "type": "object",
+            "fields": {
+              "age_start_s": {
+                "type": "object",
+                "fields": {
+                  "dusk": "number",
+                  "night": "number",
+                  "deep_night": "number",
+                  "unraveling": "number"
+                }
+              },
+              "boss_times_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "unraveling_latest_start_s": "number",
+              "unraveling_shrink_pct_per_min": "number",
+              "milestone_gold": {
+                "type": "array",
+                "items": "number"
+              },
+              "elite_times_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "elite_modifiers_normal": "number",
+              "elite_modifiers_deep_night": "number",
+              "enemy_hp_mult_start": "number",
+              "enemy_hp_mult_at_30_min": "number"
+            }
+          },
+          "swift_mode": {
+            "type": "object",
+            "fields": {
+              "arc_time_scale": "number",
+              "enemy_speed_mult": "number",
+              "spawn_rate_mult": "number",
+              "player_speed_mult": "number",
+              "projectile_speed_mult": "number",
+              "xp_mult": "number",
+              "gold_mult": "number"
+            }
+          },
+          "combat": {
+            "type": "object",
+            "fields": {
+              "base_crit_chance": "number",
+              "crit_mult": "number",
+              "weak_mult": "number",
+              "resist_mult": "number",
+              "min_damage": "number",
+              "contact_damage_interval_s": "number",
+              "player_status_start_s": "number",
+              "player_status_duration_mult": "number",
+              "player_status_immunity_s": "number",
+              "elite_cc_window_s": "number",
+              "elite_cc_duration_mults": {
+                "type": "array",
+                "items": "number"
+              },
+              "elite_cc_immunity_s": "number",
+              "expertise_attack_speed_pct": "number",
+              "expertise_damage_pct": "number"
+            }
+          },
+          "stats": {
+            "type": "object",
+            "fields": {
+              "move_speed_soft_cap_pct": "number",
+              "area_soft_cap_pct": "number",
+              "over_soft_cap_value": "number"
+            }
+          },
+          "xp": {
+            "type": "object",
+            "fields": {
+              "orb_values": {
+                "type": "array",
+                "items": "number"
+              },
+              "orb_merge_threshold": "number",
+              "level_2_xp": "number",
+              "growth_per_level": "number"
+            }
+          },
+          "level_up": {
+            "type": "object",
+            "fields": {
+              "cards": "number",
+              "cards_high_luck": "number",
+              "maxed_gold": "number",
+              "maxed_heal_pct": "number",
+              "smart_heal_below_hp_pct": "number",
+              "coop_turn_s": "number"
+            }
+          },
+          "pickups": {
+            "type": "object",
+            "fields": {
+              "pickup_chain_window_s": "number",
+              "pickup_chain_max_steps": "number",
+              "pickup_chain_reset_s": "number",
+              "pickup_sounds_per_s": "number",
+              "gold_drop_chance": "number",
+              "ambrosia_heal": "number"
+            }
+          },
+          "economy": {
+            "type": "object",
+            "fields": {
+              "quit_gold_pct": "number",
+              "quit_min_seconds": "number",
+              "trader_prices": {
+                "type": "object",
+                "fields": {
+                  "reroll_token": "number",
+                  "travelers_bread": "number",
+                  "whetstone": "number",
+                  "incense": "number",
+                  "banish_token": "number"
+                }
+              },
+              "trader_price_mult_per_age": "number"
+            }
+          },
+          "gods": {
+            "type": "object",
+            "fields": {
+              "max_bound": "number",
+              "shrine_interval_s": "number",
+              "shrine_distance_screens": {
+                "type": "array",
+                "items": "number"
+              },
+              "shrine_lifetime_s": "number",
+              "rare_god_min_time_s": "number",
+              "peaceful_bind_s": "number",
+              "trial_ring_radius_screens": "number",
+              "duel_spawn_rate": "number",
+              "duel_time_limit_s": "number",
+              "endurance_s": "number",
+              "chase_s": "number",
+              "chase_touches": "number",
+              "summon_duration_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "auto_summon_min_enemies": "number",
+              "patronage_charge_bonus": "number",
+              "no_patron_charge_bonus": "number",
+              "offering_costs": {
+                "type": "array",
+                "items": "number"
+              }
+            }
+          },
+          "enemies": {
+            "type": "object",
+            "fields": {
+              "recycle_distance_screens": "number",
+              "swarm_pack_size": {
+                "type": "array",
+                "items": "number"
+              },
+              "caster_telegraph_s": "number",
+              "bomber_fuse_s": "number",
+              "min_attack_telegraph_s": "number"
+            }
+          },
+          "bosses": {
+            "type": "object",
+            "fields": {
+              "arena_radius_screens": "number",
+              "fodder_spawn_rate": "number",
+              "telegraph_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "guard_break_s": "number",
+              "guard_break_damage_mult": "number",
+              "guard_weakness_fill_mult": "number",
+              "player_projectile_hurtbox_ratio": "number",
+              "bullet_gap_mult": "number"
+            }
+          },
+          "events": {
+            "type": "object",
+            "fields": {
+              "chaos_surge_s": "number",
+              "divine_storm_s": "number"
+            }
+          },
+          "chests": {
+            "type": "object",
+            "fields": {
+              "reveal_max_s": "number",
+              "reveal_skip_after_s": "number",
+              "buildup_s": "number",
+              "coop_pause_max_s": "number"
+            }
+          },
+          "banter": {
+            "type": "object",
+            "fields": {
+              "display_s": "number",
+              "summon_line_chance": "number"
+            }
+          },
+          "coop": {
+            "type": "object",
+            "fields": {
+              "max_players": "number",
+              "lobby_code_digits": "number",
+              "enemy_hp_per_extra_player": "number",
+              "spawns_per_extra_player": "number",
+              "boss_hp_per_extra_player": "number",
+              "bleed_out_s": "number",
+              "revive_stand_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "revives_per_player": "number",
+              "revive_hp_pct": "number",
+              "shade_god_charge_bonus": "number",
+              "sync_rate_hz": "number"
+            }
+          },
+          "save": {
+            "type": "object",
+            "fields": {
+              "save_version": "number",
+              "cloud_sync_min_interval_s": "number"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "fields": {
+              "oracle_runs_per_hint": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}

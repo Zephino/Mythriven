@@ -14,6 +14,23 @@ This folder holds the game, the design, and the build docs. Cursor builds the ga
 | `docs/DECISIONS.md` | Decisions Cursor had to make that the design didn't cover | Cursor writes, you approve |
 | `docs/reports/` | One report per finished phase | Cursor |
 | `reference/` | Your mythology database (design notes only) | You |
+| `VERSION` | The build version (XX.XX.XX), also shown in the game's corner and debug menu | The coding agent, once per change request |
+| `CREDITS.md` | Every add-on, font, and asset from outside the project, with its license | The coding agent |
+
+## Setting up the game project (first time)
+
+1. Install **Godot 4.7.2** (standard version, not .NET) from https://godotengine.org/download.
+2. Open Godot. In the Project Manager, click **Import**, browse to this folder, select `project.godot`, then click **Import** (or **Open**).
+3. Wait for the first import to finish. Godot creates a hidden `.godot/` folder and some `.uid` files; the `.uid` files should be committed, `.godot/` is ignored by Git.
+4. Press **F5** (or the ▶ button at the top right) to run the game.
+5. The test add-on **GUT** is already included in `addons/gut/` and switched on. To check it: **Project → Project Settings → Plugins** tab; "Gut" should show **Enabled**.
+
+## Running the automated tests
+
+- **In the editor:** click the **GUT** tab at the bottom of the editor, then **Run All**. Every test should show green.
+- **From a terminal** (optional): `godot --headless -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json`
+
+The tests live in `tests/`. The mythology database files belong in `reference/` (see `reference/README.md`); the game never loads them.
 
 ## The loop for every phase
 
