@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.16
+Date: 10/28/2026
+Time: 5:15 PM
+
+### Changes
+- Added the new leaderboard settings to the data rules (`data/schemas.json`), which fixes the two automated tests that failed in 00.01.15.
+- Re-published the web game: GitHub's second publisher (the "Deploy from a branch" Pages setting) finished last and replaced the game with a plain text page.
+
+### Reason
+The owner couldn't load the game after 00.01.15.
+
 ## Version 00.01.15
 Date: 10/28/2026
 Time: 5:11 PM

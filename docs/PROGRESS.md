@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Fix — Game page not loading; leaderboard schema (v00.01.16)
+- Cause: two Pages publishers race on every push (the repo's Pages Source is still "Deploy from a branch"); the branch one finished last and replaced the game. Separately, `config.json`'s new `leaderboard` section was missing from `data/schemas.json` (2 test failures).
+- Fix: schema entry added; the web build re-run. Permanent fix needs the owner to set Pages Source to "GitHub Actions".
+- Files touched: `data/schemas.json`, `CHANGELOG.md`, `VERSION`, `project.godot`, docs.
+
 ## 2026-10-28 — Owner request — Shared online leaderboard (v00.01.15)
 - What changed: Cloudflare Worker `leaderboard-api/` (rules in `src/board.js`, service in `src/index.js`, `npm test`, Windows/Mac setup app, README) that checks scores and commits `leaderboard.json` to the `data` branch; game side `OnlineConfig`, `LeaderboardClient` (`scripts/net/`), `LeaderboardEntry` (`scripts/meta/`), `LeaderboardScreen`; name entry and Submit on the death screen; Leaderboard button on Hero select; runs that used debug options are marked (`RunState.debug_used`) and can't be sent; CI also runs the Worker tests. Fixed the `test_expert_badge_on_level_up_cards` test (StringName vs String).
 - Files touched: `leaderboard-api/*` (new), `scripts/net/online_config.gd`, `scripts/net/leaderboard_client.gd`, `scripts/meta/leaderboard_entry.gd`, `scripts/ui/leaderboard_screen.gd` (new); `scripts/ui/death_screen.gd`, `scripts/ui/hero_select.gd`, `scripts/core/main.gd`, `scripts/core/debug_menu.gd`, `scripts/core/run_state.gd`; `data/config.json` (`leaderboard`); `localization/text.csv`; `tests/test_leaderboard.gd` (new), `tests/test_heroes.gd`; `.github/workflows/web.yml`; `.gitattributes`; docs.

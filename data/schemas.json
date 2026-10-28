@@ -327,6 +327,15 @@
               "folder": "string"
             }
           },
+          "leaderboard": {
+            "type": "object",
+            "fields": {
+              "max_name_length": "number",
+              "request_timeout_s": "number",
+              "rows_shown": "number",
+              "profile_file": "string"
+            }
+          },
           "economy": {
             "type": "object",
             "fields": {
