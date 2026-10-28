@@ -131,8 +131,10 @@ func _keep_players_in() -> void:
 ## Every regular enemy on screen bursts into XP orbs.
 func _clean_slate(view: Vector2) -> void:
 	var enemies: EnemyManager = GameAuthority.enemies
-	for slot: int in enemies.query(arena_center, view.length() * 0.5):
-		if not bool(enemies.type_of(slot).get("boss", false)):
+	var reach: float = view.length() * 0.5
+	for slot: int in enemies.capacity:
+		if enemies.active[slot] != 0 and enemies.positions[slot].distance_to(arena_center) <= reach \
+				and not bool(enemies.type_of(slot).get("boss", false)):
 			GameAuthority.kill_enemy(slot, null)
 
 

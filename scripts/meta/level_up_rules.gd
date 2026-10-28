@@ -41,7 +41,7 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 	for weapon: WeaponInstance in player.weapons:
 		owned[weapon.id()] = true
 		owned[weapon.base_id] = true
-		if weapon.level < weapon.max_level():
+		if weapon.level < weapon.max_level() and not _banished(weapon.id()):
 			var up: Dictionary = _card(WEAPON_UP, weapon.id(), weapon.level, weapon.level + 1)
 			up["expert"] = weapon.expert
 			cards.append(up)
@@ -49,13 +49,15 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 		var weapons: Variant = Data.get_file(GameAuthority.WEAPONS_FILE)
 		for entry: Variant in (weapons if weapons is Array else []):
 			var weapon_id: String = str(entry["id"])
-			if bool(entry.get("in_level_up_pool", false)) and not owned.has(weapon_id):
+			if bool(entry.get("in_level_up_pool", false)) and not owned.has(weapon_id) and not _banished(weapon_id):
 				var new_card: Dictionary = _card(WEAPON_NEW, weapon_id, 0, 1)
 				new_card["expert"] = HeroRules.is_expert(player.hero, entry)
 				cards.append(new_card)
 	var passives: Variant = Data.get_file(PASSIVES_FILE)
 	for entry: Variant in (passives if passives is Array else []):
 		var passive_id: String = str(entry["id"])
+		if _banished(passive_id):
+			continue
 		var level: int = int(player.passives.get(passive_id, 0))
 		if level > 0 and level < int(entry["max_level"]):
 			cards.append(_card(PASSIVE_UP, passive_id, level, level + 1))
@@ -127,6 +129,11 @@ static func auto_collect_card(setting: String, player: Player) -> Dictionary:
 			var low: bool = player.hp < player.max_hp * Data.cfg_float("level_up.smart_heal_below_hp_pct")
 			return heal_card() if low else gold_card()
 	return {}
+
+
+## Items banished with the Trader's Banish token never come back this run.
+static func _banished(item_id: String) -> bool:
+	return GameAuthority.run != null and GameAuthority.run.banished.has(item_id)
 
 
 static func _card(kind: String, id: String, from_level: int, to_level: int) -> Dictionary:

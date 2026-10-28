@@ -21,7 +21,9 @@
               "grid_color": "string",
               "status_test_radius_px": "number",
               "jump_to_time_s": "number",
-              "shrine_offset_px": "number"
+              "shrine_offset_px": "number",
+              "poi_offset_px": "number",
+              "gold_amount": "number"
             }
           },
           "localization": {
@@ -161,7 +163,13 @@
               "max_pois_loaded": "number",
               "compass_range_screens": "number",
               "compass_reveal_screens": "number",
-              "coop_tether_screens": "number"
+              "coop_tether_screens": "number",
+              "start_ruins_offset_px": {
+                "type": "array",
+                "items": "number"
+              },
+              "poi_edge_margin": "number",
+              "trader_awning_color": "string"
             }
           },
           "run_arc": {
@@ -538,7 +546,24 @@
             "type": "object",
             "fields": {
               "chaos_surge_s": "number",
-              "divine_storm_s": "number"
+              "divine_storm_s": "number",
+              "chaos_spawn_mult": "number",
+              "chaos_xp_mult": "number",
+              "storm_charge_mult": "number",
+              "divine_storm_hazard": {
+                "type": "object",
+                "fields": {
+                  "type": "string",
+                  "name_key": "string",
+                  "strikes_per_s": "number",
+                  "radius_px": "number",
+                  "telegraph_s": "number",
+                  "damage": "number",
+                  "element": "string",
+                  "range_px": "number",
+                  "color": "string"
+                }
+              }
             }
           },
           "chests": {
@@ -1391,7 +1416,14 @@
             "items": "string"
           },
           "events": {
-            "type": "array"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "id": "string",
+                "at_s": "number"
+              }
+            }
           }
         }
       }
@@ -1576,6 +1608,27 @@
             "effects": {
               "type": "object"
             }
+          }
+        }
+      }
+    },
+    "pois.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "open": true,
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "weights": {
+              "type": "object"
+            },
+            "min_regions": "int",
+            "radius_px": "number",
+            "icon_color": "string",
+            "icon_shape": "string"
           }
         }
       }

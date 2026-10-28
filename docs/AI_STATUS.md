@@ -118,6 +118,13 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 6. After each boss: a big chest, gold, and **Choose a Boon** (pick one of three).
 7. When Kronos falls (or at 33:00, or F1 → **Start the Unraveling**) a ring forms around you and shrinks; outside it is dark and hurts more and more.
 
+**Phase 14 — World discoveries (00.01.17)**
+1. Near the start there's always a ring of columns (Ancient Ruins). Stand inside: a white ring fills over 10 s while more enemies come; then choose a level-up, a full heal, or gold.
+2. Walk around: icons at the screen edge point to points of interest within 4 screens ("?" when farther than 2). F1 → **Place the next point of interest nearby** cycles through all five.
+3. Dragon's Hoard: a gold box in a big circle; defeat 50 enemies inside it and it drops a chest and gold. Monster's Lair: a broken ring of walls; walk close and 3 elites with guards appear; defeat the elites for a big chest. Hidden Shrine: an extra shrine appears.
+4. Wandering Trader (green stall with a red roof): walking up opens the shop. F1 → **Give 500 gold**, then buy things: the gold in the corner goes down. Prices are higher after 10:00. Reroll and Banish buttons then show on the level-up screen.
+5. At 7:00 (or F1 → **Start a Chaos Surge**) "Chaos Surge!": more enemies and double XP for 60 s. At 13:00 (or F1 → **Start a Divine Storm**) god meters fill twice as fast while lightning strikes around you.
+
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
 2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, it says "Online scores aren't switched on yet."

@@ -576,5 +576,35 @@
     "shade_swarm",
     "satyr_skirmisher"
   ],
-  "events": []
+  "events": [
+    {
+      "id": "chaos_surge",
+      "at_s": 420
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 780
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1080
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1380
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1560
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1680
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1760
+    }
+  ],
+  "_events_doc": "World events (GAME_DESIGN.md: World events): Chaos Surge (60 s, double spawns and XP) and Divine Storm (45 s, god meters charge twice as fast while telegraphed lightning strikes random spots). More often in Deep Night. Events skip while a boss arena is up."
 }

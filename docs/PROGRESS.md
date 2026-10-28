@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phases 10–14 being built (owner request); Phase 7 fun checkpoint ongoing
+**Current phase:** Phases 10–14 built (owner testing); next: full Aegean Shore review, then Phase 15
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-28 — Phase 14 — World discoveries (v00.01.17)
+- What changed: `pois.json` and the event schedule in the wave table; `PoiRules` (seeded regions), `PoiManager` (Hidden Shrine, Ancient Ruins, Dragon's Hoard, Monster's Lair, Wandering Trader; state only when changed), `Compass`, `TraderScreen`, `RuinsChoiceScreen`; Reroll and Banish on the level-up screen; banished items left out of level-ups; event, POI, and boss spawn multipliers in the spawner; Chaos Surge and Divine Storm in `RunDirector` (a second strikes hazard for the storm); debug options for POIs, gold, and events. Fixed the boss clean slate.
+- Files touched: `data/` (`pois.json` new; `waves_aegean_shore.json`, `config.json`, `schemas.json`); `scripts/world/` (`poi_rules.gd`, `poi_manager.gd` new); `scripts/ui/` (`compass.gd`, `trader_screen.gd`, `ruins_choice_screen.gd` new; `level_up_screen.gd`); `scripts/core/` (`run_director.gd`, `run_state.gd`, `run_systems.gd`, `debug_actions_discoveries.gd` new); `scripts/enemies/spawner.gd`; `scripts/meta/level_up_rules.gd`; `scripts/bosses/boss_manager.gd`; `localization/text.csv`; tests `test_discoveries.gd` (new).
+- Unfinished / next: banking gold at the end of a run, offerings, and the 10% quit rule come with Phase 15. **The Aegean Shore is now a complete vertical slice: the plan calls for a full review with Claude before Phase 15.**
 
 ## 2026-10-28 — Phase 13 — Aegean Shore bosses (v00.01.17)
 - What changed: `bosses.json` (Medusa, Achilles, Kronos) and boss bodies in `enemies.json`; `BossManager` (schedule, clean slate, arena, fodder, rewards, Achilles unlock, Unraveling trigger), `BossController` (phases, patterns, casts, Guard gauge and Guard Break, movement and charges) with `MedusaBoss` (Gaze, statues), `AchillesBoss` (the heel), `KronosBoss` (slow-time zones, rewind, devour pull); `Unraveling`; `BoonScreen` and `boons.json`; `BossHud`; Achilles as an unlockable Hero (`the_heel.gd`, Spear and Shield) and Hero select showing only unlocked Heroes; damage direction for Hero kits; player rooted/slow-zone/extra projectiles; elites pause in boss fights; statues block shots; debug options for bosses, Guard, phases, the Unraveling.

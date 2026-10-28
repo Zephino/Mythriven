@@ -38,7 +38,13 @@ Time: 5:47 PM
   - Rewards: a big chest, a gold bonus (+50 / +100 / +200), and a **Boon** (choose 1 of 3 run-wide effects, like +1 projectile on all weapons).
   - **The Unraveling** begins when Kronos falls or at 33:00: a ring shrinks 10% a minute and the world outside frays; outside it you take rising damage.
   - Boss entrance lines (Kronos has a special line for Heracles, his grandson).
-- Fixed: the debug menu printed errors when a run ended; a Codex test compared text the wrong way.
+- **Phase 14: World discoveries.**
+  - The world is split into regions (4×4 chunks); about a third hold a point of interest, the same ones every time for the same seed. The start always has Ancient Ruins nearby.
+  - **Hidden Shrine** (an extra shrine, more often an uncommon or rare god), **Ancient Ruins** (stand in the circle 10 s while enemies pour in, then choose a level-up, a full heal, or gold), **Dragon's Hoard** (defeat 50 enemies inside its circle to break the seal: chest + gold), **Monster's Lair** (3 elites with guards inside a ring of walls: big chest + gold), and the **Wandering Trader**.
+  - The Trader sells, for run gold: Reroll token (25), Traveler's bread (50), Whetstone (75), Incense (40), Banish token (60); prices rise ×1.5 each Age. Reroll and Banish buttons appear on the level-up screen when you have tokens.
+  - A compass at the screen edge shows points of interest within 4 screens ("?" until within 2).
+  - World events: **Chaos Surge** (60 s, twice the enemies and XP) and **Divine Storm** (45 s, god meters charge twice as fast while lightning strikes random spots), more often later in the run.
+- Fixed: the debug menu printed errors when a run ended; a Codex test compared text the wrong way; a boss's "clean slate" missed enemies that had just spawned.
 
 ### Reason
 The owner asked to build Phases 10–14.

@@ -11,8 +11,11 @@ extends Node
 
 var enemies: EnemyManager
 var auto_spawn: bool = true
-## Extra spawn-rate multiplier from events and boss fights (1 = normal).
+## Extra spawn-rate multipliers (1 = normal): boss fights and Duels; world
+## events (Chaos Surge); standing in Ancient Ruins.
 var rate_mult: float = 1.0
+var event_mult: float = 1.0
+var poi_mult: float = 1.0
 ## While not empty (boss fights), only these weak fodder types spawn, and no groups.
 var fodder_only: PackedStringArray = []
 
@@ -33,7 +36,8 @@ func _process(delta: float) -> void:
 	if auto_spawn and GameAuthority.run != null:
 		var row: Dictionary = RunArc.wave_row(_table, GameAuthority.run.elapsed_s)
 		var base_rate: float = float(row.get("spawns_per_s", Data.cfg_float("enemies.auto_spawn_per_s")))
-		_spawn_budget += base_rate * rate_mult * LevelScaling.spawn_mult(LevelScaling.current_level()) * delta
+		var mult: float = rate_mult * event_mult * poi_mult * LevelScaling.spawn_mult(LevelScaling.current_level())
+		_spawn_budget += base_rate * mult * delta
 		while _spawn_budget >= 1.0:
 			_spawn_budget -= 1.0
 			_spawn_once(row)

@@ -1,0 +1,83 @@
+[
+  {
+    "_doc": "Points of interest (GAME_DESIGN.md: Regions and POIs). Each region (4x4 chunks) has a 35% chance of one POI; its type is picked by weight for the current Age (weights) and only from min_regions regions away from the start. Placeholder shapes and numbers.",
+    "id": "hidden_shrine",
+    "name_key": "POI_HIDDEN_SHRINE_NAME",
+    "weights": {
+      "dusk": 2,
+      "night": 2,
+      "deep_night": 2,
+      "unraveling": 1
+    },
+    "min_regions": 1,
+    "radius_px": 40,
+    "icon_color": "#e8c860",
+    "icon_shape": "circle"
+  },
+  {
+    "id": "ancient_ruins",
+    "name_key": "POI_ANCIENT_RUINS_NAME",
+    "weights": {
+      "dusk": 3,
+      "night": 2,
+      "deep_night": 2,
+      "unraveling": 1
+    },
+    "min_regions": 0,
+    "radius_px": 46,
+    "hold_s": 10,
+    "spawn_mult": 3,
+    "gold": 40,
+    "icon_color": "#d9d3c5",
+    "icon_shape": "square"
+  },
+  {
+    "id": "dragons_hoard",
+    "name_key": "POI_DRAGONS_HOARD_NAME",
+    "weights": {
+      "dusk": 1,
+      "night": 2,
+      "deep_night": 2,
+      "unraveling": 1
+    },
+    "min_regions": 1,
+    "radius_px": 140,
+    "kills": 50,
+    "gold": 60,
+    "icon_color": "#ffd040",
+    "icon_shape": "diamond"
+  },
+  {
+    "id": "monsters_lair",
+    "name_key": "POI_MONSTERS_LAIR_NAME",
+    "weights": {
+      "dusk": 0,
+      "night": 1,
+      "deep_night": 2,
+      "unraveling": 1
+    },
+    "min_regions": 2,
+    "radius_px": 110,
+    "elites": 3,
+    "guards": 12,
+    "guard_type": "satyr_skirmisher",
+    "gold": 100,
+    "wake_screens": 1.2,
+    "icon_color": "#c04040",
+    "icon_shape": "triangle"
+  },
+  {
+    "id": "wandering_trader",
+    "name_key": "POI_WANDERING_TRADER_NAME",
+    "weights": {
+      "dusk": 2,
+      "night": 2,
+      "deep_night": 1,
+      "unraveling": 1
+    },
+    "min_regions": 1,
+    "radius_px": 30,
+    "icon_color": "#70c0a0",
+    "icon_shape": "cross"
+  }
+]

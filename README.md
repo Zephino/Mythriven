@@ -25,7 +25,7 @@
 
 ## What you can play right now
 
-The current build covers **Phases 1–6, 8, and 9** of the plan, plus early Phase 7 tuning:
+The current build covers **Phases 1–6 and 8–14** of the plan, plus early Phase 7 tuning, so the **Aegean Shore** is a complete level from start to finish:
 
 - **The Aegean Shore**, an endless procedurally generated map with olive groves and marble ruins (placeholder art).
 - **Four Heroes** to choose from, each with a signature weapon, a Legend Trait, and a passive: **Heracles** (Great Club, the Twelve Labors), **Cú Chulainn** (Gáe Bolg, the Salmon Leap), **Väinämöinen** (Runo Song, Song of Power), and **Tomoe Gozen** (Sword and Bow, Cavalry Charge).
@@ -34,10 +34,15 @@ The current build covers **Phases 1–6, 8, and 9** of the plan, plus early Phas
 - **XP orbs and level-ups**: choose 1 of 3 cards (4 with high Luck), save a level-up for later, or let Auto-collect take Gold/Heal when your build is maxed.
 - **Ambrosia**, a rare healing drop that restores 30 HP.
 - **Elements**: six spells (Ember, Frost, Spark, Breeze, Glimmer, Shade) that Burn, Chill and Freeze, Shock, push, and Hex enemies, with weaknesses and reactions such as Conduct, Steam Burst, Shatter, and Spread. Spells rename as they level (Ember → Flame → Blaze).
+- **The Aegean Shore's own creatures**: Shades, Harpies, Sirens, and Satyrs, plus brutes and bombers, arriving in minute-by-minute waves through four Ages (Dusk, Night, Deep Night, the Unraveling), with thunderstorms, elites with modifiers, and world events.
+- **Chests and evolutions**: elites drop chests with a reveal; a level-8 weapon plus its matching passive evolves (16 evolutions, listed in the Codex).
+- **Eight gods**: Tyche, Cernunnos, Thor, Skadi, Sekhmet, Poseidon, Ra, and the Morrígan, found at shrines (some must be won in a Duel, Endurance, or Chase trial), each with a Blessing and a summon on its own button. Pairs that belong together form a **Divine Resonance**, and gods can **infuse** your weapons with their element.
+- **Three bosses**: Medusa (10:00), Achilles (20:00, who joins your Heroes when defeated), and Kronos (30:00), then the Unraveling.
+- **Discoveries**: Ancient Ruins, Dragon's Hoards, Monster's Lairs, Hidden Shrines, and the Wandering Trader, with a compass at the screen edge.
 - **A shared leaderboard.** Submit your run with a name and see the best 100 runs from every player, with each run's Hero, weapons, and upgrades. The board is public on the [`data` branch](https://github.com/Zephino/Mythriven/blob/data/leaderboard.json).
 - **A swarm that never stops.** Enemies never stack and there are no invulnerability frames, so standing still in a crowd is fatal.
 
-Enemies are simple placeholder circles until the real mythic creatures arrive (Phase 10), and all numbers are early placeholders.
+Everything still uses simple placeholder shapes and colours until the art pass (Phase 19), and all numbers are early placeholders.
 
 ### Controls
 
@@ -83,11 +88,11 @@ Mythriven is being built in **Godot 4**, using **GDScript**, one phase at a time
 | 7. Fun checkpoint | Play and tune until moving and fighting feel great | 🔄 **Now** |
 | 8. Elements | 8 elements, statuses, weaknesses, reactions, six spells | ✅ Built (being tested) |
 | 9. Heroes | Hero select: Heracles, Cú Chulainn, Väinämöinen, Tomoe Gozen | ✅ Built (being tested) |
-| 10. Aegean waves | Real Aegean enemies, Ages, elites, chests, evolutions | Planned |
-| 11. Gods | Shrines, trials, binding, two god buttons, summons | Planned |
-| 12. Resonance | Divine Resonances between god pairs, weapon infusions | Planned |
-| 13. Aegean bosses | Medusa, Achilles, Kronos; the Aegean Shore becomes a complete slice | Planned |
-| 14. World discoveries | Points of interest, compass, Wandering Trader, world events | Planned |
+| 10. Aegean waves | Real Aegean enemies, Ages, elites, chests, evolutions | ✅ Built (being tested) |
+| 11. Gods | Shrines, trials, binding, two god buttons, summons | ✅ Built (being tested) |
+| 12. Resonance | Divine Resonances between god pairs, weapon infusions | ✅ Built (being tested) |
+| 13. Aegean bosses | Medusa, Achilles, Kronos; the Aegean Shore becomes a complete slice | ✅ Built (being tested) |
+| 14. World discoveries | Points of interest, compass, Wandering Trader, world events | ✅ Built (being tested) |
 | 15. Meta and saving | Saving, gold, Hall of Legends, unlocks, collections, Swift Mode | Planned |
 | 16–18. More regions | Midgard's Edge, The Two Lands, The Misty Isles | Planned |
 | 19. Polish | Art, audio, accessibility, mobile, performance, lore checks | Planned |

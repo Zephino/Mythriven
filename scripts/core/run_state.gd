@@ -31,6 +31,13 @@ var double_drops_until_s: float = -1.0
 var drop_mult_bonus: float = 2.0
 ## XP multiplier from events (the Chaos Surge doubles it).
 var xp_mult: float = 1.0
+## Bought from the Wandering Trader: reroll one level-up's cards; banish an
+## item from future level-ups. Banished item ids.
+var reroll_tokens: int = 0
+var banish_tokens: int = 0
+var banished: PackedStringArray = []
+## Points of interest whose state changed: region key -> "cleared" or "looted".
+var poi_state: Dictionary = {}
 
 
 func _init(run_seed: int, level_entry: Dictionary) -> void:

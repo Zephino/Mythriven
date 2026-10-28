@@ -15,7 +15,9 @@
     "grid_color": "#ffffff26",
     "status_test_radius_px": 200,
     "jump_to_time_s": 1800,
-    "shrine_offset_px": 60
+    "shrine_offset_px": 60,
+    "poi_offset_px": 120,
+    "gold_amount": 500
   },
 
   "localization": {
@@ -144,7 +146,10 @@
     "max_pois_loaded": 3,
     "compass_range_screens": 4,
     "compass_reveal_screens": 2,
-    "coop_tether_screens": 1.5
+    "coop_tether_screens": 1.5,
+    "start_ruins_offset_px": [140, 40],
+    "poi_edge_margin": 0.15,
+    "trader_awning_color": "#c04040"
   },
 
   "run_arc": {
@@ -407,7 +412,15 @@
     "banter_color": "#c8a0a0"
   },
 
-  "events": { "chaos_surge_s": 60, "divine_storm_s": 45 },
+  "events": {
+    "_doc": "World events (GAME_DESIGN.md: World events). Their times are in the level's wave table.",
+    "chaos_surge_s": 60,
+    "divine_storm_s": 45,
+    "chaos_spawn_mult": 2.0,
+    "chaos_xp_mult": 2.0,
+    "storm_charge_mult": 2.0,
+    "divine_storm_hazard": { "type": "divine_storm", "name_key": "", "strikes_per_s": 2.0, "radius_px": 28, "telegraph_s": 1.0, "damage": 10, "element": "lightning", "range_px": 260, "color": "#c0e0ff" }
+  },
 
   "chests": {
     "_doc": "Chests and the chest reveal (GAME_DESIGN.md: Chest reveal). Tier odds before Luck; each point of Luck (1.0 = +100%) moves luck_shift of the bronze odds up to silver and gold. Gold ranges are placeholders.",

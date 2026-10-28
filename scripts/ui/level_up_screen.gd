@@ -5,7 +5,9 @@ extends CanvasLayer
 ## without picking banks the level-up for later: open it again with Tab, the
 ## level badge, or Y/Triangle. When the build is maxed and Auto-collect is on,
 ## level-ups resolve instantly without pausing. Solo only; co-op turns come
-## with co-op (Phase 20).
+## with co-op (Phase 20). With tokens from the Wandering Trader, Reroll
+## draws new cards and Banish removes the next picked item from all future
+## level-ups this run.
 
 const AUTO_COLLECT_OPTIONS: PackedStringArray = ["off", "gold", "heal", "smart"]
 
@@ -13,6 +15,9 @@ var _panel: PanelContainer
 var _card_buttons: Array[Button] = []
 var _auto_collect: OptionButton
 var _bank_button: Button
+var _reroll_button: Button
+var _banish_button: Button
+var _banish_mode: bool = false
 var _offer: Array[Dictionary] = []
 var _tier_sound: AudioStreamPlayer
 
@@ -87,6 +92,13 @@ func _show_offer(player: Player) -> void:
 		if button.visible:
 			button.text = CardText.full(_offer[i])
 			shown.append(button)
+	_reroll_button.visible = GameAuthority.run.reroll_tokens > 0
+	_reroll_button.text = tr("UI_REROLL") % GameAuthority.run.reroll_tokens
+	_banish_button.visible = GameAuthority.run.banish_tokens > 0
+	_banish_button.text = tr("UI_BANISH_ON" if _banish_mode else "UI_BANISH") % GameAuthority.run.banish_tokens
+	for extra: Button in [_reroll_button, _banish_button]:
+		if extra.visible:
+			shown.append(extra)
 	shown.append(_auto_collect)
 	shown.append(_bank_button)
 	_link_focus(shown)
@@ -96,6 +108,14 @@ func _show_offer(player: Player) -> void:
 func _on_card_pressed(index: int) -> void:
 	var player: Player = GameAuthority.local_player()
 	if player == null or index >= _offer.size():
+		return
+	var kind: String = str(_offer[index]["kind"])
+	if _banish_mode and kind in [LevelUpRules.WEAPON_NEW, LevelUpRules.WEAPON_UP, LevelUpRules.PASSIVE_NEW, LevelUpRules.PASSIVE_UP]:
+		_banish_mode = false
+		GameAuthority.run.banish_tokens -= 1
+		GameAuthority.run.banished.append(str(_offer[index]["id"]))
+		GameAuthority.run.current_offer.clear()
+		_show_offer(player)
 		return
 	if CardText.is_tier_change(_offer[index]):
 		_tier_sound.play()
@@ -154,11 +174,38 @@ func _build() -> void:
 	_auto_collect.select(maxi(AUTO_COLLECT_OPTIONS.find(GameAuthority.auto_collect), 0))
 	_auto_collect.item_selected.connect(_on_auto_collect_selected)
 	auto_row.add_child(_auto_collect)
+	_reroll_button = Button.new()
+	_reroll_button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_reroll_button.custom_minimum_size.y = touch
+	_reroll_button.pressed.connect(_on_reroll)
+	box.add_child(_reroll_button)
+	_banish_button = Button.new()
+	_banish_button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_banish_button.custom_minimum_size.y = touch
+	_banish_button.pressed.connect(_on_banish)
+	box.add_child(_banish_button)
 	_bank_button = Button.new()
 	_bank_button.text = "UI_BANK_LEVEL_UP"
 	_bank_button.custom_minimum_size.y = touch
 	_bank_button.pressed.connect(close)
 	box.add_child(_bank_button)
+
+
+func _on_reroll() -> void:
+	var player: Player = GameAuthority.local_player()
+	if player == null or GameAuthority.run.reroll_tokens <= 0:
+		return
+	GameAuthority.run.reroll_tokens -= 1
+	GameAuthority.run.current_offer.clear()
+	_show_offer(player)
+
+
+## The next weapon or passive card picked is banished instead of taken.
+func _on_banish() -> void:
+	var player: Player = GameAuthority.local_player()
+	if player != null and GameAuthority.run.banish_tokens > 0:
+		_banish_mode = not _banish_mode
+		_show_offer(player)
 
 
 ## Arrow keys / D-pad move through the visible cards and buttons, wrapping around.

@@ -529,3 +529,42 @@ DEBUG_SPAWN_KRONOS,Summon Kronos now
 DEBUG_BREAK_GUARD,Break the boss's Guard
 DEBUG_HURT_BOSS,Skip the boss to its next phase
 DEBUG_START_UNRAVELING,Start the Unraveling
+POI_HIDDEN_SHRINE_NAME,Hidden Shrine
+POI_ANCIENT_RUINS_NAME,Ancient Ruins
+POI_DRAGONS_HOARD_NAME,Dragon's Hoard
+POI_MONSTERS_LAIR_NAME,Monster's Lair
+POI_WANDERING_TRADER_NAME,Wandering Trader
+RUINS_TITLE,The ruins remember you. Choose a gift:
+RUINS_UPGRADE,Level up: %s
+RUINS_HEAL,Heal to full
+RUINS_GOLD,+%d gold
+TRADER_TITLE,Wandering Trader · your gold %d · reroll tokens %d · banish tokens %d
+TRADER_ITEM,%s — %d gold: %s
+TRADER_REROLL_TOKEN,Reroll token
+TRADER_REROLL_TOKEN_DESC,reroll one level-up's cards
+TRADER_TRAVELERS_BREAD,Traveler's bread
+TRADER_TRAVELERS_BREAD_DESC,heal to full
+TRADER_WHETSTONE,Whetstone
+TRADER_WHETSTONE_DESC,+1 level to a chosen weapon
+TRADER_INCENSE,Incense
+TRADER_INCENSE_DESC,fill one god's meter
+TRADER_BANISH_TOKEN,Banish token
+TRADER_BANISH_TOKEN_DESC,remove one item from future level-ups this run
+TRADER_CHOOSE_WHETSTONE,Which weapon?
+TRADER_CHOOSE_INCENSE,Which god?
+TRADER_WEAPON_LEVEL,%s (Lv %d)
+UI_LEAVE,Leave
+UI_BACK,Back
+UI_REROLL,Reroll (%d)
+UI_BANISH,Banish (%d)
+UI_BANISH_ON,Banish (%d): pick a card to banish
+EVENT_CHAOS_SURGE_NAME,Chaos Surge
+EVENT_CHAOS_SURGE_BANNER,"Chaos Surge! Twice the enemies, twice the XP"
+EVENT_DIVINE_STORM_NAME,Divine Storm
+EVENT_DIVINE_STORM_BANNER,Divine Storm! God meters charge twice as fast; watch for lightning
+DEBUG_DISCOVERIES_INFO,"POIs nearby %d (changed %d) · tokens: reroll %d, banish %d · event %s"
+DEBUG_PLACE_POI,Place the next point of interest nearby
+DEBUG_POI_PLACED,Placed: %s.
+DEBUG_GIVE_GOLD,Give 500 gold
+DEBUG_CHAOS_SURGE,Start a Chaos Surge
+DEBUG_DIVINE_STORM,Start a Divine Storm
