@@ -1,5 +1,7 @@
 # Mythriven — Start Here
 
+**License:** proprietary — [All Rights Reserved](LICENSE), same as WaveDefence. Play the official builds; do not copy or sell this project without permission. Third-party add-ons keep their own licenses ([CREDITS.md](CREDITS.md)).
+
 This folder holds the game, the design, and the build docs. Cursor builds the game; Claude checks Cursor's work against the design so the game stays the way it was planned.
 
 ## What's in this folder
@@ -15,6 +17,7 @@ This folder holds the game, the design, and the build docs. Cursor builds the ga
 | `docs/reports/` | One report per finished phase | Cursor |
 | `reference/` | Your mythology database (design notes only) | You |
 | `VERSION` | The build version (XX.XX.XX), also shown in the game's corner and debug menu | The coding agent, once per change request |
+| `LICENSE` | Copyright: All Rights Reserved (Zephino) | You |
 | `CHANGELOG.md` | One entry per change request: version, date, time, what changed, and why | The coding agent |
 | `CREDITS.md` | Every add-on, font, and asset from outside the project, with its license | The coding agent |
 

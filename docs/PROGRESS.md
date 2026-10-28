@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Tools — License (v00.01.07)
+- What changed: added `LICENSE` with the same proprietary All Rights Reserved copyright as WaveDefence (third-party add-ons keep their own licenses); the owner made the repo public for the GitHub Pages game link.
+- Files touched: `LICENSE` (new), `START_HERE.md`, `CHANGELOG.md`, `docs/AI_STATUS.md`, `VERSION`, `project.godot` (version only).
+- Unfinished / next: GitHub Pages must have **Source: GitHub Actions** switched on in the repo settings for the link to work.
+
 ## 2026-10-28 — Fix — Game didn't compile in real Godot (v00.01.06)
 - Cause (from the first GitHub Actions run with real Godot 4.7.2): (1) `class_name VirtualJoystick` clashes with a new built-in Godot 4.7 class; (2) `RunState` declared `level` twice (the level's data and the XP level number), which stopped `RunState` and everything using it (GameAuthority, main scene, several tests) from compiling. The tests that didn't depend on those (validator, content gate, data files, damage formula, RNG, movement) all passed.
 - Fix: renamed the class to `TouchJoystick` (`scripts/ui/touch_joystick.gd`); renamed the level data to `RunState.level_data`.
