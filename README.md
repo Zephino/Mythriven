@@ -25,7 +25,7 @@
 
 ## What you can play right now
 
-The current build covers **Phases 1–6** of the plan, plus early Phase 7 tuning:
+The current build covers **Phases 1–6 and 8** of the plan, plus early Phase 7 tuning:
 
 - **The Aegean Shore**, an endless procedurally generated map with olive groves and marble ruins (placeholder art).
 - **Heracles' Great Club** as your starting weapon. It aims itself at the nearest enemy, and every fourth slam sends out a quake.
@@ -33,6 +33,7 @@ The current build covers **Phases 1–6** of the plan, plus early Phase 7 tuning
 - **Nine passives** from mythic objects (Belt of Strength, Winged Sandals, Hourglass, Seer's Eye, Lodestone, Bronze Aegis, Ferryman's Coin, Golden Apple, Votive Bell), each with 5 levels.
 - **XP orbs and level-ups**: choose 1 of 3 cards (4 with high Luck), save a level-up for later, or let Auto-collect take Gold/Heal when your build is maxed.
 - **Ambrosia**, a rare healing drop that restores 30 HP.
+- **Elements**: six spells (Ember, Frost, Spark, Breeze, Glimmer, Shade) that Burn, Chill and Freeze, Shock, push, and Hex enemies, with weaknesses and reactions such as Conduct, Steam Burst, Shatter, and Spread. Spells rename as they level (Ember → Flame → Blaze).
 - **A swarm that never stops.** Enemies never stack and there are no invulnerability frames, so standing still in a crowd is fatal.
 
 Enemies are simple placeholder circles until the real mythic creatures arrive (Phase 10), and all numbers are early placeholders.
@@ -79,7 +80,7 @@ Mythriven is being built in **Godot 4**, using **GDScript**, one phase at a time
 | 5. Weapons and targeting | Great Club, smart targeting, damage formula, damage numbers | ✅ Built |
 | 6. XP and level-ups | XP orbs, level-up cards, passives, more weapons, run log | ✅ Built |
 | 7. Fun checkpoint | Play and tune until moving and fighting feel great | 🔄 **Now** |
-| 8. Elements | 8 elements, statuses, weaknesses, reactions | Planned |
+| 8. Elements | 8 elements, statuses, weaknesses, reactions, six spells | ✅ Built (being tested) |
 | 9. Heroes | Hero select: Heracles, Cú Chulainn, Väinämöinen, Tomoe Gozen | Planned |
 | 10. Aegean waves | Real Aegean enemies, Ages, elites, chests, evolutions | Planned |
 | 11. Gods | Shrines, trials, binding, two god buttons, summons | Planned |

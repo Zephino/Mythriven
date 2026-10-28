@@ -1,8 +1,9 @@
 class_name DamageNumbers
 extends Node2D
 ## Floating damage numbers from a fixed pool of labels (GAME_DESIGN.md: Game
-## feel). Crits are bigger and coloured; weakness/resistance styles come with
-## elements in Phase 8. When every label is in use, the oldest is reused.
+## feel). Crits are bigger and orange; weakness hits are big and yellow with
+## "!", resisted hits small and grey; damage over time is small. Reactions
+## show their name. When every label is in use, the oldest is reused.
 ## Can be switched off (ui.damage_numbers_enabled; a Settings option later).
 
 var _labels: Array[Label] = []
@@ -27,25 +28,44 @@ func setup() -> void:
 		_age[i] = -1.0
 
 
-func show_number(value: float, at: Vector2, crit: bool) -> void:
-	if _labels.is_empty() or not Data.cfg_bool("ui.damage_numbers_enabled"):
+## `kind` is "normal", "crit", "weak", "resist", or "dot".
+func show_number(value: float, at: Vector2, kind: String) -> void:
+	if not Data.cfg_bool("ui.damage_numbers_enabled"):
+		return
+	var style: Dictionary = (Data.cfg("ui.damage_number_styles") as Dictionary).get(kind, {})
+	var text: String = TextFormat.whole(value)
+	if kind == "weak":
+		text = tr("UI_WEAK_HIT") % text
+	_show(text, at, int(style.get("font_px", 8)), Color.html(str(style.get("color", "#ffffff"))))
+
+
+## Floating text such as a reaction's name.
+func show_text(text: String, at: Vector2, color: Color) -> void:
+	_show(text, at, Data.cfg_int("ui.reaction_text_font_px"), color)
+
+
+func _show(text: String, at: Vector2, font_px: int, color: Color) -> void:
+	if _labels.is_empty():
 		return
 	var label: Label = _labels[_next]
 	_age[_next] = 0.0
 	_next = (_next + 1) % _labels.size()
-	label.text = TextFormat.whole(value)
-	var size_key: String = "ui.damage_number_crit_font_px" if crit else "ui.damage_number_font_px"
-	var color_key: String = "ui.damage_number_crit_color" if crit else "ui.damage_number_color"
-	label.add_theme_font_size_override("font_size", Data.cfg_int(size_key))
-	label.add_theme_color_override("font_color", Color.html(Data.cfg_string(color_key)))
+	label.text = text
+	label.add_theme_font_size_override("font_size", font_px)
+	label.add_theme_color_override("font_color", color)
 	label.reset_size()
 	label.position = at - label.size * 0.5
 	label.modulate.a = 1.0
 	label.visible = true
 
 
-func on_enemy_damaged(_slot: int, amount: float, crit: bool, at: Vector2) -> void:
-	show_number(amount, at, crit)
+func on_enemy_damaged(_slot: int, amount: float, kind: String, at: Vector2) -> void:
+	show_number(amount, at, kind)
+
+
+func on_reaction(reaction_id: String, at: Vector2, _reach: float) -> void:
+	var reaction: Dictionary = Elements.reaction(reaction_id)
+	show_text(tr(str(reaction.get("name_key", reaction_id))), at, Color.html(str(reaction.get("color", "#ffffff"))))
 
 
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:

@@ -4,7 +4,7 @@ Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.10
+Version: 00.01.11
 Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.10` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.11` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -65,6 +65,15 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 4. **Max out the build**, then **Gain a level**: the cards include Gold and Heal. Set **Auto-collect** to Smart or Gold, and the next level-ups resolve without pausing.
 5. After you die (or **End the run now**), the death screen says "Run log saved." The file is in `%APPDATA%\Godot\app_userdata\Mythriven\run_logs` on Windows.
 6. Automated tests: GUT tab → **Run All**; all green.
+
+**Phase 8 — Elements**
+1. F1 → **Give me all six spells**. Ember (orange bolts), Frost (ice spread), Spark (strikes), Breeze (wind wave in your direction), Glimmer (circling lights), and Shade (dark aura) all attack.
+2. Grey-blue chasers are Water: Spark (lightning) hits them for big yellow numbers with "!"; Ember (fire) hits them for small grey numbers.
+3. Enemies change tint when Burning, Chilled, Frozen, Shocked, Soaked, Poisoned, or Hexed; the debug line counts each status.
+4. **Soak nearby enemies**, then let Spark hit: "Conduct!" appears and lightning chains. **Freeze nearby enemies**, then the Great Club hits: "Shatter!". **Chill**, then Ember: "Steam Burst!". **Burn**, then Breeze: "Spread!".
+5. Level a spell from 3 to 4: the card says "Ember → Flame" and plays a different sound.
+6. **Jump the timer to 30:00**: enemies that touch you now pass on their status ("on you" in the debug line), for half as long, never freezing you.
+7. **Fill to the enemy cap** with all spells: write down the FPS.
 
 ## Things most likely to need a fix on first open (couldn't be checked without Godot)
 - Pseudo-localization (`TranslationServer.pseudolocalization_enabled`).

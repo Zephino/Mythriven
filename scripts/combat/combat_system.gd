@@ -16,6 +16,10 @@ func _ready() -> void:
 	register_pattern("arc", ArcPattern.new())
 	register_pattern("thrown_arc", ProjectilePattern.new(ProjectileManager.FLIGHT))
 	register_pattern("boomerang", ProjectilePattern.new(ProjectileManager.BOOMERANG))
+	register_pattern("forward", ProjectilePattern.new(ProjectileManager.FLIGHT))
+	register_pattern("strike", StrikePattern.new())
+	register_pattern("orbit", OrbitPattern.new())
+	register_pattern("aura", AuraPattern.new())
 
 
 func register_pattern(pattern_id: String, pattern: FirePattern) -> void:
@@ -96,7 +100,7 @@ func hit_enemy(slot: int, weapon: WeaponInstance, player: Player, damage_mult: f
 	if enemies.active[slot] == 0 or not weapon.try_hit(slot):
 		return
 	GameAuthority.damage_enemy(slot, weapon.stat("damage") * damage_mult, player,
-			push_dir * weapon.stat("knockback"), str(weapon.data.get("element", "physical")))
+			push_dir * weapon.stat("knockback"), str(weapon.data.get("element", "physical")), weapon.stat("status_chance"))
 
 
 func effect_color(weapon: WeaponInstance) -> Color:

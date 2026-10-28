@@ -1,14 +1,14 @@
 class_name CardText
 extends RefCounted
 ## Translated text for a level-up card: name, what changes, and description.
-## Spell cards show their tier change once elements exist (Phase 8).
+## Spell cards show their tier change ("Flame → Blaze").
 
 
 static func title(card: Dictionary) -> String:
 	var id: String = str(card.get("id", ""))
 	match str(card.get("kind", "")):
 		LevelUpRules.WEAPON_NEW, LevelUpRules.WEAPON_UP:
-			return _tr(str(GameAuthority.find_weapon(id).get("name_key", id)))
+			return _tr(WeaponInstance.name_key_at(GameAuthority.find_weapon(id), maxi(int(card.get("to", 1)), 1)))
 		LevelUpRules.PASSIVE_NEW, LevelUpRules.PASSIVE_UP:
 			return _tr(str(LevelUpRules.passive_data(id).get("name_key", id)))
 		LevelUpRules.STAT:
@@ -30,6 +30,11 @@ static func full(card: Dictionary) -> String:
 			lines.append(_tr("CARD_NEW"))
 		LevelUpRules.WEAPON_UP, LevelUpRules.PASSIVE_UP:
 			lines.append(_tr("CARD_LEVEL_CHANGE") % [int(card["from"]), int(card["to"])])
+	if is_tier_change(card):
+		var weapon: Dictionary = GameAuthority.find_weapon(id)
+		lines.append(_tr("CARD_TIER_CHANGE") % [
+			_tr(WeaponInstance.name_key_at(weapon, int(card["from"]))), _tr(WeaponInstance.name_key_at(weapon, int(card["to"]))),
+		])
 	match kind:
 		LevelUpRules.WEAPON_NEW, LevelUpRules.WEAPON_UP:
 			lines.append(_tr(str(GameAuthority.find_weapon(id).get("desc_key", ""))))
@@ -44,6 +49,14 @@ static func full(card: Dictionary) -> String:
 		LevelUpRules.HEAL:
 			lines.append(_tr("CARD_HEAL_DESC") % TextFormat.whole(float(card["amount"]) * 100.0))
 	return "\n".join(lines)
+
+
+## True when picking this card renames a spell to its next tier.
+static func is_tier_change(card: Dictionary) -> bool:
+	if str(card.get("kind", "")) != LevelUpRules.WEAPON_UP:
+		return false
+	var weapon: Dictionary = GameAuthority.find_weapon(str(card.get("id", "")))
+	return WeaponInstance.name_key_at(weapon, int(card["from"])) != WeaponInstance.name_key_at(weapon, int(card["to"]))
 
 
 ## "Might +5%" or "Armor +1".

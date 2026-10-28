@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 7 — Fun checkpoint, next (Phases 1–6 built but not yet tested in Godot; the owner asked for Phases 3–6 to be built before testing, 2026-10-28)
+**Current phase:** Phase 8 — Elements built (owner testing); Phase 7 fun checkpoint ongoing (Phases 1–6 built but not yet tested in Godot; the owner asked for Phases 3–6 to be built before testing, 2026-10-28)
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-28 — Phase 8 — Elements (v00.01.11)
+- What changed: `elements.json` (elements, statuses, reactions, tier names); statuses as data on pooled enemies ticked at 5 Hz (`EnemyStatuses`); hits resolved by `HitResolver` (weakness/resistance, counterplay, Conduct / Steam Burst / Shatter / Spread, Shock, Hex, Gust push, reaction budget 30/s); damage-number styles for weak, resist, and damage over time; reaction names and rings; six spell weapons (Ember, Frost, Spark, Breeze, Glimmer, Shade) with `StrikePattern`, `OrbitPattern`, `AuraPattern`, and orbiting projectiles; spell tier names on cards with a tier-up sound; player statuses from 30:00 (`PlayerStatuses`); placeholder enemies given elements; debug tools for statuses.
+- Files touched: `data/elements.json` (new), `data/weapons.json`, `data/enemies.json`, `data/config.json`, `data/schemas.json`; `scripts/combat/` (`elements.gd`, `enemy_statuses.gd`, `hit_resolver.gd`, `fire_patterns/strike_pattern.gd`, `orbit_pattern.gd`, `aura_pattern.gd` new; `combat_system.gd`, `projectiles.gd`, `effects.gd`, `weapons/weapon_instance.gd`); `scripts/player/player_statuses.gd` (new), `player.gd`; `scripts/enemies/enemy_manager.gd`; `scripts/core/` (`game_authority.gd`, `main.gd`, `debug_actions_elements.gd` new); `scripts/ui/` (`damage_numbers.gd`, `card_text.gd`, `level_up_screen.gd`); `localization/text.csv`; `tests/test_elements.gd` (new), `tests/test_weapons.gd`; README, CHANGELOG, docs.
+- Unfinished / next: Smite's shield breaking needs Warded elites (Phase 10); elite crowd-control limits come with elites (Phase 10). Owner to try Phase 8 on the web link before Phase 9.
 
 ## 2026-10-28 — Docs — README improvements (v00.01.10)
 - What changed: README now lists what's playable, the controls, all 20 phases with their status (Phase 7 current), and links to the project documents.

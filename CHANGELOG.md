@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.11
+Date: 10/28/2026
+Time: 4:39 PM
+
+### Changes
+- **Phase 8: Elements.** 8 elements plus Physical, each with one status stored as data on pooled enemies and ticked 5 times a second: Burn, Chill (3 stacks = Frozen), Shock, Soaked, Poison, Gust, Smite, Hex.
+- Weakness ×1.5 (big yellow "!" numbers) and resistance ×0.5 (small grey numbers); Hex lowers Armor.
+- The 4 reactions (Conduct, Steam Burst, Shatter, Spread) with their names popping up, plus the counterplay rules; at most 30 reactions per second (effect budget).
+- Six spell weapons from the design: Ember, Frost, Spark, Breeze, Glimmer, Shade, with new strike, orbit, and aura attack patterns. Spells rename as they level (Ember → Flame → Blaze), shown on the level-up card with its own sound.
+- From 30:00, enemies pass their element's status to players at half duration, Chill never freezes, and there's 2 s of immunity after each status.
+- Placeholder enemies now have elements (chaser: Water; swarm: Dark) so weaknesses can be tested.
+- Debug menu: give all six spells, apply each status to nearby enemies, freeze nearby enemies, jump the timer to 30:00, and a status count line.
+- New automated tests for elements; data files keep a readable layout.
+
+### Reason
+The owner asked to build Phases 7–14 one phase at a time; Phase 7 is the owner's play-test, so Phase 8 comes first.
+
 ## Version 00.01.10
 Date: 10/28/2026
 Time: 4:29 PM

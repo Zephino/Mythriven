@@ -69,6 +69,8 @@ func _build_world(joystick: TouchJoystick) -> void:
 	numbers.setup()
 	world.origin_shifted.connect(numbers.on_origin_shifted)
 	GameAuthority.enemy_damaged.connect(numbers.on_enemy_damaged)
+	GameAuthority.reaction_triggered.connect(numbers.on_reaction)
+	GameAuthority.reaction_triggered.connect(effects.on_reaction)
 	var projectiles := ProjectileManager.new()
 	projectiles.enemies = _enemies
 	world.add_child(projectiles)
@@ -99,6 +101,9 @@ func _build_world(joystick: TouchJoystick) -> void:
 		combat_actions.set("enemies", _enemies)
 		combat_actions.set("spawner", spawner)
 		add_child(combat_actions)
+		var element_actions: Node = preload("res://scripts/core/debug_actions_elements.gd").new()
+		element_actions.set("enemies", _enemies)
+		add_child(element_actions)
 
 	_level_up = LevelUpScreen.new()
 	add_child(_level_up)

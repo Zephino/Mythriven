@@ -1,13 +1,14 @@
 class_name ProjectileManager
 extends Node2D
 ## Player projectiles as pooled data drawn with one MultiMesh (GAME_DESIGN.md:
-## Object pooling). Two flight styles: "flight" (straight or lobbed with
-## gravity, like the Throwing Axe) and "boomerang" (flies out, then returns to
-## its thrower, like the Bladed Discus). When the pool is full the oldest
-## projectile is reused.
+## Object pooling). Three flight styles: "flight" (straight or lobbed with
+## gravity, like the Throwing Axe), "boomerang" (flies out, then returns to
+## its thrower, like the Bladed Discus), and "orbit" (circles its thrower,
+## like Glimmer). When the pool is full the oldest projectile is reused.
 
 const FLIGHT := 0
 const BOOMERANG := 1
+const ORBIT := 2
 
 var enemies: EnemyManager
 
@@ -23,6 +24,9 @@ var _life := PackedFloat32Array()
 var _radius := PackedFloat32Array()
 var _pierce := PackedInt32Array()
 var _return_after := PackedFloat32Array()
+var _orbit_angle := PackedFloat32Array()
+var _orbit_radius := PackedFloat32Array()
+var _orbit_speed := PackedFloat32Array()
 var _weapon: Array[WeaponInstance] = []
 var _thrower: Array[Player] = []
 ## Per projectile: enemy slot -> seconds until it may hit that enemy again.
@@ -42,6 +46,9 @@ func setup() -> void:
 	_radius.resize(_capacity)
 	_pierce.resize(_capacity)
 	_return_after.resize(_capacity)
+	_orbit_angle.resize(_capacity)
+	_orbit_radius.resize(_capacity)
+	_orbit_speed.resize(_capacity)
 	_weapon.resize(_capacity)
 	_thrower.resize(_capacity)
 	for i: int in _capacity:
@@ -75,6 +82,15 @@ func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vecto
 	_multimesh.set_instance_color(i, Color.html(str(weapon.data.get("placeholder_color", "#ffffff"))))
 
 
+## Launches a projectile that circles `player`, starting at `start_angle` (radians).
+func launch_orbit(weapon: WeaponInstance, player: Player, start_angle: float, settings: Dictionary) -> void:
+	launch(weapon, player, player.position, Vector2.ZERO, ORBIT, settings)
+	var i: int = (_next - 1 + _capacity) % _capacity
+	_orbit_angle[i] = start_angle
+	_orbit_radius[i] = float(settings.get("orbit_radius_px", 40.0)) * player.stats.area_mult() * float(settings.get("area", 1.0))
+	_orbit_speed[i] = deg_to_rad(float(settings.get("orbit_speed_deg_s", 180.0)))
+
+
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	for i: int in _capacity:
 		_pos[i] -= shift_px
@@ -88,6 +104,12 @@ func _process(delta: float) -> void:
 		if _age[i] >= _life[i] or not is_instance_valid(_thrower[i]):
 			_remove(i)
 			continue
+		if _kind[i] == ORBIT:
+			_pos[i] = _thrower[i].position + Vector2.from_angle(_orbit_angle[i] + _age[i] * _orbit_speed[i]) * _orbit_radius[i]
+			_tick_hits(i, delta)
+			if _active[i] != 0:
+				_draw_instance(i)
+			continue
 		if _kind[i] == BOOMERANG and _age[i] >= _return_after[i]:
 			var back: Vector2 = _thrower[i].position - _pos[i]
 			if back.length() <= _thrower[i].body_radius + _radius[i]:
@@ -100,8 +122,7 @@ func _process(delta: float) -> void:
 		_pos[i] += velocity * delta
 		_tick_hits(i, delta)
 		if _active[i] != 0:
-			var size: float = _radius[i] * 2.0
-			_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2(size, size), 0.0, _pos[i]))
+			_draw_instance(i)
 
 
 func _tick_hits(i: int, delta: float) -> void:
@@ -117,11 +138,17 @@ func _tick_hits(i: int, delta: float) -> void:
 			continue
 		hits[slot] = interval if interval > 0.0 else INF
 		GameAuthority.damage_enemy(slot, weapon.stat("damage"), _thrower[i],
-				_vel[i].normalized() * weapon.stat("knockback"), str(weapon.data.get("element", "physical")))
+				_vel[i].normalized() * weapon.stat("knockback"), str(weapon.data.get("element", "physical")),
+				weapon.stat("status_chance"))
 		_pierce[i] -= 1
 		if _pierce[i] < 0:
 			_remove(i)
 			return
+
+
+func _draw_instance(i: int) -> void:
+	var size: float = _radius[i] * 2.0
+	_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2(size, size), 0.0, _pos[i]))
 
 
 func _remove(i: int) -> void:

@@ -105,6 +105,77 @@ DEBUG_MAX_BUILD_DONE,"All weapon and passive slots are full and maxed. The next 
 DEBUG_END_RUN,End the run now (writes the run log)
 DEBUG_PROGRESS_INFO,"Level %d · XP %d / %d · banked %d · orbs on ground %d · gold %d · auto-collect %s"
 DEBUG_DROP_AMBROSIA,Drop an Ambrosia (healing item)
+SPELL_FIRE_T1,Ember
+SPELL_FIRE_T2,Flame
+SPELL_FIRE_T3,Blaze
+SPELL_FIRE_T4,Inferno
+SPELL_ICE_T1,Frost
+SPELL_ICE_T2,Ice Lance
+SPELL_ICE_T3,Glacier
+SPELL_ICE_T4,Absolute Zero
+SPELL_LIGHTNING_T1,Spark
+SPELL_LIGHTNING_T2,Bolt
+SPELL_LIGHTNING_T3,Thunder
+SPELL_LIGHTNING_T4,Tempest
+SPELL_WATER_T1,Splash
+SPELL_WATER_T2,Torrent
+SPELL_WATER_T3,Riptide
+SPELL_WATER_T4,Deluge
+SPELL_EARTH_T1,Stone
+SPELL_EARTH_T2,Quake
+SPELL_EARTH_T3,Landslide
+SPELL_EARTH_T4,Worldbreaker
+SPELL_WIND_T1,Breeze
+SPELL_WIND_T2,Gust
+SPELL_WIND_T3,Gale
+SPELL_WIND_T4,Cyclone
+SPELL_HOLY_T1,Glimmer
+SPELL_HOLY_T2,Radiance
+SPELL_HOLY_T3,Sanctify
+SPELL_HOLY_T4,Judgment
+SPELL_DARK_T1,Shade
+SPELL_DARK_T2,Umbra
+SPELL_DARK_T3,Eclipse
+SPELL_DARK_T4,Oblivion
+ELEMENT_PHYSICAL,Physical
+ELEMENT_FIRE,Fire
+ELEMENT_ICE,Ice
+ELEMENT_LIGHTNING,Lightning
+ELEMENT_WATER,Water
+ELEMENT_EARTH,Earth
+ELEMENT_WIND,Wind
+ELEMENT_HOLY,Holy
+ELEMENT_DARK,Dark
+STATUS_BURN,Burn
+STATUS_CHILL,Chill
+STATUS_SHOCK,Shock
+STATUS_SOAKED,Soaked
+STATUS_POISON,Poison
+STATUS_GUST,Gust
+STATUS_SMITE,Smite
+STATUS_HEX,Hex
+REACTION_CONDUCT,Conduct!
+REACTION_STEAM_BURST,Steam Burst!
+REACTION_SHATTER,Shatter!
+REACTION_SPREAD,Spread!
+WEAPON_EMBER_DESC,Fire bolts at the nearest enemy; hits can Burn.
+WEAPON_FROST_DESC,"A spread of ice shards; hits Chill, and three Chills Freeze."
+WEAPON_SPARK_DESC,Lightning strikes random enemies nearby; hits can Shock.
+WEAPON_BREEZE_DESC,"A wide wave of wind in the direction you move, pushing enemies back and spreading their statuses."
+WEAPON_GLIMMER_DESC,Holy lights circle you and strike enemies they pass.
+WEAPON_SHADE_DESC,"A dark aura harms nearby enemies, can Hex them, and heals you a little for each one it touches."
+UI_WEAK_HIT,%s!
+CARD_TIER_CHANGE,%s → %s
+DEBUG_GIVE_SPELLS,Give me all six spells
+DEBUG_APPLY_BURN,Burn nearby enemies
+DEBUG_APPLY_CHILL,Chill nearby enemies
+DEBUG_APPLY_SHOCK,Shock nearby enemies
+DEBUG_APPLY_SOAKED,Soak nearby enemies
+DEBUG_APPLY_POISON,Poison nearby enemies
+DEBUG_APPLY_HEX,Hex nearby enemies
+DEBUG_FREEZE_NEARBY,Freeze nearby enemies
+DEBUG_JUMP_TO_UNRAVELING,Jump the timer to 30:00 (statuses on you)
+DEBUG_STATUS_INFO,"Statuses: burn %d · chill %d · frozen %d · shock %d · soaked %d · poison %d · hex %d · on you: %s"
 DEBUG_CLOSE,Close
 DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
 DATA_ERROR_FILE_MISSING,%s: file not found

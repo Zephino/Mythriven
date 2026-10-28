@@ -1,6 +1,6 @@
 [
   {
-    "_doc": "Enemy types (GAME_DESIGN.md: Enemies). Phase 4 has only two PLACEHOLDER test enemies; the real Aegean Shore families (Shades, Harpies, Sirens, Satyr skirmishers) replace them in Phase 10. Speeds are px/s, radius_px is the body size used to keep enemies from stacking.",
+    "_doc": "Enemy types (GAME_DESIGN.md: Enemies). Phase 4 has only two PLACEHOLDER test enemies; the real Aegean Shore families (Shades, Harpies, Sirens, Satyr skirmishers) replace them in Phase 10. Speeds are px/s, radius_px is the body size used to keep enemies from stacking. Placeholder elements copy the design's patterns so weaknesses can be tested: the chaser is Water (weak to Lightning, resists Fire, like Kelpies) and the swarm is Dark (weak to Holy, resists Dark, like Shades).",
     "id": "placeholder_chaser",
     "name_key": "ENEMY_PLACEHOLDER_CHASER_NAME",
     "placeholder": true,
@@ -10,6 +10,9 @@
     "contact_damage": 3,
     "armor": 0,
     "radius_px": 6,
+    "element": "water",
+    "weak": "lightning",
+    "resist": "fire",
     "xp": 1,
     "knockback_resist": 0.0,
     "placeholder_color": "#c8c8c8",
@@ -25,6 +28,9 @@
     "contact_damage": 2,
     "armor": 0,
     "radius_px": 4,
+    "element": "dark",
+    "weak": "holy",
+    "resist": "dark",
     "xp": 1,
     "knockback_resist": 0.0,
     "placeholder_color": "#9a96b8",

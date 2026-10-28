@@ -4,7 +4,8 @@ extends Node2D
 ## Tech stack). Moves them toward the nearest player, keeps them from
 ## stacking (push-apart at 30 Hz through the spatial hash, up to 8
 ## neighbours), deals contact damage once per 0.5 s per touching enemy (no
-## invulnerability frames), and draws them all with one MultiMesh.
+## invulnerability frames), ticks their statuses 5 times a second, and draws
+## them all with one MultiMesh, coloured by element and tinted by status.
 ## Nothing is created or freed during play: slots are reused.
 
 const ENEMIES_FILE := "enemies.json"
@@ -23,11 +24,14 @@ var radius := PackedFloat32Array()
 var kind := PackedInt32Array()
 var contact_timer := PackedFloat32Array()
 var flash_timer := PackedFloat32Array()
+## Status effects for every slot (Burn, Chill/Freeze, Shock, Soaked, Poison, Smite, Hex).
+var statuses: EnemyStatuses
 
 var _free: PackedInt32Array = PackedInt32Array()
 var _active_count: int = 0
 var _max_radius: float = 0.0
 var _separation_timer: float = 0.0
+var _status_timer: float = 0.0
 var _multimesh: MultiMesh
 # Per-type values cached from enemies.json so the per-frame loops stay fast.
 var _type_speed := PackedFloat32Array()
@@ -44,7 +48,8 @@ func setup() -> void:
 		types.append(entry)
 		_max_radius = maxf(_max_radius, float(entry["radius_px"]))
 		_type_speed.append(float(entry["speed"]))
-		_type_color.append(Color.html(str(entry["placeholder_color"])))
+		var element_id: String = str(entry.get("element", ""))
+		_type_color.append(Elements.color(element_id) if element_id != "" else Color.html(str(entry["placeholder_color"])))
 	active.resize(capacity)
 	positions.resize(capacity)
 	knockback.resize(capacity)
@@ -53,6 +58,7 @@ func setup() -> void:
 	kind.resize(capacity)
 	contact_timer.resize(capacity)
 	flash_timer.resize(capacity)
+	statuses = EnemyStatuses.new(capacity)
 	_free.resize(capacity)
 	for i: int in capacity:
 		_free[i] = capacity - 1 - i
@@ -91,6 +97,7 @@ func spawn(type_id: String, at: Vector2) -> int:
 	radius[slot] = float(data["radius_px"])
 	contact_timer[slot] = 0.0
 	flash_timer[slot] = 0.0
+	statuses.clear(slot)
 	return slot
 
 
@@ -135,6 +142,11 @@ func _process(delta: float) -> void:
 		_separation_timer = 1.0 / Data.cfg_float("performance.separation_hz")
 		hash_grid.rebuild(positions, active)
 		_separate()
+	_status_timer -= delta
+	if _status_timer <= 0.0:
+		var step: float = 1.0 / Data.cfg_float("performance.status_tick_hz")
+		_status_timer += step
+		statuses.tick(step, active, GameAuthority.hits.damage_over_time)
 	_contact(delta)
 	_draw_instances(delta)
 
@@ -149,7 +161,7 @@ func _move(delta: float) -> void:
 		if target != null:
 			var to_player: Vector2 = target.position - positions[i]
 			if to_player.length_squared() > 1.0:
-				step = to_player.normalized() * _type_speed[kind[i]] * delta
+				step = to_player.normalized() * _type_speed[kind[i]] * statuses.speed_mult(i) * delta
 		positions[i] += step + knockback[i] * delta
 		knockback[i] *= decay
 
@@ -210,7 +222,9 @@ func _contact(delta: float) -> void:
 			if positions[i].distance_to(player.position) <= player.body_radius + radius[i] + margin:
 				contact_timer[i] = interval
 				var data: Dictionary = types[kind[i]]
-				GameAuthority.damage_player(player, float(data["contact_damage"]), str(data["id"]))
+				var damage: float = float(data["contact_damage"]) * statuses.outgoing_damage_mult(i)
+				GameAuthority.damage_player(player, damage, str(data["id"]))
+				GameAuthority.status_player_from_enemy(player, str(data.get("element", "")))
 
 
 func _nearest_player(from: Vector2) -> Player:
@@ -228,12 +242,16 @@ func _nearest_player(from: Vector2) -> Player:
 
 func _draw_instances(delta: float) -> void:
 	var flash_color := Color.html(Data.cfg_string("enemies.hit_flash_color"))
+	var tint_strength: float = Data.cfg_float("enemies.status_tint_strength")
 	for i: int in capacity:
 		if active[i] == 0:
 			continue
 		var size: float = radius[i] * 2.0
 		_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2(size, size), 0.0, positions[i]))
 		var color: Color = _type_color[kind[i]]
+		var tint: Color = statuses.tint(i)
+		if tint.a > 0.0:
+			color = color.lerp(tint, tint_strength)
 		if flash_timer[i] > 0.0:
 			flash_timer[i] -= delta
 			color = flash_color

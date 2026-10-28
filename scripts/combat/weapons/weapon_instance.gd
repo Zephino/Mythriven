@@ -28,6 +28,20 @@ func id() -> String:
 	return str(data.get("id", ""))
 
 
+## Translation key for the weapon's current name. Elemental spells rename as
+## they level: levels 1–3 Tier I, 4–6 Tier II, 7–8 Tier III (GAME_DESIGN.md:
+## Spell tier names).
+func name_key() -> String:
+	return name_key_at(data, level)
+
+
+static func name_key_at(weapon_data: Dictionary, at_level: int) -> String:
+	var tiers: Array = weapon_data.get("tier_names", [])
+	if tiers.is_empty():
+		return str(weapon_data.get("name_key", ""))
+	return str(tiers[mini(Elements.tier_index(at_level), tiers.size() - 1)])
+
+
 func max_level() -> int:
 	return (data.get("levels", []) as Array).size()
 

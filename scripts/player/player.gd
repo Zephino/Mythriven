@@ -17,6 +17,8 @@ var stats: PlayerStats = null
 var weapons: Array[WeaponInstance] = []
 ## Passives held this run (up to 6): passive id -> level 1–5.
 var passives: Dictionary = {}
+## Elemental statuses (only from 30:00, at reduced strength).
+var statuses := PlayerStatuses.new()
 
 var max_hp: float = 0.0
 var hp: float = 0.0
@@ -52,6 +54,10 @@ func refresh_stats() -> void:
 
 
 func _process(delta: float) -> void:
+	if alive:
+		var dot: float = statuses.tick(delta)
+		if dot > 0.0:
+			GameAuthority.damage_player_over_time(self, dot)
 	if input != null and alive:
 		step(input.get_move_vector(), delta)
 	elif not alive:
@@ -63,7 +69,7 @@ func _process(delta: float) -> void:
 
 ## Moves by one frame in `direction` (a unit vector or zero) and updates facing.
 func step(direction: Vector2, delta: float) -> void:
-	velocity = direction * move_speed
+	velocity = direction * move_speed * statuses.speed_mult()
 	position += velocity * delta
 	if direction != Vector2.ZERO and direction != facing:
 		facing = direction

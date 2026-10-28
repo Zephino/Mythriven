@@ -14,6 +14,7 @@ var _card_buttons: Array[Button] = []
 var _auto_collect: OptionButton
 var _bank_button: Button
 var _offer: Array[Dictionary] = []
+var _tier_sound: AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -21,6 +22,11 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_build()
 	visible = false
+	# A distinct sound when a spell reaches its next tier (placeholder tone).
+	_tier_sound = AudioStreamPlayer.new()
+	_tier_sound.stream = PickupAudio.make_blip(Data.cfg_float("pickups.tier_sound_hz"), Data.cfg_float("pickups.tier_sound_length_s"))
+	_tier_sound.volume_db = Data.cfg_float("pickups.sound_volume_db")
+	add_child(_tier_sound)
 	GameAuthority.level_up_ready.connect(_on_level_up_ready)
 
 
@@ -91,6 +97,8 @@ func _on_card_pressed(index: int) -> void:
 	var player: Player = GameAuthority.local_player()
 	if player == null or index >= _offer.size():
 		return
+	if CardText.is_tier_change(_offer[index]):
+		_tier_sound.play()
 	GameAuthority.apply_card(player, _offer[index])
 	if GameAuthority.run.unspent_level_ups > 0:
 		_auto_collect_maxed(player)

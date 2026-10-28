@@ -12,7 +12,9 @@
     "spawn_count": 50,
     "spawn_behind_px": 30,
     "test_orb_count": 300,
-    "grid_color": "#ffffff26"
+    "grid_color": "#ffffff26",
+    "status_test_radius_px": 200,
+    "jump_to_time_s": 1800
   },
 
   "localization": {
@@ -74,7 +76,8 @@
     "_doc": "Placeholder attack visuals (swing arcs, quake rings). max_visual_effects is a budget: when full, the oldest is reused.",
     "max_visual_effects": 64,
     "attack_effect_s": 0.18,
-    "default_color": "#ffffffa0"
+    "default_color": "#ffffffa0",
+    "min_reaction_ring_px": 20
   },
 
   "ui": {
@@ -82,10 +85,14 @@
     "xp_bar_height_px": 10,
     "damage_numbers_enabled": true,
     "damage_number_pool": 96,
-    "damage_number_font_px": 8,
-    "damage_number_crit_font_px": 11,
-    "damage_number_color": "#ffffff",
-    "damage_number_crit_color": "#ffb030",
+    "damage_number_styles": {
+      "normal": { "font_px": 8, "color": "#ffffff" },
+      "crit": { "font_px": 11, "color": "#ffb030" },
+      "weak": { "font_px": 12, "color": "#ffe23a" },
+      "resist": { "font_px": 6, "color": "#9a9a9a" },
+      "dot": { "font_px": 6, "color": "#ffc8a0" }
+    },
+    "reaction_text_font_px": 9,
     "damage_number_outline_px": 2,
     "damage_number_life_s": 0.6,
     "damage_number_rise_px_s": 24,
@@ -128,7 +135,7 @@
     "age_start_s": { "dusk": 0, "night": 600, "deep_night": 1200, "unraveling": 1800 },
     "boss_times_s": [600, 1200, 1800],
     "unraveling_latest_start_s": 1980,
-    "unraveling_shrink_pct_per_min": 0.10,
+    "unraveling_shrink_pct_per_min": 0.1,
     "milestone_gold": [50, 100, 200],
     "elite_times_s": [300, 900, 1500],
     "elite_modifiers_normal": 1,
@@ -177,7 +184,7 @@
     "orb_values": [1, 5, 25],
     "orb_merge_threshold": 300,
     "level_2_xp": 5,
-    "growth_per_level": 0.10,
+    "growth_per_level": 0.1,
     "orb_pool": 600,
     "orb_size_px": [4, 6, 9],
     "orb_colors": ["#5ab4ff", "#5affa0", "#ffd25a"],
@@ -192,7 +199,7 @@
     "cards": 3,
     "cards_high_luck": 4,
     "maxed_gold": 25,
-    "maxed_heal_pct": 0.30,
+    "maxed_heal_pct": 0.3,
     "smart_heal_below_hp_pct": 0.5,
     "coop_turn_s": 20,
     "high_luck_threshold": 0.3,
@@ -202,7 +209,17 @@
     "new_item_weight": 1.0,
     "stat_card_weight": 0.6,
     "auto_collect_default": "off",
-    "stat_card_values": { "might": 0.05, "max_hp": 0.10, "move_speed": 0.05, "area": 0.05, "cooldown": 0.04, "armor": 1, "luck": 0.05, "crit": 0.02, "pickup_radius": 0.10 }
+    "stat_card_values": {
+      "might": 0.05,
+      "max_hp": 0.1,
+      "move_speed": 0.05,
+      "area": 0.05,
+      "cooldown": 0.04,
+      "armor": 1,
+      "luck": 0.05,
+      "crit": 0.02,
+      "pickup_radius": 0.1
+    }
   },
 
   "pickups": {
@@ -219,12 +236,12 @@
     "sound_base_hz": 660,
     "sound_length_s": 0.09,
     "sound_volume_db": -12,
-    "scale_semitones": [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26]
+    "scale_semitones": [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26],
+    "tier_sound_hz": 440,
+    "tier_sound_length_s": 0.25
   },
 
-  "projectiles": {
-    "max_player_projectiles": 200
-  },
+  "projectiles": { "max_player_projectiles": 200 },
 
   "run_log": {
     "_doc": "A basic log is written at the end of every run (time, cause of death, build). Not progression; used for balancing and the Phase 15 death recap.",
@@ -232,7 +249,7 @@
   },
 
   "economy": {
-    "quit_gold_pct": 0.10,
+    "quit_gold_pct": 0.1,
     "quit_min_seconds": 300,
     "trader_prices": { "reroll_token": 25, "travelers_bread": 50, "whetstone": 75, "incense": 40, "banish_token": 60 },
     "trader_price_mult_per_age": 1.5
@@ -278,7 +295,8 @@
     "knockback_decay": 10.0,
     "hit_flash_s": 0.08,
     "hit_flash_color": "#ffffff",
-    "placeholder_texture_px": 32
+    "placeholder_texture_px": 32,
+    "status_tint_strength": 0.6
   },
 
   "bosses": {
@@ -292,22 +310,11 @@
     "bullet_gap_mult": 1.5
   },
 
-  "events": {
-    "chaos_surge_s": 60,
-    "divine_storm_s": 45
-  },
+  "events": { "chaos_surge_s": 60, "divine_storm_s": 45 },
 
-  "chests": {
-    "reveal_max_s": 3.0,
-    "reveal_skip_after_s": 0.5,
-    "buildup_s": 1.5,
-    "coop_pause_max_s": 3.0
-  },
+  "chests": { "reveal_max_s": 3.0, "reveal_skip_after_s": 0.5, "buildup_s": 1.5, "coop_pause_max_s": 3.0 },
 
-  "banter": {
-    "display_s": 3.0,
-    "summon_line_chance": 0.1
-  },
+  "banter": { "display_s": 3.0, "summon_line_chance": 0.1 },
 
   "coop": {
     "max_players": 4,
@@ -323,12 +330,7 @@
     "sync_rate_hz": 20
   },
 
-  "save": {
-    "save_version": 3,
-    "cloud_sync_min_interval_s": 30
-  },
+  "save": { "save_version": 3, "cloud_sync_min_interval_s": 30 },
 
-  "meta": {
-    "oracle_runs_per_hint": 5
-  }
+  "meta": { "oracle_runs_per_hint": 5 }
 }

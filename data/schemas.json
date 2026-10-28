@@ -18,7 +18,9 @@
               "spawn_count": "number",
               "spawn_behind_px": "number",
               "test_orb_count": "number",
-              "grid_color": "string"
+              "grid_color": "string",
+              "status_test_radius_px": "number",
+              "jump_to_time_s": "number"
             }
           },
           "localization": {
@@ -86,7 +88,8 @@
             "fields": {
               "max_visual_effects": "number",
               "attack_effect_s": "number",
-              "default_color": "string"
+              "default_color": "string",
+              "min_reaction_ring_px": "number"
             }
           },
           "ui": {
@@ -96,10 +99,10 @@
               "xp_bar_height_px": "number",
               "damage_numbers_enabled": "bool",
               "damage_number_pool": "number",
-              "damage_number_font_px": "number",
-              "damage_number_crit_font_px": "number",
-              "damage_number_color": "string",
-              "damage_number_crit_color": "string",
+              "damage_number_styles": {
+                "type": "object"
+              },
+              "reaction_text_font_px": "number",
               "damage_number_outline_px": "number",
               "damage_number_life_s": "number",
               "damage_number_rise_px_s": "number",
@@ -297,7 +300,9 @@
               "scale_semitones": {
                 "type": "array",
                 "items": "number"
-              }
+              },
+              "tier_sound_hz": "number",
+              "tier_sound_length_s": "number"
             }
           },
           "projectiles": {
@@ -386,7 +391,8 @@
               "knockback_decay": "number",
               "hit_flash_s": "number",
               "hit_flash_color": "string",
-              "placeholder_texture_px": "number"
+              "placeholder_texture_px": "number",
+              "status_tint_strength": "number"
             }
           },
           "bosses": {
@@ -665,6 +671,22 @@
                   "pierce": {
                     "type": "number",
                     "optional": true
+                  },
+                  "status_chance": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "orbit_radius_px": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "orbit_speed_deg_s": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "lifesteal_hp": {
+                    "type": "number",
+                    "optional": true
                   }
                 }
               }
@@ -704,6 +726,181 @@
             "per_level": "number",
             "max_level": "int",
             "persists": "bool"
+          }
+        }
+      }
+    },
+    "elements.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "elements": {
+            "type": "object",
+            "fields": {
+              "physical": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "fire": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "ice": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "lightning": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "water": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "earth": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "wind": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "holy": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              },
+              "dark": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
+              }
+            }
+          },
+          "statuses": {
+            "type": "object",
+            "fields": {
+              "burn": {
+                "type": "object"
+              },
+              "chill": {
+                "type": "object"
+              },
+              "shock": {
+                "type": "object"
+              },
+              "soaked": {
+                "type": "object"
+              },
+              "poison": {
+                "type": "object"
+              },
+              "gust": {
+                "type": "object"
+              },
+              "smite": {
+                "type": "object"
+              },
+              "hex": {
+                "type": "object"
+              }
+            }
+          },
+          "weakness_mult": "number",
+          "resistance_mult": "number",
+          "reactions": {
+            "type": "object",
+            "fields": {
+              "conduct": {
+                "type": "object"
+              },
+              "steam_burst": {
+                "type": "object"
+              },
+              "shatter": {
+                "type": "object"
+              },
+              "spread": {
+                "type": "object"
+              }
+            }
+          },
+          "player_statuses": {
+            "type": "object",
+            "fields": {
+              "max_chill_stacks": "int"
+            }
           }
         }
       }

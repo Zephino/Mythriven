@@ -47,6 +47,12 @@ func spawn_ring(at: Vector2, ring_radius: float, color: Color) -> void:
 	_spawn(KIND_RING, at, 0.0, ring_radius, 0.0, color)
 
 
+## Shows a reaction as an expanding ring in its colour.
+func on_reaction(reaction_id: String, at: Vector2, reach: float) -> void:
+	var color: Color = Color.html(str(Elements.reaction(reaction_id).get("color", "#ffffff")))
+	spawn_ring(at, maxf(reach, Data.cfg_float("effects.min_reaction_ring_px")), color)
+
+
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	for i: int in _capacity:
 		_pos[i] -= shift_px

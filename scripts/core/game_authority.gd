@@ -10,7 +10,9 @@ signal player_removed(player: Player)
 signal player_damaged(player: Player, amount: float, source_id: String)
 signal player_died(player: Player, cause_id: String)
 signal run_ended(run: RunState)
-signal enemy_damaged(slot: int, amount: float, crit: bool, at: Vector2)
+## kind: "normal", "crit", "weak", "resist", or "dot" (damage over time).
+signal enemy_damaged(slot: int, amount: float, kind: String, at: Vector2)
+signal reaction_triggered(reaction_id: String, at: Vector2, reach: float)
 signal enemy_killed(slot: int, enemy_type: Dictionary, at: Vector2, killer: Player)
 signal xp_changed(run: RunState)
 ## A level-up is waiting to be chosen (the level-up screen opens).
@@ -27,6 +29,8 @@ var enemies: EnemyManager = null
 ## Auto-collect setting: "off", "gold", "heal", or "smart". Saved with the
 ## other settings once the save system exists (Phase 15).
 var auto_collect: String = ""
+## Turns hits into damage, statuses, and reactions (see hit_resolver.gd).
+var hits := HitResolver.new()
 
 
 func _process(delta: float) -> void:
@@ -113,11 +117,29 @@ func spawn_enemy(type_id: String, at: Vector2) -> int:
 func damage_player(player: Player, amount: float, source_id: String) -> void:
 	if not player.alive or player.god_mode:
 		return
-	var dealt: float = Damage.to_player(amount, player.armor, Data.cfg_float("combat.min_damage"))
+	var armor: float = player.armor * player.statuses.armor_mult()
+	var dealt: float = Damage.to_player(amount * player.statuses.consume_shock(), armor, Data.cfg_float("combat.min_damage"))
 	player.hp -= dealt
 	player_damaged.emit(player, dealt, source_id)
 	if player.hp <= 0.0:
 		_kill_player(player, source_id)
+
+
+## Burn and Poison on a player: skips Armor.
+func damage_player_over_time(player: Player, amount: float) -> void:
+	if not player.alive or player.god_mode:
+		return
+	player.hp -= amount
+	if player.hp <= 0.0:
+		_kill_player(player, "status")
+
+
+## From 30:00, an enemy touching a player can pass on its element's status.
+func status_player_from_enemy(player: Player, element: String) -> void:
+	if element == "" or run == null or run.elapsed_s < Data.cfg_float("combat.player_status_start_s"):
+		return
+	if player.alive and not player.god_mode:
+		player.statuses.apply(Elements.status_of(element))
 
 
 func heal_player(player: Player, amount: float) -> void:
@@ -138,22 +160,11 @@ func _kill_player(player: Player, cause_id: String) -> void:
 		run_ended.emit(run)
 
 
-## Damages an enemy using the damage formula and the attacker's stats.
-## `element` is unused until Phase 8 (weakness ×1.5 / resistance ×0.5).
-func damage_enemy(slot: int, base_damage: float, attacker: Player, push: Vector2, _element: String) -> void:
-	if enemies == null or enemies.active[slot] == 0:
-		return
-	var data: Dictionary = enemies.type_of(slot)
-	var result: Dictionary = Damage.hit(base_damage, 0.0, attacker.stats.might(), attacker.stats.crit_chance(),
-			Data.cfg_float("combat.crit_mult"), run.rng.combat.randf(), 1.0, float(data.get("armor", 0.0)),
-			Data.cfg_float("combat.min_damage"))
-	var amount: float = result["amount"]
-	enemies.hp[slot] -= amount
-	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
-	enemies.knockback[slot] += push * (1.0 - float(data.get("knockback_resist", 0.0)))
-	enemy_damaged.emit(slot, amount, bool(result["crit"]), enemies.positions[slot])
-	if enemies.hp[slot] <= 0.0:
-		kill_enemy(slot, attacker)
+## Damages an enemy: damage formula, weakness/resistance, statuses, and
+## reactions. `status_chance` is the chance (0–1) to apply the element's status.
+func damage_enemy(slot: int, base_damage: float, attacker: Player, push: Vector2, element: String,
+		status_chance: float = 0.0) -> void:
+	hits.hit(slot, base_damage, attacker, push, element, status_chance)
 
 
 ## An enemy dies: counts the kill, tells listeners (XP drops), frees the slot.

@@ -1,0 +1,152 @@
+class_name HitResolver
+extends RefCounted
+## Resolves one hit on one enemy (GAME_DESIGN.md: Core mechanics / Damage
+## formula; Elements, statuses, and reactions). Owned by GameAuthority.
+##   Counterplay: Fire on a Soaked enemy only removes Soaked; Ice on a
+##   Burning enemy only removes Burn.
+##   Reactions (at most 30 per second, the effect budget):
+##     Conduct      Lightning on Soaked: chains to every Soaked enemy within 4 tiles
+##     Steam Burst  Fire on Chilled/Frozen: removes the ice, small explosion
+##     Shatter      Physical on Frozen: +100% damage, Freeze ends
+##     Spread       Wind on Burn/Poison/Soaked: copies them to up to 4 nearby enemies
+##   Weakness ×1.5 / resistance ×0.5, Shock (+20%) and Shatter join the
+##   element step of the damage formula; Hex lowers Armor.
+
+const SPREADABLE: PackedStringArray = ["burn", "poison", "soaked"]
+
+var _reaction_times := PackedFloat64Array()
+
+
+## Returns the damage dealt.
+func hit(slot: int, base: float, attacker: Player, push: Vector2, element: String, status_chance: float,
+		allow_reactions: bool = true) -> float:
+	var enemies: EnemyManager = GameAuthority.enemies
+	if enemies == null or enemies.active[slot] == 0:
+		return 0.0
+	var st: EnemyStatuses = enemies.statuses
+	var data: Dictionary = enemies.type_of(slot)
+	var at: Vector2 = enemies.positions[slot]
+	var status_id: String = Elements.status_of(element)
+	var element_mult: float = Elements.multiplier(data, element)
+	var bonus: float = 1.0
+	if allow_reactions:
+		if element == "fire" and st.has(slot, "soaked"):
+			st.remove(slot, "soaked")
+			status_id = ""
+		elif element == "ice" and st.has(slot, "burn"):
+			st.remove(slot, "burn")
+			status_id = ""
+		bonus = _react(slot, base, attacker, element, status_chance, at)
+	var shock_mult: float = st.consume_shock(slot)
+	var armor: float = float(data.get("armor", 0.0)) * st.armor_mult(slot)
+	if attacker != null:
+		base *= attacker.statuses.outgoing_damage_mult()
+	var result: Dictionary = Damage.hit(base, 0.0, attacker.stats.might(), attacker.stats.crit_chance(),
+			Data.cfg_float("combat.crit_mult"), _rng().randf(), element_mult * bonus * shock_mult, armor,
+			Data.cfg_float("combat.min_damage"))
+	var amount: float = result["amount"]
+	enemies.hp[slot] -= amount
+	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
+	enemies.knockback[slot] += push * (1.0 - float(data.get("knockback_resist", 0.0)))
+	if status_id != "" and _rng().randf() < status_chance:
+		_apply_status(slot, status_id, push, data)
+	GameAuthority.enemy_damaged.emit(slot, amount, _number_kind(bool(result["crit"]), element_mult), at)
+	if enemies.hp[slot] <= 0.0:
+		GameAuthority.kill_enemy(slot, attacker)
+	return amount
+
+
+## Damage over time (Burn, Poison): skips Armor and reactions.
+func damage_over_time(slot: int, amount: float) -> void:
+	var enemies: EnemyManager = GameAuthority.enemies
+	if enemies == null or enemies.active[slot] == 0:
+		return
+	enemies.hp[slot] -= amount
+	GameAuthority.enemy_damaged.emit(slot, amount, "dot", enemies.positions[slot])
+	if enemies.hp[slot] <= 0.0:
+		GameAuthority.kill_enemy(slot, null)
+
+
+## True (and counted) if the reaction budget for this second isn't used up.
+func take_reaction_budget() -> bool:
+	var now: float = Time.get_ticks_msec() / 1000.0
+	while not _reaction_times.is_empty() and now - _reaction_times[0] >= 1.0:
+		_reaction_times.remove_at(0)
+	if _reaction_times.size() >= Data.cfg_int("effect_budgets.max_reactions_per_s"):
+		return false
+	_reaction_times.append(now)
+	return true
+
+
+func _react(slot: int, base: float, attacker: Player, element: String, status_chance: float, at: Vector2) -> float:
+	var st: EnemyStatuses = GameAuthority.enemies.statuses
+	var tile: float = Data.cfg_float("world.tile_px")
+	if element == Elements.PHYSICAL and st.has(slot, "frozen") and take_reaction_budget():
+		st.remove(slot, "frozen")
+		_announce("shatter", at, 0.0)
+		return 1.0 + float(Elements.reaction("shatter").get("damage_bonus", 1.0))
+	if element == "fire" and (st.has(slot, "frozen") or st.has(slot, "chill")) and take_reaction_budget():
+		st.remove(slot, "frozen")
+		st.remove(slot, "chill")
+		var steam: Dictionary = Elements.reaction("steam_burst")
+		var steam_radius: float = float(steam.get("radius_tiles", 2)) * tile
+		for other: int in _others_near(slot, at, steam_radius):
+			hit(other, base * float(steam.get("damage_mult", 0.75)), attacker, Vector2.ZERO, "fire", 0.0, false)
+		_announce("steam_burst", at, steam_radius)
+	elif element == "lightning" and st.has(slot, "soaked") and take_reaction_budget():
+		var conduct: Dictionary = Elements.reaction("conduct")
+		var conduct_radius: float = float(conduct.get("radius_tiles", 4)) * tile
+		for other: int in _others_near(slot, at, conduct_radius):
+			if st.has(other, "soaked"):
+				hit(other, base * float(conduct.get("damage_mult", 0.5)), attacker, Vector2.ZERO, "lightning", status_chance, false)
+		_announce("conduct", at, conduct_radius)
+	elif element == "wind" and take_reaction_budget():
+		var spreading: PackedStringArray = []
+		for status_id: String in SPREADABLE:
+			if st.has(slot, status_id):
+				spreading.append(status_id)
+		if spreading.is_empty():
+			_reaction_times.remove_at(_reaction_times.size() - 1)
+			return 1.0
+		var spread: Dictionary = Elements.reaction("spread")
+		var targets: PackedInt32Array = _others_near(slot, at, float(spread.get("radius_tiles", 3)) * tile)
+		for i: int in mini(targets.size(), int(spread.get("max_targets", 4))):
+			for status_id: String in spreading:
+				st.apply(targets[i], status_id)
+		_announce("spread", at, float(spread.get("radius_tiles", 3)) * tile)
+	return 1.0
+
+
+func _apply_status(slot: int, status_id: String, push: Vector2, data: Dictionary) -> void:
+	if status_id == "gust":
+		var strength: float = float(Elements.status("gust").get("knockback", 0.0))
+		var direction: Vector2 = push.normalized() if push != Vector2.ZERO else Vector2.RIGHT
+		GameAuthority.enemies.knockback[slot] += direction * strength * (1.0 - float(data.get("knockback_resist", 0.0)))
+		return
+	GameAuthority.enemies.statuses.apply(slot, status_id, 1.0, not bool(data.get("boss", false)))
+
+
+func _others_near(slot: int, at: Vector2, reach: float) -> PackedInt32Array:
+	var found := PackedInt32Array()
+	for other: int in GameAuthority.enemies.query(at, reach):
+		if other != slot:
+			found.append(other)
+	return found
+
+
+func _announce(reaction_id: String, at: Vector2, reach: float) -> void:
+	GameAuthority.reaction_triggered.emit(reaction_id, at, reach)
+
+
+## How the damage number looks: weakness hits are big and yellow with "!",
+## resisted hits small and grey (GAME_DESIGN.md: Weakness and resistance).
+func _number_kind(crit: bool, element_mult: float) -> String:
+	if element_mult > 1.0:
+		return "weak"
+	if element_mult < 1.0:
+		return "resist"
+	return "crit" if crit else "normal"
+
+
+func _rng() -> RandomNumberGenerator:
+	return GameAuthority.run.rng.combat

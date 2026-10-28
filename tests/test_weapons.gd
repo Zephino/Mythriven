@@ -107,5 +107,5 @@ func test_damage_numbers_pool_does_not_grow() -> void:
 	numbers.setup()
 	var before: int = numbers.get_child_count()
 	for i: int in before * 3:
-		numbers.show_number(i, Vector2.ZERO, i % 7 == 0)
+		numbers.show_number(i, Vector2.ZERO, "crit" if i % 7 == 0 else "normal")
 	assert_eq(numbers.get_child_count(), before)
