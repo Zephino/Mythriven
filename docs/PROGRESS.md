@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Phase 2 — Work moved onto main (v00.01.03)
+- What changed: at the owner's instruction, Phases 1–2 (versions 00.01.00–00.01.03) were pushed straight to `main` with no pull request. Recorded in `docs/DECISIONS.md`. No game code changed.
+- Files touched: `docs/DECISIONS.md`, `docs/PROGRESS.md`, `docs/AI_STATUS.md`, `VERSION`, `project.godot` (version only).
+- Unfinished / next: owner to test Phases 1–2 at their PC (still not run in Godot).
+
 ## 2026-10-28 — Phase 2 — Owner decisions recorded (v00.01.02)
 - What changed: marked three Phase 2 decisions in `docs/DECISIONS.md`. 8-direction snapping is approved by the owner. The placeholder size/speed/zoom and the joystick placement are approved with the choice delegated to Claude. No game code changed.
 - Files touched: `docs/DECISIONS.md`, `docs/PROGRESS.md`, `VERSION`, `project.godot` (version only).

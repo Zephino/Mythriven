@@ -2,9 +2,9 @@
 
 Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
-Branch: `ccr-f867c6c5-ejkt2t` (based on `main` at `27bcc72`), to be merged into `main` once the owner confirms how
+Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phase 2 — Player movement (Phase 1 also awaiting tests)
-Version: 00.01.02
+Version: 00.01.03
 Status: Phases 1 and 2 built, **neither run in Godot yet**. Owner will test both at their PC.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -21,7 +21,7 @@ Last verified commit: run `git rev-parse HEAD` before resuming.
 
 ## How to test Phase 1 (owner, in Godot 4.7.2)
 1. **Opens with zero errors or warnings:** import the project (see `START_HERE.md`), press F5, check the **Output** panel at the bottom: it should be empty of red/yellow lines.
-2. **Debug menu with FPS:** with the game running, press **F1**. A panel shows the version (`Version 00.01.02`) and `FPS: …`. Arrow keys / D-pad move between buttons; F1 or **Close** hides it. (Mobile: tap with three fingers.)
+2. **Debug menu with FPS:** with the game running, press **F1**. A panel shows the version (`Version 00.01.03`) and `FPS: …`. Arrow keys / D-pad move between buttons; F1 or **Close** hides it. (Mobile: tap with three fingers.)
 3. **Broken JSON names the file and field:** in the debug menu click **Check test data files**. It lists `broken_example.json: field 'speed' should be number, but it is string` and `broken_example.json: missing required field 'limits.max_count'`. To try it yourself, open `tests/fixtures/example.json`, change `"speed": 1.5` to `"speed": "fast"`, save, and click the button again. Undo afterwards. (You can also break a key in `data/config.json`, for example rename `"enemy_cap"`, and restart: a red message appears on screen and in Output.)
 4. **Translation label and pseudo-localization:** the bottom centre of the screen says "Translation test: this text comes from the translation table." In the debug menu turn on **Pseudo-localization**: the text becomes longer, accented, and wrapped in [brackets]. Turn it off to go back.
 5. **Tier B refused in release:** in the debug menu turn on **Pretend this is a release build**, then click **Run content gate test**. It shows `1 loaded, 2 refused`: `test_tier_b` and `test_tier_a_unverified` are refused. With the switch off it shows `3 loaded, 0 refused, 2 warnings`.
@@ -49,15 +49,15 @@ If anything fails, copy the red text from the Output panel into a new message.
 - `dependencies.mdc`: GUT approved by owner, exact version pinned, license checked (MIT, fonts OFL), recorded in `CREDITS.md`, setup in `START_HERE.md`. **Exception:** "Run the project and confirm zero new errors" could not be done (no Godot here).
 - `documentation.mdc`: `START_HERE.md`, `CREDITS.md`, JSON `_doc` notes, PROGRESS and DECISIONS updated; `GAME_DESIGN.md` not edited.
 - `testing.mdc`: GUT tests in `res://tests/` for JSON validation, content gate, seeded RNG. **Exception:** tests not yet run, so no phase report written.
-- `version.mdc`: version (currently `00.01.02`) in `VERSION` and `project.godot`, shown in the debug menu and in the main scene's corner (no title screen yet), and in PROGRESS.
+- `version.mdc`: version (currently `00.01.03`) in `VERSION` and `project.godot`, shown in the debug menu and in the main scene's corner (no title screen yet), and in PROGRESS.
 - `git-workflow.mdc`: commit message `v00.01.00 Phase 1: …`; no secrets; no history rewriting; no tags created.
 - `accessibility-for-interfaces.mdc` (debug menu): keyboard/gamepad focus order with wrap-around, first button focused on open, 72 px touch targets, mobile safe-area offset, text through `tr()` in growing containers.
 - `bug-investigation.mdc`: no bugs fixed in this task.
-- Phase 2 additions: `mythriven.mdc` (players are a list in GameAuthority; tuning numbers and colours in config.json; text through `tr()`; Phase 2 items only); `accessibility-for-interfaces.mdc` (touch joystick only reacts to touches no menu or button has used, stays inside the phone safe area; size settings come in Phase 19); `version.mdc` (now 00.01.02 everywhere). **Exception:** the Phase 1 review gate in `mythriven.mdc` ("don't start the next phase until the review passed") was skipped at the owner's explicit request.
+- Phase 2 additions: `mythriven.mdc` (players are a list in GameAuthority; tuning numbers and colours in config.json; text through `tr()`; Phase 2 items only); `accessibility-for-interfaces.mdc` (touch joystick only reacts to touches no menu or button has used, stays inside the phone safe area; size settings come in Phase 19); `version.mdc` (now 00.01.03 everywhere). **Exception:** the Phase 1 review gate in `mythriven.mdc` ("don't start the next phase until the review passed") was skipped at the owner's explicit request.
 
 ## Blockers
-- Owner asked to "use the main branch". `AGENTS.md` says never commit directly to `main`. Work is pushed to the session branch until the owner says whether to push straight to `main` or merge through a pull request.
-- The GitHub connection failed to start in this cloud session, so Claude can't open a pull request from here until it's fixed.
+- None for coding. Godot isn't available in the cloud session, so all testing waits for the owner's PC.
+- `git-workflow.mdc` / `AGENTS.md` exception: the owner told Claude to push directly to `main` without a pull request (see `docs/DECISIONS.md`).
 
 ## Next action
 - Owner: run the Phase 1 and Phase 2 checks above and report results.
