@@ -225,9 +225,7 @@ func _menu_size() -> Vector2:
 
 ## Keeps the menu clear of notches and rounded corners on phones.
 func _safe_area_offset() -> Vector2:
-	if not OS.has_feature("mobile"):
-		return Vector2.ZERO
-	return Vector2(DisplayServer.get_display_safe_area().position)
+	return SafeArea.rect(get_viewport()).position
 
 
 # --- Phase 1 tests -------------------------------------------------------------

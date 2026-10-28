@@ -58,9 +58,7 @@ func _on_drag(drag: InputEventScreenDrag) -> void:
 func _in_joystick_area(point: Vector2) -> bool:
 	var view: Rect2 = get_viewport_rect()
 	var area := Rect2(view.position, Vector2(view.size.x * Data.cfg_float("joystick.screen_fraction"), view.size.y))
-	if OS.has_feature("mobile"):
-		var safe := Rect2(DisplayServer.get_display_safe_area())
-		area = area.intersection(safe)
+	area = area.intersection(SafeArea.rect(get_viewport()))
 	return area.has_point(point)
 
 

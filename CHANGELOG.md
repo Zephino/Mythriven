@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.08
+Date: 10/28/2026
+Time: 2:03 PM
+
+### Changes
+- The game now has a fixed design size (1152×648) and scales everything (menus, HUD, buttons, text, the joystick, and the game world) to fit the screen, keeping the full width or height visible and showing a little more on wider or taller screens.
+- New `SafeArea` helper so the touch joystick and the debug menu stay clear of phone notches after scaling.
+- Bumped the version to 00.01.08.
+
+### Reason
+The owner found the windows too small on mobile: the game was drawn at the phone's full pixel resolution with nothing scaled up.
+
 ## Version 00.01.07
 Date: 10/28/2026
 Time: 8:02 AM

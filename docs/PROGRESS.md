@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Fix — Windows too small on phones (v00.01.08)
+- Cause: no screen scaling was set, so on high-resolution phone screens every menu, button, and label was drawn at its size in real pixels and looked tiny.
+- Fix: `project.godot` display settings now use a 1152×648 design size with `canvas_items` stretch and `expand` aspect, so UI and world scale with the screen; new `scripts/ui/safe_area.gd` converts the phone's safe area into game coordinates for the touch joystick and the debug menu.
+- Files touched: `project.godot`, `scripts/ui/safe_area.gd` (new), `scripts/ui/touch_joystick.gd`, `scripts/core/debug_menu.gd`, `CHANGELOG.md`, `docs/DECISIONS.md`, `docs/AI_STATUS.md`, `VERSION`.
+
 ## 2026-10-28 — Tools — License (v00.01.07)
 - What changed: added `LICENSE` with the same proprietary All Rights Reserved copyright as WaveDefence (third-party add-ons keep their own licenses); the owner made the repo public for the GitHub Pages game link.
 - Files touched: `LICENSE` (new), `START_HERE.md`, `CHANGELOG.md`, `docs/AI_STATUS.md`, `VERSION`, `project.godot` (version only).
