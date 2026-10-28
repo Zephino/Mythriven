@@ -1,16 +1,27 @@
 class_name DeathScreen
 extends CanvasLayer
-## Shown when every player has fallen: a title, a short summary, Retry
-## (same Hero and level), and Change Hero. The full death recap comes in Phase 15.
+## Shown when every player has fallen: a title, a short summary, the shared
+## leaderboard (type a name, Submit score, or view the board), Retry (same Hero
+## and level), and Change Hero. The full death recap comes in Phase 15.
 
 var _panel: PanelContainer
 var _summary: Label
+var _name: LineEdit
+var _submit: Button
+var _board_status: Label
 var _retry: Button
+var _controls: Array[Control] = []
+var _client: LeaderboardClient
+var _entry: Dictionary = {}
 
 
 func _ready() -> void:
 	layer = 50
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_client = LeaderboardClient.new()
+	add_child(_client)
+	_client.score_sent.connect(_on_score_sent)
+	var touch: float = Data.cfg_float("ui.min_touch_target_px")
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -29,28 +40,73 @@ func _ready() -> void:
 	_summary = Label.new()
 	_summary.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	box.add_child(_summary)
-	_retry = Button.new()
-	_retry.text = "UI_RETRY"
-	_retry.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 3.0, Data.cfg_float("ui.min_touch_target_px"))
-	_retry.pressed.connect(_on_retry)
-	box.add_child(_retry)
-	var change := Button.new()
-	change.text = "UI_CHANGE_HERO"
-	change.custom_minimum_size = _retry.custom_minimum_size
-	change.pressed.connect(_on_change_hero)
-	box.add_child(change)
-	_retry.focus_neighbor_bottom = _retry.get_path_to(change)
-	_retry.focus_neighbor_top = _retry.get_path_to(change)
-	change.focus_neighbor_top = change.get_path_to(_retry)
-	change.focus_neighbor_bottom = change.get_path_to(_retry)
+	_name = LineEdit.new()
+	_name.placeholder_text = "UI_LB_NAME_HINT"
+	_name.max_length = Data.cfg_int("leaderboard.max_name_length")
+	_name.custom_minimum_size = Vector2(touch * 5.0, touch)
+	_name.text_submitted.connect(_on_submit.unbind(1))
+	box.add_child(_name)
+	_submit = _add_button(box, "UI_LB_SUBMIT", _on_submit)
+	_board_status = Label.new()
+	_board_status.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_board_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_board_status.custom_minimum_size.x = touch * 5.0
+	box.add_child(_board_status)
+	_add_button(box, "UI_LEADERBOARD", _on_view_board)
+	_retry = _add_button(box, "UI_RETRY", _on_retry)
+	_add_button(box, "UI_CHANGE_HERO", _on_change_hero)
 	visible = false
 
 
-## Shows the screen with one line of summary per entry.
-func show_summary(lines: PackedStringArray) -> void:
+## Shows the screen with one line of summary per entry. `entry` is this run's
+## score (LeaderboardEntry.build); `can_submit` is false when it can't go on the board.
+func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: bool = false) -> void:
 	_summary.text = "\n".join(lines)
+	_entry = entry
+	var allowed: bool = can_submit and not entry.is_empty()
+	_name.visible = allowed
+	_submit.visible = allowed
+	_name.text = LeaderboardEntry.load_name()
+	if not allowed:
+		_board_status.text = tr("UI_LB_DEBUG_USED") if not entry.is_empty() else ""
+	elif not OnlineConfig.can_post():
+		_board_status.text = tr("UI_LB_OFFLINE")
+		_submit.disabled = true
+	else:
+		_board_status.text = ""
+	_link_focus()
 	visible = true
 	_retry.grab_focus()
+
+
+func _on_submit() -> void:
+	if _submit.disabled or not _submit.visible:
+		return
+	var player_name: String = LeaderboardEntry.clean_name(_name.text)
+	if player_name.is_empty():
+		_board_status.text = tr("UI_LB_NEED_NAME")
+		_name.grab_focus()
+		return
+	_name.text = player_name
+	LeaderboardEntry.save_name(player_name)
+	_entry["name"] = player_name
+	_submit.disabled = true
+	_board_status.text = tr("UI_LB_SENDING")
+	_client.send(_entry)
+
+
+func _on_score_sent(accepted: bool, error: String) -> void:
+	if error != "":
+		_board_status.text = tr("UI_LB_SEND_FAILED") % error
+		_submit.disabled = false
+		return
+	_board_status.text = tr("UI_LB_SENT") if accepted else tr("UI_LB_NOT_PLACED")
+
+
+func _on_view_board() -> void:
+	var screen := LeaderboardScreen.new()
+	screen.closed.connect(_retry.grab_focus)
+	add_child(screen)
 
 
 func _on_change_hero() -> void:
@@ -61,3 +117,25 @@ func _on_change_hero() -> void:
 func _on_retry() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+func _add_button(box: VBoxContainer, key: String, on_pressed: Callable) -> Button:
+	var button := Button.new()
+	button.text = key
+	button.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 3.0, Data.cfg_float("ui.min_touch_target_px"))
+	button.pressed.connect(on_pressed)
+	box.add_child(button)
+	return button
+
+
+## Arrow keys / D-pad move through the visible controls in order, wrapping around.
+func _link_focus() -> void:
+	_controls.clear()
+	for child: Node in _name.get_parent().get_children():
+		if (child is Button or child is LineEdit) and (child as Control).visible:
+			_controls.append(child)
+	var count: int = _controls.size()
+	for i: int in count:
+		var control: Control = _controls[i]
+		control.focus_neighbor_top = control.get_path_to(_controls[(i - 1 + count) % count])
+		control.focus_neighbor_bottom = control.get_path_to(_controls[(i + 1) % count])

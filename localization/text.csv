@@ -251,6 +251,27 @@ UI_HERO_WEAPON,Weapon: %s
 UI_HERO_TRAIT,"Legend Trait: %s. %s"
 UI_HERO_PASSIVE,"Passive: %s. %s"
 UI_CHANGE_HERO,Change Hero
+UI_LEADERBOARD,Leaderboard
+UI_LB_REFRESH,Refresh
+UI_LB_CLOSE,Close
+UI_LB_LOADING,Loading scores…
+UI_LB_EMPTY,No scores yet. Be the first!
+UI_LB_LOAD_FAILED,Couldn't load the leaderboard (%s).
+UI_LB_NO_CONNECTION,no connection
+UI_LB_ROW,"#%d  %s · %s · %s · Lv %d · %d kills"
+UI_LB_WEAPONS,Weapons: %s
+UI_LB_UPGRADES,Upgrades: %s
+UI_LB_ITEM,%s %d
+UI_LB_NONE,none
+UI_LB_NAME_HINT,Your name (up to 12 letters)
+UI_LB_SUBMIT,Submit score
+UI_LB_SENDING,Sending…
+UI_LB_SENT,Score submitted! Press Leaderboard to see it.
+UI_LB_NOT_PLACED,Sent. Not in the top 100 this time.
+UI_LB_SEND_FAILED,Couldn't submit the score (%s). Try again.
+UI_LB_NEED_NAME,"Type a name first: letters, numbers, spaces, - or _."
+UI_LB_DEBUG_USED,"Debug options were used this run, so it can't go on the leaderboard."
+UI_LB_OFFLINE,Online scores aren't switched on yet.
 CARD_EXPERT,Expert!
 DEBUG_FINISH_LABOR,Finish the current Labor (Heracles)
 DEBUG_CHANGE_HERO,Back to Hero select

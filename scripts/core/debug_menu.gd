@@ -96,13 +96,20 @@ func show_result(text: String) -> void:
 	_result_label.text = text
 
 
-func _add_control(source: Node, control: Control) -> void:
+func _add_control(source: Node, control: BaseButton) -> void:
+	control.pressed.connect(_mark_run)
 	control.set_meta("debug_owner", source)
 	_box.add_child(control)
 	_box.move_child(control, _close_button.get_index())
 	_controls.insert(_controls.find(_close_button), control)
 	_link_focus()
 	_watch_owner(source)
+
+
+## Game-system options (god mode, gain a level, …) keep this run off the shared leaderboard.
+func _mark_run() -> void:
+	if GameAuthority.run != null:
+		GameAuthority.run.debug_used = true
 
 
 ## Removes a system's options when it leaves the scene (for example on Retry).
@@ -140,7 +147,8 @@ func _track_touch(touch: InputEventScreenTouch) -> void:
 func _build() -> void:
 	var margin_px: int = Data.cfg_int("ui.screen_margin_px")
 	_panel = PanelContainer.new()
-	_panel.position = _safe_area_offset() + Vector2(margin_px, margin_px)
+	# Clear of notches and rounded corners on phones.
+	_panel.position = SafeArea.rect(get_viewport()).position + Vector2(margin_px, margin_px)
 	add_child(_panel)
 	var margin := MarginContainer.new()
 	for side: String in ["left", "right", "top", "bottom"]:
@@ -221,11 +229,6 @@ func _menu_size() -> Vector2:
 	var view: Vector2 = get_viewport().get_visible_rect().size
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
 	return Vector2(view.x * 0.5, view.y - margin_px * 4.0)
-
-
-## Keeps the menu clear of notches and rounded corners on phones.
-func _safe_area_offset() -> Vector2:
-	return SafeArea.rect(get_viewport()).position
 
 
 # --- Phase 1 tests -------------------------------------------------------------

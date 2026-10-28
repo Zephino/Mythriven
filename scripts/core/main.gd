@@ -154,7 +154,8 @@ func _on_run_ended(run: RunState) -> void:
 		lines.append(tr("UI_FELLED_BY") % tr(str(killer["name_key"])))
 	if log_path != "":
 		lines.append(tr("UI_RUN_LOG_SAVED"))
-	_death_screen.show_summary(lines)
+	var entry: Dictionary = LeaderboardEntry.build(run, player, "") if player != null else {}
+	_death_screen.show_summary(lines, entry, LeaderboardEntry.can_submit(run))
 
 
 func _build_ui(joystick: TouchJoystick) -> void:

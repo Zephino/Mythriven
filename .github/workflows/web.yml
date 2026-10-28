@@ -50,6 +50,11 @@ jobs:
         continue-on-error: true
         run: godot --headless --path . -s addons/gut/gut_cmdln.gd -gconfig=.gutconfig.json
 
+      - name: Test the leaderboard service
+        continue-on-error: true
+        working-directory: leaderboard-api
+        run: node --test test/*.test.js
+
       - name: Export web build
         run: |
           mkdir -p build/web

@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.15
+Date: 10/28/2026
+Time: 5:11 PM
+
+### Changes
+- **Shared online leaderboard.** After a run, type a name and press **Submit score**. Each score records the name, Hero, time survived, level, kills, every weapon with its level, and every upgrade (passive item) with its level. A **Leaderboard** button on Hero select and the death screen shows the best 100 runs from all players (ranked by time survived, then level, then kills).
+- Scores are stored by a small online service (`leaderboard-api/`, a Cloudflare Worker) that checks every score and is the only thing that can write `leaderboard.json` on the new **`data`** branch. The game never holds a GitHub key, so players can't change the board by hand.
+- Runs where the F1 debug menu's game options were used (god mode, gain a level, …) can't be submitted.
+- The name you type is remembered for next time.
+- One-time owner setup steps are in `leaderboard-api/README.md` (until then the board reads from GitHub and Submit says online scores aren't switched on yet).
+- Fixed the one failing automated test from 00.01.14 (a test comparing text the wrong way; the game itself was fine). New tests for the leaderboard (game side and service side).
+
+### Reason
+The owner asked for a leaderboard that all players can see, logging the Hero, weapons, and upgrades, stored on the `data` branch where only the game can change it.
+
 ## Version 00.01.14
 Date: 10/28/2026
 Time: 5:02 PM

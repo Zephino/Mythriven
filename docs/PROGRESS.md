@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Owner request — Shared online leaderboard (v00.01.15)
+- What changed: Cloudflare Worker `leaderboard-api/` (rules in `src/board.js`, service in `src/index.js`, `npm test`, Windows/Mac setup app, README) that checks scores and commits `leaderboard.json` to the `data` branch; game side `OnlineConfig`, `LeaderboardClient` (`scripts/net/`), `LeaderboardEntry` (`scripts/meta/`), `LeaderboardScreen`; name entry and Submit on the death screen; Leaderboard button on Hero select; runs that used debug options are marked (`RunState.debug_used`) and can't be sent; CI also runs the Worker tests. Fixed the `test_expert_badge_on_level_up_cards` test (StringName vs String).
+- Files touched: `leaderboard-api/*` (new), `scripts/net/online_config.gd`, `scripts/net/leaderboard_client.gd`, `scripts/meta/leaderboard_entry.gd`, `scripts/ui/leaderboard_screen.gd` (new); `scripts/ui/death_screen.gd`, `scripts/ui/hero_select.gd`, `scripts/core/main.gd`, `scripts/core/debug_menu.gd`, `scripts/core/run_state.gd`; `data/config.json` (`leaderboard`); `localization/text.csv`; `tests/test_leaderboard.gd` (new), `tests/test_heroes.gd`; `.github/workflows/web.yml`; `.gitattributes`; docs.
+- Unfinished / next: owner runs the one-time setup in `leaderboard-api/README.md` (Cloudflare + GitHub token), then `API_BASE_URL` in `scripts/net/online_config.gd` gets pushed and Submit starts working.
+
 ## 2026-10-28 — Phase 7 tuning — Level-based difficulty (v00.01.14)
 - What changed: new `LevelScaling` (`scripts/enemies/level_scaling.gd`): spawn rate ×(1 + 0.25 per 5 levels); enemy HP ×(1 + 0.5 per 10 levels) and contact damage ×(1 + 0.25 per 10 levels), applied when enemies spawn and when they hit. Config `enemies.level_scaling`.
 - Files touched: `scripts/enemies/level_scaling.gd` (new), `scripts/enemies/enemy_manager.gd`, `scripts/enemies/spawner.gd`, `scripts/core/debug_actions_combat.gd`, `data/config.json`, `data/schemas.json`, `localization/text.csv`, `tests/test_progression.gd`, docs.

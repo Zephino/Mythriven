@@ -34,6 +34,7 @@ The current build covers **Phases 1–6, 8, and 9** of the plan, plus early Phas
 - **XP orbs and level-ups**: choose 1 of 3 cards (4 with high Luck), save a level-up for later, or let Auto-collect take Gold/Heal when your build is maxed.
 - **Ambrosia**, a rare healing drop that restores 30 HP.
 - **Elements**: six spells (Ember, Frost, Spark, Breeze, Glimmer, Shade) that Burn, Chill and Freeze, Shock, push, and Hex enemies, with weaknesses and reactions such as Conduct, Steam Burst, Shatter, and Spread. Spells rename as they level (Ember → Flame → Blaze).
+- **A shared leaderboard.** Submit your run with a name and see the best 100 runs from every player, with each run's Hero, weapons, and upgrades. The board is public on the [`data` branch](https://github.com/Zephino/Mythriven/blob/data/leaderboard.json).
 - **A swarm that never stops.** Enemies never stack and there are no invulnerability frames, so standing still in a crowd is fatal.
 
 Enemies are simple placeholder circles until the real mythic creatures arrive (Phase 10), and all numbers are early placeholders.
@@ -143,6 +144,7 @@ Mythriven/
 ├── localization/        # Translations and text resources
 ├── tests/               # Automated tests
 ├── addons/              # Godot add-ons
+├── leaderboard-api/     # Online service that keeps the shared leaderboard
 └── .github/workflows/   # Web build and deployment
 ```
 

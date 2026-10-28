@@ -1,2 +1,6 @@
 # Normalize line endings (matches Godot's default)
 * text=auto eol=lf
+
+# Windows scripts need Windows line endings
+*.bat text eol=crlf
+*.ps1 text eol=crlf

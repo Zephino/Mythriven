@@ -1,0 +1,15 @@
+{
+  "name": "mythriven-leaderboard-api",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Cloudflare Worker that keeps the Mythriven shared leaderboard on the data branch",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

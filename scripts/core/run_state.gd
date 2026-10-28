@@ -20,6 +20,8 @@ var unspent_level_ups: int = 0
 var current_offer: Array[Dictionary] = []
 ## Gold collected this run (banking rules come in Phase 15).
 var gold: float = 0.0
+## True once any F1 debug option touched this run; such runs never go on the leaderboard.
+var debug_used: bool = false
 
 
 func _init(run_seed: int, level_entry: Dictionary) -> void:

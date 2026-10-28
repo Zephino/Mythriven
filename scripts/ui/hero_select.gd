@@ -2,8 +2,9 @@ class_name HeroSelect
 extends CanvasLayer
 ## Hero select (GAME_DESIGN.md: Screens / Hero select): each Hero with their
 ## tradition, role, stats, Legend Trait, passive, and signature weapon. Picking
-## one starts the run. Keyboard, gamepad, and touch all work; the first Hero
-## is focused when the screen opens.
+## one starts the run. The Leaderboard button shows the shared board.
+## Keyboard, gamepad, and touch all work; the first Hero is focused when the
+## screen opens.
 
 signal hero_chosen(hero_id: String)
 
@@ -48,7 +49,19 @@ func _ready() -> void:
 		grid.add_child(button)
 		buttons.append(button)
 	_link_focus(buttons, grid.columns)
+	var board := Button.new()
+	board.text = "UI_LEADERBOARD"
+	board.custom_minimum_size = Vector2(touch * 3.0, touch)
+	board.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	board.pressed.connect(_on_view_board.bind(board))
+	box.add_child(board)
+	# Down from the bottom row reaches the Leaderboard button; up or down from it returns to the Heroes.
+	for i: int in buttons.size():
+		if i + grid.columns >= buttons.size():
+			buttons[i].focus_neighbor_bottom = buttons[i].get_path_to(board)
 	if not buttons.is_empty():
+		board.focus_neighbor_top = board.get_path_to(buttons[0])
+		board.focus_neighbor_bottom = board.get_path_to(buttons[0])
 		buttons[0].grab_focus()
 
 
@@ -70,6 +83,12 @@ static func describe(hero: Dictionary) -> String:
 			TranslationServer.translate(str(passive.get("name_key", ""))), TranslationServer.translate(str(passive.get("desc_key", "")))],
 	]
 	return "\n".join(lines)
+
+
+func _on_view_board(board: Button) -> void:
+	var screen := LeaderboardScreen.new()
+	screen.closed.connect(board.grab_focus)
+	add_child(screen)
 
 
 func _on_pressed(hero_id: String) -> void:

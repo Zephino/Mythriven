@@ -94,7 +94,7 @@ func test_expert_badge_on_level_up_cards() -> void:
 	assert_true(badges["longbow"])
 	assert_false(badges["javelin"])
 	assert_string_contains(CardText.full({"kind": LevelUpRules.WEAPON_NEW, "id": "longbow", "from": 0, "to": 1, "expert": true}),
-			TranslationServer.translate("CARD_EXPERT"))
+			str(TranslationServer.translate("CARD_EXPERT")))
 
 
 func test_lions_hide_halves_the_first_hit_every_8_seconds() -> void:

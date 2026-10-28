@@ -257,6 +257,14 @@
     "folder": "user://run_logs"
   },
 
+  "leaderboard": {
+    "_doc": "Shared online leaderboard (owner request; see leaderboard-api/README.md). Name rules match the Worker: up to 12 letters, numbers, spaces, - or _. Runs that used the F1 debug menu are never sent.",
+    "max_name_length": 12,
+    "request_timeout_s": 15,
+    "rows_shown": 100,
+    "profile_file": "user://profile.cfg"
+  },
+
   "economy": {
     "quit_gold_pct": 0.1,
     "quit_min_seconds": 300,

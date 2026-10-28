@@ -4,7 +4,7 @@ Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.14
+Version: 00.01.15
 Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.14` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.15` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -83,6 +83,12 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 5. **Tomoe Gozen** (red): sword slashes up close, arrows farther away. Keep moving: Momentum climbs to 10, then "Charge!" tramples enemies; standing still halves Momentum.
 6. Level-up cards for weapons the Hero is expert in say "Expert!" (Heracles: Longbow, Throwing Axe, Bladed Discus).
 7. After dying, **Retry** keeps the Hero, **Change Hero** goes back to the select screen.
+
+**Leaderboard (00.01.15)**
+1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
+2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, it says "Online scores aren't switched on yet."
+3. After setup: type a name, **Submit score** → "Score submitted!"; **Leaderboard** lists it with the Hero, weapons, and upgrades. Within a few minutes it also appears in `leaderboard.json` on the `data` branch.
+4. Use any F1 game option (e.g. God mode), then die: the death screen says the run can't go on the leaderboard.
 
 ## Things most likely to need a fix on first open (couldn't be checked without Godot)
 - Pseudo-localization (`TranslationServer.pseudolocalization_enabled`).
