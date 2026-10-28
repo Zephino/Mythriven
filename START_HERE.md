@@ -25,6 +25,16 @@ This folder holds the game, the design, and the build docs. Cursor builds the ga
 4. Press **F5** (or the ▶ button at the top right) to run the game.
 5. The test add-on **GUT** is already included in `addons/gut/` and switched on. To check it: **Project → Project Settings → Plugins** tab; "Gut" should show **Enabled**.
 
+## Play in your browser
+
+Every push to `main` builds the game for the web and publishes it at:
+
+**https://zephino.github.io/Mythriven/**
+
+It works on PC and phone browsers. It's a test build, so **F1** (or a three-finger tap) opens the debug menu. Click or tap the game once if the controls don't respond. The build takes a few minutes after each push. Progress is shown in the repo's **Actions** tab under "Web build".
+
+One-time setup (already needed once): on GitHub open the repo → **Settings** → **Pages** (left side) → under **Build and deployment**, set **Source** to **GitHub Actions**. Then on the **Actions** tab, open **Web build** → **Run workflow**.
+
 ## Running the automated tests
 
 - **In the editor:** click the **GUT** tab at the bottom of the editor, then **Run All**. Every test should show green.

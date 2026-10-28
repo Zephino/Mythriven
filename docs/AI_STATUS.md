@@ -4,7 +4,7 @@ Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.04
+Version: 00.01.05
 Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -22,12 +22,12 @@ Last verified commit: run `git rev-parse HEAD` before resuming.
 - Done offline: every `.gd` file passes a GDScript syntax check (gdtoolkit 4.5); every data file passes a Python copy of the game's JSON validator; every translation key used in code exists in `localization/text.csv`; every script is under 300 lines.
 - Automated tests written (editor's GUT tab → Run All): `test_json_validator`, `test_content_gate`, `test_run_rng`, `test_data_files`, `test_player_movement`, `test_world`, `test_enemies`, `test_damage`, `test_weapons`, `test_progression`.
 
-## How to test (owner, in Godot 4.7.2)
-Run the game with **F5**. **F1** opens the debug menu (three-finger tap on a phone); most checks use its buttons. If anything fails, copy the red text from the **Output** panel at the bottom into a new message.
+## How to test (owner, in Godot 4.7.2 or the web link)
+Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched on; see `START_HERE.md`), or run the game in Godot with **F5**. **F1** opens the debug menu (three-finger tap on a phone); most checks use its buttons. If anything fails, copy the red text from the **Output** panel at the bottom into a new message.
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.04` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.05` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -78,7 +78,7 @@ Run the game with **F5**. **F1** opens the debug menu (three-finger tap on a pho
 - `dependencies.mdc`: no new dependencies since GUT.
 - `documentation.mdc`: PROGRESS, DECISIONS, JSON `_doc` notes, this file; `GAME_DESIGN.md` not edited.
 - `testing.mdc`: GUT tests for the damage formula order, XP curve, level-up card rules, soft curves, seeded generation, JSON validation, content gate. **Exception:** tests not yet run, so no phase reports written; FPS not yet measured.
-- `version.mdc`: one bump for this request, 00.01.04, in `VERSION`, `project.godot`, debug menu, main scene corner, and PROGRESS.
+- `version.mdc`: 00.01.04 for Phases 3–6, 00.01.05 for the web link; in `VERSION`, `project.godot`, debug menu, main scene corner, and PROGRESS.
 - `git-workflow.mdc`: one commit per phase with `v00.01.04 Phase N: …`; no secrets; no history rewriting; no tags. **Exception:** pushed straight to `main` by owner request.
 - `accessibility-for-interfaces.mdc`: level-up screen, death screen, HUD badge, and debug menu are keyboard/gamepad/touch usable with focus order, first control focused, 72 px targets, text through `tr()` in wrapping containers. A Settings screen for accessibility options comes in Phase 19.
 - `bug-investigation.mdc`: no bugs fixed in this task.
