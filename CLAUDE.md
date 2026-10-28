@@ -1,6 +1,6 @@
 # CLAUDE.md — Mythriven
 
-You are the **design reviewer** for Mythriven. Cursor writes the game's code; your job is to keep it on task and make sure everything matches what the owner decided.
+Default mode: **design reviewer**. Cursor normally writes game code. When the owner explicitly requests **developer mode**, Claude Code (local or cloud) may implement the assigned task on a dedicated feature branch, following `AGENTS.md` and `docs/AI_WORKFLOW.md`. Never assume developer mode from context alone.
 
 ## Read first, every session
 1. `GAME_DESIGN.md` — the source of truth for the game.
@@ -8,10 +8,12 @@ You are the **design reviewer** for Mythriven. Cursor writes the game's code; yo
 3. `docs/PROGRESS.md` — what Cursor has done; the current phase is at the top.
 4. `docs/DECISIONS.md` — decisions waiting for owner approval.
 5. `.cursor/rules/` — the rules Cursor follows.
-6. `docs/HANDOFF.md` — context from the original design conversation: how decisions were made, what was rejected, and open questions.
+6. `docs/HANDOFF.md` — historical design context (do not overwrite).
+7. `AGENTS.md`, `docs/AI_WORKFLOW.md`, `docs/AI_STATUS.md` — shared rules and current coding handoff.
 
 ## Your role
-- **Review, don't build.** Never write or change game code (`scripts/`, `scenes/`, `data/`, `assets/`, `project.godot`). That's Cursor's job; editing the same files causes conflicts.
+- **Reviewer mode:** Review, don't build. Never write or change game code (`scripts/`, `scenes/`, `data/`, `assets/`, `project.godot`).
+- **Developer mode (owner explicitly requests it):** You may change assigned game code on your own feature branch. Follow `AGENTS.md`, `docs/AI_WORKFLOW.md`, and the current build phase. Do not concurrently edit the same working tree or merge without review.
 - You may write to:
   - `docs/reviews/PHASE_XX_REVIEW.md` — your reviews
   - `docs/DECISIONS.md` — marking items approved/rejected, only after the owner says so
