@@ -14,6 +14,10 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Docs — README improvements (v00.01.10)
+- What changed: README now lists what's playable, the controls, all 20 phases with their status (Phase 7 current), and links to the project documents.
+- Files touched: `README.md`, `CHANGELOG.md`, `docs/AI_STATUS.md`, `VERSION`, `project.godot` (version only).
+
 ## 2026-10-28 — Phase 7 (early) — Bigger on phones, Ambrosia healing, easier start (v00.01.09)
 - What changed: new `DisplayScale` autoload makes everything 1.5× bigger on phones/tablets (`ui.handheld_scale`); Ambrosia healing pickups (`HealPickups`: 2% drop chance per kill, heals 30 HP, only collected when hurt, pooled); placeholder enemies hit softer (chaser 3, swarm 2) and spawn slower (1.5/s). Debug menu: "Drop an Ambrosia".
 - Files touched: `scripts/core/display_scale.gd`, `scripts/world/heal_pickups.gd` (new); `scripts/core/main.gd`, `scripts/core/debug_actions_progress.gd`, `project.godot` (autoload, version), `data/config.json` (`ui.handheld_scale`, `pickups.ambrosia_*`, `enemies.auto_spawn_per_s`), `data/schemas.json`, `data/enemies.json`, `localization/text.csv`, `tests/test_progression.gd`, `CHANGELOG.md`, `docs/DECISIONS.md`, `VERSION`.

@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.10
+Date: 10/28/2026
+Time: 4:29 PM
+
+### Changes
+- README: added "What you can play right now" (current weapons, passives, level-ups, Ambrosia), a controls table for PC, gamepad, and phones (including the debug menu), a phase-by-phase status table for all 20 phases showing Phase 7 as current, and a table linking the project documents. Kept the existing look, play link, and license section.
+- Bumped the version to 00.01.10.
+
+### Reason
+The owner asked for a better README on GitHub and a reminder of all the phases.
+
 ## Version 00.01.09
 Date: 10/28/2026
 Time: 4:06 PM
