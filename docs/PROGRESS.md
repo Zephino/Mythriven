@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Fix — "Give me all six spells" gave fewer (v00.01.12)
+- Cause: the button respected the 6-weapon limit, and the Great Club (plus any picked-up weapon) already used slots, so at most 5 spells were added.
+- Fix: the debug-only button now ignores the limit and reports what it added. Normal play still holds at most 6 weapons.
+- Files touched: `scripts/core/debug_actions_elements.gd`, `localization/text.csv`, `CHANGELOG.md`, `docs/AI_STATUS.md`, `VERSION`, `project.godot`.
+
 ## 2026-10-28 — Phase 8 — Elements (v00.01.11)
 - What changed: `elements.json` (elements, statuses, reactions, tier names); statuses as data on pooled enemies ticked at 5 Hz (`EnemyStatuses`); hits resolved by `HitResolver` (weakness/resistance, counterplay, Conduct / Steam Burst / Shatter / Spread, Shock, Hex, Gust push, reaction budget 30/s); damage-number styles for weak, resist, and damage over time; reaction names and rings; six spell weapons (Ember, Frost, Spark, Breeze, Glimmer, Shade) with `StrikePattern`, `OrbitPattern`, `AuraPattern`, and orbiting projectiles; spell tier names on cards with a tier-up sound; player statuses from 30:00 (`PlayerStatuses`); placeholder enemies given elements; debug tools for statuses.
 - Files touched: `data/elements.json` (new), `data/weapons.json`, `data/enemies.json`, `data/config.json`, `data/schemas.json`; `scripts/combat/` (`elements.gd`, `enemy_statuses.gd`, `hit_resolver.gd`, `fire_patterns/strike_pattern.gd`, `orbit_pattern.gd`, `aura_pattern.gd` new; `combat_system.gd`, `projectiles.gd`, `effects.gd`, `weapons/weapon_instance.gd`); `scripts/player/player_statuses.gd` (new), `player.gd`; `scripts/enemies/enemy_manager.gd`; `scripts/core/` (`game_authority.gd`, `main.gd`, `debug_actions_elements.gd` new); `scripts/ui/` (`damage_numbers.gd`, `card_text.gd`, `level_up_screen.gd`); `localization/text.csv`; `tests/test_elements.gd` (new), `tests/test_weapons.gd`; README, CHANGELOG, docs.

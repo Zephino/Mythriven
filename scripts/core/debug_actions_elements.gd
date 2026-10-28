@@ -35,17 +35,22 @@ func _status_info() -> String:
 	]
 
 
-## Gives the local player every elemental spell (as many as there are free weapon slots).
+## Gives the local player every elemental spell they don't have yet. Test
+## only: this ignores the normal 6-weapon limit so all six can be tried at once.
 func _give_spells() -> void:
 	var player: Player = GameAuthority.local_player()
 	if player == null:
 		return
+	var given: PackedStringArray = []
 	for spell_id: String in SPELLS:
 		var owned: bool = false
 		for weapon: WeaponInstance in player.weapons:
 			owned = owned or weapon.id() == spell_id
-		if not owned and player.weapons.size() < Data.cfg_int("level_up.max_weapons"):
-			GameAuthority.give_weapon(player, spell_id)
+		if not owned:
+			var weapon: WeaponInstance = GameAuthority.give_weapon(player, spell_id)
+			if weapon != null:
+				given.append(tr(weapon.name_key()))
+	DebugMenu.show_result(tr("DEBUG_SPELLS_GIVEN") % [", ".join(given), player.weapons.size()])
 
 
 func _apply_nearby(status_id: String) -> void:

@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.12
+Date: 10/28/2026
+Time: 4:49 PM
+
+### Changes
+- The debug button "Give me all six spells" now really gives all six (test only: it ignores the normal 6-weapon limit) and shows which spells it added.
+- Bumped the version to 00.01.12.
+
+### Reason
+The owner didn't see six spells: with the Great Club (and any other weapon) already taking slots, the 6-weapon limit stopped the button from adding them all.
+
 ## Version 00.01.11
 Date: 10/28/2026
 Time: 4:39 PM

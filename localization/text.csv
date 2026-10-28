@@ -166,7 +166,8 @@ WEAPON_GLIMMER_DESC,Holy lights circle you and strike enemies they pass.
 WEAPON_SHADE_DESC,"A dark aura harms nearby enemies, can Hex them, and heals you a little for each one it touches."
 UI_WEAK_HIT,%s!
 CARD_TIER_CHANGE,%s → %s
-DEBUG_GIVE_SPELLS,Give me all six spells
+DEBUG_GIVE_SPELLS,Give me all six spells (ignores the weapon limit)
+DEBUG_SPELLS_GIVEN,"Added: %s. You now hold %d weapons."
 DEBUG_APPLY_BURN,Burn nearby enemies
 DEBUG_APPLY_CHILL,Chill nearby enemies
 DEBUG_APPLY_SHOCK,Shock nearby enemies
