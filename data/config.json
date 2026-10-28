@@ -8,6 +8,7 @@
     "rng_test_seed": 12345,
     "rng_test_count": 5,
     "grid_spacing_px": 64,
+    "teleport_px": 10000,
     "grid_color": "#ffffff26"
   },
 
@@ -20,6 +21,12 @@
     "pseudo_double_vowels": false,
     "pseudo_fake_bidi": false,
     "pseudo_skip_placeholders": true
+  },
+
+  "run": {
+    "_doc": "Which level a run starts on until the level select exists (Phase 15). fixed_seed 0 = a new random seed every run; any other number repeats the same world.",
+    "default_level": "aegean_shore",
+    "fixed_seed": 0
   },
 
   "player": {
@@ -75,6 +82,7 @@
     "tile_px": 16,
     "chunk_tiles": 32,
     "loaded_chunks_per_side": 5,
+    "build_tiles_per_frame": 1024,
     "origin_shift_px": 50000,
     "region_chunks": 4,
     "poi_chance": 0.35,

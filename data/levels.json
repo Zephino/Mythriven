@@ -1,0 +1,33 @@
+[
+  {
+    "_doc": "One entry per regional level (GAME_DESIGN.md: Data files / levels.json). Pack 1 only. Phase 3 uses the tileset and decorations; the other fields are filled in by later phases. All colours and shapes are placeholder art.",
+    "id": "aegean_shore",
+    "name_key": "LEVEL_AEGEAN_SHORE_NAME",
+    "region": "greek",
+    "act": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "aegean_shore",
+      "noise_frequency": 0.035,
+      "variant_shade": 0.05,
+      "ground": [
+        { "id": "stone", "max": -0.45, "placeholder_color": "#a7a196", "placeholder_dots": "" },
+        { "id": "dirt", "max": -0.15, "placeholder_color": "#b08d5b", "placeholder_dots": "" },
+        { "id": "grass", "max": 0.45, "placeholder_color": "#7e9150", "placeholder_dots": "" },
+        { "id": "flowers", "max": 1.0, "placeholder_color": "#7e9150", "placeholder_dots": "#e8e0f0" }
+      ]
+    },
+    "decorations": ["olive_tree", "broken_column", "marble_ruin"],
+    "decorations_per_chunk": [3, 8],
+    "decoration_art": {
+      "olive_tree": { "shape": "circle", "size_px": [14, 14], "placeholder_color": "#56683a", "weight": 3 },
+      "broken_column": { "shape": "rect", "size_px": [6, 18], "placeholder_color": "#ece7da", "weight": 2 },
+      "marble_ruin": { "shape": "rect", "size_px": [22, 10], "placeholder_color": "#d9d3c5", "weight": 1 }
+    },
+    "local_gods": ["tyche", "poseidon"],
+    "local_shrine_chance": 0.5,
+    "bosses": { "10": "medusa", "20": "achilles", "30": "kronos" },
+    "unlock": { "type": "starting" },
+    "unlocks_hero_on_defeat": "achilles"
+  }
+]

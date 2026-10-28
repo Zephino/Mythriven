@@ -1,8 +1,8 @@
 extends Node
-## Main scene. Phase 2: one local player (placeholder square) that moves with
-## keyboard, gamepad, or the touch joystick, and a camera that follows it.
-## Also shows the Phase 1 translation test label, the build version in the
-## corner, and any data errors found at startup.
+## Main scene. Builds the run: the endless ground (Phase 3), one local
+## player that moves with keyboard, gamepad, or the touch joystick (Phase 2),
+## and a camera that follows it. Also shows the Phase 1 translation test label,
+## the build version in the corner, and any data errors found at startup.
 
 var _test_label: Label
 var _version_label: Label
@@ -16,18 +16,34 @@ func _ready() -> void:
 
 
 func _build_world(joystick: VirtualJoystick) -> void:
-	var world := Node2D.new()
+	var run: RunState = GameAuthority.start_run(Data.cfg_string("run.default_level"))
+	var world := WorldRoot.new()
 	world.name = "World"
 	add_child(world)
-	if OS.is_debug_build():
-		var grid: Node2D = preload("res://scripts/world/debug_grid.gd").new()
-		world.add_child(grid)
+	var chunks := ChunkManager.new()
+	world.add_child(chunks)
+	chunks.setup(run.level, run.seed_value)
+	world.origin_shifted.connect(chunks.on_origin_shifted)
+
 	var input := PlayerInput.new()
 	input.joystick = joystick
 	var player: Player = GameAuthority.spawn_player(world, Vector2.ZERO, input, true)
+	chunks.update_chunks()
+	chunks.build_all_now()
+
 	var camera := GameCamera.new()
 	camera.target = player
 	world.add_child(camera)
+
+	if OS.is_debug_build():
+		var grid: Node2D = preload("res://scripts/world/debug_grid.gd").new()
+		world.add_child(grid)
+		var actions: Node = preload("res://scripts/core/debug_actions.gd").new()
+		actions.set("world", world)
+		actions.set("chunks", chunks)
+		actions.set("grid", grid)
+		actions.set("camera", camera)
+		add_child(actions)
 
 
 func _build_ui(joystick: VirtualJoystick) -> void:

@@ -14,6 +14,7 @@
               "rng_test_seed": "number",
               "rng_test_count": "number",
               "grid_spacing_px": "number",
+              "teleport_px": "number",
               "grid_color": "string"
             }
           },
@@ -27,6 +28,13 @@
               "pseudo_double_vowels": "bool",
               "pseudo_fake_bidi": "bool",
               "pseudo_skip_placeholders": "bool"
+            }
+          },
+          "run": {
+            "type": "object",
+            "fields": {
+              "default_level": "string",
+              "fixed_seed": "number"
             }
           },
           "player": {
@@ -93,6 +101,7 @@
               "tile_px": "number",
               "chunk_tiles": "number",
               "loaded_chunks_per_side": "number",
+              "build_tiles_per_frame": "number",
               "origin_shift_px": "number",
               "region_chunks": "number",
               "poi_chance": "number",
@@ -341,6 +350,68 @@
             "type": "object",
             "fields": {
               "oracle_runs_per_hint": "number"
+            }
+          }
+        }
+      }
+    },
+    "levels.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "region": "string",
+            "act": "int",
+            "care_tier": "string",
+            "tileset": {
+              "type": "object",
+              "fields": {
+                "id": "string",
+                "noise_frequency": "number",
+                "variant_shade": "number",
+                "ground": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "id": "string",
+                      "max": "number",
+                      "placeholder_color": "string",
+                      "placeholder_dots": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "decorations": {
+              "type": "array",
+              "items": "string"
+            },
+            "decorations_per_chunk": {
+              "type": "array",
+              "items": "int"
+            },
+            "decoration_art": {
+              "type": "object"
+            },
+            "local_gods": {
+              "type": "array",
+              "items": "string"
+            },
+            "local_shrine_chance": "number",
+            "bosses": {
+              "type": "object"
+            },
+            "unlock": {
+              "type": "object"
+            },
+            "unlocks_hero_on_defeat": {
+              "type": "any",
+              "optional": true
             }
           }
         }

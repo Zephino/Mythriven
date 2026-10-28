@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 2 — Player movement (Phase 1 built but not yet tested; owner approved starting Phase 2 on 2026-10-28)
+**Current phase:** Phase 6 — XP, level-ups, and the run log (Phases 1–6 built but not yet tested; the owner asked for Phases 3–6 to be built before testing, 2026-10-28)
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-28 — Phase 3 — Endless map (v00.01.04)
+- Agent: Claude Code (cloud), developer mode. The owner asked for Phases 3–6 in one go, before Phases 1–2 were tested.
+- What changed: `levels.json` with The Aegean Shore (placeholder tileset colours, decorations, local gods and bosses from GAME_DESIGN.md); chunk manager keeping a 5×5 grid of 32×32-tile chunks (16 px tiles) around each player, with pooled chunks and ground painted a few rows per frame so walking doesn't stutter; ground from FastNoiseLite (stone, dirt, grass, flowers); decorations (olive trees, broken columns, marble ruins) placed by a generator seeded from the run seed and chunk position, no collision; world origin shift past 50,000 px (`WorldRoot`); `RunState` with the run seed (random each run unless `run.fixed_seed` is set); a fourth RNG stream, `combat`. The debug menu was reworked so each system adds its own options (`add_button` / `add_check` / `add_info`); the player options moved to `scripts/core/debug_actions.gd`, and a seed/chunk info line and a "Jump far east" button were added. The reference grid is now off by default, since the ground shows movement.
+- Files touched: `data/levels.json` (new), `data/config.json` (`run`, `world.build_tiles_per_frame`, `debug.teleport_px`), `data/schemas.json`, `scripts/world/` (`world_root.gd`, `chunk_manager.gd`, `chunk.gd`, `level_art.gd` new; `debug_grid.gd`), `scripts/core/` (`run_state.gd`, `debug_actions.gd` new; `main.gd`, `debug_menu.gd`, `game_authority.gd`, `run_rng.gd`), `localization/text.csv`, `tests/test_world.gd` (new), `VERSION`, `project.godot`.
+- Unfinished / next: not run in Godot. Memory/FPS checks need the owner's PC.
 
 ## 2026-10-28 — Phase 2 — Work moved onto main (v00.01.03)
 - What changed: at the owner's instruction, Phases 1–2 (versions 00.01.00–00.01.03) were pushed straight to `main` with no pull request. Recorded in `docs/DECISIONS.md`. No game code changed.

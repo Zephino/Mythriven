@@ -1,24 +1,26 @@
 extends CanvasLayer
 ## Autoload "DebugMenu" (dev builds only). F1 on PC or a three-finger tap on
-## mobile opens it. Phase 1 shows the version and FPS, and has buttons to test
-## pseudo-localization, the release content gate, data validation, and the
-## seeded RNGs. Phase 2 adds player info, a reference grid, and a position
-## reset. Later phases add their own test options here.
+## mobile opens it. It always shows the version and FPS and has the Phase 1
+## tests (pseudo-localization, release content gate, data validation, seeded
+## RNGs). Game systems add their own test options with add_button(),
+## add_check(), and add_info(); see scripts/core/debug_actions.gd.
 
 const FIXTURE_DIR := "res://tests/fixtures/"
 const FIXTURE_SCHEMAS := "fixture_schemas.json"
 const GATE_FIXTURE := "gate_entries.json"
 const MENU_LAYER := 100
 
-## Phase 2 test aid: draw a reference grid in the world (see debug_grid.gd).
-var show_grid: bool = true
-
 var _panel: PanelContainer
+var _box: VBoxContainer
 var _fps_label: Label
-var _player_label: Label
+var _info_label: Label
 var _version_label: Label
 var _result_label: Label
-var _first_focus: Control
+var _close_button: Button
+var _controls: Array[Control] = []
+## Each entry: {"owner": Node, "provider": Callable} returning one line of text.
+var _infos: Array[Dictionary] = []
+var _owners: Dictionary = {}
 var _touches: Dictionary = {}
 var _fps_timer: float = 0.0
 var _last_action: Callable = Callable()
@@ -52,7 +54,10 @@ func _process(delta: float) -> void:
 	if _fps_timer <= 0.0:
 		_fps_timer = Data.cfg_float("debug.fps_refresh_s")
 		_fps_label.text = tr("DEBUG_FPS_LABEL") % int(Engine.get_frames_per_second())
-		_player_label.text = _player_info()
+		var lines: PackedStringArray = []
+		for info: Dictionary in _infos:
+			lines.append(str((info["provider"] as Callable).call()))
+		_info_label.text = "\n".join(lines)
 
 
 func toggle() -> void:
@@ -60,7 +65,64 @@ func toggle() -> void:
 	if _panel.visible:
 		_fps_timer = 0.0
 		_refresh_text()
-		_first_focus.grab_focus()
+		_controls[0].grab_focus()
+
+
+func is_open() -> bool:
+	return _panel != null and _panel.visible
+
+
+# --- Options added by game systems --------------------------------------------
+
+## Adds a button; it is removed again when `source` leaves the scene tree.
+func add_button(source: Node, key: String, action: Callable) -> void:
+	_add_control(source, _make_button(key, action))
+
+
+## Adds an on/off switch; it is removed again when `source` leaves the scene tree.
+func add_check(source: Node, key: String, start_on: bool, action: Callable) -> void:
+	_add_control(source, _make_check(key, start_on, action))
+
+
+## Adds a line of live info (refreshed with the FPS counter).
+func add_info(source: Node, provider: Callable) -> void:
+	_infos.append({"owner": source, "provider": provider})
+	_watch_owner(source)
+
+
+## Shows text in the result area at the bottom of the menu.
+func show_result(text: String) -> void:
+	_last_action = Callable()
+	_result_label.text = text
+
+
+func _add_control(source: Node, control: Control) -> void:
+	control.set_meta("debug_owner", source)
+	_box.add_child(control)
+	_box.move_child(control, _close_button.get_index())
+	_controls.insert(_controls.find(_close_button), control)
+	_link_focus()
+	_watch_owner(source)
+
+
+## Removes a system's options when it leaves the scene (for example on Retry).
+func _watch_owner(source: Node) -> void:
+	if _owners.has(source):
+		return
+	_owners[source] = true
+	source.tree_exiting.connect(_remove_owner.bind(source), CONNECT_ONE_SHOT)
+
+
+func _remove_owner(source: Node) -> void:
+	_owners.erase(source)
+	for control: Control in _controls.duplicate():
+		if control.get_meta("debug_owner", null) == source:
+			_controls.erase(control)
+			control.queue_free()
+	for info: Dictionary in _infos.duplicate():
+		if info["owner"] == source:
+			_infos.erase(info)
+	_link_focus()
 
 
 func _track_touch(touch: InputEventScreenTouch) -> void:
@@ -88,36 +150,35 @@ func _build() -> void:
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.custom_minimum_size = _menu_size()
 	margin.add_child(scroll)
-	var box := VBoxContainer.new()
-	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(box)
+	_box = VBoxContainer.new()
+	_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(_box)
 
-	box.add_child(_make_label("DEBUG_MENU_TITLE", true))
+	_box.add_child(_make_label("DEBUG_MENU_TITLE", true))
 	_version_label = _make_label("", false)
-	box.add_child(_version_label)
+	_box.add_child(_version_label)
 	_fps_label = _make_label("", false)
-	box.add_child(_fps_label)
-	_player_label = _make_label("", false)
-	box.add_child(_player_label)
+	_box.add_child(_fps_label)
+	_info_label = _make_label("", false)
+	_info_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_box.add_child(_info_label)
 
-	var controls: Array[Control] = [
+	_close_button = _make_button("DEBUG_CLOSE", toggle)
+	_controls = [
 		_make_check("DEBUG_PSEUDO_LOC", Localization.pseudo_enabled, _on_pseudo_toggled),
 		_make_check("DEBUG_SIMULATE_RELEASE", Data.simulate_release, _on_simulate_release_toggled),
 		_make_button("DEBUG_GATE_TEST", _show_gate_test),
 		_make_button("DEBUG_VALIDATE_FIXTURES", _on_validate_pressed),
 		_make_button("DEBUG_RNG_TEST", _show_rng_test),
-		_make_check("DEBUG_SHOW_GRID", show_grid, _on_grid_toggled),
-		_make_button("DEBUG_RESET_PLAYER", _reset_player),
-		_make_button("DEBUG_CLOSE", toggle),
+		_close_button,
 	]
-	for control: Control in controls:
-		box.add_child(control)
-	_link_focus(controls)
-	_first_focus = controls[0]
+	for control: Control in _controls:
+		_box.add_child(control)
+	_link_focus()
 
 	_result_label = _make_label("", false)
 	_result_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	box.add_child(_result_label)
+	_box.add_child(_result_label)
 
 
 func _make_label(key: String, translate: bool) -> Label:
@@ -147,13 +208,13 @@ func _make_check(key: String, start_on: bool, on_toggled: Callable) -> CheckButt
 
 
 ## D-pad / arrow keys move through the controls in order and wrap around.
-func _link_focus(controls: Array[Control]) -> void:
-	var count: int = controls.size()
+func _link_focus() -> void:
+	var count: int = _controls.size()
 	for i: int in count:
-		var control: Control = controls[i]
+		var control: Control = _controls[i]
 		control.focus_mode = Control.FOCUS_ALL
-		control.focus_neighbor_top = control.get_path_to(controls[(i - 1 + count) % count])
-		control.focus_neighbor_bottom = control.get_path_to(controls[(i + 1) % count])
+		control.focus_neighbor_top = control.get_path_to(_controls[(i - 1 + count) % count])
+		control.focus_neighbor_bottom = control.get_path_to(_controls[(i + 1) % count])
 
 
 func _menu_size() -> Vector2:
@@ -169,7 +230,7 @@ func _safe_area_offset() -> Vector2:
 	return Vector2(DisplayServer.get_display_safe_area().position)
 
 
-# --- Actions -----------------------------------------------------------------
+# --- Phase 1 tests -------------------------------------------------------------
 
 func _refresh_text() -> void:
 	_version_label.text = tr("DEBUG_VERSION_LABEL") % ProjectSettings.get_setting("application/config/version", "")
@@ -179,31 +240,6 @@ func _refresh_text() -> void:
 
 func _on_pseudo_toggled(on: bool) -> void:
 	Localization.set_pseudo(on)
-
-
-func _on_grid_toggled(on: bool) -> void:
-	show_grid = on
-
-
-func _player_info() -> String:
-	var player: Player = GameAuthority.local_player()
-	if player == null:
-		return tr("DEBUG_NO_PLAYER") % GameAuthority.players.size()
-	return tr("DEBUG_PLAYER_INFO") % [
-		GameAuthority.players.size(), roundi(player.position.x), roundi(player.position.y),
-		player.facing.x, player.facing.y, roundi(player.velocity.length()),
-	]
-
-
-## Moves the local player back to the start (0, 0) and snaps the camera there.
-func _reset_player() -> void:
-	var player: Player = GameAuthority.local_player()
-	if player == null:
-		return
-	player.position = Vector2.ZERO
-	var camera: Camera2D = get_viewport().get_camera_2d()
-	if camera is GameCamera:
-		(camera as GameCamera).snap_to_target()
 
 
 func _on_simulate_release_toggled(on: bool) -> void:

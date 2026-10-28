@@ -1,6 +1,9 @@
 extends Node2D
-## Dev-build test aid until the map arrives in Phase 3: faint grid lines
-## around the camera so you can see the player move. Toggled in the debug menu.
+## Dev-build test aid: faint grid lines over the world (64 px apart by
+## default), handy for judging movement and enemy spacing. Off by default;
+## toggled in the debug menu.
+
+var enabled: bool = false
 
 
 func _ready() -> void:
@@ -8,7 +11,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	visible = DebugMenu.show_grid
+	visible = enabled
 	if visible:
 		queue_redraw()
 
