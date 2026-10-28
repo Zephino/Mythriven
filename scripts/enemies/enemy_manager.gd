@@ -93,7 +93,7 @@ func spawn(type_id: String, at: Vector2) -> int:
 	kind[slot] = type_index[type_id]
 	positions[slot] = at
 	knockback[slot] = Vector2.ZERO
-	hp[slot] = float(data["hp"])
+	hp[slot] = float(data["hp"]) * LevelScaling.hp_mult(LevelScaling.current_level())
 	radius[slot] = float(data["radius_px"])
 	contact_timer[slot] = 0.0
 	flash_timer[slot] = 0.0
@@ -222,7 +222,8 @@ func _contact(delta: float) -> void:
 			if positions[i].distance_to(player.position) <= player.body_radius + radius[i] + margin:
 				contact_timer[i] = interval
 				var data: Dictionary = types[kind[i]]
-				var damage: float = float(data["contact_damage"]) * statuses.outgoing_damage_mult(i)
+				var damage: float = float(data["contact_damage"]) * statuses.outgoing_damage_mult(i) \
+						* LevelScaling.damage_mult(LevelScaling.current_level())
 				GameAuthority.damage_player(player, damage, str(data["id"]))
 				GameAuthority.status_player_from_enemy(player, str(data.get("element", "")))
 

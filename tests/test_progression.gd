@@ -140,3 +140,12 @@ func test_ambrosia_heals_only_hurt_players_and_not_above_max() -> void:
 	heals._process(0.016)
 	assert_eq(heals.count(), 0, "a hurt player picks it up")
 	assert_eq(_player.hp, _player.max_hp, "healing never goes above Max HP")
+
+
+func test_more_enemies_every_5_levels_and_tougher_every_10() -> void:
+	assert_eq(LevelScaling.spawn_mult(4), 1.0)
+	assert_eq(LevelScaling.spawn_mult(5), 1.25)
+	assert_eq(LevelScaling.spawn_mult(12), 1.5)
+	assert_eq(LevelScaling.hp_mult(9), 1.0)
+	assert_eq(LevelScaling.hp_mult(10), 1.5)
+	assert_eq(LevelScaling.damage_mult(20), 1.5)

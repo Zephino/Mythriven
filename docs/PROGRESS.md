@@ -14,6 +14,10 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Phase 7 tuning — Level-based difficulty (v00.01.14)
+- What changed: new `LevelScaling` (`scripts/enemies/level_scaling.gd`): spawn rate ×(1 + 0.25 per 5 levels); enemy HP ×(1 + 0.5 per 10 levels) and contact damage ×(1 + 0.25 per 10 levels), applied when enemies spawn and when they hit. Config `enemies.level_scaling`.
+- Files touched: `scripts/enemies/level_scaling.gd` (new), `scripts/enemies/enemy_manager.gd`, `scripts/enemies/spawner.gd`, `scripts/core/debug_actions_combat.gd`, `data/config.json`, `data/schemas.json`, `localization/text.csv`, `tests/test_progression.gd`, docs.
+
 ## 2026-10-28 — Phase 9 — Heroes (v00.01.13)
 - What changed: `heroes.json` (4 starting Heroes, gated); Hero select screen; Hero kits in `scripts/player/hero_traits/` (`hero_kit.gd`, `twelve_labors.gd`, `salmon_leap.gd`, `song_of_power.gd`, `cavalry_charge.gd`); `HeroRules` (expertise); stats from the Hero (`PlayerStats.from_hero`, new attack speed and status duration stats); expertise in `WeaponInstance` (`attack_interval`, `damage`, level-8 bonus); new patterns `ThrustPattern` (Gáe Bolg) and `SwitchPattern` (Sword and Bow); Runo Song element cycle; 7 new weapons; Change Hero; HUD trait line; Expert badge; `open` objects in data schemas.
 - Files touched: `data/heroes.json` (new), `data/weapons.json`, `data/config.json` (`heroes`), `data/schemas.json`; `scripts/player/` (new: `hero_rules.gd`, `hero_traits/*`; changed: `player.gd`, `player_stats.gd`); `scripts/combat/` (new: `fire_patterns/thrust_pattern.gd`, `switch_pattern.gd`; changed: `arc_pattern.gd`, `projectile_pattern.gd`, `projectiles.gd`, `combat_system.gd`, `hit_resolver.gd`, `effects.gd`, `weapons/weapon_instance.gd`); `scripts/ui/` (new: `hero_select.gd`; changed: `hud.gd`, `death_screen.gd`, `card_text.gd`, `damage_numbers.gd`); `scripts/meta/level_up_rules.gd`; `scripts/core/` (`main.gd`, `game_authority.gd`, `json_validator.gd`, `debug_actions.gd`); `localization/text.csv`; `tests/test_heroes.gd` (new), `tests/test_elements.gd`.

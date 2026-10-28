@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.14
+Date: 10/28/2026
+Time: 5:02 PM
+
+### Changes
+- Difficulty now grows with your level: every **5 levels** enemies spawn 25% faster, and every **10 levels** enemies get +50% HP and +25% contact damage. All steps are in `data/config.json` → `enemies.level_scaling`.
+- The debug enemy line shows the current spawn and enemy HP multipliers.
+- New automated test for the scaling; bumped the version to 00.01.14.
+
+### Reason
+The owner asked for more enemies every 5 levels and higher difficulty every 10 levels.
+
 ## Version 00.01.13
 Date: 10/28/2026
 Time: 5:01 PM

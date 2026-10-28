@@ -33,7 +33,7 @@ DEBUG_KILL_ALL,Remove all enemies
 DEBUG_AUTO_SPAWN,Automatic spawning
 DEBUG_GOD_MODE,God mode (take no damage)
 DEBUG_HEAL,Heal to full
-DEBUG_ENEMY_INFO,"Enemies %d / %d · player HP %d · time %s · kills %d"
+DEBUG_ENEMY_INFO,"Enemies %d / %d · player HP %d · time %s · kills %d · spawns ×%.2f · enemy HP ×%.2f"
 UI_FALLEN_TITLE,You have fallen
 UI_RETRY,Retry
 UI_SURVIVED,Survived %s

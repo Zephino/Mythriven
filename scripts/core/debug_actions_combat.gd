@@ -23,7 +23,8 @@ func _enemy_info() -> String:
 	var player_hp: int = roundi(player.hp) if player != null else 0
 	return tr("DEBUG_ENEMY_INFO") % [
 		enemies.active_count(), enemies.capacity, player_hp, TextFormat.run_time(GameAuthority.run.elapsed_s),
-		GameAuthority.run.kills,
+		GameAuthority.run.kills, LevelScaling.spawn_mult(LevelScaling.current_level()),
+		LevelScaling.hp_mult(LevelScaling.current_level()),
 	]
 
 

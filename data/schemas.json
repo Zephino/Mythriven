@@ -402,7 +402,17 @@
               "hit_flash_s": "number",
               "hit_flash_color": "string",
               "placeholder_texture_px": "number",
-              "status_tint_strength": "number"
+              "status_tint_strength": "number",
+              "level_scaling": {
+                "type": "object",
+                "fields": {
+                  "spawn_every_levels": "number",
+                  "spawn_rate_step": "number",
+                  "difficulty_every_levels": "number",
+                  "hp_step": "number",
+                  "damage_step": "number"
+                }
+              }
             }
           },
           "bosses": {

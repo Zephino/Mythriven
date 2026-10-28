@@ -19,7 +19,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if auto_spawn:
-		_spawn_budget += Data.cfg_float("enemies.auto_spawn_per_s") * delta
+		var rate: float = Data.cfg_float("enemies.auto_spawn_per_s") * LevelScaling.spawn_mult(LevelScaling.current_level())
+		_spawn_budget += rate * delta
 		while _spawn_budget >= 1.0:
 			_spawn_budget -= 1.0
 			_auto_spawn_once()

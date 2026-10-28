@@ -305,7 +305,15 @@
     "hit_flash_s": 0.08,
     "hit_flash_color": "#ffffff",
     "placeholder_texture_px": 32,
-    "status_tint_strength": 0.6
+    "status_tint_strength": 0.6,
+    "level_scaling": {
+      "_doc": "Owner request: every spawn_every_levels player levels, spawns rise by spawn_rate_step (+25%); every difficulty_every_levels levels, enemy HP rises by hp_step (+50%) and contact damage by damage_step (+25%).",
+      "spawn_every_levels": 5,
+      "spawn_rate_step": 0.25,
+      "difficulty_every_levels": 10,
+      "hp_step": 0.5,
+      "damage_step": 0.25
+    }
   },
 
   "bosses": {
