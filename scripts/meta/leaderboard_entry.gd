@@ -86,12 +86,22 @@ static func _items(raw: Variant, weapons: bool) -> String:
 		var level: int = int(item.get("level", 0))
 		var key: String = ""
 		if weapons:
-			var weapon: Dictionary = GameAuthority.find_weapon(id)
+			var weapon: Dictionary = _weapon_data(id)
 			key = WeaponInstance.name_key_at(weapon, maxi(level, 1)) if not weapon.is_empty() else ""
 		else:
 			key = str(LevelUpRules.passive_data(id).get("name_key", ""))
 		parts.append(_tr("UI_LB_ITEM") % [_tr(key) if key != "" else id, level])
 	return ", ".join(parts) if not parts.is_empty() else _tr("UI_LB_NONE")
+
+
+## Like GameAuthority.find_weapon, but quiet: scores from other game versions may
+## name weapons this version doesn't have.
+static func _weapon_data(weapon_id: String) -> Dictionary:
+	var listed: Variant = Data.get_file("weapons.json")
+	for weapon: Variant in (listed if listed is Array else []):
+		if weapon is Dictionary and str(weapon.get("id", "")) == weapon_id:
+			return weapon
+	return {}
 
 
 static func _tr(key: String) -> String:

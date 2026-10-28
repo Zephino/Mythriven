@@ -8,6 +8,7 @@ Time: 5:15 PM
 
 ### Changes
 - Added the new leaderboard settings to the data rules (`data/schemas.json`), which fixes the two automated tests that failed in 00.01.15.
+- Leaderboard rows that name a weapon this version doesn't have (for example from an older or newer version) now show its id quietly instead of printing an error (the last failing automated test).
 - Re-published the web game: GitHub's second publisher (the "Deploy from a branch" Pages setting) finished last and replaced the game with a plain text page.
 
 ### Reason
