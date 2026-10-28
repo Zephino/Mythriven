@@ -32,6 +32,8 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 	var element_mult: float = Elements.multiplier(data, element)
 	var bonus: float = 1.0
 	if allow_reactions:
+		if attacker != null and not attacker.god_flags.is_empty():
+			Blessings.harmony_before_hit(attacker, slot, element, base, at)
 		if element == "fire" and st.has(slot, "soaked"):
 			st.remove(slot, "soaked")
 			status_id = ""
@@ -50,7 +52,7 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 		if str(attacker.god_flags.get("always_burn_element", "")) == element:
 			status_chance = 1.0
 	var result: Dictionary = Damage.hit(base, 0.0, might, crit_chance,
-			Data.cfg_float("combat.crit_mult"), _rng().randf(), element_mult * bonus * shock_mult, armor,
+			Data.cfg_float("combat.crit_mult") + Infusions.crit_bonus(weapon), _rng().randf(), element_mult * bonus * shock_mult, armor,
 			Data.cfg_float("combat.min_damage"))
 	var amount: float = float(result["amount"]) * st.damage_taken_mult(slot)
 	var to_hp: float = enemies.elites.absorb(slot, amount, element == "holy")
@@ -58,12 +60,16 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
 	enemies.knockback[slot] += push * (1.0 - float(data.get("knockback_resist", 0.0)))
 	if status_id != "" and _rng().randf() < status_chance:
-		_apply_status(slot, status_id, push, data, attacker.stats.status_duration_mult() if attacker != null else 1.0)
+		_apply_status(slot, status_id, push, data, _status_duration(attacker, weapon, status_id))
 	var kind: String = _number_kind(bool(result["crit"]), element_mult) if to_hp > 0.0 else "resist"
 	GameAuthority.enemy_damaged.emit(slot, amount, kind, at)
 	if attacker != null and not attacker.god_flags.is_empty() and enemies.active[slot] != 0:
 		Blessings.after_hit(attacker, weapon, slot, element)
+	if weapon != null and weapon.infusion != "" and attacker != null:
+		Infusions.on_hit(weapon, attacker, slot)
 	if enemies.hp[slot] <= 0.0:
+		if weapon != null and weapon.infusion != "" and attacker != null and GameAuthority.gods != null:
+			Infusions.on_kill(weapon, attacker, slot, at, GameAuthority.gods.ground, GameAuthority.gods.gold)
 		GameAuthority.kill_enemy(slot, attacker)
 	return amount
 
@@ -128,6 +134,16 @@ func _react(slot: int, base: float, attacker: Player, element: String, status_ch
 				st.apply(targets[i], status_id)
 		_announce("spread", at, float(spread.get("radius_tiles", 3)) * tile, attacker)
 	return 1.0
+
+
+## Status length: the attacker's status duration, Frozen Deluge's longer Chill, Empowered weapons.
+func _status_duration(attacker: Player, weapon: WeaponInstance, status_id: String) -> float:
+	var mult: float = attacker.stats.status_duration_mult() if attacker != null else 1.0
+	if attacker != null and status_id == "chill":
+		mult *= float(attacker.god_flags.get(ResonanceManager.HARMONY + "chill_duration_mult", 1.0))
+	if weapon != null and weapon.empowered:
+		mult *= float(Infusions.empowered_data().get("status_duration_mult", 1.5))
+	return mult
 
 
 ## Väinämöinen's Divine Link: his reactions deal more damage.

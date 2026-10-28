@@ -1,0 +1,116 @@
+[
+  {
+    "_doc": "Divine Resonances (GAME_DESIGN.md: Divine Resonance and Patronage; Two more launch gods). Harmony is always on while both gods are bound; the Resonance summon fires when both meters are full and uses both. Strength scales with the lower of the two gods' levels (all level 1 until offerings in Phase 15). Numbers are placeholders.",
+    "id": "sun_and_snow",
+    "name_key": "RESONANCE_SUN_AND_SNOW_NAME",
+    "desc_key": "RESONANCE_SUN_AND_SNOW_DESC",
+    "gods": [
+      "sekhmet",
+      "skadi"
+    ],
+    "harmony": {
+      "mini_steam_on_chilled": true,
+      "mini_steam_radius_px": 20,
+      "mini_steam_damage_mult": 0.4
+    },
+    "summon": {
+      "effect": "sun_and_snow",
+      "duration_s": 4,
+      "waves": 4,
+      "damage": 20,
+      "explode_damage": 25,
+      "explode_radius_px": 28,
+      "sunder_s": 8,
+      "sunder_armor_mult": 0.5
+    },
+    "color": "#ff9a60",
+    "best_against_key": "RESONANCE_SUN_AND_SNOW_BEST"
+  },
+  {
+    "id": "storm_over_the_sea",
+    "name_key": "RESONANCE_STORM_OVER_THE_SEA_NAME",
+    "desc_key": "RESONANCE_STORM_OVER_THE_SEA_DESC",
+    "gods": [
+      "poseidon",
+      "thor"
+    ],
+    "harmony": {
+      "chain_bonus_targets": 1
+    },
+    "summon": {
+      "effect": "storm_over_the_sea",
+      "duration_s": 6,
+      "soak_s": 6,
+      "chain_interval_s": 0.5,
+      "damage": 14
+    },
+    "color": "#70a8ff",
+    "best_against_key": "RESONANCE_STORM_OVER_THE_SEA_BEST"
+  },
+  {
+    "id": "burning_greenwood",
+    "name_key": "RESONANCE_BURNING_GREENWOOD_NAME",
+    "desc_key": "RESONANCE_BURNING_GREENWOOD_DESC",
+    "gods": [
+      "cernunnos",
+      "sekhmet"
+    ],
+    "harmony": {
+      "burn_death_patch_s": 2.0,
+      "burn_death_patch_radius_px": 18,
+      "burn_death_patch_dps": 8
+    },
+    "summon": {
+      "effect": "burning_greenwood",
+      "duration_s": 10,
+      "blooms": 8,
+      "bloom_radius_px": 30,
+      "bloom_dps": 10
+    },
+    "color": "#9ac040",
+    "best_against_key": "RESONANCE_BURNING_GREENWOOD_BEST"
+  },
+  {
+    "id": "frozen_deluge",
+    "name_key": "RESONANCE_FROZEN_DELUGE_NAME",
+    "desc_key": "RESONANCE_FROZEN_DELUGE_DESC",
+    "gods": [
+      "skadi",
+      "poseidon"
+    ],
+    "harmony": {
+      "chill_duration_mult": 1.5
+    },
+    "summon": {
+      "effect": "frozen_deluge",
+      "duration_s": 1.5,
+      "freeze_s": 6,
+      "damage": 15
+    },
+    "color": "#90e0ff",
+    "best_against_key": "RESONANCE_FROZEN_DELUGE_BEST"
+  },
+  {
+    "id": "eye_of_ra",
+    "name_key": "RESONANCE_EYE_OF_RA_NAME",
+    "desc_key": "RESONANCE_EYE_OF_RA_DESC",
+    "gods": [
+      "ra",
+      "sekhmet"
+    ],
+    "harmony": {
+      "holy_burns": true,
+      "fire_smites": true
+    },
+    "summon": {
+      "effect": "eye_of_ra",
+      "duration_s": 2.5,
+      "damage": 40,
+      "radius_px": 60,
+      "burn_s": 4,
+      "guard_fill": 0.5
+    },
+    "color": "#ffc040",
+    "best_against_key": "RESONANCE_EYE_OF_RA_BEST"
+  }
+]

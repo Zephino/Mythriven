@@ -144,7 +144,8 @@
               "max_reactions_per_s": "number",
               "max_enemy_projectiles": "number",
               "max_identical_sounds": "number",
-              "max_boss_projectiles": "number"
+              "max_boss_projectiles": "number",
+              "max_player_patches": "number"
             }
           },
           "world": {
@@ -442,7 +443,8 @@
               "chase_speed_mult": "number",
               "chase_touch_px": "number",
               "chase_decoy_every_s": "number",
-              "chase_max_decoys": "number"
+              "chase_max_decoys": "number",
+              "resonance_press_window_s": "number"
             }
           },
           "enemies": {
@@ -1231,6 +1233,10 @@
             "fields": {
               "max_chill_stacks": "int"
             }
+          },
+          "infusions": {
+            "type": "object",
+            "optional": true
           }
         }
       }
@@ -1453,6 +1459,37 @@
             "text_key": "string",
             "lore_source": "string",
             "needs_owner_review": "bool"
+          }
+        }
+      }
+    },
+    "resonances.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "desc_key": "string",
+            "gods": {
+              "type": "array",
+              "items": "string"
+            },
+            "harmony": {
+              "type": "object"
+            },
+            "summon": {
+              "type": "object",
+              "open": true,
+              "fields": {
+                "effect": "string",
+                "duration_s": "number"
+              }
+            },
+            "color": "string",
+            "best_against_key": "string"
           }
         }
       }

@@ -103,7 +103,7 @@ func hit_enemy(slot: int, weapon: WeaponInstance, player: Player, damage_mult: f
 	if enemies.active[slot] == 0 or not weapon.try_hit(slot):
 		return
 	GameAuthority.damage_enemy(slot, weapon.damage() * damage_mult, player,
-			push_dir * weapon.stat("knockback"), str(weapon.data.get("element", "physical")), weapon.stat("status_chance"), weapon)
+			push_dir * weapon.stat("knockback"), weapon.element(), weapon.status_chance(), weapon)
 
 
 func effect_color(weapon: WeaponInstance) -> Color:

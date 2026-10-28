@@ -129,6 +129,7 @@
     "max_reactions_per_s": 30,
     "max_enemy_projectiles": 20,
     "max_boss_projectiles": 300,
+    "max_player_patches": 24,
     "max_identical_sounds": 8
   },
 
@@ -327,7 +328,8 @@
     "chase_speed_mult": 0.85,
     "chase_touch_px": 10,
     "chase_decoy_every_s": 7,
-    "chase_max_decoys": 3
+    "chase_max_decoys": 3,
+    "resonance_press_window_s": 0.15
   },
 
   "enemies": {

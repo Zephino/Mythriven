@@ -444,3 +444,40 @@ DEBUG_SHRINE_PLACED,Shrine of %s (%s) placed.
 DEBUG_BIND_NEXT_GOD,Bind the next god now
 DEBUG_GOD_BOUND,Bound %s.
 DEBUG_FILL_GOD_METERS,Fill god meters
+RESONANCE_SUN_AND_SNOW_NAME,Sun and Snow
+RESONANCE_SUN_AND_SNOW_DESC,Fire hits on Chilled enemies set off mini Steam Bursts. Resonance: alternating desert-heat and blizzard waves; enemies hit by both explode and are Sundered.
+RESONANCE_SUN_AND_SNOW_BEST,Armored elites and bosses
+RESONANCE_STORM_OVER_THE_SEA_NAME,Storm Over the Sea
+RESONANCE_STORM_OVER_THE_SEA_DESC,Lightning chains to +1 target. Resonance: a surge Soaks everything for 6 s while lightning chains through every Soaked enemy.
+RESONANCE_STORM_OVER_THE_SEA_BEST,Huge hordes
+RESONANCE_BURNING_GREENWOOD_NAME,Burning Greenwood
+RESONANCE_BURNING_GREENWOOD_DESC,Burning enemies leave short fire patches. Resonance: wild blooms spread for 10 s; enemies crossing them Burn and are Poisoned.
+RESONANCE_BURNING_GREENWOOD_BEST,"Area denial, kiting"
+RESONANCE_FROZEN_DELUGE_NAME,Frozen Deluge
+RESONANCE_FROZEN_DELUGE_DESC,Chill lasts 50% longer. Resonance: a wave freezes everything in its path for 6 s; physical hits Shatter them.
+RESONANCE_FROZEN_DELUGE_BEST,"Escaping, emergencies"
+RESONANCE_EYE_OF_RA_NAME,Eye of Ra
+RESONANCE_EYE_OF_RA_DESC,"Holy and Fire hits each apply the other's status. Resonance: a sun-lioness charges across the screen, Burning and Smiting everything; every boss's Guard gauge gains 50%."
+RESONANCE_EYE_OF_RA_BEST,Bosses and shielded elites
+RESONANCE_DISCOVERED,Resonance discovered: %s
+UI_RESONANCE_BUTTON,Resonance!
+BANTER_EYE_OF_RA_RESONANCE,"My Eye returns to me, burning bright."
+BANTER_STORM_OVER_THE_SEA_RESONANCE,"Sea-lord, let us make a storm the sailors will sing of!"
+INFUSION_PREFIX_SUNFIRE,Sunfire
+INFUSION_PREFIX_WINTER,Winter
+INFUSION_PREFIX_THUNDER,Thunder
+INFUSION_PREFIX_GREENWOOD,Greenwood
+INFUSION_PREFIX_TIDAL,Tidal
+INFUSION_PREFIX_FORTUNES,Fortune's
+INFUSION_PREFIX_SOLAR,Solar
+INFUSION_PREFIX_RAVEN,Raven
+INFUSION_NAME,%s %s
+INFUSION_EMPOWERED_NAME,Empowered %s
+WEAPON_WINTER_BARBS_NAME,Winter Barbs
+CHEST_INFUSION,Infused: %s
+CHEST_INFUSION_CHOICE,%s can be infused: choose a god
+UI_INFUSION_CHOICE_TITLE,Which god infuses %s?
+UI_INFUSION_OPTION,%s → %s
+CODEX_NEW_INFUSION,New infusion: %s
+CODEX_INFUSIONS,Infusions found: %d
+CODEX_RESONANCES,Resonances found: %d / %d

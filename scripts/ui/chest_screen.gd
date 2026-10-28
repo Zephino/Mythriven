@@ -25,6 +25,8 @@ var _notes_played: int = 0
 var _shown: int = 0
 var _texts: PackedStringArray = []
 var _audio: AudioStreamPlayer
+## Asks which god infuses a weapon when two are eligible (after the reveal).
+var infusion_choice: InfusionChoiceScreen
 
 
 func _ready() -> void:
@@ -110,6 +112,8 @@ func _close() -> void:
 		return
 	visible = false
 	get_tree().paused = false
+	if _plan.has("choose") and infusion_choice != null:
+		infusion_choice.ask(_plan["choose"])
 	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 	for recipe: Dictionary in _evolved:
 		if bool(recipe.get("new", false)) and banner != null:

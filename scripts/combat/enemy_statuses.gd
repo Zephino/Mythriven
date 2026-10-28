@@ -25,6 +25,9 @@ var stun := PackedFloat32Array()
 ## Marked as fated by the Morrígan: takes more damage while it lasts.
 var fated := PackedFloat32Array()
 var fated_bonus := PackedFloat32Array()
+## Sundered (Sun and Snow): Armor lowered for a while.
+var sunder := PackedFloat32Array()
+var sunder_mult := PackedFloat32Array()
 ## 1 for elites (diminishing crowd control).
 var cc_limited := PackedByteArray()
 var cc_count := PackedInt32Array()
@@ -49,6 +52,8 @@ func _init(capacity: int) -> void:
 	stun.resize(capacity)
 	fated.resize(capacity)
 	fated_bonus.resize(capacity)
+	sunder.resize(capacity)
+	sunder_mult.resize(capacity)
 	cc_limited.resize(capacity)
 	cc_count.resize(capacity)
 	cc_window.resize(capacity)
@@ -73,6 +78,8 @@ func clear(slot: int) -> void:
 	stun[slot] = 0.0
 	fated[slot] = 0.0
 	fated_bonus[slot] = 0.0
+	sunder[slot] = 0.0
+	sunder_mult[slot] = 1.0
 	cc_limited[slot] = 0
 	cc_count[slot] = 0
 	cc_window[slot] = 0.0
@@ -202,7 +209,14 @@ func speed_mult(slot: int) -> float:
 
 
 func armor_mult(slot: int) -> float:
-	return 1.0 - float(_p["hex"].get("armor_reduction", 0.4)) if hex[slot] > 0.0 else 1.0
+	var mult: float = 1.0 - float(_p["hex"].get("armor_reduction", 0.4)) if hex[slot] > 0.0 else 1.0
+	return mult * (sunder_mult[slot] if sunder[slot] > 0.0 else 1.0)
+
+
+## Sunders a slot: its Armor is multiplied by `armor_mult` for `seconds`.
+func apply_sunder(slot: int, seconds: float, armor_mult_value: float) -> void:
+	sunder[slot] = maxf(sunder[slot], seconds)
+	sunder_mult[slot] = armor_mult_value
 
 
 ## Multiplier on the damage this enemy deals (Hex weakens it).
@@ -246,6 +260,7 @@ func tick(step: float, active: PackedByteArray, on_dot: Callable) -> void:
 		hex[slot] = maxf(hex[slot] - step, 0.0)
 		stun[slot] = maxf(stun[slot] - step, 0.0)
 		fated[slot] = maxf(fated[slot] - step, 0.0)
+		sunder[slot] = maxf(sunder[slot] - step, 0.0)
 		cc_window[slot] = maxf(cc_window[slot] - step, 0.0)
 		cc_immune[slot] = maxf(cc_immune[slot] - step, 0.0)
 		if dot > 0.0:

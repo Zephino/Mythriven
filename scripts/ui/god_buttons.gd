@@ -3,13 +3,15 @@ extends CanvasLayer
 ## The two god buttons (GAME_DESIGN.md: Binding and summoning): one per bound
 ## god in the bottom-right corner, each with a meter ring around its portrait
 ## (a placeholder colour circle) that glows when full. Tap one to summon; on
-## PC it's Q / E, on a gamepad LB / RB. Phase 12 adds the Resonance button
-## between them while both meters are full.
+## PC it's Q / E, on a gamepad LB / RB. While a Resonance is ready, a
+## Resonance button appears above them and both rings pulse together.
 
 var gods: GodManager
+var resonance: ResonanceManager
 
 var _root: Control
 var _buttons: Array[Button] = []
+var _resonance_button: Button
 var _rings: Node2D
 
 
@@ -32,6 +34,13 @@ func _ready() -> void:
 		button.pressed.connect(_on_pressed.bind(index))
 		_root.add_child(button)
 		_buttons.append(button)
+	_resonance_button = Button.new()
+	_resonance_button.text = "UI_RESONANCE_BUTTON"
+	_resonance_button.focus_mode = Control.FOCUS_NONE
+	_resonance_button.custom_minimum_size = Vector2(size, size * 0.6)
+	_resonance_button.visible = false
+	_resonance_button.pressed.connect(_on_resonance_pressed)
+	_root.add_child(_resonance_button)
 	_rings = Node2D.new()
 	_rings.draw.connect(_draw_rings)
 	_root.add_child(_rings)
@@ -55,7 +64,18 @@ func _process(_delta: float) -> void:
 		if button.visible:
 			var god: Dictionary = gods.gods_of(player)[index]["god"]
 			button.text = tr(str(god.get("name_key", ""))).left(1)
+	# The Resonance button exists only while it can be used, just above the god buttons.
+	_resonance_button.visible = player != null and resonance != null and resonance.ready_for(player)
+	if _resonance_button.visible:
+		_resonance_button.position = Vector2(screen.x - margin_px - size - margin_px * 0.5 - _resonance_button.size.x * 0.5,
+				screen.y - margin_px - size * 2.0 - margin_px)
 	_rings.queue_redraw()
+
+
+func _on_resonance_pressed() -> void:
+	var player: Player = GameAuthority.local_player()
+	if player != null and resonance != null:
+		resonance.fire(player)
 
 
 func _on_pressed(index: int) -> void:
@@ -78,5 +98,7 @@ func _draw_rings() -> void:
 		_rings.draw_arc(center, radius, 0.0, TAU, 32, Color(0, 0, 0, 0.5), 5.0)
 		_rings.draw_arc(center, radius, -PI * 0.5, -PI * 0.5 + TAU * fill, 32, color, 5.0)
 		if fill >= 1.0:
-			var pulse: float = 0.5 + 0.5 * sin(GameAuthority.run.elapsed_s * 6.0)
+			# Both buttons pulse together while a Resonance is ready.
+			var speed: float = 12.0 if _resonance_button.visible else 6.0
+			var pulse: float = 0.5 + 0.5 * sin(GameAuthority.run.elapsed_s * speed)
 			_rings.draw_arc(center, radius + 4.0, 0.0, TAU, 32, Color(1, 1, 1, pulse), 2.0)

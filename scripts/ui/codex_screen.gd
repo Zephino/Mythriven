@@ -71,6 +71,22 @@ static func lines() -> PackedStringArray:
 		else:
 			out.append(TranslationServer.translate("CODEX_HIDDEN") % weapon)
 	out.insert(0, TranslationServer.translate("CODEX_COUNT") % [found, recipes.size()])
+	var infusions: PackedStringArray = Profile.get_list(EvolutionRules.CODEX_SECTION, Infusions.CODEX_KEY)
+	out.append(TranslationServer.translate("CODEX_INFUSIONS") % infusions.size())
+	for entry: String in infusions:
+		var parts: PackedStringArray = entry.split("+")
+		var data: Dictionary = GameAuthority.find_weapon(parts[0]) if parts.size() == 2 else {}
+		if data.is_empty():
+			continue
+		var weapon := WeaponInstance.new(data, null)
+		weapon.level = weapon.max_level()
+		Infusions.infuse(weapon, parts[1])
+		out.append("· " + Infusions.display_name(weapon))
+	var resonances: PackedStringArray = Profile.get_list(EvolutionRules.CODEX_SECTION, ResonanceManager.PROFILE_KEY)
+	out.append(TranslationServer.translate("CODEX_RESONANCES") % [resonances.size(), ResonanceManager.all().size()])
+	for resonance: Dictionary in ResonanceManager.all():
+		if resonances.has(str(resonance["id"])):
+			out.append("· " + TranslationServer.translate(str(resonance["name_key"])) + " — " + TranslationServer.translate(str(resonance["desc_key"])))
 	return out
 
 

@@ -25,6 +25,10 @@ Time: 5:47 PM
   - Patronage (+15% charge for gods of the Hero's own pantheon; +8% for all gods for Väinämöinen and Tomoe Gozen) and each Hero's Divine Link.
   - Short banter lines when a god is found, bound, or summoned, including Heracles with Poseidon and Cú Chulainn with the Morrígan. All lines are drafts for owner review.
   - The shared attack pattern library (radial burst, spiral, aimed fan, line sweep, ground circles, charge with trail, falling strikes, summon adds, safe zone), with orange ground markers and a red flash before every attack.
+- **Phase 12: Resonance and infusions.**
+  - The 5 launch Resonances: Sun and Snow (Sekhmet + Skadi), Storm Over the Sea (Poseidon + Thor), Burning Greenwood (Cernunnos + Sekhmet), Frozen Deluge (Skadi + Poseidon), and Eye of Ra (Ra + Sekhmet). Each has an always-on Harmony while both gods are bound and a Resonance summon when both meters are full: tap the Resonance button that appears above the god buttons, press R, or Q+E / LB+RB together. It uses both meters; summoning either god alone still works. A "Resonance discovered" banner shows the first time.
+  - Divine infusions with all 8 templates (Sunfire, Winter, Thunder, Greenwood, Tidal, Fortune's, Solar, Raven): a level-8 weapon (evolved or not) plus a bound god → the next chest infuses it with the god's element and effect. With two eligible gods you choose. A god of the weapon's own element makes it **Empowered** (+50% status chance and duration). Names build automatically ("Thunder Gáe Bolg", "Winter Barbs").
+  - The Codex also lists infusions and Resonances found. Väinämöinen's reactions during a Resonance count double for Verses.
 - Fixed: the debug menu printed errors when a run ended; a Codex test compared text the wrong way.
 
 ### Reason

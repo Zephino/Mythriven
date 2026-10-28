@@ -1,7 +1,8 @@
 extends HeroKit
 ## Väinämöinen. Legend Trait, Song of Power: every elemental reaction he
 ## causes adds a Verse stack (+3% spell damage, max 10, each lasts 6 s).
-## Passive, Eternal Sage: statuses he applies last 30% longer.
+## Passive, Eternal Sage: statuses he applies last 30% longer. Reactions
+## during an active Resonance count double for Verses.
 
 var _verses := PackedFloat32Array()
 
@@ -37,6 +38,9 @@ func _process(delta: float) -> void:
 func _on_reaction(_reaction_id: String, _at: Vector2, _reach: float, by: Player) -> void:
 	if by != player:
 		return
-	if _verses.size() >= int(trait_data().get("max_verses", 10)):
-		_verses.remove_at(0)
-	_verses.append(float(trait_data().get("verse_s", 6.0)))
+	# Reactions inside an active Resonance count double.
+	var count: int = 2 if float(player.god_flags.get("resonance_active_until", -1.0)) > GameAuthority.run.elapsed_s else 1
+	for _k: int in count:
+		if _verses.size() >= int(trait_data().get("max_verses", 10)):
+			_verses.remove_at(0)
+		_verses.append(float(trait_data().get("verse_s", 6.0)))

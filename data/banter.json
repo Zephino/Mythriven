@@ -339,5 +339,25 @@
     "text_key": "BANTER_TOMOE_GOZEN_BINDS",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "eye_of_ra_resonance",
+    "trigger": "resonance",
+    "speaker": "ra",
+    "hero": "",
+    "god": "eye_of_ra",
+    "text_key": "BANTER_EYE_OF_RA_RESONANCE",
+    "lore_source": "Sekhmet as the Eye of Ra (Book of the Heavenly Cow)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "storm_over_the_sea_resonance",
+    "trigger": "resonance",
+    "speaker": "thor",
+    "hero": "",
+    "god": "storm_over_the_sea",
+    "text_key": "BANTER_STORM_OVER_THE_SEA_RESONANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

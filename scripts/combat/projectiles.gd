@@ -85,9 +85,10 @@ func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vecto
 	_thrower[i] = player
 	_hits[i].clear()
 	_chain[i] = 1 if Blessings.next_projectile_chains(player) else 0
-	_element[i] = str(settings.get("element", weapon.data.get("element", Elements.PHYSICAL)))
+	# An infusion's element wins over a cycling element (Runo Song).
+	_element[i] = weapon.element() if weapon.infusion != "" else str(settings.get("element", weapon.element()))
 	var color: Color = Color.html(str(weapon.data.get("placeholder_color", "#ffffff")))
-	if settings.has("element"):
+	if settings.has("element") or weapon.infusion != "":
 		color = Elements.color(_element[i])
 	_multimesh.set_instance_color(i, color)
 
@@ -149,7 +150,7 @@ func _tick_hits(i: int, delta: float) -> void:
 		hits[slot] = interval if interval > 0.0 else INF
 		GameAuthority.damage_enemy(slot, weapon.damage(), _thrower[i],
 				_vel[i].normalized() * weapon.stat("knockback"), _element[i],
-				weapon.stat("status_chance"), weapon)
+				weapon.status_chance(), weapon)
 		if _chain[i] != 0:
 			_chain[i] = 0
 			Blessings.chain_lightning(_thrower[i], slot, _pos[i], weapon.damage())

@@ -98,7 +98,7 @@ func test_every_recipe_has_an_evolved_weapon_about_twice_as_strong() -> void:
 
 func test_codex_lists_every_recipe_and_hides_undiscovered_ones() -> void:
 	var lines: PackedStringArray = CodexScreen.lines()
-	assert_eq(lines.size(), EvolutionRules.all_recipes().size() + 1)
+	assert_eq(lines.size(), EvolutionRules.all_recipes().size() + 3, "count line, recipes, infusions and Resonances headers")
 	assert_string_contains(lines[1], "???")
 	EvolutionRules.discover({"into": "labor_breaker"})
 	assert_string_contains("\n".join(CodexScreen.lines()), str(TranslationServer.translate("WEAPON_LABOR_BREAKER_NAME")))

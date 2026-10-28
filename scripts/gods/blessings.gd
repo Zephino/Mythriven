@@ -39,8 +39,9 @@ static func apply(player: Player, god: Dictionary, direction: float) -> void:
 	player.refresh_stats()
 
 
-## After a player's hit lands: melee Poison (Cernunnos) and Soak (Poseidon).
-static func after_hit(player: Player, weapon: WeaponInstance, slot: int, _element: String) -> void:
+## After a player's hit lands: melee Poison (Cernunnos), Soak (Poseidon), and
+## the Eye of Ra Harmony.
+static func after_hit(player: Player, weapon: WeaponInstance, slot: int, element: String) -> void:
 	var statuses: EnemyStatuses = GameAuthority.enemies.statuses
 	var melee_status: String = str(player.god_flags.get("melee_status", ""))
 	if melee_status != "" and weapon != null and is_melee(weapon):
@@ -48,6 +49,27 @@ static func after_hit(player: Player, weapon: WeaponInstance, slot: int, _elemen
 	var hit_status: String = str(player.god_flags.get("hit_status", ""))
 	if hit_status != "":
 		statuses.apply(slot, hit_status, player.stats.status_duration_mult())
+	# Eye of Ra Harmony: Holy and Fire hits each apply the other's status.
+	if element == "holy" and player.god_flags.has(ResonanceManager.HARMONY + "holy_burns"):
+		statuses.apply(slot, "burn", player.stats.status_duration_mult())
+	elif element == "fire" and player.god_flags.has(ResonanceManager.HARMONY + "fire_smites"):
+		statuses.apply(slot, "smite", player.stats.status_duration_mult())
+
+
+## Sun and Snow Harmony: a Fire hit on a Chilled or Frozen enemy also sets off a
+## mini Steam Burst (outside the reaction budget).
+static func harmony_before_hit(player: Player, slot: int, element: String, base: float, at: Vector2) -> void:
+	var key: String = ResonanceManager.HARMONY + "mini_steam_on_chilled"
+	if element != "fire" or not player.god_flags.has(key):
+		return
+	var statuses: EnemyStatuses = GameAuthority.enemies.statuses
+	if not (statuses.has(slot, "chill") or statuses.has(slot, "frozen")):
+		return
+	var reach: float = float(player.god_flags.get(ResonanceManager.HARMONY + "mini_steam_radius_px", 20.0))
+	var mult: float = float(player.god_flags.get(ResonanceManager.HARMONY + "mini_steam_damage_mult", 0.4))
+	for other: int in GameAuthority.enemies.query(at, reach):
+		if other != slot:
+			GameAuthority.hits.hit(other, base * mult, player, Vector2.ZERO, "fire", 0.0, false)
 
 
 static func is_melee(weapon: WeaponInstance) -> bool:
@@ -69,7 +91,7 @@ static func chain_lightning(player: Player, from_slot: int, at: Vector2, damage:
 	var enemies: EnemyManager = GameAuthority.enemies
 	var thor: Dictionary = player.god_flags
 	var reach: float = float(thor.get("chain_radius_px", 80.0))
-	var left: int = int(thor.get("chain_targets", 2))
+	var left: int = int(thor.get("chain_targets", 2)) + int(thor.get(ResonanceManager.HARMONY + "chain_bonus_targets", 0))
 	var effects: EffectLayer = enemies.get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	for slot: int in enemies.query(at, reach):
 		if left <= 0:

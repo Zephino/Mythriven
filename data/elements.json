@@ -182,5 +182,81 @@
   "player_statuses": {
     "_doc": "From 30:00 (combat.player_status_start_s) enemies can apply their element's status to players: half duration, Chill never becomes Freeze, and 2 s immunity after a status ends (GAME_DESIGN.md: Status effects on the player).",
     "max_chill_stacks": 2
+  },
+  "infusions": {
+    "_doc": "Divine infusion templates (GAME_DESIGN.md: Divine infusions), one per god, applied by rule. A level-8 weapon (evolved or not) plus a bound god of a different element: the next chest infuses it, changing its element and adding the template's effects; the name is the prefix + the weapon name. A god of the weapon's own element makes it Empowered instead (+50% status chance and duration). Numbers are placeholders.",
+    "sekhmet": {
+      "element": "fire",
+      "prefix_key": "INFUSION_PREFIX_SUNFIRE",
+      "status_chance": 0.6,
+      "on_kill": "explode",
+      "explode_radius_px": 26,
+      "explode_damage_mult": 0.5
+    },
+    "skadi": {
+      "element": "ice",
+      "prefix_key": "INFUSION_PREFIX_WINTER",
+      "status_chance": 0.6,
+      "on_kill": "shards",
+      "shards": 3,
+      "shard_damage_mult": 0.4,
+      "shard_range_px": 90
+    },
+    "thor": {
+      "element": "lightning",
+      "prefix_key": "INFUSION_PREFIX_THUNDER",
+      "status_chance": 0.6,
+      "chain_chance": 0.2,
+      "chain_targets": 2,
+      "chain_damage_mult": 0.5,
+      "chain_radius_px": 90
+    },
+    "cernunnos": {
+      "element": "earth",
+      "prefix_key": "INFUSION_PREFIX_GREENWOOD",
+      "status_chance": 0.6,
+      "on_kill": "thorns",
+      "thorn_s": 3.0,
+      "thorn_radius_px": 16,
+      "thorn_dps": 6
+    },
+    "poseidon": {
+      "element": "water",
+      "prefix_key": "INFUSION_PREFIX_TIDAL",
+      "status_chance": 0.6,
+      "splash_radius_px": 30,
+      "splash_push": 160
+    },
+    "tyche": {
+      "element": "fortune",
+      "prefix_key": "INFUSION_PREFIX_FORTUNES",
+      "status_chance": 0.0,
+      "on_kill": "gold",
+      "gold_chance": 0.1,
+      "crit_damage_bonus": 0.5
+    },
+    "ra": {
+      "element": "holy",
+      "prefix_key": "INFUSION_PREFIX_SOLAR",
+      "status_chance": 0.6,
+      "on_kill": "flash",
+      "flash_radius_px": 30,
+      "flash_damage_mult": 0.4
+    },
+    "morrigan": {
+      "element": "dark",
+      "prefix_key": "INFUSION_PREFIX_RAVEN",
+      "status_chance": 0.6,
+      "on_kill": "crow",
+      "crow_range_px": 140,
+      "crow_damage_mult": 0.6
+    },
+    "empowered": {
+      "status_chance_mult": 1.5,
+      "status_duration_mult": 1.5
+    },
+    "name_overrides": {
+      "thirty_barbs+skadi": "WEAPON_WINTER_BARBS_NAME"
+    }
   }
 }

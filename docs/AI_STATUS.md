@@ -102,6 +102,13 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 6. Heracles: after a summon his next 3 Great Club slams make full shockwaves. Cú Chulainn's leap landings apply his gods' elements. Väinämöinen's Runo Song adds his gods' elements. Tomoe's gods charge faster at full Momentum.
 7. Pause menu → **Auto-summon**: full gods fire by themselves in big crowds.
 
+**Phase 12 — Resonance and infusions (00.01.17)**
+1. Bind a pair that resonates (F1 → **Bind the next god now** until you have, for example, Sekhmet + Skadi; or Poseidon + Thor): "Resonance discovered: …" appears.
+2. F1 → **Fill god meters**: both god rings pulse together and a **Resonance!** button appears above them. Tap it, press R, or press Q and E together (LB + RB): a big combined effect plays and both meters empty. Pressing one button alone still summons just that god.
+3. A pair that doesn't resonate (Tyche + Thor) never shows the button.
+4. Get a weapon to level 8 (F1 → **Make a weapon ready to evolve** also does that), bind a god, then open a chest without the evolution passive: the weapon is infused, e.g. "Thunder Gáe Bolg", and its hits change colour. With two gods bound you choose which. A god of the weapon's own element makes it "Empowered".
+5. Pause → **Codex** lists infusions and Resonances you've found.
+
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
 2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, it says "Online scores aren't switched on yet."

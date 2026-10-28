@@ -17,11 +17,18 @@ signal summoned(player: Player, god_id: String)
 
 var summons: SummonLayer
 var banter: BanterBubble
+var resonance: ResonanceManager
+## Used by Harmony and infusions for ground patches and gold drops.
+var ground: GroundEffects
+var gold: GoldPickups
 var auto_summon: bool = false
 
 ## player_id -> Array of {"id": String, "god": Dictionary, "meter": float (0–1)}.
 var _bound: Dictionary = {}
 var _auto_check_s: float = 0.0
+## A summon button pressed while a Resonance is ready waits a moment for the other (Q+E, LB+RB).
+var _pending_index: int = -1
+var _pending_left: float = 0.0
 
 
 func _ready() -> void:
@@ -129,15 +136,32 @@ func _unhandled_input(event: InputEvent) -> void:
 	if player == null or get_tree().paused:
 		return
 	for index: int in 2:
-		if event.is_action_pressed("summon_%d" % (index + 1)):
-			if summon(player, index):
-				get_viewport().set_input_as_handled()
+		if not event.is_action_pressed("summon_%d" % (index + 1)):
+			continue
+		get_viewport().set_input_as_handled()
+		if resonance != null and resonance.ready_for(player):
+			var other_held: bool = Input.is_action_pressed("summon_%d" % (2 - index))
+			if other_held or (_pending_index == 1 - index and _pending_left > 0.0):
+				_pending_index = -1
+				resonance.fire(player)
+				return
+			_pending_index = index
+			_pending_left = Data.cfg_float("gods.resonance_press_window_s")
+			return
+		summon(player, index)
 
 
 func _process(delta: float) -> void:
 	var run: RunState = GameAuthority.run
 	if run == null or run.ended:
 		return
+	if _pending_index != -1:
+		_pending_left -= delta
+		if _pending_left <= 0.0:
+			var waiting: Player = GameAuthority.local_player()
+			if waiting != null:
+				summon(waiting, _pending_index)
+			_pending_index = -1
 	for player: Player in GameAuthority.players:
 		if not player.alive:
 			continue
@@ -176,11 +200,16 @@ func _on_enemy_damaged(_slot: int, _amount: float, kind: String, _at: Vector2) -
 		_charge(player, "enemies_hit", 1.0)
 
 
-func _on_enemy_killed(slot: int, _enemy_type: Dictionary, _at: Vector2, killer: Player) -> void:
+func _on_enemy_killed(slot: int, _enemy_type: Dictionary, at: Vector2, killer: Player) -> void:
 	if killer == null:
 		return
 	_charge(killer, "kills", 1.0)
 	Blessings.on_kill(killer, slot)
+	# Burning Greenwood Harmony: Burning enemies leave short fire patches.
+	var patch_s: float = float(killer.god_flags.get(ResonanceManager.HARMONY + "burn_death_patch_s", 0.0))
+	if patch_s > 0.0 and ground != null and GameAuthority.enemies.statuses.burn[slot] > 0.0:
+		ground.add(at, float(killer.god_flags.get(ResonanceManager.HARMONY + "burn_death_patch_radius_px", 16.0)), patch_s,
+				float(killer.god_flags.get(ResonanceManager.HARMONY + "burn_death_patch_dps", 8.0)), "fire", killer)
 
 
 func _charge(player: Player, trigger_type: String, amount: float) -> void:

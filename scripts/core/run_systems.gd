@@ -20,7 +20,10 @@ var age_visuals: AgeVisuals
 var world_tint: CanvasModulate
 var patterns: PatternRunner
 var gods: GodManager
-var summons: SummonLayer
+var summons: ResonanceLayer
+var ground: GroundEffects
+var resonance: ResonanceManager
+var infusion_choice: InfusionChoiceScreen
 var shrines: Shrines
 var trial: GodTrial
 var god_choice: GodChoiceScreen
@@ -49,9 +52,12 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	world.add_child(elite_bars)
 	patterns = PatternRunner.new()
 	world.add_child(patterns)
-	summons = SummonLayer.new()
+	ground = GroundEffects.new()
+	world.add_child(ground)
+	summons = ResonanceLayer.new()
 	summons.orbs = orbs
 	summons.gold = gold
+	summons.ground = ground
 	world.add_child(summons)
 	shrines = Shrines.new()
 	world.add_child(shrines)
@@ -61,7 +67,7 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	trial.spawner = spawner
 	world.add_child(trial)
 	shrines.trial = trial
-	for listener: Node in [shots, gold, chests, hazard, patterns, summons, shrines, trial]:
+	for listener: Node in [shots, gold, chests, hazard, patterns, summons, shrines, trial, ground]:
 		world.origin_shifted.connect(Callable(listener, "on_origin_shifted"))
 	GameAuthority.enemy_killed.connect(gold.on_enemy_killed)
 	GameAuthority.elite_killed.connect(gold.on_elite_killed)
@@ -80,7 +86,18 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	gods = GodManager.new()
 	gods.summons = summons
 	gods.banter = banter
+	gods.ground = ground
+	gods.gold = gold
 	add_child(gods)
+	resonance = ResonanceManager.new()
+	resonance.gods = gods
+	resonance.layer = summons
+	resonance.banter = banter
+	add_child(resonance)
+	gods.resonance = resonance
+	infusion_choice = InfusionChoiceScreen.new()
+	add_child(infusion_choice)
+	chest_screen.infusion_choice = infusion_choice
 	shrines.gods = gods
 	shrines.banter = banter
 	god_choice = GodChoiceScreen.new()
@@ -89,10 +106,11 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	shrines.choice = god_choice
 	god_buttons = GodButtons.new()
 	god_buttons.gods = gods
+	god_buttons.resonance = resonance
 	add_child(god_buttons)
 	pause_menu = PauseMenu.new()
 	pause_menu.gods = gods
-	pause_menu.blockers = [level_up, chest_screen, death_screen, god_choice]
+	pause_menu.blockers = [level_up, chest_screen, death_screen, god_choice, infusion_choice]
 	add_child(pause_menu)
 	hud.pause_menu = pause_menu
 

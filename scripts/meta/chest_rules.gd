@@ -4,9 +4,12 @@ extends RefCounted
 ## Standard evolutions). The light's colour previews the reward: bronze = 1
 ## upgrade, silver = 2, gold = 3 upgrades or an evolution. Luck raises the
 ## odds of silver and gold. A weapon ready to evolve always makes the chest
-## gold and evolves. Every chest also holds some gold.
+## gold and evolves. Otherwise a top-level weapon with a bound god makes it
+## gold and infuses (Phase 12): with one eligible god it's applied at once;
+## with two the player picks after the reveal. Every chest also holds gold.
 ## A plan: {"tier": String, "rewards": [reward]}; a reward is one of
 ##   {"kind": "evolution", "weapon", "passive", "into"}
+##   {"kind": "infusion", "weapon", "gods": [god ids], "text"}
 ##   {"kind": "weapon_up" | "passive_up", "id", "from", "to"}
 ##   {"kind": "gold", "amount"}
 
@@ -46,6 +49,11 @@ static func build(player: Player, rng: RandomNumberGenerator, big: bool = false)
 		var evolution: Dictionary = weapon.data["evolution"]
 		rewards.append({"kind": "evolution", "weapon": weapon.id(), "passive": str(evolution.get("passive", "")),
 				"into": str(evolution.get("into", ""))})
+	elif not Infusions.candidates(player).is_empty():
+		tier = GOLD
+		var offers: Array[Dictionary] = Infusions.candidates(player)
+		var offer: Dictionary = offers[rng.randi_range(0, offers.size() - 1)]
+		rewards.append({"kind": "infusion", "weapon": offer["weapon"], "gods": offer["gods"], "text": ""})
 	else:
 		var pool: Array[Dictionary] = []
 		for card: Dictionary in LevelUpRules.item_cards(player):
@@ -84,7 +92,25 @@ static func apply(player: Player, plan: Dictionary) -> Array[Dictionary]:
 				var passive: Dictionary = LevelUpRules.passive_data(passive_id)
 				player.passives[passive_id] = int(player.passives.get(passive_id, 0)) + 1
 				player.stats.add_bonus(str(passive.get("stat", "")), float(passive.get("per_level", 0.0)))
+			"infusion":
+				_apply_infusion(player, plan, reward)
 			"gold":
 				GameAuthority.collect_gold(player, float(reward.get("amount", 0.0)))
 	player.refresh_stats()
 	return evolved
+
+
+## One eligible god: infuse now. Two: leave a choice in plan["choose"] for after the reveal.
+static func _apply_infusion(player: Player, plan: Dictionary, reward: Dictionary) -> void:
+	var gods: Array = reward.get("gods", [])
+	for weapon: WeaponInstance in player.weapons:
+		if weapon.id() != str(reward["weapon"]):
+			continue
+		if gods.size() == 1:
+			var recipe: Dictionary = Infusions.infuse(weapon, str(gods[0]))
+			Infusions.discover(recipe)
+			reward["text"] = TranslationServer.translate("CHEST_INFUSION") % Infusions.display_name(weapon)
+		else:
+			plan["choose"] = {"weapon": weapon, "gods": gods}
+			reward["text"] = TranslationServer.translate("CHEST_INFUSION_CHOICE") % TranslationServer.translate(weapon.name_key())
+		return

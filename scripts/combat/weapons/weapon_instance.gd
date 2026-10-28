@@ -22,6 +22,10 @@ var expert: bool = false
 ## True after a chest evolved it; base_id is the weapon it evolved from.
 var evolved: bool = false
 var base_id: String = ""
+## Divine infusion: the god whose element it carries ("" = none). Empowered
+## when that god shares the weapon's element (+50% status chance and duration).
+var infusion: String = ""
+var empowered: bool = false
 
 
 func _init(weapon_data: Dictionary, holder: Player) -> void:
@@ -91,6 +95,23 @@ func damage() -> float:
 	if owner_player != null:
 		amount *= owner_player.kit_damage_mult(self)
 	return amount
+
+
+## The element its hits deal (an infusion replaces the weapon's own).
+func element() -> String:
+	if infusion != "" and not empowered:
+		return str(Infusions.template(infusion).get("element", data.get("element", Elements.PHYSICAL)))
+	return str(data.get("element", Elements.PHYSICAL))
+
+
+## Chance (0–1) that a hit applies its element's status, with infusion and Empowered.
+func status_chance() -> float:
+	var chance: float = stat("status_chance")
+	if infusion != "":
+		chance = maxf(chance, float(Infusions.template(infusion).get("status_chance", 0.0)))
+		if empowered:
+			chance *= float(Infusions.empowered_data().get("status_chance_mult", 1.5))
+	return minf(chance, 1.0)
 
 
 func stat(key: String, fallback: float = 0.0) -> float:
