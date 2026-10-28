@@ -22,7 +22,9 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 			continue
 		var at: Vector2 = combat.enemies.positions[slot]
 		combat.hit_enemy(slot, weapon, player, 1.0, direction)
-		if not barbs.is_empty() and combat.enemies.active[slot] == 0:
+		# Thirty Barbs (evolved): every hit bursts into barbs, not only kills.
+		var burst: bool = combat.enemies.active[slot] == 0 or bool(weapon.data.get("barbs_on_every_hit", false))
+		if not barbs.is_empty() and burst:
 			var barb_radius: float = float(barbs.get("radius_px", 0.0)) * area
 			combat.hit_circle(at, barb_radius, weapon, player, float(barbs.get("damage_mult", 0.5)))
 			combat.effects.spawn_ring(at, barb_radius, combat.effect_color(weapon))

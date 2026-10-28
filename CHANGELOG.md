@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.17
+Date: 10/28/2026
+Time: 5:47 PM
+
+### Changes
+- **Phase 10: Aegean Shore waves, elites, chests.**
+  - The Aegean Shore's real enemy families replace the placeholders: Shades, Harpies, Sirens (casters), and Satyr skirmishers, plus Draugr brutes and Muspel Spark bombers from the shared families. All seven movement types: chasers, swarms, brutes, flyers that cross the screen in waves, casters that stop and fire a glowing shot, encirclers that close in from a ring (Deep Night), and bombers with a flashing fuse.
+  - A minute-by-minute wave table (`data/waves_aegean_shore.json`); enemy HP grows from ×1 at 0:00 to ×3 at 30:00.
+  - The four Ages (Dusk, Night, Deep Night, the Unraveling), each with its own light, drifting embers and threads, and a banner.
+  - The thunderstorm hazard: telegraphed lightning strikes that hurt players and enemies.
+  - Elites (Minotaur, Cyclops, Gorgon-kin) at 5:00, 15:00, 25:00 and at random times after, with modifiers shown as icons over their health bar: Hasted, Armored, Splitting, Warded, Elemental Aura, Summoner (two modifiers in Deep Night). Repeated freezes and stuns on elites get shorter, then they're immune for 5 s.
+  - Gold coins (5% from enemies, guaranteed from elites); the HUD shows run gold.
+  - Chests from every elite, with a reveal: a spinning Greek meander seal, a light that previews the reward (bronze, silver, gold), and rewards one at a time. Skippable after 0.5 s, never longer than 3 s.
+  - All 16 standard evolutions (a level-8 weapon plus its paired passive evolves at the next chest), with a fusing reveal and a "New recipe discovered" banner.
+  - The Codex lists every recipe; undiscovered ones are hidden. It opens from the new pause menu (Esc, Start, or the II button on touch).
+
+### Reason
+The owner asked to build Phases 10–14.
+
 ## Version 00.01.16
 Date: 10/28/2026
 Time: 5:15 PM

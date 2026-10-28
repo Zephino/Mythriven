@@ -20,9 +20,20 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 	var settings: Dictionary = weapon.stats()
 	# Runo Song: each cast uses the next element of its cycle (Fire → Ice → Lightning).
 	var cycle: Array = weapon.data.get("element_cycle", [])
+	# Song of Creation (evolved): casts every element of the cycle at once.
+	if not cycle.is_empty() and bool(weapon.data.get("cast_all_elements", false)):
+		for element: Variant in cycle:
+			var each: Dictionary = settings.duplicate()
+			each["element"] = str(element)
+			_launch(weapon, player, direction.rotated(0.15 * (cycle.find(element) - 1)), each, combat)
+		return
 	if not cycle.is_empty():
 		settings = settings.duplicate()
 		settings["element"] = str(cycle[(weapon.attacks_made - 1) % cycle.size()])
+	_launch(weapon, player, direction, settings, combat)
+
+
+func _launch(weapon: WeaponInstance, player: Player, direction: Vector2, settings: Dictionary, combat: CombatSystem) -> void:
 	var count: int = maxi(int(settings.get("count", 1)), 1)
 	var spread: float = deg_to_rad(float(settings.get("spread_deg", 0.0)))
 	var speed: float = float(settings.get("speed_px_s", 200.0))

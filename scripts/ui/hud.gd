@@ -2,14 +2,16 @@ class_name Hud
 extends CanvasLayer
 ## In-game HUD (GAME_DESIGN.md: Screens / In-game HUD): the XP bar across the
 ## top, the run timer, kills, the level badge (banked level-ups; tap to open
-## the level-up screen), and a line from the Hero's Legend Trait (for
-## Heracles, his current Labor).
+## the level-up screen), run gold, a pause button for touch screens, and a
+## line from the Hero's Legend Trait (for Heracles, his current Labor).
 
 var level_up_screen: LevelUpScreen
+var pause_menu: PauseMenu
 
 var _xp_bar: ProgressBar
 var _timer_label: Label
 var _kills_label: Label
+var _gold_label: Label
 var _badge: Button
 var _trait_label: Label
 
@@ -45,6 +47,16 @@ func _ready() -> void:
 	row.add_child(_timer_label)
 	_kills_label = _make_label()
 	row.add_child(_kills_label)
+	_gold_label = _make_label()
+	row.add_child(_gold_label)
+	var pause := Button.new()
+	pause.text = "UI_PAUSE_BUTTON"
+	pause.custom_minimum_size = Vector2.ONE * Data.cfg_float("ui.min_touch_target_px")
+	pause.focus_mode = Control.FOCUS_NONE
+	pause.pressed.connect(func() -> void:
+		if pause_menu != null:
+			pause_menu.open())
+	row.add_child(pause)
 	_trait_label = Label.new()
 	_trait_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	_trait_label.set_anchors_preset(Control.PRESET_TOP_WIDE)
@@ -62,6 +74,7 @@ func _process(_delta: float) -> void:
 	_xp_bar.value = run.xp
 	_timer_label.text = TextFormat.run_time(run.elapsed_s)
 	_kills_label.text = tr("UI_KILLS") % run.kills
+	_gold_label.text = tr("UI_GOLD") % roundi(run.gold)
 	var player: Player = GameAuthority.local_player()
 	_trait_label.text = player.kit.hud_text() if player != null and player.kit != null else ""
 	if run.unspent_level_ups > 0:

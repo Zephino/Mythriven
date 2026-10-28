@@ -22,6 +22,8 @@ var current_offer: Array[Dictionary] = []
 var gold: float = 0.0
 ## True once any F1 debug option touched this run; such runs never go on the leaderboard.
 var debug_used: bool = false
+## True while a boss arena is up (hazards pause, only fodder spawns).
+var boss_arena_active: bool = false
 
 
 func _init(run_seed: int, level_entry: Dictionary) -> void:

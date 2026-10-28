@@ -4,8 +4,9 @@ extends Node
 ## damage numbers (Phase 5–6), XP orbs, the HUD, and the level-up screen
 ## (Phase 6), one local player that moves with keyboard,
 ## gamepad, or the touch joystick (Phase 2), a camera that follows it, and the
-## death screen. Also shows the Phase 1 translation test label,
-## the build version in the corner, and any data errors found at startup.
+## death screen. Systems from Phase 10 on are built by RunSystems. Also shows
+## the Phase 1 translation test label, the build version in the corner, and
+## any data errors found at startup.
 
 var _test_label: Label
 var _version_label: Label
@@ -136,6 +137,9 @@ func _build_world(joystick: TouchJoystick) -> void:
 	_death_screen = DeathScreen.new()
 	add_child(_death_screen)
 	GameAuthority.run_ended.connect(_on_run_ended)
+	var systems := RunSystems.new()
+	add_child(systems)
+	systems.build(world, _enemies, spawner, _level_up, _death_screen, hud)
 
 
 ## Drop references to this scene's objects (for example on Retry).

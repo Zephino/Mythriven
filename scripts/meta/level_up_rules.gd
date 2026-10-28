@@ -40,6 +40,7 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 	var owned: Dictionary = {}
 	for weapon: WeaponInstance in player.weapons:
 		owned[weapon.id()] = true
+		owned[weapon.base_id] = true
 		if weapon.level < weapon.max_level():
 			var up: Dictionary = _card(WEAPON_UP, weapon.id(), weapon.level, weapon.level + 1)
 			up["expert"] = weapon.expert

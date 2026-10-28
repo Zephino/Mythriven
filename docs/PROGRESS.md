@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 9 — Heroes built (owner testing); Phase 7 fun checkpoint ongoing
+**Current phase:** Phases 10–14 being built (owner request); Phase 7 fun checkpoint ongoing
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-28 — Phase 10 — Aegean Shore waves, elites, chests (v00.01.17)
+- What changed: `RunArc` (Ages, HP ×1→×3, wave rows), `RunDirector` (Age changes, elite schedule, hazard timer), `RunSystems` (builds the Phase 10+ systems for main.gd); wave-table spawner (singles, packs, flyer groups, encircle rings); `EnemyMovement` (chaser/swarm/brute/encircler, flyer, caster, bomber); `EnemyProjectiles` (20 regular shots, separate boss budget, dark outline, small hurtbox); `EliteState` (6 modifiers) and `EliteBars`; diminishing crowd control and stuns in `EnemyStatuses`; hits from hazards (no attacker), elite Armor and Warded shields in `HitResolver`; `HazardStrikes` (thunderstorm); `GoldPickups`; `ChestPickups`, `ChestRules`, `ChestScreen` (reveal); `EvolutionRules` and 16 evolved weapons; `CodexScreen`; `PauseMenu`; `Banner`; `AgeVisuals`; `Profile` (small between-run store); HUD gold and pause button; debug options for Ages, elites, chests, evolutions, the storm.
+- Files touched: `data/` (`enemies.json`, `waves_aegean_shore.json` new, `elite_modifiers.json` new, `levels.json`, `weapons.json`, `config.json`, `schemas.json`); `scripts/core/` (`run_arc.gd`, `run_director.gd`, `run_systems.gd`, `debug_actions_world.gd` new; `game_authority.gd`, `run_state.gd`, `main.gd`, `debug_menu.gd`); `scripts/enemies/` (`enemy_movement.gd`, `enemy_projectiles.gd`, `elite_state.gd`, `elite_bars.gd` new; `enemy_manager.gd`, `spawner.gd`); `scripts/combat/` (`enemy_statuses.gd`, `hit_resolver.gd`, `weapons/weapon_instance.gd`, fire patterns); `scripts/world/` (`hazard_strikes.gd`, `gold_pickups.gd`, `chest_pickups.gd` new); `scripts/meta/` (`chest_rules.gd`, `evolution_rules.gd`, `profile.gd` new; `level_up_rules.gd`); `scripts/ui/` (`banner.gd`, `age_visuals.gd`, `chest_screen.gd`, `codex_screen.gd`, `pause_menu.gd` new; `hud.gd`); `localization/text.csv`; tests `test_waves.gd`, `test_chests.gd`, `test_smoke.gd` (new).
+- Unfinished / next: infusions in chests come with Phase 12; boss chests and the Unraveling's shrinking ring with Phase 13; signature evolution bonuses (e.g. Thirty Barbs on Salmon Leap landings) not added yet.
 
 ## 2026-10-28 — Fix — Game page not loading; leaderboard schema (v00.01.16)
 - Cause: two Pages publishers race on every push (the repo's Pages Source is still "Deploy from a branch"); the branch one finished last and replaced the game. Separately, `config.json`'s new `leaderboard` section was missing from `data/schemas.json` (2 test failures).

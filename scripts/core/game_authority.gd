@@ -19,6 +19,11 @@ signal xp_changed(run: RunState)
 ## A level-up is waiting to be chosen (the level-up screen opens).
 signal level_up_ready(run: RunState)
 signal card_applied(player: Player, card: Dictionary)
+## A new Age began (RunArc ids: "dusk", "night", "deep_night", "unraveling").
+signal age_changed(age_id: String)
+## An elite died (split copies too, with is_copy true): drops a chest and gold.
+signal elite_killed(at: Vector2, enemy_type: Dictionary, is_copy: bool)
+signal gold_collected(player: Player, amount: float)
 
 const LEVELS_FILE := "levels.json"
 const WEAPONS_FILE := "weapons.json"
@@ -27,6 +32,7 @@ var players: Array[Player] = []
 var run: RunState = null
 ## Set by the main scene; null between runs.
 var enemies: EnemyManager = null
+var enemy_shots: EnemyProjectiles = null
 ## Auto-collect setting: "off", "gold", "heal", or "smart". Saved with the
 ## other settings once the save system exists (Phase 15).
 var auto_collect: String = ""
@@ -47,6 +53,7 @@ func start_run(level_id: String) -> RunState:
 		auto_collect = Data.cfg_string("level_up.auto_collect_default")
 	players.clear()
 	enemies = null
+	enemy_shots = null
 	var run_seed: int = Data.cfg_int("run.fixed_seed")
 	if run_seed == 0:
 		var seeder := RandomNumberGenerator.new()
@@ -61,6 +68,7 @@ func start_run(level_id: String) -> RunState:
 func end_scene() -> void:
 	players.clear()
 	enemies = null
+	enemy_shots = null
 
 
 func find_level(level_id: String) -> Dictionary:
@@ -119,7 +127,8 @@ func spawn_enemy(type_id: String, at: Vector2) -> int:
 
 
 ## Damages a player (enemy damage − Armor, minimum 1; no invulnerability frames).
-func damage_player(player: Player, amount: float, source_id: String) -> void:
+## `from` is where the hit came from (Vector2.INF when unknown).
+func damage_player(player: Player, amount: float, source_id: String, _from: Vector2 = Vector2.INF) -> void:
 	if not player.alive or player.god_mode or (player.kit != null and player.kit.is_untargetable()):
 		return
 	var armor: float = player.armor * player.statuses.armor_mult()
@@ -182,10 +191,24 @@ func kill_enemy(slot: int, killer: Player) -> void:
 		return
 	var at: Vector2 = enemies.positions[slot]
 	var data: Dictionary = enemies.type_of(slot)
+	var elite: bool = enemies.is_elite(slot)
+	var copy: bool = enemies.elites.is_copy[slot] != 0
+	if elite:
+		enemies.elites.on_killed(enemies, slot)
 	if run != null:
 		run.kills += 1
 	enemies.despawn(slot)
 	enemy_killed.emit(slot, data, at, killer)
+	if elite:
+		elite_killed.emit(at, data, copy)
+
+
+## Adds run gold (spent at the Trader or banked at the end of the run).
+func collect_gold(player: Player, amount: float) -> void:
+	if run == null or run.ended:
+		return
+	run.gold += amount
+	gold_collected.emit(player, amount)
 
 
 func find_weapon(weapon_id: String) -> Dictionary:

@@ -1,0 +1,580 @@
+{
+  "_doc": "Aegean Shore wave table (GAME_DESIGN.md: Difficulty growth; Run arc). Each row applies from its minute until the next row: spawns_per_s single enemies picked by weight from singles; each spawn also has a chance to be a pack instead; groups arrive on their own timers (flyers cross the screen, encirclers close in from a ring). Elites come at elite times_s, then every random_interval_s. Fodder during boss fights is in boss_fodder (Phase 13). Enemy HP also grows from x1 at 0:00 to x3 at 30:00 (config run_arc). ALL NUMBERS ARE PLACEHOLDERS until tuned.",
+  "level": "aegean_shore",
+  "rows": [
+    {
+      "from_min": 0,
+      "spawns_per_s": 1.0,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.05,
+          "size": [
+            6,
+            12
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 2,
+      "spawns_per_s": 1.3,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 4,
+      "spawns_per_s": 1.6,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 6,
+      "spawns_per_s": 1.9,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 8,
+      "spawns_per_s": 2.2,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 10,
+      "spawns_per_s": 2.4,
+      "singles": {
+        "satyr_skirmisher": 6,
+        "siren_caster": 1,
+        "draugr_brute": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 12,
+      "spawns_per_s": 2.7,
+      "singles": {
+        "satyr_skirmisher": 6,
+        "siren_caster": 1,
+        "draugr_brute": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 14,
+      "spawns_per_s": 3.0,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "draugr_brute": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 16,
+      "spawns_per_s": 3.3,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "draugr_brute": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 18,
+      "spawns_per_s": 3.6,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "draugr_brute": 3
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 20,
+      "spawns_per_s": 3.8,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "draugr_brute": 2,
+        "muspel_spark_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 23,
+      "spawns_per_s": 4.2,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "draugr_brute": 3,
+        "muspel_spark_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 26,
+      "spawns_per_s": 4.6,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "draugr_brute": 3,
+        "muspel_spark_bomber": 3
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 28,
+      "spawns_per_s": 5.0,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 2,
+        "draugr_brute": 3,
+        "muspel_spark_bomber": 3
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    }
+  ],
+  "elites": {
+    "types": [
+      "minotaur",
+      "gorgon_kin",
+      "cyclops"
+    ],
+    "times_s": [
+      300,
+      900,
+      1500
+    ],
+    "random_interval_s": [
+      150,
+      240
+    ],
+    "random_after_s": 300,
+    "_doc": "Elite types are picked from those whose ages include the current Age."
+  },
+  "boss_fodder": [
+    "shade_swarm",
+    "satyr_skirmisher"
+  ],
+  "events": []
+}

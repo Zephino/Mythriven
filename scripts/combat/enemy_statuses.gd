@@ -6,6 +6,10 @@ extends RefCounted
 ## Shock (next hit +20%), Soaked (sets up reactions), Poison (stacking damage
 ## over time), Smite (marks the hit for shield breaking), Hex (−40% Armor,
 ## −20% damage). Gust is an instant push, not a lasting status.
+## Stuns and roots (from gods and Guard Breaks) stop movement like Freeze.
+## Elites have diminishing crowd control: each Freeze, root, or stun within
+## 10 s lasts 100% → 50% → 25%, then they're immune for 5 s (GAME_DESIGN.md:
+## Crowd control on elites and bosses).
 
 var burn := PackedFloat32Array()
 var chill := PackedFloat32Array()
@@ -17,6 +21,12 @@ var poison := PackedFloat32Array()
 var poison_stacks := PackedInt32Array()
 var smite := PackedFloat32Array()
 var hex := PackedFloat32Array()
+var stun := PackedFloat32Array()
+## 1 for elites (diminishing crowd control).
+var cc_limited := PackedByteArray()
+var cc_count := PackedInt32Array()
+var cc_window := PackedFloat32Array()
+var cc_immune := PackedFloat32Array()
 
 var _p: Dictionary = {}
 var _tints: Dictionary = {}
@@ -33,6 +43,11 @@ func _init(capacity: int) -> void:
 	poison_stacks.resize(capacity)
 	smite.resize(capacity)
 	hex.resize(capacity)
+	stun.resize(capacity)
+	cc_limited.resize(capacity)
+	cc_count.resize(capacity)
+	cc_window.resize(capacity)
+	cc_immune.resize(capacity)
 	for status_id: String in ["burn", "chill", "shock", "soaked", "poison", "smite", "hex"]:
 		_p[status_id] = Elements.status(status_id)
 		_tints[status_id] = Color.html(str((_p[status_id] as Dictionary).get("tint", "#ffffff")))
@@ -50,6 +65,36 @@ func clear(slot: int) -> void:
 	poison_stacks[slot] = 0
 	smite[slot] = 0.0
 	hex[slot] = 0.0
+	stun[slot] = 0.0
+	cc_limited[slot] = 0
+	cc_count[slot] = 0
+	cc_window[slot] = 0.0
+	cc_immune[slot] = 0.0
+
+
+## How long a Freeze, root, or stun of `duration` really lasts on this slot
+## (shorter for elites hit repeatedly, 0 while immune). Counts the use.
+func cc_duration(slot: int, duration: float) -> float:
+	if cc_limited[slot] == 0:
+		return duration
+	if cc_immune[slot] > 0.0:
+		return 0.0
+	if cc_window[slot] <= 0.0:
+		cc_count[slot] = 0
+	var mults: Array = Data.cfg("combat.elite_cc_duration_mults")
+	var lasts: float = duration * float(mults[mini(cc_count[slot], mults.size() - 1)])
+	cc_count[slot] += 1
+	cc_window[slot] = Data.cfg_float("combat.elite_cc_window_s")
+	if cc_count[slot] >= mults.size():
+		cc_immune[slot] = lasts + Data.cfg_float("combat.elite_cc_immunity_s")
+		cc_count[slot] = 0
+		cc_window[slot] = 0.0
+	return lasts
+
+
+## Stops the enemy for `seconds` (roots, stuns); elites resist repeats.
+func apply_stun(slot: int, seconds: float) -> void:
+	stun[slot] = maxf(stun[slot], cc_duration(slot, seconds))
 
 
 ## Applies a status. `duration_mult` shortens or lengthens it; bosses can
@@ -66,7 +111,7 @@ func apply(slot: int, status_id: String, duration_mult: float = 1.0, can_freeze:
 			chill[slot] = maxf(chill[slot], duration)
 			chill_stacks[slot] = mini(chill_stacks[slot] + 1, int(p.get("stacks_to_freeze", 3)))
 			if can_freeze and chill_stacks[slot] >= int(p.get("stacks_to_freeze", 3)):
-				frozen[slot] = float(p.get("freeze_s", 1.5)) * duration_mult
+				frozen[slot] = cc_duration(slot, float(p.get("freeze_s", 1.5)) * duration_mult)
 				chill[slot] = 0.0
 				chill_stacks[slot] = 0
 		"shock":
@@ -125,7 +170,7 @@ func remove(slot: int, status_id: String) -> void:
 
 ## Movement multiplier: Frozen stops the enemy; each Chill stack slows it.
 func speed_mult(slot: int) -> float:
-	if frozen[slot] > 0.0:
+	if frozen[slot] > 0.0 or stun[slot] > 0.0:
 		return 0.0
 	if chill[slot] > 0.0:
 		return maxf(1.0 - float(_p["chill"].get("slow_per_stack", 0.3)) * chill_stacks[slot], 0.0)
@@ -175,6 +220,9 @@ func tick(step: float, active: PackedByteArray, on_dot: Callable) -> void:
 		soaked[slot] = maxf(soaked[slot] - step, 0.0)
 		smite[slot] = maxf(smite[slot] - step, 0.0)
 		hex[slot] = maxf(hex[slot] - step, 0.0)
+		stun[slot] = maxf(stun[slot] - step, 0.0)
+		cc_window[slot] = maxf(cc_window[slot] - step, 0.0)
+		cc_immune[slot] = maxf(cc_immune[slot] - step, 0.0)
 		if dot > 0.0:
 			on_dot.call(slot, dot)
 

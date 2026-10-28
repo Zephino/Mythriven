@@ -6,7 +6,8 @@ extends Node2D
 ## neighbours), deals contact damage once per 0.5 s per touching enemy (no
 ## invulnerability frames), ticks their statuses 5 times a second, and draws
 ## them all with one MultiMesh, coloured by element and tinted by status.
-## Nothing is created or freed during play: slots are reused.
+## Nothing is created or freed during play: slots are reused. Movement types
+## are in enemy_movement.gd and elite modifiers in elite_state.gd.
 
 const ENEMIES_FILE := "enemies.json"
 
@@ -20,12 +21,15 @@ var active := PackedByteArray()
 var positions := PackedVector2Array()
 var knockback := PackedVector2Array()
 var hp := PackedFloat32Array()
+var max_hp := PackedFloat32Array()
 var radius := PackedFloat32Array()
 var kind := PackedInt32Array()
 var contact_timer := PackedFloat32Array()
 var flash_timer := PackedFloat32Array()
 ## Status effects for every slot (Burn, Chill/Freeze, Shock, Soaked, Poison, Smite, Hex).
 var statuses: EnemyStatuses
+var movement: EnemyMovement
+var elites: EliteState
 
 var _free: PackedInt32Array = PackedInt32Array()
 var _active_count: int = 0
@@ -36,6 +40,7 @@ var _multimesh: MultiMesh
 # Per-type values cached from enemies.json so the per-frame loops stay fast.
 var _type_speed := PackedFloat32Array()
 var _type_color: Array[Color] = []
+var _type_movement := PackedInt32Array()
 
 
 func setup() -> void:
@@ -48,17 +53,21 @@ func setup() -> void:
 		types.append(entry)
 		_max_radius = maxf(_max_radius, float(entry["radius_px"]))
 		_type_speed.append(float(entry["speed"]))
+		_type_movement.append(EnemyMovement.code_of(str(entry.get("movement", "chaser"))))
 		var element_id: String = str(entry.get("element", ""))
 		_type_color.append(Elements.color(element_id) if element_id != "" else Color.html(str(entry["placeholder_color"])))
 	active.resize(capacity)
 	positions.resize(capacity)
 	knockback.resize(capacity)
 	hp.resize(capacity)
+	max_hp.resize(capacity)
 	radius.resize(capacity)
 	kind.resize(capacity)
 	contact_timer.resize(capacity)
 	flash_timer.resize(capacity)
 	statuses = EnemyStatuses.new(capacity)
+	movement = EnemyMovement.new(capacity)
+	elites = EliteState.new(capacity)
 	_free.resize(capacity)
 	for i: int in capacity:
 		_free[i] = capacity - 1 - i
@@ -93,11 +102,17 @@ func spawn(type_id: String, at: Vector2) -> int:
 	kind[slot] = type_index[type_id]
 	positions[slot] = at
 	knockback[slot] = Vector2.ZERO
-	hp[slot] = float(data["hp"]) * LevelScaling.hp_mult(LevelScaling.current_level())
+	var elapsed: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
+	max_hp[slot] = float(data["hp"]) * LevelScaling.hp_mult(LevelScaling.current_level()) * RunArc.hp_mult(elapsed)
+	hp[slot] = max_hp[slot]
 	radius[slot] = float(data["radius_px"])
 	contact_timer[slot] = 0.0
 	flash_timer[slot] = 0.0
 	statuses.clear(slot)
+	statuses.cc_limited[slot] = 1 if bool(data.get("elite", false)) else 0
+	elites.clear(slot)
+	var rng: RandomNumberGenerator = GameAuthority.run.rng.spawns if GameAuthority.run != null else RandomNumberGenerator.new()
+	movement.reset(slot, _type_movement[kind[slot]], data.get("behavior", {}), rng)
 	return slot
 
 
@@ -111,8 +126,31 @@ func despawn(slot: int) -> void:
 	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2.ZERO, 0.0, Vector2.ZERO))
 
 
+## Removes an enemy without a kill (a flyer that has crossed the screen): no XP, no count.
+func remove_quietly(slot: int) -> void:
+	despawn(slot)
+
+
 func type_of(slot: int) -> Dictionary:
 	return types[kind[slot]]
+
+
+func movement_code(slot: int) -> int:
+	return _type_movement[kind[slot]]
+
+
+## Current move speed: type speed slowed by Chill/Freeze/stuns, raised by Hasted.
+func speed_of(slot: int) -> float:
+	return _type_speed[kind[slot]] * statuses.speed_mult(slot) * elites.speed_mult(slot)
+
+
+## Multiplier on the damage this enemy deals (Hex, and difficulty from player level).
+func damage_mult(slot: int) -> float:
+	return statuses.outgoing_damage_mult(slot) * LevelScaling.damage_mult(LevelScaling.current_level())
+
+
+func is_elite(slot: int) -> bool:
+	return bool(types[kind[slot]].get("elite", false))
 
 
 ## Elites and bosses are preferred by `targeted` weapons (Phase 10+).
@@ -136,7 +174,8 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 
 
 func _process(delta: float) -> void:
-	_move(delta)
+	movement.step(self, delta)
+	elites.tick(self, delta)
 	_separation_timer -= delta
 	if _separation_timer <= 0.0:
 		_separation_timer = 1.0 / Data.cfg_float("performance.separation_hz")
@@ -149,21 +188,6 @@ func _process(delta: float) -> void:
 		statuses.tick(step, active, GameAuthority.hits.damage_over_time)
 	_contact(delta)
 	_draw_instances(delta)
-
-
-func _move(delta: float) -> void:
-	var decay: float = exp(-Data.cfg_float("enemies.knockback_decay") * delta)
-	for i: int in capacity:
-		if active[i] == 0:
-			continue
-		var target: Player = _nearest_player(positions[i])
-		var step := Vector2.ZERO
-		if target != null:
-			var to_player: Vector2 = target.position - positions[i]
-			if to_player.length_squared() > 1.0:
-				step = to_player.normalized() * _type_speed[kind[i]] * statuses.speed_mult(i) * delta
-		positions[i] += step + knockback[i] * delta
-		knockback[i] *= decay
 
 
 ## Pushes overlapping enemies apart; bigger enemies push smaller ones aside.
@@ -222,13 +246,11 @@ func _contact(delta: float) -> void:
 			if positions[i].distance_to(player.position) <= player.body_radius + radius[i] + margin:
 				contact_timer[i] = interval
 				var data: Dictionary = types[kind[i]]
-				var damage: float = float(data["contact_damage"]) * statuses.outgoing_damage_mult(i) \
-						* LevelScaling.damage_mult(LevelScaling.current_level())
-				GameAuthority.damage_player(player, damage, str(data["id"]))
+				GameAuthority.damage_player(player, float(data["contact_damage"]) * damage_mult(i), str(data["id"]), positions[i])
 				GameAuthority.status_player_from_enemy(player, str(data.get("element", "")))
 
 
-func _nearest_player(from: Vector2) -> Player:
+func nearest_player(from: Vector2) -> Player:
 	var best: Player = null
 	var best_sq: float = INF
 	for player: Player in GameAuthority.players:
@@ -253,6 +275,9 @@ func _draw_instances(delta: float) -> void:
 		var tint: Color = statuses.tint(i)
 		if tint.a > 0.0:
 			color = color.lerp(tint, tint_strength)
+		var wind_up: Color = movement.override_color(self, i)
+		if wind_up.a > 0.0:
+			color = wind_up
 		if flash_timer[i] > 0.0:
 			flash_timer[i] -= delta
 			color = flash_color

@@ -107,7 +107,11 @@
     "damage_number_rise_px_s": 24,
     "min_touch_target_px": 72,
     "god_button_min_px": 72,
-    "screen_margin_px": 16
+    "screen_margin_px": 16,
+    "banner_offset_px": 96,
+    "banner_font_px": 20,
+    "banner_outline_px": 6,
+    "banner_s": 2.5
   },
 
   "performance": {
@@ -123,6 +127,7 @@
     "max_ground_hazards": 40,
     "max_reactions_per_s": 30,
     "max_enemy_projectiles": 20,
+    "max_boss_projectiles": 300,
     "max_identical_sounds": 8
   },
 
@@ -150,7 +155,13 @@
     "elite_modifiers_normal": 1,
     "elite_modifiers_deep_night": 2,
     "enemy_hp_mult_start": 1.0,
-    "enemy_hp_mult_at_30_min": 3.0
+    "enemy_hp_mult_at_30_min": 3.0,
+    "age_colors": { "dusk": "#fff0d8", "night": "#b8c8f0", "deep_night": "#a0a0dc", "unraveling": "#b898c8" },
+    "age_fade_s": 3.0,
+    "ember_count": 40,
+    "ember_color": "#ffb86090",
+    "thread_color": "#e6d6ffa0",
+    "thread_edge_px": 48
   },
 
   "swift_mode": {
@@ -179,7 +190,8 @@
     "expertise_attack_speed_pct": 25,
     "expertise_damage_pct": 15,
     "range_switch_tiles": 2,
-    "priority_target_range_mult": 1.5
+    "priority_target_range_mult": 1.5,
+    "charge_arrows_attack_speed": 2.0
   },
 
   "stats": {
@@ -247,7 +259,13 @@
     "sound_volume_db": -12,
     "scale_semitones": [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26],
     "tier_sound_hz": 440,
-    "tier_sound_length_s": 0.25
+    "tier_sound_length_s": 0.25,
+    "gold_pool": 120,
+    "gold_coin_value": 1,
+    "elite_gold": 20,
+    "pile_coins": 6,
+    "gold_size_px": 5,
+    "gold_color": "#ffd040"
   },
 
   "projectiles": { "max_player_projectiles": 200 },
@@ -300,8 +318,8 @@
     "min_attack_telegraph_s": 0.5,
     "auto_spawn_enabled": true,
     "auto_spawn_per_s": 1.5,
-    "auto_chaser_type": "placeholder_chaser",
-    "auto_swarm_type": "placeholder_swarm",
+    "auto_chaser_type": "satyr_skirmisher",
+    "auto_swarm_type": "shade_swarm",
     "swarm_pack_chance": 0.05,
     "pack_spread_px": 24,
     "spawn_margin_px": 48,
@@ -314,6 +332,16 @@
     "hit_flash_color": "#ffffff",
     "placeholder_texture_px": 32,
     "status_tint_strength": 0.6,
+    "telegraph_color": "#ffffff",
+    "shot_color": "#ff6060",
+    "shot_outline_color": "#1a1020",
+    "shot_lifetime_s": 6.0,
+    "flyer_gap_px": 14,
+    "encircle_radius_mult": 0.85,
+    "elite_bar_width_px": 30,
+    "elite_bar_height_px": 3,
+    "elite_bar_color": "#e8b040",
+    "elite_shield_color": "#80c0ff",
     "level_scaling": {
       "_doc": "Owner request: every spawn_every_levels player levels, spawns rise by spawn_rate_step (+25%); every difficulty_every_levels levels, enemy HP rises by hp_step (+50%) and contact damage by damage_step (+25%).",
       "spawn_every_levels": 5,
@@ -332,12 +360,40 @@
     "guard_break_damage_mult": 1.5,
     "guard_weakness_fill_mult": 2,
     "player_projectile_hurtbox_ratio": 0.4,
-    "bullet_gap_mult": 1.5
+    "bullet_gap_mult": 1.5,
+    "area_telegraph_color": "#ff9a30c0"
   },
 
   "events": { "chaos_surge_s": 60, "divine_storm_s": 45 },
 
-  "chests": { "reveal_max_s": 3.0, "reveal_skip_after_s": 0.5, "buildup_s": 1.5, "coop_pause_max_s": 3.0 },
+  "chests": {
+    "_doc": "Chests and the chest reveal (GAME_DESIGN.md: Chest reveal). Tier odds before Luck; each point of Luck (1.0 = +100%) moves luck_shift of the bronze odds up to silver and gold. Gold ranges are placeholders.",
+    "reveal_max_s": 3.0,
+    "reveal_skip_after_s": 0.5,
+    "buildup_s": 1.5,
+    "coop_pause_max_s": 3.0,
+    "fast_chests": false,
+    "fast_buildup_s": 0.5,
+    "tier_odds": { "bronze": 0.6, "silver": 0.3, "gold": 0.1 },
+    "luck_shift": 0.5,
+    "gold": [8, 20],
+    "big_gold": [40, 80],
+    "size_px": 7,
+    "color": "#8a5a2a",
+    "trim_color": "#e0c060",
+    "dim_color": "#000000a0",
+    "lines_offset_px": 40,
+    "seal_offset_px": 60,
+    "seal_radius_px": 48,
+    "seal_spin_rad_s": 6.0,
+    "meander_steps": 16,
+    "seal_color": "#f0e6c8",
+    "tier_colors": { "bronze": "#cd7f32", "silver": "#d8dde6", "gold": "#ffd700" },
+    "buildup_notes": 6,
+    "reveal_step_s": 0.3,
+    "fuse_s": 0.6,
+    "fuse_offset_px": 90
+  },
 
   "banter": { "display_s": 3.0, "summon_line_chance": 0.1 },
 
@@ -355,7 +411,7 @@
     "sync_rate_hz": 20
   },
 
-  "save": { "save_version": 3, "cloud_sync_min_interval_s": 30 },
+  "save": { "save_version": 3, "cloud_sync_min_interval_s": 30, "profile_file": "user://profile.cfg" },
 
   "meta": { "oracle_runs_per_hint": 5 }
 }

@@ -118,7 +118,11 @@
               "damage_number_rise_px_s": "number",
               "min_touch_target_px": "number",
               "god_button_min_px": "number",
-              "screen_margin_px": "number"
+              "screen_margin_px": "number",
+              "banner_offset_px": "number",
+              "banner_font_px": "number",
+              "banner_outline_px": "number",
+              "banner_s": "number"
             }
           },
           "performance": {
@@ -138,7 +142,8 @@
               "max_ground_hazards": "number",
               "max_reactions_per_s": "number",
               "max_enemy_projectiles": "number",
-              "max_identical_sounds": "number"
+              "max_identical_sounds": "number",
+              "max_boss_projectiles": "number"
             }
           },
           "world": {
@@ -186,7 +191,21 @@
               "elite_modifiers_normal": "number",
               "elite_modifiers_deep_night": "number",
               "enemy_hp_mult_start": "number",
-              "enemy_hp_mult_at_30_min": "number"
+              "enemy_hp_mult_at_30_min": "number",
+              "age_colors": {
+                "type": "object",
+                "fields": {
+                  "dusk": "string",
+                  "night": "string",
+                  "deep_night": "string",
+                  "unraveling": "string"
+                }
+              },
+              "age_fade_s": "number",
+              "ember_count": "number",
+              "ember_color": "string",
+              "thread_color": "string",
+              "thread_edge_px": "number"
             }
           },
           "swift_mode": {
@@ -222,7 +241,8 @@
               "expertise_attack_speed_pct": "number",
               "expertise_damage_pct": "number",
               "range_switch_tiles": "number",
-              "priority_target_range_mult": "number"
+              "priority_target_range_mult": "number",
+              "charge_arrows_attack_speed": "number"
             }
           },
           "stats": {
@@ -312,7 +332,13 @@
                 "items": "number"
               },
               "tier_sound_hz": "number",
-              "tier_sound_length_s": "number"
+              "tier_sound_length_s": "number",
+              "gold_pool": "number",
+              "gold_coin_value": "number",
+              "elite_gold": "number",
+              "pile_coins": "number",
+              "gold_size_px": "number",
+              "gold_color": "string"
             }
           },
           "projectiles": {
@@ -421,7 +447,17 @@
                   "hp_step": "number",
                   "damage_step": "number"
                 }
-              }
+              },
+              "telegraph_color": "string",
+              "shot_color": "string",
+              "shot_outline_color": "string",
+              "shot_lifetime_s": "number",
+              "flyer_gap_px": "number",
+              "encircle_radius_mult": "number",
+              "elite_bar_width_px": "number",
+              "elite_bar_height_px": "number",
+              "elite_bar_color": "string",
+              "elite_shield_color": "string"
             }
           },
           "bosses": {
@@ -437,7 +473,8 @@
               "guard_break_damage_mult": "number",
               "guard_weakness_fill_mult": "number",
               "player_projectile_hurtbox_ratio": "number",
-              "bullet_gap_mult": "number"
+              "bullet_gap_mult": "number",
+              "area_telegraph_color": "string"
             }
           },
           "events": {
@@ -453,7 +490,48 @@
               "reveal_max_s": "number",
               "reveal_skip_after_s": "number",
               "buildup_s": "number",
-              "coop_pause_max_s": "number"
+              "coop_pause_max_s": "number",
+              "fast_chests": "bool",
+              "fast_buildup_s": "number",
+              "tier_odds": {
+                "type": "object",
+                "fields": {
+                  "bronze": "number",
+                  "silver": "number",
+                  "gold": "number"
+                }
+              },
+              "luck_shift": "number",
+              "gold": {
+                "type": "array",
+                "items": "number"
+              },
+              "big_gold": {
+                "type": "array",
+                "items": "number"
+              },
+              "size_px": "number",
+              "color": "string",
+              "trim_color": "string",
+              "dim_color": "string",
+              "lines_offset_px": "number",
+              "seal_offset_px": "number",
+              "seal_radius_px": "number",
+              "seal_spin_rad_s": "number",
+              "meander_steps": "number",
+              "seal_color": "string",
+              "tier_colors": {
+                "type": "object",
+                "fields": {
+                  "bronze": "string",
+                  "silver": "string",
+                  "gold": "string"
+                }
+              },
+              "buildup_notes": "number",
+              "reveal_step_s": "number",
+              "fuse_s": "number",
+              "fuse_offset_px": "number"
             }
           },
           "banter": {
@@ -486,7 +564,8 @@
             "type": "object",
             "fields": {
               "save_version": "number",
-              "cloud_sync_min_interval_s": "number"
+              "cloud_sync_min_interval_s": "number",
+              "profile_file": "string"
             }
           },
           "meta": {
@@ -555,6 +634,25 @@
             "unlocks_hero_on_defeat": {
               "type": "any",
               "optional": true
+            },
+            "waves": {
+              "type": "string",
+              "optional": true
+            },
+            "hazard": {
+              "type": "object",
+              "optional": true,
+              "open": true,
+              "fields": {
+                "type": "string",
+                "name_key": "string",
+                "interval_s": "number",
+                "duration_s": "number"
+              }
+            },
+            "seal": {
+              "type": "string",
+              "optional": true
             }
           }
         }
@@ -610,6 +708,22 @@
             "ages": {
               "type": "array",
               "items": "string",
+              "optional": true
+            },
+            "elite": {
+              "type": "bool",
+              "optional": true
+            },
+            "boss": {
+              "type": "bool",
+              "optional": true
+            },
+            "priority_target": {
+              "type": "bool",
+              "optional": true
+            },
+            "behavior": {
+              "type": "object",
               "optional": true
             }
           }
@@ -756,6 +870,22 @@
             "element_cycle": {
               "type": "array",
               "items": "string",
+              "optional": true
+            },
+            "evolved_from": {
+              "type": "string",
+              "optional": true
+            },
+            "cast_all_elements": {
+              "type": "bool",
+              "optional": true
+            },
+            "barbs_on_every_hit": {
+              "type": "bool",
+              "optional": true
+            },
+            "charge_arrows": {
+              "type": "bool",
               "optional": true
             }
           }
@@ -1014,6 +1144,95 @@
               "type": "object"
             },
             "placeholder_color": "string"
+          }
+        }
+      }
+    },
+    "waves_aegean_shore.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "level": "string",
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "from_min": "number",
+                "spawns_per_s": "number",
+                "singles": {
+                  "type": "object"
+                },
+                "packs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "chance": "number",
+                      "size": {
+                        "type": "array",
+                        "items": "int"
+                      }
+                    }
+                  }
+                },
+                "groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "kind": "string",
+                      "every_s": "number",
+                      "size": "int"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "elites": {
+            "type": "object",
+            "fields": {
+              "types": {
+                "type": "array",
+                "items": "string"
+              },
+              "times_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_interval_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_after_s": "number"
+            }
+          },
+          "boss_fodder": {
+            "type": "array",
+            "items": "string"
+          },
+          "events": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "elite_modifiers.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "open": true,
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "icon_color": "string",
+            "icon_shape": "string"
           }
         }
       }

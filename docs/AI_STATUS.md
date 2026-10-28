@@ -4,7 +4,7 @@ Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.16
+Version: 00.01.17
 Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.16` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.17` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -83,6 +83,15 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 5. **Tomoe Gozen** (red): sword slashes up close, arrows farther away. Keep moving: Momentum climbs to 10, then "Charge!" tramples enemies; standing still halves Momentum.
 6. Level-up cards for weapons the Hero is expert in say "Expert!" (Heracles: Longbow, Throwing Axe, Bladed Discus).
 7. After dying, **Retry** keeps the Hero, **Change Hero** goes back to the select screen.
+
+**Phase 10 — Aegean waves, elites, chests (00.01.17)**
+1. Enemies are now coloured by element: brown-grey Satyrs walk at you, small dark Shade swarms and pale-green Harpy flocks rush in packs, and lines of flyers cross the screen in a wave and leave.
+2. F1 → **Jump to the next Age**: at 10:00 the light turns blue, embers drift, and a "Night falls" banner shows. Blue Sirens stop at a distance, glow white, then fire a slow shot with a dark outline; big grey-green Draugr brutes appear. At 20:00 (Deep Night) threads drift at the screen edges, a ring of Shades closes in, and orange Muspel Sparks flash and explode next to you.
+3. At 2:00 (or F1 → **Start the thunderstorm**) "A thunderstorm rolls in!": orange circles fill up, then lightning strikes them, hurting you and enemies.
+4. F1 → **Spawn an elite**: a big enemy with a health bar and coloured modifier icons. Splitting ones leave 3 small copies; Warded ones show a blue shield bar that Glimmer (Holy) breaks at once. It drops gold coins and a chest.
+5. Walk onto the chest: the game pauses, a spinning ring cracks while light grows bronze, silver, or gold, then the rewards appear one by one. Tap or press a key after half a second to skip; it never lasts more than 3 s.
+6. F1 → **Make a weapon ready to evolve**, then **Open a chest now**: the weapon and passive names fly together into the evolved weapon (e.g. "Labor-Breaker": every slam quakes), and "New recipe discovered" appears.
+7. Esc (Start on a gamepad, **II** on touch) opens the pause menu; **Codex** lists all 16 recipes, with the ones you found filled in.
 
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.

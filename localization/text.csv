@@ -285,3 +285,77 @@ DATA_ERROR_BAD_SCHEMA,"%s: the schema for field '%s' is invalid"
 DATA_WARN_UNKNOWN_FIELD,"%s: unknown field '%s' (not in data/schemas.json)"
 GATE_REFUSED,"%s: entry '%s' refused in release build (care_tier %s, lore_verified %s)"
 GATE_WARNING,"%s: entry '%s' loaded for testing, but a release build would refuse it (care_tier %s, lore_verified %s)"
+UI_GOLD,Gold %d
+UI_PAUSE_BUTTON,II
+UI_PAUSED,Paused
+UI_RESUME,Resume
+UI_QUIT_RUN,Quit run
+UI_CODEX,Codex
+CODEX_COUNT,Recipes found: %d / %d
+CODEX_RECIPE,%s + %s → %s
+CODEX_HIDDEN,??? — %s at its top level + a matching item
+CODEX_NEW_RECIPE,New recipe discovered: %s
+CHEST_EVOLUTION,%s + %s → %s
+CHEST_LEVEL_UP,%s → Lv %d
+CHEST_GOLD,+%s gold
+AGE_DUSK_NAME,Dusk
+AGE_NIGHT_NAME,Night
+AGE_DEEP_NIGHT_NAME,Deep Night
+AGE_UNRAVELING_NAME,The Unraveling
+AGE_DUSK_BANNER,Dusk
+AGE_NIGHT_BANNER,Night falls
+AGE_DEEP_NIGHT_BANNER,Deep Night
+AGE_UNRAVELING_BANNER,The Unraveling begins
+HAZARD_THUNDERSTORM_NAME,A thunderstorm rolls in!
+ENEMY_SHADE_SWARM_NAME,Shade swarm
+ENEMY_SHADE_FLYER_NAME,Drifting Shade
+ENEMY_SHADE_ENCIRCLER_NAME,Encircling Shade
+ENEMY_HARPY_SWARM_NAME,Harpy flock
+ENEMY_HARPY_FLYER_NAME,Diving Harpy
+ENEMY_SATYR_SKIRMISHER_NAME,Satyr skirmisher
+ENEMY_SIREN_CASTER_NAME,Siren
+ENEMY_DRAUGR_BRUTE_NAME,Draugr brute
+ENEMY_MUSPEL_SPARK_BOMBER_NAME,Muspel Spark
+ENEMY_MINOTAUR_NAME,Minotaur
+ENEMY_CYCLOPS_NAME,Cyclops
+ENEMY_GORGON_KIN_NAME,Gorgon-kin
+ELITE_MOD_HASTED,Hasted
+ELITE_MOD_ARMORED,Armored
+ELITE_MOD_SPLITTING,Splitting
+ELITE_MOD_WARDED,Warded
+ELITE_MOD_ELEMENTAL_AURA,Elemental Aura
+ELITE_MOD_SUMMONER,Summoner
+WEAPON_LABOR_BREAKER_NAME,Labor-Breaker
+WEAPON_LABOR_BREAKER_DESC,Every slam quakes.
+WEAPON_THIRTY_BARBS_NAME,Thirty Barbs
+WEAPON_THIRTY_BARBS_DESC,The spear bursts into a spray of barbs.
+WEAPON_SONG_OF_CREATION_NAME,Song of Creation
+WEAPON_SONG_OF_CREATION_DESC,Casts all three elements at once.
+WEAPON_THOUSAND_ARROW_RIDE_NAME,Thousand-Arrow Ride
+WEAPON_THOUSAND_ARROW_RIDE_DESC,Arrows fire during every charge.
+WEAPON_CLEAVER_STORM_NAME,Cleaver Storm
+WEAPON_CLEAVER_STORM_DESC,A storm of piercing axes.
+WEAPON_SUN_DISC_NAME,Sun Disc
+WEAPON_SUN_DISC_DESC,"Wider, heavier discs."
+WEAPON_RAIN_OF_JAVELINS_NAME,Rain of Javelins
+WEAPON_RAIN_OF_JAVELINS_DESC,A fan of javelins.
+WEAPON_VOLLEY_NAME,Volley
+WEAPON_VOLLEY_DESC,A wide volley of arrows.
+WEAPON_HEROS_BLADE_NAME,Hero's Blade
+WEAPON_HEROS_BLADE_DESC,Huge sweeping cuts.
+WEAPON_QUAKE_HAMMER_NAME,Quake Hammer
+WEAPON_QUAKE_HAMMER_DESC,Every blow quakes.
+WEAPON_INFERNO_DESC,More bolts that always Burn.
+WEAPON_ABSOLUTE_ZERO_DESC,More shards that always Chill.
+WEAPON_TEMPEST_DESC,Many more strikes.
+WEAPON_CYCLONE_DESC,"A huge, hard-pushing wave."
+WEAPON_JUDGMENT_DESC,More circling lights.
+WEAPON_OBLIVION_DESC,A wider aura that drains more.
+DEBUG_NEXT_AGE,Jump to the next Age
+DEBUG_JUMPED_TO,Timer set to %s.
+DEBUG_SPAWN_ELITE,Spawn an elite
+DEBUG_ELITE_SPAWNED,Spawned %s (%s).
+DEBUG_OPEN_CHEST,Open a chest now
+DEBUG_READY_EVOLUTION,Make a weapon ready to evolve
+DEBUG_EVOLUTION_READY,%s is ready: open a chest to evolve it.
+DEBUG_START_STORM,Start the thunderstorm

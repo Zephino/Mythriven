@@ -11,6 +11,8 @@ extends RefCounted
 ##     Spread       Wind on Burn/Poison/Soaked: copies them to up to 4 nearby enemies
 ##   Weakness ×1.5 / resistance ×0.5, Shock (+20%) and Shatter join the
 ##   element step of the damage formula; Hex lowers Armor.
+##   Elites: Armored adds Armor; a Warded shield takes damage first (Holy
+##   breaks it at once). `attacker` is null for hazards (no Might or crits).
 
 const SPREADABLE: PackedStringArray = ["burn", "poison", "soaked"]
 
@@ -38,19 +40,25 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 			status_id = ""
 		bonus = _react(slot, base, attacker, element, status_chance, at)
 	var shock_mult: float = st.consume_shock(slot)
-	var armor: float = float(data.get("armor", 0.0)) * st.armor_mult(slot)
+	var armor: float = (float(data.get("armor", 0.0)) + enemies.elites.bonus_armor[slot]) * st.armor_mult(slot)
+	var might: float = 0.0
+	var crit_chance: float = 0.0
 	if attacker != null:
 		base *= attacker.statuses.outgoing_damage_mult()
-	var result: Dictionary = Damage.hit(base, 0.0, attacker.stats.might(), attacker.stats.crit_chance(),
+		might = attacker.stats.might()
+		crit_chance = attacker.stats.crit_chance()
+	var result: Dictionary = Damage.hit(base, 0.0, might, crit_chance,
 			Data.cfg_float("combat.crit_mult"), _rng().randf(), element_mult * bonus * shock_mult, armor,
 			Data.cfg_float("combat.min_damage"))
 	var amount: float = result["amount"]
-	enemies.hp[slot] -= amount
+	var to_hp: float = enemies.elites.absorb(slot, amount, element == "holy")
+	enemies.hp[slot] -= to_hp
 	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
 	enemies.knockback[slot] += push * (1.0 - float(data.get("knockback_resist", 0.0)))
 	if status_id != "" and _rng().randf() < status_chance:
-		_apply_status(slot, status_id, push, data, attacker.stats.status_duration_mult())
-	GameAuthority.enemy_damaged.emit(slot, amount, _number_kind(bool(result["crit"]), element_mult), at)
+		_apply_status(slot, status_id, push, data, attacker.stats.status_duration_mult() if attacker != null else 1.0)
+	var kind: String = _number_kind(bool(result["crit"]), element_mult) if to_hp > 0.0 else "resist"
+	GameAuthority.enemy_damaged.emit(slot, amount, kind, at)
 	if enemies.hp[slot] <= 0.0:
 		GameAuthority.kill_enemy(slot, attacker)
 	return amount

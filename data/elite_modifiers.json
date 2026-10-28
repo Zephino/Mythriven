@@ -1,0 +1,51 @@
+[
+  {
+    "_doc": "Elite modifiers (GAME_DESIGN.md: Elites). 1 per elite (2 in Deep Night), shown as an icon over the health bar. icon_color/icon_shape are placeholder art. Numbers are placeholders.",
+    "id": "hasted",
+    "name_key": "ELITE_MOD_HASTED",
+    "speed_mult": 1.5,
+    "icon_color": "#ffe060",
+    "icon_shape": "triangle"
+  },
+  {
+    "id": "armored",
+    "name_key": "ELITE_MOD_ARMORED",
+    "armor_bonus": 6,
+    "icon_color": "#b0b8c8",
+    "icon_shape": "square"
+  },
+  {
+    "id": "splitting",
+    "name_key": "ELITE_MOD_SPLITTING",
+    "copies": 3,
+    "copy_hp_frac": 0.25,
+    "copy_size_mult": 0.6,
+    "icon_color": "#80e070",
+    "icon_shape": "diamond"
+  },
+  {
+    "id": "warded",
+    "name_key": "ELITE_MOD_WARDED",
+    "shield_frac": 0.3,
+    "icon_color": "#80c0ff",
+    "icon_shape": "circle"
+  },
+  {
+    "id": "elemental_aura",
+    "name_key": "ELITE_MOD_ELEMENTAL_AURA",
+    "radius_px": 56,
+    "damage": 4,
+    "interval_s": 1.0,
+    "icon_color": "#ff70d0",
+    "icon_shape": "ring"
+  },
+  {
+    "id": "summoner",
+    "name_key": "ELITE_MOD_SUMMONER",
+    "every_s": 5,
+    "count": 3,
+    "minion": "shade_swarm",
+    "icon_color": "#c080ff",
+    "icon_shape": "cross"
+  }
+]

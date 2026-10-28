@@ -19,6 +19,9 @@ var attacks_made: int = 0
 var hit_wait: Dictionary = {}
 ## True when the holder's Hero is an expert in this weapon's category.
 var expert: bool = false
+## True after a chest evolved it; base_id is the weapon it evolved from.
+var evolved: bool = false
+var base_id: String = ""
 
 
 func _init(weapon_data: Dictionary, holder: Player) -> void:
@@ -70,6 +73,10 @@ func attack_interval() -> float:
 	var speed: float = 1.0
 	if owner_player != null:
 		speed += owner_player.stats.attack_speed() + owner_player.kit_attack_speed_bonus()
+		# Thousand-Arrow Ride: arrows fly fast during every charge.
+		if bool(data.get("charge_arrows", false)) and owner_player.kit != null and owner_player.kit.has_method("is_charging") \
+				and bool(owner_player.kit.call("is_charging")):
+			speed += Data.cfg_float("combat.charge_arrows_attack_speed")
 	if expert:
 		speed += Data.cfg_float("combat.expertise_attack_speed_pct") / 100.0
 	var cooldown_mult: float = owner_player.stats.cooldown_mult() if owner_player != null else 1.0
