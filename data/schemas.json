@@ -12,7 +12,9 @@
               "menu_touch_fingers": "number",
               "fps_refresh_s": "number",
               "rng_test_seed": "number",
-              "rng_test_count": "number"
+              "rng_test_count": "number",
+              "grid_spacing_px": "number",
+              "grid_color": "string"
             }
           },
           "localization": {
@@ -25,6 +27,36 @@
               "pseudo_double_vowels": "bool",
               "pseudo_fake_bidi": "bool",
               "pseudo_skip_placeholders": "bool"
+            }
+          },
+          "player": {
+            "type": "object",
+            "fields": {
+              "placeholder_move_speed": "number",
+              "placeholder_size_px": "number",
+              "placeholder_color": "string",
+              "facing_marker_px": "number",
+              "facing_marker_color": "string",
+              "snap_to_8_directions": "bool",
+              "move_deadzone": "number"
+            }
+          },
+          "camera": {
+            "type": "object",
+            "fields": {
+              "follow_speed": "number",
+              "look_ahead_px": "number",
+              "zoom": "number"
+            }
+          },
+          "joystick": {
+            "type": "object",
+            "fields": {
+              "screen_fraction": "number",
+              "radius_px": "number",
+              "knob_radius_px": "number",
+              "base_color": "string",
+              "knob_color": "string"
             }
           },
           "ui": {

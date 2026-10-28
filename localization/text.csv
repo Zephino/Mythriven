@@ -18,6 +18,10 @@ DEBUG_RNG_RESULT,Seed %d · %s: %s
 DEBUG_RNG_STREAM_WORLD,world
 DEBUG_RNG_STREAM_SPAWNS,spawns
 DEBUG_RNG_STREAM_LOOT,loot
+DEBUG_SHOW_GRID,Show reference grid
+DEBUG_RESET_PLAYER,Move player back to start
+DEBUG_PLAYER_INFO,"Players: %d · position (%d, %d) · facing (%.2f, %.2f) · speed %d"
+DEBUG_NO_PLAYER,Players: %d · no local player
 DEBUG_CLOSE,Close
 DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
 DATA_ERROR_FILE_MISSING,%s: file not found

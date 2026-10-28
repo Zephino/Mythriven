@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 1 — Project setup
+**Current phase:** Phase 2 — Player movement (Phase 1 built but not yet tested; owner approved starting Phase 2 on 2026-10-28)
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-28 — Phase 2 — Player movement (v00.01.01)
+- Agent: Claude Code (cloud), developer mode. Started before Phase 1 was tested or reviewed, at the owner's request ("work on the next step, I'll test manually later").
+- What changed: `GameAuthority` autoload holding the list of players (`spawn_player`, `remove_player`, `local_player`); placeholder square player with a facing dot; 8-direction movement at full speed from WASD/arrows, gamepad stick/D-pad, or a floating touch joystick (left half of the screen, visible only while touched); facing = last movement direction; camera with frame-rate-independent smooth follow and slight look-ahead; dev-only reference grid so movement is visible before the map exists; debug menu now shows player count/position/facing/speed, a grid toggle, and "Move player back to start". The Phase 1 translation test label moved from the screen centre to the bottom centre so it doesn't cover the player.
+- Files touched: `scripts/core/game_authority.gd` (new), `scripts/player/player.gd` (new), `scripts/player/player_input.gd` (new), `scripts/ui/virtual_joystick.gd` (new), `scripts/world/game_camera.gd` (new), `scripts/world/debug_grid.gd` (new), `scripts/core/main.gd`, `scripts/core/debug_menu.gd`, `data/config.json` (`player`, `camera`, `joystick`, `debug.grid_*`), `data/schemas.json`, `localization/text.csv`, `tests/test_player_movement.gd` (new), `project.godot` (GameAuthority autoload, version), `VERSION`, docs.
+- Unfinished / next: not run in Godot (none available in the cloud session). Owner to test Phases 1 and 2 together (see `docs/AI_STATUS.md`). Phase 2 report waits for those tests. Phase 3 (endless map) should wait for owner go-ahead.
 
 ## 2026-10-28 — Phase 1 — Project setup (v00.01.00)
 - Agent: Claude Code (cloud), developer mode.

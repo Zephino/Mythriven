@@ -2,15 +2,20 @@ extends CanvasLayer
 ## Autoload "DebugMenu" (dev builds only). F1 on PC or a three-finger tap on
 ## mobile opens it. Phase 1 shows the version and FPS, and has buttons to test
 ## pseudo-localization, the release content gate, data validation, and the
-## seeded RNGs. Later phases add their own test options here.
+## seeded RNGs. Phase 2 adds player info, a reference grid, and a position
+## reset. Later phases add their own test options here.
 
 const FIXTURE_DIR := "res://tests/fixtures/"
 const FIXTURE_SCHEMAS := "fixture_schemas.json"
 const GATE_FIXTURE := "gate_entries.json"
 const MENU_LAYER := 100
 
+## Phase 2 test aid: draw a reference grid in the world (see debug_grid.gd).
+var show_grid: bool = true
+
 var _panel: PanelContainer
 var _fps_label: Label
+var _player_label: Label
 var _version_label: Label
 var _result_label: Label
 var _first_focus: Control
@@ -47,6 +52,7 @@ func _process(delta: float) -> void:
 	if _fps_timer <= 0.0:
 		_fps_timer = Data.cfg_float("debug.fps_refresh_s")
 		_fps_label.text = tr("DEBUG_FPS_LABEL") % int(Engine.get_frames_per_second())
+		_player_label.text = _player_info()
 
 
 func toggle() -> void:
@@ -91,6 +97,8 @@ func _build() -> void:
 	box.add_child(_version_label)
 	_fps_label = _make_label("", false)
 	box.add_child(_fps_label)
+	_player_label = _make_label("", false)
+	box.add_child(_player_label)
 
 	var controls: Array[Control] = [
 		_make_check("DEBUG_PSEUDO_LOC", Localization.pseudo_enabled, _on_pseudo_toggled),
@@ -98,6 +106,8 @@ func _build() -> void:
 		_make_button("DEBUG_GATE_TEST", _show_gate_test),
 		_make_button("DEBUG_VALIDATE_FIXTURES", _on_validate_pressed),
 		_make_button("DEBUG_RNG_TEST", _show_rng_test),
+		_make_check("DEBUG_SHOW_GRID", show_grid, _on_grid_toggled),
+		_make_button("DEBUG_RESET_PLAYER", _reset_player),
 		_make_button("DEBUG_CLOSE", toggle),
 	]
 	for control: Control in controls:
@@ -169,6 +179,31 @@ func _refresh_text() -> void:
 
 func _on_pseudo_toggled(on: bool) -> void:
 	Localization.set_pseudo(on)
+
+
+func _on_grid_toggled(on: bool) -> void:
+	show_grid = on
+
+
+func _player_info() -> String:
+	var player: Player = GameAuthority.local_player()
+	if player == null:
+		return tr("DEBUG_NO_PLAYER") % GameAuthority.players.size()
+	return tr("DEBUG_PLAYER_INFO") % [
+		GameAuthority.players.size(), roundi(player.position.x), roundi(player.position.y),
+		player.facing.x, player.facing.y, roundi(player.velocity.length()),
+	]
+
+
+## Moves the local player back to the start (0, 0) and snaps the camera there.
+func _reset_player() -> void:
+	var player: Player = GameAuthority.local_player()
+	if player == null:
+		return
+	player.position = Vector2.ZERO
+	var camera: Camera2D = get_viewport().get_camera_2d()
+	if camera is GameCamera:
+		(camera as GameCamera).snap_to_target()
 
 
 func _on_simulate_release_toggled(on: bool) -> void:
