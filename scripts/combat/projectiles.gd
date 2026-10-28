@@ -1,0 +1,131 @@
+class_name ProjectileManager
+extends Node2D
+## Player projectiles as pooled data drawn with one MultiMesh (GAME_DESIGN.md:
+## Object pooling). Two flight styles: "flight" (straight or lobbed with
+## gravity, like the Throwing Axe) and "boomerang" (flies out, then returns to
+## its thrower, like the Bladed Discus). When the pool is full the oldest
+## projectile is reused.
+
+const FLIGHT := 0
+const BOOMERANG := 1
+
+var enemies: EnemyManager
+
+var _capacity: int = 0
+var _next: int = 0
+var _active := PackedByteArray()
+var _kind := PackedInt32Array()
+var _pos := PackedVector2Array()
+var _vel := PackedVector2Array()
+var _gravity := PackedFloat32Array()
+var _age := PackedFloat32Array()
+var _life := PackedFloat32Array()
+var _radius := PackedFloat32Array()
+var _pierce := PackedInt32Array()
+var _return_after := PackedFloat32Array()
+var _weapon: Array[WeaponInstance] = []
+var _thrower: Array[Player] = []
+## Per projectile: enemy slot -> seconds until it may hit that enemy again.
+var _hits: Array[Dictionary] = []
+var _multimesh: MultiMesh
+
+
+func setup() -> void:
+	_capacity = Data.cfg_int("projectiles.max_player_projectiles")
+	_active.resize(_capacity)
+	_kind.resize(_capacity)
+	_pos.resize(_capacity)
+	_vel.resize(_capacity)
+	_gravity.resize(_capacity)
+	_age.resize(_capacity)
+	_life.resize(_capacity)
+	_radius.resize(_capacity)
+	_pierce.resize(_capacity)
+	_return_after.resize(_capacity)
+	_weapon.resize(_capacity)
+	_thrower.resize(_capacity)
+	for i: int in _capacity:
+		_hits.append({})
+	_multimesh = PlaceholderArt.make_multimesh(_capacity)
+	var drawer := MultiMeshInstance2D.new()
+	drawer.multimesh = _multimesh
+	drawer.texture = PlaceholderArt.circle_texture(Data.cfg_int("enemies.placeholder_texture_px"))
+	add_child(drawer)
+
+
+## Launches one projectile. `settings` holds the weapon level's values.
+func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vector2, flight_kind: int, settings: Dictionary) -> void:
+	if _capacity <= 0:
+		return
+	var i: int = _next
+	_next = (_next + 1) % _capacity
+	_active[i] = 1
+	_kind[i] = flight_kind
+	_pos[i] = at
+	_vel[i] = velocity
+	_gravity[i] = float(settings.get("gravity_px_s2", 0.0))
+	_age[i] = 0.0
+	_life[i] = float(settings.get("lifetime_s", 1.0))
+	_radius[i] = float(settings.get("radius_px", 4.0)) * player.stats.area_mult() * float(settings.get("area", 1.0))
+	_pierce[i] = int(settings.get("pierce", 0))
+	_return_after[i] = float(settings.get("return_after_s", 0.0))
+	_weapon[i] = weapon
+	_thrower[i] = player
+	_hits[i].clear()
+	_multimesh.set_instance_color(i, Color.html(str(weapon.data.get("placeholder_color", "#ffffff"))))
+
+
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	for i: int in _capacity:
+		_pos[i] -= shift_px
+
+
+func _process(delta: float) -> void:
+	for i: int in _capacity:
+		if _active[i] == 0:
+			continue
+		_age[i] += delta
+		if _age[i] >= _life[i] or not is_instance_valid(_thrower[i]):
+			_remove(i)
+			continue
+		if _kind[i] == BOOMERANG and _age[i] >= _return_after[i]:
+			var back: Vector2 = _thrower[i].position - _pos[i]
+			if back.length() <= _thrower[i].body_radius + _radius[i]:
+				_remove(i)
+				continue
+			_vel[i] = back.normalized() * _vel[i].length()
+		var velocity: Vector2 = _vel[i]
+		velocity.y += _gravity[i] * delta
+		_vel[i] = velocity
+		_pos[i] += velocity * delta
+		_tick_hits(i, delta)
+		if _active[i] != 0:
+			var size: float = _radius[i] * 2.0
+			_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2(size, size), 0.0, _pos[i]))
+
+
+func _tick_hits(i: int, delta: float) -> void:
+	var hits: Dictionary = _hits[i]
+	for slot: Variant in hits.keys():
+		hits[slot] = float(hits[slot]) - delta
+		if float(hits[slot]) <= 0.0:
+			hits.erase(slot)
+	var weapon: WeaponInstance = _weapon[i]
+	var interval: float = weapon.stat("hit_interval")
+	for slot: int in enemies.query(_pos[i], _radius[i] + enemies.max_radius()):
+		if hits.has(slot) or _pos[i].distance_to(enemies.positions[slot]) > _radius[i] + enemies.radius[slot]:
+			continue
+		hits[slot] = interval if interval > 0.0 else INF
+		GameAuthority.damage_enemy(slot, weapon.stat("damage"), _thrower[i],
+				_vel[i].normalized() * weapon.stat("knockback"), str(weapon.data.get("element", "physical")))
+		_pierce[i] -= 1
+		if _pierce[i] < 0:
+			_remove(i)
+			return
+
+
+func _remove(i: int) -> void:
+	_active[i] = 0
+	_weapon[i] = null
+	_thrower[i] = null
+	_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2.ZERO, 0.0, Vector2.ZERO))

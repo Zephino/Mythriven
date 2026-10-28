@@ -1,23 +1,413 @@
 [
   {
-    "_doc": "Weapons (GAME_DESIGN.md: Weapons). Each level lists its stats: damage, cooldown (seconds between attacks), hit_interval (how soon the same enemy can be hit again; 0 = once per attack), range_px, area (multiplier), knockback (push speed px/s), plus pattern-specific values. All numbers are placeholders until the Phase 7 fun tuning.",
+    "_doc": "Weapons (GAME_DESIGN.md: Weapons). Each of the 8 levels lists its full stats: damage, cooldown (seconds between attacks), hit_interval (how soon the same enemy can be hit again; 0 = once per attack or per projectile), range_px (targeting range), area (multiplier), knockback (push speed px/s), plus pattern values (arc_deg; count, spread_deg, speed_px_s, lift_px_s, gravity_px_s2, return_after_s, lifetime_s, radius_px, pierce). in_level_up_pool: can be offered as a new weapon on level-up. ALL NUMBERS ARE PLACEHOLDERS until the Phase 7 fun tuning.",
     "id": "great_club",
     "name_key": "WEAPON_GREAT_CLUB_NAME",
     "desc_key": "WEAPON_GREAT_CLUB_DESC",
     "element": "physical",
-    "categories": ["blunt"],
+    "categories": [
+      "blunt"
+    ],
     "targeting": "melee",
     "pattern": "arc",
     "signature_of": "heracles",
-    "quake": { "every": 4, "radius_px": 36, "damage_mult": 0.5 },
+    "in_level_up_pool": false,
+    "quake": {
+      "every": 4,
+      "radius_px": 36,
+      "damage_mult": 0.5
+    },
     "levels": [
-      { "damage": 12, "cooldown": 1.2, "hit_interval": 0, "range_px": 44, "area": 1.0, "arc_deg": 120, "knockback": 150 }
+      {
+        "damage": 12,
+        "cooldown": 1.2,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.0,
+        "arc_deg": 120,
+        "knockback": 150
+      },
+      {
+        "damage": 15,
+        "cooldown": 1.2,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.0,
+        "arc_deg": 120,
+        "knockback": 150
+      },
+      {
+        "damage": 15,
+        "cooldown": 1.2,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.1,
+        "arc_deg": 120,
+        "knockback": 150
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.2,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.1,
+        "arc_deg": 120,
+        "knockback": 150
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.05,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.1,
+        "arc_deg": 120,
+        "knockback": 150
+      },
+      {
+        "damage": 24,
+        "cooldown": 1.05,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.1,
+        "arc_deg": 120,
+        "knockback": 150
+      },
+      {
+        "damage": 24,
+        "cooldown": 1.05,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.25,
+        "arc_deg": 120,
+        "knockback": 150
+      },
+      {
+        "damage": 30,
+        "cooldown": 0.95,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.25,
+        "arc_deg": 120,
+        "knockback": 150
+      }
     ],
     "tier_names": [],
-    "evolution": { "passive": "bronze_aegis", "into": "labor_breaker" },
-    "infusion_hooks": ["on_hit"],
-    "unlock": { "type": "signature" },
+    "evolution": {
+      "passive": "bronze_aegis",
+      "into": "labor_breaker"
+    },
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "unlock": {
+      "type": "signature"
+    },
     "placeholder_color": "#f0e0a0",
+    "persists": false
+  },
+  {
+    "id": "throwing_axe",
+    "name_key": "WEAPON_THROWING_AXE_NAME",
+    "desc_key": "WEAPON_THROWING_AXE_DESC",
+    "element": "physical",
+    "categories": [
+      "thrown"
+    ],
+    "targeting": "targeted",
+    "pattern": "thrown_arc",
+    "in_level_up_pool": true,
+    "levels": [
+      {
+        "damage": 20,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 3
+      },
+      {
+        "damage": 25,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 3
+      },
+      {
+        "damage": 25,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 3
+      },
+      {
+        "damage": 25,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 5
+      },
+      {
+        "damage": 32,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 5
+      },
+      {
+        "damage": 32,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 3,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 5
+      },
+      {
+        "damage": 32,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.2,
+        "knockback": 60,
+        "count": 3,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 5
+      },
+      {
+        "damage": 40,
+        "cooldown": 1.4,
+        "hit_interval": 0,
+        "range_px": 260,
+        "area": 1.2,
+        "knockback": 60,
+        "count": 3,
+        "spread_deg": 20,
+        "speed_px_s": 170,
+        "lift_px_s": 160,
+        "gravity_px_s2": 420,
+        "lifetime_s": 1.6,
+        "radius_px": 5,
+        "pierce": 5
+      }
+    ],
+    "tier_names": [],
+    "evolution": {
+      "passive": "seers_eye",
+      "into": "cleaver_storm"
+    },
+    "infusion_hooks": [
+      "on_hit",
+      "projectile"
+    ],
+    "unlock": {
+      "type": "starting"
+    },
+    "placeholder_color": "#c8b090",
+    "persists": false
+  },
+  {
+    "id": "bladed_discus",
+    "name_key": "WEAPON_BLADED_DISCUS_NAME",
+    "desc_key": "WEAPON_BLADED_DISCUS_DESC",
+    "element": "physical",
+    "categories": [
+      "thrown"
+    ],
+    "targeting": "targeted",
+    "pattern": "boomerang",
+    "in_level_up_pool": true,
+    "levels": [
+      {
+        "damage": 10,
+        "cooldown": 2.0,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.0,
+        "knockback": 40,
+        "count": 1,
+        "spread_deg": 40,
+        "speed_px_s": 220,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      },
+      {
+        "damage": 13,
+        "cooldown": 2.0,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.0,
+        "knockback": 40,
+        "count": 1,
+        "spread_deg": 40,
+        "speed_px_s": 220,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      },
+      {
+        "damage": 13,
+        "cooldown": 2.0,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.0,
+        "knockback": 40,
+        "count": 2,
+        "spread_deg": 40,
+        "speed_px_s": 220,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      },
+      {
+        "damage": 13,
+        "cooldown": 2.0,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.2,
+        "knockback": 40,
+        "count": 2,
+        "spread_deg": 40,
+        "speed_px_s": 220,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      },
+      {
+        "damage": 17,
+        "cooldown": 2.0,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.2,
+        "knockback": 40,
+        "count": 2,
+        "spread_deg": 40,
+        "speed_px_s": 220,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      },
+      {
+        "damage": 17,
+        "cooldown": 2.0,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.2,
+        "knockback": 40,
+        "count": 2,
+        "spread_deg": 40,
+        "speed_px_s": 260,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      },
+      {
+        "damage": 17,
+        "cooldown": 2.0,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.2,
+        "knockback": 40,
+        "count": 3,
+        "spread_deg": 40,
+        "speed_px_s": 260,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      },
+      {
+        "damage": 22,
+        "cooldown": 1.7,
+        "hit_interval": 0.4,
+        "range_px": 220,
+        "area": 1.2,
+        "knockback": 40,
+        "count": 3,
+        "spread_deg": 40,
+        "speed_px_s": 260,
+        "return_after_s": 0.6,
+        "lifetime_s": 2.5,
+        "radius_px": 6,
+        "pierce": 99
+      }
+    ],
+    "tier_names": [],
+    "evolution": {
+      "passive": "votive_bell",
+      "into": "sun_disc"
+    },
+    "infusion_hooks": [
+      "on_hit",
+      "projectile"
+    ],
+    "unlock": {
+      "type": "achievement",
+      "achievement": "trigger_4_resonances"
+    },
+    "placeholder_color": "#e0c060",
     "persists": false
   }
 ]

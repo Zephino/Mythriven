@@ -12,6 +12,10 @@ signal player_died(player: Player, cause_id: String)
 signal run_ended(run: RunState)
 signal enemy_damaged(slot: int, amount: float, crit: bool, at: Vector2)
 signal enemy_killed(slot: int, enemy_type: Dictionary, at: Vector2, killer: Player)
+signal xp_changed(run: RunState)
+## A level-up is waiting to be chosen (the level-up screen opens).
+signal level_up_ready(run: RunState)
+signal card_applied(player: Player, card: Dictionary)
 
 const LEVELS_FILE := "levels.json"
 const WEAPONS_FILE := "weapons.json"
@@ -20,6 +24,9 @@ var players: Array[Player] = []
 var run: RunState = null
 ## Set by the main scene; null between runs.
 var enemies: EnemyManager = null
+## Auto-collect setting: "off", "gold", "heal", or "smart". Saved with the
+## other settings once the save system exists (Phase 15).
+var auto_collect: String = ""
 
 
 func _process(delta: float) -> void:
@@ -29,6 +36,8 @@ func _process(delta: float) -> void:
 
 ## Starts a new run on a level. Uses config run.fixed_seed, or a random seed when it is 0.
 func start_run(level_id: String) -> RunState:
+	if auto_collect == "":
+		auto_collect = Data.cfg_string("level_up.auto_collect_default")
 	players.clear()
 	enemies = null
 	var run_seed: int = Data.cfg_int("run.fixed_seed")
@@ -177,3 +186,53 @@ func give_weapon(player: Player, weapon_id: String) -> WeaponInstance:
 	var weapon := WeaponInstance.new(data, player)
 	player.weapons.append(weapon)
 	return weapon
+
+
+# --- XP and level-ups -----------------------------------------------------------
+
+## Adds XP to the shared bar and queues any level-ups it earns.
+func collect_xp(_player: Player, amount: float) -> void:
+	if run == null or run.ended:
+		return
+	run.xp += amount
+	var gained: int = 0
+	while run.xp >= LevelUpRules.xp_to_next(run.level):
+		run.xp -= LevelUpRules.xp_to_next(run.level)
+		run.level += 1
+		gained += 1
+	xp_changed.emit(run)
+	if gained > 0:
+		run.unspent_level_ups += gained
+		level_up_ready.emit(run)
+
+
+## Applies a level-up card to a player and uses up one level-up.
+func apply_card(player: Player, card: Dictionary) -> void:
+	match str(card.get("kind", "")):
+		LevelUpRules.WEAPON_NEW:
+			give_weapon(player, str(card["id"]))
+		LevelUpRules.WEAPON_UP:
+			for weapon: WeaponInstance in player.weapons:
+				if weapon.id() == str(card["id"]):
+					weapon.level = mini(weapon.level + 1, weapon.max_level())
+		LevelUpRules.PASSIVE_NEW, LevelUpRules.PASSIVE_UP:
+			var passive: Dictionary = LevelUpRules.passive_data(str(card["id"]))
+			player.passives[str(card["id"])] = int(player.passives.get(str(card["id"]), 0)) + 1
+			player.stats.add_bonus(str(passive.get("stat", "")), float(passive.get("per_level", 0.0)))
+		LevelUpRules.STAT:
+			player.stats.add_bonus(str(card["id"]), float(card["amount"]))
+		LevelUpRules.GOLD:
+			run.gold += float(card["amount"])
+		LevelUpRules.HEAL:
+			heal_player(player, player.max_hp * float(card["amount"]))
+	player.refresh_stats()
+	run.unspent_level_ups = maxi(run.unspent_level_ups - 1, 0)
+	run.current_offer.clear()
+	card_applied.emit(player, card)
+
+
+## The cards for the next level-up (kept while the choice is banked).
+func current_offer(player: Player) -> Array[Dictionary]:
+	if run.current_offer.is_empty():
+		run.current_offer = LevelUpRules.build_offer(player, run.rng.loot)
+	return run.current_offer

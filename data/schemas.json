@@ -17,6 +17,7 @@
               "teleport_px": "number",
               "spawn_count": "number",
               "spawn_behind_px": "number",
+              "test_orb_count": "number",
               "grid_color": "string"
             }
           },
@@ -91,6 +92,7 @@
           "ui": {
             "type": "object",
             "fields": {
+              "xp_bar_height_px": "number",
               "damage_numbers_enabled": "bool",
               "damage_number_pool": "number",
               "damage_number_font_px": "number",
@@ -226,7 +228,21 @@
               },
               "orb_merge_threshold": "number",
               "level_2_xp": "number",
-              "growth_per_level": "number"
+              "growth_per_level": "number",
+              "orb_pool": "number",
+              "orb_size_px": {
+                "type": "array",
+                "items": "number"
+              },
+              "orb_colors": {
+                "type": "array",
+                "items": "string"
+              },
+              "fly_speed_px_s": "number",
+              "fly_accel_px_s2": "number",
+              "merge_check_s": "number",
+              "merge_far_px": "number",
+              "merge_cell_px": "number"
             }
           },
           "level_up": {
@@ -237,7 +253,28 @@
               "maxed_gold": "number",
               "maxed_heal_pct": "number",
               "smart_heal_below_hp_pct": "number",
-              "coop_turn_s": "number"
+              "coop_turn_s": "number",
+              "high_luck_threshold": "number",
+              "max_weapons": "number",
+              "max_passives": "number",
+              "owned_item_weight": "number",
+              "new_item_weight": "number",
+              "stat_card_weight": "number",
+              "auto_collect_default": "string",
+              "stat_card_values": {
+                "type": "object",
+                "fields": {
+                  "might": "number",
+                  "max_hp": "number",
+                  "move_speed": "number",
+                  "area": "number",
+                  "cooldown": "number",
+                  "armor": "number",
+                  "luck": "number",
+                  "crit": "number",
+                  "pickup_radius": "number"
+                }
+              }
             }
           },
           "pickups": {
@@ -248,7 +285,26 @@
               "pickup_chain_reset_s": "number",
               "pickup_sounds_per_s": "number",
               "gold_drop_chance": "number",
-              "ambrosia_heal": "number"
+              "ambrosia_heal": "number",
+              "sound_base_hz": "number",
+              "sound_length_s": "number",
+              "sound_volume_db": "number",
+              "scale_semitones": {
+                "type": "array",
+                "items": "number"
+              }
+            }
+          },
+          "projectiles": {
+            "type": "object",
+            "fields": {
+              "max_player_projectiles": "number"
+            }
+          },
+          "run_log": {
+            "type": "object",
+            "fields": {
+              "folder": "string"
             }
           },
           "economy": {
@@ -568,6 +624,42 @@
                   "arc_deg": {
                     "type": "number",
                     "optional": true
+                  },
+                  "count": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "spread_deg": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "speed_px_s": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "lift_px_s": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "gravity_px_s2": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "return_after_s": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "lifetime_s": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "radius_px": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "pierce": {
+                    "type": "number",
+                    "optional": true
                   }
                 }
               }
@@ -587,6 +679,25 @@
               "type": "object"
             },
             "placeholder_color": "string",
+            "persists": "bool",
+            "in_level_up_pool": "bool"
+          }
+        }
+      }
+    },
+    "passives.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "desc_key": "string",
+            "stat": "string",
+            "per_level": "number",
+            "max_level": "int",
             "persists": "bool"
           }
         }

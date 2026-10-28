@@ -6,6 +6,7 @@ extends Node
 
 var enemies: EnemyManager
 var effects: EffectLayer
+var projectiles: ProjectileManager
 ## Fire patterns by the name used in weapons.json "pattern".
 var patterns: Dictionary = {}
 
@@ -13,6 +14,8 @@ var patterns: Dictionary = {}
 func _ready() -> void:
 	process_priority = 2
 	register_pattern("arc", ArcPattern.new())
+	register_pattern("thrown_arc", ProjectilePattern.new(ProjectileManager.FLIGHT))
+	register_pattern("boomerang", ProjectilePattern.new(ProjectileManager.BOOMERANG))
 
 
 func register_pattern(pattern_id: String, pattern: FirePattern) -> void:

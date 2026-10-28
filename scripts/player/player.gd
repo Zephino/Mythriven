@@ -15,6 +15,8 @@ var facing: Vector2 = Vector2.RIGHT
 var stats: PlayerStats = null
 ## Weapons held this run (up to 6), each a WeaponInstance.
 var weapons: Array[WeaponInstance] = []
+## Passives held this run (up to 6): passive id -> level 1–5.
+var passives: Dictionary = {}
 
 var max_hp: float = 0.0
 var hp: float = 0.0

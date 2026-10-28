@@ -10,6 +10,15 @@ var rng: RunRng
 var elapsed_s: float = 0.0
 var kills: int = 0
 var ended: bool = false
+## Shared XP (co-op shares one bar). Level starts at 1.
+var xp: float = 0.0
+var level: int = 1
+## Level-ups earned but not yet chosen (banked with the level badge).
+var unspent_level_ups: int = 0
+## Cards currently offered; kept when the choice is banked.
+var current_offer: Array[Dictionary] = []
+## Gold collected this run (banking rules come in Phase 15).
+var gold: float = 0.0
 
 
 func _init(run_seed: int, level_data: Dictionary) -> void:

@@ -45,6 +45,65 @@ ENEMY_PLACEHOLDER_SWARM_NAME,Placeholder swarm
 WEAPON_GREAT_CLUB_NAME,Great Club
 WEAPON_GREAT_CLUB_DESC,"A heavy slam toward the nearest enemy; every fourth slam sends out a small quake."
 DEBUG_SPAWN_BEHIND,Spawn one enemy behind you
+WEAPON_THROWING_AXE_NAME,Throwing Axe
+WEAPON_THROWING_AXE_DESC,"A heavy axe thrown in a high arc toward the nearest enemy, cutting through several."
+WEAPON_BLADED_DISCUS_NAME,Bladed Discus
+WEAPON_BLADED_DISCUS_DESC,"A sharpened discus that flies out and returns, striking enemies both ways."
+PASSIVE_BELT_OF_STRENGTH_NAME,Belt of Strength
+PASSIVE_BELT_OF_STRENGTH_DESC,Raises Might (damage).
+PASSIVE_WINGED_SANDALS_NAME,Winged Sandals
+PASSIVE_WINGED_SANDALS_DESC,Raises Move Speed.
+PASSIVE_HOURGLASS_NAME,Hourglass
+PASSIVE_HOURGLASS_DESC,Lowers Cooldown (weapons attack more often).
+PASSIVE_SEERS_EYE_NAME,Seer's Eye
+PASSIVE_SEERS_EYE_DESC,Raises Area.
+PASSIVE_LODESTONE_NAME,Lodestone
+PASSIVE_LODESTONE_DESC,Raises Pickup Radius.
+PASSIVE_BRONZE_AEGIS_NAME,Bronze Aegis
+PASSIVE_BRONZE_AEGIS_DESC,Raises Armor.
+PASSIVE_FERRYMANS_COIN_NAME,Ferryman's Coin
+PASSIVE_FERRYMANS_COIN_DESC,Raises Luck.
+PASSIVE_GOLDEN_APPLE_NAME,Golden Apple
+PASSIVE_GOLDEN_APPLE_DESC,Raises Max HP.
+PASSIVE_VOTIVE_BELL_NAME,Votive Bell
+PASSIVE_VOTIVE_BELL_DESC,Gods' meters charge faster.
+STAT_MAX_HP,Max HP
+STAT_MOVE_SPEED,Move Speed
+STAT_ARMOR,Armor
+STAT_MIGHT,Might
+STAT_AREA,Area
+STAT_COOLDOWN,Cooldown reduction
+STAT_PICKUP_RADIUS,Pickup Radius
+STAT_LUCK,Luck
+STAT_CRIT,Crit Chance
+STAT_GOD_CHARGE,God meter charge
+CARD_NEW,New!
+CARD_LEVEL_CHANGE,Level %d → %d
+CARD_STAT_PCT,%s +%s%%
+CARD_STAT_FLAT,%s +%s
+CARD_GOLD_NAME,Gold
+CARD_GOLD_DESC,+%s gold
+CARD_HEAL_NAME,Heal
+CARD_HEAL_DESC,Restore %s%% of Max HP
+UI_LEVEL_UP_TITLE,Level up! Choose one:
+UI_AUTO_COLLECT,Auto-collect when maxed:
+UI_AUTO_COLLECT_OFF,Off
+UI_AUTO_COLLECT_GOLD,Gold
+UI_AUTO_COLLECT_HEAL,Heal
+UI_AUTO_COLLECT_SMART,Smart (heal when low on HP)
+UI_BANK_LEVEL_UP,Save for later
+UI_LEVEL_BADGE,Lv %d
+UI_LEVEL_BADGE_BANKED,Lv %d (+%d)
+UI_KILLS,Kills %d
+UI_RESULTS_LINE,"Level %d · %d kills"
+UI_RUN_LOG_SAVED,Run log saved.
+DEBUG_GAIN_LEVEL,Gain a level
+DEBUG_DROP_ORBS,Drop a pile of XP orbs around you
+DEBUG_PULL_ORBS,Pull every orb to you (magnet)
+DEBUG_MAX_BUILD,Max out the build (test Gold/Heal cards)
+DEBUG_MAX_BUILD_DONE,"All weapon and passive slots are full and maxed. The next level-up offers Gold and Heal."
+DEBUG_END_RUN,End the run now (writes the run log)
+DEBUG_PROGRESS_INFO,"Level %d · XP %d / %d · banked %d · orbs on ground %d · gold %d · auto-collect %s"
 DEBUG_CLOSE,Close
 DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
 DATA_ERROR_FILE_MISSING,%s: file not found

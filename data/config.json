@@ -11,6 +11,7 @@
     "teleport_px": 10000,
     "spawn_count": 50,
     "spawn_behind_px": 30,
+    "test_orb_count": 300,
     "grid_color": "#ffffff26"
   },
 
@@ -77,6 +78,7 @@
   },
 
   "ui": {
+    "xp_bar_height_px": 10,
     "damage_numbers_enabled": true,
     "damage_number_pool": 96,
     "damage_number_font_px": 8,
@@ -174,7 +176,15 @@
     "orb_values": [1, 5, 25],
     "orb_merge_threshold": 300,
     "level_2_xp": 5,
-    "growth_per_level": 0.10
+    "growth_per_level": 0.10,
+    "orb_pool": 600,
+    "orb_size_px": [4, 6, 9],
+    "orb_colors": ["#5ab4ff", "#5affa0", "#ffd25a"],
+    "fly_speed_px_s": 120,
+    "fly_accel_px_s2": 600,
+    "merge_check_s": 1.0,
+    "merge_far_px": 400,
+    "merge_cell_px": 160
   },
 
   "level_up": {
@@ -183,7 +193,15 @@
     "maxed_gold": 25,
     "maxed_heal_pct": 0.30,
     "smart_heal_below_hp_pct": 0.5,
-    "coop_turn_s": 20
+    "coop_turn_s": 20,
+    "high_luck_threshold": 0.3,
+    "max_weapons": 6,
+    "max_passives": 6,
+    "owned_item_weight": 1.5,
+    "new_item_weight": 1.0,
+    "stat_card_weight": 0.6,
+    "auto_collect_default": "off",
+    "stat_card_values": { "might": 0.05, "max_hp": 0.10, "move_speed": 0.05, "area": 0.05, "cooldown": 0.04, "armor": 1, "luck": 0.05, "crit": 0.02, "pickup_radius": 0.10 }
   },
 
   "pickups": {
@@ -192,7 +210,20 @@
     "pickup_chain_reset_s": 0.6,
     "pickup_sounds_per_s": 20,
     "gold_drop_chance": 0.05,
-    "ambrosia_heal": 30
+    "ambrosia_heal": 30,
+    "sound_base_hz": 660,
+    "sound_length_s": 0.09,
+    "sound_volume_db": -12,
+    "scale_semitones": [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26]
+  },
+
+  "projectiles": {
+    "max_player_projectiles": 200
+  },
+
+  "run_log": {
+    "_doc": "A basic log is written at the end of every run (time, cause of death, build). Not progression; used for balancing and the Phase 15 death recap.",
+    "folder": "user://run_logs"
   },
 
   "economy": {

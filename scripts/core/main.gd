@@ -1,7 +1,8 @@
 extends Node
 ## Main scene. Builds the run: the endless ground (Phase 3), pooled enemies
-## and their spawner (Phase 4), weapons, attack effects, and damage numbers
-## (Phase 5), one local player that moves with keyboard,
+## and their spawner (Phase 4), weapons, projectiles, attack effects, and
+## damage numbers (Phase 5–6), XP orbs, the HUD, and the level-up screen
+## (Phase 6), one local player that moves with keyboard,
 ## gamepad, or the touch joystick (Phase 2), a camera that follows it, and the
 ## death screen. Also shows the Phase 1 translation test label,
 ## the build version in the corner, and any data errors found at startup.
@@ -11,6 +12,8 @@ var _version_label: Label
 var _error_label: Label
 var _death_screen: DeathScreen
 var _enemies: EnemyManager
+var _orbs: XpOrbs
+var _level_up: LevelUpScreen
 
 
 func _ready() -> void:
@@ -34,6 +37,15 @@ func _build_world(joystick: VirtualJoystick) -> void:
 	_enemies.setup()
 	GameAuthority.enemies = _enemies
 	world.origin_shifted.connect(_enemies.on_origin_shifted)
+	_orbs = XpOrbs.new()
+	world.add_child(_orbs)
+	_orbs.setup()
+	world.origin_shifted.connect(_orbs.on_origin_shifted)
+	GameAuthority.enemy_killed.connect(_orbs.on_enemy_killed)
+	var pickup_audio := PickupAudio.new()
+	add_child(pickup_audio)
+	_orbs.pickup_audio = pickup_audio
+
 	var spawner := EnemySpawner.new()
 	spawner.enemies = _enemies
 	world.add_child(spawner)
@@ -52,9 +64,15 @@ func _build_world(joystick: VirtualJoystick) -> void:
 	numbers.setup()
 	world.origin_shifted.connect(numbers.on_origin_shifted)
 	GameAuthority.enemy_damaged.connect(numbers.on_enemy_damaged)
+	var projectiles := ProjectileManager.new()
+	projectiles.enemies = _enemies
+	world.add_child(projectiles)
+	projectiles.setup()
+	world.origin_shifted.connect(projectiles.on_origin_shifted)
 	var combat := CombatSystem.new()
 	combat.enemies = _enemies
 	combat.effects = effects
+	combat.projectiles = projectiles
 	world.add_child(combat)
 	chunks.update_chunks()
 	chunks.build_all_now()
@@ -77,6 +95,17 @@ func _build_world(joystick: VirtualJoystick) -> void:
 		combat_actions.set("spawner", spawner)
 		add_child(combat_actions)
 
+	_level_up = LevelUpScreen.new()
+	add_child(_level_up)
+	var hud := Hud.new()
+	hud.level_up_screen = _level_up
+	add_child(hud)
+	if OS.is_debug_build():
+		var progress_actions: Node = preload("res://scripts/core/debug_actions_progress.gd").new()
+		progress_actions.set("orbs", _orbs)
+		progress_actions.set("level_up_screen", _level_up)
+		add_child(progress_actions)
+
 	_death_screen = DeathScreen.new()
 	add_child(_death_screen)
 	GameAuthority.run_ended.connect(_on_run_ended)
@@ -88,11 +117,16 @@ func _exit_tree() -> void:
 
 
 func _on_run_ended(run: RunState) -> void:
+	_level_up.close()
+	var log_path: String = RunLog.write(run, GameAuthority.players)
 	var lines: PackedStringArray = [tr("UI_SURVIVED") % TextFormat.run_time(run.elapsed_s)]
+	lines.append(tr("UI_RESULTS_LINE") % [run.level, run.kills])
 	var player: Player = GameAuthority.local_player()
 	if player != null and _enemies.type_index.has(player.cause_of_death):
 		var killer: Dictionary = _enemies.types[_enemies.type_index[player.cause_of_death]]
 		lines.append(tr("UI_FELLED_BY") % tr(str(killer["name_key"])))
+	if log_path != "":
+		lines.append(tr("UI_RUN_LOG_SAVED"))
 	_death_screen.show_summary(lines)
 
 

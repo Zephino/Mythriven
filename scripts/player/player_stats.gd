@@ -7,7 +7,7 @@ extends RefCounted
 ## above +100% and Area above +150% count at half value.
 
 const STATS: PackedStringArray = [
-	"max_hp", "move_speed", "armor", "might", "area", "cooldown", "pickup_radius", "luck", "crit",
+	"max_hp", "move_speed", "armor", "might", "area", "cooldown", "pickup_radius", "luck", "crit", "god_charge",
 ]
 
 ## Flat starting values, e.g. {"max_hp": 100, "move_speed": 100, ...}.
@@ -71,6 +71,11 @@ func pickup_radius() -> float:
 
 func luck() -> float:
 	return float(base["luck"]) + float(bonus["luck"])
+
+
+## God meter charge bonus (Votive Bell); used from Phase 11.
+func god_charge() -> float:
+	return float(base["god_charge"]) + float(bonus["god_charge"])
 
 
 func crit_chance() -> float:

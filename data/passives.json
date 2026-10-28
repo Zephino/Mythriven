@@ -1,0 +1,84 @@
+[
+  {
+    "_doc": "Passives (GAME_DESIGN.md: Weapons, passives). Levels 1–5; each level adds per_level to the stat (fractions: 0.1 = +10%; armor is flat). Votive Bell's god meter charge has no effect until gods arrive in Phase 11. Numbers are placeholders until Phase 7.",
+    "id": "belt_of_strength",
+    "name_key": "PASSIVE_BELT_OF_STRENGTH_NAME",
+    "desc_key": "PASSIVE_BELT_OF_STRENGTH_DESC",
+    "stat": "might",
+    "per_level": 0.1,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "winged_sandals",
+    "name_key": "PASSIVE_WINGED_SANDALS_NAME",
+    "desc_key": "PASSIVE_WINGED_SANDALS_DESC",
+    "stat": "move_speed",
+    "per_level": 0.1,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "hourglass",
+    "name_key": "PASSIVE_HOURGLASS_NAME",
+    "desc_key": "PASSIVE_HOURGLASS_DESC",
+    "stat": "cooldown",
+    "per_level": 0.08,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "seers_eye",
+    "name_key": "PASSIVE_SEERS_EYE_NAME",
+    "desc_key": "PASSIVE_SEERS_EYE_DESC",
+    "stat": "area",
+    "per_level": 0.1,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "lodestone",
+    "name_key": "PASSIVE_LODESTONE_NAME",
+    "desc_key": "PASSIVE_LODESTONE_DESC",
+    "stat": "pickup_radius",
+    "per_level": 0.2,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "bronze_aegis",
+    "name_key": "PASSIVE_BRONZE_AEGIS_NAME",
+    "desc_key": "PASSIVE_BRONZE_AEGIS_DESC",
+    "stat": "armor",
+    "per_level": 1,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "ferrymans_coin",
+    "name_key": "PASSIVE_FERRYMANS_COIN_NAME",
+    "desc_key": "PASSIVE_FERRYMANS_COIN_DESC",
+    "stat": "luck",
+    "per_level": 0.1,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "golden_apple",
+    "name_key": "PASSIVE_GOLDEN_APPLE_NAME",
+    "desc_key": "PASSIVE_GOLDEN_APPLE_DESC",
+    "stat": "max_hp",
+    "per_level": 0.1,
+    "max_level": 5,
+    "persists": false
+  },
+  {
+    "id": "votive_bell",
+    "name_key": "PASSIVE_VOTIVE_BELL_NAME",
+    "desc_key": "PASSIVE_VOTIVE_BELL_DESC",
+    "stat": "god_charge",
+    "per_level": 0.1,
+    "max_level": 5,
+    "persists": false
+  }
+]
