@@ -4,7 +4,7 @@ Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.08
+Version: 00.01.09
 Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.08` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.09` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.

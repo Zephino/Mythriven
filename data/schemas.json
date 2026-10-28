@@ -92,6 +92,7 @@
           "ui": {
             "type": "object",
             "fields": {
+              "handheld_scale": "number",
               "xp_bar_height_px": "number",
               "damage_numbers_enabled": "bool",
               "damage_number_pool": "number",
@@ -286,6 +287,10 @@
               "pickup_sounds_per_s": "number",
               "gold_drop_chance": "number",
               "ambrosia_heal": "number",
+              "ambrosia_drop_chance": "number",
+              "ambrosia_pool": "number",
+              "ambrosia_size_px": "number",
+              "ambrosia_color": "string",
               "sound_base_hz": "number",
               "sound_length_s": "number",
               "sound_volume_db": "number",

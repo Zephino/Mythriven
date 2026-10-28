@@ -3,6 +3,7 @@ extends Node
 ## (Phase 6). Created by main.gd; removed with the scene on Retry.
 
 var orbs: XpOrbs
+var heals: HealPickups
 var level_up_screen: LevelUpScreen
 
 
@@ -11,6 +12,7 @@ func _ready() -> void:
 	DebugMenu.add_button(self, "DEBUG_GAIN_LEVEL", _gain_level)
 	DebugMenu.add_button(self, "DEBUG_DROP_ORBS", _drop_orbs)
 	DebugMenu.add_button(self, "DEBUG_PULL_ORBS", _pull_orbs)
+	DebugMenu.add_button(self, "DEBUG_DROP_AMBROSIA", _drop_ambrosia)
 	DebugMenu.add_button(self, "DEBUG_MAX_BUILD", _max_build)
 	DebugMenu.add_button(self, "DEBUG_END_RUN", _end_run)
 
@@ -47,6 +49,13 @@ func _drop_orbs() -> void:
 func _pull_orbs() -> void:
 	DebugMenu.toggle()
 	orbs.pull_all()
+
+
+## Drops one Ambrosia a short way from the player (it only flies to you when you're hurt).
+func _drop_ambrosia() -> void:
+	var player: Player = GameAuthority.local_player()
+	if player != null:
+		heals.drop(player.position + player.facing * Data.cfg_float("debug.spawn_behind_px") * 2.0)
 
 
 ## Fills every weapon and passive slot at max level, to test Gold/Heal cards and Auto-collect.

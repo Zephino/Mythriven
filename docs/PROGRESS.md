@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Phase 7 (early) — Bigger on phones, Ambrosia healing, easier start (v00.01.09)
+- What changed: new `DisplayScale` autoload makes everything 1.5× bigger on phones/tablets (`ui.handheld_scale`); Ambrosia healing pickups (`HealPickups`: 2% drop chance per kill, heals 30 HP, only collected when hurt, pooled); placeholder enemies hit softer (chaser 3, swarm 2) and spawn slower (1.5/s). Debug menu: "Drop an Ambrosia".
+- Files touched: `scripts/core/display_scale.gd`, `scripts/world/heal_pickups.gd` (new); `scripts/core/main.gd`, `scripts/core/debug_actions_progress.gd`, `project.godot` (autoload, version), `data/config.json` (`ui.handheld_scale`, `pickups.ambrosia_*`, `enemies.auto_spawn_per_s`), `data/schemas.json`, `data/enemies.json`, `localization/text.csv`, `tests/test_progression.gd`, `CHANGELOG.md`, `docs/DECISIONS.md`, `VERSION`.
+- Unfinished / next: the owner should play a few runs and say whether healing and difficulty feel right; all numbers are in `data/config.json` and `data/enemies.json`.
+
 ## 2026-10-28 — Fix — Windows too small on phones (v00.01.08)
 - Cause: no screen scaling was set, so on high-resolution phone screens every menu, button, and label was drawn at its size in real pixels and looked tiny.
 - Fix: `project.godot` display settings now use a 1152×648 design size with `canvas_items` stretch and `expand` aspect, so UI and world scale with the screen; new `scripts/ui/safe_area.gd` converts the phone's safe area into game coordinates for the touch joystick and the debug menu.

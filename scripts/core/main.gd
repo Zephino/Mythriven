@@ -42,6 +42,11 @@ func _build_world(joystick: TouchJoystick) -> void:
 	_orbs.setup()
 	world.origin_shifted.connect(_orbs.on_origin_shifted)
 	GameAuthority.enemy_killed.connect(_orbs.on_enemy_killed)
+	var heals := HealPickups.new()
+	world.add_child(heals)
+	heals.setup()
+	world.origin_shifted.connect(heals.on_origin_shifted)
+	GameAuthority.enemy_killed.connect(heals.on_enemy_killed)
 	var pickup_audio := PickupAudio.new()
 	add_child(pickup_audio)
 	_orbs.pickup_audio = pickup_audio
@@ -103,6 +108,7 @@ func _build_world(joystick: TouchJoystick) -> void:
 	if OS.is_debug_build():
 		var progress_actions: Node = preload("res://scripts/core/debug_actions_progress.gd").new()
 		progress_actions.set("orbs", _orbs)
+		progress_actions.set("heals", heals)
 		progress_actions.set("level_up_screen", _level_up)
 		add_child(progress_actions)
 

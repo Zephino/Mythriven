@@ -104,6 +104,7 @@ DEBUG_MAX_BUILD,Max out the build (test Gold/Heal cards)
 DEBUG_MAX_BUILD_DONE,"All weapon and passive slots are full and maxed. The next level-up offers Gold and Heal."
 DEBUG_END_RUN,End the run now (writes the run log)
 DEBUG_PROGRESS_INFO,"Level %d · XP %d / %d · banked %d · orbs on ground %d · gold %d · auto-collect %s"
+DEBUG_DROP_AMBROSIA,Drop an Ambrosia (healing item)
 DEBUG_CLOSE,Close
 DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
 DATA_ERROR_FILE_MISSING,%s: file not found

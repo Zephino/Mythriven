@@ -126,3 +126,17 @@ func test_run_log_has_time_cause_and_build() -> void:
 	var path: String = RunLog.write(GameAuthority.run, GameAuthority.players)
 	assert_true(FileAccess.file_exists(path))
 	DirAccess.remove_absolute(path)
+
+
+func test_ambrosia_heals_only_hurt_players_and_not_above_max() -> void:
+	var heals := HealPickups.new()
+	_parent.add_child(heals)
+	heals.setup()
+	heals.set_process(false)
+	heals.drop(_player.position)
+	heals._process(0.016)
+	assert_eq(heals.count(), 1, "a player at full HP leaves the Ambrosia on the ground")
+	_player.hp = _player.max_hp - 10.0
+	heals._process(0.016)
+	assert_eq(heals.count(), 0, "a hurt player picks it up")
+	assert_eq(_player.hp, _player.max_hp, "healing never goes above Max HP")

@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.09
+Date: 10/28/2026
+Time: 4:06 PM
+
+### Changes
+- Phones and tablets now show everything 1.5× bigger than PC (menus, HUD, buttons, text, joystick, and the game world), on top of the normal screen scaling. Setting: `ui.handheld_scale` in `data/config.json`.
+- New healing item, **Ambrosia** (from the design's special pickups): each kill has a 2% chance to drop one; it heals 30 HP and flies to you like an XP orb, but only when you're hurt. Debug menu: "Drop an Ambrosia".
+- Eased the placeholder difficulty: placeholder chasers now deal 3 contact damage (was 5), swarm enemies 2 (was 3), and enemies spawn 1.5 per second (was 2).
+- New automated test for Ambrosia; bumped the version to 00.01.09.
+
+### Reason
+The owner wanted bigger windows on mobile and found it very hard to get past level 1–2 without any way to heal.
+
 ## Version 00.01.08
 Date: 10/28/2026
 Time: 2:03 PM
