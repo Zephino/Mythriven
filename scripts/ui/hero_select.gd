@@ -37,7 +37,7 @@ func _ready() -> void:
 	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_child(grid)
 	var buttons: Array[Control] = []
-	for hero: Dictionary in HeroRules.all():
+	for hero: Dictionary in HeroRules.unlocked():
 		var button := Button.new()
 		button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

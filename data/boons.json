@@ -1,0 +1,54 @@
+[
+  {
+    "_doc": "Boons (GAME_DESIGN.md: Run arc / Milestone rewards): defeating an Age's boss lets you choose 1 of 3 rare run-wide effects. The design gives one example (+1 projectile on all weapons); the others are placeholders. Each boon is a list of effects: stat bonuses (fractions), extra_projectiles, xp_mult, heal_pct.",
+    "id": "many_shots",
+    "name_key": "BOON_MANY_SHOTS_NAME",
+    "desc_key": "BOON_MANY_SHOTS_DESC",
+    "effects": {
+      "extra_projectiles": 1
+    }
+  },
+  {
+    "id": "mighty",
+    "name_key": "BOON_MIGHTY_NAME",
+    "desc_key": "BOON_MIGHTY_DESC",
+    "effects": {
+      "might": 0.2
+    }
+  },
+  {
+    "id": "swift_strikes",
+    "name_key": "BOON_SWIFT_STRIKES_NAME",
+    "desc_key": "BOON_SWIFT_STRIKES_DESC",
+    "effects": {
+      "attack_speed": 0.15
+    }
+  },
+  {
+    "id": "wide_reach",
+    "name_key": "BOON_WIDE_REACH_NAME",
+    "desc_key": "BOON_WIDE_REACH_DESC",
+    "effects": {
+      "area": 0.25
+    }
+  },
+  {
+    "id": "steadfast",
+    "name_key": "BOON_STEADFAST_NAME",
+    "desc_key": "BOON_STEADFAST_DESC",
+    "effects": {
+      "armor": 2,
+      "max_hp": 0.2,
+      "heal_pct": 0.5
+    }
+  },
+  {
+    "id": "learning",
+    "name_key": "BOON_LEARNING_NAME",
+    "desc_key": "BOON_LEARNING_DESC",
+    "effects": {
+      "xp_mult": 0.25,
+      "pickup_radius": 0.3
+    }
+  }
+]

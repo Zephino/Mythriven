@@ -76,6 +76,9 @@ func _next() -> void:
 	var god: Dictionary = GodRules.find(speaker)
 	var hero: Dictionary = HeroRules.find(speaker)
 	var who: Dictionary = god if not god.is_empty() else hero
+	if who.is_empty():
+		var boss: Dictionary = BossManager.find(speaker)
+		who = {"name_key": boss.get("name_key", ""), "placeholder_color": Data.cfg_string("bosses.banter_color")}
 	_portrait.color = Color.html(str(who.get("placeholder_color", "#ffffff")))
 	_name.text = tr(str(who.get("name_key", "")))
 	_text.text = tr(str(line.get("text_key", "")))

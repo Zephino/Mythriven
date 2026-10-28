@@ -29,6 +29,15 @@ Time: 5:47 PM
   - The 5 launch Resonances: Sun and Snow (Sekhmet + Skadi), Storm Over the Sea (Poseidon + Thor), Burning Greenwood (Cernunnos + Sekhmet), Frozen Deluge (Skadi + Poseidon), and Eye of Ra (Ra + Sekhmet). Each has an always-on Harmony while both gods are bound and a Resonance summon when both meters are full: tap the Resonance button that appears above the god buttons, press R, or Q+E / LB+RB together. It uses both meters; summoning either god alone still works. A "Resonance discovered" banner shows the first time.
   - Divine infusions with all 8 templates (Sunfire, Winter, Thunder, Greenwood, Tidal, Fortune's, Solar, Raven): a level-8 weapon (evolved or not) plus a bound god → the next chest infuses it with the god's element and effect. With two eligible gods you choose. A god of the weapon's own element makes it **Empowered** (+50% status chance and duration). Names build automatically ("Thunder Gáe Bolg", "Winter Barbs").
   - The Codex also lists infusions and Resonances found. Väinämöinen's reactions during a Resonance count double for Verses.
+- **Phase 13: Aegean Shore bosses.**
+  - **Medusa** (10:00): serpent-hair volleys, then her Gaze (an orange cone charges; anyone moving toward her when it fires is petrified for 1.5 s), then stone statues that block shots.
+  - **Achilles** (20:00): spear rushes, shield-charge combos, then rage. The Heel: −80% damage from the front, ×2 from behind, so circle him. Defeating him **unlocks Achilles as a Hero** (saved at once): Spear and Shield, The Heel (less damage from the front, more from behind), Shield of Achilles (+2 Armor).
+  - **Kronos** (30:00): scythe sweeps, then slow-time zones, then he pulls you in while bullets spiral out; once per phase he sends his shots back along their paths.
+  - Bosses arrive on time even if the last one is still alive. When a boss appears, regular enemies on screen burst into XP orbs, an arena ring keeps you in, only weak fodder spawns, and the thunderstorm and elites pause.
+  - Boss bars show the name, phase, HP, the Guard gauge (damage fills it, weakness hits twice as fast; when full: Guard Break, 4 s stun, +50% damage taken, cast cancelled), weaknesses and resistances, and a cast bar naming big attacks.
+  - Rewards: a big chest, a gold bonus (+50 / +100 / +200), and a **Boon** (choose 1 of 3 run-wide effects, like +1 projectile on all weapons).
+  - **The Unraveling** begins when Kronos falls or at 33:00: a ring shrinks 10% a minute and the world outside frays; outside it you take rising damage.
+  - Boss entrance lines (Kronos has a special line for Heracles, his grandson).
 - Fixed: the debug menu printed errors when a run ended; a Codex test compared text the wrong way.
 
 ### Reason

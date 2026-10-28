@@ -106,7 +106,9 @@ func spawn(type_id: String, at: Vector2) -> int:
 	positions[slot] = at
 	knockback[slot] = Vector2.ZERO
 	var elapsed: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
-	max_hp[slot] = float(data["hp"]) * LevelScaling.hp_mult(LevelScaling.current_level()) * RunArc.hp_mult(elapsed)
+	# Bosses have their own HP per boss; time and level growth apply to the rest.
+	var growth: float = 1.0 if bool(data.get("boss", false)) else LevelScaling.hp_mult(LevelScaling.current_level()) * RunArc.hp_mult(elapsed)
+	max_hp[slot] = float(data["hp"]) * growth
 	hp[slot] = max_hp[slot]
 	radius[slot] = float(data["radius_px"])
 	contact_timer[slot] = 0.0

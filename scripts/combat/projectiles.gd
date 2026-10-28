@@ -38,6 +38,7 @@ var _multimesh: MultiMesh
 
 
 func setup() -> void:
+	add_to_group("player_projectiles")
 	_capacity = Data.cfg_int("projectiles.max_player_projectiles")
 	_active.resize(_capacity)
 	_kind.resize(_capacity)
@@ -100,6 +101,16 @@ func launch_orbit(weapon: WeaponInstance, player: Player, start_angle: float, se
 	_orbit_angle[i] = start_angle
 	_orbit_radius[i] = float(settings.get("orbit_radius_px", 40.0)) * player.stats.area_mult() * float(settings.get("area", 1.0))
 	_orbit_speed[i] = deg_to_rad(float(settings.get("orbit_speed_deg_s", 180.0)))
+
+
+## Removes player projectiles inside a circle (Medusa's statues block them). Returns how many.
+func block_circle(center: Vector2, block_radius: float) -> int:
+	var blocked: int = 0
+	for i: int in _capacity:
+		if _active[i] != 0 and _kind[i] != ORBIT and _pos[i].distance_to(center) <= block_radius + _radius[i]:
+			_remove(i)
+			blocked += 1
+	return blocked
 
 
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:

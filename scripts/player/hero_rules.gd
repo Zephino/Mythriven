@@ -4,6 +4,8 @@ extends RefCounted
 ## expertise).
 
 const FILE := "heroes.json"
+const UNLOCKS_SECTION := "unlocks"
+const UNLOCKS_KEY := "heroes"
 
 
 ## Heroes that loaded (in release builds only those passing the content gate).
@@ -14,6 +16,23 @@ static func all() -> Array[Dictionary]:
 		if entry is Dictionary:
 			found.append(entry)
 	return found
+
+
+## Heroes the player can pick: starting ones, plus those unlocked (e.g. by
+## defeating them as bosses; kept in the profile until Phase 15's saves).
+static func unlocked() -> Array[Dictionary]:
+	var found: Array[Dictionary] = []
+	var unlocked_ids: PackedStringArray = Profile.get_list(UNLOCKS_SECTION, UNLOCKS_KEY)
+	for hero: Dictionary in all():
+		var unlock: Dictionary = hero.get("unlock", {})
+		if str(unlock.get("type", "starting")) == "starting" or unlocked_ids.has(str(hero.get("id", ""))):
+			found.append(hero)
+	return found
+
+
+## Unlocks a Hero and saves at once. Returns true the first time.
+static func unlock(hero_id: String) -> bool:
+	return Profile.add_to_list(UNLOCKS_SECTION, UNLOCKS_KEY, hero_id)
 
 
 static func find(hero_id: String) -> Dictionary:

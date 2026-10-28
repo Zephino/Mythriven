@@ -481,3 +481,51 @@ UI_INFUSION_OPTION,%s → %s
 CODEX_NEW_INFUSION,New infusion: %s
 CODEX_INFUSIONS,Infusions found: %d
 CODEX_RESONANCES,Resonances found: %d / %d
+BOSS_MEDUSA_NAME,Medusa
+BOSS_ACHILLES_NAME,Achilles
+BOSS_KRONOS_NAME,Kronos
+BOSS_APPEARS,%s appears!
+BOSS_GUARD_BREAK,Guard Break!
+BOSS_KRONOS_REWIND,Kronos turns back time!
+BOSS_BAR_NAME,%s · phase %d
+BOSS_WEAK_RESIST,Weak: %s · Resists: %s
+BOSS_CAST,%s — %.1f s
+CAST_SERPENT_HAIR,Serpent Hair
+CAST_SHIELD_CHARGE,Shield Charge
+CAST_AGE_OF_IRON,Age of Iron
+HERO_UNLOCKED,New Hero unlocked: %s!
+HERO_ACHILLES_NAME,Achilles
+ROLE_DUELIST,Duelist
+TRAIT_THE_HEEL,The Heel
+TRAIT_THE_HEEL_DESC,"Nearly invulnerable from the front (−60% damage), vulnerable from behind (+50%)."
+PASSIVE_SHIELD_OF_ACHILLES,Shield of Achilles
+PASSIVE_SHIELD_OF_ACHILLES_DESC,+2 Armor.
+WEAPON_SPEAR_AND_SHIELD_NAME,Spear and Shield
+WEAPON_SPEAR_AND_SHIELD_DESC,A long thrust that knocks enemies back.
+UNRAVELING_BEGINS,The world unravels: stay inside the ring!
+UI_CHOOSE_BOON,Choose a Boon
+BOON_MANY_SHOTS_NAME,Many Shots
+BOON_MANY_SHOTS_DESC,+1 projectile on all weapons.
+BOON_MIGHTY_NAME,Might
+BOON_MIGHTY_DESC,+20% Might.
+BOON_SWIFT_STRIKES_NAME,Swift Strikes
+BOON_SWIFT_STRIKES_DESC,+15% attack speed.
+BOON_WIDE_REACH_NAME,Wide Reach
+BOON_WIDE_REACH_DESC,+25% Area.
+BOON_STEADFAST_NAME,Steadfast
+BOON_STEADFAST_DESC,"+2 Armor, +20% Max HP, and heal half your HP."
+BOON_LEARNING_NAME,Quick Study
+BOON_LEARNING_DESC,+25% XP and +30% pickup radius.
+BANTER_MEDUSA_ENTRANCE,"Look at me, little hero; everyone does, once."
+BANTER_ACHILLES_ENTRANCE,Let us see if your name will be sung as long as mine.
+BANTER_KRONOS_ENTRANCE,"Every age ends, and I am the one who ends them."
+BANTER_KRONOS_HERACLES,"Grandson, your father is not here to save you this time."
+DEBUG_BOSS_INFO,Bosses: %s · Unraveling: %s
+DEBUG_ON,on
+DEBUG_OFF,off
+DEBUG_SPAWN_MEDUSA,Summon Medusa now
+DEBUG_SPAWN_ACHILLES,Summon Achilles now
+DEBUG_SPAWN_KRONOS,Summon Kronos now
+DEBUG_BREAK_GUARD,Break the boss's Guard
+DEBUG_HURT_BOSS,Skip the boss to its next phase
+DEBUG_START_UNRAVELING,Start the Unraveling

@@ -359,5 +359,45 @@
     "text_key": "BANTER_STORM_OVER_THE_SEA_RESONANCE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "medusa_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "medusa",
+    "hero": "",
+    "god": "medusa",
+    "text_key": "BANTER_MEDUSA_ENTRANCE",
+    "lore_source": "Her gaze turns onlookers to stone (Ovid, Metamorphoses 4; Pseudo-Apollodorus 2.4.2)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "achilles_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "achilles",
+    "hero": "",
+    "god": "achilles",
+    "text_key": "BANTER_ACHILLES_ENTRANCE",
+    "lore_source": "Achilles chose undying glory over a long life (Homer, Iliad 9.410-416)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "kronos_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "kronos",
+    "hero": "",
+    "god": "kronos",
+    "text_key": "BANTER_KRONOS_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "kronos_heracles",
+    "trigger": "boss_entrance",
+    "speaker": "kronos",
+    "hero": "heracles",
+    "god": "kronos",
+    "text_key": "BANTER_KRONOS_HERACLES",
+    "lore_source": "Kronos is the father of Zeus and so Heracles' grandfather (Hesiod, Theogony 453-458)",
+    "needs_owner_review": true
   }
 ]

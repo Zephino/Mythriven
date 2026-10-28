@@ -74,6 +74,9 @@ func start_hazard(seconds: float = -1.0) -> void:
 
 
 func _tick_elites(seconds: float) -> void:
+	# Elites fill the gaps between bosses: none join a boss fight.
+	if GameAuthority.run.boss_arena_active:
+		return
 	while not _elite_times.is_empty() and seconds >= float(_elite_times[0]):
 		_elite_times.pop_front()
 		spawn_elite()

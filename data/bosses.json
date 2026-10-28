@@ -1,0 +1,274 @@
+[
+  {
+    "_doc": "Aegean Shore bosses (GAME_DESIGN.md: Bosses; Regional boss roster). Each has 3 phases at HP thresholds, patterns from the shared library (data in config patterns, overridden here), named casts with cast bars, a Guard gauge (damage fills it, weakness hits fill it x2; when full: Guard Break, stunned 4 s, +50% damage taken, cast cancelled, then the gauge refills slower), and one signature mechanic from its myth. ALL NUMBERS ARE PLACEHOLDERS.",
+    "id": "medusa",
+    "name_key": "BOSS_MEDUSA_NAME",
+    "tradition": "greek",
+    "lore_source": "Hesiod, Theogony 270-281; Pseudo-Apollodorus, Bibliotheca 2.4.2-3; Ovid, Metamorphoses 4",
+    "time_min": 10,
+    "enemy": "medusa",
+    "move_speed": 34,
+    "keep_distance_px": 110,
+    "attack_every_s": 2.6,
+    "guard_gauge": {
+      "max": 900,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "gaze",
+      "every_s": 8,
+      "charge_s": 1.2,
+      "cone_deg": 70,
+      "range_px": 320,
+      "petrify_s": 1.5,
+      "statues": 4,
+      "statue_radius_px": 14
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 50,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 7
+          }
+        ],
+        "gaze": false,
+        "statues": false
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 50,
+            "damage": 9
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 5,
+            "damage": 12
+          }
+        ],
+        "gaze": true,
+        "statues": false,
+        "casts": [
+          {
+            "name_key": "CAST_SERPENT_HAIR",
+            "cast_s": 1.5,
+            "pattern": {
+              "pattern": "spiral",
+              "arms": 4,
+              "duration_s": 2.0,
+              "damage": 7
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 9,
+            "spread_deg": 60,
+            "damage": 9
+          }
+        ],
+        "gaze": true,
+        "statues": true
+      }
+    ]
+  },
+  {
+    "id": "achilles",
+    "name_key": "BOSS_ACHILLES_NAME",
+    "tradition": "greek",
+    "lore_source": "Homer, Iliad; Statius, Achilleid 1.269 (the dip in the Styx); the heel: Hyginus, Fabulae 107",
+    "time_min": 20,
+    "enemy": "achilles",
+    "move_speed": 60,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.2,
+    "guard_gauge": {
+      "max": 1400,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "heel",
+      "front_damage_mult": 0.2,
+      "back_damage_mult": 2.0,
+      "front_cone_deg": 120
+    },
+    "unlocks_hero": "achilles",
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.7,
+            "damage": 16,
+            "trail_patches": 0
+          }
+        ],
+        "rage": false
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 16,
+            "trail_patches": 0
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 30,
+            "damage": 10
+          }
+        ],
+        "rage": false,
+        "casts": [
+          {
+            "name_key": "CAST_SHIELD_CHARGE",
+            "cast_s": 1.0,
+            "pattern": {
+              "pattern": "charge_trail",
+              "charge_s": 0.5,
+              "damage": 20,
+              "trail_patches": 0
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 18,
+            "trail_patches": 6,
+            "trail_s": 2.5
+          }
+        ],
+        "rage": true,
+        "attack_every_s": 1.6
+      }
+    ]
+  },
+  {
+    "id": "kronos",
+    "name_key": "BOSS_KRONOS_NAME",
+    "tradition": "greek",
+    "lore_source": "Hesiod, Theogony 137-210, 453-506 (Kronos the Titan, who swallowed his children)",
+    "time_min": 30,
+    "enemy": "kronos",
+    "move_speed": 30,
+    "keep_distance_px": 130,
+    "attack_every_s": 2.8,
+    "guard_gauge": {
+      "max": 2000,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "devouring_time",
+      "zones": 3,
+      "zone_radius_px": 46,
+      "zone_s": 8,
+      "zone_slow": 0.5,
+      "pull_px_s": 40,
+      "rewind_after_s": 2.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 300,
+            "width_px": 34,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 8
+          }
+        ],
+        "zones": false,
+        "devour": false
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 300,
+            "width_px": 34,
+            "damage": 14
+          },
+          {
+            "pattern": "falling_strikes",
+            "count": 12,
+            "damage": 10
+          }
+        ],
+        "zones": true,
+        "devour": false,
+        "casts": [
+          {
+            "name_key": "CAST_AGE_OF_IRON",
+            "cast_s": 2.0,
+            "pattern": {
+              "pattern": "safe_zone",
+              "radius_px": 220,
+              "safe_count": 2,
+              "damage": 20
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 5,
+            "duration_s": 2.5,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 8
+          }
+        ],
+        "zones": true,
+        "devour": true
+      }
+    ]
+  }
+]

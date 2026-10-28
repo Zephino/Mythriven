@@ -4,7 +4,8 @@ extends Node
 ## stays short: the run director (Ages, elites, hazard), enemy projectiles,
 ## gold and chests, elite health bars, the Age colour shift, the banner, the
 ## chest reveal, and the pause menu; from Phase 11 the gods (shrines,
-## trials, summons, god buttons, banter) and the attack pattern library.
+## trials, summons, god buttons, banter) and the attack pattern library; from
+## Phase 13 the bosses, Boons, and the Unraveling.
 ## Created by main.gd for each run.
 
 var director: RunDirector
@@ -29,6 +30,10 @@ var trial: GodTrial
 var god_choice: GodChoiceScreen
 var banter: BanterBubble
 var god_buttons: GodButtons
+var bosses: BossManager
+var boss_hud: BossHud
+var boons: BoonScreen
+var unraveling: Unraveling
 
 
 func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level_up: LevelUpScreen,
@@ -67,7 +72,16 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	trial.spawner = spawner
 	world.add_child(trial)
 	shrines.trial = trial
-	for listener: Node in [shots, gold, chests, hazard, patterns, summons, shrines, trial, ground]:
+	unraveling = Unraveling.new()
+	world.add_child(unraveling)
+	bosses = BossManager.new()
+	bosses.world = world
+	bosses.spawner = spawner
+	bosses.chests = chests
+	bosses.gold = gold
+	bosses.unraveling = unraveling
+	world.add_child(bosses)
+	for listener: Node in [shots, gold, chests, hazard, patterns, summons, shrines, trial, ground, unraveling, bosses]:
 		world.origin_shifted.connect(Callable(listener, "on_origin_shifted"))
 	GameAuthority.enemy_killed.connect(gold.on_enemy_killed)
 	GameAuthority.elite_killed.connect(gold.on_elite_killed)
@@ -107,10 +121,17 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	god_buttons = GodButtons.new()
 	god_buttons.gods = gods
 	god_buttons.resonance = resonance
+	boons = BoonScreen.new()
+	add_child(boons)
+	bosses.boons = boons
+	bosses.banter = banter
+	boss_hud = BossHud.new()
+	boss_hud.bosses = bosses
+	add_child(boss_hud)
 	add_child(god_buttons)
 	pause_menu = PauseMenu.new()
 	pause_menu.gods = gods
-	pause_menu.blockers = [level_up, chest_screen, death_screen, god_choice, infusion_choice]
+	pause_menu.blockers = [level_up, chest_screen, death_screen, god_choice, infusion_choice, boons]
 	add_child(pause_menu)
 	hud.pause_menu = pause_menu
 
@@ -119,7 +140,8 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	director.hazard = hazard
 	add_child(director)
 	if OS.is_debug_build():
-		for path: String in ["res://scripts/core/debug_actions_world.gd", "res://scripts/core/debug_actions_gods.gd"]:
+		for path: String in ["res://scripts/core/debug_actions_world.gd", "res://scripts/core/debug_actions_gods.gd",
+				"res://scripts/core/debug_actions_bosses.gd"]:
 			var actions: Node = load(path).new()
 			actions.set("systems", self)
 			add_child(actions)

@@ -62,13 +62,19 @@ func stats() -> Dictionary:
 	if levels.is_empty():
 		return {}
 	var current: Dictionary = levels[clampi(level, 1, levels.size()) - 1]
-	if not expert or level < max_level():
+	var extra: int = owner_player.extra_projectiles if owner_player != null else 0
+	var expert_bonus: bool = expert and level >= max_level()
+	if not expert_bonus and (extra == 0 or not current.has("count")):
 		return current
 	var boosted: Dictionary = current.duplicate()
+	# A Boon adds projectiles to every weapon that fires them.
 	if boosted.has("count"):
-		boosted["count"] = int(boosted["count"]) + 1
-	elif boosted.has("pierce"):
-		boosted["pierce"] = int(boosted["pierce"]) + 1
+		boosted["count"] = int(boosted["count"]) + extra
+	if expert_bonus:
+		if boosted.has("count"):
+			boosted["count"] = int(boosted["count"]) + 1
+		elif boosted.has("pierce"):
+			boosted["pierce"] = int(boosted["pierce"]) + 1
 	return boosted
 
 

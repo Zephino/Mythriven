@@ -26,8 +26,9 @@ signal elite_killed(at: Vector2, enemy_type: Dictionary, is_copy: bool)
 signal gold_collected(player: Player, amount: float)
 ## A weapon attacked (Thor's meter counts attacks made).
 signal weapon_fired(player: Player, weapon: WeaponInstance)
-## Gods (Phase 11): set by RunSystems; null between runs.
+## Gods (Phase 11) and bosses (Phase 13): set by RunSystems; null between runs.
 var gods: GodManager = null
+var bosses: BossManager = null
 
 const LEVELS_FILE := "levels.json"
 const WEAPONS_FILE := "weapons.json"
@@ -59,6 +60,8 @@ func start_run(level_id: String) -> RunState:
 	enemies = null
 	enemy_shots = null
 	gods = null
+	bosses = null
+	bosses = null
 	var run_seed: int = Data.cfg_int("run.fixed_seed")
 	if run_seed == 0:
 		var seeder := RandomNumberGenerator.new()
@@ -134,13 +137,13 @@ func spawn_enemy(type_id: String, at: Vector2) -> int:
 
 ## Damages a player (enemy damage − Armor, minimum 1; no invulnerability frames).
 ## `from` is where the hit came from (Vector2.INF when unknown).
-func damage_player(player: Player, amount: float, source_id: String, _from: Vector2 = Vector2.INF) -> void:
+func damage_player(player: Player, amount: float, source_id: String, from: Vector2 = Vector2.INF) -> void:
 	if not player.alive or player.god_mode or player.invulnerable_s > 0.0 or (player.kit != null and player.kit.is_untargetable()):
 		return
 	var armor: float = player.armor * player.statuses.armor_mult()
 	var dealt: float = Damage.to_player(amount * player.statuses.consume_shock(), armor, Data.cfg_float("combat.min_damage"))
 	if player.kit != null:
-		dealt = player.kit.incoming_damage(dealt)
+		dealt = player.kit.incoming_damage_at(dealt, from)
 		if dealt <= 0.0:
 			return
 	player.hp -= dealt

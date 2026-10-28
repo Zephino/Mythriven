@@ -9,6 +9,7 @@ const KITS: Dictionary = {
 	"salmon_leap": "res://scripts/player/hero_traits/salmon_leap.gd",
 	"song_of_power": "res://scripts/player/hero_traits/song_of_power.gd",
 	"cavalry_charge": "res://scripts/player/hero_traits/cavalry_charge.gd",
+	"the_heel": "res://scripts/player/hero_traits/the_heel.gd",
 }
 
 var player: Player
@@ -64,6 +65,11 @@ func is_untargetable() -> bool:
 ## Changes damage the player is about to take (after Armor).
 func incoming_damage(amount: float) -> float:
 	return amount
+
+
+## Like incoming_damage, but knowing where the hit came from (Vector2.INF when unknown).
+func incoming_damage_at(amount: float, _from: Vector2) -> float:
+	return incoming_damage(amount)
 
 
 ## A short line for the HUD (e.g. the current Labor), or "".

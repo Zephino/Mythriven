@@ -207,7 +207,11 @@
               "ember_count": "number",
               "ember_color": "string",
               "thread_color": "string",
-              "thread_edge_px": "number"
+              "thread_edge_px": "number",
+              "unraveling_start_radius_screens": "number",
+              "unraveling_dps": "number",
+              "unraveling_dps_growth_per_min": "number",
+              "unraveling_color": "string"
             }
           },
           "swift_mode": {
@@ -512,7 +516,22 @@
               "bullet_gap_mult": "number",
               "area_telegraph_color": "string",
               "fire_telegraph_color": "string",
-              "safe_zone_color": "string"
+              "safe_zone_color": "string",
+              "second_boss_arena_mult": "number",
+              "petrified_color": "string",
+              "guard_break_color": "string",
+              "rage_color": "string",
+              "time_zone_color": "string",
+              "statue_ring_px": "number",
+              "arena_color": "string",
+              "boon_choices": "number",
+              "bar_width_px": "number",
+              "bar_height_px": "number",
+              "guard_bar_height_px": "number",
+              "hp_bar_color": "string",
+              "guard_bar_color": "string",
+              "cast_text_color": "string",
+              "banter_color": "string"
             }
           },
           "events": {
@@ -1490,6 +1509,73 @@
             },
             "color": "string",
             "best_against_key": "string"
+          }
+        }
+      }
+    },
+    "bosses.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "open": true,
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "tradition": "string",
+            "lore_source": "string",
+            "time_min": "number",
+            "enemy": "string",
+            "move_speed": "number",
+            "keep_distance_px": "number",
+            "attack_every_s": "number",
+            "guard_gauge": {
+              "type": "object",
+              "fields": {
+                "max": "number",
+                "break_s": "number",
+                "damage_taken_mult": "number",
+                "refill_growth": "number"
+              }
+            },
+            "signature": {
+              "type": "object",
+              "open": true,
+              "fields": {
+                "type": "string"
+              }
+            },
+            "phases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "open": true,
+                "fields": {
+                  "hp_above": "number",
+                  "patterns": {
+                    "type": "array"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "boons.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "desc_key": "string",
+            "effects": {
+              "type": "object"
+            }
           }
         }
       }

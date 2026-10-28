@@ -45,6 +45,10 @@ var reaction_damage_mult: float = 1.0
 var god_elements: PackedStringArray = []
 ## Projectiles launched this run (Thor's Blessing chains every 10th).
 var projectiles_launched: int = 0
+## Boss effects (Phase 13): petrified (can't move), slow-time zones, Boon projectiles.
+var rooted_s: float = 0.0
+var slow_zone_mult: float = 1.0
+var extra_projectiles: int = 0
 
 var _shown_hp: float = -1.0
 
@@ -90,6 +94,9 @@ func _process(delta: float) -> void:
 	if invulnerable_s > 0.0:
 		invulnerable_s = maxf(invulnerable_s - delta, 0.0)
 		queue_redraw()
+	if rooted_s > 0.0:
+		rooted_s = maxf(rooted_s - delta, 0.0)
+		queue_redraw()
 	if alive:
 		var dot: float = statuses.tick(delta)
 		if dot > 0.0:
@@ -107,7 +114,9 @@ func _process(delta: float) -> void:
 
 ## Moves by one frame in `direction` (a unit vector or zero) and updates facing.
 func step(direction: Vector2, delta: float) -> void:
-	velocity = direction * move_speed * statuses.speed_mult() * (kit.speed_mult() if kit != null else 1.0)
+	if rooted_s > 0.0:
+		direction = Vector2.ZERO
+	velocity = direction * move_speed * statuses.speed_mult() * slow_zone_mult * (kit.speed_mult() if kit != null else 1.0)
 	position += velocity * delta
 	if direction != Vector2.ZERO and direction != facing:
 		facing = direction
@@ -122,6 +131,8 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), color)
 	if invulnerable_s > 0.0:
 		draw_arc(Vector2.ZERO, size_px * 0.9, 0.0, TAU, 20, Color.html(Data.cfg_string("gods.invulnerable_color")), 2.0)
+	if rooted_s > 0.0:
+		draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), Color.html(Data.cfg_string("bosses.petrified_color")))
 	# A small dot on the facing side shows which way the player last moved.
 	var marker_px: float = Data.cfg_float("player.facing_marker_px")
 	var marker_color := Color.html(Data.cfg_string("player.facing_marker_color"))

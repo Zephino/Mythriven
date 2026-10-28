@@ -22,7 +22,10 @@
       "crit": 5
     },
     "signature_weapon": "great_club",
-    "expertise": ["bow", "thrown"],
+    "expertise": [
+      "bow",
+      "thrown"
+    ],
     "trait": {
       "id": "twelve_labors",
       "name_key": "TRAIT_TWELVE_LABORS",
@@ -30,63 +33,138 @@
       "labors": [
         {
           "name_key": "LABOR_NEMEAN_LION",
-          "goal": { "type": "kills", "count": 50 },
-          "reward": { "stat": "armor", "amount": 1 }
+          "goal": {
+            "type": "kills",
+            "count": 50
+          },
+          "reward": {
+            "stat": "armor",
+            "amount": 1
+          }
         },
         {
           "name_key": "LABOR_LERNAEAN_HYDRA",
-          "goal": { "type": "kills_within", "count": 20, "seconds": 10 },
-          "reward": { "stat": "might", "amount": 0.05 }
+          "goal": {
+            "type": "kills_within",
+            "count": 20,
+            "seconds": 10
+          },
+          "reward": {
+            "stat": "might",
+            "amount": 0.05
+          }
         },
         {
           "name_key": "LABOR_CERYNEIAN_HIND",
-          "goal": { "type": "no_damage_for", "seconds": 30 },
-          "reward": { "stat": "move_speed", "amount": 0.05 }
+          "goal": {
+            "type": "no_damage_for",
+            "seconds": 30
+          },
+          "reward": {
+            "stat": "move_speed",
+            "amount": 0.05
+          }
         },
         {
           "name_key": "LABOR_ERYMANTHIAN_BOAR",
-          "goal": { "type": "kills", "count": 150 },
-          "reward": { "stat": "max_hp", "amount": 0.1 }
+          "goal": {
+            "type": "kills",
+            "count": 150
+          },
+          "reward": {
+            "stat": "max_hp",
+            "amount": 0.1
+          }
         },
         {
           "name_key": "LABOR_AUGEAN_STABLES",
-          "goal": { "type": "collect_xp", "count": 200 },
-          "reward": { "stat": "pickup_radius", "amount": 0.2 }
+          "goal": {
+            "type": "collect_xp",
+            "count": 200
+          },
+          "reward": {
+            "stat": "pickup_radius",
+            "amount": 0.2
+          }
         },
         {
           "name_key": "LABOR_STYMPHALIAN_BIRDS",
-          "goal": { "type": "kills_within", "count": 40, "seconds": 15 },
-          "reward": { "stat": "area", "amount": 0.05 }
+          "goal": {
+            "type": "kills_within",
+            "count": 40,
+            "seconds": 15
+          },
+          "reward": {
+            "stat": "area",
+            "amount": 0.05
+          }
         },
         {
           "name_key": "LABOR_CRETAN_BULL",
-          "goal": { "type": "reach_level", "level": 8 },
-          "reward": { "stat": "might", "amount": 0.05 }
+          "goal": {
+            "type": "reach_level",
+            "level": 8
+          },
+          "reward": {
+            "stat": "might",
+            "amount": 0.05
+          }
         },
         {
           "name_key": "LABOR_MARES_OF_DIOMEDES",
-          "goal": { "type": "kills", "count": 400 },
-          "reward": { "stat": "cooldown", "amount": 0.05 }
+          "goal": {
+            "type": "kills",
+            "count": 400
+          },
+          "reward": {
+            "stat": "cooldown",
+            "amount": 0.05
+          }
         },
         {
           "name_key": "LABOR_GIRDLE_OF_HIPPOLYTA",
-          "goal": { "type": "no_damage_for", "seconds": 60 },
-          "reward": { "stat": "armor", "amount": 1 }
+          "goal": {
+            "type": "no_damage_for",
+            "seconds": 60
+          },
+          "reward": {
+            "stat": "armor",
+            "amount": 1
+          }
         },
         {
           "name_key": "LABOR_CATTLE_OF_GERYON",
-          "goal": { "type": "collect_xp", "count": 1000 },
-          "reward": { "stat": "luck", "amount": 0.1 }
+          "goal": {
+            "type": "collect_xp",
+            "count": 1000
+          },
+          "reward": {
+            "stat": "luck",
+            "amount": 0.1
+          }
         },
         {
           "name_key": "LABOR_APPLES_OF_THE_HESPERIDES",
-          "goal": { "type": "reach_level", "level": 20 },
-          "reward": { "stat": "max_hp", "amount": 0.15 }
+          "goal": {
+            "type": "reach_level",
+            "level": 20
+          },
+          "reward": {
+            "stat": "max_hp",
+            "amount": 0.15
+          }
         },
         {
           "name_key": "LABOR_CERBERUS",
-          "goal": { "type": "kills_within", "count": 100, "seconds": 20 },
-          "reward": { "stat": "might", "amount": 0.1 }
+          "goal": {
+            "type": "kills_within",
+            "count": 100,
+            "seconds": 20
+          },
+          "reward": {
+            "stat": "might",
+            "amount": 0.1
+          }
         }
       ]
     },
@@ -97,8 +175,12 @@
       "armor": 2,
       "halve_hit_every_s": 8
     },
-    "divine_link": { "id": "summon_empowers_slams" },
-    "unlock": { "type": "starting" }
+    "divine_link": {
+      "id": "summon_empowers_slams"
+    },
+    "unlock": {
+      "type": "starting"
+    }
   },
   {
     "id": "cu_chulainn",
@@ -122,7 +204,10 @@
       "crit": 5
     },
     "signature_weapon": "gae_bolg",
-    "expertise": ["thrown", "blade"],
+    "expertise": [
+      "thrown",
+      "blade"
+    ],
     "trait": {
       "id": "salmon_leap",
       "name_key": "TRAIT_SALMON_LEAP",
@@ -142,8 +227,12 @@
       "attack_speed_pct": 30,
       "area_pct": 15
     },
-    "divine_link": { "id": "landing_applies_god_elements" },
-    "unlock": { "type": "starting" }
+    "divine_link": {
+      "id": "landing_applies_god_elements"
+    },
+    "unlock": {
+      "type": "starting"
+    }
   },
   {
     "id": "vainamoinen",
@@ -167,7 +256,9 @@
       "crit": 5
     },
     "signature_weapon": "runo_song",
-    "expertise": ["spell"],
+    "expertise": [
+      "spell"
+    ],
     "trait": {
       "id": "song_of_power",
       "name_key": "TRAIT_SONG_OF_POWER",
@@ -182,8 +273,12 @@
       "desc_key": "PASSIVE_ETERNAL_SAGE_DESC",
       "status_duration_pct": 30
     },
-    "divine_link": { "id": "gods_join_song" },
-    "unlock": { "type": "starting" }
+    "divine_link": {
+      "id": "gods_join_song"
+    },
+    "unlock": {
+      "type": "starting"
+    }
   },
   {
     "id": "tomoe_gozen",
@@ -207,7 +302,9 @@
       "crit": 5
     },
     "signature_weapon": "sword_and_bow",
-    "expertise": ["spear"],
+    "expertise": [
+      "spear"
+    ],
     "trait": {
       "id": "cavalry_charge",
       "name_key": "TRAIT_CAVALRY_CHARGE",
@@ -223,8 +320,65 @@
       "trample_damage": 10,
       "trample_knockback": 200
     },
-    "passive": { "id": "tomoe_crit", "name_key": "PASSIVE_TOMOE", "desc_key": "PASSIVE_TOMOE_DESC", "crit_pct": 10 },
-    "divine_link": { "id": "momentum_charges_gods" },
-    "unlock": { "type": "starting" }
+    "passive": {
+      "id": "tomoe_crit",
+      "name_key": "PASSIVE_TOMOE",
+      "desc_key": "PASSIVE_TOMOE_DESC",
+      "crit_pct": 10
+    },
+    "divine_link": {
+      "id": "momentum_charges_gods"
+    },
+    "unlock": {
+      "type": "starting"
+    }
+  },
+  {
+    "id": "achilles",
+    "name_key": "HERO_ACHILLES_NAME",
+    "tradition_key": "TRADITION_GREEK",
+    "role_key": "ROLE_DUELIST",
+    "placeholder_color": "#d8b060",
+    "patron_pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Homer, Iliad (book 18 for the shield Hephaestus forged); Statius, Achilleid (made nearly invulnerable, save the heel). Unlocked by defeating him on the Aegean Shore.",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 120,
+      "move_speed": 100,
+      "armor": 3,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "spear_and_shield",
+    "expertise": [
+      "blade",
+      "thrown"
+    ],
+    "trait": {
+      "id": "the_heel",
+      "name_key": "TRAIT_THE_HEEL",
+      "desc_key": "TRAIT_THE_HEEL_DESC",
+      "front_damage_mult": 0.4,
+      "back_damage_mult": 1.5,
+      "front_cone_deg": 120
+    },
+    "passive": {
+      "id": "shield_of_achilles",
+      "name_key": "PASSIVE_SHIELD_OF_ACHILLES",
+      "desc_key": "PASSIVE_SHIELD_OF_ACHILLES_DESC",
+      "armor": 2
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "defeat_boss",
+      "boss": "achilles"
+    }
   }
 ]

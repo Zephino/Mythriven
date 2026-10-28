@@ -109,6 +109,15 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 4. Get a weapon to level 8 (F1 → **Make a weapon ready to evolve** also does that), bind a god, then open a chest without the evolution passive: the weapon is infused, e.g. "Thunder Gáe Bolg", and its hits change colour. With two gods bound you choose which. A god of the weapon's own element makes it "Empowered".
 5. Pause → **Codex** lists infusions and Resonances you've found.
 
+**Phase 13 — Aegean Shore bosses (00.01.17)**
+1. At 10:00 (or F1 → **Summon Medusa now**) "Medusa appears!": nearby enemies burst into XP, a gold arena ring keeps you in, and a boss bar shows her name, phase, HP, Guard gauge, weakness (Wind) and resistance (Earth).
+2. Every attack shows an orange marker or a red flash first. Medusa's Gaze: an orange cone fills; if you're walking toward her when it fires you turn grey and can't move for 1.5 s. Walk away or sideways instead. Her third phase adds stone statues that stop shots.
+3. Keep hitting: the gold Guard bar fills (twice as fast with her weakness). When full, "Guard Break!": she's stunned 4 s and takes extra damage. F1 → **Break the boss's Guard** / **Skip the boss to its next phase** help test.
+4. Achilles (20:00, or F1): hits from in front barely hurt him; get behind him. Defeat him: "New Hero unlocked: Achilles!" and he's on the Hero select screen from then on, even after restarting.
+5. Kronos (30:00): purple slow-time circles, shots that fly back along their paths, and a pull toward him in his last phase.
+6. After each boss: a big chest, gold, and **Choose a Boon** (pick one of three).
+7. When Kronos falls (or at 33:00, or F1 → **Start the Unraveling**) a ring forms around you and shrinks; outside it is dark and hurts more and more.
+
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
 2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, it says "Online scores aren't switched on yet."
