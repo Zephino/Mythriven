@@ -40,6 +40,8 @@ jobs:
           unzip -q templates.tpz -d /tmp/templates
           mv /tmp/templates/templates/* "$templates/"
           rm -f godot.zip templates.tpz
+          echo "Installed web templates:"
+          ls "$templates" | grep -i web
 
       - name: Import project
         run: godot --headless --import --path . || true
@@ -51,7 +53,7 @@ jobs:
       - name: Export web build
         run: |
           mkdir -p build/web
-          godot --headless --path . --export-debug "Web" build/web/index.html
+          godot --headless --verbose --path . --export-debug "Web" build/web/index.html
           test -f build/web/index.html
 
       - uses: actions/upload-pages-artifact@v3
