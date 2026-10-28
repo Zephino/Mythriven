@@ -1,6 +1,7 @@
 extends Node
 ## Main scene. Builds the run: the endless ground (Phase 3), pooled enemies
-## and their spawner (Phase 4), one local player that moves with keyboard,
+## and their spawner (Phase 4), weapons, attack effects, and damage numbers
+## (Phase 5), one local player that moves with keyboard,
 ## gamepad, or the touch joystick (Phase 2), a camera that follows it, and the
 ## death screen. Also shows the Phase 1 translation test label,
 ## the build version in the corner, and any data errors found at startup.
@@ -40,6 +41,21 @@ func _build_world(joystick: VirtualJoystick) -> void:
 	var input := PlayerInput.new()
 	input.joystick = joystick
 	var player: Player = GameAuthority.spawn_player(world, Vector2.ZERO, input, true)
+	GameAuthority.give_weapon(player, Data.cfg_string("player.starting_weapon"))
+
+	var effects := EffectLayer.new()
+	world.add_child(effects)
+	effects.setup()
+	world.origin_shifted.connect(effects.on_origin_shifted)
+	var numbers := DamageNumbers.new()
+	world.add_child(numbers)
+	numbers.setup()
+	world.origin_shifted.connect(numbers.on_origin_shifted)
+	GameAuthority.enemy_damaged.connect(numbers.on_enemy_damaged)
+	var combat := CombatSystem.new()
+	combat.enemies = _enemies
+	combat.effects = effects
+	world.add_child(combat)
 	chunks.update_chunks()
 	chunks.build_all_now()
 

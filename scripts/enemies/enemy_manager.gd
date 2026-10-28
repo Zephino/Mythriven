@@ -108,6 +108,11 @@ func type_of(slot: int) -> Dictionary:
 	return types[kind[slot]]
 
 
+## Elites and bosses are preferred by `targeted` weapons (Phase 10+).
+func is_priority(slot: int) -> bool:
+	return bool(types[kind[slot]].get("priority_target", false))
+
+
 func query(center: Vector2, query_radius: float) -> PackedInt32Array:
 	return hash_grid.query(center, query_radius, positions, active)
 

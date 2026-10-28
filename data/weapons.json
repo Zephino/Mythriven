@@ -1,0 +1,23 @@
+[
+  {
+    "_doc": "Weapons (GAME_DESIGN.md: Weapons). Each level lists its stats: damage, cooldown (seconds between attacks), hit_interval (how soon the same enemy can be hit again; 0 = once per attack), range_px, area (multiplier), knockback (push speed px/s), plus pattern-specific values. All numbers are placeholders until the Phase 7 fun tuning.",
+    "id": "great_club",
+    "name_key": "WEAPON_GREAT_CLUB_NAME",
+    "desc_key": "WEAPON_GREAT_CLUB_DESC",
+    "element": "physical",
+    "categories": ["blunt"],
+    "targeting": "melee",
+    "pattern": "arc",
+    "signature_of": "heracles",
+    "quake": { "every": 4, "radius_px": 36, "damage_mult": 0.5 },
+    "levels": [
+      { "damage": 12, "cooldown": 1.2, "hit_interval": 0, "range_px": 44, "area": 1.0, "arc_deg": 120, "knockback": 150 }
+    ],
+    "tier_names": [],
+    "evolution": { "passive": "bronze_aegis", "into": "labor_breaker" },
+    "infusion_hooks": ["on_hit"],
+    "unlock": { "type": "signature" },
+    "placeholder_color": "#f0e0a0",
+    "persists": false
+  }
+]

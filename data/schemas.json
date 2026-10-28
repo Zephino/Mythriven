@@ -16,6 +16,7 @@
               "grid_spacing_px": "number",
               "teleport_px": "number",
               "spawn_count": "number",
+              "spawn_behind_px": "number",
               "grid_color": "string"
             }
           },
@@ -56,7 +57,9 @@
               "hp_bar_color": "string",
               "hp_bar_back_color": "string",
               "snap_to_8_directions": "bool",
-              "move_deadzone": "number"
+              "move_deadzone": "number",
+              "placeholder_pickup_radius_px": "number",
+              "starting_weapon": "string"
             }
           },
           "camera": {
@@ -77,9 +80,26 @@
               "knob_color": "string"
             }
           },
+          "effects": {
+            "type": "object",
+            "fields": {
+              "max_visual_effects": "number",
+              "attack_effect_s": "number",
+              "default_color": "string"
+            }
+          },
           "ui": {
             "type": "object",
             "fields": {
+              "damage_numbers_enabled": "bool",
+              "damage_number_pool": "number",
+              "damage_number_font_px": "number",
+              "damage_number_crit_font_px": "number",
+              "damage_number_color": "string",
+              "damage_number_crit_color": "string",
+              "damage_number_outline_px": "number",
+              "damage_number_life_s": "number",
+              "damage_number_rise_px_s": "number",
               "min_touch_target_px": "number",
               "god_button_min_px": "number",
               "screen_margin_px": "number"
@@ -184,7 +204,9 @@
               },
               "elite_cc_immunity_s": "number",
               "expertise_attack_speed_pct": "number",
-              "expertise_damage_pct": "number"
+              "expertise_damage_pct": "number",
+              "range_switch_tiles": "number",
+              "priority_target_range_mult": "number"
             }
           },
           "stats": {
@@ -494,6 +516,78 @@
               "items": "string",
               "optional": true
             }
+          }
+        }
+      }
+    },
+    "weapons.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "desc_key": "string",
+            "element": "string",
+            "categories": {
+              "type": "array",
+              "items": "string"
+            },
+            "targeting": "string",
+            "pattern": "string",
+            "signature_of": {
+              "type": "string",
+              "optional": true
+            },
+            "quake": {
+              "type": "object",
+              "optional": true,
+              "fields": {
+                "every": "int",
+                "radius_px": "number",
+                "damage_mult": "number"
+              }
+            },
+            "projectile": {
+              "type": "object",
+              "optional": true
+            },
+            "levels": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "fields": {
+                  "damage": "number",
+                  "cooldown": "number",
+                  "hit_interval": "number",
+                  "range_px": "number",
+                  "area": "number",
+                  "knockback": "number",
+                  "arc_deg": {
+                    "type": "number",
+                    "optional": true
+                  }
+                }
+              }
+            },
+            "tier_names": {
+              "type": "array",
+              "items": "string"
+            },
+            "evolution": {
+              "type": "any"
+            },
+            "infusion_hooks": {
+              "type": "array",
+              "items": "string"
+            },
+            "unlock": {
+              "type": "object"
+            },
+            "placeholder_color": "string",
+            "persists": "bool"
           }
         }
       }

@@ -33,7 +33,7 @@ DEBUG_KILL_ALL,Remove all enemies
 DEBUG_AUTO_SPAWN,Automatic spawning
 DEBUG_GOD_MODE,God mode (take no damage)
 DEBUG_HEAL,Heal to full
-DEBUG_ENEMY_INFO,"Enemies %d / %d · player HP %d · time %s"
+DEBUG_ENEMY_INFO,"Enemies %d / %d · player HP %d · time %s · kills %d"
 UI_FALLEN_TITLE,You have fallen
 UI_RETRY,Retry
 UI_SURVIVED,Survived %s
@@ -42,6 +42,9 @@ FORMAT_RUN_TIME,%d:%02d
 FORMAT_WHOLE_NUMBER,%d
 ENEMY_PLACEHOLDER_CHASER_NAME,Placeholder chaser
 ENEMY_PLACEHOLDER_SWARM_NAME,Placeholder swarm
+WEAPON_GREAT_CLUB_NAME,Great Club
+WEAPON_GREAT_CLUB_DESC,"A heavy slam toward the nearest enemy; every fourth slam sends out a small quake."
+DEBUG_SPAWN_BEHIND,Spawn one enemy behind you
 DEBUG_CLOSE,Close
 DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
 DATA_ERROR_FILE_MISSING,%s: file not found

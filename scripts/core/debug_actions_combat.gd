@@ -15,6 +15,7 @@ func _ready() -> void:
 	DebugMenu.add_check(self, "DEBUG_AUTO_SPAWN", spawner.auto_spawn, _on_auto_spawn_toggled)
 	DebugMenu.add_check(self, "DEBUG_GOD_MODE", false, _on_god_mode_toggled)
 	DebugMenu.add_button(self, "DEBUG_HEAL", _heal)
+	DebugMenu.add_button(self, "DEBUG_SPAWN_BEHIND", _spawn_behind)
 
 
 func _enemy_info() -> String:
@@ -22,7 +23,16 @@ func _enemy_info() -> String:
 	var player_hp: int = roundi(player.hp) if player != null else 0
 	return tr("DEBUG_ENEMY_INFO") % [
 		enemies.active_count(), enemies.capacity, player_hp, TextFormat.run_time(GameAuthority.run.elapsed_s),
+		GameAuthority.run.kills,
 	]
+
+
+## One enemy just behind the player, to check smart targeting turns around.
+func _spawn_behind() -> void:
+	var player: Player = GameAuthority.local_player()
+	if player != null:
+		GameAuthority.spawn_enemy(Data.cfg_string("enemies.auto_chaser_type"),
+				player.position - player.facing * Data.cfg_float("debug.spawn_behind_px"))
 
 
 func _spawn_chasers() -> void:

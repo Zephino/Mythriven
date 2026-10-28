@@ -10,6 +10,7 @@
     "grid_spacing_px": 64,
     "teleport_px": 10000,
     "spawn_count": 50,
+    "spawn_behind_px": 30,
     "grid_color": "#ffffff26"
   },
 
@@ -47,7 +48,9 @@
     "hp_bar_color": "#d23c3c",
     "hp_bar_back_color": "#00000099",
     "snap_to_8_directions": true,
-    "move_deadzone": 0.2
+    "move_deadzone": 0.2,
+    "placeholder_pickup_radius_px": 40,
+    "starting_weapon": "great_club"
   },
 
   "camera": {
@@ -66,7 +69,23 @@
     "knob_color": "#ffffffa0"
   },
 
+  "effects": {
+    "_doc": "Placeholder attack visuals (swing arcs, quake rings). max_visual_effects is a budget: when full, the oldest is reused.",
+    "max_visual_effects": 64,
+    "attack_effect_s": 0.18,
+    "default_color": "#ffffffa0"
+  },
+
   "ui": {
+    "damage_numbers_enabled": true,
+    "damage_number_pool": 96,
+    "damage_number_font_px": 8,
+    "damage_number_crit_font_px": 11,
+    "damage_number_color": "#ffffff",
+    "damage_number_crit_color": "#ffb030",
+    "damage_number_outline_px": 2,
+    "damage_number_life_s": 0.6,
+    "damage_number_rise_px_s": 24,
     "min_touch_target_px": 72,
     "god_button_min_px": 72,
     "screen_margin_px": 16
@@ -139,7 +158,9 @@
     "elite_cc_duration_mults": [1.0, 0.5, 0.25],
     "elite_cc_immunity_s": 5,
     "expertise_attack_speed_pct": 25,
-    "expertise_damage_pct": 15
+    "expertise_damage_pct": 15,
+    "range_switch_tiles": 2,
+    "priority_target_range_mult": 1.5
   },
 
   "stats": {

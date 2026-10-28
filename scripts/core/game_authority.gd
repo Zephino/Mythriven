@@ -10,8 +10,11 @@ signal player_removed(player: Player)
 signal player_damaged(player: Player, amount: float, source_id: String)
 signal player_died(player: Player, cause_id: String)
 signal run_ended(run: RunState)
+signal enemy_damaged(slot: int, amount: float, crit: bool, at: Vector2)
+signal enemy_killed(slot: int, enemy_type: Dictionary, at: Vector2, killer: Player)
 
 const LEVELS_FILE := "levels.json"
+const WEAPONS_FILE := "weapons.json"
 
 var players: Array[Player] = []
 var run: RunState = null
@@ -124,3 +127,53 @@ func _kill_player(player: Player, cause_id: String) -> void:
 	if run != null and not run.ended:
 		run.ended = true
 		run_ended.emit(run)
+
+
+## Damages an enemy using the damage formula and the attacker's stats.
+## `element` is unused until Phase 8 (weakness ×1.5 / resistance ×0.5).
+func damage_enemy(slot: int, base_damage: float, attacker: Player, push: Vector2, _element: String) -> void:
+	if enemies == null or enemies.active[slot] == 0:
+		return
+	var data: Dictionary = enemies.type_of(slot)
+	var result: Dictionary = Damage.hit(base_damage, 0.0, attacker.stats.might(), attacker.stats.crit_chance(),
+			Data.cfg_float("combat.crit_mult"), run.rng.combat.randf(), 1.0, float(data.get("armor", 0.0)),
+			Data.cfg_float("combat.min_damage"))
+	var amount: float = result["amount"]
+	enemies.hp[slot] -= amount
+	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
+	enemies.knockback[slot] += push * (1.0 - float(data.get("knockback_resist", 0.0)))
+	enemy_damaged.emit(slot, amount, bool(result["crit"]), enemies.positions[slot])
+	if enemies.hp[slot] <= 0.0:
+		kill_enemy(slot, attacker)
+
+
+## An enemy dies: counts the kill, tells listeners (XP drops), frees the slot.
+func kill_enemy(slot: int, killer: Player) -> void:
+	if enemies == null or enemies.active[slot] == 0:
+		return
+	var at: Vector2 = enemies.positions[slot]
+	var data: Dictionary = enemies.type_of(slot)
+	if run != null:
+		run.kills += 1
+	enemies.despawn(slot)
+	enemy_killed.emit(slot, data, at, killer)
+
+
+func find_weapon(weapon_id: String) -> Dictionary:
+	var weapons: Variant = Data.get_file(WEAPONS_FILE)
+	if weapons is Array:
+		for weapon: Variant in weapons:
+			if weapon is Dictionary and (weapon as Dictionary).get("id", "") == weapon_id:
+				return weapon
+	push_error("GameAuthority: weapon '%s' not found in %s" % [weapon_id, WEAPONS_FILE])
+	return {}
+
+
+## Gives a player a new weapon at level 1. Returns it, or null if unknown.
+func give_weapon(player: Player, weapon_id: String) -> WeaponInstance:
+	var data: Dictionary = find_weapon(weapon_id)
+	if data.is_empty():
+		return null
+	var weapon := WeaponInstance.new(data, player)
+	player.weapons.append(weapon)
+	return weapon

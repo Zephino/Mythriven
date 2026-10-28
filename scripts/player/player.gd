@@ -12,6 +12,10 @@ var move_speed: float = 0.0
 var velocity: Vector2 = Vector2.ZERO
 var facing: Vector2 = Vector2.RIGHT
 
+var stats: PlayerStats = null
+## Weapons held this run (up to 6), each a WeaponInstance.
+var weapons: Array[WeaponInstance] = []
+
 var max_hp: float = 0.0
 var hp: float = 0.0
 var armor: float = 0.0
@@ -26,11 +30,23 @@ var _shown_hp: float = -1.0
 
 
 func _ready() -> void:
-	move_speed = Data.cfg_float("player.placeholder_move_speed")
-	max_hp = Data.cfg_float("player.placeholder_max_hp")
-	hp = max_hp
-	armor = Data.cfg_float("player.placeholder_armor")
+	if stats == null:
+		stats = PlayerStats.from_config()
 	body_radius = Data.cfg_float("player.body_radius_px")
+	refresh_stats()
+	hp = max_hp
+
+
+## Re-reads speed, Max HP, and Armor after a stat changes. A higher Max HP
+## also raises current HP by the same amount.
+func refresh_stats() -> void:
+	move_speed = stats.move_speed()
+	armor = stats.armor()
+	var new_max: float = stats.max_hp()
+	if max_hp > 0.0 and new_max > max_hp:
+		hp += new_max - max_hp
+	max_hp = new_max
+	hp = minf(hp, max_hp)
 
 
 func _process(delta: float) -> void:
