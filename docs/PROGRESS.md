@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Fix — Game didn't compile in real Godot (v00.01.06)
+- Cause (from the first GitHub Actions run with real Godot 4.7.2): (1) `class_name VirtualJoystick` clashes with a new built-in Godot 4.7 class; (2) `RunState` declared `level` twice (the level's data and the XP level number), which stopped `RunState` and everything using it (GameAuthority, main scene, several tests) from compiling. The tests that didn't depend on those (validator, content gate, data files, damage formula, RNG, movement) all passed.
+- Fix: renamed the class to `TouchJoystick` (`scripts/ui/touch_joystick.gd`); renamed the level data to `RunState.level_data`.
+- Files touched: `scripts/ui/touch_joystick.gd` (renamed), `scripts/player/player_input.gd`, `scripts/core/main.gd`, `scripts/core/run_state.gd`, `scripts/meta/run_log.gd`, `CHANGELOG.md`.
+
 ## 2026-10-28 — Tools — Changelog rule (v00.01.06)
 - What changed: added the owner's changelog rule (`.cursor/rules/changelog.mdc`) and `CHANGELOG.md`, plus a test that the newest changelog entry matches `VERSION`. No game code changed.
 - Files touched: `.cursor/rules/changelog.mdc`, `CHANGELOG.md` (new), `tests/test_data_files.gd`, `docs/AI_STATUS.md`, `VERSION`, `project.godot` (version only).

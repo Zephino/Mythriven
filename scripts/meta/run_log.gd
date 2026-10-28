@@ -35,7 +35,7 @@ static func to_dictionary(run: RunState, run_players: Array[Player]) -> Dictiona
 	return {
 		"version": str(ProjectSettings.get_setting("application/config/version", "")),
 		"date": Time.get_datetime_string_from_system(),
-		"level_id": str(run.level.get("id", "")),
+		"level_id": str(run.level_data.get("id", "")),
 		"seed": run.seed_value,
 		"time_s": snappedf(run.elapsed_s, 0.01),
 		"kills": run.kills,

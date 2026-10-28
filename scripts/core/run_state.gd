@@ -4,7 +4,8 @@ extends RefCounted
 ## ends. Owned by GameAuthority. Nothing here persists (persists: false).
 
 var seed_value: int = 0
-var level: Dictionary = {}
+## The level's entry from levels.json.
+var level_data: Dictionary = {}
 var rng: RunRng
 ## Run time in seconds. Stops while the game is paused (level-ups, menus).
 var elapsed_s: float = 0.0
@@ -21,7 +22,7 @@ var current_offer: Array[Dictionary] = []
 var gold: float = 0.0
 
 
-func _init(run_seed: int, level_data: Dictionary) -> void:
+func _init(run_seed: int, level_entry: Dictionary) -> void:
 	seed_value = run_seed
-	level = level_data
+	level_data = level_entry
 	rng = RunRng.new(run_seed)

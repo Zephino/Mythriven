@@ -5,7 +5,7 @@ extends RefCounted
 ## Movement uses 8 directions at full speed, so diagonals are never faster.
 
 ## Touch joystick for this player (null on devices without one).
-var joystick: VirtualJoystick = null
+var joystick: TouchJoystick = null
 
 
 func get_move_vector() -> Vector2:

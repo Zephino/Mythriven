@@ -17,19 +17,19 @@ var _level_up: LevelUpScreen
 
 
 func _ready() -> void:
-	var joystick := VirtualJoystick.new()
+	var joystick := TouchJoystick.new()
 	_build_world(joystick)
 	_build_ui(joystick)
 
 
-func _build_world(joystick: VirtualJoystick) -> void:
+func _build_world(joystick: TouchJoystick) -> void:
 	var run: RunState = GameAuthority.start_run(Data.cfg_string("run.default_level"))
 	var world := WorldRoot.new()
 	world.name = "World"
 	add_child(world)
 	var chunks := ChunkManager.new()
 	world.add_child(chunks)
-	chunks.setup(run.level, run.seed_value)
+	chunks.setup(run.level_data, run.seed_value)
 	world.origin_shifted.connect(chunks.on_origin_shifted)
 
 	_enemies = EnemyManager.new()
@@ -130,7 +130,7 @@ func _on_run_ended(run: RunState) -> void:
 	_death_screen.show_summary(lines)
 
 
-func _build_ui(joystick: VirtualJoystick) -> void:
+func _build_ui(joystick: TouchJoystick) -> void:
 	var layer := CanvasLayer.new()
 	add_child(layer)
 	var root := Control.new()

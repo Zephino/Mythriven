@@ -1,4 +1,4 @@
-class_name VirtualJoystick
+class_name TouchJoystick
 extends Control
 ## Floating virtual joystick (GAME_DESIGN.md: Controls). It appears where a
 ## finger touches the left part of the screen, only while that finger is
