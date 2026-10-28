@@ -1,0 +1,343 @@
+[
+  {
+    "_doc": "Short lines between Heroes and gods (GAME_DESIGN.md: Hero and god banter). Every line is original, written for Mythriven, one sentence, and NEEDS OWNER REVIEW before release. Triggers: found (a shrine's god first seen), bound, summon (10% of summons), patron (summon by a Hero of the god's pantheon), hero_bind (a Hero with no special connection binds any god). A line with both hero and god set plays instead of the god's general bound line for that Hero. Boss-entrance lines arrive in Phase 13, Resonance lines in Phase 12.",
+    "id": "tyche_found",
+    "trigger": "found",
+    "speaker": "tyche",
+    "hero": "",
+    "god": "tyche",
+    "text_key": "BANTER_TYCHE_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "tyche_bound",
+    "trigger": "bound",
+    "speaker": "tyche",
+    "hero": "",
+    "god": "tyche",
+    "text_key": "BANTER_TYCHE_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "tyche_summon",
+    "trigger": "summon",
+    "speaker": "tyche",
+    "hero": "",
+    "god": "tyche",
+    "text_key": "BANTER_TYCHE_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cernunnos_found",
+    "trigger": "found",
+    "speaker": "cernunnos",
+    "hero": "",
+    "god": "cernunnos",
+    "text_key": "BANTER_CERNUNNOS_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cernunnos_bound",
+    "trigger": "bound",
+    "speaker": "cernunnos",
+    "hero": "",
+    "god": "cernunnos",
+    "text_key": "BANTER_CERNUNNOS_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cernunnos_summon",
+    "trigger": "summon",
+    "speaker": "cernunnos",
+    "hero": "",
+    "god": "cernunnos",
+    "text_key": "BANTER_CERNUNNOS_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thor_found",
+    "trigger": "found",
+    "speaker": "thor",
+    "hero": "",
+    "god": "thor",
+    "text_key": "BANTER_THOR_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thor_bound",
+    "trigger": "bound",
+    "speaker": "thor",
+    "hero": "",
+    "god": "thor",
+    "text_key": "BANTER_THOR_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thor_summon",
+    "trigger": "summon",
+    "speaker": "thor",
+    "hero": "",
+    "god": "thor",
+    "text_key": "BANTER_THOR_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "skadi_found",
+    "trigger": "found",
+    "speaker": "skadi",
+    "hero": "",
+    "god": "skadi",
+    "text_key": "BANTER_SKADI_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "skadi_bound",
+    "trigger": "bound",
+    "speaker": "skadi",
+    "hero": "",
+    "god": "skadi",
+    "text_key": "BANTER_SKADI_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "skadi_summon",
+    "trigger": "summon",
+    "speaker": "skadi",
+    "hero": "",
+    "god": "skadi",
+    "text_key": "BANTER_SKADI_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "sekhmet_found",
+    "trigger": "found",
+    "speaker": "sekhmet",
+    "hero": "",
+    "god": "sekhmet",
+    "text_key": "BANTER_SEKHMET_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "sekhmet_bound",
+    "trigger": "bound",
+    "speaker": "sekhmet",
+    "hero": "",
+    "god": "sekhmet",
+    "text_key": "BANTER_SEKHMET_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "sekhmet_summon",
+    "trigger": "summon",
+    "speaker": "sekhmet",
+    "hero": "",
+    "god": "sekhmet",
+    "text_key": "BANTER_SEKHMET_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "poseidon_found",
+    "trigger": "found",
+    "speaker": "poseidon",
+    "hero": "",
+    "god": "poseidon",
+    "text_key": "BANTER_POSEIDON_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "poseidon_bound",
+    "trigger": "bound",
+    "speaker": "poseidon",
+    "hero": "",
+    "god": "poseidon",
+    "text_key": "BANTER_POSEIDON_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "poseidon_summon",
+    "trigger": "summon",
+    "speaker": "poseidon",
+    "hero": "",
+    "god": "poseidon",
+    "text_key": "BANTER_POSEIDON_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ra_found",
+    "trigger": "found",
+    "speaker": "ra",
+    "hero": "",
+    "god": "ra",
+    "text_key": "BANTER_RA_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ra_bound",
+    "trigger": "bound",
+    "speaker": "ra",
+    "hero": "",
+    "god": "ra",
+    "text_key": "BANTER_RA_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ra_summon",
+    "trigger": "summon",
+    "speaker": "ra",
+    "hero": "",
+    "god": "ra",
+    "text_key": "BANTER_RA_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morrigan_found",
+    "trigger": "found",
+    "speaker": "morrigan",
+    "hero": "",
+    "god": "morrigan",
+    "text_key": "BANTER_MORRIGAN_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morrigan_bound",
+    "trigger": "bound",
+    "speaker": "morrigan",
+    "hero": "",
+    "god": "morrigan",
+    "text_key": "BANTER_MORRIGAN_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morrigan_summon",
+    "trigger": "summon",
+    "speaker": "morrigan",
+    "hero": "",
+    "god": "morrigan",
+    "text_key": "BANTER_MORRIGAN_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "tyche_patron",
+    "trigger": "patron",
+    "speaker": "tyche",
+    "hero": "",
+    "god": "tyche",
+    "text_key": "BANTER_TYCHE_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "poseidon_patron",
+    "trigger": "patron",
+    "speaker": "poseidon",
+    "hero": "",
+    "god": "poseidon",
+    "text_key": "BANTER_POSEIDON_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cernunnos_patron",
+    "trigger": "patron",
+    "speaker": "cernunnos",
+    "hero": "",
+    "god": "cernunnos",
+    "text_key": "BANTER_CERNUNNOS_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morrigan_patron",
+    "trigger": "patron",
+    "speaker": "morrigan",
+    "hero": "",
+    "god": "morrigan",
+    "text_key": "BANTER_MORRIGAN_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "poseidon_heracles",
+    "trigger": "bound",
+    "speaker": "poseidon",
+    "hero": "heracles",
+    "god": "poseidon",
+    "text_key": "BANTER_POSEIDON_HERACLES",
+    "lore_source": "Heracles killed the sea monster Poseidon sent against Troy (Pseudo-Apollodorus, Bibliotheca 2.5.9; Homer, Iliad 20.144-148)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morrigan_cu_chulainn",
+    "trigger": "bound",
+    "speaker": "morrigan",
+    "hero": "cu_chulainn",
+    "god": "morrigan",
+    "text_key": "BANTER_MORRIGAN_CU_CHULAINN",
+    "lore_source": "The Morrígan offered Cú Chulainn her love and he refused her (Táin Bó Cúailnge)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "heracles_binds",
+    "trigger": "hero_bind",
+    "speaker": "heracles",
+    "hero": "heracles",
+    "god": "",
+    "text_key": "BANTER_HERACLES_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cu_chulainn_binds",
+    "trigger": "hero_bind",
+    "speaker": "cu_chulainn",
+    "hero": "cu_chulainn",
+    "god": "",
+    "text_key": "BANTER_CU_CHULAINN_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "vainamoinen_binds",
+    "trigger": "hero_bind",
+    "speaker": "vainamoinen",
+    "hero": "vainamoinen",
+    "god": "",
+    "text_key": "BANTER_VAINAMOINEN_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "tomoe_gozen_binds",
+    "trigger": "hero_bind",
+    "speaker": "tomoe_gozen",
+    "hero": "tomoe_gozen",
+    "god": "",
+    "text_key": "BANTER_TOMOE_GOZEN_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  }
+]

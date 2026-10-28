@@ -21,7 +21,7 @@ var _reaction_times := PackedFloat64Array()
 
 ## Returns the damage dealt.
 func hit(slot: int, base: float, attacker: Player, push: Vector2, element: String, status_chance: float,
-		allow_reactions: bool = true) -> float:
+		allow_reactions: bool = true, weapon: WeaponInstance = null) -> float:
 	var enemies: EnemyManager = GameAuthority.enemies
 	if enemies == null or enemies.active[slot] == 0:
 		return 0.0
@@ -44,13 +44,15 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 	var might: float = 0.0
 	var crit_chance: float = 0.0
 	if attacker != null:
-		base *= attacker.statuses.outgoing_damage_mult()
+		base *= attacker.statuses.outgoing_damage_mult() * attacker.element_damage_mult(element)
 		might = attacker.stats.might()
 		crit_chance = attacker.stats.crit_chance()
+		if str(attacker.god_flags.get("always_burn_element", "")) == element:
+			status_chance = 1.0
 	var result: Dictionary = Damage.hit(base, 0.0, might, crit_chance,
 			Data.cfg_float("combat.crit_mult"), _rng().randf(), element_mult * bonus * shock_mult, armor,
 			Data.cfg_float("combat.min_damage"))
-	var amount: float = result["amount"]
+	var amount: float = float(result["amount"]) * st.damage_taken_mult(slot)
 	var to_hp: float = enemies.elites.absorb(slot, amount, element == "holy")
 	enemies.hp[slot] -= to_hp
 	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
@@ -59,6 +61,8 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 		_apply_status(slot, status_id, push, data, attacker.stats.status_duration_mult() if attacker != null else 1.0)
 	var kind: String = _number_kind(bool(result["crit"]), element_mult) if to_hp > 0.0 else "resist"
 	GameAuthority.enemy_damaged.emit(slot, amount, kind, at)
+	if attacker != null and not attacker.god_flags.is_empty() and enemies.active[slot] != 0:
+		Blessings.after_hit(attacker, weapon, slot, element)
 	if enemies.hp[slot] <= 0.0:
 		GameAuthority.kill_enemy(slot, attacker)
 	return amount
@@ -92,21 +96,22 @@ func _react(slot: int, base: float, attacker: Player, element: String, status_ch
 	if element == Elements.PHYSICAL and st.has(slot, "frozen") and take_reaction_budget():
 		st.remove(slot, "frozen")
 		_announce("shatter", at, 0.0, attacker)
-		return 1.0 + float(Elements.reaction("shatter").get("damage_bonus", 1.0))
+		return 1.0 + float(Elements.reaction("shatter").get("damage_bonus", 1.0)) * _reaction_mult(attacker)
 	if element == "fire" and (st.has(slot, "frozen") or st.has(slot, "chill")) and take_reaction_budget():
 		st.remove(slot, "frozen")
 		st.remove(slot, "chill")
 		var steam: Dictionary = Elements.reaction("steam_burst")
 		var steam_radius: float = float(steam.get("radius_tiles", 2)) * tile
 		for other: int in _others_near(slot, at, steam_radius):
-			hit(other, base * float(steam.get("damage_mult", 0.75)), attacker, Vector2.ZERO, "fire", 0.0, false)
+			hit(other, base * float(steam.get("damage_mult", 0.75)) * _reaction_mult(attacker), attacker, Vector2.ZERO, "fire", 0.0, false)
 		_announce("steam_burst", at, steam_radius, attacker)
 	elif element == "lightning" and st.has(slot, "soaked") and take_reaction_budget():
 		var conduct: Dictionary = Elements.reaction("conduct")
 		var conduct_radius: float = float(conduct.get("radius_tiles", 4)) * tile
 		for other: int in _others_near(slot, at, conduct_radius):
 			if st.has(other, "soaked"):
-				hit(other, base * float(conduct.get("damage_mult", 0.5)), attacker, Vector2.ZERO, "lightning", status_chance, false)
+				hit(other, base * float(conduct.get("damage_mult", 0.5)) * _reaction_mult(attacker), attacker, Vector2.ZERO, "lightning",
+						status_chance, false)
 		_announce("conduct", at, conduct_radius, attacker)
 	elif element == "wind" and take_reaction_budget():
 		var spreading: PackedStringArray = []
@@ -123,6 +128,11 @@ func _react(slot: int, base: float, attacker: Player, element: String, status_ch
 				st.apply(targets[i], status_id)
 		_announce("spread", at, float(spread.get("radius_tiles", 3)) * tile, attacker)
 	return 1.0
+
+
+## Väinämöinen's Divine Link: his reactions deal more damage.
+func _reaction_mult(attacker: Player) -> float:
+	return attacker.reaction_damage_mult if attacker != null else 1.0
 
 
 func _apply_status(slot: int, status_id: String, push: Vector2, data: Dictionary, duration_mult: float) -> void:

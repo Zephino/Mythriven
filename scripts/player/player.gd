@@ -33,6 +33,18 @@ var alive: bool = true
 var god_mode: bool = false
 ## Enemy, boss, or hazard id that dealt the final blow (for the run log).
 var cause_of_death: String = ""
+## From bound gods (Phase 11): Blessing switches (blessing key -> value), extra
+## damage per element (fractions), the gold multiplier, and invulnerable time.
+var god_flags: Dictionary = {}
+var element_damage: Dictionary = {}
+var gold_mult: float = 1.0
+var invulnerable_s: float = 0.0
+## Multiplier on reaction damage this player causes (Väinämöinen's Divine Link).
+var reaction_damage_mult: float = 1.0
+## Elements of the gods bound to this player (used by Divine Links).
+var god_elements: PackedStringArray = []
+## Projectiles launched this run (Thor's Blessing chains every 10th).
+var projectiles_launched: int = 0
 
 var _shown_hp: float = -1.0
 
@@ -57,6 +69,11 @@ func kit_damage_mult(weapon: WeaponInstance) -> float:
 	return kit.damage_mult(weapon) if kit != null else 1.0
 
 
+## Extra damage with an element from Blessings (e.g. Thor: +15% Lightning).
+func element_damage_mult(element: String) -> float:
+	return 1.0 + float(element_damage.get(element, 0.0))
+
+
 ## Re-reads speed, Max HP, and Armor after a stat changes. A higher Max HP
 ## also raises current HP by the same amount.
 func refresh_stats() -> void:
@@ -70,6 +87,9 @@ func refresh_stats() -> void:
 
 
 func _process(delta: float) -> void:
+	if invulnerable_s > 0.0:
+		invulnerable_s = maxf(invulnerable_s - delta, 0.0)
+		queue_redraw()
 	if alive:
 		var dot: float = statuses.tick(delta)
 		if dot > 0.0:
@@ -100,6 +120,8 @@ func _draw() -> void:
 	if not alive:
 		color = Color.html(Data.cfg_string("player.fallen_color"))
 	draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), color)
+	if invulnerable_s > 0.0:
+		draw_arc(Vector2.ZERO, size_px * 0.9, 0.0, TAU, 20, Color.html(Data.cfg_string("gods.invulnerable_color")), 2.0)
 	# A small dot on the facing side shows which way the player last moved.
 	var marker_px: float = Data.cfg_float("player.facing_marker_px")
 	var marker_color := Color.html(Data.cfg_string("player.facing_marker_color"))

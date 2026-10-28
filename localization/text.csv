@@ -359,3 +359,88 @@ DEBUG_OPEN_CHEST,Open a chest now
 DEBUG_READY_EVOLUTION,Make a weapon ready to evolve
 DEBUG_EVOLUTION_READY,%s is ready: open a chest to evolve it.
 DEBUG_START_STORM,Start the thunderstorm
+ELEMENT_FORTUNE,Fortune
+ENEMY_TRIAL_AVATAR_NAME,A god in a Duel
+GOD_TYCHE_NAME,Tyche
+GOD_TYCHE_ROLE,Economy / luck
+GOD_TYCHE_BLESSING,"+30% gold, +Luck; −10% Max HP"
+GOD_TYCHE_SUMMON,Wheel of Fortune: pulls every pickup on screen; kills in the next 5 s drop double
+GOD_CERNUNNOS_NAME,Cernunnos
+GOD_CERNUNNOS_ROLE,Sustain / zones
+GOD_CERNUNNOS_BLESSING,Regenerate 1% HP/s; melee hits Poison
+GOD_CERNUNNOS_SUMMON,"Heart of the Greenwood: heal to full, invulnerable 5 s, roots bind nearby enemies while spectral stags charge through them"
+GOD_THOR_NAME,Thor
+GOD_THOR_ROLE,Chain damage
+GOD_THOR_BLESSING,+15% Lightning damage; every 10th projectile chains lightning
+GOD_THOR_SUMMON,"Hammer's Return: a thrown hammer flies out and returns, calling lightning on everything it passes"
+GOD_SKADI_NAME,Skadi
+GOD_SKADI_ROLE,Control / defense
+GOD_SKADI_BLESSING,+20% Max HP; enemies that touch you are Chilled
+GOD_SKADI_SUMMON,Winter's Hunt: freezes all non-boss enemies 4 s while ice arrows rain down; bosses are Chilled
+GOD_SEKHMET_NAME,Sekhmet
+GOD_SEKHMET_ROLE,Damage
+GOD_SEKHMET_BLESSING,+15% Might; Fire weapons always Burn
+GOD_SEKHMET_SUMMON,"Breath of the Desert: a scorching wind sweeps the screen, Burning everything for 4 s"
+GOD_POSEIDON_NAME,Poseidon
+GOD_POSEIDON_ROLE,Area / horde clear
+GOD_POSEIDON_BLESSING,+25% Area; −10% Move Speed; hits Soak
+GOD_POSEIDON_SUMMON,"Earthshaker: a tidal wave crosses the screen, then the ground quakes, Soaking and stunning"
+GOD_RA_NAME,Ra
+GOD_RA_ROLE,Holy damage / shield breaking
+GOD_RA_BLESSING,+15% Holy damage; Holy hits break enemy shields instantly
+GOD_RA_SUMMON,"Sun Barque: a blazing sun crosses the screen, dealing Holy damage and Smiting everything it passes"
+GOD_MORRIGAN_NAME,The Morrígan
+GOD_MORRIGAN_ROLE,Execution / crits
+GOD_MORRIGAN_BLESSING,+10% Crit Chance; kills on Hexed enemies heal 1 HP
+GOD_MORRIGAN_SUMMON,"Crow Storm: crows harry every enemy, applying Hex, and mark the 5 strongest as fated (+100% damage taken for 6 s)"
+BANTER_TYCHE_FOUND,Shall we see where my wheel stops for you?
+BANTER_TYCHE_BOUND,"Luck is with you, for now."
+BANTER_TYCHE_SUMMON,Round and round it goes!
+BANTER_TYCHE_PATRON,A child of Hellas; my wheel leans your way.
+BANTER_CERNUNNOS_FOUND,The antlered one watches from among the trees.
+BANTER_CERNUNNOS_BOUND,"The antlered one bows his head, and the forest stirs."
+BANTER_CERNUNNOS_SUMMON,The greenwood answers.
+BANTER_CERNUNNOS_PATRON,The old forest knows its own.
+BANTER_THOR_FOUND,"Show me your strength, little hero."
+BANTER_THOR_BOUND,Ha! Now we fight side by side!
+BANTER_THOR_SUMMON,"Fly, hammer, and come home!"
+BANTER_SKADI_FOUND,"Catch me if you can, and I will hunt beside you."
+BANTER_SKADI_BOUND,Well run; my bow is yours.
+BANTER_SKADI_SUMMON,Winter hunts with you.
+BANTER_SEKHMET_FOUND,"Weather my fury, and it will burn for you."
+BANTER_SEKHMET_BOUND,My rage is yours to aim.
+BANTER_SEKHMET_SUMMON,Let the desert breathe!
+BANTER_POSEIDON_FOUND,The sea bows to no one; prove you are worth its swell.
+BANTER_POSEIDON_BOUND,"Ride the tide, then."
+BANTER_POSEIDON_SUMMON,Let the earth shake!
+BANTER_POSEIDON_PATRON,The sea remembers the heroes of Hellas.
+BANTER_POSEIDON_HERACLES,"You slew the sea-beast I sent against Troy, and now you ask for my tide?"
+BANTER_RA_FOUND,The sun shines on all who stand.
+BANTER_RA_BOUND,Walk in my light.
+BANTER_RA_SUMMON,"Rise, sun-boat!"
+BANTER_MORRIGAN_FOUND,I have already seen who falls today.
+BANTER_MORRIGAN_BOUND,Your fate is woven with mine now.
+BANTER_MORRIGAN_SUMMON,"Fly, my crows."
+BANTER_MORRIGAN_PATRON,I know the warriors of my own people.
+BANTER_MORRIGAN_CU_CHULAINN,"You refused me once, Hound; will you refuse my help now?"
+BANTER_HERACLES_BINDS,"Stand with me, and we will not fall."
+BANTER_CU_CHULAINN_BINDS,"Fight beside me, then."
+BANTER_VAINAMOINEN_BINDS,Let your power join my song.
+BANTER_TOMOE_GOZEN_BINDS,Ride with me.
+TRIAL_TRIAL_DUEL_BANNER,Duel: defeat %s inside the ring within 60 s!
+TRIAL_TRIAL_ENDURANCE_BANNER,Endurance: survive %s's fury inside the ring for 40 s!
+TRIAL_TRIAL_CHASE_BANNER,Chase: touch %s 3 times within 40 s! Beware the decoys.
+TRIAL_STATUS_TIME,%d s
+TRIAL_STATUS_CHASE,%d s · caught %d / %d
+TRIAL_WON,Trial won!
+TRIAL_FAILED,Trial failed: the shrine fades.
+UI_GOD_CHOICE_TITLE,%s offers to join you. Release a god?
+UI_GOD_RELEASE,Release %s
+UI_GOD_DECLINE,Decline
+UI_AUTO_SUMMON,Auto-summon
+DEBUG_GODS_INFO,Gods: %s · shrines %d
+DEBUG_SHRINE_NEARBY,Place the next god's shrine next to you
+DEBUG_SHRINE_PLACED,Shrine of %s (%s) placed.
+DEBUG_BIND_NEXT_GOD,Bind the next god now
+DEBUG_GOD_BOUND,Bound %s.
+DEBUG_FILL_GOD_METERS,Fill god meters

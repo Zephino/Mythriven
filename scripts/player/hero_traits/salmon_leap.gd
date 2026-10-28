@@ -79,6 +79,11 @@ func _land() -> void:
 			var away: Vector2 = (enemies.positions[slot] - player.position).normalized()
 			GameAuthority.damage_enemy(slot, float(trait_data().get("landing_damage", 0.0)), player,
 					away * float(trait_data().get("landing_knockback", 0.0)), Elements.PHYSICAL)
+			# Divine Link: the landing applies the element of each bound god.
+			for element: String in player.god_elements:
+				var status_id: String = Elements.status_of(element)
+				if status_id != "" and status_id != "gust" and enemies.active[slot] != 0:
+					enemies.statuses.apply(slot, status_id, player.stats.status_duration_mult())
 	var layer: EffectLayer = effect_layer()
 	if layer != null:
 		layer.spawn_ring(player.position, reach, Color.html(Data.cfg_string("heroes.leap_ring_color")))

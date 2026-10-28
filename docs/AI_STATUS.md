@@ -93,6 +93,15 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 6. F1 → **Make a weapon ready to evolve**, then **Open a chest now**: the weapon and passive names fly together into the evolved weapon (e.g. "Labor-Breaker": every slam quakes), and "New recipe discovered" appears.
 7. Esc (Start on a gamepad, **II** on touch) opens the pause menu; **Codex** lists all 16 recipes, with the ones you found filled in.
 
+**Phase 11 — Gods (00.01.17)**
+1. At 1:30 a shrine appears with an arrow at the screen edge pointing to it (or F1 → **Place the next god's shrine next to you**, which goes through all 8 gods in turn). When it comes into view, the god says a line in a bubble at the bottom left.
+2. Peaceful shrines (Tyche, Cernunnos, Ra): stand on it; a ring fills in 2 s and the god joins. A god button with a meter ring appears at the bottom right.
+3. Trial shrines: Thor and Poseidon fight inside a ring (Duel; leaving it fails), Sekhmet rains attacks for 40 s (Endurance), Skadi and the Morrígan flee while decoys appear (Chase: touch the real one 3 times). Every attack shows an orange marker or a red flash first.
+4. Fill the meters (F1 → **Fill god meters**) and press Q / E (LB / RB, or tap the buttons): each summon does something different (Thor's hammer flies out and back, Ra's sun crosses the screen, Skadi freezes everything, and so on). The two buttons work separately.
+5. With two gods bound, a third asks which to release, or Decline.
+6. Heracles: after a summon his next 3 Great Club slams make full shockwaves. Cú Chulainn's leap landings apply his gods' elements. Väinämöinen's Runo Song adds his gods' elements. Tomoe's gods charge faster at full Momentum.
+7. Pause menu → **Auto-summon**: full gods fire by themselves in big crowds.
+
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
 2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, it says "Online scores aren't switched on yet."

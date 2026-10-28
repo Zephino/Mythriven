@@ -22,6 +22,9 @@ var poison_stacks := PackedInt32Array()
 var smite := PackedFloat32Array()
 var hex := PackedFloat32Array()
 var stun := PackedFloat32Array()
+## Marked as fated by the Morrígan: takes more damage while it lasts.
+var fated := PackedFloat32Array()
+var fated_bonus := PackedFloat32Array()
 ## 1 for elites (diminishing crowd control).
 var cc_limited := PackedByteArray()
 var cc_count := PackedInt32Array()
@@ -44,6 +47,8 @@ func _init(capacity: int) -> void:
 	smite.resize(capacity)
 	hex.resize(capacity)
 	stun.resize(capacity)
+	fated.resize(capacity)
+	fated_bonus.resize(capacity)
 	cc_limited.resize(capacity)
 	cc_count.resize(capacity)
 	cc_window.resize(capacity)
@@ -66,6 +71,8 @@ func clear(slot: int) -> void:
 	smite[slot] = 0.0
 	hex[slot] = 0.0
 	stun[slot] = 0.0
+	fated[slot] = 0.0
+	fated_bonus[slot] = 0.0
 	cc_limited[slot] = 0
 	cc_count[slot] = 0
 	cc_window[slot] = 0.0
@@ -90,6 +97,13 @@ func cc_duration(slot: int, duration: float) -> float:
 		cc_count[slot] = 0
 		cc_window[slot] = 0.0
 	return lasts
+
+
+## Freezes the enemy outright for `seconds` (Winter's Hunt); elites resist repeats.
+func freeze(slot: int, seconds: float) -> void:
+	frozen[slot] = maxf(frozen[slot], cc_duration(slot, seconds))
+	chill[slot] = 0.0
+	chill_stacks[slot] = 0
 
 
 ## Stops the enemy for `seconds` (roots, stuns); elites resist repeats.
@@ -168,6 +182,16 @@ func remove(slot: int, status_id: String) -> void:
 			hex[slot] = 0.0
 
 
+## Marks a slot as fated: it takes `bonus` more damage (1.0 = +100%) for `seconds`.
+func apply_fated(slot: int, seconds: float, bonus: float) -> void:
+	fated[slot] = maxf(fated[slot], seconds)
+	fated_bonus[slot] = bonus
+
+
+func damage_taken_mult(slot: int) -> float:
+	return 1.0 + fated_bonus[slot] if fated[slot] > 0.0 else 1.0
+
+
 ## Movement multiplier: Frozen stops the enemy; each Chill stack slows it.
 func speed_mult(slot: int) -> float:
 	if frozen[slot] > 0.0 or stun[slot] > 0.0:
@@ -221,6 +245,7 @@ func tick(step: float, active: PackedByteArray, on_dot: Callable) -> void:
 		smite[slot] = maxf(smite[slot] - step, 0.0)
 		hex[slot] = maxf(hex[slot] - step, 0.0)
 		stun[slot] = maxf(stun[slot] - step, 0.0)
+		fated[slot] = maxf(fated[slot] - step, 0.0)
 		cc_window[slot] = maxf(cc_window[slot] - step, 0.0)
 		cc_immune[slot] = maxf(cc_immune[slot] - step, 0.0)
 		if dot > 0.0:

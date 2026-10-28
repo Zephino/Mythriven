@@ -101,4 +101,4 @@ func test_codex_lists_every_recipe_and_hides_undiscovered_ones() -> void:
 	assert_eq(lines.size(), EvolutionRules.all_recipes().size() + 1)
 	assert_string_contains(lines[1], "???")
 	EvolutionRules.discover({"into": "labor_breaker"})
-	assert_string_contains("\n".join(CodexScreen.lines()), TranslationServer.translate("WEAPON_LABOR_BREAKER_NAME"))
+	assert_string_contains("\n".join(CodexScreen.lines()), str(TranslationServer.translate("WEAPON_LABOR_BREAKER_NAME")))

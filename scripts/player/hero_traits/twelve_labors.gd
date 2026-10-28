@@ -2,10 +2,13 @@ extends HeroKit
 ## Heracles. Legend Trait, Twelve Labors: Labors appear one at a time as HUD
 ## goals; each completed Labor grants a permanent run bonus, up to 12.
 ## Passive, Lion's Hide: +2 Armor, and the first hit every 8 s is halved.
+## Divine Link: each summon empowers his next 3 slams into full shockwaves.
 
 var labor_index: int = 0
 var progress: float = 0.0
 var completed: int = 0
+## Divine Link: slams left that become full shockwaves (each summon adds 3).
+var empowered_slams: int = 0
 
 var _hide_ready_in: float = 0.0
 var _kill_times := PackedFloat64Array()

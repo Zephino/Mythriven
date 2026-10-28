@@ -1,0 +1,298 @@
+[
+  {
+    "_doc": "The 8 launch gods (GAME_DESIGN.md: Gods (summons); Two more launch gods). Blessing percentages are level-1 values from the design; summon numbers are placeholders. lore_verified stays false until the Phase 19 lore check (dev/web builds load them with a warning). Gods are lost at the end of a run; permanent god levels (offerings) come in Phase 15.",
+    "id": "tyche",
+    "name_key": "GOD_TYCHE_NAME",
+    "role_key": "GOD_TYCHE_ROLE",
+    "blessing_key": "GOD_TYCHE_BLESSING",
+    "summon_key": "GOD_TYCHE_SUMMON",
+    "pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Hesiod, Theogony; Pindar, Olympian Ode 12",
+    "lore_verified": false,
+    "element": "fortune",
+    "role": "economy",
+    "rarity": "common",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "pickups",
+      "amount": 150
+    },
+    "blessing": {
+      "gold_pct": 30,
+      "luck": 0.1,
+      "max_hp_pct": -10
+    },
+    "summon": {
+      "effect": "wheel_of_fortune",
+      "duration_s": 5,
+      "drop_mult": 2
+    },
+    "placeholder_color": "#e8c860",
+    "persists": false
+  },
+  {
+    "id": "cernunnos",
+    "name_key": "GOD_CERNUNNOS_NAME",
+    "role_key": "GOD_CERNUNNOS_ROLE",
+    "blessing_key": "GOD_CERNUNNOS_BLESSING",
+    "summon_key": "GOD_CERNUNNOS_SUMMON",
+    "pantheon": "celtic",
+    "care_tier": "A",
+    "lore_source": "Gundestrup cauldron; Pillar of the Boatmen (Paris) inscription. Known mainly from a few ancient images: keep lore light.",
+    "lore_verified": false,
+    "element": "earth",
+    "role": "sustain",
+    "rarity": "common",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "damage_taken",
+      "amount": 100
+    },
+    "blessing": {
+      "regen_pct_per_s": 1,
+      "melee_status": "poison"
+    },
+    "summon": {
+      "effect": "heart_of_the_greenwood",
+      "duration_s": 2,
+      "invulnerable_s": 5,
+      "root_s": 3,
+      "root_radius_px": 170,
+      "stags": 3,
+      "stag_damage": 30,
+      "stag_width_px": 26
+    },
+    "placeholder_color": "#6a8a4a",
+    "persists": false
+  },
+  {
+    "id": "thor",
+    "name_key": "GOD_THOR_NAME",
+    "role_key": "GOD_THOR_ROLE",
+    "blessing_key": "GOD_THOR_BLESSING",
+    "summon_key": "GOD_THOR_SUMMON",
+    "pantheon": "norse",
+    "care_tier": "A",
+    "lore_source": "Prose Edda (Gylfaginning, Skáldskaparmál); Poetic Edda (Þrymskviða)",
+    "lore_verified": false,
+    "element": "lightning",
+    "role": "chain_damage",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "trial_duel",
+      "patterns": [
+        "aimed_fan",
+        "ground_circles"
+      ]
+    },
+    "trigger": {
+      "type": "attacks_made",
+      "amount": 150
+    },
+    "blessing": {
+      "element_damage": {
+        "lightning": 15
+      },
+      "chain_every_n_projectiles": 10,
+      "chain_targets": 2,
+      "chain_damage_mult": 0.5,
+      "chain_radius_px": 90
+    },
+    "summon": {
+      "effect": "hammers_return",
+      "duration_s": 2.5,
+      "damage": 40,
+      "radius_px": 24,
+      "reach_screens": 0.5,
+      "status": "shock"
+    },
+    "placeholder_color": "#e0c040",
+    "persists": false
+  },
+  {
+    "id": "skadi",
+    "name_key": "GOD_SKADI_NAME",
+    "role_key": "GOD_SKADI_ROLE",
+    "blessing_key": "GOD_SKADI_BLESSING",
+    "summon_key": "GOD_SKADI_SUMMON",
+    "pantheon": "norse",
+    "care_tier": "A",
+    "lore_source": "Prose Edda (Skáldskaparmál); Poetic Edda (Grímnismál, Lokasenna)",
+    "lore_verified": false,
+    "element": "ice",
+    "role": "control",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "trial_chase"
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 45
+    },
+    "blessing": {
+      "max_hp_pct": 20,
+      "contact_status": "chill"
+    },
+    "summon": {
+      "effect": "winters_hunt",
+      "duration_s": 4,
+      "freeze_s": 4,
+      "arrows_per_s": 24,
+      "arrow_damage": 15
+    },
+    "placeholder_color": "#a8d8f0",
+    "persists": false
+  },
+  {
+    "id": "sekhmet",
+    "name_key": "GOD_SEKHMET_NAME",
+    "role_key": "GOD_SEKHMET_ROLE",
+    "blessing_key": "GOD_SEKHMET_BLESSING",
+    "summon_key": "GOD_SEKHMET_SUMMON",
+    "pantheon": "egyptian",
+    "care_tier": "A",
+    "lore_source": "Book of the Heavenly Cow (the Destruction of Mankind)",
+    "lore_verified": false,
+    "element": "fire",
+    "role": "damage",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "trial_endurance",
+      "patterns": [
+        "falling_strikes",
+        "radial_burst"
+      ]
+    },
+    "trigger": {
+      "type": "enemies_hit",
+      "amount": 300
+    },
+    "blessing": {
+      "might_pct": 15,
+      "always_burn_element": "fire"
+    },
+    "summon": {
+      "effect": "breath_of_the_desert",
+      "duration_s": 1.5,
+      "damage": 25,
+      "burn_s": 4
+    },
+    "placeholder_color": "#e07030",
+    "persists": false
+  },
+  {
+    "id": "poseidon",
+    "name_key": "GOD_POSEIDON_NAME",
+    "role_key": "GOD_POSEIDON_ROLE",
+    "blessing_key": "GOD_POSEIDON_BLESSING",
+    "summon_key": "GOD_POSEIDON_SUMMON",
+    "pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Homer, Iliad and Odyssey; Hesiod, Theogony",
+    "lore_verified": false,
+    "element": "water",
+    "role": "horde_clear",
+    "rarity": "rare",
+    "shrine": {
+      "type": "trial_duel",
+      "patterns": [
+        "line_sweep",
+        "radial_burst"
+      ]
+    },
+    "trigger": {
+      "type": "kills",
+      "amount": 500
+    },
+    "blessing": {
+      "area_pct": 25,
+      "move_speed_pct": -10,
+      "hit_status": "soaked"
+    },
+    "summon": {
+      "effect": "earthshaker",
+      "duration_s": 3,
+      "wave_damage": 30,
+      "quake_damage": 25,
+      "stun_s": 1.5
+    },
+    "placeholder_color": "#3a80c8",
+    "persists": false
+  },
+  {
+    "id": "ra",
+    "name_key": "GOD_RA_NAME",
+    "role_key": "GOD_RA_ROLE",
+    "blessing_key": "GOD_RA_BLESSING",
+    "summon_key": "GOD_RA_SUMMON",
+    "pantheon": "egyptian",
+    "care_tier": "A",
+    "lore_source": "Book of the Heavenly Cow; the Amduat",
+    "lore_verified": false,
+    "element": "holy",
+    "role": "shield_breaking",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 40
+    },
+    "blessing": {
+      "element_damage": {
+        "holy": 15
+      },
+      "breaks_shields_element": "holy"
+    },
+    "summon": {
+      "effect": "sun_barque",
+      "duration_s": 2.5,
+      "damage": 45,
+      "radius_px": 70
+    },
+    "placeholder_color": "#ffd860",
+    "persists": false
+  },
+  {
+    "id": "morrigan",
+    "name_key": "GOD_MORRIGAN_NAME",
+    "role_key": "GOD_MORRIGAN_ROLE",
+    "blessing_key": "GOD_MORRIGAN_BLESSING",
+    "summon_key": "GOD_MORRIGAN_SUMMON",
+    "pantheon": "celtic",
+    "care_tier": "A",
+    "lore_source": "Táin Bó Cúailnge; Cath Maige Tuired",
+    "lore_verified": false,
+    "element": "dark",
+    "role": "execution",
+    "rarity": "rare",
+    "shrine": {
+      "type": "trial_chase"
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 60,
+      "low_hp_below": 0.5,
+      "low_hp_mult": 2
+    },
+    "blessing": {
+      "crit_pct": 10,
+      "heal_on_hexed_kill": 1
+    },
+    "summon": {
+      "effect": "crow_storm",
+      "duration_s": 2,
+      "fated_count": 5,
+      "fated_s": 6,
+      "fated_damage_taken": 1.0
+    },
+    "placeholder_color": "#5a4a7a",
+    "persists": false
+  }
+]

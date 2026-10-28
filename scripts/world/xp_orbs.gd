@@ -72,7 +72,9 @@ func pull_all() -> void:
 
 
 func on_enemy_killed(_slot: int, enemy_type: Dictionary, at: Vector2, _killer: Player) -> void:
-	drop(at, float(enemy_type.get("xp", 0.0)))
+	var run: RunState = GameAuthority.run
+	var mult: float = run.drop_mult() * run.xp_mult if run != null else 1.0
+	drop(at, float(enemy_type.get("xp", 0.0)) * mult)
 
 
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:

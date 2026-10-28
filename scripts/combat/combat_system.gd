@@ -54,6 +54,7 @@ func _tick(weapon: WeaponInstance, player: Player, delta: float) -> void:
 		weapon.aim["direction"] = Targeting.direction_to(player.position, target, enemies, player.facing)
 	weapon.cooldown_left = weapon.attack_interval()
 	weapon.attacks_made += 1
+	GameAuthority.weapon_fired.emit(player, weapon)
 	var pattern: FirePattern = patterns.get(str(weapon.data.get("pattern", "")))
 	if pattern == null:
 		push_error("CombatSystem: weapon '%s' uses unknown pattern" % weapon.id())
@@ -102,7 +103,7 @@ func hit_enemy(slot: int, weapon: WeaponInstance, player: Player, damage_mult: f
 	if enemies.active[slot] == 0 or not weapon.try_hit(slot):
 		return
 	GameAuthority.damage_enemy(slot, weapon.damage() * damage_mult, player,
-			push_dir * weapon.stat("knockback"), str(weapon.data.get("element", "physical")), weapon.stat("status_chance"))
+			push_dir * weapon.stat("knockback"), str(weapon.data.get("element", "physical")), weapon.stat("status_chance"), weapon)
 
 
 func effect_color(weapon: WeaponInstance) -> Color:

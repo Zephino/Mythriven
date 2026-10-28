@@ -24,6 +24,10 @@ signal age_changed(age_id: String)
 ## An elite died (split copies too, with is_copy true): drops a chest and gold.
 signal elite_killed(at: Vector2, enemy_type: Dictionary, is_copy: bool)
 signal gold_collected(player: Player, amount: float)
+## A weapon attacked (Thor's meter counts attacks made).
+signal weapon_fired(player: Player, weapon: WeaponInstance)
+## Gods (Phase 11): set by RunSystems; null between runs.
+var gods: GodManager = null
 
 const LEVELS_FILE := "levels.json"
 const WEAPONS_FILE := "weapons.json"
@@ -54,6 +58,7 @@ func start_run(level_id: String) -> RunState:
 	players.clear()
 	enemies = null
 	enemy_shots = null
+	gods = null
 	var run_seed: int = Data.cfg_int("run.fixed_seed")
 	if run_seed == 0:
 		var seeder := RandomNumberGenerator.new()
@@ -69,6 +74,7 @@ func end_scene() -> void:
 	players.clear()
 	enemies = null
 	enemy_shots = null
+	gods = null
 
 
 func find_level(level_id: String) -> Dictionary:
@@ -129,7 +135,7 @@ func spawn_enemy(type_id: String, at: Vector2) -> int:
 ## Damages a player (enemy damage − Armor, minimum 1; no invulnerability frames).
 ## `from` is where the hit came from (Vector2.INF when unknown).
 func damage_player(player: Player, amount: float, source_id: String, _from: Vector2 = Vector2.INF) -> void:
-	if not player.alive or player.god_mode or (player.kit != null and player.kit.is_untargetable()):
+	if not player.alive or player.god_mode or player.invulnerable_s > 0.0 or (player.kit != null and player.kit.is_untargetable()):
 		return
 	var armor: float = player.armor * player.statuses.armor_mult()
 	var dealt: float = Damage.to_player(amount * player.statuses.consume_shock(), armor, Data.cfg_float("combat.min_damage"))
@@ -180,9 +186,10 @@ func _kill_player(player: Player, cause_id: String) -> void:
 
 ## Damages an enemy: damage formula, weakness/resistance, statuses, and
 ## reactions. `status_chance` is the chance (0–1) to apply the element's status.
+## `weapon` is the weapon that hit (null for traits, summons, and hazards).
 func damage_enemy(slot: int, base_damage: float, attacker: Player, push: Vector2, element: String,
-		status_chance: float = 0.0) -> void:
-	hits.hit(slot, base_damage, attacker, push, element, status_chance)
+		status_chance: float = 0.0, weapon: WeaponInstance = null) -> void:
+	hits.hit(slot, base_damage, attacker, push, element, status_chance, true, weapon)
 
 
 ## An enemy dies: counts the kill, tells listeners (XP drops), frees the slot.
@@ -207,6 +214,8 @@ func kill_enemy(slot: int, killer: Player) -> void:
 func collect_gold(player: Player, amount: float) -> void:
 	if run == null or run.ended:
 		return
+	if player != null:
+		amount *= player.gold_mult
 	run.gold += amount
 	gold_collected.emit(player, amount)
 

@@ -17,6 +17,15 @@ Time: 5:47 PM
   - Chests from every elite, with a reveal: a spinning Greek meander seal, a light that previews the reward (bronze, silver, gold), and rewards one at a time. Skippable after 0.5 s, never longer than 3 s.
   - All 16 standard evolutions (a level-8 weapon plus its paired passive evolves at the next chest), with a fusing reveal and a "New recipe discovered" banner.
   - The Codex lists every recipe; undiscovered ones are hidden. It opens from the new pause menu (Esc, Start, or the II button on touch).
+- **Phase 11: Gods.**
+  - The 8 launch gods: Tyche, Cernunnos, Thor, Skadi, Sekhmet, Poseidon, Ra, and the Morrígan, each with the design's Blessing, meter trigger, and summon.
+  - Shrines appear about every 3 minutes (first at 1:30), 1.5–2 screens away, with an arrow at the screen edge; they fade after 90 s. Half the time it's one of the Aegean Shore's own gods (Tyche, Poseidon); rare gods never before 8:00. Each shrine looks like its pantheon's (temple, runestone, obelisk, stone circle).
+  - Peaceful shrines bind after standing at them for 2 s. Trials: **Duel** (the god fights inside a ring with two attack patterns; leave the ring or take over 60 s and you fail), **Endurance** (survive 40 s in the ring), **Chase** (touch the fleeing god 3 times in 40 s while decoys appear). A third god asks which one to release, or decline.
+  - Two god buttons with meter rings (bottom right; Q / E on PC, LB / RB on a gamepad). Auto-summon in the pause menu.
+  - Patronage (+15% charge for gods of the Hero's own pantheon; +8% for all gods for Väinämöinen and Tomoe Gozen) and each Hero's Divine Link.
+  - Short banter lines when a god is found, bound, or summoned, including Heracles with Poseidon and Cú Chulainn with the Morrígan. All lines are drafts for owner review.
+  - The shared attack pattern library (radial burst, spiral, aimed fan, line sweep, ground circles, charge with trail, falling strikes, summon adds, safe zone), with orange ground markers and a red flash before every attack.
+- Fixed: the debug menu printed errors when a run ended; a Codex test compared text the wrong way.
 
 ### Reason
 The owner asked to build Phases 10–14.

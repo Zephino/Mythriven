@@ -19,7 +19,12 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 		direction = player.facing
 	var settings: Dictionary = weapon.stats()
 	# Runo Song: each cast uses the next element of its cycle (Fire → Ice → Lightning).
-	var cycle: Array = weapon.data.get("element_cycle", [])
+	var cycle: Array = (weapon.data.get("element_cycle", []) as Array).duplicate()
+	# Väinämöinen's Divine Link: bound gods' elements join his song cycle.
+	if not cycle.is_empty() and str((player.hero.get("divine_link", {}) as Dictionary).get("id", "")) == "gods_join_song":
+		for element: String in player.god_elements:
+			if element != "" and not cycle.has(element):
+				cycle.append(element)
 	# Song of Creation (evolved): casts every element of the cycle at once.
 	if not cycle.is_empty() and bool(weapon.data.get("cast_all_elements", false)):
 		for element: Variant in cycle:

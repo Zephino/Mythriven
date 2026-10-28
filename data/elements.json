@@ -1,33 +1,183 @@
 {
   "_doc": "Elements, statuses, and reactions (GAME_DESIGN.md: Elements, statuses, and reactions). Each element has exactly one status. Durations in seconds; 'dps' is damage per second. Numbers the design doesn't give are PLACEHOLDERS for Phase 7-style tuning. Colors are placeholders; tier_keys are translation keys for the spell tier names (I, II, III, IV = evolution).",
   "elements": {
-    "physical": { "name_key": "ELEMENT_PHYSICAL", "color": "#f0f0f0", "status": "", "tier_keys": [] },
-    "fire": { "name_key": "ELEMENT_FIRE", "color": "#ff6a2a", "status": "burn", "tier_keys": ["SPELL_FIRE_T1", "SPELL_FIRE_T2", "SPELL_FIRE_T3", "SPELL_FIRE_T4"] },
-    "ice": { "name_key": "ELEMENT_ICE", "color": "#a8e4ff", "status": "chill", "tier_keys": ["SPELL_ICE_T1", "SPELL_ICE_T2", "SPELL_ICE_T3", "SPELL_ICE_T4"] },
-    "lightning": { "name_key": "ELEMENT_LIGHTNING", "color": "#ffe23a", "status": "shock", "tier_keys": ["SPELL_LIGHTNING_T1", "SPELL_LIGHTNING_T2", "SPELL_LIGHTNING_T3", "SPELL_LIGHTNING_T4"] },
-    "water": { "name_key": "ELEMENT_WATER", "color": "#2a5cff", "status": "soaked", "tier_keys": ["SPELL_WATER_T1", "SPELL_WATER_T2", "SPELL_WATER_T3", "SPELL_WATER_T4"] },
-    "earth": { "name_key": "ELEMENT_EARTH", "color": "#7a8a3a", "status": "poison", "tier_keys": ["SPELL_EARTH_T1", "SPELL_EARTH_T2", "SPELL_EARTH_T3", "SPELL_EARTH_T4"] },
-    "wind": { "name_key": "ELEMENT_WIND", "color": "#b8f0c0", "status": "gust", "tier_keys": ["SPELL_WIND_T1", "SPELL_WIND_T2", "SPELL_WIND_T3", "SPELL_WIND_T4"] },
-    "holy": { "name_key": "ELEMENT_HOLY", "color": "#fff4c8", "status": "smite", "tier_keys": ["SPELL_HOLY_T1", "SPELL_HOLY_T2", "SPELL_HOLY_T3", "SPELL_HOLY_T4"] },
-    "dark": { "name_key": "ELEMENT_DARK", "color": "#9a5cff", "status": "hex", "tier_keys": ["SPELL_DARK_T1", "SPELL_DARK_T2", "SPELL_DARK_T3", "SPELL_DARK_T4"] }
+    "physical": {
+      "name_key": "ELEMENT_PHYSICAL",
+      "color": "#f0f0f0",
+      "status": "",
+      "tier_keys": []
+    },
+    "fire": {
+      "name_key": "ELEMENT_FIRE",
+      "color": "#ff6a2a",
+      "status": "burn",
+      "tier_keys": [
+        "SPELL_FIRE_T1",
+        "SPELL_FIRE_T2",
+        "SPELL_FIRE_T3",
+        "SPELL_FIRE_T4"
+      ]
+    },
+    "ice": {
+      "name_key": "ELEMENT_ICE",
+      "color": "#a8e4ff",
+      "status": "chill",
+      "tier_keys": [
+        "SPELL_ICE_T1",
+        "SPELL_ICE_T2",
+        "SPELL_ICE_T3",
+        "SPELL_ICE_T4"
+      ]
+    },
+    "lightning": {
+      "name_key": "ELEMENT_LIGHTNING",
+      "color": "#ffe23a",
+      "status": "shock",
+      "tier_keys": [
+        "SPELL_LIGHTNING_T1",
+        "SPELL_LIGHTNING_T2",
+        "SPELL_LIGHTNING_T3",
+        "SPELL_LIGHTNING_T4"
+      ]
+    },
+    "water": {
+      "name_key": "ELEMENT_WATER",
+      "color": "#2a5cff",
+      "status": "soaked",
+      "tier_keys": [
+        "SPELL_WATER_T1",
+        "SPELL_WATER_T2",
+        "SPELL_WATER_T3",
+        "SPELL_WATER_T4"
+      ]
+    },
+    "earth": {
+      "name_key": "ELEMENT_EARTH",
+      "color": "#7a8a3a",
+      "status": "poison",
+      "tier_keys": [
+        "SPELL_EARTH_T1",
+        "SPELL_EARTH_T2",
+        "SPELL_EARTH_T3",
+        "SPELL_EARTH_T4"
+      ]
+    },
+    "wind": {
+      "name_key": "ELEMENT_WIND",
+      "color": "#b8f0c0",
+      "status": "gust",
+      "tier_keys": [
+        "SPELL_WIND_T1",
+        "SPELL_WIND_T2",
+        "SPELL_WIND_T3",
+        "SPELL_WIND_T4"
+      ]
+    },
+    "holy": {
+      "name_key": "ELEMENT_HOLY",
+      "color": "#fff4c8",
+      "status": "smite",
+      "tier_keys": [
+        "SPELL_HOLY_T1",
+        "SPELL_HOLY_T2",
+        "SPELL_HOLY_T3",
+        "SPELL_HOLY_T4"
+      ]
+    },
+    "dark": {
+      "name_key": "ELEMENT_DARK",
+      "color": "#9a5cff",
+      "status": "hex",
+      "tier_keys": [
+        "SPELL_DARK_T1",
+        "SPELL_DARK_T2",
+        "SPELL_DARK_T3",
+        "SPELL_DARK_T4"
+      ]
+    },
+    "fortune": {
+      "name_key": "ELEMENT_FORTUNE",
+      "color": "#e8c860",
+      "status": "",
+      "tier_keys": []
+    }
   },
   "statuses": {
-    "burn": { "name_key": "STATUS_BURN", "duration_s": 3.0, "dps": 4.0, "tint": "#ff6a2a" },
-    "chill": { "name_key": "STATUS_CHILL", "duration_s": 2.5, "slow_per_stack": 0.3, "stacks_to_freeze": 3, "freeze_s": 1.5, "tint": "#a8e4ff" },
-    "shock": { "name_key": "STATUS_SHOCK", "duration_s": 4.0, "next_hit_bonus": 0.2, "tint": "#ffe23a" },
-    "soaked": { "name_key": "STATUS_SOAKED", "duration_s": 4.0, "tint": "#2a5cff" },
-    "poison": { "name_key": "STATUS_POISON", "duration_s": 4.0, "dps_per_stack": 2.0, "max_stacks": 5, "tint": "#7a8a3a" },
-    "gust": { "name_key": "STATUS_GUST", "knockback": 220.0 },
-    "smite": { "name_key": "STATUS_SMITE", "duration_s": 1.0, "tint": "#fff4c8" },
-    "hex": { "name_key": "STATUS_HEX", "duration_s": 4.0, "armor_reduction": 0.4, "damage_reduction": 0.2, "tint": "#9a5cff" }
+    "burn": {
+      "name_key": "STATUS_BURN",
+      "duration_s": 3.0,
+      "dps": 4.0,
+      "tint": "#ff6a2a"
+    },
+    "chill": {
+      "name_key": "STATUS_CHILL",
+      "duration_s": 2.5,
+      "slow_per_stack": 0.3,
+      "stacks_to_freeze": 3,
+      "freeze_s": 1.5,
+      "tint": "#a8e4ff"
+    },
+    "shock": {
+      "name_key": "STATUS_SHOCK",
+      "duration_s": 4.0,
+      "next_hit_bonus": 0.2,
+      "tint": "#ffe23a"
+    },
+    "soaked": {
+      "name_key": "STATUS_SOAKED",
+      "duration_s": 4.0,
+      "tint": "#2a5cff"
+    },
+    "poison": {
+      "name_key": "STATUS_POISON",
+      "duration_s": 4.0,
+      "dps_per_stack": 2.0,
+      "max_stacks": 5,
+      "tint": "#7a8a3a"
+    },
+    "gust": {
+      "name_key": "STATUS_GUST",
+      "knockback": 220.0
+    },
+    "smite": {
+      "name_key": "STATUS_SMITE",
+      "duration_s": 1.0,
+      "tint": "#fff4c8"
+    },
+    "hex": {
+      "name_key": "STATUS_HEX",
+      "duration_s": 4.0,
+      "armor_reduction": 0.4,
+      "damage_reduction": 0.2,
+      "tint": "#9a5cff"
+    }
   },
   "weakness_mult": 1.5,
   "resistance_mult": 0.5,
   "reactions": {
-    "conduct": { "name_key": "REACTION_CONDUCT", "radius_tiles": 4, "damage_mult": 0.5, "color": "#ffe23a" },
-    "steam_burst": { "name_key": "REACTION_STEAM_BURST", "radius_tiles": 2, "damage_mult": 0.75, "color": "#e8f4ff" },
-    "shatter": { "name_key": "REACTION_SHATTER", "damage_bonus": 1.0, "color": "#a8e4ff" },
-    "spread": { "name_key": "REACTION_SPREAD", "radius_tiles": 3, "max_targets": 4, "color": "#b8f0c0" }
+    "conduct": {
+      "name_key": "REACTION_CONDUCT",
+      "radius_tiles": 4,
+      "damage_mult": 0.5,
+      "color": "#ffe23a"
+    },
+    "steam_burst": {
+      "name_key": "REACTION_STEAM_BURST",
+      "radius_tiles": 2,
+      "damage_mult": 0.75,
+      "color": "#e8f4ff"
+    },
+    "shatter": {
+      "name_key": "REACTION_SHATTER",
+      "damage_bonus": 1.0,
+      "color": "#a8e4ff"
+    },
+    "spread": {
+      "name_key": "REACTION_SPREAD",
+      "radius_tiles": 3,
+      "max_targets": 4,
+      "color": "#b8f0c0"
+    }
   },
   "player_statuses": {
     "_doc": "From 30:00 (combat.player_status_start_s) enemies can apply their element's status to players: half duration, Chill never becomes Freeze, and 2 s immunity after a status ends (GAME_DESIGN.md: Status effects on the player).",

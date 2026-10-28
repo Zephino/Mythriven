@@ -353,5 +353,24 @@
     "persists": false,
     "elite": true,
     "priority_target": true
+  },
+  {
+    "id": "trial_avatar",
+    "name_key": "ENEMY_TRIAL_AVATAR_NAME",
+    "family": "trial",
+    "tradition": "",
+    "movement": "still",
+    "hp": 350,
+    "speed": 0,
+    "contact_damage": 6,
+    "armor": 1,
+    "radius_px": 12,
+    "element": "",
+    "xp": 20,
+    "knockback_resist": 1.0,
+    "placeholder_color": "#ffffff",
+    "persists": false,
+    "priority_target": true,
+    "_note": "A god fighting in a Duel trial (not an ordinary enemy); its colour is set to the god's."
   }
 ]

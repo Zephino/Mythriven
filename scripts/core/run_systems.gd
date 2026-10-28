@@ -3,7 +3,9 @@ extends Node
 ## Builds and connects the run systems added from Phase 10 on, so main.gd
 ## stays short: the run director (Ages, elites, hazard), enemy projectiles,
 ## gold and chests, elite health bars, the Age colour shift, the banner, the
-## chest reveal, and the pause menu. Created by main.gd for each run.
+## chest reveal, and the pause menu; from Phase 11 the gods (shrines,
+## trials, summons, god buttons, banter) and the attack pattern library.
+## Created by main.gd for each run.
 
 var director: RunDirector
 var hazard: HazardStrikes
@@ -16,10 +18,18 @@ var chest_screen: ChestScreen
 var pause_menu: PauseMenu
 var age_visuals: AgeVisuals
 var world_tint: CanvasModulate
+var patterns: PatternRunner
+var gods: GodManager
+var summons: SummonLayer
+var shrines: Shrines
+var trial: GodTrial
+var god_choice: GodChoiceScreen
+var banter: BanterBubble
+var god_buttons: GodButtons
 
 
 func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level_up: LevelUpScreen,
-		death_screen: DeathScreen, hud: Hud) -> void:
+		death_screen: DeathScreen, hud: Hud, orbs: XpOrbs) -> void:
 	world_tint = CanvasModulate.new()
 	world.add_child(world_tint)
 	shots = EnemyProjectiles.new()
@@ -37,7 +47,21 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	elite_bars = EliteBars.new()
 	elite_bars.enemies = enemies
 	world.add_child(elite_bars)
-	for listener: Node in [shots, gold, chests, hazard]:
+	patterns = PatternRunner.new()
+	world.add_child(patterns)
+	summons = SummonLayer.new()
+	summons.orbs = orbs
+	summons.gold = gold
+	world.add_child(summons)
+	shrines = Shrines.new()
+	world.add_child(shrines)
+	trial = GodTrial.new()
+	trial.shrines = shrines
+	trial.patterns = patterns
+	trial.spawner = spawner
+	world.add_child(trial)
+	shrines.trial = trial
+	for listener: Node in [shots, gold, chests, hazard, patterns, summons, shrines, trial]:
 		world.origin_shifted.connect(Callable(listener, "on_origin_shifted"))
 	GameAuthority.enemy_killed.connect(gold.on_enemy_killed)
 	GameAuthority.elite_killed.connect(gold.on_elite_killed)
@@ -51,8 +75,24 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	chest_screen = ChestScreen.new()
 	add_child(chest_screen)
 	chests.reveal = chest_screen
+	banter = BanterBubble.new()
+	add_child(banter)
+	gods = GodManager.new()
+	gods.summons = summons
+	gods.banter = banter
+	add_child(gods)
+	shrines.gods = gods
+	shrines.banter = banter
+	god_choice = GodChoiceScreen.new()
+	god_choice.gods = gods
+	add_child(god_choice)
+	shrines.choice = god_choice
+	god_buttons = GodButtons.new()
+	god_buttons.gods = gods
+	add_child(god_buttons)
 	pause_menu = PauseMenu.new()
-	pause_menu.blockers = [level_up, chest_screen, death_screen]
+	pause_menu.gods = gods
+	pause_menu.blockers = [level_up, chest_screen, death_screen, god_choice]
 	add_child(pause_menu)
 	hud.pause_menu = pause_menu
 
@@ -61,6 +101,7 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	director.hazard = hazard
 	add_child(director)
 	if OS.is_debug_build():
-		var actions: Node = preload("res://scripts/core/debug_actions_world.gd").new()
-		actions.set("systems", self)
-		add_child(actions)
+		for path: String in ["res://scripts/core/debug_actions_world.gd", "res://scripts/core/debug_actions_gods.gd"]:
+			var actions: Node = load(path).new()
+			actions.set("systems", self)
+			add_child(actions)

@@ -123,7 +123,7 @@ func _watch_owner(source: Node) -> void:
 func _remove_owner(source: Node) -> void:
 	_owners.erase(source)
 	for control: Control in _controls.duplicate():
-		if control.get_meta("debug_owner", null) == source:
+		if control.has_meta("debug_owner") and control.get_meta("debug_owner") == source:
 			_controls.erase(control)
 			control.queue_free()
 	for info: Dictionary in _infos.duplicate():

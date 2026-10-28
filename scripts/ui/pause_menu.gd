@@ -1,12 +1,15 @@
 class_name PauseMenu
 extends CanvasLayer
 ## The pause menu (Esc on PC, Start on a gamepad, the pause button on touch):
-## Resume, the Codex, and Quit run (back to Hero select). The run timer stops
-## while it's open (GAME_DESIGN.md: Pauses and turns). It doesn't open over the
-## level-up screen or a chest reveal. More settings arrive with Phase 19.
+## Resume, the Codex, Auto-summon (fires a full god when 30+ enemies are on
+## screen or a boss is present), and Quit run (back to Hero select). The run
+## timer stops while it's open (GAME_DESIGN.md: Pauses and turns). It doesn't
+## open over the level-up screen, a chest reveal, or a god choice. More
+## settings arrive with Phase 19.
 
 ## Screens that, while open, keep the pause menu from opening.
 var blockers: Array[CanvasLayer] = []
+var gods: GodManager
 
 var _panel: PanelContainer
 var _resume: Button
@@ -33,6 +36,15 @@ func _ready() -> void:
 	box.add_child(title)
 	_resume = _add_button(box, "UI_RESUME", close)
 	_add_button(box, "UI_CODEX", _on_codex)
+	var auto := CheckButton.new()
+	auto.text = "UI_AUTO_SUMMON"
+	auto.custom_minimum_size.y = Data.cfg_float("ui.min_touch_target_px")
+	auto.button_pressed = Data.cfg_bool("gods.auto_summon_default")
+	auto.toggled.connect(func(on: bool) -> void:
+		if gods != null:
+			gods.auto_summon = on)
+	box.add_child(auto)
+	_buttons.append(auto)
 	_add_button(box, "UI_QUIT_RUN", _on_quit)
 	var count: int = _buttons.size()
 	for i: int in count:

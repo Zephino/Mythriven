@@ -72,7 +72,7 @@ func on_enemy_killed(_slot: int, enemy_type: Dictionary, at: Vector2, _killer: P
 		return
 	var chance: float = float(enemy_type.get("gold_chance", Data.cfg_float("pickups.gold_drop_chance")))
 	if GameAuthority.run.rng.loot.randf() < chance:
-		drop(at, Data.cfg_float("pickups.gold_coin_value"))
+		drop(at, Data.cfg_float("pickups.gold_coin_value") * GameAuthority.run.drop_mult())
 
 
 func on_elite_killed(at: Vector2, _enemy_type: Dictionary, is_copy: bool) -> void:

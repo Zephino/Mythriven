@@ -25,6 +25,8 @@ var _radius := PackedFloat32Array()
 var _pierce := PackedInt32Array()
 var _return_after := PackedFloat32Array()
 var _element := PackedStringArray()
+## 1 for a projectile that chains lightning on its first hit (Thor's Blessing).
+var _chain := PackedByteArray()
 var _orbit_angle := PackedFloat32Array()
 var _orbit_radius := PackedFloat32Array()
 var _orbit_speed := PackedFloat32Array()
@@ -48,6 +50,7 @@ func setup() -> void:
 	_pierce.resize(_capacity)
 	_return_after.resize(_capacity)
 	_element.resize(_capacity)
+	_chain.resize(_capacity)
 	_orbit_angle.resize(_capacity)
 	_orbit_radius.resize(_capacity)
 	_orbit_speed.resize(_capacity)
@@ -81,6 +84,7 @@ func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vecto
 	_weapon[i] = weapon
 	_thrower[i] = player
 	_hits[i].clear()
+	_chain[i] = 1 if Blessings.next_projectile_chains(player) else 0
 	_element[i] = str(settings.get("element", weapon.data.get("element", Elements.PHYSICAL)))
 	var color: Color = Color.html(str(weapon.data.get("placeholder_color", "#ffffff")))
 	if settings.has("element"):
@@ -145,7 +149,10 @@ func _tick_hits(i: int, delta: float) -> void:
 		hits[slot] = interval if interval > 0.0 else INF
 		GameAuthority.damage_enemy(slot, weapon.damage(), _thrower[i],
 				_vel[i].normalized() * weapon.stat("knockback"), _element[i],
-				weapon.stat("status_chance"))
+				weapon.stat("status_chance"), weapon)
+		if _chain[i] != 0:
+			_chain[i] = 0
+			Blessings.chain_lightning(_thrower[i], slot, _pos[i], weapon.damage())
 		_pierce[i] -= 1
 		if _pierce[i] < 0:
 			_remove(i)

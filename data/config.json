@@ -14,7 +14,8 @@
     "test_orb_count": 300,
     "grid_color": "#ffffff26",
     "status_test_radius_px": 200,
-    "jump_to_time_s": 1800
+    "jump_to_time_s": 1800,
+    "shrine_offset_px": 60
   },
 
   "localization": {
@@ -307,7 +308,26 @@
     "auto_summon_min_enemies": 30,
     "patronage_charge_bonus": 0.15,
     "no_patron_charge_bonus": 0.08,
-    "offering_costs": [75, 150, 250, 400, 550, 750, 1000, 1300, 1600]
+    "offering_costs": [75, 150, 250, 400, 550, 750, 1000, 1300, 1600],
+    "first_shrine_s": 90,
+    "shrine_radius_px": 18,
+    "rarity_weights": { "common": 3, "uncommon": 2, "rare": 1 },
+    "hidden_rarity_weights": { "common": 1, "uncommon": 2, "rare": 2 },
+    "momentum_charge_bonus": 0.25,
+    "song_reaction_bonus": 0.25,
+    "empowered_slams": 3,
+    "auto_summon_default": false,
+    "invulnerable_color": "#9be89b",
+    "shrine_stone_color": "#e8e2d0",
+    "arrow_px": 14,
+    "trial_first_attack_s": 1.5,
+    "trial_attack_every_s": 2.4,
+    "trial_damage_mult": 1.0,
+    "duel_avatar_enemy": "trial_avatar",
+    "chase_speed_mult": 0.85,
+    "chase_touch_px": 10,
+    "chase_decoy_every_s": 7,
+    "chase_max_decoys": 3
   },
 
   "enemies": {
@@ -361,7 +381,9 @@
     "guard_weakness_fill_mult": 2,
     "player_projectile_hurtbox_ratio": 0.4,
     "bullet_gap_mult": 1.5,
-    "area_telegraph_color": "#ff9a30c0"
+    "area_telegraph_color": "#ff9a30c0",
+    "fire_telegraph_color": "#ff3030c0",
+    "safe_zone_color": "#60ff9060"
   },
 
   "events": { "chaos_surge_s": 60, "divine_storm_s": 45 },
@@ -395,7 +417,20 @@
     "fuse_offset_px": 90
   },
 
-  "banter": { "display_s": 3.0, "summon_line_chance": 0.1 },
+  "banter": { "enabled": true, "display_s": 3.0, "summon_line_chance": 0.1, "bottom_offset_px": 96, "portrait_px": 36, "width_px": 260 },
+
+  "patterns": {
+    "_doc": "Default settings for the shared attack patterns (GAME_DESIGN.md: Pattern library). Bosses and god trials override any of these. Damage is before scaling. Placeholders.",
+    "radial_burst": { "count": 12, "speed_px_s": 70, "damage": 8, "telegraph_s": 0.8, "shot_radius_px": 4 },
+    "spiral": { "arms": 3, "every_s": 0.14, "turn_deg": 14, "duration_s": 2.0, "speed_px_s": 65, "damage": 6, "telegraph_s": 0.8, "shot_radius_px": 4 },
+    "aimed_fan": { "count": 5, "spread_deg": 40, "speed_px_s": 90, "damage": 8, "telegraph_s": 0.7, "shot_radius_px": 4 },
+    "line_sweep": { "length_px": 260, "width_px": 28, "damage": 12, "telegraph_s": 1.0 },
+    "ground_circles": { "count": 5, "spread_px": 110, "radius_px": 26, "damage": 12, "telegraph_s": 1.0 },
+    "charge_trail": { "charge_s": 0.8, "trail_patches": 6, "trail_radius_px": 16, "trail_s": 2.0, "damage": 14, "telegraph_s": 0.9 },
+    "falling_strikes": { "count": 10, "spread_px": 140, "radius_px": 22, "every_s": 0.15, "damage": 10, "telegraph_s": 1.2 },
+    "summon_adds": { "count": 4, "enemy": "shade_swarm", "telegraph_s": 0.8 },
+    "safe_zone": { "radius_px": 200, "safe_count": 2, "safe_radius_px": 40, "damage": 18, "telegraph_s": 1.5 }
+  },
 
   "coop": {
     "max_players": 4,

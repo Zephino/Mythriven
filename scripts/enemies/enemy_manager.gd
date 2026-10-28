@@ -26,6 +26,8 @@ var radius := PackedFloat32Array()
 var kind := PackedInt32Array()
 var contact_timer := PackedFloat32Array()
 var flash_timer := PackedFloat32Array()
+## A colour that replaces the type's colour for one slot (alpha 0 = none), e.g. a god in a Duel.
+var tint_override := PackedColorArray()
 ## Status effects for every slot (Burn, Chill/Freeze, Shock, Soaked, Poison, Smite, Hex).
 var statuses: EnemyStatuses
 var movement: EnemyMovement
@@ -65,6 +67,7 @@ func setup() -> void:
 	kind.resize(capacity)
 	contact_timer.resize(capacity)
 	flash_timer.resize(capacity)
+	tint_override.resize(capacity)
 	statuses = EnemyStatuses.new(capacity)
 	movement = EnemyMovement.new(capacity)
 	elites = EliteState.new(capacity)
@@ -108,6 +111,7 @@ func spawn(type_id: String, at: Vector2) -> int:
 	radius[slot] = float(data["radius_px"])
 	contact_timer[slot] = 0.0
 	flash_timer[slot] = 0.0
+	tint_override[slot] = Color(0, 0, 0, 0)
 	statuses.clear(slot)
 	statuses.cc_limited[slot] = 1 if bool(data.get("elite", false)) else 0
 	elites.clear(slot)
@@ -247,6 +251,10 @@ func _contact(delta: float) -> void:
 				contact_timer[i] = interval
 				var data: Dictionary = types[kind[i]]
 				GameAuthority.damage_player(player, float(data["contact_damage"]) * damage_mult(i), str(data["id"]), positions[i])
+				# Skadi's Blessing: enemies that touch you are Chilled.
+				var touch_status: String = str(player.god_flags.get("contact_status", ""))
+				if touch_status != "":
+					statuses.apply(i, touch_status)
 				GameAuthority.status_player_from_enemy(player, str(data.get("element", "")))
 
 
@@ -271,7 +279,7 @@ func _draw_instances(delta: float) -> void:
 			continue
 		var size: float = radius[i] * 2.0
 		_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2(size, size), 0.0, positions[i]))
-		var color: Color = _type_color[kind[i]]
+		var color: Color = tint_override[i] if tint_override[i].a > 0.0 else _type_color[kind[i]]
 		var tint: Color = statuses.tint(i)
 		if tint.a > 0.0:
 			color = color.lerp(tint, tint_strength)

@@ -139,7 +139,7 @@ func _build_world(joystick: TouchJoystick) -> void:
 	GameAuthority.run_ended.connect(_on_run_ended)
 	var systems := RunSystems.new()
 	add_child(systems)
-	systems.build(world, _enemies, spawner, _level_up, _death_screen, hud)
+	systems.build(world, _enemies, spawner, _level_up, _death_screen, hud, _orbs)
 
 
 ## Drop references to this scene's objects (for example on Retry).

@@ -20,7 +20,8 @@
               "test_orb_count": "number",
               "grid_color": "string",
               "status_test_radius_px": "number",
-              "jump_to_time_s": "number"
+              "jump_to_time_s": "number",
+              "shrine_offset_px": "number"
             }
           },
           "localization": {
@@ -408,7 +409,40 @@
               "offering_costs": {
                 "type": "array",
                 "items": "number"
-              }
+              },
+              "first_shrine_s": "number",
+              "shrine_radius_px": "number",
+              "rarity_weights": {
+                "type": "object",
+                "fields": {
+                  "common": "number",
+                  "uncommon": "number",
+                  "rare": "number"
+                }
+              },
+              "hidden_rarity_weights": {
+                "type": "object",
+                "fields": {
+                  "common": "number",
+                  "uncommon": "number",
+                  "rare": "number"
+                }
+              },
+              "momentum_charge_bonus": "number",
+              "song_reaction_bonus": "number",
+              "empowered_slams": "number",
+              "auto_summon_default": "bool",
+              "invulnerable_color": "string",
+              "shrine_stone_color": "string",
+              "arrow_px": "number",
+              "trial_first_attack_s": "number",
+              "trial_attack_every_s": "number",
+              "trial_damage_mult": "number",
+              "duel_avatar_enemy": "string",
+              "chase_speed_mult": "number",
+              "chase_touch_px": "number",
+              "chase_decoy_every_s": "number",
+              "chase_max_decoys": "number"
             }
           },
           "enemies": {
@@ -474,7 +508,9 @@
               "guard_weakness_fill_mult": "number",
               "player_projectile_hurtbox_ratio": "number",
               "bullet_gap_mult": "number",
-              "area_telegraph_color": "string"
+              "area_telegraph_color": "string",
+              "fire_telegraph_color": "string",
+              "safe_zone_color": "string"
             }
           },
           "events": {
@@ -538,7 +574,11 @@
             "type": "object",
             "fields": {
               "display_s": "number",
-              "summon_line_chance": "number"
+              "summon_line_chance": "number",
+              "enabled": "bool",
+              "bottom_offset_px": "number",
+              "portrait_px": "number",
+              "width_px": "number"
             }
           },
           "coop": {
@@ -572,6 +612,104 @@
             "type": "object",
             "fields": {
               "oracle_runs_per_hint": "number"
+            }
+          },
+          "patterns": {
+            "type": "object",
+            "fields": {
+              "radial_burst": {
+                "type": "object",
+                "fields": {
+                  "count": "number",
+                  "speed_px_s": "number",
+                  "damage": "number",
+                  "telegraph_s": "number",
+                  "shot_radius_px": "number"
+                }
+              },
+              "spiral": {
+                "type": "object",
+                "fields": {
+                  "arms": "number",
+                  "every_s": "number",
+                  "turn_deg": "number",
+                  "duration_s": "number",
+                  "speed_px_s": "number",
+                  "damage": "number",
+                  "telegraph_s": "number",
+                  "shot_radius_px": "number"
+                }
+              },
+              "aimed_fan": {
+                "type": "object",
+                "fields": {
+                  "count": "number",
+                  "spread_deg": "number",
+                  "speed_px_s": "number",
+                  "damage": "number",
+                  "telegraph_s": "number",
+                  "shot_radius_px": "number"
+                }
+              },
+              "line_sweep": {
+                "type": "object",
+                "fields": {
+                  "length_px": "number",
+                  "width_px": "number",
+                  "damage": "number",
+                  "telegraph_s": "number"
+                }
+              },
+              "ground_circles": {
+                "type": "object",
+                "fields": {
+                  "count": "number",
+                  "spread_px": "number",
+                  "radius_px": "number",
+                  "damage": "number",
+                  "telegraph_s": "number"
+                }
+              },
+              "charge_trail": {
+                "type": "object",
+                "fields": {
+                  "charge_s": "number",
+                  "trail_patches": "number",
+                  "trail_radius_px": "number",
+                  "trail_s": "number",
+                  "damage": "number",
+                  "telegraph_s": "number"
+                }
+              },
+              "falling_strikes": {
+                "type": "object",
+                "fields": {
+                  "count": "number",
+                  "spread_px": "number",
+                  "radius_px": "number",
+                  "every_s": "number",
+                  "damage": "number",
+                  "telegraph_s": "number"
+                }
+              },
+              "summon_adds": {
+                "type": "object",
+                "fields": {
+                  "count": "number",
+                  "enemy": "string",
+                  "telegraph_s": "number"
+                }
+              },
+              "safe_zone": {
+                "type": "object",
+                "fields": {
+                  "radius_px": "number",
+                  "safe_count": "number",
+                  "safe_radius_px": "number",
+                  "damage": "number",
+                  "telegraph_s": "number"
+                }
+              }
             }
           }
         }
@@ -1025,6 +1163,18 @@
                     "items": "string"
                   }
                 }
+              },
+              "fortune": {
+                "type": "object",
+                "fields": {
+                  "name_key": "string",
+                  "color": "string",
+                  "status": "string",
+                  "tier_keys": {
+                    "type": "array",
+                    "items": "string"
+                  }
+                }
               }
             }
           },
@@ -1233,6 +1383,76 @@
             "name_key": "string",
             "icon_color": "string",
             "icon_shape": "string"
+          }
+        }
+      }
+    },
+    "gods.json": {
+      "gated": true,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "role_key": "string",
+            "blessing_key": "string",
+            "summon_key": "string",
+            "pantheon": "string",
+            "care_tier": "string",
+            "lore_source": "string",
+            "lore_verified": "bool",
+            "element": "string",
+            "role": "string",
+            "rarity": "string",
+            "shrine": {
+              "type": "object",
+              "open": true,
+              "fields": {
+                "type": "string"
+              }
+            },
+            "trigger": {
+              "type": "object",
+              "open": true,
+              "fields": {
+                "type": "string",
+                "amount": "number"
+              }
+            },
+            "blessing": {
+              "type": "object"
+            },
+            "summon": {
+              "type": "object",
+              "open": true,
+              "fields": {
+                "effect": "string",
+                "duration_s": "number"
+              }
+            },
+            "placeholder_color": "string",
+            "persists": "bool"
+          }
+        }
+      }
+    },
+    "banter.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "trigger": "string",
+            "speaker": "string",
+            "hero": "string",
+            "god": "string",
+            "text_key": "string",
+            "lore_source": "string",
+            "needs_owner_review": "bool"
           }
         }
       }
