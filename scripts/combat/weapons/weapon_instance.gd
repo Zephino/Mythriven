@@ -17,6 +17,8 @@ var attacks_made: int = 0
 ## Per-enemy hit timers for weapons that touch the same enemy again
 ## (auras, orbits, returning projectiles): slot -> seconds until it can be hit.
 var hit_wait: Dictionary = {}
+## True when the holder's Hero is an expert in this weapon's category.
+var expert: bool = false
 
 
 func _init(weapon_data: Dictionary, holder: Player) -> void:
@@ -46,12 +48,42 @@ func max_level() -> int:
 	return (data.get("levels", []) as Array).size()
 
 
-## Stats for the current level.
+## Stats for the current level. Expert weapons at level 8 get one extra
+## projectile (or one extra pierce when they don't fire projectiles).
 func stats() -> Dictionary:
 	var levels: Array = data.get("levels", [])
 	if levels.is_empty():
 		return {}
-	return levels[clampi(level, 1, levels.size()) - 1]
+	var current: Dictionary = levels[clampi(level, 1, levels.size()) - 1]
+	if not expert or level < max_level():
+		return current
+	var boosted: Dictionary = current.duplicate()
+	if boosted.has("count"):
+		boosted["count"] = int(boosted["count"]) + 1
+	elif boosted.has("pierce"):
+		boosted["pierce"] = int(boosted["pierce"]) + 1
+	return boosted
+
+
+## Seconds between attacks after Cooldown, attack speed, and expertise.
+func attack_interval() -> float:
+	var speed: float = 1.0
+	if owner_player != null:
+		speed += owner_player.stats.attack_speed() + owner_player.kit_attack_speed_bonus()
+	if expert:
+		speed += Data.cfg_float("combat.expertise_attack_speed_pct") / 100.0
+	var cooldown_mult: float = owner_player.stats.cooldown_mult() if owner_player != null else 1.0
+	return stat("cooldown") * cooldown_mult / speed
+
+
+## Base damage per hit after expertise (+15%) and the Hero's own bonuses.
+func damage() -> float:
+	var amount: float = stat("damage")
+	if expert:
+		amount *= 1.0 + Data.cfg_float("combat.expertise_damage_pct") / 100.0
+	if owner_player != null:
+		amount *= owner_player.kit_damage_mult(self)
+	return amount
 
 
 func stat(key: String, fallback: float = 0.0) -> float:

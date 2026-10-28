@@ -63,7 +63,7 @@ func on_enemy_damaged(_slot: int, amount: float, kind: String, at: Vector2) -> v
 	show_number(amount, at, kind)
 
 
-func on_reaction(reaction_id: String, at: Vector2, _reach: float) -> void:
+func on_reaction(reaction_id: String, at: Vector2, _reach: float, _by: Player) -> void:
 	var reaction: Dictionary = Elements.reaction(reaction_id)
 	show_text(tr(str(reaction.get("name_key", reaction_id))), at, Color.html(str(reaction.get("color", "#ffffff"))))
 

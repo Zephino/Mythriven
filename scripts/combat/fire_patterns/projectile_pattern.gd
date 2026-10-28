@@ -18,6 +18,11 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 	if direction == Vector2.ZERO:
 		direction = player.facing
 	var settings: Dictionary = weapon.stats()
+	# Runo Song: each cast uses the next element of its cycle (Fire → Ice → Lightning).
+	var cycle: Array = weapon.data.get("element_cycle", [])
+	if not cycle.is_empty():
+		settings = settings.duplicate()
+		settings["element"] = str(cycle[(weapon.attacks_made - 1) % cycle.size()])
 	var count: int = maxi(int(settings.get("count", 1)), 1)
 	var spread: float = deg_to_rad(float(settings.get("spread_deg", 0.0)))
 	var speed: float = float(settings.get("speed_px_s", 200.0))

@@ -1,0 +1,230 @@
+[
+  {
+    "_doc": "Heroes (GAME_DESIGN.md: Heroes). Stats use the design's units: move_speed in px/s, crit and luck in percent. Every Hero is content-gated (care_tier A and lore_verified true are needed in release builds); lore_verified stays false until the Phase 19 lore check. Divine Links and patron pantheons take effect with gods (Phase 11). Labor goals are game objectives placed on the twelve traditional Labors (needs owner approval); they can switch to elites and Ruins circles once those exist.",
+    "id": "heracles",
+    "name_key": "HERO_HERACLES_NAME",
+    "tradition_key": "TRADITION_GREEK",
+    "role_key": "ROLE_BRUISER",
+    "placeholder_color": "#e0c060",
+    "patron_pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Pseudo-Apollodorus, Bibliotheca (The Library), Book 2: Heracles and the Twelve Labors",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 150,
+      "move_speed": 90,
+      "armor": 2,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "great_club",
+    "expertise": ["bow", "thrown"],
+    "trait": {
+      "id": "twelve_labors",
+      "name_key": "TRAIT_TWELVE_LABORS",
+      "desc_key": "TRAIT_TWELVE_LABORS_DESC",
+      "labors": [
+        {
+          "name_key": "LABOR_NEMEAN_LION",
+          "goal": { "type": "kills", "count": 50 },
+          "reward": { "stat": "armor", "amount": 1 }
+        },
+        {
+          "name_key": "LABOR_LERNAEAN_HYDRA",
+          "goal": { "type": "kills_within", "count": 20, "seconds": 10 },
+          "reward": { "stat": "might", "amount": 0.05 }
+        },
+        {
+          "name_key": "LABOR_CERYNEIAN_HIND",
+          "goal": { "type": "no_damage_for", "seconds": 30 },
+          "reward": { "stat": "move_speed", "amount": 0.05 }
+        },
+        {
+          "name_key": "LABOR_ERYMANTHIAN_BOAR",
+          "goal": { "type": "kills", "count": 150 },
+          "reward": { "stat": "max_hp", "amount": 0.1 }
+        },
+        {
+          "name_key": "LABOR_AUGEAN_STABLES",
+          "goal": { "type": "collect_xp", "count": 200 },
+          "reward": { "stat": "pickup_radius", "amount": 0.2 }
+        },
+        {
+          "name_key": "LABOR_STYMPHALIAN_BIRDS",
+          "goal": { "type": "kills_within", "count": 40, "seconds": 15 },
+          "reward": { "stat": "area", "amount": 0.05 }
+        },
+        {
+          "name_key": "LABOR_CRETAN_BULL",
+          "goal": { "type": "reach_level", "level": 8 },
+          "reward": { "stat": "might", "amount": 0.05 }
+        },
+        {
+          "name_key": "LABOR_MARES_OF_DIOMEDES",
+          "goal": { "type": "kills", "count": 400 },
+          "reward": { "stat": "cooldown", "amount": 0.05 }
+        },
+        {
+          "name_key": "LABOR_GIRDLE_OF_HIPPOLYTA",
+          "goal": { "type": "no_damage_for", "seconds": 60 },
+          "reward": { "stat": "armor", "amount": 1 }
+        },
+        {
+          "name_key": "LABOR_CATTLE_OF_GERYON",
+          "goal": { "type": "collect_xp", "count": 1000 },
+          "reward": { "stat": "luck", "amount": 0.1 }
+        },
+        {
+          "name_key": "LABOR_APPLES_OF_THE_HESPERIDES",
+          "goal": { "type": "reach_level", "level": 20 },
+          "reward": { "stat": "max_hp", "amount": 0.15 }
+        },
+        {
+          "name_key": "LABOR_CERBERUS",
+          "goal": { "type": "kills_within", "count": 100, "seconds": 20 },
+          "reward": { "stat": "might", "amount": 0.1 }
+        }
+      ]
+    },
+    "passive": {
+      "id": "lions_hide",
+      "name_key": "PASSIVE_LIONS_HIDE",
+      "desc_key": "PASSIVE_LIONS_HIDE_DESC",
+      "armor": 2,
+      "halve_hit_every_s": 8
+    },
+    "divine_link": { "id": "summon_empowers_slams" },
+    "unlock": { "type": "starting" }
+  },
+  {
+    "id": "cu_chulainn",
+    "name_key": "HERO_CU_CHULAINN_NAME",
+    "tradition_key": "TRADITION_IRISH",
+    "role_key": "ROLE_SPEAR_STRIKER",
+    "placeholder_color": "#5fbf6a",
+    "patron_pantheon": "celtic",
+    "care_tier": "A",
+    "lore_source": "Táin Bó Cúailnge (the Ulster Cycle), including the salmon leap and the warp-spasm",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 110,
+      "move_speed": 105,
+      "armor": 1,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "gae_bolg",
+    "expertise": ["thrown", "blade"],
+    "trait": {
+      "id": "salmon_leap",
+      "name_key": "TRAIT_SALMON_LEAP",
+      "desc_key": "TRAIT_SALMON_LEAP_DESC",
+      "interval_s": 8,
+      "distance_tiles": 3,
+      "untargetable_s": 0.8,
+      "landing_radius_tiles": 2,
+      "landing_damage": 12,
+      "landing_knockback": 260
+    },
+    "passive": {
+      "id": "battle_frenzy",
+      "name_key": "PASSIVE_BATTLE_FRENZY",
+      "desc_key": "PASSIVE_BATTLE_FRENZY_DESC",
+      "hp_below": 0.3,
+      "attack_speed_pct": 30,
+      "area_pct": 15
+    },
+    "divine_link": { "id": "landing_applies_god_elements" },
+    "unlock": { "type": "starting" }
+  },
+  {
+    "id": "vainamoinen",
+    "name_key": "HERO_VAINAMOINEN_NAME",
+    "tradition_key": "TRADITION_FINNISH",
+    "role_key": "ROLE_SONG_MAGE",
+    "placeholder_color": "#6a9cf0",
+    "patron_pantheon": "finnish",
+    "care_tier": "A",
+    "lore_source": "Kalevala (Elias Lönnrot, 1835/1849): Väinämöinen, the eternal singer",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 85,
+      "move_speed": 95,
+      "armor": 0,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "runo_song",
+    "expertise": ["spell"],
+    "trait": {
+      "id": "song_of_power",
+      "name_key": "TRAIT_SONG_OF_POWER",
+      "desc_key": "TRAIT_SONG_OF_POWER_DESC",
+      "spell_damage_pct_per_verse": 3,
+      "max_verses": 10,
+      "verse_s": 6
+    },
+    "passive": {
+      "id": "eternal_sage",
+      "name_key": "PASSIVE_ETERNAL_SAGE",
+      "desc_key": "PASSIVE_ETERNAL_SAGE_DESC",
+      "status_duration_pct": 30
+    },
+    "divine_link": { "id": "gods_join_song" },
+    "unlock": { "type": "starting" }
+  },
+  {
+    "id": "tomoe_gozen",
+    "name_key": "HERO_TOMOE_GOZEN_NAME",
+    "tradition_key": "TRADITION_JAPANESE",
+    "role_key": "ROLE_SKIRMISHER",
+    "placeholder_color": "#e06a6a",
+    "patron_pantheon": "japanese",
+    "care_tier": "A",
+    "lore_source": "The Tale of the Heike (Heike monogatari), Kakuichi text, Book 9: Tomoe Gozen",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 95,
+      "move_speed": 115,
+      "armor": 0,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "sword_and_bow",
+    "expertise": ["spear"],
+    "trait": {
+      "id": "cavalry_charge",
+      "name_key": "TRAIT_CAVALRY_CHARGE",
+      "desc_key": "TRAIT_CAVALRY_CHARGE_DESC",
+      "stack_every_s": 0.5,
+      "max_stacks": 10,
+      "attack_speed_pct_per_stack": 4,
+      "move_speed_pct_per_stack": 2,
+      "still_s": 1.0,
+      "charge_every_s": 5,
+      "charge_s": 1.5,
+      "charge_speed_mult": 1.6,
+      "trample_damage": 10,
+      "trample_knockback": 200
+    },
+    "passive": { "id": "tomoe_crit", "name_key": "PASSIVE_TOMOE", "desc_key": "PASSIVE_TOMOE_DESC", "crit_pct": 10 },
+    "divine_link": { "id": "momentum_charges_gods" },
+    "unlock": { "type": "starting" }
+  }
+]

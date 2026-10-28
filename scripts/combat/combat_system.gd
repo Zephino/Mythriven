@@ -20,6 +20,8 @@ func _ready() -> void:
 	register_pattern("strike", StrikePattern.new())
 	register_pattern("orbit", OrbitPattern.new())
 	register_pattern("aura", AuraPattern.new())
+	register_pattern("thrust", ThrustPattern.new())
+	register_pattern("switch", SwitchPattern.new())
 
 
 func register_pattern(pattern_id: String, pattern: FirePattern) -> void:
@@ -50,7 +52,7 @@ func _tick(weapon: WeaponInstance, player: Player, delta: float) -> void:
 	target = int(weapon.aim.get("target", -1))
 	if target != -1:
 		weapon.aim["direction"] = Targeting.direction_to(player.position, target, enemies, player.facing)
-	weapon.cooldown_left = weapon.stat("cooldown") * player.stats.cooldown_mult()
+	weapon.cooldown_left = weapon.attack_interval()
 	weapon.attacks_made += 1
 	var pattern: FirePattern = patterns.get(str(weapon.data.get("pattern", "")))
 	if pattern == null:
@@ -99,7 +101,7 @@ func hit_circle(center: Vector2, hit_radius: float, weapon: WeaponInstance, play
 func hit_enemy(slot: int, weapon: WeaponInstance, player: Player, damage_mult: float, push_dir: Vector2) -> void:
 	if enemies.active[slot] == 0 or not weapon.try_hit(slot):
 		return
-	GameAuthority.damage_enemy(slot, weapon.stat("damage") * damage_mult, player,
+	GameAuthority.damage_enemy(slot, weapon.damage() * damage_mult, player,
 			push_dir * weapon.stat("knockback"), str(weapon.data.get("element", "physical")), weapon.stat("status_chance"))
 
 

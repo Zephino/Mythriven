@@ -12,7 +12,8 @@ signal player_died(player: Player, cause_id: String)
 signal run_ended(run: RunState)
 ## kind: "normal", "crit", "weak", "resist", or "dot" (damage over time).
 signal enemy_damaged(slot: int, amount: float, kind: String, at: Vector2)
-signal reaction_triggered(reaction_id: String, at: Vector2, reach: float)
+signal reaction_triggered(reaction_id: String, at: Vector2, reach: float, by: Player)
+signal xp_collected(player: Player, amount: float)
 signal enemy_killed(slot: int, enemy_type: Dictionary, at: Vector2, killer: Player)
 signal xp_changed(run: RunState)
 ## A level-up is waiting to be chosen (the level-up screen opens).
@@ -31,6 +32,8 @@ var enemies: EnemyManager = null
 var auto_collect: String = ""
 ## Turns hits into damage, statuses, and reactions (see hit_resolver.gd).
 var hits := HitResolver.new()
+## The Hero picked on the Hero select screen; kept for Retry, cleared by "Change Hero".
+var selected_hero_id: String = ""
 
 
 func _process(delta: float) -> void:
@@ -71,8 +74,10 @@ func find_level(level_id: String) -> Dictionary:
 
 
 ## Creates a player, adds it under `parent`, and registers it in the list.
-func spawn_player(parent: Node, spawn_position: Vector2, input: PlayerInput, is_local: bool) -> Player:
+func spawn_player(parent: Node, spawn_position: Vector2, input: PlayerInput, is_local: bool,
+		hero_id: String = "") -> Player:
 	var player := Player.new()
+	player.hero = HeroRules.find(hero_id) if hero_id != "" else {}
 	player.player_id = _next_player_id()
 	player.is_local = is_local
 	player.input = input
@@ -115,10 +120,14 @@ func spawn_enemy(type_id: String, at: Vector2) -> int:
 
 ## Damages a player (enemy damage − Armor, minimum 1; no invulnerability frames).
 func damage_player(player: Player, amount: float, source_id: String) -> void:
-	if not player.alive or player.god_mode:
+	if not player.alive or player.god_mode or (player.kit != null and player.kit.is_untargetable()):
 		return
 	var armor: float = player.armor * player.statuses.armor_mult()
 	var dealt: float = Damage.to_player(amount * player.statuses.consume_shock(), armor, Data.cfg_float("combat.min_damage"))
+	if player.kit != null:
+		dealt = player.kit.incoming_damage(dealt)
+		if dealt <= 0.0:
+			return
 	player.hp -= dealt
 	player_damaged.emit(player, dealt, source_id)
 	if player.hp <= 0.0:
@@ -195,6 +204,7 @@ func give_weapon(player: Player, weapon_id: String) -> WeaponInstance:
 	if data.is_empty():
 		return null
 	var weapon := WeaponInstance.new(data, player)
+	weapon.expert = HeroRules.is_expert(player.hero, data)
 	player.weapons.append(weapon)
 	return weapon
 
@@ -202,9 +212,10 @@ func give_weapon(player: Player, weapon_id: String) -> WeaponInstance:
 # --- XP and level-ups -----------------------------------------------------------
 
 ## Adds XP to the shared bar and queues any level-ups it earns.
-func collect_xp(_player: Player, amount: float) -> void:
+func collect_xp(player: Player, amount: float) -> void:
 	if run == null or run.ended:
 		return
+	xp_collected.emit(player, amount)
 	run.xp += amount
 	var gained: int = 0
 	while run.xp >= LevelUpRules.xp_to_next(run.level):

@@ -14,13 +14,15 @@ func _ready() -> void:
 	DebugMenu.add_button(self, "DEBUG_RESET_PLAYER", _reset_player)
 	DebugMenu.add_button(self, "DEBUG_TELEPORT_FAR", _teleport_far)
 	DebugMenu.add_check(self, "DEBUG_SHOW_GRID", false, _on_grid_toggled)
+	DebugMenu.add_button(self, "DEBUG_FINISH_LABOR", _finish_labor)
+	DebugMenu.add_button(self, "DEBUG_CHANGE_HERO", _change_hero)
 
 
 func _player_info() -> String:
 	var player: Player = GameAuthority.local_player()
 	if player == null:
 		return tr("DEBUG_NO_PLAYER") % GameAuthority.players.size()
-	return tr("DEBUG_PLAYER_INFO") % [
+	return tr(str(player.hero.get("name_key", "DEBUG_NO_HERO"))) + " · " + tr("DEBUG_PLAYER_INFO") % [
 		GameAuthority.players.size(), roundi(player.position.x), roundi(player.position.y),
 		player.facing.x, player.facing.y, roundi(player.velocity.length()),
 	]
@@ -55,6 +57,24 @@ func _move_player_to(target: Vector2) -> void:
 	chunks.update_chunks()
 	chunks.build_all_now()
 	camera.snap_to_target()
+
+
+## Heracles only: completes the current Labor so its reward can be checked.
+func _finish_labor() -> void:
+	var player: Player = GameAuthority.local_player()
+	if player == null or player.kit == null or not player.kit.has_method("current_labor"):
+		return
+	var labor: Dictionary = player.kit.call("current_labor")
+	var goal: Dictionary = labor.get("goal", {})
+	player.kit.set("progress", float(goal.get("count", goal.get("seconds", goal.get("level", 0)))))
+	player.kit.call("_check", player.kit.get("progress"))
+
+
+## Back to Hero select (starts a new run).
+func _change_hero() -> void:
+	GameAuthority.selected_hero_id = ""
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 
 func _on_grid_toggled(on: bool) -> void:

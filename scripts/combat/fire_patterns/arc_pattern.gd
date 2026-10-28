@@ -10,7 +10,8 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 	if direction == Vector2.ZERO:
 		direction = player.facing
 	var area: float = player.stats.area_mult() * weapon.stat("area", 1.0)
-	var reach: float = weapon.stat("range_px") * area
+	# Weapons that also shoot (Sword and Bow) give their sword reach as melee_range_px.
+	var reach: float = weapon.stat("melee_range_px", weapon.stat("range_px")) * area
 	var spread: float = deg_to_rad(weapon.stat("arc_deg"))
 	combat.hit_sector(player.position, direction, reach, spread, weapon, player, 1.0)
 	combat.effects.spawn_arc(player.position, direction.angle(), reach, spread, combat.effect_color(weapon))

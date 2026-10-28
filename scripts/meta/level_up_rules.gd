@@ -41,13 +41,17 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 	for weapon: WeaponInstance in player.weapons:
 		owned[weapon.id()] = true
 		if weapon.level < weapon.max_level():
-			cards.append(_card(WEAPON_UP, weapon.id(), weapon.level, weapon.level + 1))
+			var up: Dictionary = _card(WEAPON_UP, weapon.id(), weapon.level, weapon.level + 1)
+			up["expert"] = weapon.expert
+			cards.append(up)
 	if player.weapons.size() < Data.cfg_int("level_up.max_weapons"):
 		var weapons: Variant = Data.get_file(GameAuthority.WEAPONS_FILE)
 		for entry: Variant in (weapons if weapons is Array else []):
 			var weapon_id: String = str(entry["id"])
 			if bool(entry.get("in_level_up_pool", false)) and not owned.has(weapon_id):
-				cards.append(_card(WEAPON_NEW, weapon_id, 0, 1))
+				var new_card: Dictionary = _card(WEAPON_NEW, weapon_id, 0, 1)
+				new_card["expert"] = HeroRules.is_expert(player.hero, entry)
+				cards.append(new_card)
 	var passives: Variant = Data.get_file(PASSIVES_FILE)
 	for entry: Variant in (passives if passives is Array else []):
 		var passive_id: String = str(entry["id"])

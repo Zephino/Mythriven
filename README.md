@@ -25,11 +25,11 @@
 
 ## What you can play right now
 
-The current build covers **Phases 1–6 and 8** of the plan, plus early Phase 7 tuning:
+The current build covers **Phases 1–6, 8, and 9** of the plan, plus early Phase 7 tuning:
 
 - **The Aegean Shore**, an endless procedurally generated map with olive groves and marble ruins (placeholder art).
-- **Heracles' Great Club** as your starting weapon. It aims itself at the nearest enemy, and every fourth slam sends out a quake.
-- **Two more weapons** to find on level-up: the **Throwing Axe** and the **Bladed Discus**. Every weapon has 8 levels.
+- **Four Heroes** to choose from, each with a signature weapon, a Legend Trait, and a passive: **Heracles** (Great Club, the Twelve Labors), **Cú Chulainn** (Gáe Bolg, the Salmon Leap), **Väinämöinen** (Runo Song, Song of Power), and **Tomoe Gozen** (Sword and Bow, Cavalry Charge).
+- **More weapons** to find on level-up: Throwing Axe, Bladed Discus, Javelin, Longbow, Bronze Sword, War Hammer, and six spells. Every weapon has 8 levels, and each Hero is an **expert** with some weapon types.
 - **Nine passives** from mythic objects (Belt of Strength, Winged Sandals, Hourglass, Seer's Eye, Lodestone, Bronze Aegis, Ferryman's Coin, Golden Apple, Votive Bell), each with 5 levels.
 - **XP orbs and level-ups**: choose 1 of 3 cards (4 with high Luck), save a level-up for later, or let Auto-collect take Gold/Heal when your build is maxed.
 - **Ambrosia**, a rare healing drop that restores 30 HP.
@@ -81,7 +81,7 @@ Mythriven is being built in **Godot 4**, using **GDScript**, one phase at a time
 | 6. XP and level-ups | XP orbs, level-up cards, passives, more weapons, run log | ✅ Built |
 | 7. Fun checkpoint | Play and tune until moving and fighting feel great | 🔄 **Now** |
 | 8. Elements | 8 elements, statuses, weaknesses, reactions, six spells | ✅ Built (being tested) |
-| 9. Heroes | Hero select: Heracles, Cú Chulainn, Väinämöinen, Tomoe Gozen | Planned |
+| 9. Heroes | Hero select: Heracles, Cú Chulainn, Väinämöinen, Tomoe Gozen | ✅ Built (being tested) |
 | 10. Aegean waves | Real Aegean enemies, Ages, elites, chests, evolutions | Planned |
 | 11. Gods | Shrines, trials, binding, two god buttons, summons | Planned |
 | 12. Resonance | Divine Resonances between god pairs, weapon infusions | Planned |

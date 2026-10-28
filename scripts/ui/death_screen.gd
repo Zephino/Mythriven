@@ -1,7 +1,7 @@
 class_name DeathScreen
 extends CanvasLayer
-## Shown when every player has fallen: a title, a short summary, and Retry
-## (same Hero and level). The full death recap comes in Phase 15.
+## Shown when every player has fallen: a title, a short summary, Retry
+## (same Hero and level), and Change Hero. The full death recap comes in Phase 15.
 
 var _panel: PanelContainer
 var _summary: Label
@@ -34,6 +34,15 @@ func _ready() -> void:
 	_retry.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 3.0, Data.cfg_float("ui.min_touch_target_px"))
 	_retry.pressed.connect(_on_retry)
 	box.add_child(_retry)
+	var change := Button.new()
+	change.text = "UI_CHANGE_HERO"
+	change.custom_minimum_size = _retry.custom_minimum_size
+	change.pressed.connect(_on_change_hero)
+	box.add_child(change)
+	_retry.focus_neighbor_bottom = _retry.get_path_to(change)
+	_retry.focus_neighbor_top = _retry.get_path_to(change)
+	change.focus_neighbor_top = change.get_path_to(_retry)
+	change.focus_neighbor_bottom = change.get_path_to(_retry)
 	visible = false
 
 
@@ -42,6 +51,11 @@ func show_summary(lines: PackedStringArray) -> void:
 	_summary.text = "\n".join(lines)
 	visible = true
 	_retry.grab_focus()
+
+
+func _on_change_hero() -> void:
+	GameAuthority.selected_hero_id = ""
+	_on_retry()
 
 
 func _on_retry() -> void:

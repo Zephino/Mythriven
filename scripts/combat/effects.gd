@@ -5,6 +5,7 @@ extends Node2D
 ## effect is recycled (GAME_DESIGN.md: Effect budgets), so nothing is created
 ## or freed during play.
 
+const GROUP := "effect_layer"
 const KIND_ARC := 0
 const KIND_RING := 1
 const ARC_SEGMENTS := 12
@@ -25,6 +26,7 @@ var _color: Array[Color] = []
 
 func setup() -> void:
 	z_index = 5
+	add_to_group(GROUP)
 	_capacity = Data.cfg_int("effects.max_visual_effects")
 	_active.resize(_capacity)
 	_kind.resize(_capacity)
@@ -48,7 +50,7 @@ func spawn_ring(at: Vector2, ring_radius: float, color: Color) -> void:
 
 
 ## Shows a reaction as an expanding ring in its colour.
-func on_reaction(reaction_id: String, at: Vector2, reach: float) -> void:
+func on_reaction(reaction_id: String, at: Vector2, reach: float, _by: Player) -> void:
 	var color: Color = Color.html(str(Elements.reaction(reaction_id).get("color", "#ffffff")))
 	spawn_ring(at, maxf(reach, Data.cfg_float("effects.min_reaction_ring_px")), color)
 

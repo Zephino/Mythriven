@@ -1,8 +1,9 @@
 class_name Hud
 extends CanvasLayer
-## In-game HUD (GAME_DESIGN.md: Screens / In-game HUD), Phase 6 part: the XP
-## bar across the top, the run timer, kills, and the level badge. The badge
-## shows banked level-ups and opens the level-up screen when tapped.
+## In-game HUD (GAME_DESIGN.md: Screens / In-game HUD): the XP bar across the
+## top, the run timer, kills, the level badge (banked level-ups; tap to open
+## the level-up screen), and a line from the Hero's Legend Trait (for
+## Heracles, his current Labor).
 
 var level_up_screen: LevelUpScreen
 
@@ -10,6 +11,7 @@ var _xp_bar: ProgressBar
 var _timer_label: Label
 var _kills_label: Label
 var _badge: Button
+var _trait_label: Label
 
 
 func _ready() -> void:
@@ -43,6 +45,13 @@ func _ready() -> void:
 	row.add_child(_timer_label)
 	_kills_label = _make_label()
 	row.add_child(_kills_label)
+	_trait_label = Label.new()
+	_trait_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_trait_label.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	_trait_label.offset_top = row.offset_top + Data.cfg_float("ui.min_touch_target_px")
+	_trait_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_trait_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(_trait_label)
 
 
 func _process(_delta: float) -> void:
@@ -53,6 +62,8 @@ func _process(_delta: float) -> void:
 	_xp_bar.value = run.xp
 	_timer_label.text = TextFormat.run_time(run.elapsed_s)
 	_kills_label.text = tr("UI_KILLS") % run.kills
+	var player: Player = GameAuthority.local_player()
+	_trait_label.text = player.kit.hud_text() if player != null and player.kit != null else ""
 	if run.unspent_level_ups > 0:
 		_badge.text = tr("UI_LEVEL_BADGE_BANKED") % [run.level, run.unspent_level_ups]
 	else:

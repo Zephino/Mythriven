@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 8 — Elements built (owner testing); Phase 7 fun checkpoint ongoing (Phases 1–6 built but not yet tested in Godot; the owner asked for Phases 3–6 to be built before testing, 2026-10-28)
+**Current phase:** Phase 9 — Heroes built (owner testing); Phase 7 fun checkpoint ongoing
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-28 — Phase 9 — Heroes (v00.01.13)
+- What changed: `heroes.json` (4 starting Heroes, gated); Hero select screen; Hero kits in `scripts/player/hero_traits/` (`hero_kit.gd`, `twelve_labors.gd`, `salmon_leap.gd`, `song_of_power.gd`, `cavalry_charge.gd`); `HeroRules` (expertise); stats from the Hero (`PlayerStats.from_hero`, new attack speed and status duration stats); expertise in `WeaponInstance` (`attack_interval`, `damage`, level-8 bonus); new patterns `ThrustPattern` (Gáe Bolg) and `SwitchPattern` (Sword and Bow); Runo Song element cycle; 7 new weapons; Change Hero; HUD trait line; Expert badge; `open` objects in data schemas.
+- Files touched: `data/heroes.json` (new), `data/weapons.json`, `data/config.json` (`heroes`), `data/schemas.json`; `scripts/player/` (new: `hero_rules.gd`, `hero_traits/*`; changed: `player.gd`, `player_stats.gd`); `scripts/combat/` (new: `fire_patterns/thrust_pattern.gd`, `switch_pattern.gd`; changed: `arc_pattern.gd`, `projectile_pattern.gd`, `projectiles.gd`, `combat_system.gd`, `hit_resolver.gd`, `effects.gd`, `weapons/weapon_instance.gd`); `scripts/ui/` (new: `hero_select.gd`; changed: `hud.gd`, `death_screen.gd`, `card_text.gd`, `damage_numbers.gd`); `scripts/meta/level_up_rules.gd`; `scripts/core/` (`main.gd`, `game_authority.gd`, `json_validator.gd`, `debug_actions.gd`); `localization/text.csv`; `tests/test_heroes.gd` (new), `tests/test_elements.gd`.
+- Unfinished / next: Divine Links and patron pantheons wait for gods (Phase 11); Labor goals involving elites and Ruins wait for Phases 10 and 14; Legend Trait "skill" cards on level-up are not added yet (the design gives one example, Salmon Leap recharging faster). Owner to try the Heroes on the web link before Phase 10.
 
 ## 2026-10-28 — Fix — "Give me all six spells" gave fewer (v00.01.12)
 - Cause: the button respected the 6-weapon limit, and the Great Club (plus any picked-up weapon) already used slots, so at most 5 spells were added.

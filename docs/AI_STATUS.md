@@ -4,7 +4,7 @@ Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.12
+Version: 00.01.13
 Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.12` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.13` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -74,6 +74,15 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 5. Level a spell from 3 to 4: the card says "Ember → Flame" and plays a different sound.
 6. **Jump the timer to 30:00**: enemies that touch you now pass on their status ("on you" in the debug line), for half as long, never freezing you.
 7. **Fill to the enemy cap** with all spells: write down the FPS.
+
+**Phase 9 — Heroes**
+1. The game opens on **Choose your Hero** with four cards. Pick each in turn (F1 → **Back to Hero select** to switch).
+2. **Heracles** (gold square): the HUD shows "Labor 1: The Nemean Lion (defeat enemies 0 / 50)". Finish it (or F1 → **Finish the current Labor**): a "Labor complete" banner and +1 Armor. The first hit every 8 s does half damage.
+3. **Cú Chulainn** (green): every 8 s he leaps 3 tiles the way you move, a dark shadow marks the landing, and a green ring hits enemies there. Below 30% HP the HUD says "Battle Frenzy!".
+4. **Väinämöinen** (blue): Runo Song bolts change colour Fire → Ice → Lightning. Reactions add Verses (HUD "Verses 3 / 10").
+5. **Tomoe Gozen** (red): sword slashes up close, arrows farther away. Keep moving: Momentum climbs to 10, then "Charge!" tramples enemies; standing still halves Momentum.
+6. Level-up cards for weapons the Hero is expert in say "Expert!" (Heracles: Longbow, Throwing Axe, Bladed Discus).
+7. After dying, **Retry** keeps the Hero, **Change Hero** goes back to the select screen.
 
 ## Things most likely to need a fix on first open (couldn't be checked without Godot)
 - Pseudo-localization (`TranslationServer.pseudolocalization_enabled`).

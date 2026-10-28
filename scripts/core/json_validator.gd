@@ -6,7 +6,8 @@ extends RefCounted
 ##
 ## A field spec is either a type name ("number", "int", "string", "bool",
 ## "any", "object", "array") or a Dictionary:
-##   {"type": "object", "fields": {name: spec, ...}, "optional": bool}
+##   {"type": "object", "fields": {name: spec, ...}, "optional": bool, "open": bool}
+## "open" objects may have extra keys besides the listed fields.
 ##   {"type": "array", "items": spec, "optional": bool}
 ## Keys starting with "_" are notes and are never checked.
 
@@ -97,14 +98,15 @@ static func _check(value: Variant, spec: Variant, file_label: String, path: Stri
 		return
 	var spec_dict: Dictionary = spec
 	if expected == "object" and spec_dict.has("fields"):
-		_check_object(value, spec_dict["fields"], file_label, path, errors)
+		_check_object(value, spec_dict["fields"], file_label, path, errors, bool(spec_dict.get("open", false)))
 	elif expected == "array" and spec_dict.has("items"):
 		var items: Array = value
 		for i: int in items.size():
 			_check(items[i], spec_dict["items"], file_label, "%s[%d]" % [path, i], errors)
 
 
-static func _check_object(value: Dictionary, fields: Dictionary, file_label: String, path: String, errors: Array[Dictionary]) -> void:
+static func _check_object(value: Dictionary, fields: Dictionary, file_label: String, path: String,
+		errors: Array[Dictionary], open: bool = false) -> void:
 	for field_name: String in fields:
 		if field_name.begins_with("_"):
 			continue
@@ -116,6 +118,8 @@ static func _check_object(value: Dictionary, fields: Dictionary, file_label: Str
 				errors.append(make_error(CODE_MISSING_FIELD, file_label, field_path))
 			continue
 		_check(value[field_name], field_spec, file_label, field_path, errors)
+	if open:
+		return
 	for key: Variant in value:
 		var key_name: String = str(key)
 		if not key_name.begins_with("_") and not fields.has(key_name):

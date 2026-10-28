@@ -1,0 +1,207 @@
+extends GutTest
+## Phase 9: Heroes, Legend Traits, passives, expertise, and the new weapons.
+
+const CHASER := "placeholder_chaser"
+
+var _parent: Node2D
+var _enemies: EnemyManager
+var _combat: CombatSystem
+
+
+func before_each() -> void:
+	GameAuthority.start_run("aegean_shore")
+	_parent = add_child_autofree(Node2D.new())
+	_enemies = EnemyManager.new()
+	_parent.add_child(_enemies)
+	_enemies.setup()
+	_enemies.set_process(false)
+	GameAuthority.enemies = _enemies
+	var effects := EffectLayer.new()
+	_parent.add_child(effects)
+	effects.setup()
+	_combat = CombatSystem.new()
+	_combat.enemies = _enemies
+	_combat.effects = effects
+	_parent.add_child(_combat)
+	_combat.set_process(false)
+
+
+func after_each() -> void:
+	GameAuthority.end_scene()
+
+
+func _hero(hero_id: String) -> Player:
+	var player: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, hero_id)
+	player.kit.set_process(false)
+	player.stats.base["crit"] = 0.0
+	return player
+
+
+func _spawn(at: Vector2, hp: float = 10000.0) -> int:
+	var slot: int = _enemies.spawn(CHASER, at)
+	_enemies.hp[slot] = hp
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	return slot
+
+
+func test_four_starting_heroes_with_design_stats() -> void:
+	var expected: Dictionary = {"heracles": [150, 90, 2], "cu_chulainn": [110, 105, 1], "vainamoinen": [85, 95, 0], "tomoe_gozen": [95, 115, 0]}
+	for hero_id: String in expected:
+		var stats: Dictionary = HeroRules.find(hero_id)["stats"]
+		assert_eq([int(stats["max_hp"]), int(stats["move_speed"]), int(stats["armor"])], expected[hero_id], hero_id)
+		assert_eq(HeroRules.find(hero_id)["care_tier"], "A")
+
+
+func test_heroes_play_differently() -> void:
+	var heracles: Player = _hero("heracles")
+	var cu: Player = _hero("cu_chulainn")
+	assert_eq(heracles.max_hp, 150.0)
+	assert_eq(heracles.armor, 4.0, "Lion's Hide adds +2 Armor")
+	assert_eq(cu.move_speed, 105.0)
+	assert_eq(heracles.kit.get_script().resource_path.get_file(), "twelve_labors.gd")
+	assert_eq(cu.kit.get_script().resource_path.get_file(), "salmon_leap.gd")
+
+
+func test_expertise_only_for_expert_categories_not_the_start_weapon() -> void:
+	var heracles: Dictionary = HeroRules.find("heracles")
+	assert_true(HeroRules.is_expert(heracles, GameAuthority.find_weapon("longbow")), "Bow")
+	assert_true(HeroRules.is_expert(heracles, GameAuthority.find_weapon("throwing_axe")), "Thrown")
+	assert_false(HeroRules.is_expert(heracles, GameAuthority.find_weapon("great_club")))
+	assert_false(HeroRules.is_expert(heracles, GameAuthority.find_weapon("javelin")))
+	var vaino: Dictionary = HeroRules.find("vainamoinen")
+	assert_true(HeroRules.is_expert(vaino, GameAuthority.find_weapon("ember")), "all spells")
+	assert_false(HeroRules.is_expert(vaino, GameAuthority.find_weapon("runo_song")), "not his own starting spell")
+
+
+func test_expert_weapons_attack_faster_hit_harder_and_get_a_level_8_bonus() -> void:
+	var player: Player = _hero("heracles")
+	var expert: WeaponInstance = GameAuthority.give_weapon(player, "longbow")
+	var plain: WeaponInstance = WeaponInstance.new(GameAuthority.find_weapon("longbow"), player)
+	assert_true(expert.expert)
+	assert_almost_eq(expert.attack_interval(), plain.attack_interval() / 1.25, 0.001)
+	assert_almost_eq(expert.damage(), plain.damage() * 1.15, 0.001)
+	expert.level = 8
+	plain.level = 8
+	assert_eq(int(expert.stats()["count"]), int(plain.stats()["count"]) + 1)
+
+
+func test_expert_badge_on_level_up_cards() -> void:
+	var player: Player = _hero("heracles")
+	var badges: Dictionary = {}
+	for card: Dictionary in LevelUpRules.item_cards(player):
+		if card["kind"] == LevelUpRules.WEAPON_NEW:
+			badges[card["id"]] = bool(card.get("expert", false))
+	assert_true(badges["longbow"])
+	assert_false(badges["javelin"])
+	assert_string_contains(CardText.full({"kind": LevelUpRules.WEAPON_NEW, "id": "longbow", "from": 0, "to": 1, "expert": true}),
+			TranslationServer.translate("CARD_EXPERT"))
+
+
+func test_lions_hide_halves_the_first_hit_every_8_seconds() -> void:
+	var player: Player = _hero("heracles")
+	var start: float = player.hp
+	GameAuthority.damage_player(player, 24.0, "test")
+	assert_almost_eq(start - player.hp, (24.0 - 4.0) * 0.5, 0.001)
+	var second: float = player.hp
+	GameAuthority.damage_player(player, 24.0, "test")
+	assert_almost_eq(second - player.hp, 20.0, 0.001, "only the first hit is halved")
+
+
+func test_labors_progress_and_reward() -> void:
+	var player: Player = _hero("heracles")
+	var kit: HeroKit = player.kit
+	var labor: Dictionary = kit.call("current_labor")
+	assert_eq(labor["name_key"], "LABOR_NEMEAN_LION")
+	var armor_before: float = player.armor
+	for _i: int in int(labor["goal"]["count"]):
+		GameAuthority.enemy_killed.emit(0, {}, Vector2.ZERO, player)
+	assert_eq(int(kit.get("labor_index")), 1)
+	assert_eq(player.armor, armor_before + 1.0, "the Nemean Lion's reward")
+	assert_ne(kit.hud_text(), "")
+
+
+func test_salmon_leap_moves_makes_untargetable_and_lands_with_a_shockwave() -> void:
+	var player: Player = _hero("cu_chulainn")
+	var target: int = _spawn(Vector2(48 + 10, 0))
+	var target_hp: float = _enemies.hp[target]
+	player.velocity = Vector2.RIGHT * 100.0
+	player.kit._process(8.01)
+	assert_true(player.kit.is_untargetable())
+	var hp_before: float = player.hp
+	GameAuthority.damage_player(player, 50.0, "test")
+	assert_eq(player.hp, hp_before, "untargetable mid-leap")
+	player.kit._process(0.81)
+	assert_almost_eq(player.position.x, 48.0, 0.5, "3 tiles")
+	assert_false(player.kit.is_untargetable())
+	assert_lt(_enemies.hp[target], target_hp, "the landing shockwave hits")
+
+
+func test_battle_frenzy_below_30_percent() -> void:
+	var player: Player = _hero("cu_chulainn")
+	var area_before: float = player.stats.area_mult()
+	player.hp = player.max_hp * 0.2
+	player.kit._process(0.01)
+	assert_almost_eq(player.kit.attack_speed_bonus(), 0.3, 0.001)
+	assert_gt(player.stats.area_mult(), area_before)
+
+
+func test_song_of_power_verses_raise_spell_damage() -> void:
+	var player: Player = _hero("vainamoinen")
+	var spell: WeaponInstance = GameAuthority.give_weapon(player, "ember")
+	var club := WeaponInstance.new(GameAuthority.find_weapon("great_club"), player)
+	GameAuthority.reaction_triggered.emit("conduct", Vector2.ZERO, 10.0, player)
+	GameAuthority.reaction_triggered.emit("conduct", Vector2.ZERO, 10.0, player)
+	assert_eq(int(player.kit.call("verses")), 2)
+	assert_almost_eq(player.kit.damage_mult(spell), 1.06, 0.0001)
+	assert_eq(player.kit.damage_mult(club), 1.0, "only spells")
+	assert_almost_eq(player.stats.status_duration_mult(), 1.3, 0.001, "Eternal Sage")
+
+
+func test_cavalry_charge_momentum_charge_and_dodge() -> void:
+	var player: Player = _hero("tomoe_gozen")
+	player.velocity = Vector2.RIGHT * 100.0
+	player.kit._process(4.75)
+	assert_eq(int(player.kit.get("momentum")), 9)
+	assert_false(player.kit.call("is_charging"))
+	player.kit._process(0.3)
+	assert_eq(int(player.kit.get("momentum")), 10)
+	assert_almost_eq(player.kit.attack_speed_bonus(), 0.4, 0.001)
+	player.kit._process(5.0)
+	assert_true(player.kit.call("is_charging"), "a charge every 5 s at full Momentum")
+	var hp_before: float = player.hp
+	GameAuthority.damage_player(player, 50.0, "test")
+	assert_eq(player.hp, hp_before, "the charge dodges the next hit")
+	player.velocity = Vector2.ZERO
+	player.kit._process(1.0)
+	assert_eq(int(player.kit.get("momentum")), 5, "standing still 1 s loses half")
+
+
+func test_gae_bolg_thrust_hits_a_line_and_kills_burst_into_barbs() -> void:
+	var player: Player = _hero("cu_chulainn")
+	var spear: WeaponInstance = player.weapons[0] if not player.weapons.is_empty() else GameAuthority.give_weapon(player, "gae_bolg")
+	var in_line: int = _spawn(Vector2(60, 0))
+	var off_line: int = _spawn(Vector2(30, 40))
+	var dies: int = _spawn(Vector2(20, 0), 1.0)
+	var bystander: int = _spawn(Vector2(20, 22))
+	var hp: Dictionary = {in_line: _enemies.hp[in_line], off_line: _enemies.hp[off_line], bystander: _enemies.hp[bystander]}
+	ThrustPattern.new().fire(spear, player, {"direction": Vector2.RIGHT}, _combat)
+	assert_lt(_enemies.hp[in_line], hp[in_line])
+	assert_eq(_enemies.hp[off_line], hp[off_line])
+	assert_eq(_enemies.active[dies], 0)
+	assert_lt(_enemies.hp[bystander], hp[bystander], "barbs from the kill")
+
+
+func test_runo_song_cycles_fire_ice_lightning() -> void:
+	var player: Player = _hero("vainamoinen")
+	var song: WeaponInstance = GameAuthority.give_weapon(player, "runo_song")
+	var projectiles := ProjectileManager.new()
+	projectiles.enemies = _enemies
+	_parent.add_child(projectiles)
+	projectiles.setup()
+	_combat.projectiles = projectiles
+	var elements: Array[String] = []
+	for attack: int in 3:
+		song.attacks_made = attack + 1
+		ProjectilePattern.new(ProjectileManager.FLIGHT).fire(song, player, {"direction": Vector2.RIGHT}, _combat)
+		elements.append(projectiles._element[attack])
+	assert_eq(elements, ["fire", "ice", "lightning"] as Array[String])

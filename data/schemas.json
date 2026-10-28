@@ -1,5 +1,5 @@
 {
-  "_doc": "Required fields and types for every file in res://data/. The loader checks each file at startup and reports errors naming the file and field. Types: number, int, string, bool, any, or an object {type: object, fields: {...}} / {type: array, items: <type>}. Add \"optional\": true to an object-form field that may be missing. A file with \"gated\": true is a list of entries checked by the release content gate (care_tier \"A\" and lore_verified true). Keys starting with '_' are notes.",
+  "_doc": "Required fields and types for every file in res://data/. The loader checks each file at startup and reports errors naming the file and field. Types: number, int, string, bool, any, or an object {type: object, fields: {...}} / {type: array, items: <type>}. Add \"optional\": true to an object-form field that may be missing. A file with \"gated\": true is a list of entries checked by the release content gate (care_tier \"A\" and lore_verified true). Keys starting with '_' are notes. Add \"open\": true to an object that may also have extra keys of its own (e.g. a Hero's trait settings).",
   "files": {
     "config.json": {
       "gated": false,
@@ -63,6 +63,16 @@
               "move_deadzone": "number",
               "placeholder_pickup_radius_px": "number",
               "starting_weapon": "string"
+            }
+          },
+          "heroes": {
+            "type": "object",
+            "fields": {
+              "select_columns": "number",
+              "select_background": "string",
+              "labor_banner_s": "number",
+              "leap_shadow_color": "string",
+              "leap_ring_color": "string"
             }
           },
           "camera": {
@@ -687,6 +697,14 @@
                   "lifesteal_hp": {
                     "type": "number",
                     "optional": true
+                  },
+                  "width_px": {
+                    "type": "number",
+                    "optional": true
+                  },
+                  "melee_range_px": {
+                    "type": "number",
+                    "optional": true
                   }
                 }
               }
@@ -707,7 +725,20 @@
             },
             "placeholder_color": "string",
             "persists": "bool",
-            "in_level_up_pool": "bool"
+            "in_level_up_pool": "bool",
+            "on_kill_barbs": {
+              "type": "object",
+              "optional": true,
+              "fields": {
+                "radius_px": "number",
+                "damage_mult": "number"
+              }
+            },
+            "element_cycle": {
+              "type": "array",
+              "items": "string",
+              "optional": true
+            }
           }
         }
       }
@@ -901,6 +932,69 @@
             "fields": {
               "max_chill_stacks": "int"
             }
+          }
+        }
+      }
+    },
+    "heroes.json": {
+      "gated": true,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "tradition_key": "string",
+            "role_key": "string",
+            "patron_pantheon": "string",
+            "care_tier": "string",
+            "lore_source": "string",
+            "lore_verified": "bool",
+            "stats": {
+              "type": "object",
+              "fields": {
+                "max_hp": "number",
+                "move_speed": "number",
+                "armor": "number",
+                "might": "number",
+                "area": "number",
+                "cooldown": "number",
+                "pickup_radius": "number",
+                "luck": "number",
+                "crit": "number"
+              }
+            },
+            "signature_weapon": "string",
+            "expertise": {
+              "type": "array",
+              "items": "string"
+            },
+            "trait": {
+              "type": "object",
+              "fields": {
+                "id": "string",
+                "name_key": "string",
+                "desc_key": "string"
+              },
+              "open": true
+            },
+            "passive": {
+              "type": "object",
+              "fields": {
+                "id": "string",
+                "name_key": "string",
+                "desc_key": "string"
+              },
+              "open": true
+            },
+            "divine_link": {
+              "type": "object"
+            },
+            "unlock": {
+              "type": "object"
+            },
+            "placeholder_color": "string"
           }
         }
       }

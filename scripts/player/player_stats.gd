@@ -8,6 +8,7 @@ extends RefCounted
 
 const STATS: PackedStringArray = [
 	"max_hp", "move_speed", "armor", "might", "area", "cooldown", "pickup_radius", "luck", "crit", "god_charge",
+	"attack_speed", "status_duration",
 ]
 
 ## Flat starting values, e.g. {"max_hp": 100, "move_speed": 100, ...}.
@@ -22,7 +23,12 @@ func _init(base_values: Dictionary = {}) -> void:
 		bonus[stat] = 0.0
 
 
-## Starting stats from config.json until Heroes exist.
+## Starting stats for a Hero from heroes.json.
+static func from_hero(hero: Dictionary) -> PlayerStats:
+	return PlayerStats.new(HeroRules.base_stats(hero))
+
+
+## Placeholder starting stats from config.json (used when no Hero is chosen, e.g. in tests).
 static func from_config() -> PlayerStats:
 	return PlayerStats.new({
 		"max_hp": Data.cfg_float("player.placeholder_max_hp"),
@@ -71,6 +77,16 @@ func pickup_radius() -> float:
 
 func luck() -> float:
 	return float(base["luck"]) + float(bonus["luck"])
+
+
+## Attack speed bonus (e.g. Battle Frenzy +30%): weapons attack (1 + this) times as often.
+func attack_speed() -> float:
+	return float(base["attack_speed"]) + float(bonus["attack_speed"])
+
+
+## Status duration bonus (e.g. Eternal Sage +30%).
+func status_duration_mult() -> float:
+	return 1.0 + float(base["status_duration"]) + float(bonus["status_duration"])
 
 
 ## God meter charge bonus (Votive Bell); used from Phase 11.

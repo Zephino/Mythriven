@@ -107,7 +107,7 @@ func test_conduct_chains_to_every_soaked_enemy_nearby() -> void:
 	GameAuthority.hits.hit(first, 10.0, _player, Vector2.ZERO, "lightning", 0.0)
 	assert_lt(_enemies.hp[near], near_hp, "the Soaked neighbour is hit by the chain")
 	assert_eq(_enemies.hp[dry], dry_hp, "a dry neighbour is not")
-	assert_signal_emitted_with_parameters(GameAuthority, "reaction_triggered", ["conduct", Vector2.ZERO, 64.0])
+	assert_signal_emitted_with_parameters(GameAuthority, "reaction_triggered", ["conduct", Vector2.ZERO, 64.0, _player])
 
 
 func test_steam_burst_melts_ice() -> void:

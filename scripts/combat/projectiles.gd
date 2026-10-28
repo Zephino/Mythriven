@@ -24,6 +24,7 @@ var _life := PackedFloat32Array()
 var _radius := PackedFloat32Array()
 var _pierce := PackedInt32Array()
 var _return_after := PackedFloat32Array()
+var _element := PackedStringArray()
 var _orbit_angle := PackedFloat32Array()
 var _orbit_radius := PackedFloat32Array()
 var _orbit_speed := PackedFloat32Array()
@@ -46,6 +47,7 @@ func setup() -> void:
 	_radius.resize(_capacity)
 	_pierce.resize(_capacity)
 	_return_after.resize(_capacity)
+	_element.resize(_capacity)
 	_orbit_angle.resize(_capacity)
 	_orbit_radius.resize(_capacity)
 	_orbit_speed.resize(_capacity)
@@ -79,7 +81,11 @@ func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vecto
 	_weapon[i] = weapon
 	_thrower[i] = player
 	_hits[i].clear()
-	_multimesh.set_instance_color(i, Color.html(str(weapon.data.get("placeholder_color", "#ffffff"))))
+	_element[i] = str(settings.get("element", weapon.data.get("element", Elements.PHYSICAL)))
+	var color: Color = Color.html(str(weapon.data.get("placeholder_color", "#ffffff")))
+	if settings.has("element"):
+		color = Elements.color(_element[i])
+	_multimesh.set_instance_color(i, color)
 
 
 ## Launches a projectile that circles `player`, starting at `start_angle` (radians).
@@ -137,8 +143,8 @@ func _tick_hits(i: int, delta: float) -> void:
 		if hits.has(slot) or _pos[i].distance_to(enemies.positions[slot]) > _radius[i] + enemies.radius[slot]:
 			continue
 		hits[slot] = interval if interval > 0.0 else INF
-		GameAuthority.damage_enemy(slot, weapon.stat("damage"), _thrower[i],
-				_vel[i].normalized() * weapon.stat("knockback"), str(weapon.data.get("element", "physical")),
+		GameAuthority.damage_enemy(slot, weapon.damage(), _thrower[i],
+				_vel[i].normalized() * weapon.stat("knockback"), _element[i],
 				weapon.stat("status_chance"))
 		_pierce[i] -= 1
 		if _pierce[i] < 0:

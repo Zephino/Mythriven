@@ -56,6 +56,15 @@
     "starting_weapon": "great_club"
   },
 
+  "heroes": {
+    "_doc": "Hero select and Legend Trait visuals. Each Hero's own numbers are in heroes.json.",
+    "select_columns": 2,
+    "select_background": "#14121cf0",
+    "labor_banner_s": 3.0,
+    "leap_shadow_color": "#00000066",
+    "leap_ring_color": "#5fbf6aa0"
+  },
+
   "camera": {
     "_doc": "Smooth follow with slight look-ahead. follow_speed is how quickly the camera catches up (higher = tighter). zoom is a placeholder until the screen resolution is decided.",
     "follow_speed": 8.0,

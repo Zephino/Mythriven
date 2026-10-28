@@ -177,6 +177,84 @@ DEBUG_APPLY_HEX,Hex nearby enemies
 DEBUG_FREEZE_NEARBY,Freeze nearby enemies
 DEBUG_JUMP_TO_UNRAVELING,Jump the timer to 30:00 (statuses on you)
 DEBUG_STATUS_INFO,"Statuses: burn %d · chill %d · frozen %d · shock %d · soaked %d · poison %d · hex %d · on you: %s"
+LABOR_NEMEAN_LION,The Nemean Lion
+LABOR_LERNAEAN_HYDRA,The Lernaean Hydra
+LABOR_CERYNEIAN_HIND,The Ceryneian Hind
+LABOR_ERYMANTHIAN_BOAR,The Erymanthian Boar
+LABOR_AUGEAN_STABLES,The Augean Stables
+LABOR_STYMPHALIAN_BIRDS,The Stymphalian Birds
+LABOR_CRETAN_BULL,The Cretan Bull
+LABOR_MARES_OF_DIOMEDES,The Mares of Diomedes
+LABOR_GIRDLE_OF_HIPPOLYTA,The Girdle of Hippolyta
+LABOR_CATTLE_OF_GERYON,The Cattle of Geryon
+LABOR_APPLES_OF_THE_HESPERIDES,The Apples of the Hesperides
+LABOR_CERBERUS,Cerberus
+HERO_HERACLES_NAME,Heracles
+HERO_CU_CHULAINN_NAME,Cú Chulainn
+HERO_VAINAMOINEN_NAME,Väinämöinen
+HERO_TOMOE_GOZEN_NAME,Tomoe Gozen
+TRADITION_GREEK,Greek
+TRADITION_IRISH,Irish
+TRADITION_FINNISH,Finnish (Kalevala)
+TRADITION_JAPANESE,Japanese legend
+ROLE_BRUISER,Bruiser
+ROLE_SPEAR_STRIKER,Mobile spear striker
+ROLE_SONG_MAGE,Elemental song-mage
+ROLE_SKIRMISHER,Agile sword-and-bow skirmisher
+TRAIT_TWELVE_LABORS,Twelve Labors
+TRAIT_TWELVE_LABORS_DESC,"Labors appear one at a time as goals; each one completed gives a bonus for the rest of the run, up to 12."
+TRAIT_SALMON_LEAP,Salmon Leap
+TRAIT_SALMON_LEAP_DESC,"Every 8 s he leaps 3 tiles the way he is moving, untouchable for a moment, and lands with a shockwave."
+TRAIT_SONG_OF_POWER,Song of Power
+TRAIT_SONG_OF_POWER_DESC,"Every elemental reaction he causes adds a Verse: +3% spell damage each, up to 10, for 6 s."
+TRAIT_CAVALRY_CHARGE,Cavalry Charge
+TRAIT_CAVALRY_CHARGE_DESC,"Moving builds Momentum (faster attacks and movement). At full Momentum she charges, trampling enemies and dodging the next hit."
+PASSIVE_LIONS_HIDE,Lion's Hide
+PASSIVE_LIONS_HIDE_DESC,"+2 Armor, and the first hit every 8 s is halved."
+PASSIVE_BATTLE_FRENZY,Battle Frenzy
+PASSIVE_BATTLE_FRENZY_DESC,"Below 30% HP: +30% attack speed and +15% Area."
+PASSIVE_ETERNAL_SAGE,Eternal Sage
+PASSIVE_ETERNAL_SAGE_DESC,Statuses he applies last 30% longer.
+PASSIVE_TOMOE,Warrior's Eye
+PASSIVE_TOMOE_DESC,+10% Crit Chance.
+WEAPON_GAE_BOLG_NAME,Gáe Bolg
+WEAPON_GAE_BOLG_DESC,"A piercing spear thrust along a line; enemies it kills burst into barbs that hit those nearby."
+WEAPON_RUNO_SONG_NAME,Runo Song
+WEAPON_RUNO_SONG_DESC,"Magic songs cast as bolts, cycling Fire, Ice, and Lightning."
+WEAPON_SWORD_AND_BOW_NAME,Sword and Bow
+WEAPON_SWORD_AND_BOW_DESC,"Sword slashes when enemies are close, arrows when they are farther away."
+WEAPON_JAVELIN_NAME,Javelin
+WEAPON_JAVELIN_DESC,Piercing javelins thrown at the nearest enemy.
+WEAPON_LONGBOW_NAME,Longbow
+WEAPON_LONGBOW_DESC,Long-range arrows at the nearest enemy.
+WEAPON_BRONZE_SWORD_NAME,Bronze Sword
+WEAPON_BRONZE_SWORD_DESC,Quick wide sword arcs toward the nearest enemy.
+WEAPON_WAR_HAMMER_NAME,War Hammer
+WEAPON_WAR_HAMMER_DESC,Slow hammer blows that knock enemies far back.
+LABOR_HUD,"Labor %d: %s (%s)"
+LABOR_COMPLETE,Labor complete: %s!
+LABORS_ALL_DONE,All twelve Labors complete!
+LABOR_GOAL_KILLS,defeat enemies %d / %d
+LABOR_GOAL_KILLS_WITHIN,"defeat %d enemies within %d s: %d"
+LABOR_GOAL_NO_DAMAGE_FOR,"take no damage: %d / %d s"
+LABOR_GOAL_REACH_LEVEL,reach level %d / %d
+LABOR_GOAL_COLLECT_XP,collect XP %d / %d
+HUD_SALMON_LEAP,Salmon Leap in %d s
+HUD_BATTLE_FRENZY,Battle Frenzy!
+HUD_VERSES,Verses %d / %d
+HUD_MOMENTUM,Momentum %d / %d
+HUD_CHARGING,Charge!
+UI_CHOOSE_HERO,Choose your Hero
+UI_HERO_TRADITION_ROLE,%s · %s
+UI_HERO_STATS,"HP %d · Speed %d · Armor %d"
+UI_HERO_WEAPON,Weapon: %s
+UI_HERO_TRAIT,"Legend Trait: %s. %s"
+UI_HERO_PASSIVE,"Passive: %s. %s"
+UI_CHANGE_HERO,Change Hero
+CARD_EXPERT,Expert!
+DEBUG_FINISH_LABOR,Finish the current Labor (Heracles)
+DEBUG_CHANGE_HERO,Back to Hero select
+DEBUG_NO_HERO,No Hero
 DEBUG_CLOSE,Close
 DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
 DATA_ERROR_FILE_MISSING,%s: file not found

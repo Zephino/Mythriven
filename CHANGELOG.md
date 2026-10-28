@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.13
+Date: 10/28/2026
+Time: 5:01 PM
+
+### Changes
+- **Phase 9: Heroes.** A Hero select screen opens the game: Heracles, Cú Chulainn, Väinämöinen, and Tomoe Gozen, with the design's stats, signature weapons, Legend Traits, passives, and expertise (`heroes.json`, content-gated).
+- **Heracles:** Great Club; Twelve Labors (HUD goals, each giving a bonus for the run, up to 12); Lion's Hide (+2 Armor, first hit every 8 s halved).
+- **Cú Chulainn:** Gáe Bolg (piercing line thrust; kills burst into barbs); Salmon Leap (every 8 s, 3 tiles, untargetable 0.8 s, landing shockwave, landing shadow); Battle Frenzy (below 30% HP: +30% attack speed, +15% Area).
+- **Väinämöinen:** Runo Song (bolts cycling Fire → Ice → Lightning); Song of Power (each reaction he causes adds a Verse: +3% spell damage, up to 10, 6 s each); Eternal Sage (statuses last 30% longer).
+- **Tomoe Gozen:** Sword and Bow (sword up close, arrows farther away); Cavalry Charge (Momentum from moving: +4% attack speed and +2% speed per stack; at 10 stacks a charge every 5 s that tramples and dodges the next hit); +10% Crit Chance.
+- **Expertise:** weapons in a Hero's expert categories get +25% attack speed, +15% damage, and an extra projectile or pierce at level 8, with an "Expert!" badge on cards.
+- Four new general weapons: Javelin, Longbow, Bronze Sword, War Hammer.
+- Death screen: **Change Hero** next to Retry (Retry keeps the same Hero). HUD shows the Hero's trait (current Labor, Momentum, Verses, leap timer).
+- Debug menu: finish the current Labor, back to Hero select; the info line shows the Hero.
+- New automated tests for Heroes.
+
+### Reason
+The owner asked to continue with the next phase after confirming the spells work.
+
 ## Version 00.01.12
 Date: 10/28/2026
 Time: 4:49 PM

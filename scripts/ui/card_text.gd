@@ -30,6 +30,8 @@ static func full(card: Dictionary) -> String:
 			lines.append(_tr("CARD_NEW"))
 		LevelUpRules.WEAPON_UP, LevelUpRules.PASSIVE_UP:
 			lines.append(_tr("CARD_LEVEL_CHANGE") % [int(card["from"]), int(card["to"])])
+	if bool(card.get("expert", false)):
+		lines.append(_tr("CARD_EXPERT"))
 	if is_tier_change(card):
 		var weapon: Dictionary = GameAuthority.find_weapon(id)
 		lines.append(_tr("CARD_TIER_CHANGE") % [

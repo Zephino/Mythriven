@@ -1,6 +1,6 @@
 class_name Player
 extends Node2D
-## One player's Hero in the world (placeholder square until Phase 9).
+## One player's Hero in the world (a placeholder square in the Hero's colour).
 ## Created only through GameAuthority.spawn_player, which keeps the list of
 ## players. Facing is the last direction the player moved in. Health changes
 ## only through GameAuthority, so co-op can later run them on the host.
@@ -13,6 +13,10 @@ var velocity: Vector2 = Vector2.ZERO
 var facing: Vector2 = Vector2.RIGHT
 
 var stats: PlayerStats = null
+## The Hero's entry from heroes.json (empty in tests that don't pick one).
+var hero: Dictionary = {}
+## The Hero's Legend Trait and passive (see scripts/player/hero_traits/).
+var kit: HeroKit = null
 ## Weapons held this run (up to 6), each a WeaponInstance.
 var weapons: Array[WeaponInstance] = []
 ## Passives held this run (up to 6): passive id -> level 1–5.
@@ -35,10 +39,22 @@ var _shown_hp: float = -1.0
 
 func _ready() -> void:
 	if stats == null:
-		stats = PlayerStats.from_config()
+		stats = PlayerStats.from_hero(hero) if not hero.is_empty() else PlayerStats.from_config()
 	body_radius = Data.cfg_float("player.body_radius_px")
+	if not hero.is_empty():
+		kit = HeroKit.create(str((hero.get("trait", {}) as Dictionary).get("id", "")))
+		add_child(kit)
+		kit.setup(self, hero)
 	refresh_stats()
 	hp = max_hp
+
+
+func kit_attack_speed_bonus() -> float:
+	return kit.attack_speed_bonus() if kit != null else 0.0
+
+
+func kit_damage_mult(weapon: WeaponInstance) -> float:
+	return kit.damage_mult(weapon) if kit != null else 1.0
 
 
 ## Re-reads speed, Max HP, and Armor after a stat changes. A higher Max HP
@@ -58,7 +74,9 @@ func _process(delta: float) -> void:
 		var dot: float = statuses.tick(delta)
 		if dot > 0.0:
 			GameAuthority.damage_player_over_time(self, dot)
-	if input != null and alive:
+	if kit != null and kit.controls_movement():
+		pass
+	elif input != null and alive:
 		step(input.get_move_vector(), delta)
 	elif not alive:
 		velocity = Vector2.ZERO
@@ -69,7 +87,7 @@ func _process(delta: float) -> void:
 
 ## Moves by one frame in `direction` (a unit vector or zero) and updates facing.
 func step(direction: Vector2, delta: float) -> void:
-	velocity = direction * move_speed * statuses.speed_mult()
+	velocity = direction * move_speed * statuses.speed_mult() * (kit.speed_mult() if kit != null else 1.0)
 	position += velocity * delta
 	if direction != Vector2.ZERO and direction != facing:
 		facing = direction
@@ -78,7 +96,7 @@ func step(direction: Vector2, delta: float) -> void:
 
 func _draw() -> void:
 	var size_px: float = Data.cfg_float("player.placeholder_size_px")
-	var color := Color.html(Data.cfg_string("player.placeholder_color"))
+	var color := Color.html(str(hero.get("placeholder_color", Data.cfg_string("player.placeholder_color"))))
 	if not alive:
 		color = Color.html(Data.cfg_string("player.fallen_color"))
 	draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), color)

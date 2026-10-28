@@ -17,6 +17,21 @@ var _level_up: LevelUpScreen
 
 
 func _ready() -> void:
+	var hero_id: String = GameAuthority.selected_hero_id
+	if hero_id != "" and not HeroRules.find(hero_id).is_empty():
+		_start()
+		return
+	var select := HeroSelect.new()
+	select.hero_chosen.connect(_on_hero_chosen)
+	add_child(select)
+
+
+func _on_hero_chosen(hero_id: String) -> void:
+	GameAuthority.selected_hero_id = hero_id
+	_start()
+
+
+func _start() -> void:
 	var joystick := TouchJoystick.new()
 	_build_world(joystick)
 	_build_ui(joystick)
@@ -57,8 +72,9 @@ func _build_world(joystick: TouchJoystick) -> void:
 
 	var input := PlayerInput.new()
 	input.joystick = joystick
-	var player: Player = GameAuthority.spawn_player(world, Vector2.ZERO, input, true)
-	GameAuthority.give_weapon(player, Data.cfg_string("player.starting_weapon"))
+	var player: Player = GameAuthority.spawn_player(world, Vector2.ZERO, input, true, GameAuthority.selected_hero_id)
+	var start_weapon: String = str(player.hero.get("signature_weapon", Data.cfg_string("player.starting_weapon")))
+	GameAuthority.give_weapon(player, start_weapon)
 
 	var effects := EffectLayer.new()
 	world.add_child(effects)

@@ -49,7 +49,7 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
 	enemies.knockback[slot] += push * (1.0 - float(data.get("knockback_resist", 0.0)))
 	if status_id != "" and _rng().randf() < status_chance:
-		_apply_status(slot, status_id, push, data)
+		_apply_status(slot, status_id, push, data, attacker.stats.status_duration_mult())
 	GameAuthority.enemy_damaged.emit(slot, amount, _number_kind(bool(result["crit"]), element_mult), at)
 	if enemies.hp[slot] <= 0.0:
 		GameAuthority.kill_enemy(slot, attacker)
@@ -83,7 +83,7 @@ func _react(slot: int, base: float, attacker: Player, element: String, status_ch
 	var tile: float = Data.cfg_float("world.tile_px")
 	if element == Elements.PHYSICAL and st.has(slot, "frozen") and take_reaction_budget():
 		st.remove(slot, "frozen")
-		_announce("shatter", at, 0.0)
+		_announce("shatter", at, 0.0, attacker)
 		return 1.0 + float(Elements.reaction("shatter").get("damage_bonus", 1.0))
 	if element == "fire" and (st.has(slot, "frozen") or st.has(slot, "chill")) and take_reaction_budget():
 		st.remove(slot, "frozen")
@@ -92,14 +92,14 @@ func _react(slot: int, base: float, attacker: Player, element: String, status_ch
 		var steam_radius: float = float(steam.get("radius_tiles", 2)) * tile
 		for other: int in _others_near(slot, at, steam_radius):
 			hit(other, base * float(steam.get("damage_mult", 0.75)), attacker, Vector2.ZERO, "fire", 0.0, false)
-		_announce("steam_burst", at, steam_radius)
+		_announce("steam_burst", at, steam_radius, attacker)
 	elif element == "lightning" and st.has(slot, "soaked") and take_reaction_budget():
 		var conduct: Dictionary = Elements.reaction("conduct")
 		var conduct_radius: float = float(conduct.get("radius_tiles", 4)) * tile
 		for other: int in _others_near(slot, at, conduct_radius):
 			if st.has(other, "soaked"):
 				hit(other, base * float(conduct.get("damage_mult", 0.5)), attacker, Vector2.ZERO, "lightning", status_chance, false)
-		_announce("conduct", at, conduct_radius)
+		_announce("conduct", at, conduct_radius, attacker)
 	elif element == "wind" and take_reaction_budget():
 		var spreading: PackedStringArray = []
 		for status_id: String in SPREADABLE:
@@ -113,17 +113,17 @@ func _react(slot: int, base: float, attacker: Player, element: String, status_ch
 		for i: int in mini(targets.size(), int(spread.get("max_targets", 4))):
 			for status_id: String in spreading:
 				st.apply(targets[i], status_id)
-		_announce("spread", at, float(spread.get("radius_tiles", 3)) * tile)
+		_announce("spread", at, float(spread.get("radius_tiles", 3)) * tile, attacker)
 	return 1.0
 
 
-func _apply_status(slot: int, status_id: String, push: Vector2, data: Dictionary) -> void:
+func _apply_status(slot: int, status_id: String, push: Vector2, data: Dictionary, duration_mult: float) -> void:
 	if status_id == "gust":
 		var strength: float = float(Elements.status("gust").get("knockback", 0.0))
 		var direction: Vector2 = push.normalized() if push != Vector2.ZERO else Vector2.RIGHT
 		GameAuthority.enemies.knockback[slot] += direction * strength * (1.0 - float(data.get("knockback_resist", 0.0)))
 		return
-	GameAuthority.enemies.statuses.apply(slot, status_id, 1.0, not bool(data.get("boss", false)))
+	GameAuthority.enemies.statuses.apply(slot, status_id, duration_mult, not bool(data.get("boss", false)))
 
 
 func _others_near(slot: int, at: Vector2, reach: float) -> PackedInt32Array:
@@ -134,8 +134,8 @@ func _others_near(slot: int, at: Vector2, reach: float) -> PackedInt32Array:
 	return found
 
 
-func _announce(reaction_id: String, at: Vector2, reach: float) -> void:
-	GameAuthority.reaction_triggered.emit(reaction_id, at, reach)
+func _announce(reaction_id: String, at: Vector2, reach: float, by: Player) -> void:
+	GameAuthority.reaction_triggered.emit(reaction_id, at, reach, by)
 
 
 ## How the damage number looks: weakness hits are big and yellow with "!",
