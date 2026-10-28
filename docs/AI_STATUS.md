@@ -4,7 +4,7 @@ Last updated: 2026-10-28
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
 Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.05
+Version: 00.01.06
 Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.05` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.06` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -72,7 +72,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 - MultiMesh drawing of enemies, orbs, and projectiles (circles may be invisible, upside down, or the wrong size).
 - Hand-written `.tscn`; Godot will add `.uid` / `.import` files on first open, which should be committed.
 
-## Cursor-rule compliance (`.cursor/rules/`, all 9 read and rechecked)
+## Cursor-rule compliance (`.cursor/rules/`, all 10 read and rechecked)
 - `mythriven.mdc`: built the listed phases only, in order (Phases 3–6 at once by owner request); no lore invented: enemies are marked placeholders, and every weapon, passive, and level name comes from GAME_DESIGN.md; text through `tr()`; tuning numbers, colours, and sizes in JSON; static typing; scripts under 300 lines; players are a list; game events go through `GameAuthority`; pooling and the spatial hash for enemies, projectiles, orbs, effects, and damage numbers; `reference/` not loaded. Run items are `persists: false`.
 - `think-before-acting.mdc`: open design questions logged in `docs/DECISIONS.md` instead of guessed silently.
 - `dependencies.mdc`: no new dependencies since GUT.
@@ -82,6 +82,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 - `git-workflow.mdc`: one commit per phase with `v00.01.04 Phase N: …`; no secrets; no history rewriting; no tags. **Exception:** pushed straight to `main` by owner request.
 - `accessibility-for-interfaces.mdc`: level-up screen, death screen, HUD badge, and debug menu are keyboard/gamepad/touch usable with focus order, first control focused, 72 px targets, text through `tr()` in wrapping containers. A Settings screen for accessibility options comes in Phase 19.
 - `bug-investigation.mdc`: no bugs fixed in this task.
+- `changelog.mdc` (added 00.01.06 by owner request): one `CHANGELOG.md` entry per change request, newest first, matching `VERSION`; checked by `tests/test_data_files.gd`.
 - **Exception:** the review gates between phases in `mythriven.mdc` were skipped at the owner's explicit request.
 
 ## Blockers

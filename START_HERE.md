@@ -15,6 +15,7 @@ This folder holds the game, the design, and the build docs. Cursor builds the ga
 | `docs/reports/` | One report per finished phase | Cursor |
 | `reference/` | Your mythology database (design notes only) | You |
 | `VERSION` | The build version (XX.XX.XX), also shown in the game's corner and debug menu | The coding agent, once per change request |
+| `CHANGELOG.md` | One entry per change request: version, date, time, what changed, and why | The coding agent |
 | `CREDITS.md` | Every add-on, font, and asset from outside the project, with its license | The coding agent |
 
 ## Setting up the game project (first time)

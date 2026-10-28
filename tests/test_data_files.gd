@@ -21,6 +21,16 @@ func test_version_file_matches_project_settings() -> void:
 		assert_true(part.is_valid_int())
 
 
+func test_changelog_matches_version() -> void:
+	var file_version: String = FileAccess.get_file_as_string("res://VERSION").strip_edges()
+	var changelog: String = FileAccess.get_file_as_string("res://CHANGELOG.md")
+	var marker: String = "## Version "
+	var start: int = changelog.find(marker)
+	assert_ne(start, -1, "CHANGELOG.md has at least one entry")
+	var newest: String = changelog.substr(start + marker.length(), file_version.length())
+	assert_eq(newest, file_version, "the newest changelog entry matches VERSION")
+
+
 func test_translation_keys_are_unique() -> void:
 	var seen: Dictionary = {}
 	var file := FileAccess.open("res://localization/text.csv", FileAccess.READ)

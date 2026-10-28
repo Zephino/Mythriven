@@ -14,6 +14,11 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-28 — Tools — Changelog rule (v00.01.06)
+- What changed: added the owner's changelog rule (`.cursor/rules/changelog.mdc`) and `CHANGELOG.md`, plus a test that the newest changelog entry matches `VERSION`. No game code changed.
+- Files touched: `.cursor/rules/changelog.mdc`, `CHANGELOG.md` (new), `tests/test_data_files.gd`, `docs/AI_STATUS.md`, `VERSION`, `project.godot` (version only).
+- Unfinished / next: none.
+
 ## 2026-10-28 — Tools — Playable web link (v00.01.05)
 - What changed: added a Web export preset and a GitHub Actions workflow (`.github/workflows/web.yml`). On every push to `main` it installs Godot 4.7.2, runs the automated tests, exports a debug web build, and publishes it to GitHub Pages at https://zephino.github.io/Mythriven/ (same idea as WaveDefence, but built automatically). No game code changed.
 - Files touched: `export_presets.cfg`, `.github/workflows/web.yml` (new), `START_HERE.md`, `docs/DECISIONS.md`, `docs/AI_STATUS.md`, `VERSION`, `project.godot` (version only).
