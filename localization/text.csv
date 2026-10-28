@@ -26,6 +26,22 @@ DEBUG_NO_PLAYER,Players: %d · no local player
 DEBUG_TELEPORT_FAR,Jump far east (origin shift test)
 DEBUG_WORLD_INFO,"Seed %d · chunk (%d, %d) · origin shift (%d, %d) chunks · %d chunks loaded, %d pooled"
 LEVEL_AEGEAN_SHORE_NAME,The Aegean Shore
+DEBUG_SPAWN_CHASERS,Spawn a ring of chasers
+DEBUG_SPAWN_SWARM,Spawn a swarm pack
+DEBUG_FILL_TO_CAP,Fill to the enemy cap (stress test)
+DEBUG_KILL_ALL,Remove all enemies
+DEBUG_AUTO_SPAWN,Automatic spawning
+DEBUG_GOD_MODE,God mode (take no damage)
+DEBUG_HEAL,Heal to full
+DEBUG_ENEMY_INFO,"Enemies %d / %d · player HP %d · time %s"
+UI_FALLEN_TITLE,You have fallen
+UI_RETRY,Retry
+UI_SURVIVED,Survived %s
+UI_FELLED_BY,Felled by: %s
+FORMAT_RUN_TIME,%d:%02d
+FORMAT_WHOLE_NUMBER,%d
+ENEMY_PLACEHOLDER_CHASER_NAME,Placeholder chaser
+ENEMY_PLACEHOLDER_SWARM_NAME,Placeholder swarm
 DEBUG_CLOSE,Close
 DATA_ERROR_PARSE,"%s: invalid JSON at line %d (%s)"
 DATA_ERROR_FILE_MISSING,%s: file not found

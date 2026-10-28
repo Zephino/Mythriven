@@ -9,6 +9,7 @@
     "rng_test_count": 5,
     "grid_spacing_px": 64,
     "teleport_px": 10000,
+    "spawn_count": 50,
     "grid_color": "#ffffff26"
   },
 
@@ -36,6 +37,15 @@
     "placeholder_color": "#e0c060",
     "facing_marker_px": 6,
     "facing_marker_color": "#3a2a10",
+    "fallen_color": "#6a6458",
+    "placeholder_max_hp": 100,
+    "placeholder_armor": 0,
+    "body_radius_px": 7,
+    "hp_bar_width_px": 18,
+    "hp_bar_height_px": 3,
+    "hp_bar_offset_px": 14,
+    "hp_bar_color": "#d23c3c",
+    "hp_bar_back_color": "#00000099",
     "snap_to_8_directions": true,
     "move_deadzone": 0.2
   },
@@ -196,7 +206,22 @@
     "swarm_pack_size": [10, 30],
     "caster_telegraph_s": 0.5,
     "bomber_fuse_s": 1.0,
-    "min_attack_telegraph_s": 0.5
+    "min_attack_telegraph_s": 0.5,
+    "auto_spawn_enabled": true,
+    "auto_spawn_per_s": 2.0,
+    "auto_chaser_type": "placeholder_chaser",
+    "auto_swarm_type": "placeholder_swarm",
+    "swarm_pack_chance": 0.05,
+    "pack_spread_px": 24,
+    "spawn_margin_px": 48,
+    "recycle_check_s": 0.5,
+    "recycle_ahead_spread_deg": 60,
+    "contact_margin_px": 1.0,
+    "contact_query_slack_px": 8,
+    "knockback_decay": 10.0,
+    "hit_flash_s": 0.08,
+    "hit_flash_color": "#ffffff",
+    "placeholder_texture_px": 32
   },
 
   "bosses": {

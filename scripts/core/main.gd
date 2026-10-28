@@ -1,12 +1,15 @@
 extends Node
-## Main scene. Builds the run: the endless ground (Phase 3), one local
-## player that moves with keyboard, gamepad, or the touch joystick (Phase 2),
-## and a camera that follows it. Also shows the Phase 1 translation test label,
+## Main scene. Builds the run: the endless ground (Phase 3), pooled enemies
+## and their spawner (Phase 4), one local player that moves with keyboard,
+## gamepad, or the touch joystick (Phase 2), a camera that follows it, and the
+## death screen. Also shows the Phase 1 translation test label,
 ## the build version in the corner, and any data errors found at startup.
 
 var _test_label: Label
 var _version_label: Label
 var _error_label: Label
+var _death_screen: DeathScreen
+var _enemies: EnemyManager
 
 
 func _ready() -> void:
@@ -24,6 +27,15 @@ func _build_world(joystick: VirtualJoystick) -> void:
 	world.add_child(chunks)
 	chunks.setup(run.level, run.seed_value)
 	world.origin_shifted.connect(chunks.on_origin_shifted)
+
+	_enemies = EnemyManager.new()
+	world.add_child(_enemies)
+	_enemies.setup()
+	GameAuthority.enemies = _enemies
+	world.origin_shifted.connect(_enemies.on_origin_shifted)
+	var spawner := EnemySpawner.new()
+	spawner.enemies = _enemies
+	world.add_child(spawner)
 
 	var input := PlayerInput.new()
 	input.joystick = joystick
@@ -44,6 +56,28 @@ func _build_world(joystick: VirtualJoystick) -> void:
 		actions.set("grid", grid)
 		actions.set("camera", camera)
 		add_child(actions)
+		var combat_actions: Node = preload("res://scripts/core/debug_actions_combat.gd").new()
+		combat_actions.set("enemies", _enemies)
+		combat_actions.set("spawner", spawner)
+		add_child(combat_actions)
+
+	_death_screen = DeathScreen.new()
+	add_child(_death_screen)
+	GameAuthority.run_ended.connect(_on_run_ended)
+
+
+## Drop references to this scene's objects (for example on Retry).
+func _exit_tree() -> void:
+	GameAuthority.end_scene()
+
+
+func _on_run_ended(run: RunState) -> void:
+	var lines: PackedStringArray = [tr("UI_SURVIVED") % TextFormat.run_time(run.elapsed_s)]
+	var player: Player = GameAuthority.local_player()
+	if player != null and _enemies.type_index.has(player.cause_of_death):
+		var killer: Dictionary = _enemies.types[_enemies.type_index[player.cause_of_death]]
+		lines.append(tr("UI_FELLED_BY") % tr(str(killer["name_key"])))
+	_death_screen.show_summary(lines)
 
 
 func _build_ui(joystick: VirtualJoystick) -> void:

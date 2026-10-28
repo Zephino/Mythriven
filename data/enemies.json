@@ -1,0 +1,33 @@
+[
+  {
+    "_doc": "Enemy types (GAME_DESIGN.md: Enemies). Phase 4 has only two PLACEHOLDER test enemies; the real Aegean Shore families (Shades, Harpies, Sirens, Satyr skirmishers) replace them in Phase 10. Speeds are px/s, radius_px is the body size used to keep enemies from stacking.",
+    "id": "placeholder_chaser",
+    "name_key": "ENEMY_PLACEHOLDER_CHASER_NAME",
+    "placeholder": true,
+    "movement": "chaser",
+    "hp": 10,
+    "speed": 40,
+    "contact_damage": 5,
+    "armor": 0,
+    "radius_px": 6,
+    "xp": 1,
+    "knockback_resist": 0.0,
+    "placeholder_color": "#c8c8c8",
+    "persists": false
+  },
+  {
+    "id": "placeholder_swarm",
+    "name_key": "ENEMY_PLACEHOLDER_SWARM_NAME",
+    "placeholder": true,
+    "movement": "swarm",
+    "hp": 4,
+    "speed": 70,
+    "contact_damage": 3,
+    "armor": 0,
+    "radius_px": 4,
+    "xp": 1,
+    "knockback_resist": 0.0,
+    "placeholder_color": "#9a96b8",
+    "persists": false
+  }
+]

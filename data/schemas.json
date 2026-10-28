@@ -15,6 +15,7 @@
               "rng_test_count": "number",
               "grid_spacing_px": "number",
               "teleport_px": "number",
+              "spawn_count": "number",
               "grid_color": "string"
             }
           },
@@ -45,6 +46,15 @@
               "placeholder_color": "string",
               "facing_marker_px": "number",
               "facing_marker_color": "string",
+              "fallen_color": "string",
+              "placeholder_max_hp": "number",
+              "placeholder_armor": "number",
+              "body_radius_px": "number",
+              "hp_bar_width_px": "number",
+              "hp_bar_height_px": "number",
+              "hp_bar_offset_px": "number",
+              "hp_bar_color": "string",
+              "hp_bar_back_color": "string",
               "snap_to_8_directions": "bool",
               "move_deadzone": "number"
             }
@@ -278,7 +288,22 @@
               },
               "caster_telegraph_s": "number",
               "bomber_fuse_s": "number",
-              "min_attack_telegraph_s": "number"
+              "min_attack_telegraph_s": "number",
+              "auto_spawn_enabled": "bool",
+              "auto_spawn_per_s": "number",
+              "auto_chaser_type": "string",
+              "auto_swarm_type": "string",
+              "swarm_pack_chance": "number",
+              "pack_spread_px": "number",
+              "spawn_margin_px": "number",
+              "recycle_check_s": "number",
+              "recycle_ahead_spread_deg": "number",
+              "contact_margin_px": "number",
+              "contact_query_slack_px": "number",
+              "knockback_decay": "number",
+              "hit_flash_s": "number",
+              "hit_flash_color": "string",
+              "placeholder_texture_px": "number"
             }
           },
           "bosses": {
@@ -411,6 +436,62 @@
             },
             "unlocks_hero_on_defeat": {
               "type": "any",
+              "optional": true
+            }
+          }
+        }
+      }
+    },
+    "enemies.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "placeholder": {
+              "type": "bool",
+              "optional": true
+            },
+            "movement": "string",
+            "hp": "number",
+            "speed": "number",
+            "contact_damage": "number",
+            "armor": "number",
+            "radius_px": "number",
+            "xp": "number",
+            "knockback_resist": "number",
+            "placeholder_color": "string",
+            "persists": "bool",
+            "family": {
+              "type": "string",
+              "optional": true
+            },
+            "tradition": {
+              "type": "string",
+              "optional": true
+            },
+            "element": {
+              "type": "string",
+              "optional": true
+            },
+            "weak": {
+              "type": "any",
+              "optional": true
+            },
+            "resist": {
+              "type": "any",
+              "optional": true
+            },
+            "gold_chance": {
+              "type": "number",
+              "optional": true
+            },
+            "ages": {
+              "type": "array",
+              "items": "string",
               "optional": true
             }
           }
