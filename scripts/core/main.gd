@@ -153,13 +153,25 @@ func _on_run_ended(run: RunState) -> void:
 	var lines: PackedStringArray = [tr("UI_SURVIVED") % TextFormat.run_time(run.elapsed_s)]
 	lines.append(tr("UI_RESULTS_LINE") % [run.level, run.kills])
 	var player: Player = GameAuthority.local_player()
-	if player != null and _enemies.type_index.has(player.cause_of_death):
-		var killer: Dictionary = _enemies.types[_enemies.type_index[player.cause_of_death]]
-		lines.append(tr("UI_FELLED_BY") % tr(str(killer["name_key"])))
+	var killer_key: String = _killer_name_key(player.cause_of_death) if player != null else ""
+	if killer_key != "":
+		lines.append(tr("UI_FELLED_BY") % tr(killer_key))
 	if log_path != "":
 		lines.append(tr("UI_RUN_LOG_SAVED"))
 	var entry: Dictionary = LeaderboardEntry.build(run, player, "") if player != null else {}
 	_death_screen.show_summary(lines, entry, LeaderboardEntry.can_submit(run))
+
+
+## Name to show for what ended the run: an enemy, a god's trial ("god_<id>"),
+## or the Unraveling. Empty when there's nothing to name.
+func _killer_name_key(cause: String) -> String:
+	if _enemies.type_index.has(cause):
+		return str(_enemies.types[_enemies.type_index[cause]]["name_key"])
+	if cause.begins_with("god_"):
+		return str(GodRules.find(cause.trim_prefix("god_")).get("name_key", ""))
+	if cause == "unraveling":
+		return "AGE_UNRAVELING_NAME"
+	return ""
 
 
 func _build_ui(joystick: TouchJoystick) -> void:

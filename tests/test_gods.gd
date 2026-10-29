@@ -177,6 +177,40 @@ func test_each_trial_can_be_won_and_failed() -> void:
 				_gods.release(_player, _gods.bound_ids(_player).find(god_id))
 
 
+func test_a_boss_calls_off_a_trial_and_trials_wait_for_the_fight_to_end() -> void:
+	var spawner := EnemySpawner.new()
+	spawner.enemies = _enemies
+	_parent.add_child(spawner)
+	spawner.set_process(false)
+	var shrines := Shrines.new()
+	shrines.gods = _gods
+	_parent.add_child(shrines)
+	shrines.set_process(false)
+	var trial := GodTrial.new()
+	trial.shrines = shrines
+	trial.patterns = add_child_autofree(PatternRunner.new())
+	trial.spawner = spawner
+	shrines.trial = trial
+	_parent.add_child(trial)
+	trial.set_process(false)
+	watch_signals(trial)
+	var shrine: Dictionary = shrines.add(Vector2.ZERO, "thor")
+	trial.begin(shrine, _player)
+	GameAuthority.run.boss_arena_active = true
+	spawner.rate_mult = 0.25
+	trial._process(0.05)
+	assert_false(trial.active, "the boss calls the trial off")
+	assert_signal_not_emitted(trial, "finished", "called off isn't won or failed")
+	assert_true(shrines.shrines.has(shrine), "the shrine waits for later")
+	assert_eq(spawner.rate_mult, 0.25, "the boss fight keeps its spawn rate")
+	assert_eq(_enemies_with_type("trial_avatar"), -1, "the duel avatar leaves")
+	shrines._touch(shrine, _player, 0.1)
+	assert_false(trial.active, "no trial starts during a boss fight")
+	GameAuthority.run.boss_arena_active = false
+	shrines._touch(shrine, _player, 0.1)
+	assert_true(trial.active, "after the fight the trial can start")
+
+
 func _enemies_with_type(type_id: String) -> int:
 	for i: int in _enemies.capacity:
 		if _enemies.active[i] != 0 and str(_enemies.type_of(i)["id"]) == type_id:

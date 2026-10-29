@@ -99,7 +99,7 @@ func _touch(shrine: Dictionary, player: Player, delta: float) -> void:
 		shrine["progress"] = float(shrine["progress"]) + delta
 		if float(shrine["progress"]) >= Data.cfg_float("gods.peaceful_bind_s"):
 			offer_binding(shrine, player)
-	elif trial != null and not trial.active:
+	elif trial != null and not trial.active and not GameAuthority.run.boss_arena_active:
 		trial.begin(shrine, player)
 
 

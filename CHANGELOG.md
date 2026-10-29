@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.18
+Date: 10/28/2026
+Time: 8:06 PM
+
+### Changes
+- **Playtest by a bot.** Played full 36-minute runs of the real game, with a bot steering each Hero (Heracles, Cú Chulainn, Väinämöinen, Tomoe Gozen) and one with god mode to see every Age, boss, and event. No script errors in any run.
+- **Fix: god trials during boss fights.** A god's Trial could start, or keep running, while a boss was being fought, and when it ended it set the spawn rate back to normal, so the full horde returned mid-boss. Now Trials don't start during a boss fight; a Trial already running when a boss arrives is called off without failing, and its shrine stays so you can try again after the fight. The boss fight's spawn rate is never reset by a Trial.
+- **Fix: "Felled by" on the death screen** now also names a god (when a Trial kills you) and the Unraveling. Before, only enemies were named.
+- New test for the Trial/boss fix (155 tests, all passing).
+
+### Reason
+The owner asked to test the game and get an honest assessment of where it's at. The playtest found these two bugs.
+
 ## Version 00.01.17
 Date: 10/28/2026
 Time: 5:47 PM

@@ -91,6 +91,9 @@ func _process(delta: float) -> void:
 	if _player == null or not is_instance_valid(_player) or not _player.alive:
 		_end(false)
 		return
+	if GameAuthority.run != null and GameAuthority.run.boss_arena_active:
+		_call_off()
+		return
 	time_left -= delta
 	var inside: bool = _player.position.distance_to(center) <= ring_radius
 	match kind:
@@ -167,14 +170,7 @@ func _chase(delta: float) -> void:
 
 
 func _end(won: bool) -> void:
-	active = false
-	_label.visible = false
-	if spawner != null:
-		spawner.rate_mult = 1.0
-	if kind == "trial_duel" and _avatar_slot != -1 and GameAuthority.enemies.active[_avatar_slot] != 0:
-		GameAuthority.enemies.remove_quietly(_avatar_slot)
-	_avatar_slot = -1
-	_decoys.clear()
+	_stop()
 	var god_id: String = str(shrine.get("god_id", ""))
 	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 	if banner != null:
@@ -185,6 +181,25 @@ func _end(won: bool) -> void:
 		shrines.shrines.erase(shrine)
 	finished.emit(won, god_id)
 	queue_redraw()
+
+
+## A boss arrived: the trial stops without failing and the shrine stays, so
+## it can be tried again after the fight (fairness rules: bosses are duels).
+func _call_off() -> void:
+	_stop()
+	queue_redraw()
+
+
+func _stop() -> void:
+	active = false
+	_label.visible = false
+	# The boss arena sets its own spawn rate; leave it alone during a fight.
+	if spawner != null and not (GameAuthority.run != null and GameAuthority.run.boss_arena_active):
+		spawner.rate_mult = 1.0
+	if kind == "trial_duel" and _avatar_slot != -1 and GameAuthority.enemies.active[_avatar_slot] != 0:
+		GameAuthority.enemies.remove_quietly(_avatar_slot)
+	_avatar_slot = -1
+	_decoys.clear()
 
 
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
