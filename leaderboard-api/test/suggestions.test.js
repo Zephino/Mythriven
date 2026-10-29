@@ -63,6 +63,26 @@ test("rejects GitHub failure without claiming success", async () => {
   assert.equal(response.status, 502);
   assert.equal(e._data.size, 0);
 });
+test("explains common GitHub permission and access failures without leaking secrets", async () => {
+  const cases = [
+    [401, /token is invalid or expired/],
+    [403, /Issues: Read and write/],
+    [404, /repository access failed/],
+    [422, /rejected the issue submission/],
+    [503, /status 503/],
+  ];
+  for (const [status, diagnostic] of cases) {
+    const e = env();
+    const res = await handleSuggestionPost(request(), e, "1.2.3.4",
+      async () => new Response(JSON.stringify({ secret: "do-not-repeat" }), { status }));
+    assert.equal(res.status, 502);
+    const body = await res.json();
+    assert.match(body.error, diagnostic);
+    assert.doesNotMatch(JSON.stringify(body), /test-token|do-not-repeat|1\\.2\\.3\\.4/);
+    assert.equal(e._data.size, 0);
+  }
+});
+
 test("limits one IP to three successful suggestions per day", async () => {
   const e = env();
   const fetcher = async () => new Response(JSON.stringify({ number: 1 }), { status: 201 });
