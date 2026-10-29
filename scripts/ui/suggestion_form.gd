@@ -192,7 +192,7 @@ func _submit() -> void:
   if err != OK:
     _sending = false
     _send.disabled = false
-    _status.text = tr("UI_SUGGEST_FAILED")
+    _status.text = tr("UI_SUGGEST_START_ERROR") % int(err)
 
 
 func _on_request_finished(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
@@ -206,14 +206,19 @@ func _on_request_finished(result: int, code: int, _headers: PackedStringArray, b
     _send.disabled = true
     return
   _send.disabled = false
+  if result != HTTPRequest.RESULT_SUCCESS:
+    _status.text = tr("UI_SUGGEST_NETWORK_ERROR") % result
+    return
   if code == 429:
     _status.text = tr("UI_SUGGEST_RATE_LIMITED")
-  elif code == 503:
-    _status.text = tr("UI_SUGGEST_SERVICE_UNAVAILABLE")
-  elif code == 400:
-    _status.text = tr("UI_SUGGEST_CHECK_INPUT")
-  else:
-    _status.text = tr("UI_SUGGEST_FAILED")
+    return
+  # The Worker returns a safe, explanatory error for known GitHub failures.
+  var reason: String = ""
+  if response is Dictionary:
+    reason = str(response.get("error", "")).strip_edges().left(250)
+  if reason.is_empty():
+    reason = tr("UI_SUGGEST_UNEXPECTED_SERVER_ERROR")
+  _status.text = tr("UI_SUGGEST_HTTP_ERROR") % [code, reason]
 
 
 func _close() -> void:

@@ -163,8 +163,20 @@ export async function handleSuggestionPost(request, env, ip, githubFetch = fetch
     return reply({ error: "could not reach the suggestion service" }, 502);
   }
   if (response.status !== 201) {
+    // Return a safe actionable diagnostic without exposing the token, GitHub
+    // response body, user-agent or other request metadata.
     console.log("Create GitHub issue failed:", response.status);
-    return reply({ error: "could not save suggestion; please try again later" }, 502);
+    let error = "GitHub could not save the suggestion (status " + response.status + ").";
+    if (response.status === 401) {
+      error = "The feedback service's GitHub token is invalid or expired (401). The developer must update the GITHUB_TOKEN secret.";
+    } else if (response.status === 403) {
+      error = "GitHub denied the feedback service (403). The developer should check that the token has Issues: Read and write permission for Zephino/Mythriven.";
+    } else if (response.status === 404) {
+      error = "GitHub repository access failed (404). The developer should check repository access for the token and that Issues are enabled.";
+    } else if (response.status === 422) {
+      error = "GitHub rejected the issue submission (422). Please notify the developer.";
+    }
+    return reply({ error }, 502);
   }
 
   // Caps are intentionally best-effort: KV read-modify-write is not atomic.
