@@ -13,7 +13,10 @@ func _ready() -> void:
 		"hero_select":
 			show_hero_select()
 		"hall":
-			add_child(HallScreen.new_for(self))
+			# The Hall opens over the title, so Back returns to the title.
+			var title := TitleScreen.new_for(self)
+			add_child(title)
+			title.open_child(HallScreen.new_for(self))
 		_:
 			add_child(TitleScreen.new_for(self))
 	Meta.next_screen = "title"

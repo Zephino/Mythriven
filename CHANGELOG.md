@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.29
+Date: 10/29/2026
+Time: 7:00 PM
+
+### Changes
+- **Fix: a blank dark screen after the end-of-run Hall of Legends.** The end screen's **Hall of Legends** button opened the Hall with nothing behind it, so pressing **Back** closed the only screen and left an empty dark screen (in co-op and solo alike). The Hall now opens on top of the title screen, so Back returns to the title. A new automated test checks it.
+
+### Reason
+The owner died in a co-op run, went to the Hall, pressed Back, and got a dark screen.
+
 ## Version 00.01.28
 Date: 10/29/2026
 Time: 5:54 PM

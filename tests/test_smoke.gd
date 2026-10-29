@@ -75,6 +75,21 @@ func test_every_level_plays_through_its_bosses() -> void:
 	Meta.level_id = ""
 
 
+func test_back_from_the_hall_after_a_run_returns_to_the_title() -> void:
+	# The end screen's Hall of Legends button: after Back there must still be a screen.
+	Meta.next_screen = "hall"
+	var main: Node = load("res://scenes/main.tscn").instantiate()
+	add_child(main)
+	await wait_frames(2)
+	var hall: HallScreen = main.find_children("*", "HallScreen", true, false)[0]
+	hall.close()
+	await wait_frames(2)
+	var titles: Array[Node] = main.find_children("*", "TitleScreen", true, false)
+	assert_eq(titles.size(), 1, "the title screen is still there")
+	main.free()
+	await wait_frames(1)
+
+
 func test_the_menus_open_every_page() -> void:
 	var main: Node = load("res://scenes/main.tscn").instantiate()
 	add_child(main)
