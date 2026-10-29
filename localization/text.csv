@@ -1123,3 +1123,5 @@ RECAP_TEAM_STANDING,still standing
 RECAP_TEAM_FELL,fell
 UI_QUIT_WEB,Thanks for playing! Your progress is saved. You can close this tab now.
 UI_KEEP_PLAYING,Keep playing
+UI_BACK_TO_TITLE,Back to Title
+UI_LB_COOP,Co-op runs don't go on the leaderboard (it's for solo runs).

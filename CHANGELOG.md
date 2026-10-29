@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.30
+Date: 10/29/2026
+Time: 7:04 PM
+
+### Changes
+- **Back to Title on the end screen.** After a run ends there's now a **Back to Title** button (solo and co-op). In co-op, where Retry and Change Hero are hidden, it's the button selected first, and it also leaves the co-op game. The leaderboard line in co-op now says co-op runs don't go on the leaderboard (it wrongly said debug options were used).
+
+### Reason
+The owner found no back button after dying in co-op.
+
 ## Version 00.01.29
 Date: 10/29/2026
 Time: 7:00 PM

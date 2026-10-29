@@ -234,3 +234,16 @@ func _manager() -> EnemyManager:
 	manager.setup()
 	manager.set_process(false)
 	return manager
+
+
+func test_the_coop_end_screen_has_a_way_back_to_the_title() -> void:
+	GameAuthority.start_run("aegean_shore")
+	GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "heracles", 1)
+	var screen: DeathScreen = add_child_autofree(DeathScreen.new())
+	Net.state = Net.State.IN_RUN
+	Net.my_id = 1
+	screen.show_summary(PackedStringArray(["line"]), {}, true, "")
+	assert_false(screen._retry.visible, "no Retry in co-op")
+	assert_true(screen._title_button.visible, "Back to Title is there")
+	assert_true(screen._title_button.has_focus(), "and starts selected")
+	assert_eq(screen._board_status.text, tr("UI_LB_COOP"))
