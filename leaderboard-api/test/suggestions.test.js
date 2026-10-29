@@ -80,3 +80,51 @@ test("returns validation errors before using the GitHub API", async () => {
   assert.equal(response.status, 400);
   assert.equal(called, false);
 });
+
+test("auto-attached game version, runtime, device and browser appear in the Issue", async () => {
+  const client = {
+    game_version: "00.01.21", runtime: "Web", device_type: "Phone",
+    platform: "Android", browser: "Chrome",
+  };
+  let issue;
+  const response = await handleSuggestionPost(request({ ...payload, client }), env(), "1.2.3.4",
+    async (_url, opts) => {
+      issue = JSON.parse(opts.body);
+      return new Response(JSON.stringify({ number: 23 }), { status: 201 });
+    });
+  assert.equal(response.status, 201);
+  assert.match(issue.body, /Game version: 00\.01\.21/);
+  assert.match(issue.body, /Run target: Web/);
+  assert.match(issue.body, /Device type: Phone/);
+  assert.match(issue.body, /Operating system: Android/);
+  assert.match(issue.body, /Browser: Chrome/);
+  assert.doesNotMatch(issue.body, /1\.2\.3\.4/);
+});
+
+test("only fixed non-identifying device categories are accepted", () => {
+  const malicious = {
+    game_version: "0.1\n@someone", runtime: "untrusted raw UA",
+    device_type: "My secret phone ID", platform: "**bad**",
+    browser: "Chrome\\nSensitive info", user_agent: "full UA must not be stored",
+    ip: "192.168.0.1", model: "private model",
+  };
+  const checked = validateSuggestion({ ...payload, client: malicious });
+  assert.equal(checked.error, undefined);
+  assert.deepEqual(checked.client, {
+    game_version: "Unknown", runtime: "Unknown", device_type: "Unknown",
+    platform: "Unknown", browser: "Unknown",
+  });
+  assert.ok(!JSON.stringify(checked).includes("192.168.0.1"));
+  assert.ok(!JSON.stringify(checked).includes("private model"));
+});
+
+test("old game versions still submit suggestions without device metadata", async () => {
+  let issue;
+  const response = await handleSuggestionPost(request(payload), env(), "1.2.3.4",
+    async (_url, options) => {
+      issue = JSON.parse(options.body);
+      return new Response(JSON.stringify({ number: 24 }), { status: 201 });
+    });
+  assert.equal(response.status, 201);
+  assert.match(issue.body, /Not provided \(older game build\)/);
+});

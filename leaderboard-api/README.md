@@ -148,6 +148,18 @@ and set **Build and deployment -> Source = GitHub Actions**, then rerun the
 [Web build](https://github.com/Zephino/Mythriven/actions/workflows/web.yml).
 Otherwise the default Pages/Jekyll job can overwrite the Godot export.
 
+**Automatic technical details:** The game attaches the version from
+`project.godot`, whether the build is Web or native, the broad device type
+(desktop/phone/tablet), OS category (e.g. Windows/Android/iOS), and browser
+category for Web players. These are shown in the form before submission and
+included in the resulting GitHub Issue to help reproduce problems. Detection
+can be inaccurate (particularly on tablets or privacy-focused browsers).
+**Full user-agent strings, device IDs, precise hardware model names, and IP
+addresses are not copied into Issues.** A browser user-agent may be examined
+locally only to categorize the browser and OS. The fields are client-reported
+diagnostics and are not trusted for security decisions. Older game builds
+without this metadata remain supported.
+
 **Practical limits:** Each address can submit up to three suggestions per UTC
 day; there's also a site-wide daily cap of 40. These KV-based counters are
 best-effort, not a substitute for CAPTCHA or stronger bot protection if the

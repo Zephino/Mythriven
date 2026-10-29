@@ -34,6 +34,24 @@ function clean(value) {
     : "";
 }
 
+/**
+ * Only accept broad, known device categories. Never accept or store a raw
+ * user-agent, device identifier, IP address, or arbitrary client metadata.
+ * Client-provided values are diagnostic hints, not trusted facts.
+ */
+function normalizeClientInfo(client) {
+  if (!client || typeof client !== "object" || Array.isArray(client)) return null;
+  const category = (value, permitted) => permitted.includes(clean(value)) ? clean(value) : "Unknown";
+  const version = clean(client.game_version);
+  return {
+    game_version: /^[A-Za-z0-9][A-Za-z0-9._-]{0,31}$/.test(version) ? version : "Unknown",
+    runtime: category(client.runtime, ["Web", "Native"]),
+    device_type: category(client.device_type, ["Desktop", "Phone", "Tablet"]),
+    platform: category(client.platform, ["Windows", "macOS", "Linux", "ChromeOS", "Android", "iOS", "FreeBSD", "Unknown"]),
+    browser: category(client.browser, ["Chrome", "Edge", "Firefox", "Safari", "Opera", "Samsung Internet", "Other", "N/A", "Unknown"]),
+  };
+}
+
 export function validateSuggestion(body) {
   if (!body || typeof body !== "object" || Array.isArray(body)) {
     return { error: "invalid suggestion" };
@@ -53,7 +71,7 @@ export function validateSuggestion(body) {
   if ((description.match(/https?:\/\//gi) || []).length > 2) {
     return { error: "too many links" };
   }
-  return { category, title, description };
+  return { category, title, description, client: normalizeClientInfo(body.client) };
 }
 
 function markdownQuote(text) {
@@ -112,6 +130,15 @@ export async function handleSuggestionPost(request, env, ip, githubFetch = fetch
       "Anonymous suggestion from the **Mythriven** main menu.",
       "",
       `**Category:** ${checked.category}`,
+      "",
+      "**Automatically attached game details:**",
+      ...(checked.client ? [
+        `- Game version: ${checked.client.game_version}`,
+        `- Run target: ${checked.client.runtime}`,
+        `- Device type: ${checked.client.device_type}`,
+        `- Operating system: ${checked.client.platform}`,
+        `- Browser: ${checked.client.browser}`,
+      ] : ["- Not provided (older game build)"]),
       "",
       "**Suggestion:**",
       markdownQuote(checked.description),

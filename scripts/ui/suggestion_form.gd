@@ -22,11 +22,13 @@ var _send: Button
 var _status: Label
 var _request: HTTPRequest
 var _sending: bool = false
+var _client_info: Dictionary = {}
 
 
 func _ready() -> void:
   layer = 85
   process_mode = Node.PROCESS_MODE_ALWAYS
+  _client_info = SuggestionEnvironment.collect()
   _build()
   _request = HTTPRequest.new()
   _request.timeout = Data.cfg_float("leaderboard.request_timeout_s")
@@ -114,6 +116,17 @@ func _build() -> void:
   _description.size_flags_vertical = Control.SIZE_EXPAND_FILL
   column.add_child(_description)
 
+  var environment := Label.new()
+  environment.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+  environment.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+  environment.text = tr("UI_SUGGEST_ENVIRONMENT") % [
+    _client_info["game_version"],
+    _client_info["device_type"],
+    _client_info["platform"],
+    _client_info["browser"],
+  ]
+  column.add_child(environment)
+
   var privacy := Label.new()
   privacy.text = "UI_SUGGEST_PRIVACY"
   privacy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -168,6 +181,7 @@ func _submit() -> void:
     "category": CATEGORY_IDS[_category.selected],
     "title": title_text,
     "description": description_text,
+    "client": _client_info,
     "website": ""
   }
   var headers := PackedStringArray(["Content-Type: application/json", "Accept: application/json"])
