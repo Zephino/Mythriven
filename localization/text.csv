@@ -591,6 +591,10 @@ UI_SUGGEST_CHECK_DETAILS,Please describe your idea in 20 to 2000 characters.
 UI_SUGGEST_SENDING,Sending your suggestion...
 UI_SUGGEST_SUCCESS,Thank you! Your suggestion was sent to the developer.
 UI_SUGGEST_FAILED,Could not send your suggestion. Please try again later.
+UI_SUGGEST_START_ERROR,Could not start the request (error %d). Please try again.
+UI_SUGGEST_NETWORK_ERROR,Network request failed (code %d). Please check your internet connection or browser console.
+UI_SUGGEST_HTTP_ERROR,Feedback service returned HTTP %d: %s
+UI_SUGGEST_UNEXPECTED_SERVER_ERROR,Unexpected server response. Check the Cloudflare Worker logs.
 UI_SUGGEST_SERVICE_UNAVAILABLE,The suggestion service is not available yet. Please try again later.
 UI_SUGGEST_RATE_LIMITED,Daily suggestion limit reached. Please try again tomorrow.
 UI_SUGGEST_CHECK_INPUT,Please check your text and try again.
