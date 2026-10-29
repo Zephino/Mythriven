@@ -10,7 +10,7 @@ const LEADERBOARD_READ_URL := "https://raw.githubusercontent.com/Zephino/Mythriv
 ## The Cloudflare Worker's address only (no path, no trailing slash). Empty
 ## until the owner runs leaderboard-api/Setup-Leaderboard.bat, which fills it in.
 ## Example: "https://mythriven-leaderboard.your-name.workers.dev"
-const API_BASE_URL := ""
+const API_BASE_URL := "https://mythriven.thebotcoder.workers.dev"
 
 
 static func post_url() -> String:
