@@ -64,6 +64,8 @@ func _ready() -> void:
 	_trait_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_trait_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_trait_label)
+
+
 func _process(_delta: float) -> void:
 	var run: RunState = GameAuthority.run
 	if run == null:
