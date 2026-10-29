@@ -26,5 +26,12 @@ static func read_url() -> String:
 	return worker if not worker.is_empty() else LEADERBOARD_READ_URL
 
 
+static func suggestion_url() -> String:
+  var base: String = API_BASE_URL.strip_edges().trim_suffix("/")
+  if base.is_empty():
+    return ""
+  return base + "/suggestions"
+
+
 static func can_post() -> bool:
 	return not post_url().is_empty()
