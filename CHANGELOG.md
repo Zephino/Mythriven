@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.26
+Date: 10/29/2026
+Time: 4:04 PM
+
+### Changes
+- **Quit button on the title screen everywhere.** It was only shown on PC. Now it's on the web link and phones too. In a browser the game asks to close its tab; most browsers don't let a page close a tab it didn't open itself, so then it says "Thanks for playing! Your progress is saved. You can close this tab now." with a **Keep playing** button. Quitting during co-op leaves the game first.
+
+### Reason
+The owner asked for a quit button on the main page.
+
 ## Version 00.01.25
 Date: 10/29/2026
 Time: 1:29 PM

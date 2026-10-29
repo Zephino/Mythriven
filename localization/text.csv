@@ -1121,3 +1121,5 @@ RECAP_TEAM_LINE,"  Player %d, %s: %s (revives used: %d)"
 RECAP_TEAM_SHADE,a Wandering Shade
 RECAP_TEAM_STANDING,still standing
 RECAP_TEAM_FELL,fell
+UI_QUIT_WEB,Thanks for playing! Your progress is saved. You can close this tab now.
+UI_KEEP_PLAYING,Keep playing

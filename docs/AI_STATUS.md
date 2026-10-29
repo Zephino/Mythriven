@@ -4,8 +4,8 @@ Last updated: 2026-10-29
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`, and for only `main` and `data` to exist on GitHub)
 Task: Phase 20 (Co-op and cloud saves) through the owner's Cloudflare Worker
-Version: 00.01.25
-Status: All 20 build phases have code; 226 Godot tests and 37 Worker tests pass; co-op was played automatically with two copies of the game. Needs: a real two-device playtest, art and audio, a real-phone test, the lore sign-off.
+Version: 00.01.26
+Status: All 20 build phases have code; 227 Godot tests and 37 Worker tests pass; co-op was played automatically with two copies of the game. Needs: a real two-device playtest, art and audio, a real-phone test, the lore sign-off.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
 ## Completed

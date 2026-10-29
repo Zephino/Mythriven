@@ -1310,7 +1310,7 @@ Placeholder shapes and no sound until the game is fun; then original 16-bit-styl
 
 | Screen | Contents |
 | --- | --- |
-| Title | Play, Co-op, Hall of Legends, Settings, Quit (PC) |
+| Title | Play, Co-op, Hall of Legends, Settings, Quit (every platform; in a browser it says the tab can be closed) *(changed 10/29/2026, owner request)* |
 | Hall of Legends (hub menu) | Hero select, Offerings (god levels), Unlocks, Bestiary, Pantheon Compendium, Hall of Heroes, Codex, Achievements, Omens |
 | Hero select | Heroes with tradition, stats, Legend Trait, passive, Divine Link, patron pantheon, signature weapon; locked Heroes show how to unlock |
 | Co-op | Host (shows code) / Join (code entry) / lobby with players and their Heroes |

@@ -135,3 +135,15 @@ func test_the_aegean_shore_only_spawns_greek_creatures() -> void:
 		var entry: Dictionary = enemy
 		if text.contains('"%s"' % entry["id"]) and not bool(entry.get("boss", false)) and str(entry.get("tradition", "")) != "":
 			assert_eq(str(entry["tradition"]), "greek", "%s on the Aegean Shore" % entry["id"])
+
+
+func test_the_title_screen_always_has_quit() -> void:
+	var title: TitleScreen = add_child_autofree(TitleScreen.new_for(null))
+	var texts: Array[String] = []
+	for button: Control in title._buttons:
+		texts.append((button as Button).text)
+	assert_has(texts, TranslationServer.translate("UI_QUIT_GAME"))
+	title._quit = true
+	title.refresh()
+	assert_true(title._rows.get_child(0) is Label and (title._rows.get_child(0) as Label).text.contains("close this tab"),
+		"in a browser it says the tab can be closed")
