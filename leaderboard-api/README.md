@@ -74,6 +74,23 @@ Worker's storage.
 - `npm test`: checks the rules and the service with a pretend storage.
 - `.gdignore` keeps Godot from importing this folder.
 
+## Cloudflare Git-connected deployment
+
+If Cloudflare's **Settings → Builds** says "You can now push a commit to your Git
+repository to start your first build," make sure these settings are saved:
+
+- Git repository: `Zephino/Mythriven`
+- Production branch: `main`
+- Root directory: `leaderboard-api` (not the repository root)
+- Build command: blank / None
+- Deploy command: `npx wrangler deploy`
+
+The Worker name in `wrangler.toml` is `mythriven`, and `LEADERBOARD_KV` is
+bound to the `mythriven-data` namespace. Once these settings are saved, a
+new push to `main` should trigger Cloudflare's first build. **Check the
+Cloudflare deployment status separately**; a successful GitHub Pages build does
+not confirm that the Worker deployed successfully.
+
 ## Anonymous suggestions
 
 Mythriven's **Suggest a Feature** button sits on the **main Hero-selection screen only**.
