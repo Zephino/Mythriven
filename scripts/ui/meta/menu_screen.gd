@@ -127,6 +127,7 @@ func add_input(placeholder: String, max_length: int) -> LineEdit:
 	input.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 5.0, Data.cfg_float("ui.min_touch_target_px"))
 	input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	input.virtual_keyboard_enabled = true
+	WebTextInput.attach(input)
 	_rows.add_child(input)
 	_buttons.append(input)
 	return input

@@ -38,7 +38,9 @@ func _ready() -> void:
 	# The submit handler will explain what's missing, and players can retry.
 	if not OnlineConfig.can_post():
 		_status.text = tr("UI_SUGGEST_SETUP_NEEDED")
-	_title_input.grab_focus.call_deferred()
+	# On a phone browser focusing a box opens the typing pop-up, so wait for a tap there.
+	if not WebTextInput.needed():
+		_title_input.grab_focus.call_deferred()
 
 
 func _build() -> void:
@@ -108,6 +110,7 @@ func _build() -> void:
 	_title_input.max_length = MAX_TITLE
 	_title_input.custom_minimum_size.y = touch * 0.65
 	column.add_child(_title_input)
+	WebTextInput.attach(_title_input)
 
 	var details_label := Label.new()
 	details_label.text = "UI_SUGGEST_IDEA_DETAILS"
@@ -118,6 +121,7 @@ func _build() -> void:
 	_description.custom_minimum_size.y = touch * 1.6
 	_description.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	column.add_child(_description)
+	WebTextInput.attach(_description)
 
 	var environment := Label.new()
 	environment.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED

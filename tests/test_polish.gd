@@ -155,3 +155,10 @@ func test_suggest_a_feature_is_on_the_title_screen() -> void:
 	for button: Control in title._buttons:
 		texts.append((button as Button).text)
 	assert_has(texts, TranslationServer.translate("UI_SUGGEST_FEATURE"))
+
+
+func test_text_boxes_work_as_usual_outside_phone_browsers() -> void:
+	assert_false(WebTextInput.needed(), "only a browser on a phone uses the typing pop-up")
+	var box: LineEdit = add_child_autofree(LineEdit.new())
+	WebTextInput.attach(box)
+	assert_eq(box.focus_entered.get_connections().size(), 0)

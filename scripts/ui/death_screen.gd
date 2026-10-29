@@ -61,6 +61,7 @@ func _ready() -> void:
 	_name.custom_minimum_size = Vector2(touch * 5.0, touch)
 	_name.text_submitted.connect(_on_submit.unbind(1))
 	box.add_child(_name)
+	WebTextInput.attach(_name)
 	_submit = _add_button(box, "UI_LB_SUBMIT", _on_submit)
 	_board_status = Label.new()
 	_board_status.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED

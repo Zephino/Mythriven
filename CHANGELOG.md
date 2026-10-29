@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.28
+Date: 10/29/2026
+Time: 5:54 PM
+
+### Changes
+- **Typing on a phone in the web version.** A browser game can't open the phone's keyboard by itself, so the text boxes (co-op join code, cloud-save code, leaderboard name, and the suggestion form) took no typing on phones. Now, in a phone browser, tapping one of them opens the phone's own text pop-up with the keyboard; what you type goes into the box. PC and desktop browsers type as before.
+
+### Reason
+The owner couldn't type the co-op join code on a phone.
+
 ## Version 00.01.27
 Date: 10/29/2026
 Time: 5:44 PM
