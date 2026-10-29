@@ -14,6 +14,15 @@ Time: 1:29 PM
   - No account, name, or email: the Worker only keeps the save, filed under a scrambled form of the code. "Sign in with Google / Apple / Steam" can be added later (it needs developer sign-ups only you can do).
   - The Worker gets a new storage type (Cloudflare Durable Objects, free plan). It deploys automatically with this push; see `leaderboard-api/README.md` if Cloudflare asks anything.
   - 7 new Worker tests and 7 new game tests; also tested end to end against a local copy of the Worker with two "devices".
+- **Phase 20: Online co-op** (up to 4 Heroes, 6-digit codes, through your Cloudflare Worker).
+  - **Title → Co-op → Host a game** shows a 6-digit code; friends choose **Join** and type it. In the lobby everyone picks a Hero (the same Hero is allowed); the host picks the level and Swift Mode, and the host's Omens apply to everyone. **Start** opens once a friend has joined and everyone has a Hero.
+  - The host's game runs the world; each player's own device moves their Hero, so moving never lags. Everyone sees the same enemies, shots, bosses, shrines, chests, points of interest, hazards, banners, and banter.
+  - **Fairness rules from the design:** gods are personal (each player has their own 2 slots and buttons; everyone touching a shrine gets their own copy); one shared XP bar; on a level-up the game pauses and players pick their own cards one at a time (20 s each, the first picker rotates); every coin counts for every player, and the Trader spends only the buyer's share; a chest opens for the player who touched it; each player picks their own Boon after a boss.
+  - **Revives:** at 0 HP you're downed and bleed out over 20 s; an ally standing beside you for 3 s (then 5 s) revives you at 30% HP; 2 revives each. After that you become a **Wandering Shade**: a ghost that still collects XP and gold for the team and gives allies nearby +10% god charge. The run ends when no one is left fighting.
+  - Enemies get +60% HP and +50% spawns per extra player; bosses ×(1 + 0.75 per extra player). Players can't move more than about 1.5 screens apart. The pause menu doesn't pause co-op. If the host leaves, the run ends for everyone with a message.
+  - The end screen shows your own recap plus a team summary. Co-op runs don't go on the leaderboard (it's for solo scores).
+  - The Worker gets a second Durable Object type (`LobbyRoom`) that only passes messages between the players; nothing is stored after a game.
+  - 11 new game tests and 8 new Worker tests (226 game tests and 37 Worker tests, all passing). Also played automatically with two copies of the game talking through a local copy of the Worker: lobby, level-up turns, downs and revives, gods and summons, a 400-enemy horde, and Medusa all matched on both screens.
 
 ### Reason
 The owner asked to finish building the game through Phase 20 (co-op and cloud saves), using Cloudflare for both.

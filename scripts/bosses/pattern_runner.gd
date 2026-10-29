@@ -20,6 +20,7 @@ var _patches: Array[Dictionary] = []
 
 func _ready() -> void:
 	z_index = 3
+	CoopMirror.attach(self, "patterns")
 
 
 ## Starts a pattern from `origin` aimed at `target`. `damage_mult` scales its damage.
@@ -219,7 +220,7 @@ func _add_patch(at: Vector2, reach: float, seconds: float, damage: float, source
 func _flash_ring(at: Vector2, reach: float, job: Dictionary) -> void:
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
-		effects.spawn_ring(at, reach, Elements.color(str(job["element"])) if str(job["element"]) != "" else Color.WHITE)
+		effects.spawn_ring(at, reach, Elements.color(str(job["element"])) if str(job["element"]) != "" else Color.WHITE, true)
 
 
 func _draw() -> void:
@@ -259,3 +260,14 @@ func _draw() -> void:
 					draw_circle(spot, reach * k, Color(area, area.a * 0.4))
 	for patch: Dictionary in _patches:
 		draw_circle(patch["at"], float(patch["radius"]), Color(area, area.a * 0.3))
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	return [CoopMirror.copy_dicts(_jobs), CoopMirror.copy_dicts(_patches)]
+
+
+func net_apply(state: Variant) -> void:
+	_jobs.assign(state[0])
+	_patches.assign(state[1])

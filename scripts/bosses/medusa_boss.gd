@@ -67,7 +67,7 @@ func _fire_gaze(sig: Dictionary) -> void:
 			petrified_count += 1
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
-		effects.spawn_arc(at, _gaze_dir.angle(), float(sig.get("range_px", 300.0)), half * 2.0, Color.html(Data.cfg_string("bosses.petrified_color")))
+		effects.spawn_arc(at, _gaze_dir.angle(), float(sig.get("range_px", 300.0)), half * 2.0, Color.html(Data.cfg_string("bosses.petrified_color")), true)
 
 
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:

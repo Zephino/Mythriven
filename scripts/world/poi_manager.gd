@@ -29,12 +29,14 @@ var nearby: Array[Dictionary] = []
 var extra: Array[Dictionary] = []
 
 var _scan_left: float = 0.0
-var _trader_open_key: String = ""
+## Per player id: the Trader they're at, so walking away and back reopens it.
+var _trader_open_key: Dictionary = {}
 
 
 func _ready() -> void:
 	z_index = -2
 	GameAuthority.enemy_killed.connect(_on_enemy_killed)
+	CoopMirror.attach(self, "pois")
 
 
 func chunk_px() -> float:
@@ -93,7 +95,11 @@ func _process(delta: float) -> void:
 			continue
 		var at: Vector2 = to_local_px(poi["pos"])
 		var data: Dictionary = PoiRules.find(str(poi["id"]))
-		var dist: float = player.position.distance_to(at)
+		# In co-op every player can use a point of interest; the nearest one counts.
+		var closest: Player = _closest_player(at)
+		if closest == null:
+			continue
+		var dist: float = closest.position.distance_to(at)
 		var reach: float = float(data.get("radius_px", 40.0))
 		match str(poi["id"]):
 			"hidden_shrine":
@@ -107,18 +113,46 @@ func _process(delta: float) -> void:
 					if float(poi["progress"]) >= float(data.get("hold_s", 10.0)):
 						set_state(poi, "cleared")
 						if ruins_choice != null:
-							ruins_choice.offer(player, float(data.get("gold", 40.0)))
+							ruins_choice.offer(closest, float(data.get("gold", 40.0)))
 			"monsters_lair":
 				_tick_lair(poi, data, at, dist)
 			"wandering_trader":
-				if dist <= reach and _trader_open_key != str(poi["key"]) and trader != null:
-					_trader_open_key = str(poi["key"])
-					trader.open_for(player)
-				elif dist > reach * 2.0 and _trader_open_key == str(poi["key"]):
-					_trader_open_key = ""
+				for visitor: Player in GameAuthority.players:
+					_check_trader(poi, visitor, visitor.position.distance_to(at), reach)
 	if spawner != null:
 		spawner.poi_mult = float(PoiRules.find("ancient_ruins").get("spawn_mult", 3.0)) if in_ruins else 1.0
 	queue_redraw()
+
+
+func _check_trader(poi: Dictionary, player: Player, dist: float, reach: float) -> void:
+	var key: String = str(poi["key"])
+	if not player.alive:
+		return
+	if dist <= reach and str(_trader_open_key.get(player.player_id, "")) != key and trader != null:
+		_trader_open_key[player.player_id] = key
+		trader.open_for(player)
+	elif dist > reach * 2.0 and str(_trader_open_key.get(player.player_id, "")) == key:
+		_trader_open_key.erase(player.player_id)
+
+
+func _closest_player(at: Vector2) -> Player:
+	var best: Player = null
+	for player: Player in GameAuthority.players:
+		if player.alive and (best == null or player.position.distance_to(at) < best.position.distance_to(at)):
+			best = player
+	return best
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	return [CoopMirror.copy_dicts(nearby), GameAuthority.run.poi_state.duplicate() if GameAuthority.run != null else {}]
+
+
+func net_apply(state: Variant) -> void:
+	nearby.assign(state[0])
+	if GameAuthority.run != null:
+		GameAuthority.run.poi_state = state[1]
 
 
 ## Finds the POIs in the regions around the player and keeps the nearest few.
@@ -170,6 +204,8 @@ func _tick_lair(poi: Dictionary, data: Dictionary, at: Vector2, dist: float) -> 
 
 ## Dragon's Hoard: kills inside its circle break the seal.
 func _on_enemy_killed(_slot: int, _enemy_type: Dictionary, at: Vector2, _killer: Player) -> void:
+	if Net.is_client():
+		return
 	for poi: Dictionary in nearby:
 		if str(poi["id"]) != "dragons_hoard" or state_of(poi) != "":
 			continue

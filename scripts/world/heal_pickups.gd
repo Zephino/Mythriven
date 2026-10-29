@@ -12,8 +12,12 @@ var _pos := PackedVector2Array()
 var _speed := PackedFloat32Array()
 var _multimesh: MultiMesh
 
+## Co-op: the host tells the joining players about each Ambrosia (CoopHost).
+signal dropped(at: Vector2)
+
 
 func setup() -> void:
+	add_to_group("heal_pickups")
 	z_index = -1
 	_capacity = Data.cfg_int("pickups.ambrosia_pool")
 	_active.resize(_capacity)
@@ -36,6 +40,7 @@ func count() -> int:
 func drop(at: Vector2) -> void:
 	if _capacity <= 0:
 		return
+	dropped.emit(at)
 	var slot: int = _next
 	_next = (_next + 1) % _capacity
 	_active[slot] = 1
@@ -48,7 +53,7 @@ func drop(at: Vector2) -> void:
 
 ## Each kill has a small chance to drop Ambrosia (rolled on the run's loot generator).
 func on_enemy_killed(_slot: int, _enemy_type: Dictionary, at: Vector2, _killer: Player) -> void:
-	if GameAuthority.run != null and GameAuthority.run.rng.loot.randf() < Data.cfg_float("pickups.ambrosia_drop_chance"):
+	if GameAuthority.run != null and not Net.is_client() and GameAuthority.run.rng.loot.randf() < Data.cfg_float("pickups.ambrosia_drop_chance"):
 		drop(at)
 
 

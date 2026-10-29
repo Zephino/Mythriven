@@ -1170,7 +1170,7 @@ Omens stack. Records are tracked per Omen set.
 Progress follows the player between PC and phone. The game always works offline and syncs when a connection is available.
 
 - **Why not just Steam Cloud, iCloud, or Google Play saves:** each only syncs within its own platform, so a Steam save can't reach a phone. They're still used as a local backup on each platform.
-- **Cross-platform sync:** use **Epic Online Services** (already chosen for co-op lobbies), which offers cross-platform player accounts and per-player cloud file storage. The player signs in once with an account (or links Steam, Apple, or Google); the save file uploads to their EOS storage. Hide this behind a `CloudSaveService` interface like `LobbyService`, so another backend could be swapped in.
+- **Cross-platform sync:** through the owner's **Cloudflare Worker** (as for co-op lobbies). The player turns on cloud save in Settings and gets a private 12-character sync code; typing it on another device links them. No account or personal data; the save is stored under a scrambled form of the code. Sign-in with Google, Apple, or Steam can be added later in place of the code. *(Changed 10/29/2026, owner approved: was Epic Online Services accounts and storage.)*
 - **When it syncs:** on launch, after every run, after every purchase in the Hall of Legends, and when something persistent is earned (batched, at most once every 30 s).
 - **Conflicts** (both devices changed while offline) are merged automatically, because most progress only grows:
   - Unlocks, discoveries, secrets, bestiary entries, codex, banter, achievements: **combine both** (union).
@@ -1270,7 +1270,7 @@ Up to 4 Heroes share one Last Stand through a 6-digit code; the host's game is t
 3. In the lobby, each player picks a Hero (duplicates allowed). The host's Omens apply to everyone.
 4. If the host leaves, the run ends for everyone (no host migration at launch).
 
-**Online service:** Epic Online Services (free, PC + mobile, lobbies + relay) via its community Godot plugin, behind a `LobbyService` interface. Alternatives: Nakama, Steam lobbies via GodotSteam (PC only), Noray + netfox.
+**Online service:** the owner's Cloudflare Worker (free plan): a Durable Object per lobby relays messages over WebSockets, so co-op works on the web, PC, and phones; behind a `LobbyService` interface so another service (Epic Online Services, Steam lobbies via GodotSteam, Nakama) can be swapped in. *(Changed 10/29/2026, owner approved: was Epic Online Services, which needs a developer account and has no web support.)*
 
 **Fairness rules**
 
@@ -1559,7 +1559,7 @@ The path contains spaces, which Godot and Cursor handle fine; just keep it in qu
 17. **The Two Lands:** tileset, sandstorm and quicksand, enemy families, wave table, Ammit, Set, Apep (god-swallowing).
 18. **The Misty Isles:** tileset, mist and fairy rings, enemy families, wave table, Scáthach (and her unlock), Ferdiad (Cú Chulainn dialogue), Balor. After launch, each Act II–IV level is one phase of the same shape (tileset, hazard, families, wave table, 3 bosses, local gods), built in Act order.
 19. **Polish:** art, audio, accessibility, onboarding, mobile UI and safe areas, performance pass on a real mid-range phone, exports. Verify every launch Hero, god, and boss's lore and set `lore_verified`.
-20. **Co-op** and cross-platform cloud saves (only once single-player is stable): Epic Online Services setup shared by both, cloud sync with merge rules, fairness rules, local network test, then online lobby with 6-digit codes, Wandering Shade mode.
+20. **Co-op** and cross-platform cloud saves (only once single-player is stable): the online service shared by both (Cloudflare Worker; owner approved 10/29/2026), cloud sync with merge rules, fairness rules, local network test, then online lobby with 6-digit codes, Wandering Shade mode.
 
 **Standing rules** (put these in `.cursor/rules`):
 

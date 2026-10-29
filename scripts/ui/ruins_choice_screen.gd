@@ -8,6 +8,8 @@ var _box: VBoxContainer
 
 
 func _ready() -> void:
+	add_to_group("ruins_choice_screen")
+	add_to_group(CoopChoices.MODAL)
 	layer = 41
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var root := SafeAreaBox.new()
@@ -29,6 +31,21 @@ func is_open() -> bool:
 
 
 func offer(player: Player, gold_amount: float) -> void:
+	var card: Dictionary = {}
+	var upgrades: Array[Dictionary] = []
+	for option: Dictionary in LevelUpRules.item_cards(player):
+		if option["kind"] == LevelUpRules.WEAPON_UP or option["kind"] == LevelUpRules.PASSIVE_UP:
+			upgrades.append(option)
+	if not upgrades.is_empty():
+		card = upgrades[GameAuthority.run.rng.loot.randi_range(0, upgrades.size() - 1)]
+	if CoopChoices.is_remote(player):
+		CoopChoices.offer(player, "ruins", [gold_amount, card])
+		return
+	show_options(player, gold_amount, card)
+
+
+## The three choices: an upgrade (`card`, if any), a full heal, or gold.
+func show_options(player: Player, gold_amount: float, card: Dictionary) -> void:
 	for child: Node in _box.get_children():
 		child.queue_free()
 	var title := Label.new()
@@ -36,12 +53,7 @@ func offer(player: Player, gold_amount: float) -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_box.add_child(title)
 	var buttons: Array[Button] = []
-	var upgrades: Array[Dictionary] = []
-	for card: Dictionary in LevelUpRules.item_cards(player):
-		if card["kind"] == LevelUpRules.WEAPON_UP or card["kind"] == LevelUpRules.PASSIVE_UP:
-			upgrades.append(card)
-	if not upgrades.is_empty():
-		var card: Dictionary = upgrades[GameAuthority.run.rng.loot.randi_range(0, upgrades.size() - 1)]
+	if not card.is_empty():
 		buttons.append(_button(tr("RUINS_UPGRADE") % CardText.title(card), _take.bind(player, "upgrade", card)))
 	buttons.append(_button(tr("RUINS_HEAL"), _take.bind(player, "heal", {})))
 	buttons.append(_button(tr("RUINS_GOLD") % roundi(gold_amount), _take.bind(player, "gold", {"amount": gold_amount})))
@@ -57,8 +69,14 @@ func offer(player: Player, gold_amount: float) -> void:
 func _take(player: Player, choice: String, card: Dictionary) -> void:
 	visible = false
 	get_tree().paused = false
-	if not is_instance_valid(player):
+	if Net.is_client():
+		CoopChoices.choose("ruins", [choice, card])
 		return
+	if is_instance_valid(player):
+		apply_choice(player, choice, card)
+
+
+static func apply_choice(player: Player, choice: String, card: Dictionary) -> void:
 	match choice:
 		"upgrade":
 			var kind: String = "weapon_up" if card["kind"] == LevelUpRules.WEAPON_UP else "passive_up"

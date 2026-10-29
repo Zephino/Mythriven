@@ -17,6 +17,8 @@ var _player: Player
 
 
 func _ready() -> void:
+	add_to_group("trader_screen")
+	add_to_group(CoopChoices.MODAL)
 	layer = 41
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var root := SafeAreaBox.new()
@@ -49,7 +51,7 @@ static func price(item_id: String) -> int:
 static func buy(player: Player, item_id: String, target: int = 0) -> bool:
 	var run: RunState = GameAuthority.run
 	var cost: int = price(item_id)
-	if run == null or run.gold < cost:
+	if run == null or wallet(player) < cost:
 		return false
 	match item_id:
 		"reroll_token":
@@ -66,11 +68,26 @@ static func buy(player: Player, item_id: String, target: int = 0) -> bool:
 			if GameAuthority.gods == null or target >= GameAuthority.gods.gods_of(player).size():
 				return false
 			GameAuthority.gods.set_meter(player, target, 1.0)
-	run.gold -= cost
+	# Co-op: every coin is credited to every player, so each spends only their own share.
+	if Net.in_run():
+		player.gold_spent += cost
+	else:
+		run.gold -= cost
 	return true
 
 
+## Run gold this player can spend (in co-op, the team's gold minus what they spent).
+static func wallet(player: Player) -> float:
+	var run: RunState = GameAuthority.run
+	if run == null:
+		return 0.0
+	return run.gold - (player.gold_spent if player != null else 0.0)
+
+
 func open_for(player: Player) -> void:
+	if CoopChoices.is_remote(player):
+		CoopChoices.offer(player, "trader", null)
+		return
 	_player = player
 	visible = true
 	get_tree().paused = true
@@ -79,12 +96,12 @@ func open_for(player: Player) -> void:
 
 func _show_main() -> void:
 	_clear()
-	_gold = _label(tr("TRADER_TITLE") % [roundi(GameAuthority.run.gold), GameAuthority.run.reroll_tokens, GameAuthority.run.banish_tokens])
+	_gold = _label(tr("TRADER_TITLE") % [roundi(wallet(_player)), GameAuthority.run.reroll_tokens, GameAuthority.run.banish_tokens])
 	var buttons: Array[Button] = []
 	for item_id: String in ITEMS:
 		var button: Button = _button(tr("TRADER_ITEM") % [tr("TRADER_" + item_id.to_upper()), price(item_id),
 				tr("TRADER_" + item_id.to_upper() + "_DESC")], _pick.bind(item_id))
-		button.disabled = GameAuthority.run.gold < price(item_id)
+		button.disabled = wallet(_player) < price(item_id)
 		buttons.append(button)
 	buttons.append(_button(tr("UI_LEAVE"), close))
 	_link(buttons)
@@ -113,7 +130,12 @@ func _pick(item_id: String) -> void:
 
 
 func _buy(item_id: String, target: int) -> void:
-	buy(_player, item_id, target)
+	if Net.is_client():
+		# The host applies it; this screen shows the new gold with the next update.
+		CoopChoices.choose("buy", [item_id, target])
+		_player.gold_spent += price(item_id)
+	else:
+		buy(_player, item_id, target)
 	_show_main()
 
 

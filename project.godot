@@ -22,6 +22,7 @@ Localization="*res://scripts/core/localization.gd"
 DisplayScale="*res://scripts/core/display_scale.gd"
 GameAuthority="*res://scripts/core/game_authority.gd"
 Meta="*res://scripts/meta/meta_progress.gd"
+Net="*res://scripts/net/net_session.gd"
 DebugMenu="*res://scripts/core/debug_menu.gd"
 
 [debug]

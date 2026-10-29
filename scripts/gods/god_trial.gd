@@ -50,6 +50,7 @@ func _ready() -> void:
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_label.visible = false
 	layer.add_child(_label)
+	CoopMirror.attach(self, "trial")
 
 
 ## Starts the trial of `trial_shrine`'s god for `player`.
@@ -220,3 +221,26 @@ func _draw() -> void:
 		draw_circle(_god_pos, 7.0, color)
 		for decoy: Dictionary in _decoys:
 			draw_circle(decoy["pos"], 7.0, color)
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	var decoys: Array = []
+	for decoy: Dictionary in _decoys:
+		decoys.append(decoy["pos"])
+	return [active, str(shrine.get("god_id", "")), kind, center, ring_radius, _god_pos, decoys, _label.text if _label.visible else ""]
+
+
+func net_apply(state: Variant) -> void:
+	active = bool(state[0])
+	shrine = {"god_id": str(state[1]), "god": GodRules.find(str(state[1]))} if active else {}
+	kind = str(state[2])
+	center = state[3]
+	ring_radius = float(state[4])
+	_god_pos = state[5]
+	_decoys.clear()
+	for at: Variant in state[6]:
+		_decoys.append({"pos": at})
+	_label.text = str(state[7])
+	_label.visible = _label.text != ""

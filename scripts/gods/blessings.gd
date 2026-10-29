@@ -108,7 +108,7 @@ static func chain_lightning(player: Player, from_slot: int, at: Vector2, damage:
 		var target_at: Vector2 = enemies.positions[slot]
 		GameAuthority.damage_enemy(slot, damage * float(thor.get("chain_damage_mult", 0.5)), player, Vector2.ZERO, "lightning", 0.3)
 		if effects != null:
-			effects.spawn_ring(target_at, 8.0, Elements.color("lightning"))
+			effects.spawn_ring(target_at, 8.0, Elements.color("lightning"), true)
 		left -= 1
 
 

@@ -170,3 +170,24 @@ static func _pick_weighted(pool: Array[Dictionary], rng: RandomNumberGenerator) 
 		if roll <= 0.0:
 			return i
 	return weights.size() - 1
+
+
+## A card's effect on a player's build (GameAuthority.apply_card uses it up).
+static func apply_effects(player: Player, card: Dictionary, run: RunState) -> void:
+	match str(card.get("kind", "")):
+		WEAPON_NEW:
+			GameAuthority.give_weapon(player, str(card["id"]))
+		WEAPON_UP:
+			for weapon: WeaponInstance in player.weapons:
+				if weapon.id() == str(card["id"]):
+					weapon.level = mini(weapon.level + 1, weapon.max_level())
+		PASSIVE_NEW, PASSIVE_UP:
+			var passive: Dictionary = passive_data(str(card["id"]))
+			player.passives[str(card["id"])] = int(player.passives.get(str(card["id"]), 0)) + 1
+			player.stats.add_bonus(str(passive.get("stat", "")), float(passive.get("per_level", 0.0)))
+		STAT:
+			player.stats.add_bonus(str(card["id"]), float(card["amount"]))
+		GOLD:
+			run.gold += float(card["amount"])
+		HEAL:
+			GameAuthority.heal_player(player, player.max_hp * float(card["amount"]))

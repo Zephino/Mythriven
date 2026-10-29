@@ -72,7 +72,22 @@ func _on_run_started(run: RunState) -> void:
 	_finished = false
 	_checkpoint_left = Data.cfg_float("meta.checkpoint_s")
 	var level: String = str(run.level_data.get("id", ""))
-	OmenRules.apply_to_run(run, OmenRules.active(), swift and LevelRules.swift_unlocked(level))
+	if Net.in_run():
+		# Co-op: the host's Omens and Swift Mode apply to everyone, and enemies scale with the players.
+		OmenRules.apply_to_run(run, Net.omens, Net.swift)
+		_apply_coop_scaling(run, Net.roster.size())
+	else:
+		OmenRules.apply_to_run(run, OmenRules.active(), swift and LevelRules.swift_unlocked(level))
+
+
+## Co-op scaling (GAME_DESIGN.md: Fairness rules / Scaling): +60% enemy HP and
+## +50% spawns per extra player; boss HP ×(1 + 0.75 per extra player).
+static func _apply_coop_scaling(run: RunState, players: int) -> void:
+	var extra: int = maxi(players - 1, 0)
+	run.coop_players = players
+	run.coop_hp_mult = 1.0 + Data.cfg_float("coop.enemy_hp_per_extra_player") * extra
+	run.coop_boss_hp_mult = 1.0 + Data.cfg_float("coop.boss_hp_per_extra_player") * extra
+	run.spawn_mult *= 1.0 + Data.cfg_float("coop.spawns_per_extra_player") * extra
 
 
 func _on_player_spawned(player: Player) -> void:
@@ -99,7 +114,7 @@ func _process(delta: float) -> void:
 
 
 func _checkpoint(run: RunState) -> void:
-	SaveGame.data()["run_in_progress"] = {"gold": run.gold, "arc_s": run.arc_s(), "omens": Array(run.omens), "swift": run.swift,
+	SaveGame.data()["run_in_progress"] = {"gold": TraderScreen.wallet(GameAuthority.local_player()), "arc_s": run.arc_s(), "omens": Array(run.omens), "swift": run.swift,
 		"level": str(run.level_data.get("id", ""))}
 	SaveGame.commit("run_in_progress")
 
@@ -213,7 +228,7 @@ func _finish(run: RunState, quit: bool) -> void:
 	if _finished:
 		return
 	_finished = true
-	var banked: int = Banking.banked(run.gold, run.arc_s(), quit, run.omens, run.swift)
+	var banked: int = Banking.banked(TraderScreen.wallet(GameAuthority.local_player()), run.arc_s(), quit, run.omens, run.swift)
 	var save: Dictionary = SaveGame.data()
 	save["gold"] = SaveGame.gold() + banked
 	save["run_in_progress"] = {}

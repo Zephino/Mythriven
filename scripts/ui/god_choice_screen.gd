@@ -13,6 +13,8 @@ var _god_id: String = ""
 
 
 func _ready() -> void:
+	add_to_group("god_choice_screen")
+	add_to_group(CoopChoices.MODAL)
 	layer = 42
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var root := SafeAreaBox.new()
@@ -38,6 +40,9 @@ func is_open() -> bool:
 
 
 func ask(player: Player, god_id: String) -> void:
+	if CoopChoices.is_remote(player):
+		CoopChoices.offer(player, "god", god_id)
+		return
 	_player = player
 	_god_id = god_id
 	for child: Node in _box.get_children():
@@ -70,5 +75,8 @@ func _add_button(text: String, release_index: int) -> Button:
 func _choose(release_index: int) -> void:
 	visible = false
 	get_tree().paused = false
+	if Net.is_client():
+		CoopChoices.choose("god", [_god_id, release_index])
+		return
 	if release_index >= 0 and is_instance_valid(_player):
 		gods.bind(_player, _god_id, release_index)

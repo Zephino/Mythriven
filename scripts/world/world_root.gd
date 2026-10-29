@@ -4,7 +4,8 @@ extends Node2D
 ## numbers lose precision and sprites start to wobble, so once the players are
 ## more than ~50,000 px away the whole world is moved back toward (0, 0) by a
 ## whole number of chunks (GAME_DESIGN.md: Far distances). Systems that keep
-## their own positions listen to `origin_shifted`.
+## their own positions listen to `origin_shifted`. In co-op only the host
+## decides when to shift; joining players' games follow it (CoopClient).
 
 signal origin_shifted(shift_px: Vector2, shift_chunks: Vector2i)
 
@@ -15,7 +16,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if GameAuthority.players.is_empty():
+	if GameAuthority.players.is_empty() or Net.is_client():
 		return
 	var center := Vector2.ZERO
 	for player: Player in GameAuthority.players:
@@ -30,7 +31,12 @@ func _process(_delta: float) -> void:
 ## `center` ends up near (0, 0).
 func shift_origin(center: Vector2) -> void:
 	var chunk_px: float = Data.cfg_float("world.tile_px") * Data.cfg_float("world.chunk_tiles")
-	var shift_chunks := Vector2i(roundi(center.x / chunk_px), roundi(center.y / chunk_px))
+	shift_by(Vector2i(roundi(center.x / chunk_px), roundi(center.y / chunk_px)))
+
+
+## Shifts by a whole number of chunks (CoopClient repeats the host's shifts).
+func shift_by(shift_chunks: Vector2i) -> void:
+	var chunk_px: float = Data.cfg_float("world.tile_px") * Data.cfg_float("world.chunk_tiles")
 	var shift_px := Vector2(shift_chunks) * chunk_px
 	for player: Player in GameAuthority.players:
 		player.position -= shift_px

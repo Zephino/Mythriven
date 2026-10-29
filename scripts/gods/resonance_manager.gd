@@ -19,6 +19,10 @@ var layer: ResonanceLayer
 var banter: BanterBubble
 
 
+## A Resonance fired (co-op shows it on every device).
+signal fired(player: Player, resonance: Dictionary)
+
+
 func _ready() -> void:
 	gods.god_bound.connect(_on_gods_changed)
 	gods.god_released.connect(_on_gods_changed)
@@ -63,6 +67,10 @@ func ready_for(player: Player) -> bool:
 
 ## Fires the Resonance (uses both meters). Returns true if it fired.
 func fire(player: Player) -> bool:
+	if Net.is_client():
+		if player.is_local:
+			Net.send(LobbyService.HOST_ID, [NetMsg.RESONANCE])
+		return false
 	if not ready_for(player) or not player.alive:
 		return false
 	var resonance: Dictionary = active_for(player)
@@ -73,6 +81,7 @@ func fire(player: Player) -> bool:
 	# Väinämöinen: reactions inside an active Resonance count double for Verses.
 	player.god_flags["resonance_active_until"] = GameAuthority.run.elapsed_s + float((resonance.get("summon", {}) as Dictionary).get("duration_s", 3.0))
 	Meta.note_resonance_fired(str(resonance.get("id", "")))
+	fired.emit(player, resonance)
 	return true
 
 

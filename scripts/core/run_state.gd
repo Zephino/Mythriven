@@ -47,6 +47,11 @@ var arc_scale: float = 1.0
 var enemy_speed_mult: float = 1.0
 var spawn_mult: float = 1.0
 var omen_charge_mult: float = 1.0
+## Co-op scaling (Phase 20): enemy HP and boss HP multipliers for the extra
+## players, and how many players started.
+var coop_players: int = 1
+var coop_hp_mult: float = 1.0
+var coop_boss_hp_mult: float = 1.0
 
 
 func _init(run_seed: int, level_entry: Dictionary) -> void:

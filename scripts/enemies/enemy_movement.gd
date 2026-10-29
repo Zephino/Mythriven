@@ -172,5 +172,5 @@ func _explode(m: EnemyManager, i: int, behavior: Dictionary) -> void:
 					str(m.type_of(i)["id"]), at)
 	var effects: EffectLayer = m.get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
-		effects.spawn_ring(at, blast, Elements.color(str(m.type_of(i).get("element", "fire"))))
+		effects.spawn_ring(at, blast, Elements.color(str(m.type_of(i).get("element", "fire"))), true)
 	GameAuthority.kill_enemy(i, null)

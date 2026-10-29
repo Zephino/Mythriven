@@ -19,6 +19,7 @@ func setup() -> void:
 	_active.resize(MAX_CHESTS)
 	_pos.resize(MAX_CHESTS)
 	_big.resize(MAX_CHESTS)
+	CoopMirror.attach(self, "chests")
 
 
 func count() -> int:
@@ -40,7 +41,7 @@ func drop(at: Vector2, big: bool = false) -> void:
 
 
 func on_elite_killed(at: Vector2, _enemy_type: Dictionary, is_copy: bool) -> void:
-	if not is_copy:
+	if not is_copy and not Net.is_client():
 		drop(at)
 
 
@@ -50,6 +51,11 @@ func open_for(player: Player, big: bool = false) -> void:
 		return
 	var plan: Dictionary = ChestRules.build(player, GameAuthority.run.rng.loot, big)
 	var evolved: Array[Dictionary] = ChestRules.apply(player, plan)
+	if CoopChoices.is_remote(player):
+		# Co-op: the reveal plays on the opener's device, and everyone pauses briefly.
+		CoopChoices.offer(player, "chest", [CoopChoices.plain_plan(plan), evolved])
+		CoopChoices.pause_briefly(Data.cfg_float("chests.reveal_max_s"))
+		return
 	if reveal != null:
 		reveal.play(plan, evolved)
 
@@ -85,3 +91,15 @@ func _draw() -> void:
 		draw_rect(rect, body)
 		draw_rect(rect, trim, false, 1.5)
 		draw_line(Vector2(rect.position.x, _pos[i].y - size * 0.2 * scale), Vector2(rect.end.x, _pos[i].y - size * 0.2 * scale), trim, 1.5)
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	return [_active, CoopMirror.pack_points(_pos), _big]
+
+
+func net_apply(state: Variant) -> void:
+	_active = state[0]
+	_pos = CoopMirror.unpack_points(state[1])
+	_big = state[2]

@@ -175,7 +175,7 @@ func _nearest_player(from: Vector2) -> Player:
 	var best: Player = null
 	var best_sq: float = INF
 	for player: Player in GameAuthority.players:
-		if player.alive and player.position.distance_squared_to(from) < best_sq:
+		if (player.alive or player.shade) and player.position.distance_squared_to(from) < best_sq:
 			best_sq = player.position.distance_squared_to(from)
 			best = player
 	return best

@@ -43,6 +43,12 @@ func _on_hero_chosen(hero_id: String) -> void:
 	queue_free()
 
 
+## A co-op run is starting (Net chose the level and this player's Hero).
+func start_coop() -> void:
+	start.emit(GameAuthority.selected_hero_id)
+	queue_free()
+
+
 ## Back from Hero select returns to the menus, or to the title if none is open.
 func _on_hero_back() -> void:
 	for child: Node in get_children():

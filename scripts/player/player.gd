@@ -58,6 +58,19 @@ var aura_color := Color(0, 0, 0, 0)
 ## ponds slide (grip per second; 0 = full control).
 var ground_speed_mult: float = 1.0
 var ground_grip_per_s: float = 0.0
+## Co-op (Phase 20): downed (bleeding out, an ally can revive), revives used,
+## and the Wandering Shade (after the last revive: a ghost that collects XP
+## and gold for the team, can't die or deal damage).
+var downed: bool = false
+var bleed_s: float = 0.0
+var revive_progress_s: float = 0.0
+var revives_used: int = 0
+var shade: bool = false
+## On a joining player's device: the host's slow on this player (statuses,
+## slow zones, quicksand…) and its id-to-player mapping in co-op.
+var net_speed_mult: float = 1.0
+## Co-op: run gold this player spent at the Trader (each player spends only their own).
+var gold_spent: float = 0.0
 
 var _shown_hp: float = -1.0
 
@@ -112,7 +125,7 @@ func _process(delta: float) -> void:
 			GameAuthority.damage_player_over_time(self, dot)
 	if kit != null and kit.controls_movement():
 		pass
-	elif input != null and alive:
+	elif input != null and (alive or shade):
 		step(input.get_move_vector(), delta)
 	elif not alive:
 		velocity = Vector2.ZERO
@@ -126,7 +139,7 @@ func step(direction: Vector2, delta: float) -> void:
 	if rooted_s > 0.0:
 		direction = Vector2.ZERO
 	var wanted: Vector2 = direction * move_speed * statuses.speed_mult() * slow_zone_mult * ground_speed_mult \
-			* (kit.speed_mult() if kit != null else 1.0)
+			* (kit.speed_mult() if kit != null else 1.0) * net_speed_mult
 	# On ice the Hero keeps sliding and only slowly turns toward where they steer.
 	velocity = wanted if ground_grip_per_s <= 0.0 else velocity.lerp(wanted, minf(ground_grip_per_s * delta, 1.0))
 	position += velocity * delta
@@ -142,6 +155,8 @@ func _draw() -> void:
 		color = palette_color
 	if not alive:
 		color = Color.html(Data.cfg_string("player.fallen_color"))
+	if shade:
+		color = Color(Color.html(Data.cfg_string("coop.shade_color")), 0.55)
 	if aura_color.a > 0.0 and alive:
 		draw_arc(Vector2.ZERO, size_px * 0.95, 0.0, TAU, 24, aura_color, 2.0)
 	draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), color)
@@ -153,7 +168,21 @@ func _draw() -> void:
 	var marker_px: float = Data.cfg_float("player.facing_marker_px")
 	var marker_color := Color.html(Data.cfg_string("player.facing_marker_color"))
 	draw_circle(facing * (size_px * 0.5 - marker_px * 0.5), marker_px * 0.5, marker_color)
-	_draw_hp_bar()
+	if downed:
+		_draw_downed(size_px)
+	elif not shade:
+		_draw_hp_bar()
+
+
+## A downed player: a shrinking ring for the bleed-out time, and the revive progress.
+func _draw_downed(size_px: float) -> void:
+	var bleed_total: float = Data.cfg_float("coop.bleed_out_s")
+	draw_arc(Vector2.ZERO, size_px, -PI * 0.5, -PI * 0.5 + TAU * clampf(bleed_s / bleed_total, 0.0, 1.0), 24,
+			Color.html(Data.cfg_string("coop.bleed_color")), 2.0)
+	if revive_progress_s > 0.0:
+		var needed: float = CoopRevives.revive_time(self)
+		draw_arc(Vector2.ZERO, size_px * 1.4, -PI * 0.5, -PI * 0.5 + TAU * clampf(revive_progress_s / needed, 0.0, 1.0), 24,
+				Color.html(Data.cfg_string("coop.revive_color")), 3.0)
 
 
 ## HP bar over the Hero (GAME_DESIGN.md: HUD).

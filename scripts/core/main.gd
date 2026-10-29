@@ -73,9 +73,7 @@ func _build_world(joystick: TouchJoystick) -> void:
 
 	var input := PlayerInput.new()
 	input.joystick = joystick
-	var player: Player = GameAuthority.spawn_player(world, Vector2.ZERO, input, true, GameAuthority.selected_hero_id)
-	var start_weapon: String = str(player.hero.get("signature_weapon", Data.cfg_string("player.starting_weapon")))
-	GameAuthority.give_weapon(player, start_weapon)
+	var player: Player = _spawn_players(world, input)
 
 	var effects := EffectLayer.new()
 	world.add_child(effects)
@@ -141,6 +139,24 @@ func _build_world(joystick: TouchJoystick) -> void:
 	var systems := RunSystems.new()
 	add_child(systems)
 	systems.build(world, _enemies, spawner, _level_up, _death_screen, hud, _orbs)
+
+
+## The local player (and, in co-op, everyone in the lobby with their Heroes,
+## side by side; ids match the lobby's). Each starts with their signature weapon.
+func _spawn_players(world: WorldRoot, input: PlayerInput) -> Player:
+	var local: Player = null
+	var spread: float = Data.cfg_float("coop.spawn_spread_px")
+	var ids: PackedInt32Array = Net.player_ids() if Net.in_run() else PackedInt32Array([-1])
+	for i: int in ids.size():
+		var id: int = ids[i]
+		var mine: bool = id == -1 or id == Net.my_id
+		var hero_id: String = GameAuthority.selected_hero_id if mine else str(Net.roster[id].get("hero", ""))
+		var at := Vector2((i - (ids.size() - 1) * 0.5) * spread, 0.0)
+		var player: Player = GameAuthority.spawn_player(world, at, input if mine else null, mine, hero_id, id)
+		GameAuthority.give_weapon(player, str(player.hero.get("signature_weapon", Data.cfg_string("player.starting_weapon"))))
+		if mine:
+			local = player
+	return local
 
 
 ## Drop references to this scene's objects (for example on Retry).

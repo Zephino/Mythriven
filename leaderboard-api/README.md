@@ -81,11 +81,23 @@ Free-plan limits (as of 2026): about 100,000 Durable Object requests a day.
 Each sync uses 2 (download + upload), and a player syncs only a handful of
 times per run, so that covers thousands of runs a day.
 
+## Co-op lobbies (Phase 20)
+
+`/lobby` (WebSocket) runs co-op games: a `LobbyRoom` Durable Object per 6-digit
+code passes messages between up to 4 players. The host's game decides
+everything, so the Worker never needs to understand the game, and nothing is
+stored after the players leave. A two-player game sends about 40 messages a
+second in total; Cloudflare counts WebSocket messages much more cheaply than
+requests, so the free plan covers a good number of co-op games a day. If co-op
+ever stops connecting, check **Workers & Pages → mythriven → Metrics** for
+"Durable Objects" limits and tell Claude.
+
 ## For developers
 
 - `src/board.js`: the rules (what a score must look like, ranking, size).
 - `src/index.js`: the web service (GET/POST, rate limits, GitHub commit).
 - `src/cloud.js`: cloud saves (`/cloud/save`, the `SaveVault` Durable Object).
+- `src/lobby.js`: co-op lobbies (`/lobby`, the `LobbyRoom` Durable Object).
 - Test the game against a Worker on your own computer: `npx wrangler dev`,
   then start Godot with `-- --api=http://127.0.0.1:8787`.
 - `npm test`: checks the rules and the service with a pretend storage.

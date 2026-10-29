@@ -40,14 +40,30 @@ func setup() -> void:
 	_color.resize(_capacity)
 
 
+## Co-op: an effect from something only the host's game runs (hazards,
+## bosses, elites, infusions…), which the joining players should see too.
+## Weapon swings aren't shared: each device draws every Hero's own attacks.
+signal shared(effect_kind: int, at: Vector2, angle: float, size: float, spread: float, color: Color)
+
+
 ## A filled pie-slice swing from `at`, facing `angle`, `spread` radians wide.
-func spawn_arc(at: Vector2, angle: float, arc_radius: float, spread: float, color: Color) -> void:
+## `share`: also show it on the joining players' screens in co-op.
+func spawn_arc(at: Vector2, angle: float, arc_radius: float, spread: float, color: Color, share: bool = false) -> void:
 	_spawn(KIND_ARC, at, angle, arc_radius, spread, color)
+	if share:
+		shared.emit(KIND_ARC, at, angle, arc_radius, spread, color)
 
 
 ## An expanding ring (quakes, bursts).
-func spawn_ring(at: Vector2, ring_radius: float, color: Color) -> void:
+func spawn_ring(at: Vector2, ring_radius: float, color: Color, share: bool = false) -> void:
 	_spawn(KIND_RING, at, 0.0, ring_radius, 0.0, color)
+	if share:
+		shared.emit(KIND_RING, at, 0.0, ring_radius, 0.0, color)
+
+
+## Co-op (joining player): an effect the host shared.
+func spawn_from_host(effect_kind: int, at: Vector2, angle: float, size: float, spread: float, color: Color) -> void:
+	_spawn(effect_kind, at, angle, size, spread, color)
 
 
 ## Shows a reaction as an expanding ring in its colour.

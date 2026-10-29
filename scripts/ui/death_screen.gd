@@ -11,6 +11,7 @@ var _tip: Label
 var _name: LineEdit
 var _submit: Button
 var _board_status: Label
+var _change_hero: Button
 var _retry: Button
 var _controls: Array[Control] = []
 var _client: LeaderboardClient
@@ -68,7 +69,7 @@ func _ready() -> void:
 	box.add_child(_board_status)
 	_add_button(box, "UI_LEADERBOARD", _on_view_board)
 	_retry = _add_button(box, "UI_RETRY", _on_retry)
-	_add_button(box, "UI_CHANGE_HERO", _on_change_hero)
+	_change_hero = _add_button(box, "UI_CHANGE_HERO", _on_change_hero)
 	_add_button(box, "UI_HALL_OF_LEGENDS", _on_hall)
 	visible = false
 
@@ -76,6 +77,12 @@ func _ready() -> void:
 ## Shows the screen with one line of summary per entry. `entry` is this run's
 ## score (LeaderboardEntry.build); `can_submit` is false when it can't go on the board.
 func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: bool = false, tip: String = "") -> void:
+	if Net.in_run():
+		# Co-op: this player's recap plus a team summary; scores are for solo runs.
+		lines.append_array(team_lines())
+		can_submit = false
+		_retry.visible = false
+		_change_hero.visible = false
 	_summary.text = "\n".join(lines)
 	_tip.text = tr("RECAP_TIP") % tip if tip != "" else ""
 	_entry = entry
@@ -142,7 +149,22 @@ func _on_hall() -> void:
 
 func _on_retry() -> void:
 	get_tree().paused = false
+	if Net.active():
+		# A co-op run ends here for this player (the host leaving ends it for everyone).
+		Net.leave()
+		GameAuthority.selected_hero_id = ""
 	get_tree().reload_current_scene()
+
+
+## Co-op team summary: every player's Hero and how they ended.
+static func team_lines() -> PackedStringArray:
+	var out: PackedStringArray = [TranslationServer.translate("RECAP_TEAM")]
+	for player: Player in GameAuthority.players:
+		var hero_name: String = TranslationServer.translate(str(player.hero.get("name_key", "")))
+		var ended: String = "RECAP_TEAM_SHADE" if player.shade else ("RECAP_TEAM_STANDING" if player.alive else "RECAP_TEAM_FELL")
+		out.append(TranslationServer.translate("RECAP_TEAM_LINE") % [player.player_id, hero_name, TranslationServer.translate(ended),
+			player.revives_used])
+	return out
 
 
 func _add_button(box: VBoxContainer, key: String, on_pressed: Callable) -> Button:

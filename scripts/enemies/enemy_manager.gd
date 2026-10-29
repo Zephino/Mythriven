@@ -7,9 +7,17 @@ extends Node2D
 ## invulnerability frames), ticks their statuses 5 times a second, and draws
 ## them all with one MultiMesh, coloured by element and tinted by status.
 ## Nothing is created or freed during play: slots are reused. Movement types
-## are in enemy_movement.gd and elite modifiers in elite_state.gd.
+## are in enemy_movement.gd, elite modifiers in elite_state.gd, and crowding
+## and contact damage in enemy_crowd.gd.
+## In co-op on a joining player's device (`remote`), enemies only go where
+## the host says (CoopClient): spawned into the host's slot numbers, glided
+## toward the host's positions, and drawn; the host decides everything else.
 
 const ENEMIES_FILE := "enemies.json"
+
+## An enemy took a slot / left it (co-op tells the joining players).
+signal spawned(slot: int)
+signal removed(slot: int)
 
 var capacity: int = 0
 var hash_grid: SpatialHash
@@ -43,6 +51,13 @@ var _multimesh: MultiMesh
 var _type_speed := PackedFloat32Array()
 var _type_color: Array[Color] = []
 var _type_movement := PackedInt32Array()
+## Co-op on a joining player's device (see above; EnemyRemote does the following).
+var remote: bool = false:
+	set(value):
+		remote = value
+		if value and _remote == null:
+			_remote = EnemyRemote.new(capacity)
+var _remote: EnemyRemote = null
 
 
 func setup() -> void:
@@ -96,18 +111,20 @@ func max_radius() -> float:
 ## Puts an enemy of type `type_id` into a free slot. Returns the slot or -1 when full.
 ## Call through GameAuthority.spawn_enemy so co-op can run it on the host only.
 func spawn(type_id: String, at: Vector2) -> int:
-	if _active_count >= capacity or not type_index.has(type_id):
+	if not type_index.has(type_id):
 		return -1
-	var slot: int = _free[_active_count]
+	var slot: int = take_slot()
+	if slot == -1:
+		return -1
 	var data: Dictionary = types[type_index[type_id]]
-	_active_count += 1
-	active[slot] = 1
 	kind[slot] = type_index[type_id]
 	positions[slot] = at
 	knockback[slot] = Vector2.ZERO
 	var elapsed: float = GameAuthority.run.arc_s() if GameAuthority.run != null else 0.0
 	# Bosses have their own HP per boss; time and level growth apply to the rest.
 	var growth: float = 1.0 if bool(data.get("boss", false)) else LevelScaling.hp_mult(LevelScaling.current_level()) * RunArc.hp_mult(elapsed)
+	if GameAuthority.run != null:
+		growth *= GameAuthority.run.coop_boss_hp_mult if bool(data.get("boss", false)) else GameAuthority.run.coop_hp_mult
 	max_hp[slot] = float(data["hp"]) * growth
 	hp[slot] = max_hp[slot]
 	radius[slot] = float(data["radius_px"])
@@ -119,6 +136,35 @@ func spawn(type_id: String, at: Vector2) -> int:
 	elites.clear(slot)
 	var rng: RandomNumberGenerator = GameAuthority.run.rng.spawns if GameAuthority.run != null else RandomNumberGenerator.new()
 	movement.reset(slot, _type_movement[kind[slot]], data.get("behavior", {}), rng)
+	spawned.emit(slot)
+	return slot
+
+
+## Co-op (joining player): puts the host's enemy into the same slot number.
+func spawn_into(slot: int, kind_id: int, at: Vector2, hp_max: float) -> void:
+	if remote:
+		_remote.spawn_into(self, slot, kind_id, at, hp_max)
+
+
+## Co-op (joining player): where the host says this enemy is.
+func correct(slot: int, at: Vector2, hp_fraction: float) -> void:
+	if remote:
+		_remote.correct(self, slot, at, hp_fraction)
+
+
+## Takes the next free slot (or `slot` itself when it's free); returns it, or -1.
+func take_slot(slot: int = -1) -> int:
+	if _active_count >= capacity:
+		return -1
+	if slot >= 0:
+		var at_free: int = _free.find(slot, _active_count)
+		if at_free == -1:
+			return -1
+		_free[at_free] = _free[_active_count]
+		_free[_active_count] = slot
+	slot = _free[_active_count]
+	_active_count += 1
+	active[slot] = 1
 	return slot
 
 
@@ -130,6 +176,7 @@ func despawn(slot: int) -> void:
 	_active_count -= 1
 	_free[_active_count] = slot
 	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2.ZERO, 0.0, Vector2.ZERO))
+	removed.emit(slot)
 
 
 ## Removes an enemy without a kill (a flyer that has crossed the screen): no XP, no count.
@@ -176,88 +223,30 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	for i: int in capacity:
 		if active[i] != 0:
 			positions[i] -= shift_px
+	if _remote != null:
+		_remote.on_origin_shifted(shift_px)
 	hash_grid.rebuild(positions, active)
 
 
 func _process(delta: float) -> void:
+	if remote:
+		_remote.follow(self, delta)
+		_draw_instances(delta)
+		return
 	movement.step(self, delta)
 	elites.tick(self, delta)
 	_separation_timer -= delta
 	if _separation_timer <= 0.0:
 		_separation_timer = 1.0 / Data.cfg_float("performance.separation_hz")
 		hash_grid.rebuild(positions, active)
-		_separate()
+		EnemyCrowd.separate(self)
 	_status_timer -= delta
 	if _status_timer <= 0.0:
 		var step: float = 1.0 / Data.cfg_float("performance.status_tick_hz")
 		_status_timer += step
 		statuses.tick(step, active, GameAuthority.hits.damage_over_time)
-	_contact(delta)
+	EnemyCrowd.contact(self, delta)
 	_draw_instances(delta)
-
-
-## Pushes overlapping enemies apart; bigger enemies push smaller ones aside.
-## Each enemy checks at most `separation_max_neighbors` neighbours.
-func _separate() -> void:
-	var max_neighbors: int = Data.cfg_int("performance.separation_max_neighbors")
-	for i: int in capacity:
-		if active[i] == 0:
-			continue
-		var checked: int = 0
-		var mass_i: float = radius[i] * radius[i]
-		for j: int in query(positions[i], radius[i] + _max_radius):
-			if j == i:
-				continue
-			checked += 1
-			if checked > max_neighbors:
-				break
-			var offset: Vector2 = positions[i] - positions[j]
-			var min_dist: float = radius[i] + radius[j]
-			var dist: float = offset.length()
-			if dist >= min_dist:
-				continue
-			var away: Vector2 = offset / dist if dist > 0.001 else Vector2.RIGHT.rotated(float(i))
-			var mass_j: float = radius[j] * radius[j]
-			positions[i] += away * (min_dist - dist) * (mass_j / (mass_i + mass_j))
-		_push_out_of_players(i)
-
-
-## Enemies can't stand inside a player, so crowds form a ring around them.
-func _push_out_of_players(i: int) -> void:
-	for player: Player in GameAuthority.players:
-		if not player.alive:
-			continue
-		var offset: Vector2 = positions[i] - player.position
-		var min_dist: float = radius[i] + player.body_radius
-		var dist: float = offset.length()
-		if dist < min_dist:
-			var away: Vector2 = offset / dist if dist > 0.001 else Vector2.RIGHT
-			positions[i] = player.position + away * min_dist
-
-
-## Each touching enemy damages the player once per contact interval, on its own timer.
-func _contact(delta: float) -> void:
-	var interval: float = Data.cfg_float("combat.contact_damage_interval_s")
-	var margin: float = Data.cfg_float("enemies.contact_margin_px")
-	for i: int in capacity:
-		if active[i] != 0 and contact_timer[i] > 0.0:
-			contact_timer[i] -= delta
-	for player: Player in GameAuthority.players:
-		if not player.alive:
-			continue
-		var reach: float = player.body_radius + _max_radius + margin
-		for i: int in query(player.position, reach + Data.cfg_float("enemies.contact_query_slack_px")):
-			if contact_timer[i] > 0.0:
-				continue
-			if positions[i].distance_to(player.position) <= player.body_radius + radius[i] + margin:
-				contact_timer[i] = interval
-				var data: Dictionary = types[kind[i]]
-				GameAuthority.damage_player(player, float(data["contact_damage"]) * damage_mult(i), str(data["id"]), positions[i])
-				# Skadi's Blessing: enemies that touch you are Chilled.
-				var touch_status: String = str(player.god_flags.get("contact_status", ""))
-				if touch_status != "":
-					statuses.apply(i, touch_status)
-				GameAuthority.status_player_from_enemy(player, str(data.get("element", "")))
 
 
 func nearest_player(from: Vector2) -> Player:

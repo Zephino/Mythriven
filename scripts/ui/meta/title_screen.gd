@@ -1,8 +1,7 @@
 class_name TitleScreen
 extends MenuScreen
 ## The title screen (GAME_DESIGN.md: Screens / Title): Play, Hall of Legends,
-## Leaderboard, Settings, and Quit (PC). Co-op arrives with Phase 20. Shows
-## the banked gold and the version.
+## Co-op, Leaderboard, Settings, and Quit (PC). Shows the banked gold and the version.
 
 var flow: MenuFlow
 
@@ -20,6 +19,7 @@ func has_back() -> bool:
 func build() -> void:
 	set_title(tr_key("UI_GAME_TITLE"))
 	add_button(tr_key("UI_PLAY"), func() -> void: flow.play(self))
+	add_button(tr_key("UI_COOP"), func() -> void: open_child(CoopScreen.new_for(flow)))
 	add_button(tr_key("UI_HALL_OF_LEGENDS"), func() -> void: open_child(HallScreen.new_for(flow)))
 	add_button(tr_key("UI_LEADERBOARD"), func() -> void: open_overlay(LeaderboardScreen.new()))
 	add_button(tr_key("UI_SETTINGS"), func() -> void: open_child(SettingsScreen.new()))

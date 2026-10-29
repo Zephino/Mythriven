@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 19 (Polish) code-side done (00.01.23); waiting on the owner for art and audio direction, a real-phone test, and the lore sign-off; then Phase 20 (Co-op and cloud saves)
+**Current phase:** Phase 20 (Co-op and cloud saves) built (00.01.25): all 20 build phases have code; waiting on the owner for a two-device co-op playtest, art and audio direction, a real-phone test, and the lore sign-off
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-29 — Phase 20 — Co-op and cloud saves (Claude, 00.01.25)
+- What changed: cloud saves (private sync code, merge, Settings → Cloud save) and online co-op (6-digit lobbies, host-authoritative sync, turn-based level-ups, personal gods, revives and the Wandering Shade, scaling, tether, team recap) through the owner's Cloudflare Worker (Durable Objects SaveVault and LobbyRoom).
+- Files touched: leaderboard-api/src/cloud.js, lobby.js, index.js, wrangler.toml, tests; scripts/net/* (lobby service, Cloudflare lobby, Net autoload, CoopHost, CoopClient, CoopTurns, CoopChoices, CoopRevives, CoopTether, CoopMirror, CoopCodec), scripts/meta/cloud_sync.gd, scripts/ui/meta/coop_screen.gd and cloud_save_screen.gd; mirror methods on shrines, chests, POIs, bosses, hazards, trials, patterns, ground patches; GameAuthority gating; tests/test_online.gd, test_coop.gd.
+- Unfinished / next: a real two-device co-op playtest by the owner; sign-in with Google/Apple/Steam if wanted; remaining decisions.
+
 
 ## 2026-10-29 — Decisions review round 1 (Claude, 00.01.24)
 - What changed: owner answers recorded in DECISIONS.md (14 closed, 22 approved, 5 approved as draft text); Spartoi brutes and bronze-bull bombers replace the borrowed Norse enemies on the Aegean Shore; whole-screen joystick (default); bosses in the release lore check; GAME_DESIGN.md updated.

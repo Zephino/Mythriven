@@ -35,3 +35,15 @@ func end() -> void:
 
 func on_origin_shifted(_shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	pass
+
+
+# --- Co-op (CoopMirror; subclasses add their own state) ------------------------------------
+
+func net_capture() -> Variant:
+	return [active, paused, _data]
+
+
+func net_apply(state: Variant) -> void:
+	active = bool(state[0])
+	paused = bool(state[1])
+	_data = state[2]

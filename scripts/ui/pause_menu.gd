@@ -65,13 +65,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func open() -> void:
-	if visible or GameAuthority.run == null or GameAuthority.run.ended or get_tree().paused:
+	if visible or GameAuthority.run == null or GameAuthority.run.ended or (get_tree().paused and not Net.in_run()):
 		return
 	for blocker: CanvasLayer in blockers:
 		if blocker != null and blocker.visible:
 			return
 	visible = true
-	get_tree().paused = true
+	# Co-op: the pause menu is only an overlay; the game keeps running (GAME_DESIGN.md: Fairness rules).
+	if not Net.in_run():
+		get_tree().paused = true
 	_resume.grab_focus()
 
 
@@ -79,7 +81,8 @@ func close() -> void:
 	if not visible:
 		return
 	visible = false
-	get_tree().paused = false
+	if not Net.in_run():
+		get_tree().paused = false
 
 
 func _on_auto_summon(on: bool) -> void:
@@ -108,6 +111,10 @@ func _on_codex() -> void:
 ## Quitting keeps 10% of the run's gold from 5:00, none before (Banking).
 func _on_quit() -> void:
 	Meta.quit_run()
+	if Net.active():
+		# Leaving a co-op run (if this is the host, it ends for everyone).
+		Net.send(LobbyService.HOST_ID, [NetMsg.BYE])
+		Net.leave()
 	GameAuthority.selected_hero_id = ""
 	Meta.next_screen = "title"
 	get_tree().paused = false

@@ -10,6 +10,8 @@ var _weapon: WeaponInstance
 
 
 func _ready() -> void:
+	add_to_group("infusion_choice_screen")
+	add_to_group(CoopChoices.MODAL)
 	layer = 43
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var root := SafeAreaBox.new()
@@ -64,6 +66,8 @@ func ask(choice: Dictionary) -> void:
 func _choose(god_id: String) -> void:
 	visible = false
 	get_tree().paused = false
+	if Net.is_client():
+		CoopChoices.choose("infuse", [_weapon.id(), god_id])
 	var recipe: Dictionary = Infusions.infuse(_weapon, god_id)
 	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 	if Infusions.discover(recipe) and banner != null:

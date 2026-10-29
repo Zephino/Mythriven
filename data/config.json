@@ -481,6 +481,7 @@
   },
 
   "coop": {
+    "_doc": "Online co-op (GAME_DESIGN.md: Online co-op; fairness rules). Scaling, revives, and the Wandering Shade are the design's numbers. sync_rate_hz: host updates per second; enemy_batch: enemies whose position each update corrects (the rest are moved on each device between corrections); damage_numbers_per_tick and events are capped so a busy moment can't flood the connection. state_hz: how often slower things (shrines, chests, bosses' visuals) are sent. revive_reach_px: how close an ally must stand to revive. tether_screens: how far apart players can move. turn_s: seconds each player has to choose a level-up card. smoothing_per_s: how fast other players and enemies glide to where the host says they are. Colours are placeholders.",
     "max_players": 4,
     "lobby_code_digits": 6,
     "enemy_hp_per_extra_player": 0.6,
@@ -491,7 +492,19 @@
     "revives_per_player": 2,
     "revive_hp_pct": 0.3,
     "shade_god_charge_bonus": 0.1,
-    "sync_rate_hz": 20
+    "shade_aura_px": 160,
+    "sync_rate_hz": 20,
+    "state_hz": 5,
+    "enemy_batch": 180,
+    "damage_numbers_per_tick": 40,
+    "revive_reach_px": 30,
+    "tether_screens": 1.5,
+    "turn_s": 20,
+    "smoothing_per_s": 12,
+    "spawn_spread_px": 40,
+    "shade_color": "#b8c8ff",
+    "bleed_color": "#ff5a5a",
+    "revive_color": "#7aff9a"
   },
 
   "save": { "_doc": "Save file (GAME_DESIGN.md: Save file). profile_file is the Phase 10–14 file, copied into the save once. test_file is used whenever the automated tests run, so they never touch a real save. cloud_file keeps this device's private cloud-save code (never inside the save itself).", "save_version": 3, "cloud_sync_min_interval_s": 30, "cloud_file": "user://cloud.cfg", "file": "user://save.json", "test_file": "user://test_save.json", "profile_file": "user://profile.cfg" },

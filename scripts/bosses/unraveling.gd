@@ -15,6 +15,7 @@ var _tick: float = 0.0
 
 
 func _ready() -> void:
+	CoopMirror.attach(self, "unraveling")
 	z_index = 30
 
 
@@ -82,3 +83,16 @@ func _draw() -> void:
 		var a: float = TAU * k / threads + GameAuthority.run.elapsed_s * 0.05
 		var from: Vector2 = center + Vector2.from_angle(a) * reach
 		draw_line(from, from + Vector2.from_angle(a + sin(GameAuthority.run.elapsed_s + k) * 0.6) * 24.0, Color(fray, 0.9), 1.0)
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	return [active, center, start_radius, started_s]
+
+
+func net_apply(state: Variant) -> void:
+	active = bool(state[0])
+	center = state[1]
+	start_radius = float(state[2])
+	started_s = float(state[3])

@@ -41,7 +41,7 @@ func signature(delta: float) -> void:
 		if bool(phase().get("devour", false)) and player.alive and broken_s <= 0.0:
 			var pull: Vector2 = position_now() - player.position
 			if pull.length() > GameAuthority.enemies.radius[slot] * 2.0:
-				player.position += pull.normalized() * float(sig.get("pull_px_s", 40.0)) * delta
+				GameAuthority.push_player(player, pull.normalized() * float(sig.get("pull_px_s", 40.0)) * delta)
 
 
 func _on_phase_started(_index: int) -> void:

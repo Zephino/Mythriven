@@ -51,5 +51,13 @@ static func cloud_url() -> String:
 	return "" if base.is_empty() else base + "/cloud/save"
 
 
+## Co-op lobbies (leaderboard-api/src/lobby.js), as a WebSocket address; "" until set up.
+static func lobby_url() -> String:
+	var base: String = api_base()
+	if base.is_empty():
+		return ""
+	return base.replace("https://", "wss://").replace("http://", "ws://") + "/lobby"
+
+
 static func can_post() -> bool:
 	return not post_url().is_empty()

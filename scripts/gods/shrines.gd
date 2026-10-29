@@ -7,6 +7,8 @@ extends Node2D
 ## stone circle; placeholder shapes). When the god is first seen it says a
 ## line. Peaceful shrines bind after standing at them for 2 s; trial shrines
 ## start a Duel, Endurance, or Chase trial. Hidden shrines (Phase 14) use add().
+## Co-op: each player who touches a peaceful shrine while it lasts binds their
+## own copy of the god (GAME_DESIGN.md: Fairness rules).
 
 signal shrine_added(shrine: Dictionary)
 
@@ -30,6 +32,7 @@ func _ready() -> void:
 	_arrows = Node2D.new()
 	_arrows.draw.connect(_draw_arrows)
 	layer.add_child(_arrows)
+	CoopMirror.attach(self, "shrines")
 
 
 ## Places a shrine for `god_id` at `at` (or picks a god when "").
@@ -41,7 +44,7 @@ func add(at: Vector2, god_id: String = "", hidden: bool = false) -> Dictionary:
 	if god.is_empty():
 		return {}
 	var shrine: Dictionary = {"god_id": god_id, "god": god, "pos": at, "left": Data.cfg_float("gods.shrine_lifetime_s"),
-			"progress": 0.0, "seen": false, "hidden": hidden}
+			"progress": 0.0, "seen": false, "hidden": hidden, "progress_by": {}, "bound_by": []}
 	shrines.append(shrine)
 	shrine_added.emit(shrine)
 	return shrine
@@ -70,7 +73,6 @@ func _process(delta: float) -> void:
 	if run.elapsed_s >= _next_s:
 		_next_s = run.elapsed_s + Data.cfg_float("gods.shrine_interval_s")
 		spawn_timed()
-	var player: Player = GameAuthority.local_player()
 	for shrine: Dictionary in shrines.duplicate():
 		if trial != null and trial.active and trial.shrine == shrine:
 			continue
@@ -78,26 +80,37 @@ func _process(delta: float) -> void:
 		if float(shrine["left"]) <= 0.0:
 			shrines.erase(shrine)
 			continue
-		if player == null or not player.alive:
-			continue
-		var dist: float = player.position.distance_to(shrine["pos"])
-		if not bool(shrine["seen"]) and dist <= _view().size.x * 0.5:
-			shrine["seen"] = true
-			if banter != null:
-				banter.say_line(GodRules.line("found", str(shrine["god_id"]), ""))
-		if dist > Data.cfg_float("gods.shrine_radius_px") + player.body_radius:
-			shrine["progress"] = 0.0
-			continue
-		_touch(shrine, player, delta)
+		for player: Player in GameAuthority.players:
+			if not shrines.has(shrine):
+				break
+			if player.alive and not (shrine["bound_by"] as Array).has(player.player_id):
+				_check_player(shrine, player, delta)
+		var most: float = 0.0
+		for value: Variant in (shrine["progress_by"] as Dictionary).values():
+			most = maxf(most, float(value))
+		shrine["progress"] = most
 	queue_redraw()
 	_arrows.queue_redraw()
+
+
+func _check_player(shrine: Dictionary, player: Player, delta: float) -> void:
+	var dist: float = player.position.distance_to(shrine["pos"])
+	if player.is_local and not bool(shrine["seen"]) and dist <= _view().size.x * 0.5:
+		shrine["seen"] = true
+		if banter != null:
+			banter.say_line(GodRules.line("found", str(shrine["god_id"]), ""))
+	if dist > Data.cfg_float("gods.shrine_radius_px") + player.body_radius:
+		(shrine["progress_by"] as Dictionary).erase(player.player_id)
+		return
+	_touch(shrine, player, delta)
 
 
 func _touch(shrine: Dictionary, player: Player, delta: float) -> void:
 	var kind: String = str((shrine["god"].get("shrine", {}) as Dictionary).get("type", "peaceful"))
 	if kind == "peaceful":
-		shrine["progress"] = float(shrine["progress"]) + delta
-		if float(shrine["progress"]) >= Data.cfg_float("gods.peaceful_bind_s"):
+		var progress: Dictionary = shrine["progress_by"]
+		progress[player.player_id] = float(progress.get(player.player_id, 0.0)) + delta
+		if float(progress[player.player_id]) >= Data.cfg_float("gods.peaceful_bind_s"):
 			offer_binding(shrine, player)
 	elif trial != null and not trial.active and not GameAuthority.run.boss_arena_active:
 		trial.begin(shrine, player)
@@ -105,12 +118,36 @@ func _touch(shrine: Dictionary, player: Player, delta: float) -> void:
 
 ## Binds the shrine's god, asking which god to release when both slots are full.
 func offer_binding(shrine: Dictionary, player: Player) -> void:
-	shrines.erase(shrine)
+	if GameAuthority.players.size() > 1:
+		# Co-op: the shrine stays for the other players.
+		(shrine["bound_by"] as Array).append(player.player_id)
+		(shrine["progress_by"] as Dictionary).erase(player.player_id)
+	else:
+		shrines.erase(shrine)
 	if not gods.is_full(player):
 		gods.bind(player, str(shrine["god_id"]))
 		return
 	if choice != null:
 		choice.ask(player, str(shrine["god_id"]))
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	var out: Array = []
+	for shrine: Dictionary in shrines:
+		out.append([str(shrine["god_id"]), shrine["pos"], float(shrine["left"]), float(shrine["progress"]), bool(shrine["hidden"])])
+	return out
+
+
+func net_apply(state: Variant) -> void:
+	shrines.clear()
+	for row: Variant in state:
+		var god: Dictionary = GodRules.find(str(row[0]))
+		if not god.is_empty():
+			shrines.append({"god_id": str(row[0]), "god": god, "pos": row[1], "left": float(row[2]), "progress": float(row[3]),
+				"seen": true, "hidden": bool(row[4]), "progress_by": {}, "bound_by": []})
+	_arrows.queue_redraw()
 
 
 func _taken_ids() -> PackedStringArray:

@@ -107,6 +107,11 @@ func meter(player: Player, index: int) -> float:
 	return float(slots[index]["meter"]) if index < slots.size() else 0.0
 
 
+## Co-op (joining player): a player's god slots as the host has them.
+func set_slots(player: Player, slots: Array) -> void:
+	_bound[player.player_id] = slots
+
+
 func set_meter(player: Player, index: int, value: float) -> void:
 	var slots: Array = gods_of(player)
 	if index < slots.size():
@@ -115,6 +120,11 @@ func set_meter(player: Player, index: int, value: float) -> void:
 
 ## Fires a god's summon if its meter is full. Returns true if it fired.
 func summon(player: Player, index: int) -> bool:
+	if Net.is_client():
+		# Co-op: the host fires it (and every device shows it).
+		if player.is_local:
+			Net.send(LobbyService.HOST_ID, [NetMsg.SUMMON, index])
+		return false
 	var slots: Array = gods_of(player)
 	if index >= slots.size() or float(slots[index]["meter"]) < 1.0 or not player.alive:
 		return false
@@ -167,7 +177,8 @@ func _process(delta: float) -> void:
 				summon(waiting, _pending_index)
 			_pending_index = -1
 	for player: Player in GameAuthority.players:
-		if not player.alive:
+		# Co-op: on a joining player's device the meters come from the host.
+		if not player.alive or Net.is_client():
 			continue
 		var regen: float = float(player.god_flags.get("regen_pct_per_s", 0.0))
 		if regen > 0.0:
@@ -186,26 +197,32 @@ func _process(delta: float) -> void:
 
 
 func _on_pickup(player: Player, _amount: float) -> void:
+	if Net.is_client():
+		return
 	_charge(player, "pickups", 1.0)
 
 
 func _on_player_damaged(player: Player, amount: float, _source_id: String) -> void:
+	if Net.is_client():
+		return
 	_charge(player, "damage_taken", amount)
 
 
 func _on_weapon_fired(player: Player, _weapon: WeaponInstance) -> void:
+	if Net.is_client():
+		return
 	_charge(player, "attacks_made", 1.0)
 
 
 func _on_enemy_damaged(_slot: int, _amount: float, kind: String, _at: Vector2, _element: String) -> void:
-	if kind == "dot":
+	if kind == "dot" or Net.is_client():
 		return
 	for player: Player in GameAuthority.players:
 		_charge(player, "enemies_hit", 1.0)
 
 
 func _on_enemy_killed(slot: int, _enemy_type: Dictionary, at: Vector2, killer: Player) -> void:
-	if killer == null:
+	if killer == null or Net.is_client():
 		return
 	_charge(killer, "kills", 1.0)
 	Blessings.on_kill(killer, slot)
@@ -227,7 +244,7 @@ func _charge(player: Player, trigger_type: String, amount: float) -> void:
 func _charge_slot(player: Player, slot: Dictionary, amount: float) -> void:
 	var god: Dictionary = slot["god"]
 	var needed: float = maxf(float((god.get("trigger", {}) as Dictionary).get("amount", 100.0)), 0.01)
-	var mult: float = GodRules.charge_mult(player, god) * GameAuthority.run.god_charge_mult
+	var mult: float = GodRules.charge_mult(player, god) * GameAuthority.run.god_charge_mult * CoopRevives.shade_charge_mult(player)
 	slot["meter"] = minf(float(slot["meter"]) + amount / needed * mult, 1.0)
 
 

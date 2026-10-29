@@ -13,7 +13,12 @@ var _queue: Array[Dictionary] = []
 var _left: float = 0.0
 
 
+## Co-op: the host passes every line on to the joining players (CoopHost).
+signal said(line: Dictionary)
+
+
 func _ready() -> void:
+	add_to_group("banter_bubble")
 	layer = 31
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
@@ -46,7 +51,10 @@ func _ready() -> void:
 ## Queues a line from banter.json ({} is ignored).
 func say_line(line: Dictionary) -> void:
 	_place()
-	if line.is_empty() or (not Data.cfg_bool("banter.enabled") or not Settings.flag("banter")):
+	if line.is_empty():
+		return
+	said.emit(line)
+	if not Data.cfg_bool("banter.enabled") or not Settings.flag("banter"):
 		return
 	Meta.note_banter(str(line.get("text_key", "")))
 	_queue.append(line)

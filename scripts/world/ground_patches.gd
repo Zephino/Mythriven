@@ -23,6 +23,10 @@ func setup(data: Dictionary) -> void:
 	z_index = -5
 
 
+func _ready() -> void:
+	CoopMirror.attach(self, "ground_patches")
+
+
 func kind() -> String:
 	return str(_data.get("kind", ""))
 
@@ -73,8 +77,8 @@ func _teleport(player: Player, index: int) -> void:
 		return
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
-		effects.spawn_ring(player.position, float(patches[index]["radius"]), Color.html(str(_data.get("color", "#ffffff"))))
-	player.position = patches[pair]["pos"]
+		effects.spawn_ring(player.position, float(patches[index]["radius"]), Color.html(str(_data.get("color", "#ffffff"))), true)
+	GameAuthority.place_player(player, patches[pair]["pos"])
 	_cooldown[player.player_id] = float(_data.get("teleport_cooldown_s", 4.0))
 
 
@@ -117,3 +121,13 @@ func _draw() -> void:
 				draw_circle(Vector2(patch["pos"]) + Vector2.from_angle(TAU * k / 8.0) * radius, 2.5, Color(color, 0.5 if faded else 1.0))
 		else:
 			draw_circle(patch["pos"], radius, Color(color, 0.35 if faded else 0.7))
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	return CoopMirror.copy_dicts(patches)
+
+
+func net_apply(state: Variant) -> void:
+	patches.assign(state)

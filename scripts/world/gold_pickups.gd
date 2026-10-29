@@ -14,8 +14,13 @@ var _speed := PackedFloat32Array()
 var _flying := PackedByteArray()
 var _multimesh: MultiMesh
 
+## Co-op: the host tells the joining players about every coin (CoopHost).
+signal dropped(at: Vector2, value: float)
+signal pulled
+
 
 func setup() -> void:
+	add_to_group("gold_pickups")
 	z_index = -1
 	_capacity = Data.cfg_int("pickups.gold_pool")
 	_active.resize(_capacity)
@@ -38,6 +43,7 @@ func count() -> int:
 
 
 func drop(at: Vector2, value: float) -> void:
+	dropped.emit(at, value)
 	var slot: int = _active.find(0)
 	if slot == -1:
 		var nearest: int = _nearest_coin(at)
@@ -62,13 +68,14 @@ func drop_pile(at: Vector2, total: float, coins: int) -> void:
 
 ## Every coin flies to the nearest player (Tyche's Wheel of Fortune).
 func pull_all() -> void:
+	pulled.emit()
 	for i: int in _capacity:
 		if _active[i] != 0:
 			_flying[i] = 1
 
 
 func on_enemy_killed(_slot: int, enemy_type: Dictionary, at: Vector2, _killer: Player) -> void:
-	if GameAuthority.run == null or bool(enemy_type.get("elite", false)):
+	if GameAuthority.run == null or bool(enemy_type.get("elite", false)) or Net.is_client():
 		return
 	var chance: float = float(enemy_type.get("gold_chance", Data.cfg_float("pickups.gold_drop_chance")))
 	if GameAuthority.run.rng.loot.randf() < chance:
@@ -76,7 +83,7 @@ func on_enemy_killed(_slot: int, enemy_type: Dictionary, at: Vector2, _killer: P
 
 
 func on_elite_killed(at: Vector2, _enemy_type: Dictionary, is_copy: bool) -> void:
-	if GameAuthority.run != null and not is_copy:
+	if GameAuthority.run != null and not is_copy and not Net.is_client():
 		drop_pile(at, Data.cfg_float("pickups.elite_gold"), Data.cfg_int("pickups.pile_coins"))
 
 
@@ -131,7 +138,7 @@ func _nearest_player(from: Vector2) -> Player:
 	var best: Player = null
 	var best_sq: float = INF
 	for player: Player in GameAuthority.players:
-		if player.alive and player.position.distance_squared_to(from) < best_sq:
+		if (player.alive or player.shade) and player.position.distance_squared_to(from) < best_sq:
 			best_sq = player.position.distance_squared_to(from)
 			best = player
 	return best

@@ -7,6 +7,10 @@ extends CanvasLayer
 
 const GROUP := "banner"
 
+## Co-op: shared announcements go to the joining players too (CoopHost);
+## a player's own achievements and unlocks don't.
+signal shown(text: String)
+
 var _label: Label
 var _queue: PackedStringArray = []
 var _left: float = 0.0
@@ -33,11 +37,17 @@ func _ready() -> void:
 	_label.visible = false
 	root.add_child(_label)
 	# Achievements, secrets, and unlocks earned during the run (Phase 15).
-	Meta.earned.connect(show_text)
+	Meta.earned.connect(show_personal)
 
 
-## Queues one already-translated line.
+## Queues one already-translated line (shared with everyone in co-op).
 func show_text(text: String) -> void:
+	shown.emit(text)
+	show_personal(text)
+
+
+## A line for this player only (their achievements, secrets, and unlocks).
+func show_personal(text: String) -> void:
 	_queue.append(text)
 	if not _label.visible:
 		_next()

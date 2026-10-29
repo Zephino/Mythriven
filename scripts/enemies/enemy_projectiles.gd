@@ -25,6 +25,11 @@ var _regular_count: int = 0
 var _boss_count: int = 0
 
 
+## A shot was fired, or all shots changed at once (co-op tells the joining players).
+signal fired(at: Vector2, velocity: Vector2, shot_radius: float, damage: float, source_id: String, element: String, owner_kind: int)
+signal bulk(op: String, args: Array)
+
+
 func setup() -> void:
 	z_index = 20
 	_capacity = Data.cfg_int("effect_budgets.max_enemy_projectiles") + Data.cfg_int("effect_budgets.max_boss_projectiles")
@@ -68,11 +73,13 @@ func fire(at: Vector2, velocity: Vector2, shot_radius: float, damage: float, sou
 		_boss_count += 1
 	else:
 		_regular_count += 1
+	fired.emit(at, velocity, shot_radius, damage, source_id, element, owner_kind)
 	return true
 
 
 ## Sends every boss shot back toward where it was fired from.
 func rewind_boss_shots() -> void:
+	bulk.emit("rewind", [])
 	for i: int in _capacity:
 		if _active[i] != 0 and _owner_kind[i] == BOSS:
 			var back: Vector2 = _origin[i] - _pos[i]
@@ -83,6 +90,7 @@ func rewind_boss_shots() -> void:
 
 ## Removes every shot (a boss's clean slate, or the end of a fight).
 func clear_all(owner_kind: int = -1) -> void:
+	bulk.emit("clear", [owner_kind])
 	for i: int in _capacity:
 		if _active[i] != 0 and (owner_kind == -1 or _owner_kind[i] == owner_kind):
 			_remove(i)
@@ -96,6 +104,8 @@ func block_circle(center: Vector2, block_radius: float) -> int:
 		if _active[i] != 0 and _pos[i].distance_to(center) <= block_radius + _radius[i]:
 			_remove(i)
 			blocked += 1
+	if blocked > 0:
+		bulk.emit("block", [center.x, center.y, block_radius])
 	return blocked
 
 

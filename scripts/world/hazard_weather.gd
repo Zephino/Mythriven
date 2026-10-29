@@ -39,6 +39,9 @@ void fragment() {
 	_veil.material = material
 	_veil.visible = false
 	_layer.add_child(_veil)
+	CoopMirror.attach(self, "weather")
+	# Co-op (joining player): keep running to blow this device's own Hero with the host's wind.
+	process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func begin(data: Dictionary) -> void:
@@ -52,6 +55,10 @@ func strength() -> float:
 
 
 func _process(delta: float) -> void:
+	if Net.is_client():
+		_update_veil()
+		_push_players(delta, true)
+		return
 	var target: float = 1.0 if active and not paused else 0.0
 	_strength = move_toward(_strength, target, delta / maxf(float(_data.get("fade_s", 1.5)), 0.05))
 	_update_veil()
@@ -61,10 +68,7 @@ func _process(delta: float) -> void:
 	if _turn_left <= 0.0:
 		_turn_left = float(_data.get("wind_turn_s", 6.0))
 		wind = Vector2.from_angle(GameAuthority.run.rng.world.randf() * TAU)
-	var push: float = float(_data.get("push_px_s", 0.0)) * _strength
-	for player: Player in GameAuthority.players:
-		if player.alive and not (player.kit != null and player.kit.controls_movement()):
-			player.position += wind * push * delta
+	_push_players(delta, false)
 	var enemy_push: float = float(_data.get("enemy_push_px_s", 0.0)) * _strength
 	var enemies: EnemyManager = GameAuthority.enemies
 	if enemy_push > 0.0 and enemies != null:
@@ -84,3 +88,23 @@ func _update_veil() -> void:
 	material.set_shader_parameter("clear_radius", vision * 0.5)
 	material.set_shader_parameter("strength", _strength)
 	material.set_shader_parameter("aspect", view.x / maxf(view.y, 1.0))
+
+
+## Wind pushes the Heroes (in co-op each device pushes its own Hero).
+func _push_players(delta: float, only_local: bool) -> void:
+	var push: float = float(_data.get("push_px_s", 0.0)) * _strength
+	if push <= 0.0:
+		return
+	for player: Player in GameAuthority.players:
+		if (player.is_local or not only_local) and player.alive and not (player.kit != null and player.kit.controls_movement()):
+			player.position += wind * push * delta
+
+
+func net_capture() -> Variant:
+	return [super.net_capture(), _strength, wind]
+
+
+func net_apply(state: Variant) -> void:
+	super.net_apply(state[0])
+	_strength = float(state[1])
+	wind = state[2]

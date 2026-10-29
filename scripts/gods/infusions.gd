@@ -132,4 +132,4 @@ static func on_kill(weapon: WeaponInstance, player: Player, slot: int, at: Vecto
 static func _ring(enemies: EnemyManager, at: Vector2, reach: float, element: String) -> void:
 	var effects: EffectLayer = enemies.get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
-		effects.spawn_ring(at, reach, Elements.color(element))
+		effects.spawn_ring(at, reach, Elements.color(element), true)

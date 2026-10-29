@@ -21,6 +21,8 @@ func _ready() -> void:
 	_marker_left.resize(MAX_MARKERS)
 	for i: int in MAX_MARKERS:
 		_marker_left[i] = -1.0
+	# The level's hazard and the Divine Storm event each have their own (RunSystems names them).
+	CoopMirror.attach(self, "strikes_" + name)
 
 
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
@@ -78,7 +80,7 @@ func _strike(at: Vector2) -> void:
 				GameAuthority.damage_enemy(slot, damage, null, Vector2.ZERO, element, 0.5)
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
-		effects.spawn_ring(at, reach, Color.html(str(_data.get("color", "#ffffff"))))
+		effects.spawn_ring(at, reach, Color.html(str(_data.get("color", "#ffffff"))), true)
 
 
 func _draw() -> void:
@@ -91,3 +93,13 @@ func _draw() -> void:
 		var filled: float = clampf(1.0 - _marker_left[i] / full, 0.0, 1.0)
 		draw_arc(_marker_pos[i], reach, 0.0, TAU, 24, area_color, 1.5)
 		draw_circle(_marker_pos[i], reach * filled, Color(area_color, area_color.a * 0.4))
+
+
+func net_capture() -> Variant:
+	return [super.net_capture(), CoopMirror.pack_points(_marker_pos), _marker_left]
+
+
+func net_apply(state: Variant) -> void:
+	super.net_apply(state[0])
+	_marker_pos = CoopMirror.unpack_points(state[1])
+	_marker_left = state[2]

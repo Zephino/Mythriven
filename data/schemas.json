@@ -672,7 +672,19 @@
               "revives_per_player": "number",
               "revive_hp_pct": "number",
               "shade_god_charge_bonus": "number",
-              "sync_rate_hz": "number"
+              "sync_rate_hz": "number",
+              "shade_aura_px": "number",
+              "state_hz": "number",
+              "enemy_batch": "number",
+              "damage_numbers_per_tick": "number",
+              "revive_reach_px": "number",
+              "tether_screens": "number",
+              "turn_s": "number",
+              "smoothing_per_s": "number",
+              "spawn_spread_px": "number",
+              "shade_color": "string",
+              "bleed_color": "string",
+              "revive_color": "string"
             }
           },
           "save": {

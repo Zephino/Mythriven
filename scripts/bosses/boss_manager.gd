@@ -48,6 +48,7 @@ var _defeated: int = 0
 func _ready() -> void:
 	z_index = 2
 	GameAuthority.bosses = self
+	CoopMirror.attach(self, "bosses")
 	var level: Dictionary = GameAuthority.run.level_data if GameAuthority.run != null else {}
 	var times: Array = Data.cfg("run_arc.boss_times_s")
 	var bosses: Dictionary = level.get("bosses", {})
@@ -136,7 +137,7 @@ func _keep_players_in() -> void:
 	for player: Player in GameAuthority.players:
 		var offset: Vector2 = player.position - arena_center
 		if offset.length() > arena_radius - player.body_radius:
-			player.position = arena_center + offset.normalized() * (arena_radius - player.body_radius)
+			GameAuthority.place_player(player, arena_center + offset.normalized() * (arena_radius - player.body_radius))
 
 
 ## Every regular enemy on screen bursts into XP orbs.
@@ -188,6 +189,10 @@ func _on_defeated(controller: BossController) -> void:
 	boss_defeated.emit(boss_id)
 	if boons != null:
 		boons.offer()
+		# Co-op: every player picks their own Boon on their own device.
+		for player: Player in GameAuthority.players:
+			if CoopChoices.is_remote(player) and player.alive:
+				CoopChoices.offer(player, "boon", null)
 	controller.patterns.queue_free()
 	controller.queue_free()
 	controllers.erase(controller)
@@ -221,3 +226,41 @@ func _draw_markers() -> void:
 		var ring: float = GameAuthority.enemies.radius[controller.slot] + float(marker.get("gap_px", 4.0)) + pulse * float(marker.get("pulse_px", 3.0))
 		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("outline_color", "#000000"))), width + 3.0)
 		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("color", "#ff3050"))), width)
+
+
+# --- Co-op (CoopMirror) ------------------------------------------------------------------
+
+func net_capture() -> Variant:
+	var bosses: Array = []
+	for controller: BossController in controllers:
+		bosses.append([str(controller.data.get("id", "")), int(controller.get_meta("index", -1)), controller.net_capture()])
+	return [arena_center, arena_radius, bosses]
+
+
+## Joining player: stand-in controllers (the boss's own script, never acting)
+## so the boss bar, cast bar, and signature visuals show.
+func net_apply(state: Variant) -> void:
+	arena_center = state[0]
+	arena_radius = float(state[1])
+	var wanted: Array = state[2]
+	for i: int in range(controllers.size() - 1, -1, -1):
+		var keep: bool = false
+		for row: Variant in wanted:
+			if str(row[0]) == str(controllers[i].data.get("id", "")) and int(row[1]) == int(controllers[i].get_meta("index", -1)):
+				keep = true
+		if not keep:
+			controllers[i].queue_free()
+			controllers.remove_at(i)
+	for row: Variant in wanted:
+		var controller: BossController = null
+		for existing: BossController in controllers:
+			if str(existing.data.get("id", "")) == str(row[0]) and int(existing.get_meta("index", -1)) == int(row[1]):
+				controller = existing
+		if controller == null:
+			controller = load(str(SCRIPTS.get(str(row[0]), "res://scripts/bosses/boss_controller.gd"))).new()
+			controller.puppet = true
+			controller.data = find(str(row[0]))
+			controller.set_meta("index", int(row[1]))
+			add_child(controller)
+			controllers.append(controller)
+		controller.net_apply(row[2])

@@ -65,7 +65,7 @@ func _tick_cyclones(delta: float) -> void:
 		for player: Player in GameAuthority.players:
 			var offset: Vector2 = Vector2(cyclone["pos"]) - player.position
 			if player.alive and offset.length() < reach:
-				player.position += offset.normalized() * minf(pull * delta, offset.length())
+				GameAuthority.push_player(player, offset.normalized() * minf(pull * delta, offset.length()))
 				if offset.length() < 16.0:
 					GameAuthority.damage_player(player, float(_sig().get("cyclone_damage", 4.0)) * delta * 4.0, str(data.get("id", "")))
 

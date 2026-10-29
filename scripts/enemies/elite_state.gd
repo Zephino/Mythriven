@@ -156,4 +156,4 @@ func _pulse_aura(m: EnemyManager, i: int, aura: Dictionary) -> void:
 					m.positions[i])
 	var effects: EffectLayer = m.get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
-		effects.spawn_ring(m.positions[i], reach, Elements.color(element) if element != "" else Color.WHITE)
+		effects.spawn_ring(m.positions[i], reach, Elements.color(element) if element != "" else Color.WHITE, true)

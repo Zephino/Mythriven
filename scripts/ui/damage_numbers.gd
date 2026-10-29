@@ -14,6 +14,7 @@ var _next: int = 0
 
 func setup() -> void:
 	z_index = 20
+	add_to_group("damage_numbers")
 	var count: int = Data.cfg_int("ui.damage_number_pool")
 	_age.resize(count)
 	for i: int in count:

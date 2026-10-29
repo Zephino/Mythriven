@@ -3,6 +3,10 @@ extends Node
 ## god binding) goes through here, so co-op can later run them only on the
 ## host (GAME_DESIGN.md: Multiplayer-ready from day one).
 ## Players are always a list, never a single global player.
+## In a co-op run (Phase 20) the host's game decides everything: on a joining
+## player's device (Net.is_client()) damage, kills, spawns, XP, and gold only
+## happen when the host says so (CoopClient sets `replicating` while it applies
+## the host's messages).
 
 signal run_started(run: RunState)
 signal player_spawned(player: Player)
@@ -26,6 +30,9 @@ signal elite_killed(at: Vector2, enemy_type: Dictionary, is_copy: bool)
 signal gold_collected(player: Player, amount: float)
 ## A weapon attacked (Thor's meter counts attacks made).
 signal weapon_fired(player: Player, weapon: WeaponInstance)
+## A game effect moved a player (a pull, a swap, the arena's edge): in co-op
+## a joining player's Hero is moved on their own device too (CoopHost).
+signal player_pushed(player: Player, offset: Vector2)
 ## Gods (Phase 11) and bosses (Phase 13): set by RunSystems; null between runs.
 var gods: GodManager = null
 var bosses: BossManager = null
@@ -45,6 +52,13 @@ var auto_collect: String = ""
 var hits := HitResolver.new()
 ## The Hero picked on the Hero select screen; kept for Retry, cleared by "Change Hero".
 var selected_hero_id: String = ""
+## True while CoopClient applies something the host decided.
+var replicating: bool = false
+
+
+## False on a joining player's device unless the host's message is being applied.
+func decides() -> bool:
+	return replicating or not Net.is_client()
 
 
 func _process(delta: float) -> void:
@@ -60,8 +74,7 @@ func start_run(level_id: String) -> RunState:
 	enemy_shots = null
 	gods = null
 	bosses = null
-	bosses = null
-	var run_seed: int = Data.cfg_int("run.fixed_seed")
+	var run_seed: int = Net.run_seed if Net.in_run() else Data.cfg_int("run.fixed_seed")
 	if run_seed == 0:
 		var seeder := RandomNumberGenerator.new()
 		seeder.randomize()
@@ -80,21 +93,15 @@ func end_scene() -> void:
 
 
 func find_level(level_id: String) -> Dictionary:
-	var levels: Variant = Data.get_file(LEVELS_FILE)
-	if levels is Array:
-		for level: Variant in levels:
-			if level is Dictionary and (level as Dictionary).get("id", "") == level_id:
-				return level
-	push_error("GameAuthority: level '%s' not found in %s" % [level_id, LEVELS_FILE])
-	return {}
+	return _find_in(LEVELS_FILE, level_id, "level")
 
 
 ## Creates a player, adds it under `parent`, and registers it in the list.
 func spawn_player(parent: Node, spawn_position: Vector2, input: PlayerInput, is_local: bool,
-		hero_id: String = "") -> Player:
+		hero_id: String = "", id: int = -1) -> Player:
 	var player := Player.new()
 	player.hero = HeroRules.find(hero_id) if hero_id != "" else {}
-	player.player_id = _next_player_id()
+	player.player_id = id if id >= 0 else _next_player_id()
 	player.is_local = is_local
 	player.input = input
 	player.position = spawn_position
@@ -118,6 +125,14 @@ func local_player() -> Player:
 	return null
 
 
+## The player with this id (co-op ids match Net's), or null.
+func player_by_id(id: int) -> Player:
+	for player: Player in players:
+		if player.player_id == id:
+			return player
+	return null
+
+
 func _next_player_id() -> int:
 	var highest: int = -1
 	for player: Player in players:
@@ -129,55 +144,46 @@ func _next_player_id() -> int:
 
 ## Spawns an enemy. Returns its slot, or -1 when the enemy cap is reached.
 func spawn_enemy(type_id: String, at: Vector2) -> int:
-	if enemies == null:
+	if enemies == null or not decides():
 		return -1
 	return enemies.spawn(type_id, at)
 
 
-## Damages a player (enemy damage − Armor, minimum 1; no invulnerability frames).
+## Damages a player (enemy damage − Armor, minimum 1; see PlayerHealth).
 ## `from` is where the hit came from (Vector2.INF when unknown).
 func damage_player(player: Player, amount: float, source_id: String, from: Vector2 = Vector2.INF) -> void:
-	if not player.alive or player.god_mode or player.invulnerable_s > 0.0 or (player.kit != null and player.kit.is_untargetable()):
-		return
-	var armor: float = player.armor * player.statuses.armor_mult()
-	var dealt: float = Damage.to_player(amount * player.statuses.consume_shock(), armor, Data.cfg_float("combat.min_damage"))
-	if player.kit != null:
-		dealt = player.kit.incoming_damage_at(dealt, from)
-		if dealt <= 0.0:
-			return
-	player.hp -= dealt
-	player_damaged.emit(player, dealt, source_id)
-	if player.hp <= 0.0:
-		_kill_player(player, source_id)
+	PlayerHealth.damage(player, amount, source_id, from)
 
 
 ## Burn and Poison on a player: skips Armor.
 func damage_player_over_time(player: Player, amount: float) -> void:
-	if not player.alive or player.god_mode or (player.kit != null and player.kit.immune_to_dot()):
-		return
-	player.hp -= amount
-	if player.hp <= 0.0:
-		_kill_player(player, "status")
+	PlayerHealth.damage_over_time(player, amount)
 
 
 ## From 30:00, an enemy touching a player can pass on its element's status.
 func status_player_from_enemy(player: Player, element: String) -> void:
-	if element == "" or run == null or run.arc_s() < Data.cfg_float("combat.player_status_start_s"):
-		return
-	if player.alive and not player.god_mode:
-		player.statuses.apply(Elements.status_of(element))
+	PlayerHealth.status_from_enemy(player, element)
 
 
 func heal_player(player: Player, amount: float) -> void:
-	if player.alive:
-		player.hp = minf(player.hp + amount, player.max_hp)
+	PlayerHealth.heal(player, amount)
 
 
-func _kill_player(player: Player, cause_id: String) -> void:
-	player.hp = 0.0
-	player.alive = false
-	player.cause_of_death = cause_id
-	player_died.emit(player, cause_id)
+## Moves a player by `offset` because of something in the game (not their own steering).
+func push_player(player: Player, offset: Vector2) -> void:
+	if offset == Vector2.ZERO:
+		return
+	player.position += offset
+	if not player.is_local:
+		player_pushed.emit(player, offset)
+
+
+func place_player(player: Player, at: Vector2) -> void:
+	push_player(player, at - player.position)
+
+
+## The run ends when no player is still fighting (all fallen, downed, or Shades).
+func check_run_over() -> void:
 	for other: Player in players:
 		if other.alive:
 			return
@@ -186,17 +192,20 @@ func _kill_player(player: Player, cause_id: String) -> void:
 		run_ended.emit(run)
 
 
+
 ## Damages an enemy: damage formula, weakness/resistance, statuses, and
 ## reactions. `status_chance` is the chance (0–1) to apply the element's status.
 ## `weapon` is the weapon that hit (null for traits, summons, and hazards).
 func damage_enemy(slot: int, base_damage: float, attacker: Player, push: Vector2, element: String,
 		status_chance: float = 0.0, weapon: WeaponInstance = null) -> void:
+	if not decides():
+		return
 	hits.hit(slot, base_damage, attacker, push, element, status_chance, true, weapon)
 
 
 ## An enemy dies: counts the kill, tells listeners (XP drops), frees the slot.
 func kill_enemy(slot: int, killer: Player) -> void:
-	if enemies == null or enemies.active[slot] == 0:
+	if enemies == null or enemies.active[slot] == 0 or not decides():
 		return
 	var at: Vector2 = enemies.positions[slot]
 	var data: Dictionary = enemies.type_of(slot)
@@ -214,7 +223,7 @@ func kill_enemy(slot: int, killer: Player) -> void:
 
 ## Adds run gold (spent at the Trader or banked at the end of the run).
 func collect_gold(player: Player, amount: float) -> void:
-	if run == null or run.ended:
+	if run == null or run.ended or not decides():
 		return
 	if player != null:
 		amount *= player.gold_mult
@@ -223,12 +232,16 @@ func collect_gold(player: Player, amount: float) -> void:
 
 
 func find_weapon(weapon_id: String) -> Dictionary:
-	var weapons: Variant = Data.get_file(WEAPONS_FILE)
-	if weapons is Array:
-		for weapon: Variant in weapons:
-			if weapon is Dictionary and (weapon as Dictionary).get("id", "") == weapon_id:
-				return weapon
-	push_error("GameAuthority: weapon '%s' not found in %s" % [weapon_id, WEAPONS_FILE])
+	return _find_in(WEAPONS_FILE, weapon_id, "weapon")
+
+
+## The entry with `id` in a list file (an error names it if it's missing).
+static func _find_in(file: String, id: String, what: String) -> Dictionary:
+	var listed: Variant = Data.get_file(file)
+	for entry: Variant in (listed if listed is Array else []):
+		if entry is Dictionary and (entry as Dictionary).get("id", "") == id:
+			return entry
+	push_error("GameAuthority: %s '%s' not found in %s" % [what, id, file])
 	return {}
 
 
@@ -247,7 +260,7 @@ func give_weapon(player: Player, weapon_id: String) -> WeaponInstance:
 
 ## Adds XP to the shared bar and queues any level-ups it earns.
 func collect_xp(player: Player, amount: float) -> void:
-	if run == null or run.ended:
+	if run == null or run.ended or not decides():
 		return
 	xp_collected.emit(player, amount)
 	run.xp += amount
@@ -262,28 +275,14 @@ func collect_xp(player: Player, amount: float) -> void:
 		level_up_ready.emit(run)
 
 
-## Applies a level-up card to a player and uses up one level-up.
-func apply_card(player: Player, card: Dictionary) -> void:
-	match str(card.get("kind", "")):
-		LevelUpRules.WEAPON_NEW:
-			give_weapon(player, str(card["id"]))
-		LevelUpRules.WEAPON_UP:
-			for weapon: WeaponInstance in player.weapons:
-				if weapon.id() == str(card["id"]):
-					weapon.level = mini(weapon.level + 1, weapon.max_level())
-		LevelUpRules.PASSIVE_NEW, LevelUpRules.PASSIVE_UP:
-			var passive: Dictionary = LevelUpRules.passive_data(str(card["id"]))
-			player.passives[str(card["id"])] = int(player.passives.get(str(card["id"]), 0)) + 1
-			player.stats.add_bonus(str(passive.get("stat", "")), float(passive.get("per_level", 0.0)))
-		LevelUpRules.STAT:
-			player.stats.add_bonus(str(card["id"]), float(card["amount"]))
-		LevelUpRules.GOLD:
-			run.gold += float(card["amount"])
-		LevelUpRules.HEAL:
-			heal_player(player, player.max_hp * float(card["amount"]))
+## Applies a level-up card to a player and uses up one level-up (in co-op,
+## CoopTurns uses one up only after every player has picked: `use_level_up` false).
+func apply_card(player: Player, card: Dictionary, use_level_up: bool = true) -> void:
+	LevelUpRules.apply_effects(player, card, run)
 	player.refresh_stats()
-	run.unspent_level_ups = maxi(run.unspent_level_ups - 1, 0)
-	run.current_offer.clear()
+	if use_level_up:
+		run.unspent_level_ups = maxi(run.unspent_level_ups - 1, 0)
+		run.current_offer.clear()
 	card_applied.emit(player, card)
 
 

@@ -4,8 +4,9 @@ extends CanvasLayer
 ## Pauses the game (the run timer stops) and shows 3–4 cards. Closing it
 ## without picking banks the level-up for later: open it again with Tab, the
 ## level badge, or Y/Triangle. When the build is maxed and Auto-collect is on,
-## level-ups resolve instantly without pausing. Solo only; co-op turns come
-## with co-op (Phase 20). With tokens from the Wandering Trader, Reroll
+## level-ups resolve instantly without pausing. In co-op (Phase 20) CoopTurns
+## runs it: each player picks on their turn (show_coop_cards), and the others
+## see who is choosing (show_coop_wait). With tokens from the Wandering Trader, Reroll
 ## draws new cards and Banish removes the next picked item from all future
 ## level-ups this run.
 
@@ -20,9 +21,14 @@ var _banish_button: Button
 var _banish_mode: bool = false
 var _offer: Array[Dictionary] = []
 var _tier_sound: AudioStreamPlayer
+## Co-op: called with the card's index when this player picks on their turn.
+var _coop_pick: Callable = Callable()
+var _status: Label
 
 
 func _ready() -> void:
+	add_to_group("level_up_screen")
+	add_to_group(CoopChoices.MODAL)
 	layer = 40
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_build()
@@ -50,6 +56,8 @@ func is_open() -> bool:
 
 ## Opens the screen if a level-up is waiting (after auto-collecting maxed ones).
 func try_open() -> void:
+	if Net.in_run():
+		return
 	var player: Player = GameAuthority.local_player()
 	var run: RunState = GameAuthority.run
 	if player == null or not player.alive or run == null or run.ended:
@@ -69,8 +77,50 @@ func close() -> void:
 
 
 func _on_level_up_ready(_run: RunState) -> void:
-	if not visible:
+	if not visible and not Net.in_run():
 		try_open()
+
+
+# --- Co-op turns (CoopTurns) ---------------------------------------------------------------
+
+## This player's turn: their cards; `on_pick` gets the chosen card's index.
+func show_coop_cards(cards: Array, on_pick: Callable, seconds: int) -> void:
+	_coop_pick = on_pick
+	_offer.clear()
+	for card: Variant in cards:
+		_offer.append(card)
+	var shown: Array[Control] = []
+	for i: int in _card_buttons.size():
+		_card_buttons[i].visible = i < _offer.size()
+		if _card_buttons[i].visible:
+			_card_buttons[i].text = CardText.full(_offer[i])
+			shown.append(_card_buttons[i])
+	for extra: Control in [_reroll_button, _banish_button, _bank_button, _auto_collect.get_parent()]:
+		extra.visible = false
+	_status.text = tr("UI_COOP_YOUR_TURN") % seconds
+	visible = true
+	if not shown.is_empty():
+		_link_focus(shown)
+		shown[0].grab_focus()
+
+
+## Someone else is choosing (or this player already did).
+func show_coop_wait(text: String) -> void:
+	_coop_pick = Callable()
+	for button: Button in _card_buttons:
+		button.visible = false
+	for extra: Control in [_reroll_button, _banish_button, _bank_button, _auto_collect.get_parent()]:
+		extra.visible = false
+	_status.text = text
+	visible = true
+
+
+func hide_coop() -> void:
+	_coop_pick = Callable()
+	_status.text = ""
+	_bank_button.visible = true
+	_auto_collect.get_parent().visible = true
+	visible = false
 
 
 ## Maxed level-ups resolve instantly when Auto-collect is on.
@@ -106,6 +156,13 @@ func _show_offer(player: Player) -> void:
 
 
 func _on_card_pressed(index: int) -> void:
+	if _coop_pick.is_valid():
+		var pick: Callable = _coop_pick
+		_coop_pick = Callable()
+		if CardText.is_tier_change(_offer[index]):
+			_tier_sound.play()
+		pick.call(index)
+		return
 	var player: Player = GameAuthority.local_player()
 	if player == null or index >= _offer.size():
 		return
@@ -155,6 +212,10 @@ func _build() -> void:
 	title.text = "UI_LEVEL_UP_TITLE"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(title)
+	_status = Label.new()
+	_status.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	box.add_child(_status)
 	for i: int in Data.cfg_int("level_up.cards_high_luck"):
 		var button := Button.new()
 		button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED

@@ -80,7 +80,7 @@ func _process(_delta: float) -> void:
 	_xp_bar.value = run.xp
 	_timer_label.text = _timer_text(run)
 	_kills_label.text = tr("UI_KILLS") % run.kills
-	_gold_label.text = tr("UI_GOLD") % roundi(run.gold)
+	_gold_label.text = tr("UI_GOLD") % roundi(TraderScreen.wallet(GameAuthority.local_player()))
 	var player: Player = GameAuthority.local_player()
 	_trait_label.text = player.kit.hud_text() if player != null and player.kit != null else ""
 	if run.unspent_level_ups > 0:

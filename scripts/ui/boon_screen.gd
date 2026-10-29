@@ -12,6 +12,8 @@ var _taken: PackedStringArray = []
 
 
 func _ready() -> void:
+	add_to_group("boon_screen")
+	add_to_group(CoopChoices.MODAL)
 	layer = 44
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var root := SafeAreaBox.new()
@@ -102,5 +104,8 @@ func _choose(player: Player, boon: Dictionary) -> void:
 	visible = false
 	get_tree().paused = false
 	_taken.append(str(boon["id"]))
+	if Net.is_client():
+		CoopChoices.choose("boon", str(boon["id"]))
+		return
 	if is_instance_valid(player):
 		apply(player, boon)

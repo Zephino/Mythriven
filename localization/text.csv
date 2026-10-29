@@ -1085,3 +1085,39 @@ UI_CLOUD_COPY,Copy code
 UI_CLOUD_SYNC_NOW,Sync now
 UI_CLOUD_TURN_OFF,Turn off on this device
 UI_CLOUD_GOLD_NOTICE,Gold set to %d from your other device's newer save.
+UI_COOP,Co-op
+UI_COOP_ABOUT,"Play together online, up to 4 Heroes. One player hosts and shares a 6-digit code; friends type it to join."
+UI_COOP_HOST,Host a game
+UI_COOP_JOIN_HELP,Joining a friend? Type their code:
+UI_COOP_CODE_PLACEHOLDER,123456
+UI_COOP_JOIN,Join
+UI_COOP_CONNECTING,Connecting…
+UI_COOP_CANCEL,Cancel
+UI_COOP_CODE,Game code: %s
+UI_COOP_SHARE_CODE,Share this code with your friends.
+UI_COOP_CHOOSING,choosing…
+UI_COOP_HOST_TAG,Host
+UI_COOP_PLAYER_TAG,Player %d
+UI_COOP_PICK_HERO,Your Hero (more than one player can pick the same Hero):
+UI_COOP_LEVEL,Level: %s
+UI_COOP_OMENS,Your %d Omens apply to everyone.
+UI_COOP_START,Start
+UI_COOP_NEED_PLAYERS,Start opens once a friend has joined and everyone has a Hero.
+UI_COOP_WAITING_FOR_HOST,Waiting for the host to start.
+UI_COOP_LEAVE,Leave
+UI_COOP_NOT_SET_UP,Co-op isn't set up for this version of the game yet.
+UI_COOP_BAD_CODE,A code is 6 numbers.
+UI_COOP_NO_CONNECTION,Couldn't connect. Check your internet and try again.
+UI_COOP_JOIN_REFUSED,Couldn't join: check the code. The game may be full (4 players) or already started.
+UI_COOP_HOST_LEFT,"The host left, so the game ended."
+UI_COOP_KICKED,The host removed you from the game.
+UI_COOP_CONNECTION_LOST,The connection was lost.
+UI_COOP_WRONG_VERSION,The host has a different version of the game. Both players need the same version (refresh the page or update).
+UI_COOP_YOUR_TURN,Your turn: pick a card (%d s)
+UI_COOP_PICKED,Waiting for the others to choose…
+UI_COOP_TURN_OF,Player %d (%s) is choosing…
+RECAP_TEAM,Team:
+RECAP_TEAM_LINE,"  Player %d, %s: %s (revives used: %d)"
+RECAP_TEAM_SHADE,a Wandering Shade
+RECAP_TEAM_STANDING,still standing
+RECAP_TEAM_FELL,fell

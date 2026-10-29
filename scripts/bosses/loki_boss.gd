@@ -58,7 +58,7 @@ func _refill_illusions() -> void:
 
 ## A copy bursts into fire when it falls.
 func _on_enemy_killed(killed_slot: int, enemy_type: Dictionary, at: Vector2, _killer: Player) -> void:
-	if not _illusions.has(killed_slot) or str(enemy_type.get("id", "")) != str(_sig().get("illusion", "")):
+	if puppet or not _illusions.has(killed_slot) or str(enemy_type.get("id", "")) != str(_sig().get("illusion", "")):
 		return
 	_illusions.erase(killed_slot)
 	if patterns != null and target != null:
@@ -73,7 +73,7 @@ func _tick_swap(delta: float) -> void:
 			_swap_charge = -1.0
 			var mine: Vector2 = position_now()
 			GameAuthority.enemies.positions[slot] = target.position
-			target.position = mine
+			GameAuthority.place_player(target, mine)
 		return
 	_swap_left -= delta
 	if _swap_left <= 0.0:

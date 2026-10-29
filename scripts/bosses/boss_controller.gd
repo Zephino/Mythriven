@@ -27,6 +27,9 @@ var cast: Dictionary = {}
 var cast_left: float = 0.0
 var facing := Vector2.LEFT
 var target: Player
+## Co-op (joining player): a stand-in that only shows the host's boss (CoopMirror
+## through BossManager); it never acts.
+var puppet: bool = false
 
 var _attack_timer: float = 1.5
 var _attacks: int = 0
@@ -237,3 +240,47 @@ func _draw() -> void:
 	if broken_s > 0.0:
 		draw_arc(at, GameAuthority.enemies.radius[slot] + 6.0, 0.0, TAU, 24, Color.html(Data.cfg_string("bosses.guard_break_color")), 3.0)
 	draw_line(at, at + facing * (GameAuthority.enemies.radius[slot] + 6.0), Color.WHITE, 2.0)
+
+
+# --- Co-op (BossManager's CoopMirror) ------------------------------------------------------
+
+## Everything this boss draws from (its plain variables, including its
+## signature script's), for the joining players' stand-ins.
+func net_capture() -> Dictionary:
+	var out: Dictionary = {"__pos": position}
+	for prop: Dictionary in get_property_list():
+		var key: String = str(prop["name"])
+		if int(prop["usage"]) & PROPERTY_USAGE_SCRIPT_VARIABLE == 0 or key == "data" or key == "puppet":
+			continue
+		var value: Variant = get(key)
+		if _plain(value):
+			out[key] = value
+	return out
+
+
+func net_apply(state: Dictionary) -> void:
+	for key: Variant in state:
+		if str(key) == "__pos":
+			position = state[key]
+			continue
+		var current: Variant = get(str(key))
+		if current is Array and state[key] is Array:
+			(current as Array).assign(state[key])
+		elif typeof(current) == typeof(state[key]) or current == null:
+			set(str(key), state[key])
+	queue_redraw()
+
+
+static func _plain(value: Variant) -> bool:
+	match typeof(value):
+		TYPE_OBJECT, TYPE_CALLABLE, TYPE_SIGNAL, TYPE_RID:
+			return false
+		TYPE_ARRAY:
+			for item: Variant in value:
+				if not _plain(item):
+					return false
+		TYPE_DICTIONARY:
+			for item: Variant in (value as Dictionary).values():
+				if not _plain(item):
+					return false
+	return true

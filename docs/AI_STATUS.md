@@ -3,9 +3,9 @@
 Last updated: 2026-10-29
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`, and for only `main` and `data` to exist on GitHub)
-Task: Phase 19 (Polish): settings and accessibility, first-run tips, phone safe areas, export filter, lore checklist
-Version: 00.01.24
-Status: Pack 1 (Phases 1–18) built and Phase 19's code-side polish done; 208 Godot tests pass. Art, music, a real-phone performance test, and the lore sign-off need the owner.
+Task: Phase 20 (Co-op and cloud saves) through the owner's Cloudflare Worker
+Version: 00.01.25
+Status: All 20 build phases have code; 226 Godot tests and 37 Worker tests pass; co-op was played automatically with two copies of the game. Needs: a real two-device playtest, art and audio, a real-phone test, the lore sign-off.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
 ## Completed
@@ -153,6 +153,21 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 10. (00.01.24) On the Aegean Shore, Night brings **Spartoi** (big, slow, armoured) and Deep Night **bronze bulls** (run at you and burst after a short flash) instead of Draugr and Muspel Sparks.
 8. **First-run tips**: in your next run a tip appears the first time you level up, see a shrine, hit a weakness, fill a god's meter, and have a Resonance ready, each once ever. **Show first-run tips again** resets them; **First-run tips** Off stops them.
 9. On a phone with a notch, menus, the HUD, and god buttons stay clear of the notch and rounded corners.
+
+**Phase 20 — Cloud saves (00.01.25)**
+1. Settings → **Cloud save** → **Turn on cloud save**: it shows a code like `ABCD-EFGH-JK23` and "Cloud save is on."
+2. On another device or browser: Settings → Cloud save, type the code, **Link this device**. Within a few seconds that device has the first one's unlocks and gold (a line says the gold came from the other device).
+3. Earn something on either device; on the other, **Sync now** (or restart) shows it.
+
+**Phase 20 — Co-op (00.01.25)** (two devices or two browser windows; each needs the same version)
+1. Title → **Co-op** → **Host a game**: a 6-digit code appears. On the other device: Co-op, type the code, **Join**. Both lists show both players.
+2. Each picks a Hero (the same is fine); the host picks the level (and Swift Mode if unlocked); the host presses **Start**. Both games start on the same map.
+3. Move on each device: the other Hero glides along; enemies, shots, damage numbers, gold, and XP match on both screens.
+4. Level-up: the game pauses on both; one player sees their cards while the other sees "Player N is choosing…", then they swap (20 s each).
+5. Shrines: each player who stands on a peaceful shrine binds their own copy; each has their own god buttons; summons show on both screens.
+6. Let one Hero fall: they're downed (red ring shrinking). The other stands beside them for 3 s: revived at 30% HP. After 2 revives (or bleeding out) they become a see-through Shade that still collects XP.
+7. Walk far apart: you stop at about 1.5 screens. Pause menu: the game keeps running.
+8. When everyone is down or a Shade, both see the end screen with a Team section. If the host closes their game, the other sees "The host left, so the game ended."
 
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
