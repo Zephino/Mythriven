@@ -32,8 +32,9 @@ func _ready() -> void:
   _request.timeout = Data.cfg_float("leaderboard.request_timeout_s")
   _request.request_completed.connect(_on_request_finished)
   add_child(_request)
+  # Never dead-end the Send button just because an older web build has no URL.
+  # The submit handler will explain what's missing, and players can retry.
   if not OnlineConfig.can_post():
-    _send.disabled = true
     _status.text = tr("UI_SUGGEST_SETUP_NEEDED")
   _title_input.grab_focus.call_deferred()
 
@@ -193,6 +194,8 @@ func _on_request_finished(result: int, code: int, _headers: PackedStringArray, b
   _send.disabled = false
   if code == 429:
     _status.text = tr("UI_SUGGEST_RATE_LIMITED")
+  elif code == 503:
+    _status.text = tr("UI_SUGGEST_SERVICE_UNAVAILABLE")
   elif code == 400:
     _status.text = tr("UI_SUGGEST_CHECK_INPUT")
   else:
