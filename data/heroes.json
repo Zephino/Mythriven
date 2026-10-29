@@ -540,5 +540,51 @@
       "type": "secret",
       "secret": "the_beggar_king"
     }
+  },
+  {
+    "id": "scathach",
+    "name_key": "HERO_SCATHACH_NAME",
+    "tradition_key": "TRADITION_IRISH",
+    "role_key": "ROLE_WARRIOR_TEACHER",
+    "placeholder_color": "#7a4a6a",
+    "patron_pantheon": "celtic",
+    "care_tier": "A",
+    "lore_source": "Tochmarc Emire (The Wooing of Emer); Aided Óenfir Aífe. Unlocked by defeating her on the Misty Isles.",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 115,
+      "move_speed": 105,
+      "armor": 1,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "scathach_spear",
+    "expertise": [
+      "spear",
+      "blade"
+    ],
+    "trait": {
+      "id": "trainer",
+      "name_key": "TRAIT_TRAINER",
+      "desc_key": "TRAIT_TRAINER_DESC"
+    },
+    "passive": {
+      "id": "fortress_of_shadows",
+      "name_key": "PASSIVE_FORTRESS_OF_SHADOWS",
+      "desc_key": "PASSIVE_FORTRESS_OF_SHADOWS_DESC",
+      "armor": 1,
+      "crit_pct": 5
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "defeat_boss",
+      "boss": "scathach"
+    }
   }
 ]

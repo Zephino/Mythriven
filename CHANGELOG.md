@@ -27,6 +27,17 @@ Time: 12:19 AM
   - **Bosses:** **Fenrir** (10:00) starts chained to posts and snaps his chains each phase until he runs free; his howl calls wolves. Beat him below 30% health for the Tyr's Oath secret. **Loki** (20:00) splits into copies, and only the real one casts a shadow. Copies burst into fire when hit, and later he swaps places with you and fakes a shrine. **Surtr** (30:00): the arena's edge burns inward, with his "Flames of Muspelheim" cast.
   - Local gods Thor and Skadi. Draft lines for Loki meeting Thor or Skadi.
 - **A hazard library** the other levels reuse: weather (push wind and vision) and ground patches (slide, slow, teleport).
+- **Phase 17: The Two Lands** (the Egyptian level): desert, reeds, obelisks, and tombs, with a scarab-clasp chest seal.
+  - **Hazards:** sandstorms and quicksand.
+  - **Enemies:** scarab swarms, restless mummies, Shabti Guardians, and sand serpents.
+  - **Bosses:** **Ammit** (10:00): every hit you take tips her scale, and a full tip means a devouring lunge. **Set** (20:00) shrinks your vision to a small circle in a sandstorm and strikes from its edge, then brings pulling cyclones. **Apep** (30:00) swallows one of your gods and uses its power against you. Hit the orb inside him while it glows to free the god; freeing Ra is the secret The Sun's Return.
+  - Local gods Sekhmet and Ra. Draft lines for Set and Apep meeting Ra.
+- **Phase 18: The Misty Isles** (the Irish level): green hills, bogs, and stone circles, with a Celtic-knot chest seal.
+  - **Hazards:** mist banks that hide what's around you, and fairy rings that carry you to their partner ring.
+  - **Enemies:** Redcaps, the Sluagh (swarms and flying hosts), Kelpies, and Fomorian casters.
+  - **Bosses:** **Scáthach** (10:00) names each technique before she uses it (real hero-feats from the tales) and gets faster each time it repeats. Defeating her unlocks her as a Hero: each weapon card also levels another weapon. **Ferdiad** (20:00) fights across a slowing river ford, with horn-skin that blocks hits from the front; as Cú Chulainn, beat him without leaving the river for The Ford secret. **Balor of the Evil Eye** (30:00) sweeps a beam from his eye, so hide behind the stone circles; hit the open eye 5 times for Lugh's Sling.
+  - Local gods Cernunnos and the Morrígan.
+- 16 more automated tests (196 in all, all passing), including a full run through every level's three bosses.
 
 ### Reason
 The owner asked to build Phases 15 to 18.

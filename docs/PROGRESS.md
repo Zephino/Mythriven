@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 15 built (00.01.22); building Phases 16–18 (owner asked to build 15–18)
+**Current phase:** Phases 15–18 built (00.01.22): all of Pack 1; next: owner playtest, decisions review, then Phase 19 (Polish)
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-29 — Phases 16–18 — Midgard's Edge, The Two Lands, The Misty Isles (Claude)
+- What changed: three levels (tilesets, decorations, chest seals, wave tables, local gods), the hazard library (weather: push wind and vision veil; ground patches: slide, slow, teleport), 16 new enemy types, nine bosses with signature scripts (Fenrir, Loki, Surtr, Ammit, Set, Apep, Scáthach, Ferdiad, Balor), the four boss secrets, Scáthach as a Hero, boss-meets-god banter, tips, achievements.
+- Files touched: data/levels.json, waves_midgards_edge / the_two_lands / the_misty_isles.json, enemies, bosses, heroes, weapons, banter, tips, achievements, config, schemas; scripts/world/hazard*.gd, ground_patches.gd; scripts/bosses/*_boss.gd; hero_traits/trainer.gd; chest_screen (seals); tests/test_levels.gd, smoke.
+- Unfinished / next: owner playtest of each level; Phase 19.
+
 
 ## 2026-10-29 — Phase 15 — Meta, saving, and discovery (Claude)
 - What changed: save file v3 (saved the moment something is earned; temp file + backup; cloud merge rules); gold banking (death 100%, quit 10% after 5:00, force-close = quit); title screen, Hall of Legends (Offerings, Unlocks, Omens, Bestiary, Pantheon Compendium, Hall of Heroes, Codex, Achievements, Oracle), level select with Swift Mode; Hero select with locks, mastery, palettes; 33 achievements, 8 secrets, the Oracle; four Omens; records and the HUD's personal-best marker; death recap with tips; King Arthur, Atalanta, Odysseus; Mirrored Shield, Tyr's Oath, Sling of Lugh.

@@ -148,3 +148,107 @@ func test_surtrs_fire_closes_in_and_burns_outside() -> void:
 	surtr._burn_tick = 0.0
 	surtr.signature(0.01)
 	assert_lt(_player.hp, hp, "standing in the fire hurts")
+
+
+func test_quicksand_slows_and_fairy_rings_carry_you_to_their_pair() -> void:
+	_start("the_two_lands")
+	var sand := GroundPatches.new()
+	sand.setup(_level("the_two_lands")["ground_patches"])
+	_world.add_child(sand)
+	sand.patches.append({"pos": Vector2.ZERO, "radius": 40.0, "pair": -1})
+	sand._process(0.016)
+	assert_lt(_player.ground_speed_mult, 1.0)
+	var rings := GroundPatches.new()
+	rings.setup(_level("the_misty_isles")["ground_patches"])
+	_world.add_child(rings)
+	rings.patches.append({"pos": Vector2.ZERO, "radius": 30.0, "pair": 1})
+	rings.patches.append({"pos": Vector2(500, 0), "radius": 30.0, "pair": 0})
+	rings._teleport(_player, 0)
+	assert_eq(_player.position, Vector2(500, 0))
+
+
+func test_ammits_scale_tips_with_every_hit_and_she_devours() -> void:
+	_start("the_two_lands")
+	var ammit: AmmitBoss = _bosses.spawn_boss("ammit", 0) as AmmitBoss
+	_enemies.hp[ammit.slot] = _enemies.max_hp[ammit.slot] * 0.5
+	ammit._process(0.01)
+	assert_true(ammit.scale_active())
+	GameAuthority.damage_player(_player, 200.0, "test")
+	assert_eq(ammit.tipped, 1.0)
+	ammit.signature(0.01)
+	assert_eq(ammit.tipped, 0.0, "she devours and the scale resets")
+
+
+func test_set_brings_a_sandstorm_and_pulling_cyclones() -> void:
+	_start("the_two_lands")
+	var set_boss: SetBoss = _bosses.spawn_boss("set", 1) as SetBoss
+	_enemies.hp[set_boss.slot] = _enemies.max_hp[set_boss.slot] * 0.2
+	set_boss._process(0.01)
+	assert_not_null(set_boss._storm, "the sandstorm veils the screen")
+	set_boss.cyclones.append({"pos": _player.position + Vector2(40, 0), "dir": Vector2.ZERO, "left": 5.0})
+	var before: Vector2 = _player.position
+	set_boss._tick_cyclones(0.2)
+	assert_gt(_player.position.x, before.x, "the cyclone pulls")
+
+
+func test_apep_swallows_ra_and_freeing_him_finds_the_suns_return() -> void:
+	_start("the_two_lands")
+	var gods := GodManager.new()
+	gods.summons = SummonLayer.new()
+	_world.add_child(gods.summons)
+	_world.add_child(gods)
+	gods.bind(_player, "ra")
+	var apep: ApepBoss = _bosses.spawn_boss("apep", 2) as ApepBoss
+	_enemies.hp[apep.slot] = _enemies.max_hp[apep.slot] * 0.5
+	apep._process(0.01)
+	assert_eq(apep.swallowed, "ra")
+	assert_false(gods.bound_ids(_player).has("ra"))
+	for _i: int in 10:
+		apep._orb_t = 0.1
+		apep.modify_hit(1.0, _player, Vector2.ZERO)
+	assert_true(gods.bound_ids(_player).has("ra"), "freed after 10 hits on the glowing orb")
+	assert_eq(apep.secret_earned(), "the_suns_return")
+
+
+func test_scathach_names_each_technique_and_repeats_it_faster() -> void:
+	_start("the_misty_isles")
+	var scathach: ScathachBoss = _bosses.spawn_boss("scathach", 0) as ScathachBoss
+	scathach._next_attack()
+	var first: Dictionary = scathach.cast.duplicate()
+	assert_true(str(first["name_key"]).begins_with("CAST_SCATHACH"))
+	scathach._next_attack()
+	scathach._next_attack()
+	assert_eq(scathach.cast["name_key"], first["name_key"])
+	assert_lt(float(scathach.cast["cast_s"]), float(first["cast_s"]), "faster the second time")
+
+
+func test_ferdiad_blocks_from_the_front_and_the_ford_slows() -> void:
+	_start("the_misty_isles")
+	var ferdiad: FerdiadBoss = _bosses.spawn_boss("ferdiad", 1) as FerdiadBoss
+	var at: Vector2 = ferdiad.position_now()
+	ferdiad.facing = Vector2.RIGHT
+	_player.position = at + Vector2(40, 0)
+	assert_lt(ferdiad.modify_hit(100.0, _player, Vector2.ZERO), 50.0, "horn-skin blocks the front")
+	_player.position = at + Vector2(-40, 0)
+	assert_eq(ferdiad.modify_hit(100.0, _player, Vector2.ZERO), 100.0, "not from behind")
+	_player.position = ferdiad.ford_center
+	ferdiad.signature(0.01)
+	assert_lt(_player.slow_zone_mult, 1.0)
+	_player.hero = HeroRules.find("cu_chulainn")
+	assert_eq(ferdiad.secret_earned(), "the_ford")
+
+
+func test_balors_eye_is_blocked_by_stone_and_counts_hits_on_the_eye() -> void:
+	_start("the_misty_isles")
+	var balor: BalorBoss = _bosses.spawn_boss("balor", 2) as BalorBoss
+	_enemies.hp[balor.slot] = _enemies.max_hp[balor.slot] * 0.5
+	balor._process(0.01)
+	assert_eq(balor.stones.size(), 4)
+	var eye: Vector2 = balor.position_now()
+	var stone: Vector2 = balor.stones[0]
+	assert_true(balor._shielded(eye, stone + (stone - eye).normalized() * 40.0), "a stone breaks the line of sight")
+	balor._open_left = 3.0
+	var guard: float = balor.guard
+	balor.on_hit(10.0, 1.0, _player, Vector2.ZERO)
+	assert_almost_eq(balor.guard - guard, 30.0, 0.01, "hits on the open eye fill the gauge ×3")
+	assert_eq(balor.eye_hits, 1)

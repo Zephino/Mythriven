@@ -25,7 +25,7 @@
 
 ## What you can play right now
 
-The current build covers **Phases 1–6 and 8–15** of the plan, plus early Phase 7 tuning, so the **Aegean Shore** is a complete level from start to finish, with saved progress between runs:
+The current build covers **Phases 1–6 and 8–18** of the plan, plus early Phase 7 tuning: all four **Pack 1 levels** (the Aegean Shore, Midgard's Edge, the Two Lands, the Misty Isles), each with three bosses, with saved progress between runs:
 
 - **The Aegean Shore**, an endless procedurally generated map with olive groves and marble ruins (placeholder art).
 - **Four Heroes** to choose from, each with a signature weapon, a Legend Trait, and a passive: **Heracles** (Great Club, the Twelve Labors), **Cú Chulainn** (Gáe Bolg, the Salmon Leap), **Väinämöinen** (Runo Song, Song of Power), and **Tomoe Gozen** (Sword and Bow, Cavalry Charge).
@@ -41,6 +41,7 @@ The current build covers **Phases 1–6 and 8–15** of the plan, plus early Pha
 - **Discoveries**: Ancient Ruins, Dragon's Hoards, Monster's Lairs, Hidden Shrines, and the Wandering Trader, with a compass at the screen edge.
 - **A shared leaderboard.** Submit your run with a name and see the best 100 runs from every player, with each run's Hero, weapons, and upgrades. The board is public on the [`data` branch](https://github.com/Zephino/Mythriven/blob/data/leaderboard.json). Until online scores are set up, the board is kept on your own device instead.
 - **Progress that's saved**: gold kept after each run (all of it when you fall; 10% if you quit after 5:00), the **Hall of Legends** with offerings to raise your gods' levels, unlocks (King Arthur, more weapons), the Bestiary, Pantheon Compendium, Hall of Heroes, 33 achievements, 8 secrets with hints from the Oracle, four Omens, Swift Mode, records, and a death recap with a tip.
+- **Three more levels**, opened by beating the Aegean Shore's 20:00 boss: **Midgard's Edge** (blizzards, frozen ponds; Fenrir, Loki, Surtr), **The Two Lands** (sandstorms, quicksand; Ammit, Set, Apep), and **The Misty Isles** (mist banks, fairy rings; Scáthach, Ferdiad, Balor). Defeating Scáthach unlocks her as a Hero.
 - **Seven Heroes plus a secret**: King Arthur (Excalibur, Shield Wall), Atalanta (Huntress's Bow, The Race), and Odysseus, the secret Hero (Great Bow, Cunning).
 - **A swarm that never stops.** Enemies never stack and there are no invulnerability frames, so standing still in a crowd is fatal.
 
@@ -96,7 +97,7 @@ Mythriven is being built in **Godot 4**, using **GDScript**, one phase at a time
 | 13. Aegean bosses | Medusa, Achilles, Kronos; the Aegean Shore becomes a complete slice | ✅ Built (being tested) |
 | 14. World discoveries | Points of interest, compass, Wandering Trader, world events | ✅ Built (being tested) |
 | 15. Meta and saving | Saving, gold, Hall of Legends, unlocks, collections, Swift Mode | ✅ Built (being tested) |
-| 16–18. More regions | Midgard's Edge, The Two Lands, The Misty Isles | Planned |
+| 16–18. More regions | Midgard's Edge, The Two Lands, The Misty Isles | ✅ Built (being tested) |
 | 19. Polish | Art, audio, accessibility, mobile, performance, lore checks | Planned |
 | 20. Co-op | Online co-op for up to 4 players and cross-platform cloud saves | Planned |
 

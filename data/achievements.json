@@ -374,5 +374,65 @@
       "id": "surtr"
     },
     "persists": true
+  },
+  {
+    "id": "boss_ammit",
+    "name_key": "ACH_BOSS_AMMIT_NAME",
+    "desc_key": "ACH_BOSS_AMMIT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ammit"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_set",
+    "name_key": "ACH_BOSS_SET_NAME",
+    "desc_key": "ACH_BOSS_SET_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "set"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_apep",
+    "name_key": "ACH_BOSS_APEP_NAME",
+    "desc_key": "ACH_BOSS_APEP_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "apep"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_scathach",
+    "name_key": "ACH_BOSS_SCATHACH_NAME",
+    "desc_key": "ACH_BOSS_SCATHACH_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "scathach"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_ferdiad",
+    "name_key": "ACH_BOSS_FERDIAD_NAME",
+    "desc_key": "ACH_BOSS_FERDIAD_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ferdiad"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_balor",
+    "name_key": "ACH_BOSS_BALOR_NAME",
+    "desc_key": "ACH_BOSS_BALOR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "balor"
+    },
+    "persists": true
   }
 ]

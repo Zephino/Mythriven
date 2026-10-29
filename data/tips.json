@@ -55,6 +55,60 @@
     "text_key": "TIP_SURTR"
   },
   {
+    "id": "ammit",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "ammit"
+    },
+    "text_key": "TIP_AMMIT"
+  },
+  {
+    "id": "set",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "set"
+    },
+    "text_key": "TIP_SET"
+  },
+  {
+    "id": "apep",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "apep"
+    },
+    "text_key": "TIP_APEP"
+  },
+  {
+    "id": "scathach",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "scathach"
+    },
+    "text_key": "TIP_SCATHACH"
+  },
+  {
+    "id": "ferdiad",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "ferdiad"
+    },
+    "text_key": "TIP_FERDIAD"
+  },
+  {
+    "id": "balor",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "balor"
+    },
+    "text_key": "TIP_BALOR"
+  },
+  {
     "id": "unraveling",
     "priority": 85,
     "condition": {

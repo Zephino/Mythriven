@@ -941,3 +941,93 @@ ENEMY_WOLF_MYTH,"In the Ironwood east of Midgard an old giantess bore a brood of
 ENEMY_FENRIR_MYTH,"The monstrous wolf, a son of Loki. The gods bound him with the magic fetter Gleipnir, and Tyr lost his hand in the wolf's jaws; at Ragnarök Fenrir breaks free and swallows Odin."
 ENEMY_LOKI_MYTH,"The trickster of the Norse gods, a shape-shifter who helps and harms them by turns. After the death of Baldr he is bound beneath a serpent's dripping venom until Ragnarök."
 ENEMY_SURTR_MYTH,The fire giant who guards Muspelheim with a flaming sword. At Ragnarök he leads the sons of Muspell against the gods and his fire engulfs the world.
+LEVEL_THE_TWO_LANDS_NAME,The Two Lands
+HAZARD_SANDSTORM_NAME,A sandstorm rises!
+ENEMY_SCARAB_SWARM_NAME,Scarab swarm
+ENEMY_MUMMY_NAME,Restless mummy
+ENEMY_SHABTI_GUARDIAN_NAME,Shabti guardian
+ENEMY_SAND_SERPENT_NAME,Sand serpent
+ENEMY_AMMIT_NAME,Ammit
+ENEMY_SET_NAME,Set
+ENEMY_APEP_NAME,Apep
+BOSS_AMMIT_NAME,Ammit
+BOSS_SET_NAME,Set
+BOSS_APEP_NAME,Apep
+BOSS_AMMIT_DEVOURS,The scale tips: Ammit devours!
+BOSS_SET_SANDSTORM,Set raises a sandstorm!
+BOSS_APEP_SWALLOWS,Apep swallows %s! Strike the glowing orb to free them.
+BOSS_APEP_FREED,%s is freed!
+CAST_SET_STORM_BOLTS,Storm of the Red Land
+CAST_APEP_COILS,Coils of Chaos
+ACH_BOSS_AMMIT_NAME,Defeat Ammit
+ACH_BOSS_AMMIT_DESC,The 10:00 boss of the Two Lands.
+ACH_BOSS_SET_NAME,Defeat Set
+ACH_BOSS_SET_DESC,The 20:00 boss of the Two Lands.
+ACH_BOSS_APEP_NAME,Defeat Apep
+ACH_BOSS_APEP_DESC,The 30:00 boss of the Two Lands.
+TIP_AMMIT,"Every hit you take tips Ammit's scale. Avoid damage to keep it level, or she lunges to devour you."
+TIP_SET,In Set's sandstorm he strikes from the edge of your sight. Keep moving and watch the edges of the clear circle.
+TIP_APEP,"If Apep swallows a god, hit him while the orb inside him glows to set the god free."
+BANTER_AMMIT_ENTRANCE,Your heart is heavy. The scale will show it.
+BANTER_SET_ENTRANCE,"The red land is mine, and so is the storm."
+BANTER_APEP_ENTRANCE,Every night I rise to swallow the sun. Tonight I swallow you.
+BANTER_SET_RA,"Ra, I guard your boat from the serpent, and still you name me enemy."
+BANTER_APEP_RA,"Little sun, I have waited all night for you."
+ENEMY_SCARAB_SWARM_MYTH,"The scarab beetle, rolling its ball of dung, was a sacred image of Khepri, the god who rolls the rising sun across the sky; scarab amulets were placed over the hearts of the dead."
+ENEMY_MUMMY_MYTH,"Egyptians preserved the bodies of the dead so the soul could return to them. Their stories also tell of the restless dead, like the ghost who complains to the priest Khonsuemheb that his tomb has crumbled."
+ENEMY_SHABTI_GUARDIAN_MYTH,"Small figures buried with the dead, inscribed with a spell that called them to do the owner's work in the afterlife: 'Here I am,' the shabti answers."
+ENEMY_SAND_SERPENT_MYTH,"The desert's snakes were a real danger, and the Book of the Dead holds spells to drive back serpents that threaten the dead on their journey."
+ENEMY_AMMIT_MYTH,"The Devourer of the Dead, part crocodile, part lion, part hippopotamus. She waits beside the scales where a person's heart is weighed against the feather of Maat, and eats the hearts that fail."
+ENEMY_SET_MYTH,"God of storms, the desert, and disorder, who murdered his brother Osiris and fought Horus for the throne. Yet he also stands at the prow of Ra's boat and spears the serpent Apep."
+ENEMY_APEP_MYTH,The great serpent of chaos who attacks the sun god's boat each night in the underworld. Priests recited spells to overthrow him so the sun would rise again.
+LEVEL_THE_MISTY_ISLES_NAME,The Misty Isles
+HAZARD_MIST_NAME,Mist rolls over the hills…
+ENEMY_REDCAP_NAME,Redcap
+ENEMY_SLUAGH_NAME,Sluagh
+ENEMY_SLUAGH_FLYER_NAME,Sluagh host
+ENEMY_KELPIE_NAME,Kelpie
+ENEMY_FOMORIAN_CASTER_NAME,Fomorian caster
+ENEMY_SCATHACH_NAME,Scáthach
+ENEMY_FERDIAD_NAME,Ferdiad
+ENEMY_BALOR_NAME,Balor of the Evil Eye
+BOSS_SCATHACH_NAME,Scáthach
+BOSS_FERDIAD_NAME,Ferdiad
+BOSS_BALOR_NAME,Balor of the Evil Eye
+BOSS_BALOR_EYE,Balor's eye begins to open! Hide behind a stone circle!
+CAST_SCATHACH_SPEAR_FEAT,The Spear-Feat
+CAST_SCATHACH_EDGE_FEAT,The Edge-Feat
+CAST_SCATHACH_SALMON_LEAP,The Salmon Leap
+CAST_SCATHACH_THUNDER_FEAT,The Thunder-Feat
+CAST_SCATHACH_APPLE_FEAT,The Apple-Feat
+ACH_BOSS_SCATHACH_NAME,Defeat Scáthach
+ACH_BOSS_SCATHACH_DESC,The 10:00 boss of the Misty Isles.
+ACH_BOSS_FERDIAD_NAME,Defeat Ferdiad
+ACH_BOSS_FERDIAD_DESC,The 20:00 boss of the Misty Isles.
+ACH_BOSS_BALOR_NAME,Defeat Balor
+ACH_BOSS_BALOR_DESC,The 30:00 boss of the Misty Isles.
+TIP_SCATHACH,"Scáthach names each technique before she uses it, and repeats it faster each time. Learn what each name means."
+TIP_FERDIAD,"Ferdiad's horn-skin blocks hits from the front. Strike him from behind or the sides, and fill his Guard gauge to break it."
+TIP_BALOR,"When Balor's eye opens, put a stone circle between you and him. Hitting him while it's open fills his Guard gauge fast."
+BANTER_SCATHACH_ENTRANCE,Watch closely. I will say each lesson only once.
+BANTER_SCATHACH_CU,"Show me, Hound, how much of my teaching you kept."
+BANTER_FERDIAD_ENTRANCE,No blade has pierced my skin. Come to the ford.
+BANTER_FERDIAD_CU,Foster-brother. I wish it were anyone but you in the water.
+BANTER_BALOR_ENTRANCE,"Open the eye, and let the world burn where it looks."
+HERO_SCATHACH_NAME,Scáthach
+ROLE_WARRIOR_TEACHER,Warrior teacher
+TRAIT_TRAINER,Trainer of Heroes
+TRAIT_TRAINER_DESC,Each weapon level-up also gives another of her weapons a level.
+PASSIVE_FORTRESS_OF_SHADOWS,Fortress of Shadows
+PASSIVE_FORTRESS_OF_SHADOWS_DESC,+1 Armor and +5% Crit Chance.
+WEAPON_SCATHACH_SPEAR_NAME,Scáthach's Spear
+WEAPON_SCATHACH_SPEAR_DESC,Swift spear thrusts along a line.
+HUD_LESSONS,Lessons taught: %d
+HERO_SCATHACH_LEGEND,"A warrior woman of Alba who trained heroes in arms on her island fortress, Dún Scáith. Cú Chulainn learned his feats from her, and she gave him the spear Gáe Bolg."
+ENEMY_REDCAP_MYTH,A murderous goblin of Border folklore who haunts ruined towers and dyes his cap in the blood of travellers; he flees from scripture and the cross.
+ENEMY_SLUAGH_MYTH,"The host of the restless dead in Gaelic tradition, flying in flocks like birds over the land at night and carrying off the living."
+ENEMY_SLUAGH_FLYER_MYTH,"The host of the restless dead in Gaelic tradition, flying in flocks like birds over the land at night and carrying off the living."
+ENEMY_KELPIE_MYTH,"A water-horse of Scottish folklore that haunts rivers and lochs, tempting travellers onto its back before plunging into the water with them."
+ENEMY_FOMORIAN_CASTER_MYTH,"The Fomorians, a monstrous race from the sea, warred with the Tuatha Dé Danann for Ireland until their defeat at the Second Battle of Mag Tuired."
+ENEMY_SCATHACH_MYTH,"A warrior woman of Alba who trained heroes in arms on her island fortress. Cú Chulainn learned his feats from her, and she gave him the spear Gáe Bolg."
+ENEMY_FERDIAD_MYTH,"Cú Chulainn's foster-brother, trained beside him by Scáthach and protected by a horn-hard skin. Forced to fight him at a ford, he fell to the Gáe Bolg."
+ENEMY_BALOR_MYTH,The Fomorian king whose one eye destroyed whatever it looked upon; it took several men to lift its lid. His grandson Lugh struck the eye with a sling-stone at the Second Battle of Mag Tuired.

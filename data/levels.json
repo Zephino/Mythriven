@@ -221,5 +221,237 @@
       "grip_per_s": 2.0
     },
     "seal": "norse_band"
+  },
+  {
+    "id": "the_two_lands",
+    "name_key": "LEVEL_THE_TWO_LANDS_NAME",
+    "region": "egyptian",
+    "act": 1,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_two_lands",
+      "noise_frequency": 0.03,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "stone",
+          "max": -0.5,
+          "placeholder_color": "#b8a888",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "sand",
+          "max": 0.2,
+          "placeholder_color": "#e0c890",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dune",
+          "max": 0.6,
+          "placeholder_color": "#d4b478",
+          "placeholder_dots": "#c8a468"
+        },
+        {
+          "id": "reeds",
+          "max": 1.0,
+          "placeholder_color": "#7a9a50",
+          "placeholder_dots": "#5a7a38"
+        }
+      ]
+    },
+    "decorations": [
+      "obelisk",
+      "tomb_entrance",
+      "nile_reeds"
+    ],
+    "decorations_per_chunk": [
+      3,
+      7
+    ],
+    "decoration_art": {
+      "obelisk": {
+        "shape": "rect",
+        "size_px": [
+          6,
+          22
+        ],
+        "placeholder_color": "#c8b490",
+        "weight": 1
+      },
+      "tomb_entrance": {
+        "shape": "rect",
+        "size_px": [
+          22,
+          14
+        ],
+        "placeholder_color": "#8a7a60",
+        "weight": 1
+      },
+      "nile_reeds": {
+        "shape": "circle",
+        "size_px": [
+          10,
+          10
+        ],
+        "placeholder_color": "#6a8a40",
+        "weight": 3
+      }
+    },
+    "local_gods": [
+      "sekhmet",
+      "ra"
+    ],
+    "local_shrine_chance": 0.5,
+    "bosses": {
+      "10": "ammit",
+      "20": "set",
+      "30": "apep"
+    },
+    "unlock": {
+      "type": "act_progress"
+    },
+    "waves": "waves_the_two_lands.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_SANDSTORM_NAME",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 20,
+      "push_px_s": 35,
+      "enemy_push_px_s": 15,
+      "wind_turn_s": 6,
+      "vision_screens": 0.4,
+      "veil_color": "#d8b878",
+      "fade_s": 2.0
+    },
+    "ground_patches": {
+      "kind": "slow",
+      "count": 6,
+      "radius_px": [
+        26,
+        44
+      ],
+      "color": "#b89050",
+      "speed_mult": 0.5
+    },
+    "seal": "egyptian_scarab"
+  },
+  {
+    "id": "the_misty_isles",
+    "name_key": "LEVEL_THE_MISTY_ISLES_NAME",
+    "region": "irish",
+    "act": 1,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_misty_isles",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "bog",
+          "max": -0.45,
+          "placeholder_color": "#5a5a3a",
+          "placeholder_dots": "#4a4a30"
+        },
+        {
+          "id": "dark_grass",
+          "max": -0.05,
+          "placeholder_color": "#4a7a3a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "grass",
+          "max": 0.5,
+          "placeholder_color": "#6a9a4a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "heather",
+          "max": 1.0,
+          "placeholder_color": "#6a9a4a",
+          "placeholder_dots": "#a87ab0"
+        }
+      ]
+    },
+    "decorations": [
+      "standing_stone",
+      "stone_circle",
+      "gorse"
+    ],
+    "decorations_per_chunk": [
+      3,
+      8
+    ],
+    "decoration_art": {
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          7,
+          16
+        ],
+        "placeholder_color": "#8a8a84",
+        "weight": 2
+      },
+      "stone_circle": {
+        "shape": "circle",
+        "size_px": [
+          22,
+          22
+        ],
+        "placeholder_color": "#9a9a94",
+        "weight": 1
+      },
+      "gorse": {
+        "shape": "circle",
+        "size_px": [
+          10,
+          10
+        ],
+        "placeholder_color": "#c8b030",
+        "weight": 3
+      }
+    },
+    "local_gods": [
+      "cernunnos",
+      "morrigan"
+    ],
+    "local_shrine_chance": 0.5,
+    "bosses": {
+      "10": "scathach",
+      "20": "ferdiad",
+      "30": "balor"
+    },
+    "unlock": {
+      "type": "act_progress"
+    },
+    "unlocks_hero_on_defeat": "scathach",
+    "waves": "waves_the_misty_isles.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_MIST_NAME",
+      "first_s": 120,
+      "interval_s": 90,
+      "duration_s": 25,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.5,
+      "veil_color": "#c8d0c8",
+      "fade_s": 3.0
+    },
+    "ground_patches": {
+      "kind": "teleport",
+      "count": 6,
+      "radius_px": [
+        22,
+        30
+      ],
+      "color": "#e8f0a0",
+      "teleport_cooldown_s": 4,
+      "pair_distance_screens": 1.0
+    },
+    "seal": "celtic_knot"
   }
 ]

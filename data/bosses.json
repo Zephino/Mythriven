@@ -548,5 +548,621 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Two Lands bosses (GAME_DESIGN.md: The Two Lands). Numbers are placeholders.",
+    "id": "ammit",
+    "name_key": "BOSS_AMMIT_NAME",
+    "tradition": "egyptian",
+    "lore_source": "The Book of the Dead, spell 125: the weighing of the heart, with Ammit waiting by the scales",
+    "time_min": 10,
+    "enemy": "ammit",
+    "move_speed": 44,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 450,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "scales",
+      "tip_damage": 60,
+      "settle_per_s": 0.03,
+      "devour": {
+        "pattern": "charge_trail",
+        "charge_s": 0.6,
+        "damage": 30,
+        "telegraph_s": 1.2
+      }
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.7,
+            "damage": 12
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 40,
+            "damage": 8
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.7,
+            "damage": 12
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 5,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 13
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "set",
+    "name_key": "BOSS_SET_NAME",
+    "tradition": "egyptian",
+    "lore_source": "The Contendings of Horus and Set; Plutarch, On Isis and Osiris (Set as lord of the desert and storms)",
+    "time_min": 20,
+    "enemy": "set",
+    "move_speed": 54,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 700,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "desert_storm",
+      "sandstorm": {
+        "type": "weather",
+        "name_key": "BOSS_SET_SANDSTORM",
+        "push_px_s": 0,
+        "vision_screens": 0.35,
+        "veil_color": "#c89060",
+        "fade_s": 1.0
+      },
+      "blink_every_s": 5,
+      "edge_strike": {
+        "pattern": "aimed_fan",
+        "count": 5,
+        "spread_deg": 30,
+        "damage": 9
+      },
+      "cyclones": 3,
+      "cyclone_every_s": 4,
+      "cyclone_s": 10,
+      "cyclone_pull_px_s": 40,
+      "cyclone_radius_px": 90,
+      "cyclone_speed_px_s": 30,
+      "cyclone_damage": 4,
+      "cyclone_color": "#c06040"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 3,
+            "spread_deg": 12,
+            "damage": 12
+          },
+          {
+            "pattern": "falling_strikes",
+            "count": 8,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "damage": 12
+          },
+          {
+            "pattern": "falling_strikes",
+            "count": 10,
+            "damage": 10
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_SET_STORM_BOLTS",
+            "cast_s": 1.6,
+            "pattern": {
+              "pattern": "falling_strikes",
+              "count": 14,
+              "spread_px": 160,
+              "damage": 11
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 30,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "apep",
+    "name_key": "BOSS_APEP_NAME",
+    "tradition": "egyptian",
+    "lore_source": "The Book of Overthrowing Apep (Bremner-Rhind Papyrus); the Book of Gates (Apep attacks the sun's boat each night)",
+    "time_min": 30,
+    "enemy": "apep",
+    "move_speed": 30,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.6,
+    "guard_gauge": {
+      "max": 1100,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "swallow",
+      "orb_cycle_s": 3.0,
+      "orb_glow_s": 1.5,
+      "orb_hits": 10,
+      "turned_every_s": 7,
+      "turned_summon": {
+        "pattern": "radial_burst",
+        "count": 16,
+        "damage": 10
+      }
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 300,
+            "width_px": 34,
+            "damage": 13
+          },
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 7
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.0,
+            "damage": 7
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 300,
+            "width_px": 34,
+            "damage": 13
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_APEP_COILS",
+            "cast_s": 1.8,
+            "pattern": {
+              "pattern": "safe_zone",
+              "radius_px": 220,
+              "safe_count": 2,
+              "damage": 18
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 5,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 320,
+            "width_px": 34,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Misty Isles bosses (GAME_DESIGN.md: The Misty Isles). Scáthach's techniques are the hero-feats named in the Irish tales (Tochmarc Emire; Táin Bó Cúailnge). Numbers are placeholders.",
+    "id": "scathach",
+    "name_key": "BOSS_SCATHACH_NAME",
+    "tradition": "irish",
+    "lore_source": "Tochmarc Emire (The Wooing of Emer): Scáthach trains Cú Chulainn in arms on the Isle of Shadows",
+    "time_min": 10,
+    "enemy": "scathach",
+    "move_speed": 62,
+    "keep_distance_px": 80,
+    "attack_every_s": 2.2,
+    "guard_gauge": {
+      "max": 450,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "unlocks_hero": "scathach",
+    "signature": {
+      "type": "lesson",
+      "repeat_cast_mult": 0.85,
+      "min_cast_s": 0.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "techniques": [
+          {
+            "name_key": "CAST_SCATHACH_SPEAR_FEAT",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "aimed_fan",
+              "count": 3,
+              "spread_deg": 10,
+              "damage": 12
+            }
+          },
+          {
+            "name_key": "CAST_SCATHACH_EDGE_FEAT",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "line_sweep",
+              "length_px": 240,
+              "damage": 12
+            }
+          }
+        ],
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 3,
+            "spread_deg": 10,
+            "damage": 12
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "techniques": [
+          {
+            "name_key": "CAST_SCATHACH_SALMON_LEAP",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "charge_trail",
+              "charge_s": 0.6,
+              "damage": 13
+            }
+          },
+          {
+            "name_key": "CAST_SCATHACH_THUNDER_FEAT",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "ground_circles",
+              "count": 5,
+              "damage": 12
+            }
+          }
+        ],
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 5,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "techniques": [
+          {
+            "name_key": "CAST_SCATHACH_SPEAR_FEAT",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "aimed_fan",
+              "count": 3,
+              "spread_deg": 10,
+              "damage": 12
+            }
+          },
+          {
+            "name_key": "CAST_SCATHACH_EDGE_FEAT",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "line_sweep",
+              "length_px": 240,
+              "damage": 12
+            }
+          },
+          {
+            "name_key": "CAST_SCATHACH_SALMON_LEAP",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "charge_trail",
+              "charge_s": 0.6,
+              "damage": 13
+            }
+          },
+          {
+            "name_key": "CAST_SCATHACH_THUNDER_FEAT",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "ground_circles",
+              "count": 5,
+              "damage": 12
+            }
+          },
+          {
+            "name_key": "CAST_SCATHACH_APPLE_FEAT",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "radial_burst",
+              "count": 12,
+              "damage": 8
+            }
+          }
+        ],
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 3,
+            "spread_deg": 10,
+            "damage": 12
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "damage": 12
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 5,
+            "damage": 12
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ferdiad",
+    "name_key": "BOSS_FERDIAD_NAME",
+    "tradition": "irish",
+    "lore_source": "Táin Bó Cúailnge: the combat of Ferdiad and Cú Chulainn at the ford",
+    "time_min": 20,
+    "enemy": "ferdiad",
+    "move_speed": 44,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 700,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "ford",
+      "ford_width_px": 70,
+      "ford_slow": 0.6,
+      "front_cone_deg": 140,
+      "blocked_mult": 0.15,
+      "ford_color": "#4a7aa080"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 3,
+            "spread_deg": 14,
+            "damage": 12
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.7,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "stone_skin": true,
+        "patterns": [
+          {
+            "pattern": "ground_circles",
+            "count": 5,
+            "damage": 12
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 8
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 30,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "balor",
+    "name_key": "BOSS_BALOR_NAME",
+    "tradition": "irish",
+    "lore_source": "Cath Maige Tuired (The Second Battle of Mag Tuired): Balor's destructive eye, struck by Lugh's sling-stone",
+    "time_min": 30,
+    "enemy": "balor",
+    "move_speed": 26,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.6,
+    "guard_gauge": {
+      "max": 1100,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "eye",
+      "stones": 4,
+      "stone_ring_fraction": 0.5,
+      "stone_radius_px": 18,
+      "eye_every_s": 10,
+      "warning_s": 1.2,
+      "open_s": 3.0,
+      "sweep_rad_s": 1.2,
+      "beam_width_px": 26,
+      "beam_damage": 12,
+      "eye_guard_mult": 3.0,
+      "eye_hit_gap_s": 0.5,
+      "sling_hits": 5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "summon_adds",
+            "count": 4,
+            "enemy": "fomorian_caster"
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 50,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 50,
+            "damage": 9
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 4,
+            "enemy": "fomorian_caster"
+          }
+        ]
+      }
+    ]
   }
 ]

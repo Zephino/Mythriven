@@ -451,5 +451,107 @@
     "text_key": "BANTER_LOKI_SKADI",
     "lore_source": "Loki made Skadi laugh as part of her compensation; she later hung the serpent over the bound Loki (Skáldskaparmál; Lokasenna prose)",
     "needs_owner_review": true
+  },
+  {
+    "id": "ammit_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ammit",
+    "hero": "",
+    "god": "ammit",
+    "text_key": "BANTER_AMMIT_ENTRANCE",
+    "lore_source": "Ammit devours the hearts that fail the weighing (Book of the Dead, spell 125)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "set_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "set",
+    "hero": "",
+    "god": "set",
+    "text_key": "BANTER_SET_ENTRANCE",
+    "lore_source": "Set, lord of the red desert and storms (Plutarch, On Isis and Osiris)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "apep_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "apep",
+    "hero": "",
+    "god": "apep",
+    "text_key": "BANTER_APEP_ENTRANCE",
+    "lore_source": "Apep attacks the sun's boat each night (Book of Gates)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "set_ra",
+    "trigger": "boss_meets_god",
+    "speaker": "set",
+    "hero": "",
+    "god": "set",
+    "with_god": "ra",
+    "text_key": "BANTER_SET_RA",
+    "lore_source": "Set defends Ra's sun-boat against Apep from its prow (Book of Gates; Coffin Texts)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "apep_ra",
+    "trigger": "boss_meets_god",
+    "speaker": "apep",
+    "hero": "",
+    "god": "apep",
+    "with_god": "ra",
+    "text_key": "BANTER_APEP_RA",
+    "lore_source": "Apep tries to swallow Ra each night (Book of Overthrowing Apep)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "scathach_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "scathach",
+    "hero": "",
+    "god": "scathach",
+    "text_key": "BANTER_SCATHACH_ENTRANCE",
+    "lore_source": "Scáthach trained heroes in arms (Tochmarc Emire)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "scathach_cu",
+    "trigger": "boss_entrance",
+    "speaker": "scathach",
+    "hero": "cu_chulainn",
+    "god": "scathach",
+    "text_key": "BANTER_SCATHACH_CU",
+    "lore_source": "Scáthach taught Cú Chulainn the gáe bolg on the Isle of Shadows (Tochmarc Emire)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ferdiad_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ferdiad",
+    "hero": "",
+    "god": "ferdiad",
+    "text_key": "BANTER_FERDIAD_ENTRANCE",
+    "lore_source": "Ferdiad's horn-skin no weapon could pierce (Táin Bó Cúailnge)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ferdiad_cu",
+    "trigger": "boss_entrance",
+    "speaker": "ferdiad",
+    "hero": "cu_chulainn",
+    "god": "ferdiad",
+    "text_key": "BANTER_FERDIAD_CU",
+    "lore_source": "Ferdiad and Cú Chulainn, foster-brothers trained together by Scáthach, forced to fight at the ford (Táin Bó Cúailnge)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "balor_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "balor",
+    "hero": "",
+    "god": "balor",
+    "text_key": "BANTER_BALOR_ENTRANCE",
+    "lore_source": "Balor's eye destroyed whatever it looked upon (Cath Maige Tuired)",
+    "needs_owner_review": true
   }
 ]

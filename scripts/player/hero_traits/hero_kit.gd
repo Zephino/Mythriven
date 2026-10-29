@@ -13,6 +13,7 @@ const KITS: Dictionary = {
 	"shield_wall": "res://scripts/player/hero_traits/shield_wall.gd",
 	"the_race": "res://scripts/player/hero_traits/the_race.gd",
 	"cunning": "res://scripts/player/hero_traits/cunning.gd",
+	"trainer": "res://scripts/player/hero_traits/trainer.gd",
 }
 
 var player: Player

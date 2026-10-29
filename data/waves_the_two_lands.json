@@ -1,0 +1,357 @@
+{
+  "_doc": "The Two Lands wave table (GAME_DESIGN.md: The Two Lands): scarab swarms, restless mummies, Shabti Guardians, and sand serpents, on the Aegean Shore's spawn rates. Placeholders.",
+  "level": "the_two_lands",
+  "rows": [
+    {
+      "from_min": 0,
+      "spawns_per_s": 1.6,
+      "singles": {
+        "mummy": 6
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.08,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 2,
+      "spawns_per_s": 2.0,
+      "singles": {
+        "mummy": 6
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.08,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 4,
+      "spawns_per_s": 2.3,
+      "singles": {
+        "mummy": 6
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.08,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 6,
+      "spawns_per_s": 2.55,
+      "singles": {
+        "mummy": 6
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.08,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 8,
+      "spawns_per_s": 2.75,
+      "singles": {
+        "mummy": 6
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.08,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 10,
+      "spawns_per_s": 2.88,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 1,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 12,
+      "spawns_per_s": 3.24,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 1,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 14,
+      "spawns_per_s": 3.6,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 1,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 16,
+      "spawns_per_s": 3.96,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 1,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 18,
+      "spawns_per_s": 4.32,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 1,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 20,
+      "spawns_per_s": 4.56,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 2,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "scarab_swarm",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 23,
+      "spawns_per_s": 5.04,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 2,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "scarab_swarm",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 26,
+      "spawns_per_s": 5.52,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 2,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "scarab_swarm",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 28,
+      "spawns_per_s": 6.0,
+      "singles": {
+        "mummy": 3,
+        "shabti_guardian": 2,
+        "sand_serpent": 1
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "scarab_swarm",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    }
+  ],
+  "elites": {
+    "types": [
+      "minotaur",
+      "cyclops",
+      "gorgon_kin"
+    ],
+    "times_s": [
+      300,
+      900,
+      1500
+    ],
+    "random_interval_s": [
+      150,
+      240
+    ],
+    "random_after_s": 300,
+    "_doc": "Elites are shared across levels."
+  },
+  "boss_fodder": [
+    "scarab_swarm",
+    "mummy"
+  ],
+  "events": [
+    {
+      "id": "chaos_surge",
+      "at_s": 420
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 780
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1080
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1380
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1560
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1680
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1760
+    }
+  ],
+  "_events_doc": "World events (GAME_DESIGN.md: World events): Chaos Surge (60 s, double spawns and XP) and Divine Storm (45 s, god meters charge twice as fast while telegraphed lightning strikes random spots). More often in Deep Night. Events skip while a boss arena is up."
+}

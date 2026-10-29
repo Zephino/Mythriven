@@ -134,6 +134,14 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 6. The timer shows your best time for that Hero and level ("3:12 (best 9:40)") and a banner when you pass it.
 7. King Arthur: stand still → a shield arc blocks shots in front. Atalanta: a golden marker appears every 25 s; reach it for XP and speed. Odysseus: stand still for traps; every 20 s a decoy draws enemies away.
 
+**Phases 16–18 — Midgard's Edge, The Two Lands, The Misty Isles (00.01.22)**
+1. Beat Achilles (the Aegean Shore's 20:00 boss): "New level" lines appear and level select shows the other three levels (F1 can jump the timer).
+2. Each level looks different (snow and pines; sand, reeds, and obelisks; green hills and stone circles) and has its own chest seal.
+3. Around 2:00 its weather arrives: a blizzard pushes you and closes your vision; a sandstorm the same; mist only hides the edges. It stops during boss fights. Frozen ponds make you slide, quicksand slows you, and stepping into a fairy ring carries you to its partner.
+4. Bosses at 10/20/30 min (or F1's boss spawns). **Fenrir**: chained to four posts, he breaks free in phase 3. **Loki**: three copies appear in phase 2; only the real one has a shadow; in phase 3 he swaps places with you and a fake shrine bursts into fire. **Surtr**: an orange fire ring closes in. **Ammit**: a scale over her tips each time you're hit; full = devouring lunge. **Set**: the screen goes sandy except a small circle; cyclones pull in phase 3. **Apep**: swallows one of your gods (Ra if you have him); hit Apep while the orb in him glows to free the god. **Scáthach**: names each technique on the cast bar; repeats come faster. **Ferdiad**: a blue river strip slows you; his front is armored (circle him). **Balor**: when the eye opens, hide behind a stone circle; the red beam sweeps.
+5. Secrets now findable: Tyr's Oath (beat Fenrir below 30% health), The Sun's Return (free Ra from Apep), Lugh's Sling (hit Balor's open eye 5 times), The Ford (as Cú Chulainn, beat Ferdiad without leaving the river).
+6. Beating Scáthach unlocks her as a Hero (Trainer of Heroes: every weapon card also levels another weapon).
+
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
 2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, scores are saved on this device (00.01.21): it says so, **Submit score** → "Score saved!", and **Leaderboard** is titled "Leaderboard (this device)" and lists your saved runs, best first. They're still there after closing and reopening the game (on the web, in the same browser).

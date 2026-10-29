@@ -22,6 +22,12 @@ const SCRIPTS: Dictionary = {
 	"fenrir": "res://scripts/bosses/fenrir_boss.gd",
 	"loki": "res://scripts/bosses/loki_boss.gd",
 	"surtr": "res://scripts/bosses/surtr_boss.gd",
+	"ammit": "res://scripts/bosses/ammit_boss.gd",
+	"set": "res://scripts/bosses/set_boss.gd",
+	"apep": "res://scripts/bosses/apep_boss.gd",
+	"scathach": "res://scripts/bosses/scathach_boss.gd",
+	"ferdiad": "res://scripts/bosses/ferdiad_boss.gd",
+	"balor": "res://scripts/bosses/balor_boss.gd",
 }
 
 var world: WorldRoot

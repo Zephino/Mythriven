@@ -3409,5 +3409,102 @@
       "on_hit"
     ],
     "placeholder_color": "#c8b090"
+  },
+  {
+    "id": "scathach_spear",
+    "name_key": "WEAPON_SCATHACH_SPEAR_NAME",
+    "desc_key": "WEAPON_SCATHACH_SPEAR_DESC",
+    "element": "physical",
+    "categories": [
+      "spear"
+    ],
+    "targeting": "targeted",
+    "pattern": "thrust",
+    "signature_of": "scathach",
+    "in_level_up_pool": false,
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "unlock": {
+      "type": "signature"
+    },
+    "placeholder_color": "#c8b8d0",
+    "levels": [
+      {
+        "damage": 13,
+        "cooldown": 1.17,
+        "hit_interval": 0,
+        "range_px": 90,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 16
+      },
+      {
+        "damage": 15,
+        "cooldown": 1.17,
+        "hit_interval": 0,
+        "range_px": 90,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 16
+      },
+      {
+        "damage": 15,
+        "cooldown": 1.17,
+        "hit_interval": 0,
+        "range_px": 105,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 16
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.17,
+        "hit_interval": 0,
+        "range_px": 105,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 16
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.03,
+        "hit_interval": 0,
+        "range_px": 105,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 16
+      },
+      {
+        "damage": 23,
+        "cooldown": 1.03,
+        "hit_interval": 0,
+        "range_px": 105,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 16
+      },
+      {
+        "damage": 23,
+        "cooldown": 1.03,
+        "hit_interval": 0,
+        "range_px": 105,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 20
+      },
+      {
+        "damage": 29,
+        "cooldown": 0.9,
+        "hit_interval": 0,
+        "range_px": 105,
+        "area": 1.0,
+        "knockback": 90,
+        "width_px": 20
+      }
+    ],
+    "persists": false
   }
 ]
