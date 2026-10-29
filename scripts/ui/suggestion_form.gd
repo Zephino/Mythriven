@@ -7,13 +7,13 @@ signal closed
 
 const MAX_TITLE := 100
 const MAX_DESCRIPTION := 2000
-const CATEGORY_IDS := PackedStringArray([
+const CATEGORY_IDS := [
   "hero", "god", "weapon", "enemy", "region", "gameplay", "ui", "other"
-])
-const CATEGORY_KEYS := PackedStringArray([
+]
+const CATEGORY_KEYS := [
   "UI_SUGGEST_HERO", "UI_SUGGEST_GOD", "UI_SUGGEST_WEAPON", "UI_SUGGEST_ENEMY",
   "UI_SUGGEST_REGION", "UI_SUGGEST_GAMEPLAY", "UI_SUGGEST_UI", "UI_SUGGEST_OTHER"
-])
+]
 
 var _category: OptionButton
 var _title_input: LineEdit
