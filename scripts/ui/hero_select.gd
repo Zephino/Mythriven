@@ -83,17 +83,24 @@ func _ready() -> void:
 	back_button.custom_minimum_size = Vector2(touch * 3.0, touch)
 	back_button.pressed.connect(_on_back)
 	row.add_child(back_button)
+	var suggestion := SuggestionButton.new()
+	suggestion.custom_minimum_size = Vector2(touch * 3.0, touch)
+	row.add_child(suggestion)
 	board.focus_neighbor_right = board.get_path_to(palette)
 	palette.focus_neighbor_left = palette.get_path_to(board)
 	palette.focus_neighbor_right = palette.get_path_to(back_button)
 	back_button.focus_neighbor_left = back_button.get_path_to(palette)
+	back_button.focus_neighbor_right = back_button.get_path_to(suggestion)
+	suggestion.focus_neighbor_left = suggestion.get_path_to(back_button)
 	# Down from the bottom row reaches the Leaderboard button; up or down from it returns to the Heroes.
 	for i: int in buttons.size():
 		if i + grid.columns >= buttons.size():
 			buttons[i].focus_neighbor_bottom = buttons[i].get_path_to(board)
 	if not buttons.is_empty():
 		board.focus_neighbor_top = board.get_path_to(buttons[0])
-		board.focus_neighbor_bottom = board.get_path_to(buttons[0])
+		board.focus_neighbor_bottom = board.get_path_to(suggestion)
+		suggestion.focus_neighbor_top = suggestion.get_path_to(board)
+		suggestion.focus_neighbor_bottom = suggestion.get_path_to(buttons[0])
 		buttons[0].grab_focus()
 
 

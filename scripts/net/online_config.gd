@@ -10,7 +10,7 @@ const LEADERBOARD_READ_URL := "https://raw.githubusercontent.com/Zephino/Mythriv
 ## The Cloudflare Worker's address only (no path, no trailing slash). Empty
 ## until the owner runs leaderboard-api/Setup-Leaderboard.bat, which fills it in.
 ## Example: "https://mythriven-leaderboard.your-name.workers.dev"
-const API_BASE_URL := ""
+const API_BASE_URL := "https://mythriven.thebotcoder.workers.dev"
 
 
 static func post_url() -> String:
@@ -24,6 +24,13 @@ static func post_url() -> String:
 static func read_url() -> String:
 	var worker: String = post_url()
 	return worker if not worker.is_empty() else LEADERBOARD_READ_URL
+
+
+static func suggestion_url() -> String:
+	var base: String = API_BASE_URL.strip_edges().trim_suffix("/")
+	if base.is_empty():
+		return ""
+	return base + "/suggestions"
 
 
 static func can_post() -> bool:

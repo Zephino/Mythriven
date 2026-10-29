@@ -18,6 +18,7 @@ Time: 12:19 AM
   - **Death recap.** What felled you, what hurt you most in the last 10 seconds, your build and top weapon, gods, gold banked, your best time, anything unlocked, and a tip chosen for how you died.
   - Weapons and passives that must be unlocked no longer appear on level-up cards until they are.
   - 21 new automated tests (180 in all, all passing), including closing the game mid-run without losing unlocks and quitting before and after 5:00.
+  - Merged the newest work on main (the Suggest a Feature form and the online leaderboard connection). The Suggest button now sits in Hero select's bottom row with Leaderboard, Color, and Back, and its form opens on top of Hero select.
 
 ### Reason
 The owner asked to build Phases 15 to 18.

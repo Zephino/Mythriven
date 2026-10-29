@@ -862,3 +862,37 @@ ENEMY_GORGON_KIN_MYTH,"The Gorgons were three sisters with snakes for hair whose
 ENEMY_MEDUSA_MYTH,"The mortal Gorgon, whose gaze turned onlookers to stone. Perseus beheaded her while watching her reflection in his polished shield."
 ENEMY_ACHILLES_MYTH,"The greatest Greek warrior at Troy. A later tradition says his mother dipped him in the river Styx, leaving only his heel unprotected."
 ENEMY_KRONOS_MYTH,"The youngest Titan, who overthrew his father Ouranos with a sickle and swallowed his own children to keep his throne, until Zeus forced him to give them back."
+UI_SUGGEST_FEATURE,Suggest a Feature
+UI_SUGGEST_FEATURE_HINT,Send an idea to the developer without an account.
+UI_SUGGEST_TITLE,Suggest a Feature
+UI_SUGGEST_DESCRIPTION,Have an idea for Mythriven? Send it directly to the developer without leaving the game.
+UI_SUGGEST_CATEGORY,Category
+UI_SUGGEST_IDEA_TITLE,Short title
+UI_SUGGEST_IDEA_HINT,What would you like added?
+UI_SUGGEST_IDEA_DETAILS,Your idea
+UI_SUGGEST_DETAILS_HINT,"Describe what you would like to see, and how it would work..."
+UI_SUGGEST_PRIVACY,No account needed. Your suggestion and the general device details shown above will be public on GitHub. Do not include private information.
+UI_SUGGEST_ENVIRONMENT,"Auto-attached: version %s · %s · %s · %s"
+UI_SUGGEST_CLOSE,Close
+UI_SUGGEST_SEND,Send Suggestion
+UI_SUGGEST_SETUP_NEEDED,Suggestions are not available yet. The developer needs to finish setting up the feedback service.
+UI_SUGGEST_CHECK_TITLE,Please enter a title between 5 and 100 characters.
+UI_SUGGEST_CHECK_DETAILS,Please describe your idea in 20 to 2000 characters.
+UI_SUGGEST_SENDING,Sending your suggestion...
+UI_SUGGEST_SUCCESS,Thank you! Your suggestion was sent to the developer.
+UI_SUGGEST_FAILED,Could not send your suggestion. Please try again later.
+UI_SUGGEST_START_ERROR,Could not start the request (error %d). Please try again.
+UI_SUGGEST_NETWORK_ERROR,Network request failed (code %d). Please check your internet connection or browser console.
+UI_SUGGEST_HTTP_ERROR,Feedback service returned HTTP %d: %s
+UI_SUGGEST_UNEXPECTED_SERVER_ERROR,Unexpected server response. Check the Cloudflare Worker logs.
+UI_SUGGEST_SERVICE_UNAVAILABLE,The suggestion service is not available yet. Please try again later.
+UI_SUGGEST_RATE_LIMITED,Daily suggestion limit reached. Please try again tomorrow.
+UI_SUGGEST_CHECK_INPUT,Please check your text and try again.
+UI_SUGGEST_HERO,Hero or playable character
+UI_SUGGEST_GOD,God or summon
+UI_SUGGEST_WEAPON,Weapon or ability
+UI_SUGGEST_ENEMY,Enemy or boss
+UI_SUGGEST_REGION,Region or level
+UI_SUGGEST_GAMEPLAY,Gameplay mechanic
+UI_SUGGEST_UI,Interface or quality of life
+UI_SUGGEST_OTHER,Other

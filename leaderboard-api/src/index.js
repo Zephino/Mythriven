@@ -13,6 +13,7 @@
  */
 
 import { addEntry, emptyBoard, isDuplicate, normalizeBoard, qualifies, validateScore } from "./board.js";
+import { handleSuggestionPost, suggestionStatus } from "./suggestions.js";
 
 const MAX_BODY_BYTES = 8000;
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -153,7 +154,7 @@ export default {
         return new Response(null, { status: 204, headers: corsHeaders() });
       }
       const url = new URL(request.url);
-      if (url.pathname !== "/leaderboard" && url.pathname !== "/") {
+      if (url.pathname !== "/leaderboard" && url.pathname !== "/" && url.pathname !== "/suggestions") {
         return jsonResponse({ error: "not found" }, 404);
       }
       const ip = request.headers.get("CF-Connecting-IP") || "unknown";
@@ -163,6 +164,11 @@ export default {
         }
       } catch (err) {
         console.log("rate limit check failed:", String(err));
+      }
+      if (url.pathname === "/suggestions") {
+        if (request.method === "GET") return suggestionStatus(env);
+        if (request.method === "POST") return await handleSuggestionPost(request, env, ip);
+        return jsonResponse({ error: "method not allowed" }, 405);
       }
       if (request.method === "GET") return jsonResponse(await loadBoard(env));
       if (request.method === "POST") return await handlePost(request, env, ip);
