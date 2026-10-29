@@ -4,7 +4,8 @@ extends Node2D
 ## feel). Crits are bigger and orange; weakness hits are big and yellow with
 ## "!", resisted hits small and grey; damage over time is small. Reactions
 ## show their name. When every label is in use, the oldest is reused.
-## Can be switched off (ui.damage_numbers_enabled; a Settings option later).
+## Can be switched off in Settings, which can also add a short element tag
+## ("Fi" for Fire) so hits can be told apart without relying on colour.
 
 var _labels: Array[Label] = []
 var _age := PackedFloat32Array()
@@ -29,13 +30,15 @@ func setup() -> void:
 
 
 ## `kind` is "normal", "crit", "weak", "resist", or "dot".
-func show_number(value: float, at: Vector2, kind: String) -> void:
-	if not Data.cfg_bool("ui.damage_numbers_enabled"):
+func show_number(value: float, at: Vector2, kind: String, element: String = "") -> void:
+	if not Settings.flag("damage_numbers"):
 		return
 	var style: Dictionary = (Data.cfg("ui.damage_number_styles") as Dictionary).get(kind, {})
 	var text: String = TextFormat.whole(value)
 	if kind == "weak":
 		text = tr("UI_WEAK_HIT") % text
+	if Settings.flag("element_icons") and element != "" and element != Elements.PHYSICAL:
+		text = tr("UI_ELEMENT_TAGGED") % [text, Elements.tag(element)]
 	_show(text, at, int(style.get("font_px", 8)), Color.html(str(style.get("color", "#ffffff"))))
 
 
@@ -59,8 +62,8 @@ func _show(text: String, at: Vector2, font_px: int, color: Color) -> void:
 	label.visible = true
 
 
-func on_enemy_damaged(_slot: int, amount: float, kind: String, at: Vector2) -> void:
-	show_number(amount, at, kind)
+func on_enemy_damaged(_slot: int, amount: float, kind: String, at: Vector2, element: String) -> void:
+	show_number(amount, at, kind, element)
 
 
 func on_reaction(reaction_id: String, at: Vector2, _reach: float, _by: Player) -> void:

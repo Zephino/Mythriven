@@ -124,7 +124,6 @@
             "fields": {
               "handheld_scale": "number",
               "xp_bar_height_px": "number",
-              "damage_numbers_enabled": "bool",
               "damage_number_pool": "number",
               "damage_number_styles": {
                 "type": "object"
@@ -325,7 +324,6 @@
               "owned_item_weight": "number",
               "new_item_weight": "number",
               "stat_card_weight": "number",
-              "auto_collect_default": "string",
               "stat_card_values": {
                 "type": "object",
                 "fields": {
@@ -463,7 +461,6 @@
               "momentum_charge_bonus": "number",
               "song_reaction_bonus": "number",
               "empowered_slams": "number",
-              "auto_summon_default": "bool",
               "invulnerable_color": "string",
               "shrine_stone_color": "string",
               "arrow_px": "number",
@@ -866,6 +863,91 @@
                 }
               }
             }
+          },
+          "settings": {
+            "type": "object",
+            "fields": {
+              "defaults": {
+                "type": "object",
+                "fields": {
+                  "volume_pct": "number",
+                  "effect_opacity_pct": "number",
+                  "shake": "string",
+                  "flash": "string",
+                  "element_icons": "bool",
+                  "colorblind": "bool",
+                  "auto_summon": "bool",
+                  "auto_collect": "string",
+                  "control_size_pct": "number",
+                  "joystick_side": "string",
+                  "damage_numbers": "bool",
+                  "text_size_pct": "number",
+                  "banter": "bool",
+                  "tips": "bool"
+                }
+              },
+              "choices": {
+                "type": "object",
+                "fields": {
+                  "volume_pct": {
+                    "type": "array",
+                    "items": "number"
+                  },
+                  "effect_opacity_pct": {
+                    "type": "array",
+                    "items": "number"
+                  },
+                  "shake": {
+                    "type": "array",
+                    "items": "string"
+                  },
+                  "flash": {
+                    "type": "array",
+                    "items": "string"
+                  },
+                  "auto_collect": {
+                    "type": "array",
+                    "items": "string"
+                  },
+                  "control_size_pct": {
+                    "type": "array",
+                    "items": "number"
+                  },
+                  "joystick_side": {
+                    "type": "array",
+                    "items": "string"
+                  },
+                  "text_size_pct": {
+                    "type": "array",
+                    "items": "number"
+                  }
+                }
+              },
+              "shake_strength": {
+                "type": "object",
+                "fields": {
+                  "off": "number",
+                  "low": "number",
+                  "full": "number"
+                }
+              },
+              "flash_strength": {
+                "type": "object",
+                "fields": {
+                  "off": "number",
+                  "low": "number",
+                  "full": "number"
+                }
+              },
+              "shake_summon_px": "number",
+              "shake_guard_break_px": "number",
+              "shake_s": "number",
+              "base_font_px": "number",
+              "onboarding_tips": {
+                "type": "array",
+                "items": "string"
+              }
+            }
           }
         }
       }
@@ -1245,6 +1327,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1257,6 +1340,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1269,6 +1353,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1281,6 +1366,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1293,6 +1379,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1305,6 +1392,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1317,6 +1405,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1329,6 +1418,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1341,6 +1431,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",
@@ -1353,6 +1444,7 @@
                 "fields": {
                   "name_key": "string",
                   "color": "string",
+                  "colorblind_color": "string",
                   "status": "string",
                   "tier_keys": {
                     "type": "array",

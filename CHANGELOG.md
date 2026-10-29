@@ -12,6 +12,16 @@ Time: 12:44 AM
   - The suggestion form's two scripts now use tabs like every other script, and an empty reply from the server no longer prints extra engine errors.
   - Everything else checked out well: careful cleaning of player text, escaping before it reaches GitHub, @-mentions blocked, daily caps, and no personal data sent.
 
+- **Phase 19: Polish (the parts that can be done without real art, music, or a phone).**
+  - **Settings screen**, from the title screen and the pause menu. It has volume, text size, how see-through your own attack effects are (30–100%), screen shake and hit flash (Off / Low / Full), damage numbers on/off, element tags on damage numbers, colourblind-friendly element colours, auto-summon, auto-collect, touch control size, joystick side (left or right), banter on/off, and first-run tips on/off. Every change is saved at once.
+  - **Screen shake** when you summon a god or break a boss's Guard, as the design describes. It's gentle, and you can turn it down or off.
+  - **First-run tips**: a short line the first time you level up, see a shrine, hit a weakness, fill a god's meter, and have a Resonance ready. Each one shows only once, and Settings can turn them off or show them again.
+  - **Phones with notches**: menus, the HUD, the god buttons, and pop-ups now stay inside the safe part of the screen.
+  - **Exports** leave out the automated tests, the test tool, and the reference folder (the debug menu's test files stay).
+  - **Lore checklist** (`docs/LORE_CHECK.md`): every launch Hero, god, and boss with its source, ready for you to approve. Nothing is marked verified until you say so.
+  - Removed two stray files from an earlier bot test.
+  - 9 new automated tests (205 in all, all passing).
+
 ### Reason
 The owner asked to look over the Cloudflare and feature-suggestion code, then move on to the next phase.
 

@@ -31,6 +31,7 @@ var _check_left: float = 0.0
 
 func _ready() -> void:
 	SaveGame.data()
+	Settings.apply(get_tree())
 	settle_unfinished_run()
 	GameAuthority.run_started.connect(_on_run_started)
 	GameAuthority.player_spawned.connect(_on_player_spawned)

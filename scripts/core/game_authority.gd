@@ -11,7 +11,7 @@ signal player_damaged(player: Player, amount: float, source_id: String)
 signal player_died(player: Player, cause_id: String)
 signal run_ended(run: RunState)
 ## kind: "normal", "crit", "weak", "resist", or "dot" (damage over time).
-signal enemy_damaged(slot: int, amount: float, kind: String, at: Vector2)
+signal enemy_damaged(slot: int, amount: float, kind: String, at: Vector2, element: String)
 signal reaction_triggered(reaction_id: String, at: Vector2, reach: float, by: Player)
 signal xp_collected(player: Player, amount: float)
 signal enemy_killed(slot: int, enemy_type: Dictionary, at: Vector2, killer: Player)
@@ -54,8 +54,7 @@ func _process(delta: float) -> void:
 
 ## Starts a new run on a level. Uses config run.fixed_seed, or a random seed when it is 0.
 func start_run(level_id: String) -> RunState:
-	if auto_collect == "":
-		auto_collect = Data.cfg_string("level_up.auto_collect_default")
+	auto_collect = Settings.text("auto_collect")
 	players.clear()
 	enemies = null
 	enemy_shots = null

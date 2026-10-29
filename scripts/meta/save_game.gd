@@ -39,6 +39,7 @@ static func use_test_file(file: String) -> void:
 			DirAccess.remove_absolute(name)
 	_data = {}
 	_loaded_from = ""
+	Settings.clear_cache()
 
 
 ## Forgets what was loaded, so the next use reads the file again (as when
@@ -46,6 +47,7 @@ static func use_test_file(file: String) -> void:
 static func forget_loaded() -> void:
 	_data = {}
 	_loaded_from = ""
+	Settings.clear_cache()
 
 
 ## The save data, loaded on first use.

@@ -12,7 +12,7 @@ var _weapon: WeaponInstance
 func _ready() -> void:
 	layer = 43
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	var root := Control.new()
+	var root := SafeAreaBox.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(root)

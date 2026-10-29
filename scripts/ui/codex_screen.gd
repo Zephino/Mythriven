@@ -23,9 +23,12 @@ func _ready() -> void:
 	background.color = Color.html(Data.cfg_string("heroes.select_background"))
 	background.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.add_child(background)
+	# Contents stay clear of phone notches; the background fills the whole screen.
+	var safe := SafeAreaBox.new()
+	root.add_child(safe)
 	var box := VBoxContainer.new()
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
-	root.add_child(box)
+	safe.add_child(box)
 	var top := HBoxContainer.new()
 	box.add_child(top)
 	var title := Label.new()

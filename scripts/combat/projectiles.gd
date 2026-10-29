@@ -39,6 +39,7 @@ var _multimesh: MultiMesh
 
 func setup() -> void:
 	add_to_group("player_projectiles")
+	Settings.fade_player_effect(self)
 	_capacity = Data.cfg_int("projectiles.max_player_projectiles")
 	_active.resize(_capacity)
 	_kind.resize(_capacity)

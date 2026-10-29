@@ -1,12 +1,11 @@
 class_name PauseMenu
 extends CanvasLayer
 ## The pause menu (Esc on PC, Start on a gamepad, the pause button on touch):
-## Resume, the Codex, Auto-summon (fires a full god when 30+ enemies are on
-## screen or a boss is present), and Quit run (back to the title; keeps 10%
+## Resume, the Codex, Settings, Auto-summon (fires a full god when 30+ enemies
+## are on screen or a boss is present), and Quit run (back to the title; keeps 10%
 ## of the run's gold from 5:00, none before). The run
 ## timer stops while it's open (GAME_DESIGN.md: Pauses and turns). It doesn't
-## open over the level-up screen, a chest reveal, or a god choice. More
-## settings arrive with Phase 19.
+## open over the level-up screen, a chest reveal, or a god choice.
 
 ## Screens that, while open, keep the pause menu from opening.
 var blockers: Array[CanvasLayer] = []
@@ -14,13 +13,14 @@ var gods: GodManager
 
 var _panel: PanelContainer
 var _resume: Button
+var _auto: CheckButton
 var _buttons: Array[Control] = []
 
 
 func _ready() -> void:
 	layer = 70
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	var root := Control.new()
+	var root := SafeAreaBox.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(root)
@@ -37,15 +37,15 @@ func _ready() -> void:
 	box.add_child(title)
 	_resume = _add_button(box, "UI_RESUME", close)
 	_add_button(box, "UI_CODEX", _on_codex)
+	_add_button(box, "UI_SETTINGS", _on_settings)
 	var auto := CheckButton.new()
 	auto.text = "UI_AUTO_SUMMON"
 	auto.custom_minimum_size.y = Data.cfg_float("ui.min_touch_target_px")
-	auto.button_pressed = Data.cfg_bool("gods.auto_summon_default")
-	auto.toggled.connect(func(on: bool) -> void:
-		if gods != null:
-			gods.auto_summon = on)
+	auto.button_pressed = Settings.flag("auto_summon")
+	auto.toggled.connect(_on_auto_summon)
 	box.add_child(auto)
 	_buttons.append(auto)
+	_auto = auto
 	_add_button(box, "UI_QUIT_RUN", _on_quit)
 	var count: int = _buttons.size()
 	for i: int in count:
@@ -80,6 +80,23 @@ func close() -> void:
 		return
 	visible = false
 	get_tree().paused = false
+
+
+func _on_auto_summon(on: bool) -> void:
+	Settings.change("auto_summon", on)
+	if gods != null:
+		gods.auto_summon = on
+
+
+func _on_settings() -> void:
+	var settings := SettingsScreen.new()
+	settings.closed.connect(_on_settings_closed)
+	add_child(settings)
+
+
+func _on_settings_closed() -> void:
+	_auto.set_pressed_no_signal(Settings.flag("auto_summon"))
+	_resume.grab_focus()
 
 
 func _on_codex() -> void:

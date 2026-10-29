@@ -130,6 +130,7 @@ func _on_card_pressed(index: int) -> void:
 
 func _on_auto_collect_selected(index: int) -> void:
 	GameAuthority.auto_collect = AUTO_COLLECT_OPTIONS[index]
+	Settings.change("auto_collect", GameAuthority.auto_collect)
 	var player: Player = GameAuthority.local_player()
 	if player != null and visible and LevelUpRules.is_maxed(player):
 		_auto_collect_maxed(player)
@@ -139,7 +140,7 @@ func _on_auto_collect_selected(index: int) -> void:
 
 func _build() -> void:
 	var touch: float = Data.cfg_float("ui.min_touch_target_px")
-	var root := Control.new()
+	var root := SafeAreaBox.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(root)

@@ -26,9 +26,12 @@ func _ready() -> void:
 	background.color = Color.html(Data.cfg_string("heroes.menu_background"))
 	background.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.add_child(background)
+	# Contents stay clear of phone notches; the background fills the whole screen.
+	var safe := SafeAreaBox.new()
+	root.add_child(safe)
 	var box := VBoxContainer.new()
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
-	root.add_child(box)
+	safe.add_child(box)
 	var top := HBoxContainer.new()
 	box.add_child(top)
 	_title = Label.new()
@@ -151,7 +154,17 @@ func _link_focus() -> void:
 		_buttons[i].focus_neighbor_bottom = _buttons[i].get_path_to(_buttons[(i + 1) % count])
 	for button: Control in _buttons:
 		if button != _back and not (button as Button).disabled:
-			button.grab_focus.call_deferred()
+			focus_later(button)
 			return
 	if count > 0:
-		_buttons[0].grab_focus.call_deferred()
+		focus_later(_buttons[0])
+
+
+## Focuses `control` once the page is built (if it's still on screen by then).
+func focus_later(control: Control) -> void:
+	_focus_now.call_deferred(control)
+
+
+func _focus_now(control: Control) -> void:
+	if is_instance_valid(control) and control.is_inside_tree():
+		control.grab_focus()

@@ -60,12 +60,12 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 		amount = GameAuthority.bosses.on_boss_hit(slot, amount, element_mult, attacker, push)
 	var to_hp: float = enemies.elites.absorb(slot, amount, element == "holy")
 	enemies.hp[slot] -= to_hp
-	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s")
+	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s") * Settings.flash_strength()
 	enemies.knockback[slot] += push * (1.0 - float(data.get("knockback_resist", 0.0)))
 	if status_id != "" and _rng().randf() < status_chance:
 		_apply_status(slot, status_id, push, data, _status_duration(attacker, weapon, status_id))
 	var kind: String = _number_kind(bool(result["crit"]), element_mult) if to_hp > 0.0 else "resist"
-	GameAuthority.enemy_damaged.emit(slot, amount, kind, at)
+	GameAuthority.enemy_damaged.emit(slot, amount, kind, at, element)
 	if attacker != null and attacker.is_local:
 		Meta.note_damage_dealt(weapon, amount)
 	if attacker != null and not attacker.god_flags.is_empty() and enemies.active[slot] != 0:
@@ -85,7 +85,7 @@ func damage_over_time(slot: int, amount: float) -> void:
 	if enemies == null or enemies.active[slot] == 0:
 		return
 	enemies.hp[slot] -= amount
-	GameAuthority.enemy_damaged.emit(slot, amount, "dot", enemies.positions[slot])
+	GameAuthority.enemy_damaged.emit(slot, amount, "dot", enemies.positions[slot], "")
 	if enemies.hp[slot] <= 0.0:
 		GameAuthority.kill_enemy(slot, null)
 

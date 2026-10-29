@@ -1,11 +1,11 @@
 # AI Development Handoff
 
-Last updated: 2026-10-28
+Last updated: 2026-10-29
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
-Task: Phases 3–6 (endless map, enemies, weapons, XP and level-ups), built in one go at the owner's request
-Version: 00.01.17
-Status: Phases 1–6 built, **none run in Godot yet**. Owner will test at their PC. Phase 7 (fun checkpoint) is next and needs the owner playing.
+Task: Phase 19 (Polish): settings and accessibility, first-run tips, phone safe areas, export filter, lore checklist
+Version: 00.01.23
+Status: Pack 1 (Phases 1–18) built and Phase 19's code-side polish done; 205 Godot tests pass. Art, music, a real-phone performance test, and the lore sign-off need the owner.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
 ## Completed
@@ -141,6 +141,17 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 4. Bosses at 10/20/30 min (or F1's boss spawns). **Fenrir**: chained to four posts, he breaks free in phase 3. **Loki**: three copies appear in phase 2; only the real one has a shadow; in phase 3 he swaps places with you and a fake shrine bursts into fire. **Surtr**: an orange fire ring closes in. **Ammit**: a scale over her tips each time you're hit; full = devouring lunge. **Set**: the screen goes sandy except a small circle; cyclones pull in phase 3. **Apep**: swallows one of your gods (Ra if you have him); hit Apep while the orb in him glows to free the god. **Scáthach**: names each technique on the cast bar; repeats come faster. **Ferdiad**: a blue river strip slows you; his front is armored (circle him). **Balor**: when the eye opens, hide behind a stone circle; the red beam sweeps.
 5. Secrets now findable: Tyr's Oath (beat Fenrir below 30% health), The Sun's Return (free Ra from Apep), Lugh's Sling (hit Balor's open eye 5 times), The Ford (as Cú Chulainn, beat Ferdiad without leaving the river).
 6. Beating Scáthach unlocks her as a Hero (Trainer of Heroes: every weapon card also levels another weapon).
+
+**Phase 19 — Polish (00.01.23)**
+1. Title screen and pause menu each have **Settings**. Pressing a row steps its value; everything is saved at once and kept after closing the game.
+2. **Volume** changes the sound right away (0% = silent). **Text size** 140% makes menu text bigger (pages opened after the change).
+3. **Your attack effects** at 30–40%: your weapon swings, projectiles, and god summons get see-through; enemy attacks stay solid.
+4. **Screen shake**: summoning a god or breaking a boss's Guard shakes the screen a little; Low is gentler, Off none. **Hit flash** Off: enemies no longer flash white when hit.
+5. **Damage numbers** Off hides them. **Element tags** On adds "Fi", "Ic", "Li"… after numbers. **Colourblind-friendly colours** On changes the element colours (start a new run to see enemies recoloured).
+6. **Auto-summon** and **Auto-collect** are remembered between runs (the pause-menu switch and the level-up box change the same setting).
+7. **Touch control size** 150% makes the joystick and god buttons bigger. **Joystick side** Right: the joystick works on the right half, and the god buttons and banter bubble move to the left/right corners so nothing overlaps.
+8. **First-run tips**: in your next run a tip appears the first time you level up, see a shrine, hit a weakness, fill a god's meter, and have a Resonance ready, each once ever. **Show first-run tips again** resets them; **First-run tips** Off stops them.
+9. On a phone with a notch, menus, the HUD, and god buttons stay clear of the notch and rounded corners.
 
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.

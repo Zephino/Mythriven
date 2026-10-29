@@ -1031,3 +1031,33 @@ ENEMY_FOMORIAN_CASTER_MYTH,"The Fomorians, a monstrous race from the sea, warred
 ENEMY_SCATHACH_MYTH,"A warrior woman of Alba who trained heroes in arms on her island fortress. Cú Chulainn learned his feats from her, and she gave him the spear Gáe Bolg."
 ENEMY_FERDIAD_MYTH,"Cú Chulainn's foster-brother, trained beside him by Scáthach and protected by a horn-hard skin. Forced to fight him at a ford, he fell to the Gáe Bolg."
 ENEMY_BALOR_MYTH,The Fomorian king whose one eye destroyed whatever it looked upon; it took several men to lift its lid. His grandson Lugh struck the eye with a sling-stone at the Second Battle of Mag Tuired.
+UI_SETTINGS,Settings
+UI_SETTING_VOLUME_PCT,Volume: %s
+UI_SETTING_TEXT_SIZE_PCT,Text size: %s
+UI_SETTING_EFFECT_OPACITY_PCT,Your attack effects: %s opacity
+UI_SETTING_SHAKE,Screen shake: %s
+UI_SETTING_FLASH,Hit flash: %s
+UI_SETTING_DAMAGE_NUMBERS,Damage numbers: %s
+UI_SETTING_ELEMENT_ICONS,Element tags on damage numbers: %s
+UI_SETTING_COLORBLIND,Colourblind-friendly element colours: %s
+UI_SETTING_AUTO_SUMMON,Auto-summon gods: %s
+UI_SETTING_AUTO_COLLECT,Auto-collect when maxed: %s
+UI_SETTING_CONTROL_SIZE_PCT,Touch control size: %s
+UI_SETTING_JOYSTICK_SIDE,Joystick side: %s
+UI_SETTING_BANTER,Hero and god banter: %s
+UI_SETTING_TIPS,First-run tips: %s
+UI_SETTING_RESET_TIPS,Show first-run tips again
+UI_SETTING_ON,On
+UI_SETTING_OFF,Off
+UI_SETTING_PERCENT,%d%%
+UI_SETTING_VALUE_OFF,Off
+UI_SETTING_VALUE_LOW,Low
+UI_SETTING_VALUE_FULL,Full
+UI_SETTING_VALUE_LEFT,Left
+UI_SETTING_VALUE_RIGHT,Right
+UI_ELEMENT_TAGGED,%s %s
+TIP_FIRST_LEVEL_UP,"Tip: pick one card. Weapons, passives, and stats all keep growing."
+TIP_FIRST_SHRINE,Tip: a shrine! Follow the arrow and stand in it to meet a god.
+TIP_FIRST_WEAKNESS,"Tip: a big yellow ""!"" means you hit a weakness for extra damage."
+TIP_FIRST_METER_FULL,Tip: a god's meter is full. Tap its button (Q / E) to summon.
+TIP_FIRST_RESONANCE,Tip: your two gods resonate! Press the Resonance button for a joint attack.

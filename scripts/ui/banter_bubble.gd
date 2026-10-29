@@ -17,17 +17,14 @@ func _ready() -> void:
 	layer = 31
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
-	var root := Control.new()
+	var root := SafeAreaBox.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(root)
 	_panel = PanelContainer.new()
-	_panel.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-	_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
-	_panel.offset_left = margin_px
-	_panel.offset_bottom = -margin_px - Data.cfg_float("banter.bottom_offset_px")
 	_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_panel)
+	_place()
 	var row := HBoxContainer.new()
 	_panel.add_child(row)
 	_portrait = ColorRect.new()
@@ -48,7 +45,8 @@ func _ready() -> void:
 
 ## Queues a line from banter.json ({} is ignored).
 func say_line(line: Dictionary) -> void:
-	if line.is_empty() or not Data.cfg_bool("banter.enabled"):
+	_place()
+	if line.is_empty() or (not Data.cfg_bool("banter.enabled") or not Settings.flag("banter")):
 		return
 	Meta.note_banter(str(line.get("text_key", "")))
 	_queue.append(line)
@@ -85,3 +83,18 @@ func _next() -> void:
 	_text.text = tr(str(line.get("text_key", "")))
 	_panel.visible = true
 	_left = Data.cfg_float("banter.display_s")
+
+
+## Bottom-left, or bottom-right when the joystick setting moves the god
+## buttons to the left, so the bubble never covers them.
+func _place() -> void:
+	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
+	var right: bool = Settings.text("joystick_side") == "right"
+	_panel.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT if right else Control.PRESET_BOTTOM_LEFT)
+	_panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN if right else Control.GROW_DIRECTION_END
+	_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	# Equal offsets on each axis; the panel then grows to its text from that corner.
+	_panel.offset_left = -margin_px if right else margin_px
+	_panel.offset_right = _panel.offset_left
+	_panel.offset_bottom = -margin_px - Data.cfg_float("banter.bottom_offset_px")
+	_panel.offset_top = _panel.offset_bottom

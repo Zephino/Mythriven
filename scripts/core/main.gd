@@ -161,11 +161,12 @@ func _on_run_ended(run: RunState) -> void:
 func _build_ui(joystick: TouchJoystick) -> void:
 	var layer := CanvasLayer.new()
 	add_child(layer)
-	var root := Control.new()
+	var root := SafeAreaBox.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# The joystick works in whole-screen coordinates; the labels stay clear of notches.
+	layer.add_child(joystick)
 	layer.add_child(root)
-	root.add_child(joystick)
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
 
 	# Text set to a key is translated automatically and follows pseudo-localization.

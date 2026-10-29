@@ -1,15 +1,17 @@
 {
-  "_doc": "Elements, statuses, and reactions (GAME_DESIGN.md: Elements, statuses, and reactions). Each element has exactly one status. Durations in seconds; 'dps' is damage per second. Numbers the design doesn't give are PLACEHOLDERS for Phase 7-style tuning. Colors are placeholders; tier_keys are translation keys for the spell tier names (I, II, III, IV = evolution).",
+  "_doc": "Elements, statuses, and reactions (GAME_DESIGN.md: Elements, statuses, and reactions). Each element has exactly one status. Durations in seconds; 'dps' is damage per second. Numbers the design doesn't give are PLACEHOLDERS for Phase 7-style tuning. Colors are placeholders; colorblind_color is used when the colourblind setting is on (based on the Okabe–Ito colourblind-safe palette, Okabe & Ito 2008, 'Color Universal Design'; needs owner review); tier_keys are translation keys for the spell tier names (I, II, III, IV = evolution).",
   "elements": {
     "physical": {
       "name_key": "ELEMENT_PHYSICAL",
       "color": "#f0f0f0",
+      "colorblind_color": "#f0f0f0",
       "status": "",
       "tier_keys": []
     },
     "fire": {
       "name_key": "ELEMENT_FIRE",
       "color": "#ff6a2a",
+      "colorblind_color": "#d55e00",
       "status": "burn",
       "tier_keys": [
         "SPELL_FIRE_T1",
@@ -21,6 +23,7 @@
     "ice": {
       "name_key": "ELEMENT_ICE",
       "color": "#a8e4ff",
+      "colorblind_color": "#56b4e9",
       "status": "chill",
       "tier_keys": [
         "SPELL_ICE_T1",
@@ -32,6 +35,7 @@
     "lightning": {
       "name_key": "ELEMENT_LIGHTNING",
       "color": "#ffe23a",
+      "colorblind_color": "#f0e442",
       "status": "shock",
       "tier_keys": [
         "SPELL_LIGHTNING_T1",
@@ -43,6 +47,7 @@
     "water": {
       "name_key": "ELEMENT_WATER",
       "color": "#2a5cff",
+      "colorblind_color": "#0072b2",
       "status": "soaked",
       "tier_keys": [
         "SPELL_WATER_T1",
@@ -54,6 +59,7 @@
     "earth": {
       "name_key": "ELEMENT_EARTH",
       "color": "#7a8a3a",
+      "colorblind_color": "#e69f00",
       "status": "poison",
       "tier_keys": [
         "SPELL_EARTH_T1",
@@ -65,6 +71,7 @@
     "wind": {
       "name_key": "ELEMENT_WIND",
       "color": "#b8f0c0",
+      "colorblind_color": "#009e73",
       "status": "gust",
       "tier_keys": [
         "SPELL_WIND_T1",
@@ -76,6 +83,7 @@
     "holy": {
       "name_key": "ELEMENT_HOLY",
       "color": "#fff4c8",
+      "colorblind_color": "#ffffff",
       "status": "smite",
       "tier_keys": [
         "SPELL_HOLY_T1",
@@ -87,6 +95,7 @@
     "dark": {
       "name_key": "ELEMENT_DARK",
       "color": "#9a5cff",
+      "colorblind_color": "#cc79a7",
       "status": "hex",
       "tier_keys": [
         "SPELL_DARK_T1",
@@ -98,6 +107,7 @@
     "fortune": {
       "name_key": "ELEMENT_FORTUNE",
       "color": "#e8c860",
+      "colorblind_color": "#b8860b",
       "status": "",
       "tier_keys": []
     }

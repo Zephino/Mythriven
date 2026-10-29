@@ -113,6 +113,7 @@ func guard_break() -> void:
 	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 	if banner != null:
 		banner.show_text(tr("BOSS_GUARD_BREAK"))
+	GameCamera.shake_screen(get_tree(), Data.cfg_float("settings.shake_guard_break_px"))
 
 
 func _process(delta: float) -> void:

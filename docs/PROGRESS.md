@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phases 15–18 built (00.01.22): all of Pack 1; next: owner playtest, decisions review, then Phase 19 (Polish)
+**Current phase:** Phase 19 (Polish) code-side done (00.01.23); waiting on the owner for art and audio direction, a real-phone test, and the lore sign-off; then Phase 20 (Co-op and cloud saves)
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-29 — Phase 19 — Polish: settings, tips, safe areas (Claude)
+- What changed: Settings screen (title and pause) with volume, text size, player effect opacity, shake and flash strength, damage numbers, element tags, colourblind element colours, auto-summon, auto-collect, touch control size, joystick side, banter, tips; screen shake on summons and Guard Breaks; first-run tips (level-up, shrine, weakness, full meter, Resonance), each once; safe-area container for menus, HUD, pop-ups, and god buttons; export filter drops tests, GUT, and reference; lore checklist for the owner.
+- Files touched: scripts/meta/settings.gd, scripts/ui/meta/settings_screen.gd, scripts/ui/onboarding.gd, scripts/ui/safe_area_box.gd, game_camera, god_buttons, touch_joystick, banter_bubble, damage_numbers, elements, hit_resolver, pause_menu, title_screen, many screen roots; data/config.json (settings), elements.json (colorblind_color), schemas; export_presets.cfg; docs/LORE_CHECK.md; tests/test_polish.gd, smoke.
+- Unfinished / next: real pixel art and audio (owner to decide how), performance test on a real mid-range phone, owner approval of the lore checklist, then Phase 20.
+
 
 ## 2026-10-29 — Phases 16–18 — Midgard's Edge, The Two Lands, The Misty Isles (Claude)
 - What changed: three levels (tilesets, decorations, chest seals, wave tables, local gods), the hazard library (weather: push wind and vision veil; ground patches: slide, slow, teleport), 16 new enemy types, nine bosses with signature scripts (Fenrir, Loki, Surtr, Ammit, Set, Apep, Scáthach, Ferdiad, Balor), the four boss secrets, Scáthach as a Hero, boss-meets-god banter, tips, achievements.

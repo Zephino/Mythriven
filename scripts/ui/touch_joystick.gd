@@ -2,7 +2,8 @@ class_name TouchJoystick
 extends Control
 ## Floating virtual joystick (GAME_DESIGN.md: Controls). It appears where a
 ## finger touches the left part of the screen, only while that finger is
-## down, and follows no fixed position. Placeholder circles for art.
+## down, and follows no fixed position. Placeholder circles for art. Its size
+## and side of the screen (left or right) are settings.
 
 var _active: bool = false
 var _touch_index: int = -1
@@ -23,7 +24,7 @@ func is_active() -> bool:
 func get_vector() -> Vector2:
 	if not _active:
 		return Vector2.ZERO
-	return (_knob - _center) / Data.cfg_float("joystick.radius_px")
+	return (_knob - _center) / _radius()
 
 
 # Unhandled input, so touches on menus and buttons never move the player.
@@ -50,14 +51,21 @@ func _on_touch(touch: InputEventScreenTouch) -> void:
 func _on_drag(drag: InputEventScreenDrag) -> void:
 	if not _active or drag.index != _touch_index:
 		return
-	_knob = _center + (drag.position - _center).limit_length(Data.cfg_float("joystick.radius_px"))
+	_knob = _center + (drag.position - _center).limit_length(_radius())
 	queue_redraw()
 
 
-## Left part of the screen, inside the safe area on phones with notches.
+func _radius() -> float:
+	return Data.cfg_float("joystick.radius_px") * Settings.control_scale()
+
+
+## Left (or right) part of the screen, inside the safe area on phones with notches.
 func _in_joystick_area(point: Vector2) -> bool:
 	var view: Rect2 = get_viewport_rect()
-	var area := Rect2(view.position, Vector2(view.size.x * Data.cfg_float("joystick.screen_fraction"), view.size.y))
+	var width: float = view.size.x * Data.cfg_float("joystick.screen_fraction")
+	var area := Rect2(view.position, Vector2(width, view.size.y))
+	if Settings.text("joystick_side") == "right":
+		area.position.x = view.end.x - width
 	area = area.intersection(SafeArea.rect(get_viewport()))
 	return area.has_point(point)
 
@@ -65,5 +73,5 @@ func _in_joystick_area(point: Vector2) -> bool:
 func _draw() -> void:
 	if not _active:
 		return
-	draw_circle(_center, Data.cfg_float("joystick.radius_px"), Color.html(Data.cfg_string("joystick.base_color")))
-	draw_circle(_knob, Data.cfg_float("joystick.knob_radius_px"), Color.html(Data.cfg_string("joystick.knob_color")))
+	draw_circle(_center, _radius(), Color.html(Data.cfg_string("joystick.base_color")))
+	draw_circle(_knob, Data.cfg_float("joystick.knob_radius_px") * Settings.control_scale(), Color.html(Data.cfg_string("joystick.knob_color")))

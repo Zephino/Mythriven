@@ -33,7 +33,7 @@ var _pending_left: float = 0.0
 
 func _ready() -> void:
 	GameAuthority.gods = self
-	auto_summon = Data.cfg_bool("gods.auto_summon_default")
+	auto_summon = Settings.flag("auto_summon")
 	GameAuthority.xp_collected.connect(_on_pickup)
 	GameAuthority.gold_collected.connect(_on_pickup)
 	GameAuthority.player_damaged.connect(_on_player_damaged)
@@ -124,6 +124,8 @@ func summon(player: Player, index: int) -> bool:
 		summons.run(god, player)
 	_divine_link_on_summon(player)
 	summoned.emit(player, str(god["id"]))
+	if player.is_local:
+		GameCamera.shake_screen(get_tree(), Data.cfg_float("settings.shake_summon_px"))
 	if banter != null:
 		var rng: RandomNumberGenerator = GameAuthority.run.rng.loot
 		if GodRules.is_patron(player, god):
@@ -195,7 +197,7 @@ func _on_weapon_fired(player: Player, _weapon: WeaponInstance) -> void:
 	_charge(player, "attacks_made", 1.0)
 
 
-func _on_enemy_damaged(_slot: int, _amount: float, kind: String, _at: Vector2) -> void:
+func _on_enemy_damaged(_slot: int, _amount: float, kind: String, _at: Vector2, _element: String) -> void:
 	if kind == "dot":
 		return
 	for player: Player in GameAuthority.players:

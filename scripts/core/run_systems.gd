@@ -7,7 +7,8 @@ extends Node
 ## trials, summons, god buttons, banter) and the attack pattern library; from
 ## Phase 13 the bosses, Boons, and the Unraveling; from Phase 14 points of
 ## interest, the compass, the Wandering Trader, and world events; from
-## Phase 16 the level's hazard from the hazard library and its ground patches.
+## Phase 16 the level's hazard from the hazard library and its ground patches;
+## from Phase 19 the first-run tips.
 ## Created by main.gd for each run.
 
 var director: RunDirector
@@ -38,6 +39,7 @@ var boss_hud: BossHud
 var boons: BoonScreen
 var unraveling: Unraveling
 var storm: HazardStrikes
+var onboarding: Onboarding
 var pois: PoiManager
 var compass: Compass
 var trader: TraderScreen
@@ -78,6 +80,7 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	summons.gold = gold
 	summons.ground = ground
 	world.add_child(summons)
+	Settings.fade_player_effect(summons)
 	shrines = Shrines.new()
 	world.add_child(shrines)
 	trial = GodTrial.new()
@@ -166,6 +169,12 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	pause_menu.blockers = [level_up, chest_screen, death_screen, god_choice, infusion_choice, boons, trader, ruins_choice]
 	add_child(pause_menu)
 	hud.pause_menu = pause_menu
+	onboarding = Onboarding.new()
+	onboarding.banner = banner
+	onboarding.gods = gods
+	onboarding.resonance = resonance
+	onboarding.shrines = shrines
+	add_child(onboarding)
 
 	director = RunDirector.new()
 	director.spawner = spawner

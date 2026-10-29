@@ -4,7 +4,9 @@ extends CanvasLayer
 ## god in the bottom-right corner, each with a meter ring around its portrait
 ## (a placeholder colour circle) that glows when full. Tap one to summon; on
 ## PC it's Q / E, on a gamepad LB / RB. While a Resonance is ready, a
-## Resonance button appears above them and both rings pulse together.
+## Resonance button appears above them and both rings pulse together. Their
+## size follows the touch-control size setting; they move to the bottom-left
+## when the joystick is set to the right, and stay clear of phone notches.
 
 var gods: GodManager
 var resonance: ResonanceManager
@@ -54,22 +56,37 @@ func button_center(index: int) -> Vector2:
 func _process(_delta: float) -> void:
 	var player: Player = GameAuthority.local_player()
 	var count: int = gods.gods_of(player).size() if player != null and gods != null else 0
-	var screen: Vector2 = get_viewport().get_visible_rect().size
-	var size: float = Data.cfg_float("ui.god_button_min_px")
-	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
+	var size: float = _size()
 	for index: int in 2:
 		var button: Button = _buttons[index]
 		button.visible = index < count
-		button.position = Vector2(screen.x - margin_px - size * (2 - index) - margin_px * (1 - index), screen.y - margin_px - size)
+		button.custom_minimum_size = Vector2(size, size)
+		button.size = button.custom_minimum_size
+		button.position = _slot_position(index, size)
 		if button.visible:
 			var god: Dictionary = gods.gods_of(player)[index]["god"]
 			button.text = tr(str(god.get("name_key", ""))).left(1)
 	# The Resonance button exists only while it can be used, just above the god buttons.
 	_resonance_button.visible = player != null and resonance != null and resonance.ready_for(player)
 	if _resonance_button.visible:
-		_resonance_button.position = Vector2(screen.x - margin_px - size - margin_px * 0.5 - _resonance_button.size.x * 0.5,
-				screen.y - margin_px - size * 2.0 - margin_px)
+		var between: Vector2 = (_slot_position(0, size) + _slot_position(1, size) + Vector2(size, 0.0)) * 0.5
+		_resonance_button.position = Vector2(between.x - _resonance_button.size.x * 0.5,
+				between.y - _resonance_button.size.y - Data.cfg_float("ui.screen_margin_px"))
 	_rings.queue_redraw()
+
+
+func _size() -> float:
+	return Data.cfg_float("ui.god_button_min_px") * Settings.control_scale()
+
+
+## Top-left corner of god button `index` (0 or 1), inside the safe area.
+func _slot_position(index: int, size: float) -> Vector2:
+	var safe: Rect2 = SafeArea.rect(get_viewport())
+	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
+	var y: float = safe.end.y - margin_px - size
+	if Settings.text("joystick_side") == "right":
+		return Vector2(safe.position.x + margin_px + (size + margin_px) * index, y)
+	return Vector2(safe.end.x - margin_px - size * (2 - index) - margin_px * (1 - index), y)
 
 
 func _on_resonance_pressed() -> void:
@@ -91,7 +108,7 @@ func _draw_rings() -> void:
 	var slots: Array = gods.gods_of(player)
 	for index: int in slots.size():
 		var center: Vector2 = button_center(index)
-		var radius: float = Data.cfg_float("ui.god_button_min_px") * 0.45
+		var radius: float = _size() * 0.45
 		var color := Color.html(str(slots[index]["god"].get("placeholder_color", "#ffffff")))
 		var fill: float = float(slots[index]["meter"])
 		_rings.draw_circle(center, radius * 0.7, Color(color, 0.55))

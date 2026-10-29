@@ -29,8 +29,18 @@ static func reaction(reaction_id: String) -> Dictionary:
 	return (data().get("reactions", {}) as Dictionary).get(reaction_id, {})
 
 
+## The element's colour; the colourblind-friendly one when that setting is on.
 static func color(element_id: String) -> Color:
-	return Color.html(str(element(element_id).get("color", "#ffffff")))
+	var data: Dictionary = element(element_id)
+	if Settings.flag("colorblind") and data.has("colorblind_color"):
+		return Color.html(str(data["colorblind_color"]))
+	return Color.html(str(data.get("color", "#ffffff")))
+
+
+## A short tag for the element (its name's first two letters), shown next to
+## damage numbers when element icons are on, until real icons arrive.
+static func tag(element_id: String) -> String:
+	return TranslationServer.translate(str(element(element_id).get("name_key", ""))).left(2)
 
 
 ## ×1.5 if the enemy is weak to the element, ×0.5 if it resists, else ×1.

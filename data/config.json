@@ -103,7 +103,6 @@
   "ui": {
     "handheld_scale": 1.5,
     "xp_bar_height_px": 10,
-    "damage_numbers_enabled": true,
     "damage_number_pool": 96,
     "damage_number_styles": {
       "normal": { "font_px": 8, "color": "#ffffff" },
@@ -252,7 +251,6 @@
     "owned_item_weight": 1.5,
     "new_item_weight": 1.0,
     "stat_card_weight": 0.6,
-    "auto_collect_default": "off",
     "stat_card_values": {
       "might": 0.05,
       "max_hp": 0.1,
@@ -340,7 +338,6 @@
     "momentum_charge_bonus": 0.25,
     "song_reaction_bonus": 0.25,
     "empowered_slams": 3,
-    "auto_summon_default": false,
     "invulnerable_color": "#9be89b",
     "shrine_stone_color": "#e8e2d0",
     "arrow_px": 14,
@@ -529,5 +526,31 @@
       { "id": "fortunes_wheel", "name_key": "COSMETIC_FORTUNES_WHEEL", "color": "#e8c860" },
       { "id": "the_ford", "name_key": "COSMETIC_THE_FORD", "color": "#6ab0d8" }
     ]
+  },
+
+  "settings": {
+    "_doc": "Player settings (GAME_DESIGN.md: Accessibility settings; Onboarding). defaults are used until the player changes a setting on the Settings screen; choices lists the values each option steps through. shake_strength and flash_strength scale the screen shake and the enemy hit flash for off / low / full. shake_summon_px, shake_guard_break_px, and shake_s are the full-strength screen shake on a god summon and a Guard Break. base_font_px is the text size at 100%. onboarding_tips are the first-run tips, each shown once. All numbers are placeholders that need owner approval.",
+    "defaults": {
+      "volume_pct": 80, "effect_opacity_pct": 100, "shake": "full", "flash": "full", "element_icons": false, "colorblind": false,
+      "auto_summon": false, "auto_collect": "off", "control_size_pct": 100, "joystick_side": "left", "damage_numbers": true,
+      "text_size_pct": 100, "banter": true, "tips": true
+    },
+    "choices": {
+      "volume_pct": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      "effect_opacity_pct": [30, 40, 50, 60, 70, 80, 90, 100],
+      "shake": ["off", "low", "full"],
+      "flash": ["off", "low", "full"],
+      "auto_collect": ["off", "gold", "heal", "smart"],
+      "control_size_pct": [75, 100, 125, 150],
+      "joystick_side": ["left", "right"],
+      "text_size_pct": [80, 100, 120, 140]
+    },
+    "shake_strength": { "off": 0.0, "low": 0.4, "full": 1.0 },
+    "flash_strength": { "off": 0.0, "low": 0.5, "full": 1.0 },
+    "shake_summon_px": 6,
+    "shake_guard_break_px": 4,
+    "shake_s": 0.3,
+    "base_font_px": 16,
+    "onboarding_tips": ["level_up", "shrine", "weakness", "meter_full", "resonance"]
   }
 }

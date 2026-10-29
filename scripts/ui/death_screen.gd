@@ -24,7 +24,7 @@ func _ready() -> void:
 	add_child(_client)
 	_client.score_sent.connect(_on_score_sent)
 	var touch: float = Data.cfg_float("ui.min_touch_target_px")
-	var root := Control.new()
+	var root := SafeAreaBox.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(root)

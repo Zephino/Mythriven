@@ -27,6 +27,7 @@ var _color: Array[Color] = []
 func setup() -> void:
 	z_index = 5
 	add_to_group(GROUP)
+	Settings.fade_player_effect(self)
 	_capacity = Data.cfg_int("effects.max_visual_effects")
 	_active.resize(_capacity)
 	_kind.resize(_capacity)

@@ -85,7 +85,7 @@ func test_the_menus_open_every_page() -> void:
 	title.open_child(hall)
 	await wait_frames(1)
 	for page: MenuScreen in [OfferingsScreen.new(), UnlocksScreen.new(), OmensScreen.new(), BestiaryScreen.new(), CompendiumScreen.new(),
-			HeroesHallScreen.new(), AchievementsScreen.new(), OracleScreen.new(), LevelSelectScreen.new_for(title.flow)]:
+			HeroesHallScreen.new(), AchievementsScreen.new(), OracleScreen.new(), SettingsScreen.new(), LevelSelectScreen.new_for(title.flow)]:
 		hall.open_child(page)
 		await wait_frames(1)
 		assert_gt(page._rows.get_child_count(), 0, "%s has content" % page.get_script().get_global_name())

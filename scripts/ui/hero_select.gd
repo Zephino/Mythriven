@@ -27,10 +27,13 @@ func _ready() -> void:
 	background.color = Color.html(Data.cfg_string("heroes.menu_background"))
 	background.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.add_child(background)
+	# Contents stay clear of phone notches; the background fills the whole screen.
+	var safe := SafeAreaBox.new()
+	root.add_child(safe)
 	var scroll := ScrollContainer.new()
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	root.add_child(scroll)
+	safe.add_child(scroll)
 	var box := VBoxContainer.new()
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(box)
