@@ -286,6 +286,60 @@
     "myth_source": "Snorri Sturluson, Prose Edda, Gylfaginning 4–5 and 51"
   },
   {
+    "id": "spartoi_brute",
+    "name_key": "ENEMY_SPARTOI_BRUTE_NAME",
+    "family": "spartoi",
+    "tradition": "greek",
+    "movement": "brute",
+    "hp": 60,
+    "speed": 28,
+    "contact_damage": 8,
+    "armor": 3,
+    "radius_px": 9,
+    "element": "earth",
+    "weak": "wind",
+    "xp": 5,
+    "gold_chance": 0.05,
+    "knockback_resist": 0.8,
+    "placeholder_color": "#8a7a52",
+    "ages": [
+      "night",
+      "deep_night"
+    ],
+    "persists": false,
+    "myth_source": "Pseudo-Apollodorus, Bibliotheca 1.9.23 and 3.4.1; Apollonius of Rhodes, Argonautica 3.1354–1407 (armed men sprung from sown dragon's teeth)"
+  },
+  {
+    "id": "khalkotauros_bomber",
+    "name_key": "ENEMY_KHALKOTAUROS_BOMBER_NAME",
+    "family": "khalkotauroi",
+    "tradition": "greek",
+    "movement": "bomber",
+    "hp": 8,
+    "speed": 80,
+    "contact_damage": 4,
+    "armor": 0,
+    "radius_px": 5,
+    "element": "fire",
+    "weak": "water",
+    "resist": "fire",
+    "xp": 2,
+    "gold_chance": 0.05,
+    "knockback_resist": 0.0,
+    "placeholder_color": "#c8782a",
+    "ages": [
+      "deep_night"
+    ],
+    "persists": false,
+    "behavior": {
+      "trigger_px": 28,
+      "fuse_s": 1.0,
+      "blast_radius_px": 42,
+      "blast_damage": 15
+    },
+    "myth_source": "Apollonius of Rhodes, Argonautica 3.409–421 and 3.1278–1329; Pseudo-Apollodorus, Bibliotheca 1.9.23 (Aeëtes' fire-breathing bronze bulls)"
+  },
+  {
     "id": "minotaur",
     "name_key": "ENEMY_MINOTAUR_NAME",
     "family": "elites",

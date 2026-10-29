@@ -102,3 +102,36 @@ func test_settings_screen_rows_all_have_text_and_defaults() -> void:
 		assert_false(SettingsScreen.value_text(key).begins_with("UI_"), "%s's value has text" % key)
 		assert_true((Data.cfg("settings.defaults") as Dictionary).has(key), "%s has a default" % key)
 		assert_true(TranslationServer.translate("UI_SETTING_" + key.to_upper()).contains("%s"), "%s has a row label" % key)
+
+
+func test_whole_screen_joystick_starts_anywhere_but_on_a_button() -> void:
+	var joystick: TouchJoystick = add_child_autofree(TouchJoystick.new())
+	var view: Rect2 = joystick.get_viewport_rect()
+	var far_right := Vector2(view.end.x - 20.0, view.get_center().y)
+	Settings.change("joystick_side", "anywhere")
+	assert_true(joystick._in_joystick_area(far_right), "whole screen")
+	Settings.change("joystick_side", "left")
+	assert_false(joystick._in_joystick_area(far_right), "left side only")
+	Settings.change("joystick_side", "anywhere")
+	var button: Button = add_child_autofree(Button.new())
+	button.add_to_group(TouchJoystick.BLOCKERS)
+	button.position = far_right - Vector2(10, 10)
+	button.size = Vector2(20, 20)
+	assert_false(joystick._in_joystick_area(far_right), "a touch on a button presses the button")
+
+
+func test_bosses_go_through_the_release_lore_check() -> void:
+	for boss: Variant in Data.get_file("bosses.json"):
+		assert_eq(str((boss as Dictionary).get("care_tier", "")), "A", str(boss["id"]))
+		assert_true((boss as Dictionary).get("lore_verified") is bool, str(boss["id"]))
+	var unverified: Dictionary = {"id": "x", "care_tier": "A", "lore_verified": false}
+	assert_eq(ContentGate.filter([unverified], "bosses.json", true)["kept"].size(), 0)
+
+
+func test_the_aegean_shore_only_spawns_greek_creatures() -> void:
+	var waves: Dictionary = Data.get_file("waves_aegean_shore.json")
+	var text: String = JSON.stringify(waves)
+	for enemy: Variant in Data.get_file("enemies.json"):
+		var entry: Dictionary = enemy
+		if text.contains('"%s"' % entry["id"]) and not bool(entry.get("boss", false)) and str(entry.get("tradition", "")) != "":
+			assert_eq(str(entry["tradition"]), "greek", "%s on the Aegean Shore" % entry["id"])

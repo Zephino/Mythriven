@@ -41,20 +41,20 @@ Care tier A means extra care: a living religion, a national hero, or a figure wi
 
 | Id | Name | Tradition | Care tier | Source in data | Verified |
 | --- | --- | --- | --- | --- | --- |
-| medusa | Medusa | greek | not set | Hesiod, Theogony 270-281; Pseudo-Apollodorus, Bibliotheca 2.4.2-3; Ovid, Metamorphoses 4 | no (bosses have no `lore_verified` field yet) |
-| achilles | Achilles | greek | not set | Homer, Iliad; Statius, Achilleid 1.269 (the dip in the Styx); the heel: Hyginus, Fabulae 107 | no (bosses have no `lore_verified` field yet) |
-| kronos | Kronos | greek | not set | Hesiod, Theogony 137-210, 453-506 (Kronos the Titan, who swallowed his children) | no (bosses have no `lore_verified` field yet) |
-| fenrir | Fenrir | norse | not set | Snorri Sturluson, Prose Edda, Gylfaginning 34 (the binding with Gleipnir) and 51 (Ragnarök) | no (bosses have no `lore_verified` field yet) |
-| loki | Loki | norse | not set | Poetic Edda, Lokasenna; Snorri Sturluson, Prose Edda, Gylfaginning 33 (shape-shifter) and 49–50 | no (bosses have no `lore_verified` field yet) |
-| surtr | Surtr | norse | not set | Poetic Edda, Völuspá 52–53; Snorri Sturluson, Prose Edda, Gylfaginning 4 and 51 (Surtr's flaming sword at Ragnarök) | no (bosses have no `lore_verified` field yet) |
-| ammit | Ammit | egyptian | not set | The Book of the Dead, spell 125: the weighing of the heart, with Ammit waiting by the scales | no (bosses have no `lore_verified` field yet) |
-| set | Set | egyptian | not set | The Contendings of Horus and Set; Plutarch, On Isis and Osiris (Set as lord of the desert and storms) | no (bosses have no `lore_verified` field yet) |
-| apep | Apep | egyptian | not set | The Book of Overthrowing Apep (Bremner-Rhind Papyrus); the Book of Gates (Apep attacks the sun's boat each night) | no (bosses have no `lore_verified` field yet) |
-| scathach | Scáthach | irish | not set | Tochmarc Emire (The Wooing of Emer): Scáthach trains Cú Chulainn in arms on the Isle of Shadows | no (bosses have no `lore_verified` field yet) |
-| ferdiad | Ferdiad | irish | not set | Táin Bó Cúailnge: the combat of Ferdiad and Cú Chulainn at the ford | no (bosses have no `lore_verified` field yet) |
-| balor | Balor of the Evil Eye | irish | not set | Cath Maige Tuired (The Second Battle of Mag Tuired): Balor's destructive eye, struck by Lugh's sling-stone | no (bosses have no `lore_verified` field yet) |
+| medusa | Medusa | greek | A | Hesiod, Theogony 270-281; Pseudo-Apollodorus, Bibliotheca 2.4.2-3; Ovid, Metamorphoses 4 | no |
+| achilles | Achilles | greek | A | Homer, Iliad; Statius, Achilleid 1.269 (the dip in the Styx); the heel: Hyginus, Fabulae 107 | no |
+| kronos | Kronos | greek | A | Hesiod, Theogony 137-210, 453-506 (Kronos the Titan, who swallowed his children) | no |
+| fenrir | Fenrir | norse | A | Snorri Sturluson, Prose Edda, Gylfaginning 34 (the binding with Gleipnir) and 51 (Ragnarök) | no |
+| loki | Loki | norse | A | Poetic Edda, Lokasenna; Snorri Sturluson, Prose Edda, Gylfaginning 33 (shape-shifter) and 49–50 | no |
+| surtr | Surtr | norse | A | Poetic Edda, Völuspá 52–53; Snorri Sturluson, Prose Edda, Gylfaginning 4 and 51 (Surtr's flaming sword at Ragnarök) | no |
+| ammit | Ammit | egyptian | A | The Book of the Dead, spell 125: the weighing of the heart, with Ammit waiting by the scales | no |
+| set | Set | egyptian | A | The Contendings of Horus and Set; Plutarch, On Isis and Osiris (Set as lord of the desert and storms) | no |
+| apep | Apep | egyptian | A | The Book of Overthrowing Apep (Bremner-Rhind Papyrus); the Book of Gates (Apep attacks the sun's boat each night) | no |
+| scathach | Scáthach | irish | A | Tochmarc Emire (The Wooing of Emer): Scáthach trains Cú Chulainn in arms on the Isle of Shadows | no |
+| ferdiad | Ferdiad | irish | A | Táin Bó Cúailnge: the combat of Ferdiad and Cú Chulainn at the ford | no |
+| balor | Balor of the Evil Eye | irish | A | Cath Maige Tuired (The Second Battle of Mag Tuired): Balor's destructive eye, struck by Lugh's sling-stone | no |
 
-Decision for the owner: should bosses get `care_tier` and `lore_verified` fields like Heroes and gods, so the release build checks them too?
+Bosses have `care_tier` and `lore_verified` like Heroes and gods (owner approved, 00.01.24), so a release build refuses any boss not yet verified.
 
 ## Not checked here
 

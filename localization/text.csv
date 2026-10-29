@@ -1061,3 +1061,8 @@ TIP_FIRST_SHRINE,Tip: a shrine! Follow the arrow and stand in it to meet a god.
 TIP_FIRST_WEAKNESS,"Tip: a big yellow ""!"" means you hit a weakness for extra damage."
 TIP_FIRST_METER_FULL,Tip: a god's meter is full. Tap its button (Q / E) to summon.
 TIP_FIRST_RESONANCE,Tip: your two gods resonate! Press the Resonance button for a joint attack.
+ENEMY_SPARTOI_BRUTE_NAME,Spartoi
+ENEMY_SPARTOI_BRUTE_MYTH,"The Spartoi, the ""Sown Men"": when Cadmus, and later Jason, sowed a dragon's teeth in the earth, armed warriors sprang up from the furrows ready to fight."
+ENEMY_KHALKOTAUROS_BOMBER_NAME,Bronze bull
+ENEMY_KHALKOTAUROS_BOMBER_MYTH,"The Khalkotauroi, King Aeëtes' bulls with hooves of bronze, breathed fire from their mouths; Jason had to yoke them to plough the field where he sowed the dragon's teeth."
+UI_SETTING_VALUE_ANYWHERE,Whole screen

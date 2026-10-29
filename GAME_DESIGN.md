@@ -154,7 +154,7 @@ The game has **14 regional levels plus a finale**, grouped into Acts that match 
 
 | # | Level | Region | Look | Hazard | Enemy families | Local gods |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | **The Aegean Shore** | Greek | Olive groves, marble ruins, wine-dark sea | Thunderstorm strikes | Shades, Harpies, Sirens (casters), Satyr skirmishers | Tyche, Poseidon |
+| 1 | **The Aegean Shore** | Greek | Olive groves, marble ruins, wine-dark sea | Thunderstorm strikes | Shades, Harpies, Sirens (casters), Satyr skirmishers, Spartoi (brutes), bronze bulls (bombers) | Tyche, Poseidon |
 | 2 | **Midgard's Edge** | Norse | Pine forest, runestones, longhouse ruins, snow | Blizzard push and low vision; frozen ponds | Draugr, Frost Thursar, Muspel Sparks, Trolls | Thor, Skadi |
 | 3 | **The Two Lands** | Egyptian | Desert, Nile reeds, obelisks, tombs | Sandstorms; quicksand | Shabti Guardians, scarab swarms, restless mummies, sand serpents | Sekhmet, Ra |
 | 4 | **The Misty Isles** | Irish | Green hills, stone circles, bogs | Mist banks hide enemies; fairy rings teleport | Kelpies, Fomorian casters, Sluagh, Redcaps | Cernunnos, the Morrígan |
@@ -274,7 +274,7 @@ Engine: **Godot 4 (latest stable 4.x), GDScript.** Export targets: Windows, macO
 - **All tuning numbers live in data files**, never hard-coded.
 - **Multiplayer-ready from day one:** players are always a list. Game events (spawns, damage, drops, deaths, god binding) go through one `GameAuthority` script so they can later run only on the host.
 - **Deterministic randomness:** separate seeded `RandomNumberGenerator`s for world generation, spawns, and loot.
-- **Release content gate:** every Hero and god entry carries `care_tier` and `lore_verified`. Release builds refuse to load any entry that isn't `care_tier: "A"` with `lore_verified: true` (dev builds load everything, with a warning). This makes the cultural rules enforceable, not just a note.
+- **Release content gate:** every Hero, god, and boss entry carries `care_tier` and `lore_verified` *(bosses added 10/29/2026, owner approved)*. Release builds refuse to load any entry that isn't `care_tier: "A"` with `lore_verified: true` (dev builds load everything, with a warning). This makes the cultural rules enforceable, not just a note.
 - **Debug menu** \[Launch, dev builds only\]: F1 / three-finger tap. Spawn any enemy, boss, POI, or god; grant any weapon or level; set timer; show FPS, enemy count, spatial-hash overlay; god mode (the testing kind).
 - Static typing in GDScript; keep scripts under \~300 lines.
 
@@ -425,6 +425,7 @@ Damage over time (Burn, Poison) skips Armor. Damage to the player works the same
 - **Enemies never stack.** Every enemy has a body radius and pushes neighbors apart (resolved at 30 Hz through the spatial hash, checking up to 8 neighbors each). Crowds pack into a ring around the player instead of piling onto one spot. Bigger enemies and bosses push smaller ones aside.
 - **Contact damage:** each enemy touching the player deals its damage once every 0.5 s (its own timer).
 - **No invulnerability after being hit.** If enemies rush and surround you and you don't kill them or escape, you die. The danger of being swarmed is the point.
+- **Enemies don't block movement.** You can walk through a crowd, but every enemy you touch deals its contact damage unless a shield stops it. *(Added 10/29/2026, owner approved.)*
 - Dodges from Hero traits (Tomoe's charge, Cú Chulainn's leap) still work as designed.
 
 ### Weapon speeds and Hero expertise
@@ -887,6 +888,10 @@ The Unwoven are creatures and restless dead drawn from Tier A myths; most still 
 | Frost Thursar | Norse frost-giant kin | Ice | Fire | Ice | Night, Deep Night | Chaser, caster |
 | Shabti Guardians | Egyptian funerary figures, animated | Earth | Wind | Physical | Night, Deep Night | Brute (Armor) |
 | Harpies | Greek storm-winged spirits | Wind | Lightning | Earth | All | Flyer, swarm |
+| Spartoi | Greek "Sown Men" sprung from dragon's teeth (Apollodorus 3.4.1; Argonautica 3) | Earth | Wind | — | Night, Deep Night | Brute |
+| Khalkotauroi (bronze bulls) | Aeëtes' fire-breathing bulls (Argonautica 3) | Fire | Water | Fire | Deep Night | Bomber |
+
+*(Spartoi and Khalkotauroi added 10/29/2026, owner approved: they give the Aegean Shore its own brutes and bombers instead of borrowing Draugr and Muspel Sparks. Lore still to be checked.)*
 
 A pure Fire build melts Draugr and Thursar but struggles against Muspel Sparks and Kelpies, so builds have to adapt.
 
@@ -1339,7 +1344,8 @@ Placeholder shapes and no sound until the game is fun; then original 16-bit-styl
 - Screen shake and flash intensity (off / low / full).
 - Element icons on damage numbers and enemies, plus colorblind palettes.
 - Auto-summon gods on/off.
-- Joystick size and position; button size.
+- Joystick size and position; button size. Position: the joystick works anywhere on the screen except on buttons (the default), or only on the left or right side; with right, the god buttons move to the bottom-left. *(Added 10/29/2026, owner approved.)*
+- All settings, including Auto-summon and Auto-collect, are saved and kept between runs, and all of them are on the Settings screen. *(Added 10/29/2026, owner approved.)*
 - Damage numbers on/off.
 - Text size.
 

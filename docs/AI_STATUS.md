@@ -2,10 +2,10 @@
 
 Last updated: 2026-10-29
 Agent: Claude Code (cloud), developer mode
-Branch: `main` (owner asked for direct pushes to `main`; the session branch `ccr-f867c6c5-ejkt2t` holds the same commits)
+Branch: `main` (owner asked for direct pushes to `main`, and for only `main` and `data` to exist on GitHub)
 Task: Phase 19 (Polish): settings and accessibility, first-run tips, phone safe areas, export filter, lore checklist
-Version: 00.01.23
-Status: Pack 1 (Phases 1–18) built and Phase 19's code-side polish done; 205 Godot tests pass. Art, music, a real-phone performance test, and the lore sign-off need the owner.
+Version: 00.01.24
+Status: Pack 1 (Phases 1–18) built and Phase 19's code-side polish done; 208 Godot tests pass. Art, music, a real-phone performance test, and the lore sign-off need the owner.
 Last verified commit: run `git rev-parse HEAD` before resuming.
 
 ## Completed
@@ -149,7 +149,8 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 4. **Screen shake**: summoning a god or breaking a boss's Guard shakes the screen a little; Low is gentler, Off none. **Hit flash** Off: enemies no longer flash white when hit.
 5. **Damage numbers** Off hides them. **Element tags** On adds "Fi", "Ic", "Li"… after numbers. **Colourblind-friendly colours** On changes the element colours (start a new run to see enemies recoloured).
 6. **Auto-summon** and **Auto-collect** are remembered between runs (the pause-menu switch and the level-up box change the same setting).
-7. **Touch control size** 150% makes the joystick and god buttons bigger. **Joystick side** Right: the joystick works on the right half, and the god buttons and banter bubble move to the left/right corners so nothing overlaps.
+7. **Touch control size** 150% makes the joystick and god buttons bigger. **Joystick side**: Whole screen (default, 00.01.24) starts the joystick wherever you touch except on a button; Left / Right limit it to that half. With Right, the god buttons and banter bubble swap corners so nothing overlaps.
+10. (00.01.24) On the Aegean Shore, Night brings **Spartoi** (big, slow, armoured) and Deep Night **bronze bulls** (run at you and burst after a short flash) instead of Draugr and Muspel Sparks.
 8. **First-run tips**: in your next run a tip appears the first time you level up, see a shrine, hit a weakness, fill a god's meter, and have a Resonance ready, each once ever. **Show first-run tips again** resets them; **First-run tips** Off stops them.
 9. On a phone with a notch, menus, the HUD, and god buttons stay clear of the notch and rounded corners.
 

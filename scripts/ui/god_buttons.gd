@@ -6,7 +6,7 @@ extends CanvasLayer
 ## PC it's Q / E, on a gamepad LB / RB. While a Resonance is ready, a
 ## Resonance button appears above them and both rings pulse together. Their
 ## size follows the touch-control size setting; they move to the bottom-left
-## when the joystick is set to the right, and stay clear of phone notches.
+## when the joystick is set to the right side only, and stay clear of phone notches.
 
 var gods: GodManager
 var resonance: ResonanceManager
@@ -27,6 +27,7 @@ func _ready() -> void:
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
 	for index: int in 2:
 		var button := Button.new()
+		button.add_to_group(TouchJoystick.BLOCKERS)
 		button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		button.flat = true
 		button.focus_mode = Control.FOCUS_NONE
@@ -37,6 +38,7 @@ func _ready() -> void:
 		_root.add_child(button)
 		_buttons.append(button)
 	_resonance_button = Button.new()
+	_resonance_button.add_to_group(TouchJoystick.BLOCKERS)
 	_resonance_button.text = "UI_RESONANCE_BUTTON"
 	_resonance_button.focus_mode = Control.FOCUS_NONE
 	_resonance_button.custom_minimum_size = Vector2(size, size * 0.6)

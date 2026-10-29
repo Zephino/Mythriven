@@ -42,6 +42,7 @@ func _ready() -> void:
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(row)
 	_badge = Button.new()
+	_badge.add_to_group(TouchJoystick.BLOCKERS)
 	_badge.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	_badge.custom_minimum_size = Vector2.ONE * Data.cfg_float("ui.min_touch_target_px")
 	_badge.focus_mode = Control.FOCUS_NONE
@@ -54,6 +55,7 @@ func _ready() -> void:
 	_gold_label = _make_label()
 	row.add_child(_gold_label)
 	var pause := Button.new()
+	pause.add_to_group(TouchJoystick.BLOCKERS)
 	pause.text = "UI_PAUSE_BUTTON"
 	pause.custom_minimum_size = Vector2.ONE * Data.cfg_float("ui.min_touch_target_px")
 	pause.focus_mode = Control.FOCUS_NONE

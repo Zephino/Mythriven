@@ -84,7 +84,7 @@
   },
 
   "joystick": {
-    "_doc": "Floating virtual joystick on the left part of a touch screen. Sizes become player settings in Phase 19.",
+    "_doc": "Floating virtual joystick for touch screens. screen_fraction is the part of the screen it uses when the joystick side setting is left or right (the default is the whole screen). Its size is scaled by the touch control size setting.",
     "screen_fraction": 0.5,
     "radius_px": 80,
     "knob_radius_px": 32,
@@ -532,7 +532,7 @@
     "_doc": "Player settings (GAME_DESIGN.md: Accessibility settings; Onboarding). defaults are used until the player changes a setting on the Settings screen; choices lists the values each option steps through. shake_strength and flash_strength scale the screen shake and the enemy hit flash for off / low / full. shake_summon_px, shake_guard_break_px, and shake_s are the full-strength screen shake on a god summon and a Guard Break. base_font_px is the text size at 100%. onboarding_tips are the first-run tips, each shown once. All numbers are placeholders that need owner approval.",
     "defaults": {
       "volume_pct": 80, "effect_opacity_pct": 100, "shake": "full", "flash": "full", "element_icons": false, "colorblind": false,
-      "auto_summon": false, "auto_collect": "off", "control_size_pct": 100, "joystick_side": "left", "damage_numbers": true,
+      "auto_summon": false, "auto_collect": "off", "control_size_pct": 100, "joystick_side": "anywhere", "damage_numbers": true,
       "text_size_pct": 100, "banter": true, "tips": true
     },
     "choices": {
@@ -542,7 +542,7 @@
       "flash": ["off", "low", "full"],
       "auto_collect": ["off", "gold", "heal", "smart"],
       "control_size_pct": [75, 100, 125, 150],
-      "joystick_side": ["left", "right"],
+      "joystick_side": ["anywhere", "left", "right"],
       "text_size_pct": [80, 100, 120, 140]
     },
     "shake_strength": { "off": 0.0, "low": 0.4, "full": 1.0 },

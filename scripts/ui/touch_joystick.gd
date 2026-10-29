@@ -1,9 +1,13 @@
 class_name TouchJoystick
 extends Control
 ## Floating virtual joystick (GAME_DESIGN.md: Controls). It appears where a
-## finger touches the left part of the screen, only while that finger is
-## down, and follows no fixed position. Placeholder circles for art. Its size
-## and side of the screen (left or right) are settings.
+## finger touches the screen (anywhere but a button, or only the left or
+## right part, a setting), only while that finger is down, and follows no
+## fixed position. Placeholder circles for art. Its size is a setting too.
+
+## On-screen buttons (god buttons, pause, Labors) that a touch should press
+## instead of starting the joystick.
+const BLOCKERS := "joystick_blockers"
 
 var _active: bool = false
 var _touch_index: int = -1
@@ -59,15 +63,25 @@ func _radius() -> float:
 	return Data.cfg_float("joystick.radius_px") * Settings.control_scale()
 
 
-## Left (or right) part of the screen, inside the safe area on phones with notches.
+## The whole screen, or its left or right part (the joystick side setting),
+## inside the safe area on phones with notches, and never on a button.
 func _in_joystick_area(point: Vector2) -> bool:
 	var view: Rect2 = get_viewport_rect()
-	var width: float = view.size.x * Data.cfg_float("joystick.screen_fraction")
-	var area := Rect2(view.position, Vector2(width, view.size.y))
-	if Settings.text("joystick_side") == "right":
-		area.position.x = view.end.x - width
+	var area: Rect2 = view
+	var side: String = Settings.text("joystick_side")
+	if side != "anywhere":
+		var width: float = view.size.x * Data.cfg_float("joystick.screen_fraction")
+		area = Rect2(view.position, Vector2(width, view.size.y))
+		if side == "right":
+			area.position.x = view.end.x - width
 	area = area.intersection(SafeArea.rect(get_viewport()))
-	return area.has_point(point)
+	if not area.has_point(point):
+		return false
+	for blocker: Node in get_tree().get_nodes_in_group(BLOCKERS):
+		var control := blocker as Control
+		if control != null and control.is_visible_in_tree() and control.get_global_rect().has_point(point):
+			return false
+	return true
 
 
 func _draw() -> void:

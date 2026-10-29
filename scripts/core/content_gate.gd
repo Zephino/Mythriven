@@ -1,7 +1,7 @@
 class_name ContentGate
 extends RefCounted
 ## Release content gate (GAME_DESIGN.md: Tech stack and performance rules).
-## Every Hero and god entry carries care_tier and lore_verified. Release
+## Every Hero, god, and boss entry carries care_tier and lore_verified. Release
 ## builds refuse any entry that isn't care_tier "A" with lore_verified true;
 ## dev builds keep everything but report a warning for each such entry.
 

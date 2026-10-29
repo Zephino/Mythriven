@@ -1780,7 +1780,7 @@
       }
     },
     "bosses.json": {
-      "gated": false,
+      "gated": true,
       "schema": {
         "type": "array",
         "items": {
@@ -1791,6 +1791,8 @@
             "name_key": "string",
             "tradition": "string",
             "lore_source": "string",
+            "care_tier": "string",
+            "lore_verified": "bool",
             "time_min": "number",
             "enemy": "string",
             "move_speed": "number",

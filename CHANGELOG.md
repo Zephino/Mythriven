@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.24
+Date: 10/29/2026
+Time: 12:47 PM
+
+### Changes
+- **Decisions review, round 1.** Marked your answers in `docs/DECISIONS.md`: 14 old decisions closed because later work replaced them; 22 approved; 5 batches of writing approved as draft text (lore check still to come). Questions 3, 5, 10, 11, and the tip placement are still open.
+- **The Aegean Shore now has its own Greek monsters.** The Norse Draugr brutes and Muspel Spark bombers it borrowed are replaced by the **Spartoi** (armoured warriors who sprang from sown dragon's teeth) and **bronze bulls** (King Aeëtes' fire-breathing bulls that Jason yoked). Same strength as before. Their Bestiary text needs your review.
+- **Whole-screen joystick.** On touch screens the joystick now works wherever you touch, except on a button; Settings can still limit it to the left or right side.
+- **Bosses go through the lore check** like Heroes and gods, so a release build won't include a boss whose lore you haven't approved.
+- `GAME_DESIGN.md` updated for these (walking through enemies, joystick, settings kept between runs, boss lore check, the two new Greek families).
+- 3 new automated tests (208 in all).
+
+### Reason
+The owner answered the decisions questions.
+
 ## Version 00.01.23
 Date: 10/29/2026
 Time: 12:44 AM

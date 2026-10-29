@@ -14,6 +14,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-10-29 — Decisions review round 1 (Claude, 00.01.24)
+- What changed: owner answers recorded in DECISIONS.md (14 closed, 22 approved, 5 approved as draft text); Spartoi brutes and bronze-bull bombers replace the borrowed Norse enemies on the Aegean Shore; whole-screen joystick (default); bosses in the release lore check; GAME_DESIGN.md updated.
+- Files touched: data/enemies.json, waves_aegean_shore.json, bosses.json, config.json, schemas.json; touch_joystick, hud, god_buttons, content_gate; docs; tests/test_polish.gd.
+- Unfinished / next: owner's remaining answers (placeholder numbers, lore sources, boss HP, Act unlock order, tip placement); extra GitHub branches must be deleted on github.com (the session can't).
+
+
 ## 2026-10-29 — Phase 19 — Polish: settings, tips, safe areas (Claude)
 - What changed: Settings screen (title and pause) with volume, text size, player effect opacity, shake and flash strength, damage numbers, element tags, colourblind element colours, auto-summon, auto-collect, touch control size, joystick side, banter, tips; screen shake on summons and Guard Breaks; first-run tips (level-up, shrine, weakness, full meter, Resonance), each once; safe-area container for menus, HUD, pop-ups, and god buttons; export filter drops tests, GUT, and reference; lore checklist for the owner.
 - Files touched: scripts/meta/settings.gd, scripts/ui/meta/settings_screen.gd, scripts/ui/onboarding.gd, scripts/ui/safe_area_box.gd, game_camera, god_buttons, touch_joystick, banter_bubble, damage_numbers, elements, hit_resolver, pause_menu, title_screen, many screen roots; data/config.json (settings), elements.json (colorblind_color), schemas; export_presets.cfg; docs/LORE_CHECK.md; tests/test_polish.gd, smoke.
