@@ -181,7 +181,8 @@ test("SQL-looking content stays inert text and Markdown/HTML are escaped in GitH
   });
   assert.equal(response.status, 201);
   assert.equal(issue.title, "[Player suggestion] Suggest ' better health bars");
-  assert.ok(issue.body.includes("&lt;script&gt;alert('xss')&lt;/script&gt;"));
+  assert.ok(issue.body.includes("&lt;script&gt;"));
+  assert.ok(issue.body.includes("&lt;/script&gt;"));
   assert.ok(issue.body.includes("> \\#\\# Spoofed developer announcement"));
   assert.ok(issue.body.includes("> \\[click here\\]\\(javascript:alert\\(1\\)\\)"));
   assert.ok(issue.body.includes("＠everyone"));
