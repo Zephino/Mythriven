@@ -26,7 +26,7 @@ GitHub token. **Never paste the token into a chat**; only into the setup app.
 1. **GitHub token.** Open https://github.com/settings/personal-access-tokens/new
    - Token name: `mythriven-leaderboard`; Expiration: 1 year (set a reminder).
    - Repository access: **Only select repositories** → `Zephino/Mythriven`.
-   - Repository permissions → **Contents: Read and write**. Nothing else.
+   - Repository permissions → **Contents: Read and write** and **Issues: Read and write**. These allow the Worker to save leaderboards and create suggestion issues. No other permissions are needed.
    - Generate, and copy it.
 2. **Run the setup app.** Double-click `leaderboard-api/Setup-Leaderboard.bat`
    (Windows) or run `bash setup-leaderboard.sh` (Mac/Linux). It installs the
@@ -73,3 +73,68 @@ Worker's storage.
 - `src/index.js`: the web service (GET/POST, rate limits, GitHub commit).
 - `npm test`: checks the rules and the service with a pretend storage.
 - `.gdignore` keeps Godot from importing this folder.
+
+## Anonymous suggestions
+
+Mythriven's **Suggest a Feature** button sits on the **main Hero-selection screen only**.
+Clicking it opens a dialog inside the game (not GitHub), with a category, short
+title, description, and Send/Close buttons. Players don't need any account or
+have to give an email address.
+
+```text
+Player in-game suggestion window
+           |
+           |  POST /suggestions (category, title, description)
+           v
+   Cloudflare Worker   -- checks length, category and daily limits
+           |
+           |  GitHub Issues API (private server-side GITHUB_TOKEN)
+           v
+   GitHub: Zephino/Mythriven -> Issues
+```
+
+**One-time owner setup on Windows**
+
+1. Install [Node.js LTS](https://nodejs.org/en/download) if you don't already have it.
+2. Sign up for a free [Cloudflare account](https://dash.cloudflare.com/sign-up) if you don't already have one.
+3. In GitHub, create a [fine-grained personal access token](https://github.com/settings/personal-access-tokens/new):
+   - Repository owner: **Zephino**; access: **Only select repositories** -> **Mythriven**.
+   - Repository permissions: **Contents -> Read and write** (for leaderboard storage) and **Issues -> Read and write** (for suggestions).
+   - Don't turn on other repository permissions.
+   - Copy the token privately; **never paste it into ChatGPT or commit it**.
+4. Download or pull the latest Mythriven repository, then double-click
+   **`leaderboard-api/Setup-Leaderboard.bat`**. Its setup window will install
+   dependencies, sign in to Cloudflare, create the KV storage binding, securely
+   store your token as a Cloudflare secret, and deploy the Worker.
+5. The setup writes the public Worker address to **`scripts/net/online_config.gd`**.
+   Commit and push that file to `main`, plus `leaderboard-api/wrangler.toml`
+   if its KV binding was updated. The Worker address is public and safe to commit;
+   **GITHUB_TOKEN is never stored in either file**.
+6. Test **`https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev/suggestions`**;
+   you should receive `{"accepting":true}`. This confirms storage and token
+   bindings exist, **not** that the token has the right permissions. To finish,
+   open the deployed [game](https://zephino.github.io/Mythriven/), enter a
+   short test suggestion, and check [GitHub Issues](https://github.com/Zephino/Mythriven/issues)
+   for the new **[Player suggestion]** issue.
+7. To receive email notifications, on GitHub choose **Watch -> All Activity**
+   or **Custom -> Issues** for this repo, and make sure GitHub email
+   notifications are enabled in your account settings.
+
+**If the Worker is already set up for leaderboards:** create or update a
+fine-grained token with **Issues: Read and write** permission too, then run
+`npx wrangler secret put GITHUB_TOKEN` in `leaderboard-api/` and
+`npx wrangler deploy`. You can reuse the existing KV binding and Worker URL.
+
+**If GitHub Pages shows the README instead of the game:** use
+[Repository Settings -> Pages](https://github.com/Zephino/Mythriven/settings/pages)
+and set **Build and deployment -> Source = GitHub Actions**, then rerun the
+[Web build](https://github.com/Zephino/Mythriven/actions/workflows/web.yml).
+Otherwise the default Pages/Jekyll job can overwrite the Godot export.
+
+**Practical limits:** Each address can submit up to three suggestions per UTC
+day; there's also a site-wide daily cap of 40. These KV-based counters are
+best-effort, not a substitute for CAPTCHA or stronger bot protection if the
+game attracts abuse. The service sends no player identity or device details
+to GitHub; the submission text and category appear in a **public** Issue.
+The Worker uses a per-day hash of the connecting IP for its temporary limits.
+Do not put private information in suggestions.

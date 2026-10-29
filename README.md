@@ -172,7 +172,7 @@ Mythriven is an independent game and is **not affiliated with, endorsed by, or s
 
 ## Feedback
 
-**Have an idea for a new hero, god, weapon, boss, or game mechanic?** Click **Suggest a Feature** at the bottom of the main hero-selection screen, or [open the suggestion form directly](https://github.com/Zephino/Mythriven/issues/new?template=feature_request.yml). Suggestions appear in [GitHub Issues](https://github.com/Zephino/Mythriven/issues), where they can be reviewed and discussed. Submitting requires a free GitHub account. Please check for existing suggestions first.
+**Have an idea for a new hero, god, weapon, boss, or game mechanic?** Select **Suggest a Feature** at the bottom of the **main Hero-selection screen**. A window opens *inside the game* where you can write and send your idea. Players do **not** need an account or have to leave Mythriven. After the developer configures the Cloudflare feedback service, submissions become new entries in [GitHub Issues](https://github.com/Zephino/Mythriven/issues). The issue tracker is public, so please avoid submitting personal information. See [feedback setup instructions](leaderboard-api/README.md#anonymous-suggestions) for the one-time owner setup.
 
 ## License and credits
 

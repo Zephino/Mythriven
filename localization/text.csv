@@ -573,4 +573,30 @@ UI_LB_LOCAL_NOTE,"Online scores aren't set up yet, so scores are saved on this d
 UI_LB_SAVED_LOCAL,Score saved! Press Leaderboard to see it.
 UI_LB_NOT_PLACED_LOCAL,Saved. Not in this device's top 100 this time.
 UI_SUGGEST_FEATURE,Suggest a Feature
-UI_SUGGEST_FEATURE_HINT,Opens GitHub to share an idea (GitHub sign-in required).
+UI_SUGGEST_FEATURE_HINT,Send an idea to the developer without an account.
+UI_SUGGEST_TITLE,Suggest a Feature
+UI_SUGGEST_DESCRIPTION,Have an idea for Mythriven? Send it directly to the developer without leaving the game.
+UI_SUGGEST_CATEGORY,Category
+UI_SUGGEST_IDEA_TITLE,Short title
+UI_SUGGEST_IDEA_HINT,What would you like added?
+UI_SUGGEST_IDEA_DETAILS,Your idea
+UI_SUGGEST_DETAILS_HINT,"Describe what you would like to see, and how it would work..."
+UI_SUGGEST_PRIVACY,No account needed. Your suggestion will appear in the public GitHub issue tracker. Please do not include private information.
+UI_SUGGEST_CLOSE,Close
+UI_SUGGEST_SEND,Send Suggestion
+UI_SUGGEST_SETUP_NEEDED,Suggestions are not available yet. The developer needs to finish setting up the feedback service.
+UI_SUGGEST_CHECK_TITLE,Please enter a title between 5 and 100 characters.
+UI_SUGGEST_CHECK_DETAILS,Please describe your idea in 20 to 2000 characters.
+UI_SUGGEST_SENDING,Sending your suggestion...
+UI_SUGGEST_SUCCESS,Thank you! Your suggestion was sent to the developer.
+UI_SUGGEST_FAILED,Could not send your suggestion. Please try again later.
+UI_SUGGEST_RATE_LIMITED,Daily suggestion limit reached. Please try again tomorrow.
+UI_SUGGEST_CHECK_INPUT,Please check your text and try again.
+UI_SUGGEST_HERO,Hero or playable character
+UI_SUGGEST_GOD,God or summon
+UI_SUGGEST_WEAPON,Weapon or ability
+UI_SUGGEST_ENEMY,Enemy or boss
+UI_SUGGEST_REGION,Region or level
+UI_SUGGEST_GAMEPLAY,Gameplay mechanic
+UI_SUGGEST_UI,Interface or quality of life
+UI_SUGGEST_OTHER,Other
