@@ -158,7 +158,7 @@ function Complete-Deploy {
 }
 
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "Mythriven - Leaderboard Setup"
+$form.Text = "Mythriven - Online Services Setup"
 $form.Size = New-Object System.Drawing.Size(740, 640)
 $form.StartPosition = "CenterScreen"
 $form.MinimumSize = New-Object System.Drawing.Size(640, 520)
@@ -167,14 +167,14 @@ $form.ForeColor = [System.Drawing.Color]::WhiteSmoke
 $form.Font = New-Object System.Drawing.Font("Segoe UI", 10)
 
 $title = New-Object System.Windows.Forms.Label
-$title.Text = "Shared leaderboard setup (you only - once)"
+$title.Text = "Leaderboard and player feedback setup (owner only)"
 $title.Location = New-Object System.Drawing.Point(20, 16)
 $title.AutoSize = $true
 $title.Font = New-Object System.Drawing.Font("Segoe UI Semibold", 14)
 $form.Controls.Add($title)
 
 $help = New-Object System.Windows.Forms.Label
-$help.Text = "Players never use this. It deploys the Cloudflare Worker that saves scores to the GitHub data branch."
+$help.Text = "Players don't need accounts. This Worker saves scores and creates GitHub Issues from in-game suggestions."
 $help.Location = New-Object System.Drawing.Point(22, 48)
 $help.Size = New-Object System.Drawing.Size(680, 36)
 $help.ForeColor = [System.Drawing.Color]::Silver
@@ -211,7 +211,7 @@ $btnSub.Add_Click({ Start-Process $OnboardingUrl })
 $form.Controls.Add($btnSub)
 
 $patHint = New-Object System.Windows.Forms.Label
-$patHint.Text = "Token tip: Repository permissions -> Contents -> Read and write on Zephino/Mythriven ONLY (fine-grained token)."
+$patHint.Text = "Token tip: Repository permissions -> Contents + Issues -> Read and write on Zephino/Mythriven ONLY (fine-grained token)."
 $patHint.Location = New-Object System.Drawing.Point(22, 130)
 $patHint.Size = New-Object System.Drawing.Size(680, 32)
 $patHint.ForeColor = [System.Drawing.Color]::DarkGray
