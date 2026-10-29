@@ -8,7 +8,8 @@ extends MenuScreen
 func build() -> void:
 	set_title(tr_key("UI_BESTIARY"))
 	for enemy: Variant in Data.get_file(DeathRecap.ENEMIES_FILE):
-		if not enemy is Dictionary or bool(enemy.get("placeholder", false)) or str(enemy.get("id", "")) == "trial_avatar":
+		if not enemy is Dictionary or bool(enemy.get("placeholder", false)) or bool(enemy.get("hidden_in_bestiary", false)) \
+				or str(enemy.get("id", "")) == "trial_avatar":
 			continue
 		var id: String = str(enemy.get("id", ""))
 		var kills: int = Bestiary.kills(id)

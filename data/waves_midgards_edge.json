@@ -1,0 +1,434 @@
+{
+  "_doc": "Midgard's Edge wave table (GAME_DESIGN.md: Midgard's Edge): Draugr, Frost Thursar, Muspel Sparks, and Trolls, on the Aegean Shore's spawn rates. Muspel Sparks come in Dusk and Deep Night (design). No flyers in this level. Placeholders.",
+  "level": "midgards_edge",
+  "rows": [
+    {
+      "from_min": 0,
+      "spawns_per_s": 1.6,
+      "singles": {
+        "draugr": 6
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 2,
+      "spawns_per_s": 2.0,
+      "singles": {
+        "draugr": 6
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 4,
+      "spawns_per_s": 2.3,
+      "singles": {
+        "draugr": 5
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 6,
+      "spawns_per_s": 2.55,
+      "singles": {
+        "draugr": 5
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 8,
+      "spawns_per_s": 2.75,
+      "singles": {
+        "draugr": 5
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 10,
+      "spawns_per_s": 2.88,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "draugr",
+          "chance": 0.05,
+          "size": [
+            6,
+            10
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 12,
+      "spawns_per_s": 3.24,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "draugr",
+          "chance": 0.05,
+          "size": [
+            6,
+            10
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 14,
+      "spawns_per_s": 3.6,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "draugr",
+          "chance": 0.05,
+          "size": [
+            6,
+            10
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 16,
+      "spawns_per_s": 3.96,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "draugr",
+          "chance": 0.05,
+          "size": [
+            6,
+            10
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 18,
+      "spawns_per_s": 4.32,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "draugr",
+          "chance": 0.05,
+          "size": [
+            6,
+            10
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 20,
+      "spawns_per_s": 4.56,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 2,
+        "muspel_spark_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "draugr",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 23,
+      "spawns_per_s": 5.04,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 2,
+        "muspel_spark_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "draugr",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 26,
+      "spawns_per_s": 5.52,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 2,
+        "muspel_spark_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "draugr",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 28,
+      "spawns_per_s": 6.0,
+      "singles": {
+        "draugr": 3,
+        "frost_thursar": 3,
+        "frost_thursar_caster": 1,
+        "troll": 2,
+        "muspel_spark_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "muspel_spark",
+          "chance": 0.07,
+          "size": [
+            8,
+            14
+          ]
+        },
+        {
+          "type": "draugr",
+          "chance": 0.04,
+          "size": [
+            5,
+            9
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "draugr",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    }
+  ],
+  "elites": {
+    "types": [
+      "troll_elite",
+      "minotaur",
+      "cyclops"
+    ],
+    "times_s": [
+      300,
+      900,
+      1500
+    ],
+    "random_interval_s": [
+      150,
+      240
+    ],
+    "random_after_s": 300,
+    "_doc": "Elites are shared across levels (design: Minotaur, Cyclops, Troll)."
+  },
+  "boss_fodder": [
+    "draugr",
+    "muspel_spark"
+  ],
+  "events": [
+    {
+      "id": "chaos_surge",
+      "at_s": 420
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 780
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1080
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1380
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1560
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1680
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1760
+    }
+  ],
+  "_events_doc": "World events (GAME_DESIGN.md: World events): Chaos Surge (60 s, double spawns and XP) and Divine Storm (45 s, god meters charge twice as fast while telegraphed lightning strikes random spots). More often in Deep Night. Events skip while a boss arena is up."
+}

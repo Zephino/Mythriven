@@ -52,6 +52,29 @@ func test_a_run_plays_through_every_age() -> void:
 		await wait_frames(1)
 
 
+func test_every_level_plays_through_its_bosses() -> void:
+	for level: Dictionary in LevelRules.all():
+		if str(level["id"]) == "aegean_shore":
+			continue
+		SaveGame.data()["levels"][str(level["id"])] = {"unlocked": true}
+		Meta.level_id = str(level["id"])
+		GameAuthority.selected_hero_id = "heracles"
+		var main: Node = load("res://scenes/main.tscn").instantiate()
+		main.process_mode = Node.PROCESS_MODE_PAUSABLE
+		add_child(main)
+		await wait_frames(3)
+		var run: RunState = GameAuthority.run
+		assert_eq(str(run.level_data["id"]), str(level["id"]))
+		GameAuthority.local_player().god_mode = true
+		for seconds: float in [0.0, 130.0, 301.0, 605.0, 640.0, 1205.0, 1240.0, 1805.0, 1840.0]:
+			run.elapsed_s = seconds
+			get_tree().paused = false
+			await wait_frames(15)
+		main.free()
+		await wait_frames(1)
+	Meta.level_id = ""
+
+
 func test_the_menus_open_every_page() -> void:
 	var main: Node = load("res://scenes/main.tscn").instantiate()
 	add_child(main)

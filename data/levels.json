@@ -106,5 +106,120 @@
       "color": "#ffe86a"
     },
     "seal": "greek_meander"
+  },
+  {
+    "id": "midgards_edge",
+    "name_key": "LEVEL_MIDGARDS_EDGE_NAME",
+    "region": "norse",
+    "act": 1,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "midgards_edge",
+      "noise_frequency": 0.03,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "rock",
+          "max": -0.5,
+          "placeholder_color": "#8a8c90",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "pine_floor",
+          "max": -0.15,
+          "placeholder_color": "#5a6a50",
+          "placeholder_dots": "#3e4a38"
+        },
+        {
+          "id": "packed_snow",
+          "max": 0.35,
+          "placeholder_color": "#d8dee6",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "snow",
+          "max": 1.0,
+          "placeholder_color": "#eef2f6",
+          "placeholder_dots": "#ffffff"
+        }
+      ]
+    },
+    "decorations": [
+      "pine_tree",
+      "runestone",
+      "longhouse_ruin"
+    ],
+    "decorations_per_chunk": [
+      4,
+      9
+    ],
+    "decoration_art": {
+      "pine_tree": {
+        "shape": "circle",
+        "size_px": [
+          16,
+          16
+        ],
+        "placeholder_color": "#2e4a32",
+        "weight": 4
+      },
+      "runestone": {
+        "shape": "rect",
+        "size_px": [
+          8,
+          16
+        ],
+        "placeholder_color": "#7a7c80",
+        "weight": 1
+      },
+      "longhouse_ruin": {
+        "shape": "rect",
+        "size_px": [
+          28,
+          12
+        ],
+        "placeholder_color": "#6a5440",
+        "weight": 1
+      }
+    },
+    "local_gods": [
+      "thor",
+      "skadi"
+    ],
+    "local_shrine_chance": 0.5,
+    "bosses": {
+      "10": "fenrir",
+      "20": "loki",
+      "30": "surtr"
+    },
+    "unlock": {
+      "type": "act_progress"
+    },
+    "waves": "waves_midgards_edge.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_BLIZZARD_NAME",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 20,
+      "push_px_s": 45,
+      "enemy_push_px_s": 20,
+      "wind_turn_s": 7,
+      "vision_screens": 0.45,
+      "veil_color": "#e8eef8",
+      "fade_s": 2.0
+    },
+    "ground_patches": {
+      "kind": "slide",
+      "count": 6,
+      "radius_px": [
+        28,
+        48
+      ],
+      "color": "#bfe4f4",
+      "grip_per_s": 2.0
+    },
+    "seal": "norse_band"
   }
 ]

@@ -20,6 +20,14 @@ Time: 12:19 AM
   - 21 new automated tests (180 in all, all passing), including closing the game mid-run without losing unlocks and quitting before and after 5:00.
   - Merged the newest work on main (the Suggest a Feature form and the online leaderboard connection). The Suggest button now sits in Hero select's bottom row with Leaderboard, Color, and Back, and its form opens on top of Hero select.
 
+- **Phase 16: Midgard's Edge** (the Norse level), opened by beating the Aegean Shore's 20:00 boss.
+  - Snowy pine forest with runestones and longhouse ruins (placeholder art), and a Norse-style chest seal.
+  - **Hazards:** blizzards that push you and close in your vision, and frozen ponds you slide across. Both pause during boss fights.
+  - **Enemies:** Draugr, Frost Thursar (walkers and casters), Muspel Sparks (swarms and bombers), Trolls, and the Great Troll elite.
+  - **Bosses:** **Fenrir** (10:00) starts chained to posts and snaps his chains each phase until he runs free; his howl calls wolves. Beat him below 30% health for the Tyr's Oath secret. **Loki** (20:00) splits into copies, and only the real one casts a shadow. Copies burst into fire when hit, and later he swaps places with you and fakes a shrine. **Surtr** (30:00): the arena's edge burns inward, with his "Flames of Muspelheim" cast.
+  - Local gods Thor and Skadi. Draft lines for Loki meeting Thor or Skadi.
+- **A hazard library** the other levels reuse: weather (push wind and vision) and ground patches (slide, slow, teleport).
+
 ### Reason
 The owner asked to build Phases 15 to 18.
 

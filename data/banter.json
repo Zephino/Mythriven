@@ -399,5 +399,57 @@
     "text_key": "BANTER_KRONOS_HERACLES",
     "lore_source": "Kronos is the father of Zeus and so Heracles' grandfather (Hesiod, Theogony 453-458)",
     "needs_owner_review": true
+  },
+  {
+    "id": "fenrir_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "fenrir",
+    "hero": "",
+    "god": "fenrir",
+    "text_key": "BANTER_FENRIR_ENTRANCE",
+    "lore_source": "Fenrir was bound by the gods with the fetter Gleipnir (Prose Edda, Gylfaginning 34)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "loki_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "loki",
+    "hero": "",
+    "god": "loki",
+    "text_key": "BANTER_LOKI_ENTRANCE",
+    "lore_source": "Loki the shape-shifter (Prose Edda, Gylfaginning 33)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "surtr_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "surtr",
+    "hero": "",
+    "god": "surtr",
+    "text_key": "BANTER_SURTR_ENTRANCE",
+    "lore_source": "Surtr comes from the south with fire at Ragnarök (Völuspá 52)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "loki_thor",
+    "trigger": "boss_meets_god",
+    "speaker": "loki",
+    "hero": "",
+    "god": "loki",
+    "with_god": "thor",
+    "text_key": "BANTER_LOKI_THOR",
+    "lore_source": "Thor and Loki travel together to Utgard-Loki and to Thrym (Prose Edda; Þrymskviða); Thor drives Loki from Ægir's hall (Lokasenna)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "loki_skadi",
+    "trigger": "boss_meets_god",
+    "speaker": "loki",
+    "hero": "",
+    "god": "loki",
+    "with_god": "skadi",
+    "text_key": "BANTER_LOKI_SKADI",
+    "lore_source": "Loki made Skadi laugh as part of her compensation; she later hung the serpent over the bound Loki (Skáldskaparmál; Lokasenna prose)",
+    "needs_owner_review": true
   }
 ]

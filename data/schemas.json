@@ -569,7 +569,8 @@
                   "pulse_px": "number",
                   "pulse_hz": "number"
                 }
-              }
+              },
+              "post_color": "string"
             }
           },
           "events": {
@@ -948,6 +949,14 @@
             "order": {
               "type": "int",
               "optional": true
+            },
+            "ground_patches": {
+              "type": "object",
+              "optional": true,
+              "open": true,
+              "fields": {
+                "kind": "string"
+              }
             }
           }
         }
@@ -1023,6 +1032,10 @@
             },
             "myth_source": {
               "type": "string",
+              "optional": true
+            },
+            "hidden_in_bestiary": {
+              "type": "bool",
               "optional": true
             }
           }
@@ -1633,7 +1646,11 @@
             "god": "string",
             "text_key": "string",
             "lore_source": "string",
-            "needs_owner_review": "bool"
+            "needs_owner_review": "bool",
+            "with_god": {
+              "type": "string",
+              "optional": true
+            }
           }
         }
       }
@@ -1840,6 +1857,86 @@
               }
             },
             "text_key": "string"
+          }
+        }
+      }
+    },
+    "waves_midgards_edge.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "level": "string",
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "from_min": "number",
+                "spawns_per_s": "number",
+                "singles": {
+                  "type": "object"
+                },
+                "packs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "chance": "number",
+                      "size": {
+                        "type": "array",
+                        "items": "int"
+                      }
+                    }
+                  }
+                },
+                "groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "kind": "string",
+                      "every_s": "number",
+                      "size": "int"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "elites": {
+            "type": "object",
+            "fields": {
+              "types": {
+                "type": "array",
+                "items": "string"
+              },
+              "times_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_interval_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_after_s": "number"
+            }
+          },
+          "boss_fodder": {
+            "type": "array",
+            "items": "string"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "id": "string",
+                "at_s": "number"
+              }
+            }
           }
         }
       }

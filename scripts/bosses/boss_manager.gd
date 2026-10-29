@@ -19,6 +19,9 @@ const SCRIPTS: Dictionary = {
 	"medusa": "res://scripts/bosses/medusa_boss.gd",
 	"achilles": "res://scripts/bosses/achilles_boss.gd",
 	"kronos": "res://scripts/bosses/kronos_boss.gd",
+	"fenrir": "res://scripts/bosses/fenrir_boss.gd",
+	"loki": "res://scripts/bosses/loki_boss.gd",
+	"surtr": "res://scripts/bosses/surtr_boss.gd",
 }
 
 var world: WorldRoot
@@ -97,6 +100,8 @@ func spawn_boss(boss_id: String, index: int = -1) -> BossController:
 		banner.show_text(tr("BOSS_APPEARS") % tr(str(boss.get("name_key", ""))))
 	if banter != null:
 		banter.say_line(GodRules.line("boss_entrance", boss_id, str(player.hero.get("id", ""))))
+		if GameAuthority.gods != null:
+			banter.say_line(GodRules.boss_god_line(boss_id, GameAuthority.gods.bound_ids(player)))
 	boss_spawned.emit(controller)
 	return controller
 

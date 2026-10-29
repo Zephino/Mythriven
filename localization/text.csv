@@ -896,3 +896,48 @@ UI_SUGGEST_REGION,Region or level
 UI_SUGGEST_GAMEPLAY,Gameplay mechanic
 UI_SUGGEST_UI,Interface or quality of life
 UI_SUGGEST_OTHER,Other
+LEVEL_MIDGARDS_EDGE_NAME,Midgard's Edge
+HAZARD_BLIZZARD_NAME,A blizzard sweeps in!
+ENEMY_DRAUGR_NAME,Draugr
+ENEMY_FROST_THURSAR_NAME,Frost thursar
+ENEMY_FROST_THURSAR_CASTER_NAME,Frost thursar caster
+ENEMY_MUSPEL_SPARK_NAME,Muspel spark
+ENEMY_TROLL_NAME,Troll
+ENEMY_TROLL_ELITE_NAME,Great troll
+ENEMY_WOLF_NAME,Wolf
+ENEMY_LOKI_ILLUSION_NAME,Loki
+ENEMY_FENRIR_NAME,Fenrir
+ENEMY_LOKI_NAME,Loki
+ENEMY_SURTR_NAME,Surtr
+BOSS_FENRIR_NAME,Fenrir
+BOSS_LOKI_NAME,Loki
+BOSS_SURTR_NAME,Surtr
+BOSS_FENRIR_CHAINS,Fenrir snaps his chains!
+BOSS_FENRIR_FREE,Fenrir breaks free!
+CAST_FENRIR_HOWL,Howl of the Wolf
+CAST_LOKI_WILDFIRE,Wildfire
+CAST_FLAMES_OF_MUSPELHEIM,Flames of Muspelheim
+ACH_BOSS_FENRIR_NAME,Defeat Fenrir
+ACH_BOSS_FENRIR_DESC,The 10:00 boss of Midgard's Edge.
+ACH_BOSS_LOKI_NAME,Defeat Loki
+ACH_BOSS_LOKI_DESC,The 20:00 boss of Midgard's Edge.
+ACH_BOSS_SURTR_NAME,Defeat Surtr
+ACH_BOSS_SURTR_DESC,The 30:00 boss of Midgard's Edge.
+TIP_FENRIR,Fenrir can only reach as far as his chains at first. Stay outside the posts' ring until he breaks free.
+TIP_LOKI,"Only the real Loki casts a shadow. Copies burst into fire when hit, so strike from a distance."
+TIP_SURTR,Surtr's fire burns in from the arena's edge. Fight near the middle and watch for the safe gaps.
+BANTER_FENRIR_ENTRANCE,No chain the gods forge will hold me twice.
+BANTER_LOKI_ENTRANCE,Which of me will you strike? Choose carefully.
+BANTER_SURTR_ENTRANCE,The fire of the south comes for every world.
+BANTER_LOKI_THOR,"Thor! We travelled so far together, and now you take their side."
+BANTER_LOKI_SKADI,"Skadi, I made you laugh once. Laugh again before you burn."
+ENEMY_DRAUGR_MYTH,"In the Norse sagas the draugr is the walking dead: a corpse that rises from its burial mound, unnaturally strong and heavy, to guard its treasure or haunt the living."
+ENEMY_FROST_THURSAR_MYTH,"The frost giants (hrímþursar) descend from Ymir, the first being, formed from the ice of Niflheim; they are the gods' oldest enemies."
+ENEMY_FROST_THURSAR_CASTER_MYTH,"The frost giants (hrímþursar) descend from Ymir, the first being, formed from the ice of Niflheim; they are the gods' oldest enemies."
+ENEMY_MUSPEL_SPARK_MYTH,"Sparks from Muspelheim, the burning realm of the south. At the world's beginning its sparks met the ice of Niflheim; at Ragnarök its sons ride out with Surtr."
+ENEMY_TROLL_MYTH,"Huge, ugly beings of the wild places in Norse myth and later folklore, often hostile to people; in the Eddic poem Alvíssmál, one caught by the rising sun turns to stone."
+ENEMY_TROLL_ELITE_MYTH,"Huge, ugly beings of the wild places in Norse myth and later folklore, often hostile to people; Thor is famed as their slayer."
+ENEMY_WOLF_MYTH,"In the Ironwood east of Midgard an old giantess bore a brood of giants in wolf shape; among such wolves are Sköll and Hati, who hunt the sun and moon across the sky."
+ENEMY_FENRIR_MYTH,"The monstrous wolf, a son of Loki. The gods bound him with the magic fetter Gleipnir, and Tyr lost his hand in the wolf's jaws; at Ragnarök Fenrir breaks free and swallows Odin."
+ENEMY_LOKI_MYTH,"The trickster of the Norse gods, a shape-shifter who helps and harms them by turns. After the death of Baldr he is bound beneath a serpent's dripping venom until Ragnarök."
+ENEMY_SURTR_MYTH,The fire giant who guards Muspelheim with a flaming sword. At Ragnarök he leads the sons of Muspell against the gods and his fire engulfs the world.

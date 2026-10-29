@@ -1,19 +1,15 @@
 class_name HazardStrikes
-extends Node2D
+extends Hazard
 ## The "strikes" hazard from the hazard library (GAME_DESIGN.md: Content reuse
 ## rules): the Aegean Shore's thunderstorm, and later the Divine Storm event.
 ## While active, telegraphed strikes land at random spots near the players:
 ## an orange ground marker grows for telegraph_s, then the strike hurts every
 ## player and enemy inside it. Settings come from the level's "hazard" data.
-## Markers are a small fixed pool.
+## Markers are a small fixed pool. Data: strikes_per_s, radius_px,
+## telegraph_s, damage, element, range_px, color.
 
 const MAX_MARKERS := 16
 
-var active: bool = false
-## True while a boss arena is up (hazards pause during boss fights).
-var paused: bool = false
-
-var _data: Dictionary = {}
 var _strike_budget: float = 0.0
 var _marker_pos := PackedVector2Array()
 var _marker_left := PackedFloat32Array()
@@ -25,19 +21,6 @@ func _ready() -> void:
 	_marker_left.resize(MAX_MARKERS)
 	for i: int in MAX_MARKERS:
 		_marker_left[i] = -1.0
-
-
-## Starts the hazard with `data` (type, strikes_per_s, radius_px, telegraph_s, damage, element, range_px, color).
-func begin(data: Dictionary) -> void:
-	_data = data
-	active = true
-	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
-	if banner != null and str(data.get("name_key", "")) != "":
-		banner.show_text(tr(str(data["name_key"])))
-
-
-func end() -> void:
-	active = false
 
 
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:

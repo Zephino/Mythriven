@@ -344,5 +344,35 @@
       "count": 6
     },
     "persists": true
+  },
+  {
+    "id": "boss_fenrir",
+    "name_key": "ACH_BOSS_FENRIR_NAME",
+    "desc_key": "ACH_BOSS_FENRIR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "fenrir"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_loki",
+    "name_key": "ACH_BOSS_LOKI_NAME",
+    "desc_key": "ACH_BOSS_LOKI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "loki"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_surtr",
+    "name_key": "ACH_BOSS_SURTR_NAME",
+    "desc_key": "ACH_BOSS_SURTR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "surtr"
+    },
+    "persists": true
   }
 ]

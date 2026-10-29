@@ -10,7 +10,7 @@ extends Node
 ## boss arena is up.
 
 var spawner: EnemySpawner
-var hazard: HazardStrikes
+var hazard: Hazard
 ## The Divine Storm's lightning (a second "strikes" hazard).
 var storm: HazardStrikes
 

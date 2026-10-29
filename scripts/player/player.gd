@@ -54,6 +54,10 @@ var extra_projectiles: int = 0
 var projectile_speed_mult: float = 1.0
 var palette_color := Color(0, 0, 0, 0)
 var aura_color := Color(0, 0, 0, 0)
+## Ground patches (Phase 16+): quicksand slows (speed multiplier); frozen
+## ponds slide (grip per second; 0 = full control).
+var ground_speed_mult: float = 1.0
+var ground_grip_per_s: float = 0.0
 
 var _shown_hp: float = -1.0
 
@@ -121,7 +125,10 @@ func _process(delta: float) -> void:
 func step(direction: Vector2, delta: float) -> void:
 	if rooted_s > 0.0:
 		direction = Vector2.ZERO
-	velocity = direction * move_speed * statuses.speed_mult() * slow_zone_mult * (kit.speed_mult() if kit != null else 1.0)
+	var wanted: Vector2 = direction * move_speed * statuses.speed_mult() * slow_zone_mult * ground_speed_mult \
+			* (kit.speed_mult() if kit != null else 1.0)
+	# On ice the Hero keeps sliding and only slowly turns toward where they steer.
+	velocity = wanted if ground_grip_per_s <= 0.0 else velocity.lerp(wanted, minf(ground_grip_per_s * delta, 1.0))
 	position += velocity * delta
 	if direction != Vector2.ZERO and direction != facing:
 		facing = direction

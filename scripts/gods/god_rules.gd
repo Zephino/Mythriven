@@ -82,6 +82,17 @@ static func pick_for_shrine(level: Dictionary, taken: PackedStringArray, seconds
 	return RunArc.pick_weighted(pool, rng)
 
 
+## A boss's line for a god the player has bound whose myth connects to it
+## (Loki to Thor or Skadi), or {}.
+static func boss_god_line(boss_id: String, bound: PackedStringArray) -> Dictionary:
+	var listed: Variant = Data.get_file("banter.json")
+	for entry: Variant in (listed if listed is Array else []):
+		if entry is Dictionary and str(entry.get("trigger", "")) == "boss_meets_god" and str(entry.get("god", "")) == boss_id \
+				and bound.has(str(entry.get("with_god", ""))):
+			return entry
+	return {}
+
+
 ## The banter line for a trigger, or {} (lines with a Hero set win for that Hero).
 static func line(trigger: String, god_id: String, hero_id: String) -> Dictionary:
 	var general: Dictionary = {}

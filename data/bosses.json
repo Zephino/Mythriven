@@ -270,5 +270,283 @@
         "devour": true
       }
     ]
+  },
+  {
+    "_doc": "Midgard's Edge bosses (GAME_DESIGN.md: Midgard's Edge). Numbers are placeholders.",
+    "id": "fenrir",
+    "name_key": "BOSS_FENRIR_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri Sturluson, Prose Edda, Gylfaginning 34 (the binding with Gleipnir) and 51 (Ragnarök)",
+    "time_min": 10,
+    "enemy": "fenrir",
+    "move_speed": 46,
+    "keep_distance_px": 20,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 450,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "chains",
+      "reach_px": [
+        90,
+        170,
+        -1
+      ],
+      "posts": 4,
+      "chains_per_phase": [
+        4,
+        2,
+        0
+      ],
+      "tyr_hp_fraction": 0.3
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 12
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 40,
+            "damage": 8
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 8
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 4,
+            "enemy": "wolf"
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_FENRIR_HOWL",
+            "cast_s": 1.4,
+            "pattern": {
+              "pattern": "summon_adds",
+              "count": 6,
+              "enemy": "wolf"
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.9,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loki",
+    "name_key": "BOSS_LOKI_NAME",
+    "tradition": "norse",
+    "lore_source": "Poetic Edda, Lokasenna; Snorri Sturluson, Prose Edda, Gylfaginning 33 (shape-shifter) and 49–50",
+    "time_min": 20,
+    "enemy": "loki",
+    "move_speed": 52,
+    "keep_distance_px": 130,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 700,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "illusions",
+      "illusion": "loki_illusion",
+      "illusions": 3,
+      "illusion_every_s": 8,
+      "burst": {
+        "pattern": "radial_burst",
+        "count": 8,
+        "damage": 7,
+        "telegraph_s": 0.4
+      },
+      "swap_every_s": 9,
+      "swap_warning_s": 1.0,
+      "fake_every_s": 12,
+      "fake_damage": 18,
+      "fake_glow": "#ff9030"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 50,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 9,
+            "spread_deg": 80,
+            "damage": 7
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 50,
+            "damage": 9
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 5,
+            "damage": 12
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_LOKI_WILDFIRE",
+            "cast_s": 1.5,
+            "pattern": {
+              "pattern": "spiral",
+              "arms": 3,
+              "duration_s": 2.0,
+              "damage": 7
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 9,
+            "spread_deg": 60,
+            "damage": 9
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "surtr",
+    "name_key": "BOSS_SURTR_NAME",
+    "tradition": "norse",
+    "lore_source": "Poetic Edda, Völuspá 52–53; Snorri Sturluson, Prose Edda, Gylfaginning 4 and 51 (Surtr's flaming sword at Ragnarök)",
+    "time_min": 30,
+    "enemy": "surtr",
+    "move_speed": 30,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.6,
+    "guard_gauge": {
+      "max": 1100,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "ragnarok",
+      "burn_s": 150,
+      "min_fraction": 0.45,
+      "burn_damage": 6
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 13
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 280,
+            "damage": 14
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.8,
+            "damage": 15
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 13
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_FLAMES_OF_MUSPELHEIM",
+            "cast_s": 2.0,
+            "pattern": {
+              "pattern": "falling_strikes",
+              "count": 14,
+              "spread_px": 170,
+              "damage": 12
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "safe_zone",
+            "radius_px": 220,
+            "safe_count": 2,
+            "damage": 20
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 320,
+            "damage": 15
+          }
+        ]
+      }
+    ]
   }
 ]

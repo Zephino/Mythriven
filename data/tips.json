@@ -28,6 +28,33 @@
     "text_key": "TIP_KRONOS"
   },
   {
+    "id": "fenrir",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "fenrir"
+    },
+    "text_key": "TIP_FENRIR"
+  },
+  {
+    "id": "loki",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "loki"
+    },
+    "text_key": "TIP_LOKI"
+  },
+  {
+    "id": "surtr",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "surtr"
+    },
+    "text_key": "TIP_SURTR"
+  },
+  {
     "id": "unraveling",
     "priority": 85,
     "condition": {

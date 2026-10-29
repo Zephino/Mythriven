@@ -170,20 +170,50 @@ func _draw_seal() -> void:
 	var progress: float = clampf(_t / maxf(_buildup_s(), 0.01), 0.0, 1.0)
 	var light := Color.html(str((Data.cfg("chests.tier_colors") as Dictionary).get(str(_plan.get("tier", "bronze")), "#ffffff")))
 	_seal.draw_circle(center, radius * (0.6 + 0.9 * progress), Color(light, 0.25 + 0.45 * progress))
-	# The meander ring: a square wave around a circle, spinning as it cracks.
-	var points := PackedVector2Array()
-	var steps: int = Data.cfg_int("chests.meander_steps")
 	var spin: float = _t * Data.cfg_float("chests.seal_spin_rad_s") * progress
-	var depth: float = radius * 0.18
-	for s: int in steps * 4 + 1:
-		var a: float = spin + TAU * s / (steps * 4.0)
-		var outer: bool = (s >> 1) % 2 == 0
-		points.append(center + Vector2.from_angle(a) * (radius + (depth if outer else 0.0)))
-	_seal.draw_polyline(points, Color.html(Data.cfg_string("chests.seal_color")), 2.0)
+	var style: String = str(GameAuthority.run.level_data.get("seal", "greek_meander")) if GameAuthority.run != null else "greek_meander"
+	_draw_seal_pattern(style, center, radius, spin, Color.html(Data.cfg_string("chests.seal_color")))
 	var cracks: int = int(progress * 6.0)
 	for c: int in cracks:
 		var a: float = TAU * c / 6.0 + 0.4
 		_seal.draw_line(center + Vector2.from_angle(a) * radius * 0.3, center + Vector2.from_angle(a + 0.2) * radius, light, 2.0)
+
+
+## The seal in the level's pantheon style (decorative patterns, never writing):
+## a Greek meander ring, a Norse interlaced band, an Egyptian scarab clasp, or a
+## Celtic knot of interlaced loops.
+func _draw_seal_pattern(style: String, center: Vector2, radius: float, spin: float, color: Color) -> void:
+	var steps: int = Data.cfg_int("chests.meander_steps")
+	var points := PackedVector2Array()
+	match style:
+		"norse_band":
+			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
+			_seal.draw_arc(center, radius * 0.8, 0.0, TAU, 48, color, 2.0)
+			for k: int in steps * 2:
+				var a: float = spin + TAU * k / (steps * 2.0)
+				_seal.draw_line(center + Vector2.from_angle(a) * radius * 0.8, center + Vector2.from_angle(a + 0.25) * radius, color, 2.0)
+				_seal.draw_line(center + Vector2.from_angle(a) * radius, center + Vector2.from_angle(a + 0.25) * radius * 0.8, color, 2.0)
+		"egyptian_scarab":
+			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
+			_seal.draw_set_transform(center, spin, Vector2(0.55, 0.75))
+			_seal.draw_arc(Vector2.ZERO, radius * 0.6, 0.0, TAU, 32, color, 2.0)
+			_seal.draw_set_transform(Vector2.ZERO)
+			for side: float in [-1.0, 1.0]:
+				_seal.draw_arc(center + Vector2(side * radius * 0.35, 0).rotated(spin), radius * 0.55, PI * 0.5 - side * PI * 0.5 - 0.9,
+						PI * 0.5 - side * PI * 0.5 + 0.9, 12, color, 2.0)
+		"celtic_knot":
+			for k: int in 4:
+				var a: float = spin + TAU * k / 4.0
+				_seal.draw_arc(center + Vector2.from_angle(a) * radius * 0.45, radius * 0.55, 0.0, TAU, 32, color, 2.0)
+			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
+		_:
+			# The meander ring: a square wave around a circle, spinning as it cracks.
+			var depth: float = radius * 0.18
+			for k: int in steps * 4 + 1:
+				var a: float = spin + TAU * k / (steps * 4.0)
+				var outer: bool = (k >> 1) % 2 == 0
+				points.append(center + Vector2.from_angle(a) * (radius + (depth if outer else 0.0)))
+			_seal.draw_polyline(points, color, 2.0)
 
 
 func _add_line(text: String) -> void:

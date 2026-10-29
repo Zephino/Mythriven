@@ -6,11 +6,13 @@ extends Node
 ## chest reveal, and the pause menu; from Phase 11 the gods (shrines,
 ## trials, summons, god buttons, banter) and the attack pattern library; from
 ## Phase 13 the bosses, Boons, and the Unraveling; from Phase 14 points of
-## interest, the compass, the Wandering Trader, and world events.
+## interest, the compass, the Wandering Trader, and world events; from
+## Phase 16 the level's hazard from the hazard library and its ground patches.
 ## Created by main.gd for each run.
 
 var director: RunDirector
-var hazard: HazardStrikes
+var hazard: Hazard
+var ground_patches: GroundPatches
 var shots: EnemyProjectiles
 var gold: GoldPickups
 var chests: ChestPickups
@@ -56,8 +58,14 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	chests = ChestPickups.new()
 	world.add_child(chests)
 	chests.setup()
-	hazard = HazardStrikes.new()
+	hazard = Hazard.create(GameAuthority.run.level_data.get("hazard", {}))
 	world.add_child(hazard)
+	var patches: Dictionary = GameAuthority.run.level_data.get("ground_patches", {})
+	if not patches.is_empty():
+		ground_patches = GroundPatches.new()
+		ground_patches.setup(patches)
+		world.add_child(ground_patches)
+		world.origin_shifted.connect(ground_patches.on_origin_shifted)
 	elite_bars = EliteBars.new()
 	elite_bars.enemies = enemies
 	world.add_child(elite_bars)
