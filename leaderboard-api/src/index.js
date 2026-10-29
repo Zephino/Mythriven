@@ -45,7 +45,13 @@ function settings(env) {
   };
 }
 
-/** True while `ip` is under `max` requests this minute for this `kind`. */
+/**
+ * True while `ip` is under `max` requests this minute for this `kind`.
+ * Each check writes to KV, and Cloudflare's free plan allows about 1,000 KV
+ * writes a day, so only sending (POST) is counted, never reading the board.
+ * If KV can't be used (for example the daily write limit is reached), the
+ * check lets the request through rather than breaking score submission.
+ */
 async function underLimit(env, kind, ip, max) {
   if (!env.LEADERBOARD_KV) return true;
   const key = `rl:${kind}:${ip}`;
@@ -57,7 +63,11 @@ async function underLimit(env, kind, ip, max) {
   } catch (_) {}
   if (now - (data.t || 0) > RATE_LIMIT_WINDOW_MS) data = { t: now, n: 0 };
   data.n = (data.n || 0) + 1;
-  await env.LEADERBOARD_KV.put(key, JSON.stringify(data), { expirationTtl: 120 });
+  try {
+    await env.LEADERBOARD_KV.put(key, JSON.stringify(data), { expirationTtl: 120 });
+  } catch (err) {
+    console.log("rate limit write failed:", String(err));
+  }
   return data.n <= max;
 }
 
@@ -80,7 +90,12 @@ async function loadBoard(env) {
 
 async function saveBoard(env, board) {
   if (env.LEADERBOARD_KV) {
-    await env.LEADERBOARD_KV.put("board", JSON.stringify(board));
+    try {
+      await env.LEADERBOARD_KV.put("board", JSON.stringify(board));
+    } catch (err) {
+      // Still saved on GitHub below; the next read falls back to it.
+      console.log("board KV write failed:", String(err));
+    }
   }
   await commitToGitHub(env, board);
 }
@@ -158,12 +173,15 @@ export default {
         return jsonResponse({ error: "not found" }, 404);
       }
       const ip = request.headers.get("CF-Connecting-IP") || "unknown";
-      try {
-        if (!(await underLimit(env, "any", ip, RATE_LIMIT_MAX))) {
-          return jsonResponse({ error: "rate limited" }, 429);
+      // Only sending is rate limited: reading the board writes nothing to KV.
+      if (request.method === "POST") {
+        try {
+          if (!(await underLimit(env, "any", ip, RATE_LIMIT_MAX))) {
+            return jsonResponse({ error: "rate limited" }, 429);
+          }
+        } catch (err) {
+          console.log("rate limit check failed:", String(err));
         }
-      } catch (err) {
-        console.log("rate limit check failed:", String(err));
       }
       if (url.pathname === "/suggestions") {
         if (request.method === "GET") return suggestionStatus(env);

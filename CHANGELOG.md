@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.23
+Date: 10/29/2026
+Time: 12:44 AM
+
+### Changes
+- **Review of the owner's Cloudflare and Suggest a Feature work.**
+  - **Fix: the leaderboard could stop saving scores on Cloudflare's free plan.** The Worker wrote to its KV storage on every request, even just viewing the board, to count requests per player. The free plan allows about 1,000 KV writes a day, and after that score submissions failed with a server error. Now only sending (scores, suggestions) is counted, and if KV writes still fail, the score is saved anyway (on GitHub). Two new Worker tests cover this (22 in all, passing).
+  - The suggestion form's two scripts now use tabs like every other script, and an empty reply from the server no longer prints extra engine errors.
+  - Everything else checked out well: careful cleaning of player text, escaping before it reaches GitHub, @-mentions blocked, daily caps, and no personal data sent.
+
+### Reason
+The owner asked to look over the Cloudflare and feature-suggestion code, then move on to the next phase.
+
 ## Version 00.01.22
 Date: 10/29/2026
 Time: 12:19 AM

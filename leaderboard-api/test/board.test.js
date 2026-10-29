@@ -118,3 +118,25 @@ test("one player can't flood the board", async () => {
   }
   assert.deepEqual(statuses, [200, 200, 200, 429, 429]);
 });
+
+test("reading the board writes nothing to KV (free plan: ~1,000 writes a day)", async () => {
+  const env = fakeEnv();
+  await env.LEADERBOARD_KV.put("board", JSON.stringify(emptyBoard()));
+  let writes = 0;
+  const put = env.LEADERBOARD_KV.put;
+  env.LEADERBOARD_KV.put = async (key, value) => { writes += 1; return put(key, value); };
+  for (let i = 0; i < 10; i++) {
+    const res = await worker.fetch(new Request("https://example.workers.dev/leaderboard", { headers: { "CF-Connecting-IP": "5.5.5.5" } }), env);
+    assert.equal(res.status, 200);
+  }
+  assert.equal(writes, 0);
+});
+
+test("a score is still accepted when KV writes fail (daily limit reached)", async () => {
+  const env = fakeEnv();
+  await env.LEADERBOARD_KV.put("board", JSON.stringify(emptyBoard()));
+  env.LEADERBOARD_KV.put = async () => { throw new Error("KV put() limit exceeded for the day."); };
+  const res = await worker.fetch(post(score(), "6.6.6.6"), env);
+  assert.equal(res.status, 200);
+  assert.equal((await res.json()).accepted, true);
+});
