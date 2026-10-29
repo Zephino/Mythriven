@@ -12,7 +12,19 @@ extends RefCounted
 static func attach(box: Control, label: String = "") -> void:
 	if not needed():
 		return
-	box.focus_entered.connect(func() -> void: _ask(box, label))
+	box.gui_input.connect(func(event: InputEvent) -> void: _on_input(box, label, event))
+
+
+## One pop-up per tap (on the finger lifting), never again straight after one closes.
+static func _on_input(box: Control, label: String, event: InputEvent) -> void:
+	var lifted: bool = (event is InputEventMouseButton and not (event as InputEventMouseButton).pressed) \
+			or (event is InputEventScreenTouch and not (event as InputEventScreenTouch).pressed)
+	if not lifted or Time.get_ticks_msec() < int(box.get_meta("web_text_quiet_until", 0)):
+		return
+	box.accept_event()
+	# A tap arrives as both a touch and a mouse click: ask only once.
+	box.set_meta("web_text_quiet_until", Time.get_ticks_msec() + 100000)
+	_ask.call_deferred(box, label)
 
 
 ## True in a browser on a phone or tablet.
@@ -24,8 +36,8 @@ static func _ask(box: Control, label: String) -> void:
 	var question: String = label if label != "" else TranslationServer.translate(str(box.get("placeholder_text")))
 	var current: String = str(box.get("text"))
 	var answer: Variant = JavaScriptBridge.eval("window.prompt(%s, %s)" % [JSON.stringify(question), JSON.stringify(current)], true)
-	# Let go of the box so tapping it again asks again.
-	box.release_focus()
+	# The tap that opened it can echo back as the pop-up closes; ignore taps for a moment.
+	box.set_meta("web_text_quiet_until", Time.get_ticks_msec() + 600)
 	if not answer is String:
 		return
 	if box is LineEdit:

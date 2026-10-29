@@ -24,7 +24,7 @@ func build() -> void:
 	if not CloudSync.is_on():
 		add_button(tr_key("UI_CLOUD_TURN_ON"), _on_turn_on)
 		add_line(tr_key("UI_CLOUD_LINK_HELP"))
-		_code_box = add_input(tr_key("UI_CLOUD_CODE_PLACEHOLDER"), 16)
+		_code_box = add_input(tr_key("UI_CLOUD_CODE_PLACEHOLDER"), 16, tr_key("UI_CLOUD_LINK_HELP"))
 		add_button(tr_key("UI_CLOUD_LINK"), _on_link)
 		if _error != "":
 			add_line(_error)

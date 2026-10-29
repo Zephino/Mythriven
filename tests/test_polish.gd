@@ -161,4 +161,4 @@ func test_text_boxes_work_as_usual_outside_phone_browsers() -> void:
 	assert_false(WebTextInput.needed(), "only a browser on a phone uses the typing pop-up")
 	var box: LineEdit = add_child_autofree(LineEdit.new())
 	WebTextInput.attach(box)
-	assert_eq(box.focus_entered.get_connections().size(), 0)
+	assert_eq(box.gui_input.get_connections().size(), 0)

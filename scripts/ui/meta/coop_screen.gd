@@ -46,7 +46,7 @@ func _build_start() -> void:
 	add_line(tr_key("UI_COOP_ABOUT"))
 	add_button(tr_key("UI_COOP_HOST"), _on_host)
 	add_line(tr_key("UI_COOP_JOIN_HELP"))
-	_code_box = add_input(tr_key("UI_COOP_CODE_PLACEHOLDER"), 6)
+	_code_box = add_input(tr_key("UI_COOP_CODE_PLACEHOLDER"), 6, tr_key("UI_COOP_JOIN_HELP"))
 	_code_box.text_submitted.connect(_on_join_submitted)
 	add_button(tr_key("UI_COOP_JOIN"), _on_join)
 

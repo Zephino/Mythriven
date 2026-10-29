@@ -120,14 +120,15 @@ func add_button(text: String, on_pressed: Callable, enabled: bool = true) -> But
 
 
 ## A text box (for example a code to type). Part of the focus order.
-func add_input(placeholder: String, max_length: int) -> LineEdit:
+## `question` is what a phone browser's typing pop-up asks (see WebTextInput).
+func add_input(placeholder: String, max_length: int, question: String = "") -> LineEdit:
 	var input := LineEdit.new()
 	input.placeholder_text = placeholder
 	input.max_length = max_length
 	input.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 5.0, Data.cfg_float("ui.min_touch_target_px"))
 	input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	input.virtual_keyboard_enabled = true
-	WebTextInput.attach(input)
+	WebTextInput.attach(input, question)
 	_rows.add_child(input)
 	_buttons.append(input)
 	return input
