@@ -93,11 +93,13 @@ test("joining needs a host, and a code in use can't be hosted again", async () =
   assert.equal((await room.connect("host")).status, 409);
 });
 
-test("no one can join after the host starts the run", async () => {
+test("no one can join after the host starts the run, until they're back in the lobby", async () => {
   const { room } = fakeRoom();
   const host = await room.connect("host");
   await room.webSocketMessage(host.socket, JSON.stringify({ t: "start" }));
   assert.equal((await room.connect("join")).status, 409);
+  await room.webSocketMessage(host.socket, JSON.stringify({ t: "open" }));
+  assert.equal((await room.connect("join")).status, 101, "joining again between runs");
 });
 
 test("binary messages are relayed with the sender's id, to everyone or one player", async () => {

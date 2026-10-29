@@ -38,6 +38,11 @@ func lock() -> void:
 	pass
 
 
+## Host only: others may join again (back in the lobby after a run).
+func reopen() -> void:
+	pass
+
+
 ## Host only: removes a player from the lobby.
 func kick(_id: int) -> void:
 	pass

@@ -13,6 +13,7 @@ var _submit: Button
 var _board_status: Label
 var _change_hero: Button
 var _title_button: Button
+var _lobby_button: Button
 var _retry: Button
 var _controls: Array[Control] = []
 var _client: LeaderboardClient
@@ -73,6 +74,7 @@ func _ready() -> void:
 	_retry = _add_button(box, "UI_RETRY", _on_retry)
 	_change_hero = _add_button(box, "UI_CHANGE_HERO", _on_change_hero)
 	_add_button(box, "UI_HALL_OF_LEGENDS", _on_hall)
+	_lobby_button = _add_button(box, "UI_BACK_TO_COOP_LOBBY", _on_coop_lobby)
 	_title_button = _add_button(box, "UI_BACK_TO_TITLE", _on_title)
 	visible = false
 
@@ -86,6 +88,7 @@ func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: 
 		can_submit = false
 		_retry.visible = false
 		_change_hero.visible = false
+	_lobby_button.visible = Net.in_run()
 	_summary.text = "\n".join(lines)
 	_tip.text = tr("RECAP_TIP") % tip if tip != "" else ""
 	_entry = entry
@@ -104,7 +107,7 @@ func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: 
 		_board_status.text = ""
 	_link_focus()
 	visible = true
-	(_retry if _retry.visible else _title_button).grab_focus()
+	(_retry if _retry.visible else _lobby_button).grab_focus()
 
 
 func _on_submit() -> void:
@@ -144,6 +147,15 @@ func _on_change_hero() -> void:
 	GameAuthority.selected_hero_id = ""
 	Meta.next_screen = "hero_select"
 	_on_retry()
+
+
+## Co-op: back to the same lobby (same code and players) for another run.
+func _on_coop_lobby() -> void:
+	Net.back_to_lobby()
+	GameAuthority.selected_hero_id = ""
+	Meta.next_screen = "coop"
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 
 ## Back to the title screen (in co-op this also leaves the game).

@@ -44,6 +44,10 @@ func lock() -> void:
 	_locked = true
 
 
+func reopen() -> void:
+	_locked = false
+
+
 func kick(id: int) -> void:
 	var target: LocalLobby = _rooms.get(code, {}).get(id)
 	if target != null:

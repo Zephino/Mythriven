@@ -19,7 +19,8 @@ var state: State = State.OFF
 var lobby: LobbyService
 var my_id: int = 0
 var code: String = ""
-## id -> {"hero": hero id ("" = not chosen yet)}
+## id -> {"hero": hero id ("" = not chosen yet), "here": false while that
+## player is still on the results screen after a run}
 var roster: Dictionary = {}
 var level_id: String = ""
 var swift: bool = false
@@ -64,7 +65,7 @@ func everyone_ready() -> bool:
 	if roster.size() < 2:
 		return false
 	for id: int in roster:
-		if str(roster[id].get("hero", "")) == "":
+		if str(roster[id].get("hero", "")) == "" or not bool(roster[id].get("here", true)):
 			return false
 	return true
 
@@ -73,7 +74,7 @@ func everyone_ready() -> bool:
 
 func host_game(hero_id: String) -> void:
 	_open()
-	roster = {LobbyService.HOST_ID: {"hero": hero_id}}
+	roster = {LobbyService.HOST_ID: {"hero": hero_id, "here": true}}
 	level_id = Meta.selected_level()
 	lobby.host()
 
@@ -94,7 +95,7 @@ func leave() -> void:
 
 func choose_hero(hero_id: String) -> void:
 	if is_host():
-		roster[my_id] = {"hero": hero_id}
+		roster[my_id]["hero"] = hero_id
 		_broadcast_roster()
 	else:
 		send(LobbyService.HOST_ID, [NetMsg.HERO, hero_id])
@@ -120,6 +121,22 @@ func start_run() -> void:
 	lobby.lock()
 	send(LobbyService.EVERYONE, [NetMsg.START, run_seed, level_id, swift, Array(omens), roster])
 	_begin_run()
+
+
+## After a run: back to the same lobby (same code, same players) for another
+## run. The host can start again once everyone is back; new friends may join.
+func back_to_lobby() -> void:
+	if state != State.IN_RUN:
+		return
+	state = State.LOBBY
+	if roster.has(my_id):
+		roster[my_id]["here"] = true
+	if is_host():
+		lobby.reopen()
+		_broadcast_roster()
+	else:
+		send(LobbyService.HOST_ID, [NetMsg.BACK])
+	changed.emit()
 
 
 func send(to: int, msg: Array) -> void:
@@ -171,6 +188,9 @@ func _close(reason: String) -> void:
 
 func _begin_run() -> void:
 	state = State.IN_RUN
+	# Everyone comes back to the lobby on their own after the run.
+	for id: int in roster:
+		roster[id]["here"] = false
 	GameAuthority.selected_hero_id = my_hero()
 	Meta.level_id = level_id
 	Meta.swift = swift
@@ -223,11 +243,15 @@ func _host_lobby_message(from: int, msg: Array) -> void:
 				send(from, [NetMsg.WRONG_VERSION, _version()])
 				lobby.kick(from)
 				return
-			roster[from] = {"hero": _valid_hero(str(msg[2]))}
+			roster[from] = {"hero": _valid_hero(str(msg[2])), "here": true}
 			_broadcast_roster()
 		NetMsg.HERO:
 			if roster.has(from) and msg.size() >= 2:
-				roster[from] = {"hero": _valid_hero(str(msg[1]))}
+				roster[from]["hero"] = _valid_hero(str(msg[1]))
+				_broadcast_roster()
+		NetMsg.BACK:
+			if roster.has(from):
+				roster[from]["here"] = true
 				_broadcast_roster()
 	changed.emit()
 

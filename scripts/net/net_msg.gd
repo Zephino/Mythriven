@@ -14,6 +14,8 @@ const HERO := 3
 const START := 4
 ## Host → one client: [WRONG_VERSION, host_version]
 const WRONG_VERSION := 5
+## Client → host: [BACK] back in the lobby after a run
+const BACK := 6
 
 # In a run (host-authoritative; see CoopHost / CoopClient)
 ## Client → host, ~20/s: [INPUT, epoch, x, y, vx, vy, facing_x, facing_y]

@@ -67,6 +67,29 @@ func test_host_and_join_share_a_roster_and_start_together() -> void:
 	assert_eq(GameAuthority.selected_hero_id, "tomoe_gozen", "each player plays their own Hero")
 
 
+func test_after_a_run_everyone_returns_to_the_same_lobby() -> void:
+	var host: Node = _session()
+	var guest: Node = _session()
+	host.call("host_game", "heracles")
+	await _wait_frames(3)
+	guest.call("join_game", host.get("code"), "cu_chulainn")
+	await _wait_frames(6)
+	host.call("start_run")
+	await _wait_frames(4)
+	host.call("back_to_lobby")
+	await _wait_frames(4)
+	assert_eq(int(host.get("state")), Net.State.LOBBY)
+	assert_false(host.call("everyone_ready"), "waits for the friend still on the results screen")
+	guest.call("back_to_lobby")
+	await _wait_frames(6)
+	assert_true(host.call("everyone_ready"), "everyone is back: Start opens again")
+	assert_eq(str(host.get("code")), str(guest.get("code")), "the same game code")
+	var newcomer: Node = _session()
+	newcomer.call("join_game", host.get("code"), "heracles")
+	await _wait_frames(6)
+	assert_eq(int(newcomer.get("state")), Net.State.LOBBY, "friends can join between runs")
+
+
 func test_a_started_or_unknown_game_cant_be_joined() -> void:
 	var host: Node = _session()
 	var late: Node = _session()
@@ -245,5 +268,6 @@ func test_the_coop_end_screen_has_a_way_back_to_the_title() -> void:
 	screen.show_summary(PackedStringArray(["line"]), {}, true, "")
 	assert_false(screen._retry.visible, "no Retry in co-op")
 	assert_true(screen._title_button.visible, "Back to Title is there")
-	assert_true(screen._title_button.has_focus(), "and starts selected")
+	assert_true(screen._lobby_button.visible, "and Back to Co-op Lobby")
+	assert_true(screen._lobby_button.has_focus(), "which starts selected")
 	assert_eq(screen._board_status.text, tr("UI_LB_COOP"))

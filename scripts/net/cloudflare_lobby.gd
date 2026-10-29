@@ -38,6 +38,11 @@ func lock() -> void:
 		_socket.send_text(JSON.stringify({"t": "start"}))
 
 
+func reopen() -> void:
+	if is_open():
+		_socket.send_text(JSON.stringify({"t": "open"}))
+
+
 func kick(id: int) -> void:
 	if is_open():
 		_socket.send_text(JSON.stringify({"t": "kick", "id": id}))

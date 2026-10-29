@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.31
+Date: 10/29/2026
+Time: 7:07 PM
+
+### Changes
+- **Back to Co-op Lobby after a co-op run.** The end screen of a co-op run now has **Back to Co-op Lobby** (selected first). Everyone returns to the same lobby with the same game code and Heroes; the lobby shows who is "still on the results screen", and the host's **Start** opens again once everyone is back. Friends can also join with the code between runs. **Back to Title** still leaves the game.
+- The Worker's lobby accepts a new "open" message from the host so joining works again between runs (its test checks this).
+
+### Reason
+The owner asked for a "back to co-op menu" button.
+
 ## Version 00.01.30
 Date: 10/29/2026
 Time: 7:04 PM

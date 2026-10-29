@@ -12,6 +12,11 @@ func _ready() -> void:
 	match Meta.next_screen:
 		"hero_select":
 			show_hero_select()
+		"coop":
+			# Back in the co-op lobby after a run, over the title.
+			var title_screen := TitleScreen.new_for(self)
+			add_child(title_screen)
+			title_screen.open_child(CoopScreen.new_for(self))
 		"hall":
 			# The Hall opens over the title, so Back returns to the title.
 			var title := TitleScreen.new_for(self)

@@ -12,7 +12,8 @@
  * Messages:
  *   text (JSON) from the room:  {t:"welcome", id, code, peers:[ids]}, {t:"join", id},
  *                               {t:"leave", id}, {t:"error", reason}
- *   text from the host:         {t:"start"} (no more joining), {t:"kick", id}
+ *   text from the host:         {t:"start"} (no more joining), {t:"open"} (joining again,
+ *                               back in the lobby after a run), {t:"kick", id}
  *   binary from a player:       [to][data...]   to = 0 for everyone else, or a player id
  *   binary to a player:         [from][data...]
  * Player ids: the host is 1, others 2–4.
@@ -130,6 +131,7 @@ export class LobbyRoom {
         return;
       }
       if (msg.t === "start") await this.state.storage.put("started", true);
+      if (msg.t === "open") await this.state.storage.put("started", false);
       if (msg.t === "kick" && Number.isInteger(msg.id) && msg.id !== HOST_ID) {
         const target = this.socketOf(msg.id);
         if (target) target.close(4001, "removed by the host");

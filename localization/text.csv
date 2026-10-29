@@ -1102,7 +1102,7 @@ UI_COOP_PICK_HERO,Your Hero (more than one player can pick the same Hero):
 UI_COOP_LEVEL,Level: %s
 UI_COOP_OMENS,Your %d Omens apply to everyone.
 UI_COOP_START,Start
-UI_COOP_NEED_PLAYERS,Start opens once a friend has joined and everyone has a Hero.
+UI_COOP_NEED_PLAYERS,"Start opens once a friend has joined, everyone has a Hero, and everyone is back in the lobby."
 UI_COOP_WAITING_FOR_HOST,Waiting for the host to start.
 UI_COOP_LEAVE,Leave
 UI_COOP_NOT_SET_UP,Co-op isn't set up for this version of the game yet.
@@ -1125,3 +1125,5 @@ UI_QUIT_WEB,Thanks for playing! Your progress is saved. You can close this tab n
 UI_KEEP_PLAYING,Keep playing
 UI_BACK_TO_TITLE,Back to Title
 UI_LB_COOP,Co-op runs don't go on the leaderboard (it's for solo runs).
+UI_BACK_TO_COOP_LOBBY,Back to Co-op Lobby
+UI_COOP_STILL_AT_RESULTS,(still on the results screen)
