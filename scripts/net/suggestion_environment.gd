@@ -22,11 +22,11 @@ const WEB_INFO_SCRIPT := """
 
   let browser = "Other";
   if (/SamsungBrowser/i.test(ua)) browser = "Samsung Internet";
-  else if (/Edg\\/|Edge\\/|EdgiOS\\//i.test(ua)) browser = "Edge";
-  else if (/OPR\\/|Opera\\//i.test(ua)) browser = "Opera";
-  else if (/Firefox\\/|FxiOS\\//i.test(ua)) browser = "Firefox";
-  else if (/Chrome\\/|CriOS\\//i.test(ua)) browser = "Chrome";
-  else if (/Safari\\//i.test(ua)) browser = "Safari";
+  else if (/Edg|Edge|EdgiOS/i.test(ua)) browser = "Edge";
+  else if (/OPR|Opera/i.test(ua)) browser = "Opera";
+  else if (/Firefox|FxiOS/i.test(ua)) browser = "Firefox";
+  else if (/Chrome|CriOS/i.test(ua)) browser = "Chrome";
+  else if (/Safari/i.test(ua)) browser = "Safari";
 
   return [device, os, browser].join("|");
 })()
