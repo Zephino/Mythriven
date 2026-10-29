@@ -1,13 +1,12 @@
-name = "mythriven-leaderboard"
+name = "mythriven"
 workers_dev = true
 main = "src/index.js"
 compatibility_date = "2024-10-01"
 
-# The setup script creates this and fills in the id:
-#   npx wrangler kv namespace create LEADERBOARD_KV
-# [[kv_namespaces]]
-# binding = "LEADERBOARD_KV"
-# id = "YOUR_KV_NAMESPACE_ID"
+# KV namespace created in Cloudflare and bound as LEADERBOARD_KV.
+[[kv_namespaces]]
+binding = "LEADERBOARD_KV"
+id = "db73023753d249a8b47ac3231fc9cb80"
 
 [vars]
 GITHUB_OWNER = "Zephino"
