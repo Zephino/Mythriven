@@ -572,3 +572,5 @@ UI_LEADERBOARD_LOCAL,Leaderboard (this device)
 UI_LB_LOCAL_NOTE,"Online scores aren't set up yet, so scores are saved on this device."
 UI_LB_SAVED_LOCAL,Score saved! Press Leaderboard to see it.
 UI_LB_NOT_PLACED_LOCAL,Saved. Not in this device's top 100 this time.
+UI_SUGGEST_FEATURE,Suggest a Feature
+UI_SUGGEST_FEATURE_HINT,Opens GitHub to share an idea (GitHub sign-in required).
