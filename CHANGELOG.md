@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.19
+Date: 10/28/2026
+Time: 9:00 PM
+
+### Changes
+- **Slower leveling (owner approved).** Each level now needs a fixed 30 XP more than the last, plus 1.5%, instead of 10% more. In bot playtests: about level 9 at 3:00, 25 at 10:00, 50 at 20:00, and 65+ near the end, so there are choices the whole run and a full build comes late. Before, players hit level 30 by 3:00 and had every weapon maxed by 10:00. GAME_DESIGN.md updated.
+- **A more dangerous start (owner approved).** More enemies in the first 10 minutes (1.6 per second at the start, rising to 2.75 by 8:00; was 1.0–2.2), more Shade swarms, Harpy swarms from 2:00, and Shade flyers crossing the screen from the start. Spawns after 10:00 are 20% higher too, since slower leveling also slows the extra spawns that come with your level.
+- **Väinämöinen has 100 HP** (was 85; owner approved). GAME_DESIGN.md updated.
+- **Shorter boss fights.** Medusa, Achilles, and Kronos have less HP and smaller Guard gauges, so fights last about 2–3 minutes with the slower leveling (they would have lasted about 5).
+- Tests updated for the new XP curve and Väinämöinen's HP.
+
+### Reason
+The owner approved slowing leveling and making the first 10 minutes more dangerous (with more HP for Väinämöinen) after the playtest report. Each change was checked with full bot playtests of all four starting Heroes.
+
 ## Version 00.01.18
 Date: 10/28/2026
 Time: 8:06 PM

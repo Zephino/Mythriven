@@ -276,6 +276,7 @@
               },
               "orb_merge_threshold": "number",
               "level_2_xp": "number",
+              "step_per_level": "number",
               "growth_per_level": "number",
               "orb_pool": "number",
               "orb_size_px": {

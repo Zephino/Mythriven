@@ -215,8 +215,10 @@
   "xp": {
     "orb_values": [1, 5, 25],
     "orb_merge_threshold": 300,
+    "_curve_doc": "XP to reach the next level = (level_2_xp + step_per_level × (level − 1)) × (1 + growth_per_level)^(level − 1). Owner approved a slower curve on 10/29/2026 (was 5 XP, then +10% per level).",
     "level_2_xp": 5,
-    "growth_per_level": 0.1,
+    "step_per_level": 30,
+    "growth_per_level": 0.015,
     "orb_pool": 600,
     "orb_size_px": [4, 6, 9],
     "orb_colors": ["#5ab4ff", "#5affa0", "#ffd25a"],

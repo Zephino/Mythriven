@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phases 10–14 built (owner testing); next: full Aegean Shore review, then Phase 15
+**Current phase:** Phases 10–14 built and playtested by bot; balance pass done (00.01.19); next: full Aegean Shore review, then Phase 15
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-29 — Review — Playtest fixes and balance pass (Claude)
+- What changed: bot playtests of full runs with all four starting Heroes. Fixed god Trials running during boss fights (00.01.18) and "Felled by" for gods. Balance (00.01.19, owner approved): slower XP curve (5 + 30 per level, +1.5%), busier first 10 minutes, Väinämöinen 100 HP, lower boss HP and Guard.
+- Files touched: scripts/gods/god_trial.gd, scripts/gods/shrines.gd, scripts/core/main.gd, scripts/meta/level_up_rules.gd, data/config.json, data/schemas.json, data/waves_aegean_shore.json, data/heroes.json, data/enemies.json, data/bosses.json, tests, GAME_DESIGN.md (XP curve, Väinämöinen HP).
+- Unfinished / next: owner playtest on PC and phone; Aegean Shore review; Phase 15.
+
 
 ## 2026-10-28 — Phase 14 — World discoveries (v00.01.17)
 - What changed: `pois.json` and the event schedule in the wave table; `PoiRules` (seeded regions), `PoiManager` (Hidden Shrine, Ancient Ruins, Dragon's Hoard, Monster's Lair, Wandering Trader; state only when changed), `Compass`, `TraderScreen`, `RuinsChoiceScreen`; Reroll and Banish on the level-up screen; banished items left out of level-ups; event, POI, and boss spawn multipliers in the spawner; Chaos Surge and Divine Storm in `RunDirector` (a second strikes hazard for the storm); debug options for POIs, gold, and events. Fixed the boss clean slate.

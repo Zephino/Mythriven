@@ -19,10 +19,13 @@ const HEAL := "heal"
 const PASSIVES_FILE := "passives.json"
 
 
-## XP needed to go from `level` to `level + 1`.
+## XP needed to go from `level` to `level + 1`: level 2 needs `level_2_xp`,
+## each level after needs `step_per_level` more, and `growth_per_level`
+## (0 = off) can make the whole curve grow by a percentage too.
 static func xp_to_next(level: int) -> float:
-	var first: float = Data.cfg_float("xp.level_2_xp")
-	return roundf(first * pow(1.0 + Data.cfg_float("xp.growth_per_level"), maxi(level - 1, 0)))
+	var steps: int = maxi(level - 1, 0)
+	var linear: float = Data.cfg_float("xp.level_2_xp") + Data.cfg_float("xp.step_per_level") * steps
+	return roundf(linear * pow(1.0 + Data.cfg_float("xp.growth_per_level"), steps))
 
 
 static func passive_data(passive_id: String) -> Dictionary:

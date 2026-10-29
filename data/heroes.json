@@ -245,7 +245,7 @@
     "lore_source": "Kalevala (Elias Lönnrot, 1835/1849): Väinämöinen, the eternal singer",
     "lore_verified": false,
     "stats": {
-      "max_hp": 85,
+      "max_hp": 100,
       "move_speed": 95,
       "armor": 0,
       "might": 0,

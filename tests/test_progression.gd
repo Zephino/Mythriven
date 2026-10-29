@@ -17,14 +17,17 @@ func after_each() -> void:
 	GameAuthority.end_scene()
 
 
-func test_xp_curve_starts_at_5_and_grows_about_10_percent() -> void:
+func test_xp_curve_starts_at_5_and_grows_by_a_step_and_a_percentage() -> void:
 	assert_eq(LevelUpRules.xp_to_next(1), 5.0)
 	var previous: float = LevelUpRules.xp_to_next(1)
 	for level: int in range(2, 30):
 		var needed: float = LevelUpRules.xp_to_next(level)
 		assert_true(needed >= previous, "level %d should not need less XP" % level)
 		previous = needed
-	assert_almost_eq(LevelUpRules.xp_to_next(21), 5.0 * pow(1.1, 20), 1.0)
+	var step: float = Data.cfg_float("xp.step_per_level")
+	var growth: float = Data.cfg_float("xp.growth_per_level")
+	assert_gt(step, 0.0)
+	assert_almost_eq(LevelUpRules.xp_to_next(21), (5.0 + step * 20.0) * pow(1.0 + growth, 20), 1.0)
 
 
 func test_collecting_xp_queues_level_ups() -> void:

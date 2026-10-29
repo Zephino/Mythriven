@@ -498,7 +498,7 @@ Heroes are legendary figures from Tier A traditions in your database, and each p
 | --- | --- | --- | --- | --- | --- | --- |
 | Heracles | Greek | 150 | 90 | 2 | Bruiser | \[Launch\] starting |
 | Cú Chulainn | Irish | 110 | 105 | 1 | Mobile spear striker | \[Launch\] starting |
-| Väinämöinen | Finnish (Kalevala) | 85 | 95 | 0 | Elemental song-mage | \[Launch\] starting |
+| Väinämöinen | Finnish (Kalevala) | 100 | 95 | 0 | Elemental song-mage | \[Launch\] starting |
 | Tomoe Gozen | Japanese legend | 95 | 115 | 0 | Agile sword-and-bow skirmisher | \[Launch\] starting |
 | King Arthur | Welsh/Arthurian | 130 | 95 | 2 | Holy defender | \[Launch\] unlock: 1,000 gold |
 | Atalanta | Greek | 90 | 125 | 0 | Swift archer | \[Launch\] unlock: survive 20:00 with any Hero |
@@ -1073,7 +1073,7 @@ Timed events announced with a banner, scheduled in `waves.json`:
 Enemies drop XP orbs for leveling within the run and sometimes gold, the only permanent currency; level-ups offer 1 of 3 upgrades, and gold can be spent mid-run at the Wandering Trader at the cost of banking less. \[Launch\]
 
 - **XP orbs:** small (1), medium (5), large (25) by enemy type. Above 300 orbs on the ground, merge distant ones.
-- **XP curve:** level 2 needs 5 XP, then each level needs \~10% more (in `config.json`).
+- **XP curve:** level 2 needs 5 XP; each level after needs a fixed amount more plus a small percentage, so new choices keep coming for the whole 35 minutes and a full build arrives late in the run (numbers in `config.json`). *(Changed 10/29/2026, owner approved: was "\~10% more each level", which reached level 30 by 3:00 and maxed builds by 10:00 in playtests.)*
 - **Level-up (solo):** pause and show 3 random cards: new weapon, weapon level, new passive, or passive level. Never offer maxed items. High Luck can add a 4th card. Spell cards show their tier change.
 - **Banked level-ups:** close the screen without picking to save the choice for later (level badge). Solo only; co-op uses turn-based picks.
 - **Gold drops:** 5% from normal enemies, guaranteed from elites and bosses, piles from chests and POIs, milestone bonuses.

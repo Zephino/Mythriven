@@ -11,7 +11,7 @@
     "keep_distance_px": 110,
     "attack_every_s": 2.6,
     "guard_gauge": {
-      "max": 900,
+      "max": 450,
       "break_s": 4,
       "damage_taken_mult": 1.5,
       "refill_growth": 1.25
@@ -106,7 +106,7 @@
     "keep_distance_px": 60,
     "attack_every_s": 2.2,
     "guard_gauge": {
-      "max": 1400,
+      "max": 700,
       "break_s": 4,
       "damage_taken_mult": 1.5,
       "refill_growth": 1.25
@@ -188,7 +188,7 @@
     "keep_distance_px": 130,
     "attack_every_s": 2.8,
     "guard_gauge": {
-      "max": 2000,
+      "max": 1100,
       "break_s": 4,
       "damage_taken_mult": 1.5,
       "refill_growth": 1.25
