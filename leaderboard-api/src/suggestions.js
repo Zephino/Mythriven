@@ -27,11 +27,20 @@ function reply(value, status = 200) {
   return new Response(JSON.stringify(value), { status, headers: jsonHeaders });
 }
 
-/** Plain text only. Replace @ to prevent unwanted GitHub user mentions. */
+/**
+ * Treat all player text as untrusted. Keep useful natural language (including
+ * quotes and semicolons) while removing non-printing/spoofing controls.
+ * The Worker uses KV + GitHub Issues, not SQL queries. If a SQL store is ever
+ * introduced, use bound parameters; string filtering is NOT SQLi prevention.
+ */
 function clean(value) {
-  return typeof value === "string"
-    ? value.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, "").replace(/@/g, "＠").trim()
-    : "";
+  if (typeof value !== "string") return "";
+  return value.normalize("NFC")
+    .replace(/\r\n?|\u2028|\u2029/g, "\n")
+    .replace(/\t/g, " ")
+    .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f\u202a-\u202e\u2066-\u2069]/g, "")
+    .replace(/@/g, "＠")
+    .trim();
 }
 
 /**
@@ -61,7 +70,7 @@ export function validateSuggestion(body) {
     return { error: "invalid suggestion" };
   }
   const category = clean(body.category);
-  const title = clean(body.title);
+  const title = clean(body.title).replace(/\s+/g, " ");
   const description = clean(body.description);
   if (!SUGGESTION_CATEGORIES.includes(category)) return { error: "invalid category" };
   if (title.length < 5 || title.length > MAX_TITLE) return { error: "title must be 5–100 characters" };
@@ -74,8 +83,17 @@ export function validateSuggestion(body) {
   return { category, title, description, client: normalizeClientInfo(body.client) };
 }
 
+/** Escape suggestion content before inserting it in a GitHub Markdown issue. */
+function escapeIssueText(text) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/([\\\x60*_{}\[\]()#+.!|~-])/g, "\\$1");
+}
+
 function markdownQuote(text) {
-  return text.split("\n").map((line) => "> " + line).join("\n");
+  return escapeIssueText(text).split("\n").map((line) => "> " + line).join("\n");
 }
 
 async function keyFor(ip, env, day) {

@@ -149,3 +149,45 @@ test("old game versions still submit suggestions without device metadata", async
   assert.equal(response.status, 201);
   assert.match(issue.body, /Not provided \(older game build\)/);
 });
+
+test("normalizes control characters and refuses multiline issue titles", () => {
+  const checked = validateSuggestion({
+    ...payload,
+    title: "  A\r\nbad\u202e title\x00 ",
+    description: "Enough regular text here\r\n## Injected heading\u2028@everyone",
+  });
+  assert.equal(checked.error, undefined);
+  assert.equal(checked.title, "A bad title");
+  assert.equal(checked.description, "Enough regular text here\n## Injected heading\n＠everyone");
+});
+
+test("SQL-looking content stays inert text and Markdown/HTML are escaped in GitHub Issues", async () => {
+  const description = [
+    "Please improve the life bar size.",
+    "<script>alert('xss')</script>",
+    "## Spoofed developer announcement",
+    "[click here](javascript:alert(1))",
+    "@everyone",
+    "SQL example: '; DROP TABLE suggestions; --",
+  ].join("\n");
+  let issue;
+  const response = await handleSuggestionPost(request({
+    ...payload,
+    title: "Suggest '\r\nbetter health bars",
+    description,
+  }), env(), "1.2.3.4", async (_url, options) => {
+    issue = JSON.parse(options.body);
+    return new Response(JSON.stringify({ number: 31 }), { status: 201 });
+  });
+  assert.equal(response.status, 201);
+  assert.equal(issue.title, "[Player suggestion] Suggest ' better health bars");
+  assert.ok(issue.body.includes("&lt;script&gt;"));
+  assert.ok(issue.body.includes("&lt;/script&gt;"));
+  assert.ok(issue.body.includes("> \\#\\# Spoofed developer announcement"));
+  assert.ok(issue.body.includes("> \\[click here\\]\\(javascript:alert\\(1\\)\\)"));
+  assert.ok(issue.body.includes("＠everyone"));
+  assert.ok(issue.body.includes("DROP TABLE suggestions;"));
+  assert.ok(!issue.body.includes("<script>"));
+  assert.ok(!issue.body.includes("@everyone"));
+  assert.equal(issue.body.includes("1.2.3.4"), false);
+});
