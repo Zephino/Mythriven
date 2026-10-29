@@ -1,5 +1,55 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "",
-	"entries": []
+	"updated": "2026-10-29T19:56:16.930Z",
+	"entries": [
+		{
+			"name": "RDS",
+			"hero": "cu_chulainn",
+			"time_s": 456,
+			"level": 19,
+			"kills": 3113,
+			"weapons": [
+				{
+					"id": "gae_bolg",
+					"level": 3
+				},
+				{
+					"id": "frost",
+					"level": 3
+				},
+				{
+					"id": "longbow",
+					"level": 2
+				},
+				{
+					"id": "bronze_sword",
+					"level": 2
+				},
+				{
+					"id": "war_hammer",
+					"level": 5
+				},
+				{
+					"id": "spark",
+					"level": 1
+				}
+			],
+			"passives": [
+				{
+					"id": "votive_bell",
+					"level": 1
+				},
+				{
+					"id": "seers_eye",
+					"level": 1
+				},
+				{
+					"id": "ferrymans_coin",
+					"level": 1
+				}
+			],
+			"version": "00.01.25",
+			"date": "2026-10-29T19:56:16.930Z"
+		}
+	]
 }
