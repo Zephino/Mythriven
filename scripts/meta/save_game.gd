@@ -20,6 +20,9 @@ static var path_override: String = ""
 static var _data: Dictionary = {}
 static var _loaded_from: String = ""
 static var _test_file_cleared: bool = false
+## Set when something lasting is saved (not the mid-run checkpoint), so cloud
+## sync knows there is something new to upload.
+static var _cloud_change: bool = false
 
 
 static func path() -> String:
@@ -116,6 +119,8 @@ static func commit(section: String = "") -> bool:
 	var save: Dictionary = data()
 	if section != "":
 		save["last_modified"][section] = int(Time.get_unix_time_from_system())
+	if section != "run_in_progress":
+		_cloud_change = true
 	save["sync_counter"] = int(save.get("sync_counter", 0)) + 1
 	var target: String = path()
 	DirAccess.make_dir_recursive_absolute(target.get_base_dir())
@@ -129,6 +134,23 @@ static func commit(section: String = "") -> bool:
 	if FileAccess.file_exists(target):
 		DirAccess.copy_absolute(target, target + ".bak")
 	return DirAccess.rename_absolute(temp, target) == OK
+
+
+## True (once) if something lasting was saved since the last call.
+static func take_cloud_change() -> bool:
+	var changed: bool = _cloud_change
+	_cloud_change = false
+	return changed
+
+
+## Replaces the whole save (with one merged with the cloud copy) and saves it,
+## without counting that as a new change to upload.
+static func replace(save: Dictionary) -> void:
+	_data = migrate(save)
+	_loaded_from = path()
+	Settings.clear_cache()
+	commit()
+	_cloud_change = false
 
 
 # --- Small helpers ----------------------------------------------------------------
@@ -202,6 +224,10 @@ static func merge(a: Dictionary, b: Dictionary) -> Dictionary:
 	if newer:
 		out["gold"] = other["gold"]
 		out["settings"] = other["settings"]
+	# Each section's time becomes the later of the two, so a third device compares fairly.
+	var stamps: Dictionary = out["last_modified"]
+	for section: Variant in other["last_modified"]:
+		stamps[section] = maxi(int(stamps.get(section, 0)), int(other["last_modified"][section]))
 	out["sync_counter"] = maxi(int(out["sync_counter"]), int(other["sync_counter"])) + 1
 	return out
 

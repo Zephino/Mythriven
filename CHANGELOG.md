@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.25
+Date: 10/29/2026
+Time: 1:29 PM
+
+### Changes
+- **Phase 20: Cloud saves** (through your Cloudflare Worker, as you chose, instead of Epic Online Services).
+  - **Settings → Cloud save → Turn on cloud save** gives you a private 12-character code. On your other device, choose **Link this device** and type the code: both now share the same progress.
+  - Unlocks, discoveries, and achievements from both devices are combined; god levels, mastery, and records keep the higher value; gold comes from the device you played last (a newly linked device takes the cloud's gold, so linking never loses any).
+  - It syncs when the game starts, soon after a purchase or the end of a run, and at most every 30 seconds during a run when you earn something lasting. The game still works fully offline and catches up later.
+  - No account, name, or email: the Worker only keeps the save, filed under a scrambled form of the code. "Sign in with Google / Apple / Steam" can be added later (it needs developer sign-ups only you can do).
+  - The Worker gets a new storage type (Cloudflare Durable Objects, free plan). It deploys automatically with this push; see `leaderboard-api/README.md` if Cloudflare asks anything.
+  - 7 new Worker tests and 7 new game tests; also tested end to end against a local copy of the Worker with two "devices".
+
+### Reason
+The owner asked to finish building the game through Phase 20 (co-op and cloud saves), using Cloudflare for both.
+
 ## Version 00.01.24
 Date: 10/29/2026
 Time: 12:47 PM

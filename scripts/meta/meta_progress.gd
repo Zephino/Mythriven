@@ -23,6 +23,8 @@ var next_screen: String = "title"
 var tracker: RunTracker = RunTracker.new()
 ## The last finished run's recap: {"lines", "tip"} (DeathRecap.build).
 var last_recap: Dictionary = {}
+## Cloud saves (Phase 20).
+var cloud: CloudSync
 
 var _finished: bool = true
 var _checkpoint_left: float = 0.0
@@ -32,6 +34,8 @@ var _check_left: float = 0.0
 func _ready() -> void:
 	SaveGame.data()
 	Settings.apply(get_tree())
+	cloud = CloudSync.new()
+	add_child(cloud)
 	settle_unfinished_run()
 	GameAuthority.run_started.connect(_on_run_started)
 	GameAuthority.player_spawned.connect(_on_player_spawned)

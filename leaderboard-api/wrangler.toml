@@ -8,6 +8,16 @@ compatibility_date = "2024-10-01"
 binding = "LEADERBOARD_KV"
 id = "db73023753d249a8b47ac3231fc9cb80"
 
+# Durable Objects (SQLite-backed, available on the free plan): one SaveVault
+# per player's cloud save.
+[[durable_objects.bindings]]
+name = "SAVE_VAULT"
+class_name = "SaveVault"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SaveVault"]
+
 [vars]
 GITHUB_OWNER = "Zephino"
 GITHUB_REPO = "Mythriven"

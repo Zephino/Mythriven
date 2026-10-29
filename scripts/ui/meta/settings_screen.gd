@@ -18,6 +18,7 @@ func build() -> void:
 	for key: String in ROWS:
 		add_button(tr_key("UI_SETTING_" + key.to_upper()) % value_text(key), _on_row.bind(key))
 	add_button(tr_key("UI_SETTING_RESET_TIPS"), _on_reset_tips, not Onboarding.seen().is_empty())
+	add_button(tr_key("UI_CLOUD_SAVE"), func() -> void: open_child(CloudSaveScreen.new()))
 
 
 ## How a setting's current value reads on its row.

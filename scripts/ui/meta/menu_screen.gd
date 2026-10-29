@@ -119,6 +119,19 @@ func add_button(text: String, on_pressed: Callable, enabled: bool = true) -> But
 	return button
 
 
+## A text box (for example a code to type). Part of the focus order.
+func add_input(placeholder: String, max_length: int) -> LineEdit:
+	var input := LineEdit.new()
+	input.placeholder_text = placeholder
+	input.max_length = max_length
+	input.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 5.0, Data.cfg_float("ui.min_touch_target_px"))
+	input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	input.virtual_keyboard_enabled = true
+	_rows.add_child(input)
+	_buttons.append(input)
+	return input
+
+
 ## Opens another menu on top of this one; focus comes back when it closes.
 func open_child(screen: MenuScreen) -> void:
 	screen.closed.connect(_on_child_closed)

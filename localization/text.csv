@@ -1066,3 +1066,22 @@ ENEMY_SPARTOI_BRUTE_MYTH,"The Spartoi, the ""Sown Men"": when Cadmus, and later 
 ENEMY_KHALKOTAUROS_BOMBER_NAME,Bronze bull
 ENEMY_KHALKOTAUROS_BOMBER_MYTH,"The Khalkotauroi, King Aeëtes' bulls with hooves of bronze, breathed fire from their mouths; Jason had to yoke them to plough the field where he sowed the dragon's teeth."
 UI_SETTING_VALUE_ANYWHERE,Whole screen
+UI_CLOUD_SAVE,Cloud save
+UI_CLOUD_NOT_SET_UP,Cloud saves aren't set up for this version of the game yet.
+UI_CLOUD_ABOUT,Keep your progress on PC and phone. Your progress is saved online under a private code; no account or email needed.
+UI_CLOUD_TURN_ON,Turn on cloud save
+UI_CLOUD_LINK_HELP,Already using cloud save on another device? Type its code here:
+UI_CLOUD_CODE_PLACEHOLDER,XXXX-XXXX-XXXX
+UI_CLOUD_LINK,Link this device
+UI_CLOUD_BAD_CODE,"That code isn't right. It has 12 letters and numbers, like ABCD-EFGH-JK23."
+UI_CLOUD_STATE_SYNCED,Cloud save is on.
+UI_CLOUD_STATE_SYNCING,Syncing…
+UI_CLOUD_STATE_ERROR,Couldn't reach the cloud. Your progress is safe on this device and will sync later.
+UI_CLOUD_STATE_OFF,Cloud save is off.
+UI_CLOUD_LAST_SYNCED,Last synced at %s.
+UI_CLOUD_YOUR_CODE,Your code: %s
+UI_CLOUD_CODE_PRIVATE,Type this code on your other device to link it. Keep it private: anyone with it can use your progress.
+UI_CLOUD_COPY,Copy code
+UI_CLOUD_SYNC_NOW,Sync now
+UI_CLOUD_TURN_OFF,Turn off on this device
+UI_CLOUD_GOLD_NOTICE,Gold set to %d from your other device's newer save.

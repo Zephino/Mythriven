@@ -2,6 +2,7 @@
  * Mythriven shared leaderboard Worker (Cloudflare).
  *   GET  /leaderboard   the board, best first
  *   POST /leaderboard   send one score; it is checked, then saved
+ *   GET/PUT /cloud/save cloud saves, by private sync code (see cloud.js)
  *
  * The Worker is the only thing that can write the board. It keeps the board in
  * Workers KV (fast) and commits leaderboard.json to the repo's `data` branch so
@@ -14,6 +15,9 @@
 
 import { addEntry, emptyBoard, isDuplicate, normalizeBoard, qualifies, validateScore } from "./board.js";
 import { handleSuggestionPost, suggestionStatus } from "./suggestions.js";
+import { handleCloud } from "./cloud.js";
+
+export { SaveVault } from "./cloud.js";
 
 const MAX_BODY_BYTES = 8000;
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -165,10 +169,13 @@ async function handlePost(request, env, ip) {
 export default {
   async fetch(request, env) {
     try {
+      const url = new URL(request.url);
+      // Cloud saves answer their own preflight and check their own code and
+      // write limit (no KV use).
+      if (url.pathname === "/cloud/save") return await handleCloud(request, env);
       if (request.method === "OPTIONS") {
         return new Response(null, { status: 204, headers: corsHeaders() });
       }
-      const url = new URL(request.url);
       if (url.pathname !== "/leaderboard" && url.pathname !== "/" && url.pathname !== "/suggestions") {
         return jsonResponse({ error: "not found" }, 404);
       }

@@ -67,10 +67,27 @@ the time, unknown-looking ids, huge levels), double submissions, and more than
 never sent. To remove a bad score, ask Claude: it can be removed from the
 Worker's storage.
 
+## Cloud saves (Phase 20)
+
+The same Worker keeps players' cloud saves (`/cloud/save`). Each save sits in
+its own **Durable Object** (`SaveVault`), named by a scrambled form of the
+player's private code; no names or emails are stored. Durable Objects are on
+Cloudflare's free plan; `wrangler.toml` declares them, so the normal automatic
+deploy sets them up with nothing to click. If a deploy ever fails with a
+message about Durable Objects or migrations, open **Workers & Pages →
+mythriven → Deployments**, copy the red message, and send it to Claude.
+
+Free-plan limits (as of 2026): about 100,000 Durable Object requests a day.
+Each sync uses 2 (download + upload), and a player syncs only a handful of
+times per run, so that covers thousands of runs a day.
+
 ## For developers
 
 - `src/board.js`: the rules (what a score must look like, ranking, size).
 - `src/index.js`: the web service (GET/POST, rate limits, GitHub commit).
+- `src/cloud.js`: cloud saves (`/cloud/save`, the `SaveVault` Durable Object).
+- Test the game against a Worker on your own computer: `npx wrangler dev`,
+  then start Godot with `-- --api=http://127.0.0.1:8787`.
 - `npm test`: checks the rules and the service with a pretend storage.
 - `.gdignore` keeps Godot from importing this folder.
 

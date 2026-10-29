@@ -12,9 +12,21 @@ const LEADERBOARD_READ_URL := "https://raw.githubusercontent.com/Zephino/Mythriv
 ## Example: "https://mythriven-leaderboard.your-name.workers.dev"
 const API_BASE_URL := "https://mythriven.thebotcoder.workers.dev"
 
+## For testing against a Worker running on this computer (`npx wrangler dev`):
+## set from the command line with `-- --api=http://127.0.0.1:8787`.
+static var base_override: String = ""
+
+
+static func api_base() -> String:
+	if base_override == "":
+		for arg: String in OS.get_cmdline_user_args():
+			if arg.begins_with("--api="):
+				base_override = arg.trim_prefix("--api=")
+	return (base_override if base_override != "" else API_BASE_URL).strip_edges().trim_suffix("/")
+
 
 static func post_url() -> String:
-	var base: String = API_BASE_URL.strip_edges().trim_suffix("/")
+	var base: String = api_base()
 	if base.is_empty():
 		return ""
 	return base + "/leaderboard"
@@ -27,10 +39,16 @@ static func read_url() -> String:
 
 
 static func suggestion_url() -> String:
-	var base: String = API_BASE_URL.strip_edges().trim_suffix("/")
+	var base: String = api_base()
 	if base.is_empty():
 		return ""
 	return base + "/suggestions"
+
+
+## Cloud saves (leaderboard-api/src/cloud.js); "" until the Worker is set up.
+static func cloud_url() -> String:
+	var base: String = api_base()
+	return "" if base.is_empty() else base + "/cloud/save"
 
 
 static func can_post() -> bool:

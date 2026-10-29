@@ -682,7 +682,8 @@
               "cloud_sync_min_interval_s": "number",
               "profile_file": "string",
               "file": "string",
-              "test_file": "string"
+              "test_file": "string",
+              "cloud_file": "string"
             }
           },
           "meta": {
