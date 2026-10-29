@@ -193,3 +193,20 @@ func _view_size() -> Vector2:
 func _draw() -> void:
 	if GameAuthority.run != null and GameAuthority.run.boss_arena_active:
 		draw_arc(arena_center, arena_radius, 0.0, TAU, 96, Color.html(Data.cfg_string("bosses.arena_color")), 3.0)
+	_draw_markers()
+
+
+## A bold, slowly pulsing ring around each living boss so it stands out from
+## the horde and the ground (placeholder art can blend in).
+func _draw_markers() -> void:
+	var marker: Dictionary = Data.cfg("bosses.marker")
+	var seconds: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
+	var pulse: float = 0.5 + 0.5 * sin(seconds * TAU * float(marker.get("pulse_hz", 1.0)))
+	var width: float = float(marker.get("width_px", 2.0))
+	for controller: BossController in controllers:
+		if not controller.is_alive():
+			continue
+		var at: Vector2 = controller.position_now()
+		var ring: float = GameAuthority.enemies.radius[controller.slot] + float(marker.get("gap_px", 4.0)) + pulse * float(marker.get("pulse_px", 3.0))
+		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("outline_color", "#000000"))), width + 3.0)
+		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("color", "#ff3050"))), width)

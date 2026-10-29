@@ -568,3 +568,4 @@ DEBUG_POI_PLACED,Placed: %s.
 DEBUG_GIVE_GOLD,Give 500 gold
 DEBUG_CHAOS_SURGE,Start a Chaos Surge
 DEBUG_DIVINE_STORM,Start a Divine Storm
+DEBUG_SHOW_TEST_LABEL,Show translation test line

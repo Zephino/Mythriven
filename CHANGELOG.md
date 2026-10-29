@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.20
+Date: 10/28/2026
+Time: 9:30 PM
+
+### Changes
+- **Bosses are easier to see:** every living boss has a bold red ring that pulses slowly, so Medusa no longer blends into the grass.
+- **"All twelve Labors complete!"** now shows for 4 seconds and then clears, instead of staying on screen for the rest of the run.
+- **The "Translation test" line is hidden** during play. It can be turned on in the debug menu (F1): **Show translation test line**.
+- **Heracles' Labors are spread over the run** to match the slower leveling (for example, the Nemean Lion now needs 100 kills, the Cretan Bull level 20, and the Apples of the Hesperides level 40). Before, all twelve were done by about 9 minutes; now about 8 are done by 13 minutes, and the last ones land around 22–25 minutes.
+- New test for the Labors message (156 tests, all passing).
+
+### Reason
+The owner said yes to the four suggested changes after the balance pass: easier-to-see bosses, the Labors message, moving the translation test line to the debug menu, and re-checking the Labors.
+
 ## Version 00.01.19
 Date: 10/28/2026
 Time: 9:00 PM

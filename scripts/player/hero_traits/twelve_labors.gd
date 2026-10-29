@@ -16,6 +16,8 @@ var _clock: float = 0.0
 var _since_hit: float = 0.0
 var _banner_left: float = 0.0
 var _banner_key: String = ""
+## Seconds left to show "All twelve Labors complete!" after the last one.
+var _all_done_left: float = 0.0
 
 
 func setup(owner_player: Player, hero_data: Dictionary) -> void:
@@ -39,6 +41,8 @@ func _process(delta: float) -> void:
 	_since_hit += delta
 	_hide_ready_in = maxf(_hide_ready_in - delta, 0.0)
 	_banner_left = maxf(_banner_left - delta, 0.0)
+	if _banner_left <= 0.0:
+		_all_done_left = maxf(_all_done_left - delta, 0.0)
 	var goal: Dictionary = current_labor().get("goal", {})
 	match str(goal.get("type", "")):
 		"no_damage_for":
@@ -62,7 +66,7 @@ func hud_text() -> String:
 		return tr("LABOR_COMPLETE") % tr(_banner_key)
 	var labor: Dictionary = current_labor()
 	if labor.is_empty():
-		return tr("LABORS_ALL_DONE")
+		return tr("LABORS_ALL_DONE") if _all_done_left > 0.0 else ""
 	return tr("LABOR_HUD") % [labor_index + 1, tr(str(labor["name_key"])), goal_text(labor.get("goal", {}))]
 
 
@@ -123,3 +127,5 @@ func _check(target: float) -> void:
 	_since_hit = 0.0
 	_banner_key = str(labor["name_key"])
 	_banner_left = Data.cfg_float("heroes.labor_banner_s")
+	if labor_index >= labors().size():
+		_all_done_left = Data.cfg_float("heroes.labors_all_done_s")

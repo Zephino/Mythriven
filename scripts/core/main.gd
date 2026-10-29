@@ -113,6 +113,7 @@ func _build_world(joystick: TouchJoystick) -> void:
 		actions.set("chunks", chunks)
 		actions.set("grid", grid)
 		actions.set("camera", camera)
+		actions.set("test_label", _test_label)
 		add_child(actions)
 		var combat_actions: Node = preload("res://scripts/core/debug_actions_combat.gd").new()
 		combat_actions.set("enemies", _enemies)
@@ -192,6 +193,7 @@ func _build_ui(joystick: TouchJoystick) -> void:
 	_test_label.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	_test_label.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	_test_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_test_label.visible = false  # Shown from the debug menu ("Show translation test line").
 	root.add_child(_test_label)
 
 	_version_label = Label.new()

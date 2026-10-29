@@ -75,7 +75,8 @@
               "select_background": "string",
               "labor_banner_s": "number",
               "leap_shadow_color": "string",
-              "leap_ring_color": "string"
+              "leap_ring_color": "string",
+              "labors_all_done_s": "number"
             }
           },
           "camera": {
@@ -540,7 +541,18 @@
               "hp_bar_color": "string",
               "guard_bar_color": "string",
               "cast_text_color": "string",
-              "banter_color": "string"
+              "banter_color": "string",
+              "marker": {
+                "type": "object",
+                "fields": {
+                  "color": "string",
+                  "outline_color": "string",
+                  "gap_px": "number",
+                  "width_px": "number",
+                  "pulse_px": "number",
+                  "pulse_hz": "number"
+                }
+              }
             }
           },
           "events": {

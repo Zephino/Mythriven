@@ -120,6 +120,20 @@ func test_labors_progress_and_reward() -> void:
 	assert_ne(kit.hud_text(), "")
 
 
+func test_all_labors_done_message_shows_briefly_then_clears() -> void:
+	var player: Player = _hero("heracles")
+	var kit: HeroKit = player.kit
+	kit.set_process(false)
+	for _i: int in (kit.call("labors") as Array).size():
+		kit.set("progress", 1.0e9)
+		kit.call("_check", 1.0)
+	assert_true(kit.call("current_labor").is_empty())
+	kit._process(Data.cfg_float("heroes.labor_banner_s") + 0.1)
+	assert_eq(kit.hud_text(), str(tr("LABORS_ALL_DONE")), "the all-done line shows after the last Labor's banner")
+	kit._process(Data.cfg_float("heroes.labors_all_done_s") + 0.1)
+	assert_eq(kit.hud_text(), "", "then the HUD line clears")
+
+
 func test_salmon_leap_moves_makes_untargetable_and_lands_with_a_shockwave() -> void:
 	var player: Player = _hero("cu_chulainn")
 	var target: int = _spawn(Vector2(48 + 10, 0))

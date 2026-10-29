@@ -6,6 +6,7 @@ var world: WorldRoot
 var chunks: ChunkManager
 var grid: Node2D
 var camera: GameCamera
+var test_label: Label
 
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 	DebugMenu.add_button(self, "DEBUG_RESET_PLAYER", _reset_player)
 	DebugMenu.add_button(self, "DEBUG_TELEPORT_FAR", _teleport_far)
 	DebugMenu.add_check(self, "DEBUG_SHOW_GRID", false, _on_grid_toggled)
+	DebugMenu.add_check(self, "DEBUG_SHOW_TEST_LABEL", false, _on_test_label_toggled)
 	DebugMenu.add_button(self, "DEBUG_FINISH_LABOR", _finish_labor)
 	DebugMenu.add_button(self, "DEBUG_CHANGE_HERO", _change_hero)
 
@@ -79,3 +81,8 @@ func _change_hero() -> void:
 
 func _on_grid_toggled(on: bool) -> void:
 	grid.set("enabled", on)
+
+
+func _on_test_label_toggled(on: bool) -> void:
+	if test_label != null:
+		test_label.visible = on
