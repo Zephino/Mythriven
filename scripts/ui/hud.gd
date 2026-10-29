@@ -64,6 +64,11 @@ func _ready() -> void:
 	_trait_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_trait_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_trait_label)
+	# Bottom-centre, away from the left movement joystick and right god buttons.
+	var suggestion := SuggestionButton.new()
+	suggestion.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 3.0, Data.cfg_float("ui.min_touch_target_px"))
+	root.add_child(suggestion)
+	suggestion.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM, Control.PRESET_MODE_MINSIZE, int(margin_px))
 
 
 func _process(_delta: float) -> void:
