@@ -78,7 +78,8 @@ test("explains common GitHub permission and access failures without leaking secr
     assert.equal(res.status, 502);
     const body = await res.json();
     assert.match(body.error, diagnostic);
-    assert.doesNotMatch(JSON.stringify(body), /test-token|do-not-repeat|1\\.2\\.3\\.4/);
+    assert.doesNotMatch(JSON.stringify(body), /test-token|do-not-repeat/);
+    assert.equal(body.error.includes("1.2.3.4"), false);
     assert.equal(e._data.size, 0);
   }
 });
