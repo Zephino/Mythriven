@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.27
+Date: 10/29/2026
+Time: 5:44 PM
+
+### Changes
+- **Suggest a Feature is back on the main screen.** It was on Hero select, which used to be the first screen; since the title screen arrived (Phase 15) it was hidden one step in. It's now a button on the title screen (and no longer on Hero select), opening the same in-game form. README updated.
+
+### Reason
+The owner asked where the suggestion button went.
+
 ## Version 00.01.26
 Date: 10/29/2026
 Time: 4:04 PM

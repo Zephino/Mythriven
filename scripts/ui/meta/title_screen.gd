@@ -1,7 +1,8 @@
 class_name TitleScreen
 extends MenuScreen
 ## The title screen (GAME_DESIGN.md: Screens / Title): Play, Hall of Legends,
-## Co-op, Leaderboard, Settings, and Quit (on every platform; progress is
+## Co-op, Leaderboard, Settings, Suggest a Feature (the owner's in-game
+## suggestion form, on the main screen only), and Quit (on every platform; progress is
 ## already saved). In a browser the page asks to close its tab; browsers
 ## usually only allow that for tabs a script opened, so it then says the tab
 ## can be closed. Shows the banked gold and the version.
@@ -32,6 +33,7 @@ func build() -> void:
 	add_button(tr_key("UI_HALL_OF_LEGENDS"), func() -> void: open_child(HallScreen.new_for(flow)))
 	add_button(tr_key("UI_LEADERBOARD"), func() -> void: open_overlay(LeaderboardScreen.new()))
 	add_button(tr_key("UI_SETTINGS"), func() -> void: open_child(SettingsScreen.new()))
+	add_button(tr_key("UI_SUGGEST_FEATURE"), func() -> void: open_overlay(SuggestionForm.new()))
 	add_button(tr_key("UI_QUIT_GAME"), _on_quit)
 	add_line(tr_key("UI_GOLD_BANKED") % SaveGame.gold())
 	add_line(tr_key("UI_VERSION_LABEL") % ProjectSettings.get_setting("application/config/version", ""))

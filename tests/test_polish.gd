@@ -147,3 +147,11 @@ func test_the_title_screen_always_has_quit() -> void:
 	title.refresh()
 	assert_true(title._rows.get_child(0) is Label and (title._rows.get_child(0) as Label).text.contains("close this tab"),
 		"in a browser it says the tab can be closed")
+
+
+func test_suggest_a_feature_is_on_the_title_screen() -> void:
+	var title: TitleScreen = add_child_autofree(TitleScreen.new_for(null))
+	var texts: Array[String] = []
+	for button: Control in title._buttons:
+		texts.append((button as Button).text)
+	assert_has(texts, TranslationServer.translate("UI_SUGGEST_FEATURE"))
