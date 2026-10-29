@@ -27,10 +27,10 @@ static func read_url() -> String:
 
 
 static func suggestion_url() -> String:
-  var base: String = API_BASE_URL.strip_edges().trim_suffix("/")
-  if base.is_empty():
-    return ""
-  return base + "/suggestions"
+	var base: String = API_BASE_URL.strip_edges().trim_suffix("/")
+	if base.is_empty():
+		return ""
+	return base + "/suggestions"
 
 
 static func can_post() -> bool:
