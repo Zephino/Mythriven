@@ -160,10 +160,24 @@ locally only to categorize the browser and OS. The fields are client-reported
 diagnostics and are not trusted for security decisions. Older game builds
 without this metadata remain supported.
 
+**Suggestion input security:** Suggestion submissions use Workers KV counters and
+the GitHub Issues JSON API; there are **no SQL queries or SQL database** in
+this feature, so SQL injection is not an applicable attack path today. The
+Worker validates an explicit category allowlist, title/description lengths,
+request byte limits, and the spam honeypot *server-side* regardless of any
+client-side form controls. It normalizes/removes nonprinting control and
+bidirectional-spoofing characters, collapses title newlines, and escapes user
+text for GitHub Markdown so issue bodies cannot impersonate headings or
+inject HTML formatting. Quotes, semicolons and SQL-looking phrases are kept
+as ordinary text, not treated as executable commands. If future development
+adds any SQL database, use **parameterized queries/prepared statements**
+for every user-controlled value; escaping/keyword filtering is not a substitute.
+
 **Practical limits:** Each address can submit up to three suggestions per UTC
 day; there's also a site-wide daily cap of 40. These KV-based counters are
 best-effort, not a substitute for CAPTCHA or stronger bot protection if the
-game attracts abuse. The service sends no player identity or device details
-to GitHub; the submission text and category appear in a **public** Issue.
+game attracts abuse. The service sends no player identity or device identifier
+to GitHub; the suggestion text, category, and the coarse environment details
+shown in the form appear in a **public** Issue.
 The Worker uses a per-day hash of the connecting IP for its temporary limits.
 Do not put private information in suggestions.
