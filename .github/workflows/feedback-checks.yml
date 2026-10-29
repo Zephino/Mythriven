@@ -6,6 +6,7 @@ on:
       - 'scripts/ui/suggestion_*.gd'
       - 'scripts/ui/hero_select.gd'
       - 'scripts/net/online_config.gd'
+      - 'scripts/net/suggestion_environment.gd'
       - 'localization/text.csv'
       - 'leaderboard-api/**'
       - '.github/workflows/feedback-checks.yml'
