@@ -16,6 +16,18 @@ func before_each() -> void:
 
 func after_each() -> void:
 	GameAuthority.end_scene()
+	if LocalLeaderboard.path_override != "":
+		DirAccess.remove_absolute(LocalLeaderboard.path_override)
+		LocalLeaderboard.path_override = ""
+
+
+func _use_scratch_board() -> void:
+	LocalLeaderboard.path_override = "user://test_leaderboard_local.json"
+	DirAccess.remove_absolute(LocalLeaderboard.path_override)
+
+
+func _score(player_name: String, time_s: int, level: int, kills: int) -> Dictionary:
+	return {"name": player_name, "hero": "heracles", "time_s": time_s, "level": level, "kills": kills, "weapons": [], "passives": []}
 
 
 func test_names_keep_only_safe_characters_and_are_cut_to_12() -> void:
@@ -67,3 +79,44 @@ func test_unknown_ids_still_show() -> void:
 			"weapons": [{"id": "future_weapon", "level": 4}], "passives": []})
 	assert_string_contains(text, "someone_new")
 	assert_string_contains(text, "future_weapon")
+
+
+func test_local_board_keeps_the_best_runs_in_order_and_saves_them() -> void:
+	_use_scratch_board()
+	assert_true(LocalLeaderboard.load_entries().is_empty())
+	assert_true(LocalLeaderboard.add(_score("Ari", 600, 20, 900)))
+	assert_true(LocalLeaderboard.add(_score("Bo", 900, 25, 1200)))
+	assert_true(LocalLeaderboard.add(_score("Cy", 600, 22, 100)), "same time, higher level ranks higher")
+	assert_true(LocalLeaderboard.add(_score("Ari", 600, 20, 900)), "the same run twice")
+	var names: Array = LocalLeaderboard.load_entries().map(func(row: Dictionary) -> String: return str(row["name"]))
+	assert_eq(names, ["Bo", "Cy", "Ari"], "longest time first, then level; duplicates kept once")
+
+
+func test_local_board_keeps_only_the_top_rows() -> void:
+	_use_scratch_board()
+	var keep: int = Data.cfg_int("leaderboard.local_max_entries")
+	for i: int in keep:
+		LocalLeaderboard.add(_score("P%d" % i, 100 + i, 1, 0))
+	assert_false(LocalLeaderboard.add(_score("Slow", 50, 1, 0)), "too short for a full board")
+	assert_true(LocalLeaderboard.add(_score("Fast", 5000, 1, 0)))
+	var rows: Array[Dictionary] = LocalLeaderboard.load_entries()
+	assert_eq(rows.size(), keep)
+	assert_eq(str(rows[0]["name"]), "Fast")
+
+
+func test_until_online_scores_are_set_up_scores_go_to_this_device() -> void:
+	if not LeaderboardClient.is_local():
+		pass_test("online scores are set up")
+		return
+	_use_scratch_board()
+	var client := LeaderboardClient.new()
+	add_child_autofree(client)
+	watch_signals(client)
+	client.send(_score("Ari", 700, 21, 800))
+	await wait_for_signal(client.score_sent, 1.0)
+	assert_signal_emitted_with_parameters(client, "score_sent", [true, ""])
+	client.fetch()
+	await wait_for_signal(client.board_loaded, 1.0)
+	var params: Array = get_signal_parameters(client, "board_loaded")
+	assert_eq((params[0] as Array).size(), 1)
+	assert_eq(params[1], "")

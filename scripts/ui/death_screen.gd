@@ -69,9 +69,9 @@ func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: 
 	_name.text = LeaderboardEntry.load_name()
 	if not allowed:
 		_board_status.text = tr("UI_LB_DEBUG_USED") if not entry.is_empty() else ""
-	elif not OnlineConfig.can_post():
-		_board_status.text = tr("UI_LB_OFFLINE")
-		_submit.disabled = true
+	elif LeaderboardClient.is_local():
+		_board_status.text = tr("UI_LB_LOCAL_NOTE")
+		_submit.disabled = false
 	else:
 		_board_status.text = ""
 	_link_focus()
@@ -100,7 +100,10 @@ func _on_score_sent(accepted: bool, error: String) -> void:
 		_board_status.text = tr("UI_LB_SEND_FAILED") % error
 		_submit.disabled = false
 		return
-	_board_status.text = tr("UI_LB_SENT") if accepted else tr("UI_LB_NOT_PLACED")
+	if LeaderboardClient.is_local():
+		_board_status.text = tr("UI_LB_SAVED_LOCAL") if accepted else tr("UI_LB_NOT_PLACED_LOCAL")
+	else:
+		_board_status.text = tr("UI_LB_SENT") if accepted else tr("UI_LB_NOT_PLACED")
 
 
 func _on_view_board() -> void:

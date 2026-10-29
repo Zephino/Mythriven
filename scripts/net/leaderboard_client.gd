@@ -1,8 +1,9 @@
 class_name LeaderboardClient
 extends Node
-## Talks to the shared leaderboard: reads the board (from the Worker, or from
-## GitHub's `data` branch before the Worker is set up) and sends one score to
-## the Worker. Never holds a GitHub key (see leaderboard-api/README.md).
+## Talks to the shared leaderboard: reads the board from the Worker and sends
+## one score to it. Never holds a GitHub key (see leaderboard-api/README.md).
+## Until the Worker is set up, scores go to the board on this device instead
+## (LocalLeaderboard), with the same signals.
 ## Keeps working while the game is paused (death and level-up screens pause it).
 
 signal board_loaded(entries: Array[Dictionary], error: String)
@@ -18,7 +19,15 @@ func _ready() -> void:
 	_sender = _make_request(_on_send_done)
 
 
+## True while scores are kept on this device (online scores aren't set up yet).
+static func is_local() -> bool:
+	return not OnlineConfig.can_post()
+
+
 func fetch() -> void:
+	if is_local():
+		board_loaded.emit.call_deferred(LocalLeaderboard.load_entries(), "")
+		return
 	_reader.cancel_request()
 	var err: Error = _reader.request(OnlineConfig.read_url(), PackedStringArray(["Accept: application/json"]))
 	if err != OK:
@@ -27,8 +36,8 @@ func fetch() -> void:
 
 
 func send(entry: Dictionary) -> void:
-	if not OnlineConfig.can_post():
-		score_sent.emit(false, TranslationServer.translate("UI_LB_OFFLINE"))
+	if is_local():
+		score_sent.emit.call_deferred(LocalLeaderboard.add(entry), "")
 		return
 	_sender.cancel_request()
 	var headers := PackedStringArray(["Content-Type: application/json", "Accept: application/json"])

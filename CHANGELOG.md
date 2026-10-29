@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.21
+Date: 10/28/2026
+Time: 9:35 PM
+
+### Changes
+- **Local leaderboard.** Until online scores are set up, **Submit score** on the death screen saves your run on this device, and the Leaderboard (from Hero select or the death screen) shows "Leaderboard (this device)" with your best 100 runs: longest time first, then level, then kills, each with its Hero, weapons, and upgrades. Scores stay after closing the game (on the web, in the same browser). Runs that used the debug menu still can't be submitted. Once the online board is set up, the game switches to it automatically.
+- New tests for the local board (159 tests, all passing).
+
+### Reason
+The owner asked for a local leaderboard until the online one is set up.
+
 ## Version 00.01.20
 Date: 10/28/2026
 Time: 9:30 PM

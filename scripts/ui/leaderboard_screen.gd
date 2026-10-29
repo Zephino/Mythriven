@@ -1,6 +1,7 @@
 class_name LeaderboardScreen
 extends CanvasLayer
-## The shared leaderboard (owner request): the best runs from every player,
+## The shared leaderboard (owner request): the best runs from every player
+## (or, until online scores are set up, the best runs on this device),
 ## each with their Hero, time survived, level, kills, weapons, and upgrades.
 ## Opens from Hero select and the death screen. Keyboard, gamepad, and touch
 ## all work; Close is focused first and Esc / B also closes it.
@@ -87,7 +88,7 @@ func _build() -> void:
 	var top := HBoxContainer.new()
 	box.add_child(top)
 	var title := Label.new()
-	title.text = "UI_LEADERBOARD"
+	title.text = "UI_LEADERBOARD_LOCAL" if LeaderboardClient.is_local() else "UI_LEADERBOARD"
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(title)
 	_refresh = Button.new()

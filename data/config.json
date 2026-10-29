@@ -294,7 +294,9 @@
     "max_name_length": 12,
     "request_timeout_s": 15,
     "rows_shown": 100,
-    "profile_file": "user://profile.cfg"
+    "profile_file": "user://profile.cfg",
+    "local_file": "user://leaderboard_local.json",
+    "local_max_entries": 100
   },
 
   "economy": {

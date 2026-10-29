@@ -39,7 +39,7 @@ The current build covers **Phases 1–6 and 8–14** of the plan, plus early Pha
 - **Eight gods**: Tyche, Cernunnos, Thor, Skadi, Sekhmet, Poseidon, Ra, and the Morrígan, found at shrines (some must be won in a Duel, Endurance, or Chase trial), each with a Blessing and a summon on its own button. Pairs that belong together form a **Divine Resonance**, and gods can **infuse** your weapons with their element.
 - **Three bosses**: Medusa (10:00), Achilles (20:00, who joins your Heroes when defeated), and Kronos (30:00), then the Unraveling.
 - **Discoveries**: Ancient Ruins, Dragon's Hoards, Monster's Lairs, Hidden Shrines, and the Wandering Trader, with a compass at the screen edge.
-- **A shared leaderboard.** Submit your run with a name and see the best 100 runs from every player, with each run's Hero, weapons, and upgrades. The board is public on the [`data` branch](https://github.com/Zephino/Mythriven/blob/data/leaderboard.json).
+- **A shared leaderboard.** Submit your run with a name and see the best 100 runs from every player, with each run's Hero, weapons, and upgrades. The board is public on the [`data` branch](https://github.com/Zephino/Mythriven/blob/data/leaderboard.json). Until online scores are set up, the board is kept on your own device instead.
 - **A swarm that never stops.** Enemies never stack and there are no invulnerability frames, so standing still in a crowd is fatal.
 
 Everything still uses simple placeholder shapes and colours until the art pass (Phase 19), and all numbers are early placeholders.

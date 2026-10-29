@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.20` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.21` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** in the debug menu, turn on **Show translation test line**; the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -127,7 +127,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.
-2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, it says "Online scores aren't switched on yet."
+2. Die without touching F1: the death screen has a name box and **Submit score**. Until the owner setup in `leaderboard-api/README.md` is done, scores are saved on this device (00.01.21): it says so, **Submit score** → "Score saved!", and **Leaderboard** is titled "Leaderboard (this device)" and lists your saved runs, best first. They're still there after closing and reopening the game (on the web, in the same browser).
 3. After setup: type a name, **Submit score** → "Score submitted!"; **Leaderboard** lists it with the Hero, weapons, and upgrades. Within a few minutes it also appears in `leaderboard.json` on the `data` branch.
 4. Use any F1 game option (e.g. God mode), then die: the death screen says the run can't go on the leaderboard.
 

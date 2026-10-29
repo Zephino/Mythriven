@@ -271,7 +271,6 @@ UI_LB_NOT_PLACED,Sent. Not in the top 100 this time.
 UI_LB_SEND_FAILED,Couldn't submit the score (%s). Try again.
 UI_LB_NEED_NAME,"Type a name first: letters, numbers, spaces, - or _."
 UI_LB_DEBUG_USED,"Debug options were used this run, so it can't go on the leaderboard."
-UI_LB_OFFLINE,Online scores aren't switched on yet.
 CARD_EXPERT,Expert!
 DEBUG_FINISH_LABOR,Finish the current Labor (Heracles)
 DEBUG_CHANGE_HERO,Back to Hero select
@@ -569,3 +568,7 @@ DEBUG_GIVE_GOLD,Give 500 gold
 DEBUG_CHAOS_SURGE,Start a Chaos Surge
 DEBUG_DIVINE_STORM,Start a Divine Storm
 DEBUG_SHOW_TEST_LABEL,Show translation test line
+UI_LEADERBOARD_LOCAL,Leaderboard (this device)
+UI_LB_LOCAL_NOTE,"Online scores aren't set up yet, so scores are saved on this device."
+UI_LB_SAVED_LOCAL,Score saved! Press Leaderboard to see it.
+UI_LB_NOT_PLACED_LOCAL,Saved. Not in this device's top 100 this time.
