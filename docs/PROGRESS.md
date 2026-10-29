@@ -2,7 +2,7 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phases 10–14 built and playtested by bot; balance pass done (00.01.19); next: full Aegean Shore review, then Phase 15
+**Current phase:** Phase 15 built (00.01.22); building Phases 16–18 (owner asked to build 15–18)
 **Last reviewed with Claude:** (not yet)
 
 ---
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-29 — Phase 15 — Meta, saving, and discovery (Claude)
+- What changed: save file v3 (saved the moment something is earned; temp file + backup; cloud merge rules); gold banking (death 100%, quit 10% after 5:00, force-close = quit); title screen, Hall of Legends (Offerings, Unlocks, Omens, Bestiary, Pantheon Compendium, Hall of Heroes, Codex, Achievements, Oracle), level select with Swift Mode; Hero select with locks, mastery, palettes; 33 achievements, 8 secrets, the Oracle; four Omens; records and the HUD's personal-best marker; death recap with tips; King Arthur, Atalanta, Odysseus; Mirrored Shield, Tyr's Oath, Sling of Lugh.
+- Files touched: scripts/meta/* (save_game, meta_progress autoload "Meta", banking, omen_rules, god_levels, achievement_rules, secret_rules, level_rules, records, rewards, bestiary, run_tracker, death_recap, tip_rules, secret_passives), scripts/ui/meta/* (menus), hero traits shield_wall / the_race / cunning, data (omens, achievements, secrets, tips, heroes, weapons, passives, config), tests (test_meta, test_new_heroes, smoke).
+- Unfinished / next: owner playtest; Phases 16–18.
+
 
 ## 2026-10-29 — Review — Playtest fixes and balance pass (Claude)
 - What changed: bot playtests of full runs with all four starting Heroes. Fixed god Trials running during boss fights (00.01.18) and "Felled by" for gods. Balance (00.01.19, owner approved): slower XP curve (5 + 30 per level, +1.5%), busier first 10 minutes, Väinämöinen 100 HP, lower boss HP and Guard.

@@ -38,12 +38,26 @@ var banish_tokens: int = 0
 var banished: PackedStringArray = []
 ## Points of interest whose state changed: region key -> "cleared" or "looted".
 var poi_state: Dictionary = {}
+## Swift Mode and Omens (Phase 15), set when the run starts. The run arc
+## (Ages, waves, bosses, elites, events) follows arc_s(): run time divided by
+## arc_scale (Swift Mode: 0.7, so the 30:00 boss comes at 21:00).
+var swift: bool = false
+var omens: PackedStringArray = []
+var arc_scale: float = 1.0
+var enemy_speed_mult: float = 1.0
+var spawn_mult: float = 1.0
+var omen_charge_mult: float = 1.0
 
 
 func _init(run_seed: int, level_entry: Dictionary) -> void:
 	seed_value = run_seed
 	level_data = level_entry
 	rng = RunRng.new(run_seed)
+
+
+## Run time on the run arc's clock (equal to elapsed_s except in Swift Mode).
+func arc_s() -> float:
+	return elapsed_s / maxf(arc_scale, 0.01)
 
 
 ## Multiplier on what a kill drops right now (XP and gold).

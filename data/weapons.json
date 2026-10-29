@@ -2896,5 +2896,518 @@
       "radius_px": 48,
       "damage_mult": 0.6
     }
+  },
+  {
+    "id": "excalibur",
+    "name_key": "WEAPON_EXCALIBUR_NAME",
+    "desc_key": "WEAPON_EXCALIBUR_DESC",
+    "element": "physical",
+    "categories": [
+      "blade"
+    ],
+    "targeting": "melee",
+    "pattern": "arc",
+    "signature_of": "king_arthur",
+    "in_level_up_pool": false,
+    "alternate_element": {
+      "every": 3,
+      "element": "holy"
+    },
+    "unlock": {
+      "type": "signature"
+    },
+    "levels": [
+      {
+        "damage": 14,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.0,
+        "arc_deg": 160,
+        "knockback": 90
+      },
+      {
+        "damage": 17,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.05,
+        "arc_deg": 160,
+        "knockback": 90
+      },
+      {
+        "damage": 20,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.05,
+        "arc_deg": 160,
+        "knockback": 90
+      },
+      {
+        "damage": 23,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.1,
+        "arc_deg": 160,
+        "knockback": 90
+      },
+      {
+        "damage": 26,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.1,
+        "arc_deg": 160,
+        "knockback": 90
+      },
+      {
+        "damage": 29,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.15,
+        "arc_deg": 160,
+        "knockback": 90
+      },
+      {
+        "damage": 32,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.15,
+        "arc_deg": 160,
+        "knockback": 90
+      },
+      {
+        "damage": 35,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.2,
+        "arc_deg": 160,
+        "knockback": 90
+      }
+    ],
+    "persists": false,
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "placeholder_color": "#f0e6b0"
+  },
+  {
+    "id": "huntress_bow",
+    "name_key": "WEAPON_HUNTRESS_BOW_NAME",
+    "desc_key": "WEAPON_HUNTRESS_BOW_DESC",
+    "element": "physical",
+    "categories": [
+      "bow"
+    ],
+    "targeting": "targeted",
+    "pattern": "forward",
+    "signature_of": "atalanta",
+    "in_level_up_pool": false,
+    "unlock": {
+      "type": "signature"
+    },
+    "levels": [
+      {
+        "damage": 13,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 1,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      },
+      {
+        "damage": 16,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 1,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 1,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      },
+      {
+        "damage": 22,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 2,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      },
+      {
+        "damage": 25,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 2,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      },
+      {
+        "damage": 28,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 2,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      },
+      {
+        "damage": 31,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 2,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      },
+      {
+        "damage": 34,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 420,
+        "area": 1.0,
+        "knockback": 30,
+        "count": 3,
+        "spread_deg": 6,
+        "speed_px_s": 420,
+        "lifetime_s": 1.2,
+        "radius_px": 3,
+        "pierce": 1
+      }
+    ],
+    "persists": false,
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "placeholder_color": "#9ad86a"
+  },
+  {
+    "id": "great_bow",
+    "name_key": "WEAPON_GREAT_BOW_NAME",
+    "desc_key": "WEAPON_GREAT_BOW_DESC",
+    "element": "physical",
+    "categories": [
+      "bow"
+    ],
+    "targeting": "targeted",
+    "pattern": "forward",
+    "signature_of": "odysseus",
+    "in_level_up_pool": false,
+    "unlock": {
+      "type": "signature"
+    },
+    "levels": [
+      {
+        "damage": 26,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 2
+      },
+      {
+        "damage": 31,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 2
+      },
+      {
+        "damage": 36,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 3
+      },
+      {
+        "damage": 41,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 3
+      },
+      {
+        "damage": 46,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 3
+      },
+      {
+        "damage": 51,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 4
+      },
+      {
+        "damage": 56,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 4
+      },
+      {
+        "damage": 61,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 1,
+        "spread_deg": 4,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 4
+      }
+    ],
+    "persists": false,
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "placeholder_color": "#b07a50"
+  },
+  {
+    "id": "sling_of_lugh",
+    "name_key": "WEAPON_SLING_OF_LUGH_NAME",
+    "desc_key": "WEAPON_SLING_OF_LUGH_DESC",
+    "element": "physical",
+    "categories": [
+      "thrown"
+    ],
+    "targeting": "targeted",
+    "pattern": "forward",
+    "in_level_up_pool": true,
+    "unlock": {
+      "type": "secret",
+      "secret": "lughs_sling"
+    },
+    "levels": [
+      {
+        "damage": 40,
+        "cooldown": 2.0,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      },
+      {
+        "damage": 48,
+        "cooldown": 1.9,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      },
+      {
+        "damage": 56,
+        "cooldown": 1.9,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      },
+      {
+        "damage": 64,
+        "cooldown": 1.8,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      },
+      {
+        "damage": 72,
+        "cooldown": 1.8,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      },
+      {
+        "damage": 80,
+        "cooldown": 1.7,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      },
+      {
+        "damage": 88,
+        "cooldown": 1.7,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      },
+      {
+        "damage": 96,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 380,
+        "area": 1.0,
+        "knockback": 120,
+        "count": 1,
+        "spread_deg": 0,
+        "speed_px_s": 460,
+        "lifetime_s": 1.0,
+        "radius_px": 4,
+        "pierce": 3
+      }
+    ],
+    "persists": false,
+    "_doc": "Phase 15: the signature weapons of King Arthur, Atalanta, and Odysseus, and the Sling of Lugh (secret). All numbers are placeholders.",
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "placeholder_color": "#c8b090"
   }
 ]

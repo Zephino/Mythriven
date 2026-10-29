@@ -80,7 +80,7 @@ func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vecto
 	_age[i] = 0.0
 	_life[i] = float(settings.get("lifetime_s", 1.0))
 	_radius[i] = float(settings.get("radius_px", 4.0)) * player.stats.area_mult() * float(settings.get("area", 1.0))
-	_pierce[i] = int(settings.get("pierce", 0))
+	_pierce[i] = int(settings.get("pierce", 0)) + (player.kit.extra_pierce(weapon) if player.kit != null else 0)
 	_return_after[i] = float(settings.get("return_after_s", 0.0))
 	_weapon[i] = weapon
 	_thrower[i] = player

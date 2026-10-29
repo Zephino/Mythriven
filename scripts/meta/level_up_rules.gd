@@ -52,14 +52,15 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 		var weapons: Variant = Data.get_file(GameAuthority.WEAPONS_FILE)
 		for entry: Variant in (weapons if weapons is Array else []):
 			var weapon_id: String = str(entry["id"])
-			if bool(entry.get("in_level_up_pool", false)) and not owned.has(weapon_id) and not _banished(weapon_id):
+			if bool(entry.get("in_level_up_pool", false)) and not owned.has(weapon_id) and not _banished(weapon_id) \
+					and is_unlocked(entry, "weapons_unlocked"):
 				var new_card: Dictionary = _card(WEAPON_NEW, weapon_id, 0, 1)
 				new_card["expert"] = HeroRules.is_expert(player.hero, entry)
 				cards.append(new_card)
 	var passives: Variant = Data.get_file(PASSIVES_FILE)
 	for entry: Variant in (passives if passives is Array else []):
 		var passive_id: String = str(entry["id"])
-		if _banished(passive_id):
+		if _banished(passive_id) or not is_unlocked(entry, "passives_unlocked"):
 			continue
 		var level: int = int(player.passives.get(passive_id, 0))
 		if level > 0 and level < int(entry["max_level"]):
@@ -67,6 +68,15 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 		elif level == 0 and player.passives.size() < Data.cfg_int("level_up.max_passives"):
 			cards.append(_card(PASSIVE_NEW, passive_id, 0, 1))
 	return cards
+
+
+## False for weapons and passives that must be unlocked first (with gold, an
+## achievement, or a secret) and aren't yet. `section` is the save list.
+static func is_unlocked(entry: Dictionary, section: String) -> bool:
+	var unlock: Variant = entry.get("unlock", {})
+	if not unlock is Dictionary or not ["gold", "achievement", "secret"].has(str(unlock.get("type", ""))):
+		return true
+	return SaveGame.list(section).has(str(entry.get("id", "")))
 
 
 static func stat_cards() -> Array[Dictionary]:

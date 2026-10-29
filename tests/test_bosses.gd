@@ -2,7 +2,7 @@ extends GutTest
 ## Phase 13: the Aegean Shore bosses (timing, arena, Guard gauge, phases,
 ## signatures, telegraphs, rewards, Achilles' unlock), Boons, and the Unraveling.
 
-const TEST_PROFILE := "user://test_profile.cfg"
+const TEST_PROFILE := "user://test_save_scratch.json"
 
 var _world: WorldRoot
 var _enemies: EnemyManager
@@ -12,7 +12,7 @@ var _player: Player
 
 
 func before_each() -> void:
-	Profile.path_override = TEST_PROFILE
+	SaveGame.use_test_file(TEST_PROFILE)
 	DirAccess.remove_absolute(TEST_PROFILE)
 	GameAuthority.start_run("aegean_shore")
 	_world = add_child_autofree(WorldRoot.new())
@@ -39,7 +39,7 @@ func before_each() -> void:
 func after_each() -> void:
 	GameAuthority.end_scene()
 	DirAccess.remove_absolute(TEST_PROFILE)
-	Profile.path_override = ""
+	SaveGame.use_test_file("")
 
 
 func test_bosses_spawn_on_time_even_if_the_last_is_alive() -> void:
@@ -101,7 +101,7 @@ func test_defeating_achilles_unlocks_him_and_saves_at_once() -> void:
 	var boss: BossController = _bosses.spawn_boss("achilles", 1)
 	GameAuthority.kill_enemy(boss.slot, _player)
 	boss._process(0.016)
-	assert_true(Profile.get_list(HeroRules.UNLOCKS_SECTION, HeroRules.UNLOCKS_KEY).has("achilles"), "saved in the profile file")
+	assert_true(SaveGame.list(HeroRules.UNLOCKS_SECTION).has("achilles"), "saved in the save file")
 	assert_true(_unlocked_ids().has("achilles"))
 	assert_false(GameAuthority.run.boss_arena_active, "the arena ends with the last boss")
 

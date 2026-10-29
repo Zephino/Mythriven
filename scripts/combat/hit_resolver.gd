@@ -66,6 +66,8 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 		_apply_status(slot, status_id, push, data, _status_duration(attacker, weapon, status_id))
 	var kind: String = _number_kind(bool(result["crit"]), element_mult) if to_hp > 0.0 else "resist"
 	GameAuthority.enemy_damaged.emit(slot, amount, kind, at)
+	if attacker != null and attacker.is_local:
+		Meta.note_damage_dealt(weapon, amount)
 	if attacker != null and not attacker.god_flags.is_empty() and enemies.active[slot] != 0:
 		Blessings.after_hit(attacker, weapon, slot, element)
 	if weapon != null and weapon.infusion != "" and attacker != null:

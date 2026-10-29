@@ -49,6 +49,11 @@ var projectiles_launched: int = 0
 var rooted_s: float = 0.0
 var slow_zone_mult: float = 1.0
 var extra_projectiles: int = 0
+## Phase 15: Swift Mode projectile speed; the mastery palette colour and an
+## equipped cosmetic aura (alpha 0 = none).
+var projectile_speed_mult: float = 1.0
+var palette_color := Color(0, 0, 0, 0)
+var aura_color := Color(0, 0, 0, 0)
 
 var _shown_hp: float = -1.0
 
@@ -70,7 +75,7 @@ func kit_attack_speed_bonus() -> float:
 
 
 func kit_damage_mult(weapon: WeaponInstance) -> float:
-	return kit.damage_mult(weapon) if kit != null else 1.0
+	return (kit.damage_mult(weapon) if kit != null else 1.0) * SecretPassives.low_hp_mult(self)
 
 
 ## Extra damage with an element from Blessings (e.g. Thor: +15% Lightning).
@@ -126,8 +131,12 @@ func step(direction: Vector2, delta: float) -> void:
 func _draw() -> void:
 	var size_px: float = Data.cfg_float("player.placeholder_size_px")
 	var color := Color.html(str(hero.get("placeholder_color", Data.cfg_string("player.placeholder_color"))))
+	if palette_color.a > 0.0:
+		color = palette_color
 	if not alive:
 		color = Color.html(Data.cfg_string("player.fallen_color"))
+	if aura_color.a > 0.0 and alive:
+		draw_arc(Vector2.ZERO, size_px * 0.95, 0.0, TAU, 24, aura_color, 2.0)
 	draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), color)
 	if invulnerable_s > 0.0:
 		draw_arc(Vector2.ZERO, size_px * 0.9, 0.0, TAU, 20, Color.html(Data.cfg_string("gods.invulnerable_color")), 2.0)

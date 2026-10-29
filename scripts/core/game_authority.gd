@@ -154,7 +154,7 @@ func damage_player(player: Player, amount: float, source_id: String, from: Vecto
 
 ## Burn and Poison on a player: skips Armor.
 func damage_player_over_time(player: Player, amount: float) -> void:
-	if not player.alive or player.god_mode:
+	if not player.alive or player.god_mode or (player.kit != null and player.kit.immune_to_dot()):
 		return
 	player.hp -= amount
 	if player.hp <= 0.0:
@@ -163,7 +163,7 @@ func damage_player_over_time(player: Player, amount: float) -> void:
 
 ## From 30:00, an enemy touching a player can pass on its element's status.
 func status_player_from_enemy(player: Player, element: String) -> void:
-	if element == "" or run == null or run.elapsed_s < Data.cfg_float("combat.player_status_start_s"):
+	if element == "" or run == null or run.arc_s() < Data.cfg_float("combat.player_status_start_s"):
 		return
 	if player.alive and not player.god_mode:
 		player.statuses.apply(Elements.status_of(element))

@@ -107,6 +107,10 @@ func damage() -> float:
 func element() -> String:
 	if infusion != "" and not empowered:
 		return str(Infusions.template(infusion).get("element", data.get("element", Elements.PHYSICAL)))
+	# Every Nth attack can use another element (Excalibur: every 3rd swing is Holy).
+	var alternate: Dictionary = data.get("alternate_element", {})
+	if not alternate.is_empty() and attacks_made > 0 and attacks_made % int(alternate.get("every", 1)) == 0:
+		return str(alternate.get("element", Elements.PHYSICAL))
 	return str(data.get("element", Elements.PHYSICAL))
 
 

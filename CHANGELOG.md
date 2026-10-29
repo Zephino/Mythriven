@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.22
+Date: 10/29/2026
+Time: 12:19 AM
+
+### Changes
+- **Phase 15: Meta, saving, and discovery.**
+  - **Saving.** Progress is kept in a save file and saved the moment something is earned, so closing the game never loses an unlock. A backup is kept in case the file breaks. The save is ready for cross-device cloud sync later.
+  - **Gold between runs.** When you fall you keep all the gold from the run. Quitting from the pause menu keeps none before 5:00 and 10% after. Closing the game mid-run counts as quitting.
+  - **Title screen and Hall of Legends.** Play → choose a level → choose a Hero. The Hall has Offerings (spend gold to raise a god you've bound from level 1 to 10), Unlocks (King Arthur for 1,000 gold; Breeze, Glimmer, and Shade for 300–500; equip cosmetics), Omens, the Bestiary, the Pantheon Compendium (gods, Resonances, and every banter line you've heard), the Hall of Heroes, the Codex, Achievements, and the Oracle.
+  - **New Heroes.** King Arthur (Excalibur; Shield Wall blocks shots when you stand still; immune to burning and poison), Atalanta (Huntress's Bow; The Race: reach golden markers for XP and speed; unlocked by surviving 20:00), and **Odysseus**, a secret Hero (Great Bow; lays traps and leaves a decoy).
+  - **33 achievements** (some unlock things: Omens, Atalanta, the Bladed Discus) and **8 secrets** shown as ??? until found, with a hint from the Oracle every 5 runs. Secrets found so far can give Odysseus, the Mirrored Shield, and cosmetics; the ones for Fenrir, Apep, Balor, and Ferdiad come with their levels.
+  - **Omens** (after surviving 10:00): Haste, Frailty, the Horde, Silent Gods, each adding gold. **Swift Mode** for a level after beating its 30:00 boss: bosses at 7, 14, and 21 minutes, faster everything, more gold.
+  - **Records and mastery.** Best times per Hero, level, and Omen set; the timer shows your best and celebrates passing it. Playing a Hero raises their mastery and unlocks new colours.
+  - **Death recap.** What felled you, what hurt you most in the last 10 seconds, your build and top weapon, gods, gold banked, your best time, anything unlocked, and a tip chosen for how you died.
+  - Weapons and passives that must be unlocked no longer appear on level-up cards until they are.
+  - 21 new automated tests (180 in all, all passing), including closing the game mid-run without losing unlocks and quitting before and after 5:00.
+
+### Reason
+The owner asked to build Phases 15 to 18.
+
 ## Version 00.01.21
 Date: 10/28/2026
 Time: 9:35 PM

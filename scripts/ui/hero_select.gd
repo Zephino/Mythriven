@@ -1,16 +1,22 @@
 class_name HeroSelect
 extends CanvasLayer
 ## Hero select (GAME_DESIGN.md: Screens / Hero select): each Hero with their
-## tradition, role, stats, Legend Trait, passive, and signature weapon. Picking
-## one starts the run. The Leaderboard button shows the shared board.
-## Keyboard, gamepad, and touch all work; the first Hero is focused when the
-## screen opens.
+## tradition, role, stats, Legend Trait, passive, and signature weapon, plus
+## their mastery; locked Heroes show how to unlock them. Picking one starts the
+## run on the level chosen in level select, with the Omens switched on in the
+## Hall of Legends. Color cycles the palettes mastery has unlocked; Back
+## returns to the menus. Keyboard, gamepad, and touch all work; the first Hero
+## is focused when the screen opens.
 
 signal hero_chosen(hero_id: String)
+signal back
+
+var _last_hero: String = ""
+var _palette: Button
 
 
 func _ready() -> void:
-	layer = 60
+	layer = 95
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	var touch: float = Data.cfg_float("ui.min_touch_target_px")
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
@@ -18,7 +24,7 @@ func _ready() -> void:
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(root)
 	var background := ColorRect.new()
-	background.color = Color.html(Data.cfg_string("heroes.select_background"))
+	background.color = Color.html(Data.cfg_string("heroes.menu_background"))
 	background.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.add_child(background)
 	var scroll := ScrollContainer.new()
@@ -29,32 +35,58 @@ func _ready() -> void:
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(box)
 	var title := Label.new()
-	title.text = "UI_CHOOSE_HERO"
+	title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	title.text = tr("UI_CHOOSE_HERO") + "  ·  " + run_line()
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	box.add_child(title)
 	var grid := GridContainer.new()
 	grid.columns = Data.cfg_int("heroes.select_columns")
 	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_child(grid)
 	var buttons: Array[Control] = []
-	for hero: Dictionary in HeroRules.unlocked():
+	for hero: Dictionary in HeroRules.all():
 		var button := Button.new()
 		button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.custom_minimum_size = Vector2(touch * 4.0, touch * 3.0)
-		button.text = describe(hero)
-		button.pressed.connect(_on_pressed.bind(str(hero["id"])))
+		var id: String = str(hero["id"])
+		if HeroRules.is_unlocked(hero):
+			button.text = describe(hero) + "\n" + tr("UI_HERO_MASTERY") % Rewards.mastery(id)
+			button.pressed.connect(_on_pressed.bind(id))
+			button.focus_entered.connect(_remember.bind(id))
+		else:
+			button.text = TranslationServer.translate(str(hero.get("name_key", ""))) + "\n" + unlock_text(hero)
+			button.disabled = true
 		grid.add_child(button)
-		buttons.append(button)
+		if not button.disabled:
+			buttons.append(button)
 	_link_focus(buttons, grid.columns)
+	var row := HBoxContainer.new()
+	row.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	box.add_child(row)
 	var board := Button.new()
 	board.text = "UI_LEADERBOARD"
 	board.custom_minimum_size = Vector2(touch * 3.0, touch)
-	board.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	board.pressed.connect(_on_view_board.bind(board))
-	box.add_child(board)
+	row.add_child(board)
+	var palette := Button.new()
+	_palette = palette
+	palette.text = "UI_HERO_COLOR"
+	palette.custom_minimum_size = Vector2(touch * 3.0, touch)
+	palette.pressed.connect(_on_palette)
+	row.add_child(palette)
+	var back_button := Button.new()
+	back_button.text = "UI_BACK"
+	back_button.custom_minimum_size = Vector2(touch * 3.0, touch)
+	back_button.pressed.connect(_on_back)
+	row.add_child(back_button)
+	board.focus_neighbor_right = board.get_path_to(palette)
+	palette.focus_neighbor_left = palette.get_path_to(board)
+	palette.focus_neighbor_right = palette.get_path_to(back_button)
+	back_button.focus_neighbor_left = back_button.get_path_to(palette)
 	# Down from the bottom row reaches the Leaderboard button; up or down from it returns to the Heroes.
 	for i: int in buttons.size():
 		if i + grid.columns >= buttons.size():
@@ -83,6 +115,53 @@ static func describe(hero: Dictionary) -> String:
 			TranslationServer.translate(str(passive.get("name_key", ""))), TranslationServer.translate(str(passive.get("desc_key", "")))],
 	]
 	return "\n".join(lines)
+
+
+## "Aegean Shore · Swift Mode · Omens: Haste": what the run will be.
+static func run_line() -> String:
+	var parts: PackedStringArray = [TranslationServer.translate(str(GameAuthority.find_level(Meta.selected_level()).get("name_key", "")))]
+	if Meta.swift and LevelRules.swift_unlocked(Meta.selected_level()):
+		parts.append(TranslationServer.translate("UI_SWIFT_MODE"))
+	var omens: PackedStringArray = []
+	for omen: Dictionary in OmenRules.all():
+		if OmenRules.active().has(str(omen.get("id", ""))):
+			omens.append(TranslationServer.translate(str(omen.get("name_key", ""))))
+	if not omens.is_empty():
+		parts.append(TranslationServer.translate("UI_OMENS_ACTIVE") % ", ".join(omens))
+	return " · ".join(parts)
+
+
+## How a locked Hero is unlocked.
+static func unlock_text(hero: Dictionary) -> String:
+	var unlock: Dictionary = hero.get("unlock", {})
+	match str(unlock.get("type", "")):
+		"gold":
+			return TranslationServer.translate("UI_HERO_UNLOCK_GOLD") % int(unlock.get("cost", 0))
+		"achievement":
+			return TranslationServer.translate("UI_HERO_UNLOCK_ACHIEVEMENT") % TranslationServer.translate(
+					"ACH_%s_NAME" % str(unlock.get("achievement", "")).to_upper())
+		"defeat_boss":
+			return TranslationServer.translate("UI_HERO_UNLOCK_BOSS")
+	return TranslationServer.translate("UI_HERO_UNLOCK_SECRET")
+
+
+func _remember(hero_id: String) -> void:
+	_last_hero = hero_id
+
+
+## Cycles the palette of the Hero last selected (more unlock with mastery).
+func _on_palette() -> void:
+	if _last_hero == "":
+		return
+	Rewards.next_palette(_last_hero)
+	var index: int = int((SaveGame.setting("palette", {}) as Dictionary).get(_last_hero, 0))
+	_palette.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_palette.text = tr("UI_HERO_COLOR_N") % [tr(str(HeroRules.find(_last_hero).get("name_key", ""))), index]
+
+
+func _on_back() -> void:
+	back.emit()
+	queue_free()
 
 
 func _on_view_board(board: Button) -> void:

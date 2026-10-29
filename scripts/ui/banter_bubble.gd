@@ -50,6 +50,7 @@ func _ready() -> void:
 func say_line(line: Dictionary) -> void:
 	if line.is_empty() or not Data.cfg_bool("banter.enabled"):
 		return
+	Meta.note_banter(str(line.get("text_key", "")))
 	_queue.append(line)
 	if not _panel.visible:
 		_next()

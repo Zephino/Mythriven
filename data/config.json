@@ -63,8 +63,15 @@
     "_doc": "Hero select and Legend Trait visuals. Each Hero's own numbers are in heroes.json.",
     "select_columns": 2,
     "select_background": "#14121cf0",
+    "menu_background": "#14121c",
     "labor_banner_s": 3.0,
     "labors_all_done_s": 4.0,
+    "shield_scan_px": 160,
+    "shield_color": "#e8e0c0",
+    "race_color": "#ffd24a",
+    "trap_color": "#c08050",
+    "mastery_minutes": [30, 90, 180, 300],
+    "mastery_palettes": ["#e0e0e0", "#6ad0c0", "#c06ad8", "#ffd24a"],
     "leap_shadow_color": "#00000066",
     "leap_ring_color": "#5fbf6aa0"
   },
@@ -110,6 +117,8 @@
     "damage_number_life_s": 0.6,
     "damage_number_rise_px_s": 24,
     "min_touch_target_px": 72,
+    "recap_height_px": 250,
+    "tip_color": "#ffe08a",
     "god_button_min_px": 72,
     "screen_margin_px": 16,
     "banner_offset_px": 96,
@@ -486,7 +495,37 @@
     "sync_rate_hz": 20
   },
 
-  "save": { "save_version": 3, "cloud_sync_min_interval_s": 30, "profile_file": "user://profile.cfg" },
+  "save": { "_doc": "Save file (GAME_DESIGN.md: Save file). profile_file is the Phase 10–14 file, copied into the save once. test_file is used whenever the automated tests run, so they never touch a real save.", "save_version": 3, "cloud_sync_min_interval_s": 30, "file": "user://save.json", "test_file": "user://test_save.json", "profile_file": "user://profile.cfg" },
 
-  "meta": { "oracle_runs_per_hint": 5 }
+  "meta": { "_doc": "The Oracle gives a hint every oracle_runs_per_hint runs. While playing, the run's gold and time are saved every checkpoint_s seconds so a crash counts as a quit.", "oracle_runs_per_hint": 5, "checkpoint_s": 10 },
+
+  "offerings": {
+    "_doc": "Offerings: permanent god levels 1–10 (GAME_DESIGN.md: Offerings). costs[i] is the gold for level i+2. Blessing +10% at levels 2/4/6/8; meter +10% at 3 and 9; summon upgrade at 5 and Ascended form at 10 (each +25% summon strength: placeholder for the per-god upgrades); Harmony +50% at 7.",
+    "costs": [75, 150, 250, 400, 550, 750, 1000, 1300, 1600],
+    "blessing_levels": [2, 4, 6, 8], "blessing_step": 0.1,
+    "meter_levels": [3, 9], "meter_step": 0.1,
+    "summon_levels": [5, 10], "summon_step": 0.25,
+    "harmony_level": 7, "harmony_mult": 1.5
+  },
+
+  "swift": {
+    "_doc": "Swift Mode (GAME_DESIGN.md: Swift Mode): unlocked per level by beating its 30:00 boss. The run arc runs at arc_time_scale (bosses at 7/14/21 min, the Unraveling at 21:00; quitting keeps 10% from 3:30).",
+    "arc_time_scale": 0.7, "enemy_speed_mult": 1.5, "spawn_mult": 1.5, "player_speed_mult": 1.25, "projectile_speed_mult": 1.25, "xp_mult": 1.25, "gold_mult": 1.5
+  },
+
+  "secrets": { "_doc": "Secret conditions (GAME_DESIGN.md: Secret unlocks).", "beggar_king_s": 600, "fortune_gold": 777 },
+
+  "recap": { "_doc": "Death recap: 'most damage in the last N seconds'.", "recent_window_s": 10 },
+
+  "bestiary": { "_doc": "Bestiary: entry on first kill; weakness after weakness_kills; myth after myth_kills.", "weakness_kills": 25, "myth_kills": 100 },
+
+  "cosmetics": {
+    "_doc": "Cosmetics from secrets (GAME_DESIGN.md: Secret unlocks). Placeholder: an aura ring around the Hero in this colour until Phase 19 art. Equip one in the Hall of Legends → Unlocks.",
+    "list": [
+      { "id": "golden_lion_pelt", "name_key": "COSMETIC_GOLDEN_LION_PELT", "color": "#ffd24a" },
+      { "id": "golden_sun_aura", "name_key": "COSMETIC_GOLDEN_SUN_AURA", "color": "#ffb030" },
+      { "id": "fortunes_wheel", "name_key": "COSMETIC_FORTUNES_WHEEL", "color": "#e8c860" },
+      { "id": "the_ford", "name_key": "COSMETIC_THE_FORD", "color": "#6ab0d8" }
+    ]
+  }
 }

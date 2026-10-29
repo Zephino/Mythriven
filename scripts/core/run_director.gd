@@ -45,11 +45,11 @@ func _process(delta: float) -> void:
 	var run: RunState = GameAuthority.run
 	if run == null or run.ended:
 		return
-	var age: String = RunArc.age_at(run.elapsed_s)
+	var age: String = RunArc.age_at(run.arc_s())
 	if age != _age:
 		_age = age
 		GameAuthority.age_changed.emit(age)
-	_tick_elites(run.elapsed_s)
+	_tick_elites(run.arc_s())
 	_tick_hazard(run, delta)
 	_tick_events(run, delta)
 
@@ -87,7 +87,7 @@ func _tick_events(run: RunState, delta: float) -> void:
 		if _event_left_s <= 0.0:
 			_end_event()
 		return
-	if run.boss_arena_active or _events.is_empty() or run.elapsed_s < float(_events[0]["at_s"]):
+	if run.boss_arena_active or _events.is_empty() or run.arc_s() < float(_events[0]["at_s"]):
 		return
 	start_event(str(_events.pop_front()["id"]))
 
@@ -113,7 +113,7 @@ func age() -> String:
 func spawn_elite() -> int:
 	if spawner == null or GameAuthority.run == null:
 		return -1
-	var seconds: float = GameAuthority.run.elapsed_s
+	var seconds: float = GameAuthority.run.arc_s()
 	var allowed: Array[String] = []
 	for type_id: Variant in (_table.get("elites", {}) as Dictionary).get("types", []):
 		var data: Dictionary = _enemy_data(str(type_id))

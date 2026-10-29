@@ -1,0 +1,117 @@
+[
+  {
+    "_doc": "Death recap tips (GAME_DESIGN.md: Death recap). The highest-priority tip whose condition is met is shown; the same tip never shows twice in a row. Original text; needs owner review.",
+    "id": "medusa",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "medusa"
+    },
+    "text_key": "TIP_MEDUSA"
+  },
+  {
+    "id": "achilles",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "achilles"
+    },
+    "text_key": "TIP_ACHILLES"
+  },
+  {
+    "id": "kronos",
+    "priority": 90,
+    "condition": {
+      "type": "killer",
+      "id": "kronos"
+    },
+    "text_key": "TIP_KRONOS"
+  },
+  {
+    "id": "unraveling",
+    "priority": 85,
+    "condition": {
+      "type": "killer",
+      "id": "unraveling"
+    },
+    "text_key": "TIP_UNRAVELING"
+  },
+  {
+    "id": "trial",
+    "priority": 75,
+    "condition": {
+      "type": "killer_prefix",
+      "prefix": "god_"
+    },
+    "text_key": "TIP_TRIAL"
+  },
+  {
+    "id": "hazard",
+    "priority": 70,
+    "condition": {
+      "type": "killer_prefix",
+      "prefix": "hazard_"
+    },
+    "text_key": "TIP_HAZARD"
+  },
+  {
+    "id": "weakness",
+    "priority": 60,
+    "condition": {
+      "type": "killer_weakness_missing"
+    },
+    "text_key": "TIP_WEAKNESS"
+  },
+  {
+    "id": "shrines",
+    "priority": 55,
+    "condition": {
+      "type": "no_gods",
+      "after_s": 150
+    },
+    "text_key": "TIP_SHRINES"
+  },
+  {
+    "id": "keep_moving",
+    "priority": 50,
+    "condition": {
+      "type": "died_before",
+      "seconds": 180
+    },
+    "text_key": "TIP_KEEP_MOVING"
+  },
+  {
+    "id": "status",
+    "priority": 45,
+    "condition": {
+      "type": "killer",
+      "id": "status"
+    },
+    "text_key": "TIP_STATUS"
+  },
+  {
+    "id": "evolutions",
+    "priority": 40,
+    "condition": {
+      "type": "no_evolution_after",
+      "seconds": 900
+    },
+    "text_key": "TIP_EVOLUTIONS"
+  },
+  {
+    "id": "elites",
+    "priority": 10,
+    "condition": {
+      "type": "always"
+    },
+    "text_key": "TIP_ELITES"
+  },
+  {
+    "id": "bank_level_up",
+    "priority": 5,
+    "condition": {
+      "type": "always"
+    },
+    "text_key": "TIP_BANK_LEVEL_UP"
+  }
+]

@@ -53,7 +53,10 @@ static func charge_mult(player: Player, god: Dictionary) -> float:
 		var stacks: Variant = player.kit.get("momentum")
 		if stacks != null and int(stacks) >= int(player.kit.trait_data().get("max_stacks", 10)):
 			mult += Data.cfg_float("gods.momentum_charge_bonus")
-	return mult
+	# Divine Links from a Hero's kit (Atalanta), offerings, and the Omen of Silent Gods.
+	mult += player.kit.charge_bonus() if player.kit != null else 0.0
+	mult += GodLevels.charge_bonus(str(god.get("id", "")))
+	return mult * (GameAuthority.run.omen_charge_mult if GameAuthority.run != null else 1.0)
 
 
 ## Picks the god for a new shrine. `taken` are gods bound or on offer.

@@ -82,6 +82,7 @@ static func apply(player: Player, plan: Dictionary) -> Array[Dictionary]:
 						if not recipe.is_empty():
 							recipe["new"] = EvolutionRules.discover(recipe)
 							evolved.append(recipe)
+							Meta.note_evolution()
 						break
 			"weapon_up":
 				for weapon: WeaponInstance in player.weapons:

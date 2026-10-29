@@ -105,7 +105,7 @@ func spawn(type_id: String, at: Vector2) -> int:
 	kind[slot] = type_index[type_id]
 	positions[slot] = at
 	knockback[slot] = Vector2.ZERO
-	var elapsed: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
+	var elapsed: float = GameAuthority.run.arc_s() if GameAuthority.run != null else 0.0
 	# Bosses have their own HP per boss; time and level growth apply to the rest.
 	var growth: float = 1.0 if bool(data.get("boss", false)) else LevelScaling.hp_mult(LevelScaling.current_level()) * RunArc.hp_mult(elapsed)
 	max_hp[slot] = float(data["hp"]) * growth
@@ -147,7 +147,7 @@ func movement_code(slot: int) -> int:
 
 ## Current move speed: type speed slowed by Chill/Freeze/stuns, raised by Hasted.
 func speed_of(slot: int) -> float:
-	return _type_speed[kind[slot]] * statuses.speed_mult(slot) * elites.speed_mult(slot)
+	return _type_speed[kind[slot]] * statuses.speed_mult(slot) * elites.speed_mult(slot) * (GameAuthority.run.enemy_speed_mult if GameAuthority.run != null else 1.0)
 
 
 ## Multiplier on the damage this enemy deals (Hex, and difficulty from player level).

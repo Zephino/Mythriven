@@ -1,11 +1,13 @@
 class_name DeathScreen
 extends CanvasLayer
-## Shown when every player has fallen: a title, a short summary, the shared
-## leaderboard (type a name, Submit score, or view the board), Retry (same Hero
-## and level), and Change Hero. The full death recap comes in Phase 15.
+## The results screen, shown when every player has fallen: the death recap
+## (DeathRecap: what felled you, your build, progress, new unlocks) and one
+## tip; the leaderboard (type a name, Submit score, or view the board); Retry
+## (same Hero and level), Change Hero, and the Hall of Legends.
 
 var _panel: PanelContainer
 var _summary: Label
+var _tip: Label
 var _name: LineEdit
 var _submit: Button
 var _board_status: Label
@@ -37,9 +39,21 @@ func _ready() -> void:
 	title.text = "UI_FALLEN_TITLE"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(title)
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(touch * 9.0, Data.cfg_float("ui.recap_height_px"))
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	box.add_child(scroll)
 	_summary = Label.new()
 	_summary.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	box.add_child(_summary)
+	_summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_summary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(_summary)
+	_tip = Label.new()
+	_tip.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_tip.custom_minimum_size.x = touch * 9.0
+	_tip.add_theme_color_override("font_color", Color.html(Data.cfg_string("ui.tip_color")))
+	box.add_child(_tip)
 	_name = LineEdit.new()
 	_name.placeholder_text = "UI_LB_NAME_HINT"
 	_name.max_length = Data.cfg_int("leaderboard.max_name_length")
@@ -55,13 +69,15 @@ func _ready() -> void:
 	_add_button(box, "UI_LEADERBOARD", _on_view_board)
 	_retry = _add_button(box, "UI_RETRY", _on_retry)
 	_add_button(box, "UI_CHANGE_HERO", _on_change_hero)
+	_add_button(box, "UI_HALL_OF_LEGENDS", _on_hall)
 	visible = false
 
 
 ## Shows the screen with one line of summary per entry. `entry` is this run's
 ## score (LeaderboardEntry.build); `can_submit` is false when it can't go on the board.
-func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: bool = false) -> void:
+func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: bool = false, tip: String = "") -> void:
 	_summary.text = "\n".join(lines)
+	_tip.text = tr("RECAP_TIP") % tip if tip != "" else ""
 	_entry = entry
 	var allowed: bool = can_submit and not entry.is_empty()
 	_name.visible = allowed
@@ -114,6 +130,13 @@ func _on_view_board() -> void:
 
 func _on_change_hero() -> void:
 	GameAuthority.selected_hero_id = ""
+	Meta.next_screen = "hero_select"
+	_on_retry()
+
+
+func _on_hall() -> void:
+	GameAuthority.selected_hero_id = ""
+	Meta.next_screen = "hall"
 	_on_retry()
 
 

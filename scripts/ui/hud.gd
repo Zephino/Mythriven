@@ -3,7 +3,8 @@ extends CanvasLayer
 ## In-game HUD (GAME_DESIGN.md: Screens / In-game HUD): the XP bar across the
 ## top, the run timer, kills, the level badge (banked level-ups; tap to open
 ## the level-up screen), run gold, a pause button for touch screens, and a
-## line from the Hero's Legend Trait (for Heracles, his current Labor).
+## line from the Hero's Legend Trait (for Heracles, his current Labor). The
+## timer shows the personal best for this Hero and level until it's passed.
 
 var level_up_screen: LevelUpScreen
 var pause_menu: PauseMenu
@@ -14,6 +15,9 @@ var _kills_label: Label
 var _gold_label: Label
 var _badge: Button
 var _trait_label: Label
+## Personal best for this Hero and level (-1 until looked up) and whether this run passed it.
+var _best_s: float = -1.0
+var _passed_best: bool = false
 
 
 func _ready() -> void:
@@ -72,7 +76,7 @@ func _process(_delta: float) -> void:
 		return
 	_xp_bar.max_value = LevelUpRules.xp_to_next(run.level)
 	_xp_bar.value = run.xp
-	_timer_label.text = TextFormat.run_time(run.elapsed_s)
+	_timer_label.text = _timer_text(run)
 	_kills_label.text = tr("UI_KILLS") % run.kills
 	_gold_label.text = tr("UI_GOLD") % roundi(run.gold)
 	var player: Player = GameAuthority.local_player()
@@ -94,3 +98,23 @@ func _make_label() -> Label:
 func _on_badge_pressed() -> void:
 	if level_up_screen != null:
 		level_up_screen.try_open()
+
+
+## The run timer with the personal-best marker for this Hero and level; a
+## short flourish (a banner) plays the moment it's passed.
+func _timer_text(run: RunState) -> String:
+	if _best_s < 0.0:
+		var player: Player = GameAuthority.local_player()
+		var hero_id: String = str(player.hero.get("id", "")) if player != null else ""
+		_best_s = Records.best(hero_id, str(run.level_data.get("id", "")), run.swift)
+	var time: String = TextFormat.run_time(run.elapsed_s)
+	if _best_s <= 0.0:
+		return time
+	if run.elapsed_s > _best_s:
+		if not _passed_best:
+			_passed_best = true
+			var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
+			if banner != null:
+				banner.show_text(tr("UI_NEW_BEST_BANNER"))
+		return time
+	return tr("UI_TIMER_BEST") % [time, TextFormat.run_time(_best_s)]

@@ -34,9 +34,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if auto_spawn and GameAuthority.run != null:
-		var row: Dictionary = RunArc.wave_row(_table, GameAuthority.run.elapsed_s)
+		var row: Dictionary = RunArc.wave_row(_table, GameAuthority.run.arc_s())
 		var base_rate: float = float(row.get("spawns_per_s", Data.cfg_float("enemies.auto_spawn_per_s")))
-		var mult: float = rate_mult * event_mult * poi_mult * LevelScaling.spawn_mult(LevelScaling.current_level())
+		var mult: float = rate_mult * event_mult * poi_mult * GameAuthority.run.spawn_mult * LevelScaling.spawn_mult(LevelScaling.current_level())
 		_spawn_budget += base_rate * mult * delta
 		while _spawn_budget >= 1.0:
 			_spawn_budget -= 1.0

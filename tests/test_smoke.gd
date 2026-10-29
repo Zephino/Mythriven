@@ -3,14 +3,14 @@ extends GutTest
 ## any script error in the systems working together fails the tests. GUT
 ## treats an engine error during a test as a failure.
 
-const TEST_PROFILE := "user://test_profile.cfg"
+const TEST_PROFILE := "user://test_save_scratch.json"
 
 
 var _gut_mode: Node.ProcessMode
 
 
 func before_each() -> void:
-	Profile.path_override = TEST_PROFILE
+	SaveGame.use_test_file(TEST_PROFILE)
 	# The game pauses itself (level-ups, chests); the test runner must keep going.
 	_gut_mode = gut.process_mode
 	gut.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -21,11 +21,11 @@ func after_each() -> void:
 	get_tree().paused = false
 	GameAuthority.selected_hero_id = ""
 	DirAccess.remove_absolute(TEST_PROFILE)
-	Profile.path_override = ""
+	SaveGame.use_test_file("")
 
 
 func test_a_run_plays_through_every_age() -> void:
-	for hero_id: String in ["heracles", "tomoe_gozen"]:
+	for hero_id: String in ["heracles", "tomoe_gozen", "king_arthur", "atalanta", "odysseus"]:
 		GameAuthority.selected_hero_id = hero_id
 		var main: Node = load("res://scenes/main.tscn").instantiate()
 		main.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -50,3 +50,25 @@ func test_a_run_plays_through_every_age() -> void:
 		assert_gt(GameAuthority.enemies.active_count(), 0, "enemies spawned")
 		main.free()
 		await wait_frames(1)
+
+
+func test_the_menus_open_every_page() -> void:
+	var main: Node = load("res://scenes/main.tscn").instantiate()
+	add_child(main)
+	await wait_frames(2)
+	var title: TitleScreen = main.find_children("*", "TitleScreen", true, false)[0]
+	assert_not_null(title)
+	var hall := HallScreen.new_for(title.flow)
+	title.open_child(hall)
+	await wait_frames(1)
+	for page: MenuScreen in [OfferingsScreen.new(), UnlocksScreen.new(), OmensScreen.new(), BestiaryScreen.new(), CompendiumScreen.new(),
+			HeroesHallScreen.new(), AchievementsScreen.new(), OracleScreen.new(), LevelSelectScreen.new_for(title.flow)]:
+		hall.open_child(page)
+		await wait_frames(1)
+		assert_gt(page._rows.get_child_count(), 0, "%s has content" % page.get_script().get_global_name())
+		page.close()
+	title.flow.choose_level("aegean_shore", false)
+	await wait_frames(1)
+	assert_eq(main.find_children("*", "HeroSelect", true, false).size(), 1, "level select leads to Hero select")
+	main.free()
+	await wait_frames(1)

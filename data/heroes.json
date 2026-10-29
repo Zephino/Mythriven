@@ -380,5 +380,165 @@
       "type": "defeat_boss",
       "boss": "achilles"
     }
+  },
+  {
+    "_doc": "Phase 15: King Arthur (1,000 gold), Atalanta (achievement: survive 20:00), and Odysseus (secret: The Beggar King). Stats for Arthur and Atalanta are from the design; Odysseus' stats, passive, and all trait numbers are placeholders that need owner approval.",
+    "id": "king_arthur",
+    "name_key": "HERO_KING_ARTHUR_NAME",
+    "tradition_key": "TRADITION_ARTHURIAN",
+    "role_key": "ROLE_HOLY_DEFENDER",
+    "placeholder_color": "#d8d0b0",
+    "patron_pantheon": "celtic",
+    "care_tier": "A",
+    "lore_source": "Thomas Malory, Le Morte d'Arthur (1485), book 1 ch. 25 (Excalibur and its scabbard: whoever wears it loses no blood); Geoffrey of Monmouth, Historia Regum Britanniae",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 130,
+      "move_speed": 95,
+      "armor": 2,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "excalibur",
+    "expertise": [
+      "blade"
+    ],
+    "trait": {
+      "id": "shield_wall",
+      "name_key": "TRAIT_SHIELD_WALL",
+      "desc_key": "TRAIT_SHIELD_WALL_DESC",
+      "still_s": 0.4,
+      "block_arc_deg": 120,
+      "contact_mult": 0.5
+    },
+    "passive": {
+      "id": "the_scabbard",
+      "name_key": "PASSIVE_THE_SCABBARD",
+      "desc_key": "PASSIVE_THE_SCABBARD_DESC",
+      "regen_pct_per_s": 1.0
+    },
+    "divine_link": {
+      "id": "summon_shield",
+      "shield_pct": 20,
+      "shield_s": 5
+    },
+    "unlock": {
+      "type": "gold",
+      "cost": 1000
+    }
+  },
+  {
+    "id": "atalanta",
+    "name_key": "HERO_ATALANTA_NAME",
+    "tradition_key": "TRADITION_GREEK",
+    "role_key": "ROLE_SWIFT_ARCHER",
+    "placeholder_color": "#9ad86a",
+    "patron_pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Apollodorus, Library 3.9.2; Ovid, Metamorphoses 10.560–707 (the footrace and the golden apples)",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 90,
+      "move_speed": 125,
+      "armor": 0,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "huntress_bow",
+    "expertise": [
+      "bow"
+    ],
+    "trait": {
+      "id": "the_race",
+      "name_key": "TRAIT_THE_RACE",
+      "desc_key": "TRAIT_THE_RACE_DESC",
+      "every_s": 25,
+      "distance_screens": 1.5,
+      "window_s": 6,
+      "marker_radius_px": 14,
+      "xp_level_fraction": 0.5,
+      "haste_pct": 30,
+      "haste_s": 8,
+      "apple_chance": 0.35,
+      "apple_offset_px": 110,
+      "apple_roll_px_s": 45,
+      "apple_radius_px": 8
+    },
+    "passive": {
+      "id": "swift_huntress",
+      "name_key": "PASSIVE_SWIFT_HUNTRESS",
+      "desc_key": "PASSIVE_SWIFT_HUNTRESS_DESC",
+      "move_speed_pct": 15,
+      "bow_pierce": 1
+    },
+    "divine_link": {
+      "id": "race_haste_charges",
+      "charge_bonus": 0.3
+    },
+    "unlock": {
+      "type": "achievement",
+      "achievement": "survive_20"
+    }
+  },
+  {
+    "id": "odysseus",
+    "name_key": "HERO_ODYSSEUS_NAME",
+    "tradition_key": "TRADITION_GREEK",
+    "role_key": "ROLE_TRICKSTER",
+    "placeholder_color": "#b07a50",
+    "patron_pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Homer, Odyssey (book 21: the contest of the bow; books 13–22: his return disguised as a beggar; book 9: the ruse of 'Nobody')",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 110,
+      "move_speed": 100,
+      "armor": 1,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "great_bow",
+    "expertise": [
+      "bow",
+      "blade"
+    ],
+    "trait": {
+      "id": "cunning",
+      "name_key": "TRAIT_CUNNING",
+      "desc_key": "TRAIT_CUNNING_DESC",
+      "still_s": 1.0,
+      "max_traps": 3,
+      "trap_radius_px": 22,
+      "trap_damage": 30,
+      "trap_root_s": 2.0,
+      "disguise_every_s": 20,
+      "disguise_s": 4,
+      "lure_radius_px": 160
+    },
+    "passive": {
+      "id": "many_wiles",
+      "name_key": "PASSIVE_MANY_WILES",
+      "desc_key": "PASSIVE_MANY_WILES_DESC",
+      "luck": 0.1
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "secret",
+      "secret": "the_beggar_king"
+    }
   }
 ]

@@ -5,6 +5,7 @@
     "name_key": "LEVEL_AEGEAN_SHORE_NAME",
     "region": "greek",
     "act": 1,
+    "order": 1,
     "care_tier": "A",
     "tileset": {
       "id": "aegean_shore",

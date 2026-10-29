@@ -2,7 +2,7 @@ extends GutTest
 ## Phase 12: Divine Resonances (pairs, Harmony, the Resonance summon) and
 ## divine infusions (templates, Empowered, automatic names, chests).
 
-const TEST_PROFILE := "user://test_profile.cfg"
+const TEST_PROFILE := "user://test_save_scratch.json"
 
 var _parent: Node2D
 var _enemies: EnemyManager
@@ -13,7 +13,7 @@ var _player: Player
 
 
 func before_each() -> void:
-	Profile.path_override = TEST_PROFILE
+	SaveGame.use_test_file(TEST_PROFILE)
 	DirAccess.remove_absolute(TEST_PROFILE)
 	GameAuthority.start_run("aegean_shore")
 	_parent = add_child_autofree(Node2D.new())
@@ -45,7 +45,7 @@ func before_each() -> void:
 func after_each() -> void:
 	GameAuthority.end_scene()
 	DirAccess.remove_absolute(TEST_PROFILE)
-	Profile.path_override = ""
+	SaveGame.use_test_file("")
 
 
 func test_the_five_launch_resonances_pair_existing_gods() -> void:

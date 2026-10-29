@@ -42,6 +42,14 @@ static func find_pair(god_a: String, god_b: String) -> Dictionary:
 	return {}
 
 
+## A Resonance by id, or {}.
+static func find_id(resonance_id: String) -> Dictionary:
+	for resonance: Dictionary in all():
+		if str(resonance.get("id", "")) == resonance_id:
+			return resonance
+	return {}
+
+
 ## The Resonance `player`'s two bound gods form right now, or {}.
 func active_for(player: Player) -> Dictionary:
 	var ids: PackedStringArray = gods.bound_ids(player)
@@ -64,6 +72,7 @@ func fire(player: Player) -> bool:
 		layer.run_resonance(resonance, player)
 	# Väinämöinen: reactions inside an active Resonance count double for Verses.
 	player.god_flags["resonance_active_until"] = GameAuthority.run.elapsed_s + float((resonance.get("summon", {}) as Dictionary).get("duration_s", 3.0))
+	Meta.note_resonance_fired(str(resonance.get("id", "")))
 	return true
 
 
@@ -71,6 +80,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	var player: Player = GameAuthority.local_player()
 	if player != null and not get_tree().paused and event.is_action_pressed("resonance") and fire(player):
 		get_viewport().set_input_as_handled()
+
+
+## A Harmony value made stronger by `boost` (offering level 7): switches stay
+## as they are, multipliers grow their bonus part, counts round up.
+static func boosted(key: String, value: Variant, boost: float) -> Variant:
+	if value is bool or boost == 1.0:
+		return value
+	if key.ends_with("_mult"):
+		return 1.0 + (float(value) - 1.0) * boost
+	if key.contains("targets"):
+		return ceilf(float(value) * boost)
+	return float(value) * boost
 
 
 func _on_gods_changed(player: Player, _god_id: String) -> void:
@@ -81,8 +102,11 @@ func _on_gods_changed(player: Player, _god_id: String) -> void:
 	if resonance.is_empty():
 		return
 	var harmony: Dictionary = resonance.get("harmony", {})
+	var boost: float = 1.0
+	for god_id: Variant in resonance.get("gods", []):
+		boost = maxf(boost, GodLevels.harmony_mult(str(god_id)))
 	for key: String in harmony:
-		player.god_flags[HARMONY + key] = harmony[key]
+		player.god_flags[HARMONY + key] = boosted(key, harmony[key], boost)
 	if Profile.add_to_list(EvolutionRules.CODEX_SECTION, PROFILE_KEY, str(resonance["id"])):
 		var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 		if banner != null:

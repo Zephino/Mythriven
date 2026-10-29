@@ -1,5 +1,6 @@
 extends Node
-## Main scene. Builds the run: the endless ground (Phase 3), pooled enemies
+## Main scene. Without a Hero chosen it shows the menus (MenuFlow: title,
+## Hall of Legends, level select, Hero select). Then it builds the run: the endless ground (Phase 3), pooled enemies
 ## and their spawner (Phase 4), weapons, projectiles, attack effects, and
 ## damage numbers (Phase 5–6), XP orbs, the HUD, and the level-up screen
 ## (Phase 6), one local player that moves with keyboard,
@@ -22,13 +23,12 @@ func _ready() -> void:
 	if hero_id != "" and not HeroRules.find(hero_id).is_empty():
 		_start()
 		return
-	var select := HeroSelect.new()
-	select.hero_chosen.connect(_on_hero_chosen)
-	add_child(select)
+	var menus := MenuFlow.new()
+	menus.start.connect(_on_hero_chosen)
+	add_child(menus)
 
 
-func _on_hero_chosen(hero_id: String) -> void:
-	GameAuthority.selected_hero_id = hero_id
+func _on_hero_chosen(_hero_id: String) -> void:
 	_start()
 
 
@@ -39,7 +39,7 @@ func _start() -> void:
 
 
 func _build_world(joystick: TouchJoystick) -> void:
-	var run: RunState = GameAuthority.start_run(Data.cfg_string("run.default_level"))
+	var run: RunState = GameAuthority.start_run(Meta.selected_level())
 	var world := WorldRoot.new()
 	world.name = "World"
 	add_child(world)
@@ -150,29 +150,12 @@ func _exit_tree() -> void:
 
 func _on_run_ended(run: RunState) -> void:
 	_level_up.close()
-	var log_path: String = RunLog.write(run, GameAuthority.players)
-	var lines: PackedStringArray = [tr("UI_SURVIVED") % TextFormat.run_time(run.elapsed_s)]
-	lines.append(tr("UI_RESULTS_LINE") % [run.level, run.kills])
+	RunLog.write(run, GameAuthority.players)
+	# Meta built the death recap when the run ended (it listens first).
+	var lines: PackedStringArray = Meta.last_recap.get("lines", PackedStringArray())
 	var player: Player = GameAuthority.local_player()
-	var killer_key: String = _killer_name_key(player.cause_of_death) if player != null else ""
-	if killer_key != "":
-		lines.append(tr("UI_FELLED_BY") % tr(killer_key))
-	if log_path != "":
-		lines.append(tr("UI_RUN_LOG_SAVED"))
 	var entry: Dictionary = LeaderboardEntry.build(run, player, "") if player != null else {}
-	_death_screen.show_summary(lines, entry, LeaderboardEntry.can_submit(run))
-
-
-## Name to show for what ended the run: an enemy, a god's trial ("god_<id>"),
-## or the Unraveling. Empty when there's nothing to name.
-func _killer_name_key(cause: String) -> String:
-	if _enemies.type_index.has(cause):
-		return str(_enemies.types[_enemies.type_index[cause]]["name_key"])
-	if cause.begins_with("god_"):
-		return str(GodRules.find(cause.trim_prefix("god_")).get("name_key", ""))
-	if cause == "unraveling":
-		return "AGE_UNRAVELING_NAME"
-	return ""
+	_death_screen.show_summary(lines, entry, LeaderboardEntry.can_submit(run), str(Meta.last_recap.get("tip", "")))
 
 
 func _build_ui(joystick: TouchJoystick) -> void:

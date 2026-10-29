@@ -121,7 +121,10 @@ func _process(delta: float) -> void:
 			continue
 		for player: Player in GameAuthority.players:
 			if player.alive and player.position.distance_to(_pos[i]) <= _radius[i] + hurtbox:
-				GameAuthority.damage_player(player, _damage[i], _source[i], _pos[i])
+				# King Arthur's shield blocks it; the Mirrored Shield may send it back.
+				var blocked: bool = player.kit != null and player.kit.blocks_shot(_pos[i])
+				if not blocked and not SecretPassives.reflects(player, _pos[i], _damage[i]):
+					GameAuthority.damage_player(player, _damage[i], _source[i], _pos[i])
 				_remove(i)
 				break
 	queue_redraw()

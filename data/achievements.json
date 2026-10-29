@@ -1,0 +1,348 @@
+[
+  {
+    "id": "survive_5",
+    "name_key": "ACH_SURVIVE_5_NAME",
+    "desc_key": "ACH_SURVIVE_5_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 300
+    },
+    "persists": true,
+    "_doc": "Achievements (GAME_DESIGN.md: Collections / Achievements, ~30 at launch). Names say what to do (no invented names). Rewards from the design: Survive 20:00 unlocks Atalanta; Trigger 4 different Resonances unlocks the Bladed Discus. Survive 10:00 unlocks Omens (design: Omens unlock after first reaching 10:00). The rest have no reward yet. List and numbers need owner approval."
+  },
+  {
+    "id": "survive_10",
+    "name_key": "ACH_SURVIVE_10_NAME",
+    "desc_key": "ACH_SURVIVE_10_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 600
+    },
+    "persists": true,
+    "reward": {
+      "type": "omens",
+      "id": "all"
+    }
+  },
+  {
+    "id": "survive_20",
+    "name_key": "ACH_SURVIVE_20_NAME",
+    "desc_key": "ACH_SURVIVE_20_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 1200
+    },
+    "persists": true,
+    "reward": {
+      "type": "hero",
+      "id": "atalanta"
+    }
+  },
+  {
+    "id": "survive_30",
+    "name_key": "ACH_SURVIVE_30_NAME",
+    "desc_key": "ACH_SURVIVE_30_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 1800
+    },
+    "persists": true
+  },
+  {
+    "id": "survive_35",
+    "name_key": "ACH_SURVIVE_35_NAME",
+    "desc_key": "ACH_SURVIVE_35_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 2100
+    },
+    "persists": true
+  },
+  {
+    "id": "kills_1000",
+    "name_key": "ACH_KILLS_1000_NAME",
+    "desc_key": "ACH_KILLS_1000_DESC",
+    "condition": {
+      "type": "kills_total",
+      "count": 1000
+    },
+    "persists": true
+  },
+  {
+    "id": "kills_10000",
+    "name_key": "ACH_KILLS_10000_NAME",
+    "desc_key": "ACH_KILLS_10000_DESC",
+    "condition": {
+      "type": "kills_total",
+      "count": 10000
+    },
+    "persists": true
+  },
+  {
+    "id": "kills_100000",
+    "name_key": "ACH_KILLS_100000_NAME",
+    "desc_key": "ACH_KILLS_100000_DESC",
+    "condition": {
+      "type": "kills_total",
+      "count": 100000
+    },
+    "persists": true
+  },
+  {
+    "id": "kills_run_5000",
+    "name_key": "ACH_KILLS_RUN_5000_NAME",
+    "desc_key": "ACH_KILLS_RUN_5000_DESC",
+    "condition": {
+      "type": "kills_run",
+      "count": 5000
+    },
+    "persists": true
+  },
+  {
+    "id": "level_25",
+    "name_key": "ACH_LEVEL_25_NAME",
+    "desc_key": "ACH_LEVEL_25_DESC",
+    "condition": {
+      "type": "level_run",
+      "level": 25
+    },
+    "persists": true
+  },
+  {
+    "id": "level_50",
+    "name_key": "ACH_LEVEL_50_NAME",
+    "desc_key": "ACH_LEVEL_50_DESC",
+    "condition": {
+      "type": "level_run",
+      "level": 50
+    },
+    "persists": true
+  },
+  {
+    "id": "bind_first",
+    "name_key": "ACH_BIND_FIRST_NAME",
+    "desc_key": "ACH_BIND_FIRST_DESC",
+    "condition": {
+      "type": "gods_bound",
+      "count": 1
+    },
+    "persists": true
+  },
+  {
+    "id": "bind_all",
+    "name_key": "ACH_BIND_ALL_NAME",
+    "desc_key": "ACH_BIND_ALL_DESC",
+    "condition": {
+      "type": "gods_bound",
+      "count": 8
+    },
+    "persists": true
+  },
+  {
+    "id": "resonance_first",
+    "name_key": "ACH_RESONANCE_FIRST_NAME",
+    "desc_key": "ACH_RESONANCE_FIRST_DESC",
+    "condition": {
+      "type": "resonances_fired",
+      "count": 1
+    },
+    "persists": true
+  },
+  {
+    "id": "resonances_4",
+    "name_key": "ACH_RESONANCES_4_NAME",
+    "desc_key": "ACH_RESONANCES_4_DESC",
+    "condition": {
+      "type": "resonances_fired",
+      "count": 4
+    },
+    "persists": true,
+    "reward": {
+      "type": "weapon",
+      "id": "bladed_discus"
+    }
+  },
+  {
+    "id": "resonances_5",
+    "name_key": "ACH_RESONANCES_5_NAME",
+    "desc_key": "ACH_RESONANCES_5_DESC",
+    "condition": {
+      "type": "resonances_fired",
+      "count": 5
+    },
+    "persists": true
+  },
+  {
+    "id": "evolve_first",
+    "name_key": "ACH_EVOLVE_FIRST_NAME",
+    "desc_key": "ACH_EVOLVE_FIRST_DESC",
+    "condition": {
+      "type": "evolutions",
+      "count": 1
+    },
+    "persists": true
+  },
+  {
+    "id": "evolve_8",
+    "name_key": "ACH_EVOLVE_8_NAME",
+    "desc_key": "ACH_EVOLVE_8_DESC",
+    "condition": {
+      "type": "evolutions",
+      "count": 8
+    },
+    "persists": true
+  },
+  {
+    "id": "infuse_first",
+    "name_key": "ACH_INFUSE_FIRST_NAME",
+    "desc_key": "ACH_INFUSE_FIRST_DESC",
+    "condition": {
+      "type": "infusions",
+      "count": 1
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_medusa",
+    "name_key": "ACH_BOSS_MEDUSA_NAME",
+    "desc_key": "ACH_BOSS_MEDUSA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "medusa"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_achilles",
+    "name_key": "ACH_BOSS_ACHILLES_NAME",
+    "desc_key": "ACH_BOSS_ACHILLES_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "achilles"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_kronos",
+    "name_key": "ACH_BOSS_KRONOS_NAME",
+    "desc_key": "ACH_BOSS_KRONOS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "kronos"
+    },
+    "persists": true
+  },
+  {
+    "id": "bosses_10",
+    "name_key": "ACH_BOSSES_10_NAME",
+    "desc_key": "ACH_BOSSES_10_DESC",
+    "condition": {
+      "type": "bosses_total",
+      "count": 10
+    },
+    "persists": true
+  },
+  {
+    "id": "elites_50",
+    "name_key": "ACH_ELITES_50_NAME",
+    "desc_key": "ACH_ELITES_50_DESC",
+    "condition": {
+      "type": "elites_total",
+      "count": 50
+    },
+    "persists": true
+  },
+  {
+    "id": "bestiary_10",
+    "name_key": "ACH_BESTIARY_10_NAME",
+    "desc_key": "ACH_BESTIARY_10_DESC",
+    "condition": {
+      "type": "bestiary",
+      "count": 10
+    },
+    "persists": true
+  },
+  {
+    "id": "offering_5",
+    "name_key": "ACH_OFFERING_5_NAME",
+    "desc_key": "ACH_OFFERING_5_DESC",
+    "condition": {
+      "type": "offering_level",
+      "level": 5
+    },
+    "persists": true
+  },
+  {
+    "id": "offering_10",
+    "name_key": "ACH_OFFERING_10_NAME",
+    "desc_key": "ACH_OFFERING_10_DESC",
+    "condition": {
+      "type": "offering_level",
+      "level": 10
+    },
+    "persists": true
+  },
+  {
+    "id": "gold_5000",
+    "name_key": "ACH_GOLD_5000_NAME",
+    "desc_key": "ACH_GOLD_5000_DESC",
+    "condition": {
+      "type": "gold_banked_total",
+      "count": 5000
+    },
+    "persists": true
+  },
+  {
+    "id": "omen_10",
+    "name_key": "ACH_OMEN_10_NAME",
+    "desc_key": "ACH_OMEN_10_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 600,
+      "omens": 1
+    },
+    "persists": true
+  },
+  {
+    "id": "omens_all_10",
+    "name_key": "ACH_OMENS_ALL_10_NAME",
+    "desc_key": "ACH_OMENS_ALL_10_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 600,
+      "omens": 4
+    },
+    "persists": true
+  },
+  {
+    "id": "swift_10",
+    "name_key": "ACH_SWIFT_10_NAME",
+    "desc_key": "ACH_SWIFT_10_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 600,
+      "swift": true
+    },
+    "persists": true
+  },
+  {
+    "id": "runs_25",
+    "name_key": "ACH_RUNS_25_NAME",
+    "desc_key": "ACH_RUNS_25_DESC",
+    "condition": {
+      "type": "runs",
+      "count": 25
+    },
+    "persists": true
+  },
+  {
+    "id": "heroes_6",
+    "name_key": "ACH_HEROES_6_NAME",
+    "desc_key": "ACH_HEROES_6_DESC",
+    "condition": {
+      "type": "heroes",
+      "count": 6
+    },
+    "persists": true
+  }
+]

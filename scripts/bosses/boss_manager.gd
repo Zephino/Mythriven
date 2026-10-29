@@ -113,7 +113,7 @@ func _process(_delta: float) -> void:
 	var run: RunState = GameAuthority.run
 	if run == null or run.ended:
 		return
-	while not _schedule.is_empty() and run.elapsed_s >= float(_schedule[0]["time_s"]):
+	while not _schedule.is_empty() and run.arc_s() >= float(_schedule[0]["time_s"]):
 		var next: Dictionary = _schedule.pop_front()
 		spawn_boss(str(next["id"]), int(next["index"]))
 	if run.boss_arena_active:
@@ -169,9 +169,9 @@ func _on_defeated(controller: BossController) -> void:
 		gold.drop_pile(at, float(milestone[mini(index, milestone.size() - 1)]), Data.cfg_int("pickups.pile_coins") * 2)
 	var hero_id: String = str(controller.data.get("unlocks_hero", ""))
 	if hero_id != "" and HeroRules.unlock(hero_id):
-		var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
-		if banner != null:
-			banner.show_text(tr("HERO_UNLOCKED") % tr(str(HeroRules.find(hero_id).get("name_key", ""))))
+		Meta.note_unlock(tr("HERO_UNLOCKED") % tr(str(HeroRules.find(hero_id).get("name_key", ""))))
+	Meta.note_boss_defeated(str(controller.data.get("enemy", boss_id)), index,
+			str(controller.call("secret_earned")) if controller.has_method("secret_earned") else "")
 	if index == 2 and unraveling != null:
 		unraveling.begin()
 	boss_defeated.emit(boss_id)

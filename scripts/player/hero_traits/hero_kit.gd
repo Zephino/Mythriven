@@ -10,6 +10,9 @@ const KITS: Dictionary = {
 	"song_of_power": "res://scripts/player/hero_traits/song_of_power.gd",
 	"cavalry_charge": "res://scripts/player/hero_traits/cavalry_charge.gd",
 	"the_heel": "res://scripts/player/hero_traits/the_heel.gd",
+	"shield_wall": "res://scripts/player/hero_traits/shield_wall.gd",
+	"the_race": "res://scripts/player/hero_traits/the_race.gd",
+	"cunning": "res://scripts/player/hero_traits/cunning.gd",
 }
 
 var player: Player
@@ -70,6 +73,31 @@ func incoming_damage(amount: float) -> float:
 ## Like incoming_damage, but knowing where the hit came from (Vector2.INF when unknown).
 func incoming_damage_at(amount: float, _from: Vector2) -> float:
 	return incoming_damage(amount)
+
+
+## True when an enemy shot at `at` is blocked (King Arthur's raised shield).
+func blocks_shot(_at: Vector2) -> bool:
+	return false
+
+
+## True when burning and poison can't hurt the player (King Arthur's Scabbard).
+func immune_to_dot() -> bool:
+	return false
+
+
+## Extra pierce for one of this Hero's weapons (Atalanta's bows).
+func extra_pierce(_weapon: WeaponInstance) -> int:
+	return 0
+
+
+## Extra god meter charge right now (0.3 = 30% faster).
+func charge_bonus() -> float:
+	return 0.0
+
+
+## Called when this player summons a god (Divine Links).
+func on_summon() -> void:
+	pass
 
 
 ## A short line for the HUD (e.g. the current Labor), or "".

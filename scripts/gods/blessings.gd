@@ -18,20 +18,23 @@ const PERCENT_STATS: Dictionary = {
 }
 
 
-## Adds (direction 1) or removes (direction -1) a god's Blessing from a player.
+## Adds (direction > 0) or removes (direction < 0) a god's Blessing from a
+## player. The size of `direction` scales the Blessing's bonuses (offering
+## levels, GodLevels.blessing_mult); drawbacks such as Tyche's −10% Max HP
+## don't grow. Remove with the same size it was added with.
 static func apply(player: Player, god: Dictionary, direction: float) -> void:
 	var blessing: Dictionary = god.get("blessing", {})
 	for key: String in blessing:
 		var value: Variant = blessing[key]
 		if PERCENT_STATS.has(key):
-			player.stats.add_bonus(PERCENT_STATS[key], float(value) / 100.0 * direction)
+			player.stats.add_bonus(PERCENT_STATS[key], _scaled(value, direction) / 100.0)
 		elif key == "luck":
-			player.stats.add_bonus("luck", float(value) * direction)
+			player.stats.add_bonus("luck", _scaled(value, direction))
 		elif key == "gold_pct":
-			player.gold_mult += float(value) / 100.0 * direction
+			player.gold_mult += _scaled(value, direction) / 100.0
 		elif key == "element_damage":
 			for element: String in (value as Dictionary):
-				player.element_damage[element] = float(player.element_damage.get(element, 0.0)) + float(value[element]) / 100.0 * direction
+				player.element_damage[element] = float(player.element_damage.get(element, 0.0)) + _scaled(value[element], direction) / 100.0
 		elif direction > 0.0:
 			player.god_flags[key] = value
 		else:
@@ -70,6 +73,10 @@ static func harmony_before_hit(player: Player, slot: int, element: String, base:
 	for other: int in GameAuthority.enemies.query(at, reach):
 		if other != slot:
 			GameAuthority.hits.hit(other, base * mult, player, Vector2.ZERO, "fire", 0.0, false)
+
+
+static func _scaled(value: Variant, direction: float) -> float:
+	return float(value) * (direction if float(value) > 0.0 else signf(direction))
 
 
 static func is_melee(weapon: WeaponInstance) -> bool:

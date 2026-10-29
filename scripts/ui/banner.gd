@@ -1,7 +1,8 @@
 class_name Banner
 extends CanvasLayer
 ## A short announcement across the top-middle of the screen (Age changes,
-## hazards, "New recipe discovered", and later Resonances and events). Lines
+## hazards, "New recipe discovered", Resonances, events, and achievements,
+## secrets, and unlocks earned during the run). Lines
 ## queue up and show one at a time; the game never pauses for them.
 
 const GROUP := "banner"
@@ -31,6 +32,8 @@ func _ready() -> void:
 	_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_label.visible = false
 	root.add_child(_label)
+	# Achievements, secrets, and unlocks earned during the run (Phase 15).
+	Meta.earned.connect(show_text)
 
 
 ## Queues one already-translated line.

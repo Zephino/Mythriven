@@ -2,7 +2,8 @@ class_name PauseMenu
 extends CanvasLayer
 ## The pause menu (Esc on PC, Start on a gamepad, the pause button on touch):
 ## Resume, the Codex, Auto-summon (fires a full god when 30+ enemies are on
-## screen or a boss is present), and Quit run (back to Hero select). The run
+## screen or a boss is present), and Quit run (back to the title; keeps 10%
+## of the run's gold from 5:00, none before). The run
 ## timer stops while it's open (GAME_DESIGN.md: Pauses and turns). It doesn't
 ## open over the level-up screen, a chest reveal, or a god choice. More
 ## settings arrive with Phase 19.
@@ -87,8 +88,11 @@ func _on_codex() -> void:
 	add_child(codex)
 
 
+## Quitting keeps 10% of the run's gold from 5:00, none before (Banking).
 func _on_quit() -> void:
+	Meta.quit_run()
 	GameAuthority.selected_hero_id = ""
+	Meta.next_screen = "title"
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

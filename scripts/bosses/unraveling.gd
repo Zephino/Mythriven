@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 	var run: RunState = GameAuthority.run
 	if run == null or run.ended:
 		return
-	if not active and run.elapsed_s >= Data.cfg_float("run_arc.unraveling_latest_start_s"):
+	if not active and run.arc_s() >= Data.cfg_float("run_arc.unraveling_latest_start_s"):
 		begin()
 	if not active:
 		return

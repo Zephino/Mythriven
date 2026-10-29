@@ -1,0 +1,43 @@
+[
+  {
+    "_doc": "Omens: challenge modifiers (GAME_DESIGN.md: Omens). Unlocked after first reaching 10:00; they stack, and each adds its gold bonus (bonuses add up). Records are kept per Omen set.",
+    "id": "haste",
+    "name_key": "OMEN_HASTE_NAME",
+    "desc_key": "OMEN_HASTE_DESC",
+    "effect": {
+      "enemy_speed_mult": 1.25
+    },
+    "gold_bonus_pct": 25,
+    "persists": true
+  },
+  {
+    "id": "frailty",
+    "name_key": "OMEN_FRAILTY_NAME",
+    "desc_key": "OMEN_FRAILTY_DESC",
+    "effect": {
+      "max_hp_pct": -30
+    },
+    "gold_bonus_pct": 30,
+    "persists": true
+  },
+  {
+    "id": "horde",
+    "name_key": "OMEN_HORDE_NAME",
+    "desc_key": "OMEN_HORDE_DESC",
+    "effect": {
+      "spawn_mult": 1.5
+    },
+    "gold_bonus_pct": 40,
+    "persists": true
+  },
+  {
+    "id": "silent_gods",
+    "name_key": "OMEN_SILENT_GODS_NAME",
+    "desc_key": "OMEN_SILENT_GODS_DESC",
+    "effect": {
+      "god_charge_mult": 0.5
+    },
+    "gold_bonus_pct": 35,
+    "persists": true
+  }
+]

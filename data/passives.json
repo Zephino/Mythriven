@@ -80,5 +80,35 @@
     "per_level": 0.1,
     "max_level": 5,
     "persists": false
+  },
+  {
+    "id": "mirrored_shield",
+    "name_key": "PASSIVE_MIRRORED_SHIELD_NAME",
+    "desc_key": "PASSIVE_MIRRORED_SHIELD_DESC",
+    "stat": "none",
+    "per_level": 0,
+    "max_level": 5,
+    "reflect_chance_per_level": 0.06,
+    "reflect_range_px": 200,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_mirrored_shield"
+    },
+    "persists": false
+  },
+  {
+    "id": "tyrs_oath",
+    "name_key": "PASSIVE_TYRS_OATH_NAME",
+    "desc_key": "PASSIVE_TYRS_OATH_DESC",
+    "stat": "none",
+    "per_level": 0,
+    "max_level": 5,
+    "below_hp_fraction": 0.5,
+    "damage_per_level": 0.08,
+    "unlock": {
+      "type": "secret",
+      "secret": "tyrs_oath"
+    },
+    "persists": false
   }
 ]

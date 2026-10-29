@@ -122,6 +122,7 @@ func _check(target: float) -> void:
 	player.refresh_stats()
 	completed += 1
 	labor_index += 1
+	Meta.note_labor_done(completed, labor_index >= labors().size())
 	progress = 0.0
 	_kill_times.clear()
 	_since_hit = 0.0

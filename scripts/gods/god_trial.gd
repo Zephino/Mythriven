@@ -138,7 +138,7 @@ func _attack(origin: Vector2, delta: float) -> void:
 	var list: Array = (shrine["god"].get("shrine", {}) as Dictionary).get("patterns", ["radial_burst"])
 	var pattern_id: String = str(list[_pattern_index % list.size()])
 	_pattern_index += 1
-	var scale: float = RunArc.hp_mult(GameAuthority.run.elapsed_s)
+	var scale: float = RunArc.hp_mult(GameAuthority.run.arc_s())
 	patterns.run({"pattern": pattern_id}, origin, _player.position, str(shrine["god"].get("element", "")), "god_" + str(shrine["god_id"]),
 			scale * Data.cfg_float("gods.trial_damage_mult"))
 

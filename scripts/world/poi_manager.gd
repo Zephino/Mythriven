@@ -62,7 +62,7 @@ func poi_for(region: Vector2i) -> Dictionary:
 	var key: String = PoiRules.key_of(region)
 	if not regions.has(key):
 		var run: RunState = GameAuthority.run
-		regions[key] = PoiRules.for_region(run.seed_value, region, RunArc.age_at(run.elapsed_s))
+		regions[key] = PoiRules.for_region(run.seed_value, region, RunArc.age_at(run.arc_s()))
 	return regions[key]
 
 
@@ -151,7 +151,7 @@ func _tick_lair(poi: Dictionary, data: Dictionary, at: Vector2, dist: float) -> 
 		for k: int in int(data.get("elites", 3)):
 			var slot: int = GameAuthority.spawn_enemy(str(types[k % types.size()]), at + Vector2.from_angle(TAU * k / 3.0) * 30.0)
 			if slot != -1:
-				enemies.elites.setup(slot, EliteState.roll(RunArc.elite_modifier_count(GameAuthority.run.elapsed_s), rng), enemies.max_hp[slot])
+				enemies.elites.setup(slot, EliteState.roll(RunArc.elite_modifier_count(GameAuthority.run.arc_s()), rng), enemies.max_hp[slot])
 				slots.append(slot)
 		for k: int in int(data.get("guards", 10)):
 			GameAuthority.spawn_enemy(str(data.get("guard_type", "satyr_skirmisher")), at + Vector2.from_angle(TAU * k / 10.0) * 60.0)

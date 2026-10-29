@@ -76,7 +76,20 @@
               "labor_banner_s": "number",
               "leap_shadow_color": "string",
               "leap_ring_color": "string",
-              "labors_all_done_s": "number"
+              "labors_all_done_s": "number",
+              "mastery_minutes": {
+                "type": "array",
+                "items": "number"
+              },
+              "mastery_palettes": {
+                "type": "array",
+                "items": "string"
+              },
+              "shield_scan_px": "number",
+              "shield_color": "string",
+              "race_color": "string",
+              "trap_color": "string",
+              "menu_background": "string"
             }
           },
           "camera": {
@@ -126,7 +139,9 @@
               "banner_offset_px": "number",
               "banner_font_px": "number",
               "banner_outline_px": "number",
-              "banner_s": "number"
+              "banner_s": "number",
+              "recap_height_px": "number",
+              "tip_color": "string"
             }
           },
           "performance": {
@@ -666,13 +681,16 @@
             "fields": {
               "save_version": "number",
               "cloud_sync_min_interval_s": "number",
-              "profile_file": "string"
+              "profile_file": "string",
+              "file": "string",
+              "test_file": "string"
             }
           },
           "meta": {
             "type": "object",
             "fields": {
-              "oracle_runs_per_hint": "number"
+              "oracle_runs_per_hint": "number",
+              "checkpoint_s": "number"
             }
           },
           "patterns": {
@@ -772,6 +790,80 @@
                 }
               }
             }
+          },
+          "offerings": {
+            "type": "object",
+            "fields": {
+              "costs": {
+                "type": "array",
+                "items": "number"
+              },
+              "blessing_levels": {
+                "type": "array",
+                "items": "number"
+              },
+              "blessing_step": "number",
+              "meter_levels": {
+                "type": "array",
+                "items": "number"
+              },
+              "meter_step": "number",
+              "summon_levels": {
+                "type": "array",
+                "items": "number"
+              },
+              "summon_step": "number",
+              "harmony_level": "number",
+              "harmony_mult": "number"
+            }
+          },
+          "swift": {
+            "type": "object",
+            "fields": {
+              "arc_time_scale": "number",
+              "enemy_speed_mult": "number",
+              "spawn_mult": "number",
+              "player_speed_mult": "number",
+              "projectile_speed_mult": "number",
+              "xp_mult": "number",
+              "gold_mult": "number"
+            }
+          },
+          "secrets": {
+            "type": "object",
+            "fields": {
+              "beggar_king_s": "number",
+              "fortune_gold": "number"
+            }
+          },
+          "recap": {
+            "type": "object",
+            "fields": {
+              "recent_window_s": "number"
+            }
+          },
+          "bestiary": {
+            "type": "object",
+            "fields": {
+              "weakness_kills": "number",
+              "myth_kills": "number"
+            }
+          },
+          "cosmetics": {
+            "type": "object",
+            "fields": {
+              "list": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "fields": {
+                    "id": "string",
+                    "name_key": "string",
+                    "color": "string"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -852,6 +944,10 @@
             "seal": {
               "type": "string",
               "optional": true
+            },
+            "order": {
+              "type": "int",
+              "optional": true
             }
           }
         }
@@ -923,6 +1019,10 @@
             },
             "behavior": {
               "type": "object",
+              "optional": true
+            },
+            "myth_source": {
+              "type": "string",
               "optional": true
             }
           }
@@ -1086,6 +1186,10 @@
             "charge_arrows": {
               "type": "bool",
               "optional": true
+            },
+            "alternate_element": {
+              "type": "object",
+              "optional": true
             }
           }
         }
@@ -1104,8 +1208,13 @@
             "stat": "string",
             "per_level": "number",
             "max_level": "int",
-            "persists": "bool"
-          }
+            "persists": "bool",
+            "unlock": {
+              "type": "object",
+              "optional": true
+            }
+          },
+          "open": true
         }
       }
     },
@@ -1644,6 +1753,93 @@
             "radius_px": "number",
             "icon_color": "string",
             "icon_shape": "string"
+          }
+        }
+      }
+    },
+    "omens.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "desc_key": "string",
+            "effect": {
+              "type": "object"
+            },
+            "gold_bonus_pct": "number",
+            "persists": "bool"
+          }
+        }
+      }
+    },
+    "achievements.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "desc_key": "string",
+            "condition": {
+              "type": "object",
+              "open": true,
+              "fields": {
+                "type": "string"
+              }
+            },
+            "reward": {
+              "type": "object",
+              "optional": true
+            },
+            "persists": "bool"
+          }
+        }
+      }
+    },
+    "secrets.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "name_key": "string",
+            "desc_key": "string",
+            "hint_key": "string",
+            "reward": {
+              "type": "object"
+            },
+            "lore_source": "string",
+            "needs_owner_review": "bool",
+            "persists": "bool"
+          }
+        }
+      }
+    },
+    "tips.json": {
+      "gated": false,
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "fields": {
+            "id": "string",
+            "priority": "int",
+            "condition": {
+              "type": "object",
+              "open": true,
+              "fields": {
+                "type": "string"
+              }
+            },
+            "text_key": "string"
           }
         }
       }

@@ -75,9 +75,11 @@ func bind(player: Player, god_id: String, release_index: int = -1) -> bool:
 			return false
 		release(player, release_index)
 	var slots: Array = gods_of(player)
-	slots.append({"id": god_id, "god": god, "meter": 0.0})
+	var blessing_mult: float = GodLevels.blessing_mult(god_id)
+	slots.append({"id": god_id, "god": god, "meter": 0.0, "blessing_mult": blessing_mult})
 	_bound[player.player_id] = slots
-	Blessings.apply(player, god, 1.0)
+	Blessings.apply(player, god, blessing_mult)
+	Meta.note_god_bound(god_id)
 	_refresh_links(player)
 	god_bound.emit(player, god_id)
 	var special: Dictionary = GodRules.line("bound", god_id, str(player.hero.get("id", "")))
@@ -95,7 +97,7 @@ func release(player: Player, index: int) -> void:
 	if index < 0 or index >= slots.size():
 		return
 	var slot: Dictionary = slots.pop_at(index)
-	Blessings.apply(player, slot["god"], -1.0)
+	Blessings.apply(player, slot["god"], -float(slot.get("blessing_mult", 1.0)))
 	_refresh_links(player)
 	god_released.emit(player, str(slot["id"]))
 
@@ -258,6 +260,8 @@ func _refresh_links(player: Player) -> void:
 
 ## Heracles' Divine Link: each summon empowers his next 3 slams into full shockwaves.
 func _divine_link_on_summon(player: Player) -> void:
+	if player.kit != null:
+		player.kit.on_summon()
 	var link: String = str((player.hero.get("divine_link", {}) as Dictionary).get("id", ""))
 	if link == "summon_empowers_slams" and player.kit != null and player.kit.get("empowered_slams") != null:
 		player.kit.set("empowered_slams", int(player.kit.get("empowered_slams")) + Data.cfg_int("gods.empowered_slams"))

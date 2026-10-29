@@ -35,7 +35,8 @@ func active_count() -> int:
 func run(god: Dictionary, player: Player) -> void:
 	var s: Dictionary = god.get("summon", {})
 	var effect: Dictionary = {"kind": str(s.get("effect", "")), "t": 0.0, "duration": float(s.get("duration_s", 2.0)),
-			"player": player, "god": god, "s": s, "hit": {}, "color": Color.html(str(god.get("placeholder_color", "#ffffff")))}
+			"player": player, "god": god, "s": s, "hit": {}, "color": Color.html(str(god.get("placeholder_color", "#ffffff"))),
+			"power": GodLevels.summon_power(str(god.get("id", ""))), "ascended": GodLevels.is_ascended(str(god.get("id", "")))}
 	var area: float = player.stats.area_mult()
 	var view: Rect2 = visible_rect()
 	effect["view"] = view
@@ -136,7 +137,7 @@ func _step(effect: Dictionary, player: Player, delta: float) -> void:
 				if targets.is_empty():
 					break
 				var slot: int = targets[GameAuthority.run.rng.combat.randi_range(0, targets.size() - 1)]
-				GameAuthority.damage_enemy(slot, float(s.get("arrow_damage", 15.0)), player, Vector2.ZERO, "ice", 0.0)
+				GameAuthority.damage_enemy(slot, float(s.get("arrow_damage", 15.0)) * float(effect["power"]), player, Vector2.ZERO, "ice", 0.0)
 		"breath_of_the_desert":
 			_hit_band(effect, player, view, k, view.size.x * 0.12 * area, float(s.get("damage", 25.0)), "fire", 0.0)
 			for slot: Variant in (effect["hit"] as Dictionary).keys():
@@ -157,7 +158,7 @@ func _finish(effect: Dictionary, player: Player) -> void:
 		return
 	var s: Dictionary = effect["s"]
 	for slot: int in _enemies_in(effect["view"]):
-		GameAuthority.damage_enemy(slot, float(s.get("quake_damage", 25.0)), player, Vector2.ZERO, "earth", 0.0)
+		GameAuthority.damage_enemy(slot, float(s.get("quake_damage", 25.0)) * float(effect["power"]), player, Vector2.ZERO, "earth", 0.0)
 		if GameAuthority.enemies.active[slot] != 0 and not _is_boss(slot):
 			GameAuthority.enemies.statuses.apply_stun(slot, float(s.get("stun_s", 1.5)))
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
@@ -176,7 +177,7 @@ func _hit_band(effect: Dictionary, player: Player, view: Rect2, k: float, width:
 	for slot: int in _enemies_in(view):
 		if not hit.has(slot) and absf(GameAuthority.enemies.positions[slot].x - x) <= width * 0.5:
 			hit[slot] = true
-			GameAuthority.damage_enemy(slot, damage, player, Vector2.RIGHT * 120.0, element, status_chance)
+			GameAuthority.damage_enemy(slot, damage * float(effect["power"]), player, Vector2.RIGHT * 120.0, element, status_chance)
 
 
 func _hit_circle(effect: Dictionary, player: Player, center: Vector2, reach: float, damage: float, element: String,
@@ -185,7 +186,7 @@ func _hit_circle(effect: Dictionary, player: Player, center: Vector2, reach: flo
 	for slot: int in _enemies_near(center, reach):
 		if not hit.has(slot):
 			hit[slot] = true
-			GameAuthority.damage_enemy(slot, damage, player, push * 120.0, element, status_chance)
+			GameAuthority.damage_enemy(slot, damage * float(effect["power"]), player, push * 120.0, element, status_chance)
 
 
 func _enemies_near(center: Vector2, reach: float) -> Array[int]:

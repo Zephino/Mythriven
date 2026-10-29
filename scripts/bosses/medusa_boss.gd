@@ -6,13 +6,18 @@ extends BossController
 ## Phases: serpent-hair volleys → gaze every 8 s → gaze plus stone statues
 ## that block projectiles (hers and yours).
 
-## Times anyone was petrified this fight (kept for Phase 15's secrets).
+## Times anyone was petrified this fight (the Mirrored Shield secret needs none).
 var petrified_count: int = 0
 
 var _gaze_timer: float = 0.0
 var _gaze_charge: float = -1.0
 var _gaze_dir := Vector2.LEFT
 var _statues := PackedVector2Array()
+
+
+## The Mirrored Shield: defeat Medusa without ever being petrified (as Perseus did).
+func secret_earned() -> String:
+	return "the_mirrored_shield" if petrified_count == 0 else ""
 
 
 func signature(delta: float) -> void:

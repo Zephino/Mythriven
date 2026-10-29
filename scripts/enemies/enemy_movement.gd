@@ -28,6 +28,10 @@ var timer := PackedFloat32Array()
 var state := PackedInt32Array()
 ## Flyer: seconds flown (drives the sine wave).
 var age := PackedFloat32Array()
+## A decoy that draws chasers inside `lure_radius` to it (Odysseus' disguise);
+## Vector2.INF when there is none.
+var lure_pos := Vector2.INF
+var lure_radius: float = 0.0
 
 
 func _init(capacity: int) -> void:
@@ -96,6 +100,10 @@ func override_color(m: EnemyManager, slot: int) -> Color:
 
 
 func _toward_player(m: EnemyManager, i: int) -> Vector2:
+	# Odysseus' disguise draws nearby enemies to his decoy for a moment.
+	if lure_pos != Vector2.INF and m.positions[i].distance_to(lure_pos) <= lure_radius:
+		var to_lure: Vector2 = lure_pos - m.positions[i]
+		return to_lure.normalized() if to_lure.length_squared() > 1.0 else Vector2.ZERO
 	var target: Player = m.nearest_player(m.positions[i])
 	if target == null:
 		return Vector2.ZERO

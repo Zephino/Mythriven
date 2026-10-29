@@ -572,3 +572,293 @@ UI_LEADERBOARD_LOCAL,Leaderboard (this device)
 UI_LB_LOCAL_NOTE,"Online scores aren't set up yet, so scores are saved on this device."
 UI_LB_SAVED_LOCAL,Score saved! Press Leaderboard to see it.
 UI_LB_NOT_PLACED_LOCAL,Saved. Not in this device's top 100 this time.
+ACH_SURVIVE_5_NAME,Survive 5:00
+ACH_SURVIVE_5_DESC,Survive five minutes in one Last Stand.
+ACH_SURVIVE_10_NAME,Survive 10:00
+ACH_SURVIVE_10_DESC,Survive ten minutes. Unlocks the Omens.
+ACH_SURVIVE_20_NAME,Survive 20:00
+ACH_SURVIVE_20_DESC,Survive twenty minutes. Unlocks Atalanta.
+ACH_SURVIVE_30_NAME,Survive 30:00
+ACH_SURVIVE_30_DESC,Reach the Unraveling.
+ACH_SURVIVE_35_NAME,Survive 35:00
+ACH_SURVIVE_35_DESC,Hold out five minutes into the Unraveling.
+ACH_KILLS_1000_NAME,"Defeat 1,000 enemies"
+ACH_KILLS_1000_DESC,Across all your runs.
+ACH_KILLS_10000_NAME,"Defeat 10,000 enemies"
+ACH_KILLS_10000_DESC,Across all your runs.
+ACH_KILLS_100000_NAME,"Defeat 100,000 enemies"
+ACH_KILLS_100000_DESC,Across all your runs.
+ACH_KILLS_RUN_5000_NAME,"Defeat 5,000 enemies in one run"
+ACH_KILLS_RUN_5000_DESC,In a single Last Stand.
+ACH_LEVEL_25_NAME,Reach level 25
+ACH_LEVEL_25_DESC,In a single Last Stand.
+ACH_LEVEL_50_NAME,Reach level 50
+ACH_LEVEL_50_DESC,In a single Last Stand.
+ACH_BIND_FIRST_NAME,Bind a god
+ACH_BIND_FIRST_DESC,Bind any god at a shrine.
+ACH_BIND_ALL_NAME,Bind all 8 gods
+ACH_BIND_ALL_DESC,Bind every launch god at least once.
+ACH_RESONANCE_FIRST_NAME,Trigger a Resonance
+ACH_RESONANCE_FIRST_DESC,Fire a Resonance summon.
+ACH_RESONANCES_4_NAME,Trigger 4 different Resonances
+ACH_RESONANCES_4_DESC,Unlocks the Bladed Discus.
+ACH_RESONANCES_5_NAME,Trigger all 5 Resonances
+ACH_RESONANCES_5_DESC,Fire every launch Resonance.
+ACH_EVOLVE_FIRST_NAME,Evolve a weapon
+ACH_EVOLVE_FIRST_DESC,Open a chest with a weapon ready to evolve.
+ACH_EVOLVE_8_NAME,Discover 8 evolutions
+ACH_EVOLVE_8_DESC,Find 8 recipes for the Codex.
+ACH_INFUSE_FIRST_NAME,Infuse a weapon
+ACH_INFUSE_FIRST_DESC,Let a god infuse a level-8 weapon.
+ACH_BOSS_MEDUSA_NAME,Defeat Medusa
+ACH_BOSS_MEDUSA_DESC,The 10:00 boss of the Aegean Shore.
+ACH_BOSS_ACHILLES_NAME,Defeat Achilles
+ACH_BOSS_ACHILLES_DESC,The 20:00 boss of the Aegean Shore.
+ACH_BOSS_KRONOS_NAME,Defeat Kronos
+ACH_BOSS_KRONOS_DESC,The 30:00 boss of the Aegean Shore.
+ACH_BOSSES_10_NAME,Defeat 10 bosses
+ACH_BOSSES_10_DESC,Across all your runs.
+ACH_ELITES_50_NAME,Defeat 50 elites
+ACH_ELITES_50_DESC,Across all your runs.
+ACH_BESTIARY_10_NAME,Fill 10 Bestiary entries
+ACH_BESTIARY_10_DESC,Defeat 10 different creatures.
+ACH_OFFERING_5_NAME,Raise a god to level 5
+ACH_OFFERING_5_DESC,Make offerings in the Hall of Legends.
+ACH_OFFERING_10_NAME,Raise a god to level 10
+ACH_OFFERING_10_DESC,Ascend a god with offerings.
+ACH_GOLD_5000_NAME,"Bank 5,000 gold"
+ACH_GOLD_5000_DESC,Across all your runs.
+ACH_OMEN_10_NAME,Survive 10:00 under an Omen
+ACH_OMEN_10_DESC,With at least one Omen active.
+ACH_OMENS_ALL_10_NAME,Survive 10:00 under all four Omens
+ACH_OMENS_ALL_10_DESC,With every Omen active.
+ACH_SWIFT_10_NAME,Survive 10:00 in Swift Mode
+ACH_SWIFT_10_DESC,On any level.
+ACH_RUNS_25_NAME,Play 25 Last Stands
+ACH_RUNS_25_DESC,Across all your runs.
+ACH_HEROES_6_NAME,Unlock 6 Heroes
+ACH_HEROES_6_DESC,Gather a company of six.
+SECRET_BEGGAR_KING_NAME,The Beggar King
+SECRET_BEGGAR_KING_DESC,Survive 10:00 without picking up any gold. Odysseus joins you.
+SECRET_BEGGAR_KING_HINT,A king may come home in rags; let the gold lie where it falls.
+SECRET_MIRRORED_SHIELD_NAME,The Mirrored Shield
+SECRET_MIRRORED_SHIELD_DESC,Defeat Medusa without ever being petrified. Adds the Mirrored Shield passive.
+SECRET_MIRRORED_SHIELD_HINT,Look upon her only as Perseus did: never meet her gaze.
+SECRET_TYRS_OATH_NAME,Tyr's Oath
+SECRET_TYRS_OATH_DESC,Defeat Fenrir while below 30% health. Adds the Tyr's Oath passive.
+SECRET_TYRS_OATH_HINT,The wolf was bound by one who gave a hand; give much before you win.
+SECRET_SUNS_RETURN_NAME,The Sun's Return
+SECRET_SUNS_RETURN_DESC,"Let Apep swallow Ra, then free him. A golden sun aura and a line from Ra."
+SECRET_SUNS_RETURN_HINT,Each night the serpent swallows the light; each dawn it is freed.
+SECRET_LUGHS_SLING_NAME,Lugh's Sling
+SECRET_LUGHS_SLING_DESC,Strike Balor's open eye 5 times in one fight. Adds the Sling of Lugh to the pool.
+SECRET_LUGHS_SLING_HINT,Aim for the eye that kills; strike it while it is open.
+SECRET_TWELVE_LABORS_NAME,The Twelve Labors
+SECRET_TWELVE_LABORS_DESC,Complete all 12 Labors in one run as Heracles. A golden lion-pelt cosmetic.
+SECRET_TWELVE_LABORS_HINT,The son of Zeus must finish every task in a single life.
+SECRET_FORTUNES_FAVOR_NAME,Fortune's Favor
+SECRET_FORTUNES_FAVOR_DESC,Finish a run with Tyche bound and exactly 777 gold banked. Fortune's wheel cosmetic.
+SECRET_FORTUNES_FAVOR_HINT,"Fortune smiles on sevens, thrice over."
+SECRET_THE_FORD_NAME,The Ford
+SECRET_THE_FORD_DESC,"As Cú Chulainn, defeat Ferdiad without leaving the river strip. Unique lines and a cosmetic."
+SECRET_THE_FORD_HINT,Brothers in arms met in the water; neither stepped onto the bank.
+OMEN_HASTE_NAME,Omen of Haste
+OMEN_HASTE_DESC,Enemies move 25% faster.
+OMEN_FRAILTY_NAME,Omen of Frailty
+OMEN_FRAILTY_DESC,−30% Max HP.
+OMEN_HORDE_NAME,Omen of the Horde
+OMEN_HORDE_DESC,50% more enemies spawn.
+OMEN_SILENT_GODS_NAME,Omen of Silent Gods
+OMEN_SILENT_GODS_DESC,God meters charge 50% slower.
+TIP_MEDUSA,Move away from Medusa or sideways as her gaze fires; moving toward her gets you petrified.
+TIP_ACHILLES,Achilles takes little damage from the front. Circle behind him: hits on his back deal double.
+TIP_KRONOS,"Step out of Kronos' slow-time zones quickly, and watch for his bullets reversing along their paths."
+TIP_UNRAVELING,"In the Unraveling, stay inside the shrinking ring; outside it the damage grows every minute."
+TIP_TRIAL,A god's trial can be left at any time: step out of the ring to give up safely.
+TIP_HAZARD,Hazards always show a ground marker first. Keep moving when the markers appear.
+TIP_WEAKNESS,%s are weak to %s. Try a weapon or god of that element.
+TIP_SHRINES,A shrine appears about every 3 minutes; look for the arrow at the screen's edge.
+TIP_KEEP_MOVING,Keep moving. Enemies close in from every side when you stand still.
+TIP_STATUS,From 30:00 enemies can set you burning or poisoned. Healing and staying apart from them helps.
+TIP_EVOLUTIONS,A level-8 weapon plus its matching passive evolves at the next chest. Elites drop chests.
+TIP_ELITES,"Elites drop chests. Chests can level your weapons, evolve them, or infuse them with a god."
+TIP_BANK_LEVEL_UP,You can bank a level-up and choose later: close the cards and tap the level badge.
+UI_GAME_TITLE,Mythriven
+UI_PLAY,Play
+UI_HALL_OF_LEGENDS,Hall of Legends
+UI_QUIT_GAME,Quit
+UI_GOLD_BANKED,Gold: %d
+UI_BEGIN_LAST_STAND,Begin a Last Stand
+UI_OFFERINGS,Offerings
+UI_UNLOCKS,Unlocks
+UI_OMENS,Omens
+UI_OMENS_LOCKED,Omens (survive 10:00 to unlock)
+UI_BESTIARY,Bestiary
+UI_COMPENDIUM,Pantheon Compendium
+UI_HALL_OF_HEROES,Hall of Heroes
+UI_ACHIEVEMENTS,Achievements
+UI_ORACLE,The Oracle
+UI_LEVEL_SELECT,Choose a level
+UI_LEVEL_LOCKED,%s (locked: defeat the 20:00 boss of the Aegean Shore)
+UI_LEVEL_DETAILS,Best %s · Bosses defeated: %d · Local gods: %s
+UI_NONE_YET,none yet
+UI_SWIFT_MODE,Swift Mode
+UI_SWIFT_ON,   Swift Mode: on
+UI_SWIFT_OFF,   Swift Mode: off
+UI_UNLOCKS_HEROES,Heroes
+UI_UNLOCKS_WEAPONS,Weapons
+UI_UNLOCKS_COSMETICS,Cosmetics
+UI_UNLOCKED_ROW,✓ %s
+UI_BUY_ROW,Unlock %s (%d gold)
+UI_LOCKED_ACHIEVEMENT,%s: earn the achievement “%s”
+UI_LOCKED_BOSS,%s: defeat them as a boss
+UI_LOCKED_SECRET,%s: a secret
+UI_COSMETIC_ON,✓ %s (equipped)
+UI_COSMETIC_OFF,%s (tap to equip)
+UI_OMENS_BONUS,gold +%d%%
+UI_ON_MARK,[✓]
+UI_OFF_MARK,[ ]
+UI_SECRETS,Secrets
+UI_SOURCE,Source: %s
+UI_HERO_MASTERY,Mastery %d
+UI_HERO_COLOR,Color
+UI_HERO_COLOR_N,%s: color %d
+UI_HERO_UNLOCK_GOLD,Unlock in the Hall of Legends for %d gold.
+UI_HERO_UNLOCK_ACHIEVEMENT,Unlock: %s.
+UI_HERO_UNLOCK_BOSS,Unlock: defeat them as a boss.
+UI_HERO_UNLOCK_SECRET,A secret Hero.
+UI_OMENS_ACTIVE,Omens: %s
+UI_TIMER_BEST,%s (best %s)
+UI_NEW_BEST_BANNER,New personal best!
+OFFERING_ROW,%s · level %d · next: %s · %d gold
+OFFERING_ROW_MAX,%s · level %d (Ascended)
+OFFERING_NONE,Bind a god in a run to make offerings to it.
+OFFERING_MAXED,Ascended
+OMEN_ROW,%s: %s (gold +%d%%)
+BESTIARY_UNKNOWN,???
+BESTIARY_ROW,%s · %d defeated
+BESTIARY_WEAKNESS,Weak to: %s · Resists: %s
+BESTIARY_WEAKNESS_LOCKED,Weakness revealed after %d defeated.
+BESTIARY_MYTH_LOCKED,Its myth is revealed after %d defeated.
+COMPENDIUM_GOD_ROW,%s · %s · level %d
+COMPENDIUM_UNKNOWN_GOD,???
+COMPENDIUM_RESONANCES,Resonances
+COMPENDIUM_WORDS,Words of Legend (%d found)
+HEROES_HALL_LOCKED,??? (a Hero not yet unlocked)
+HEROES_HALL_ROW,%s · %s · mastery %d · best %s
+ORACLE_NEXT,Runs until the Oracle speaks again: %d
+ORACLE_NONE,The Oracle has not spoken yet.
+ORACLE_FULFILLED,(fulfilled)
+ORACLE_NEW_HINT,The Oracle has a new hint for you in the Hall of Legends.
+SECRET_UNKNOWN,???
+SECRET_FOUND,Secret found: %s
+ACHIEVEMENT_EARNED,Achievement: %s
+UNLOCK_HERO,New Hero: %s
+UNLOCK_WEAPON,New weapon in the level-up pool: %s
+UNLOCK_PASSIVE,New passive in the level-up pool: %s
+UNLOCK_COSMETIC,New cosmetic: %s
+UNLOCK_OMENS,Omens unlocked in the Hall of Legends
+UNLOCK_LEVEL,New level: %s
+UNLOCK_SWIFT,Swift Mode unlocked for this level
+RECAP_FELLED_BY,Felled by: %s
+RECAP_MOST_DAMAGE,Most damage in the last 10 s: %s
+RECAP_WITH_ELEMENT,%s (%s)
+RECAP_TRIAL_OF,%s's trial
+RECAP_ITEM,%s %d
+RECAP_GODS,Gods: %s
+RECAP_RESONANCES,Resonances used: %s
+RECAP_TOP_WEAPON,"Top weapon: %s, %d%% of your damage"
+RECAP_MILESTONES,Bosses defeated: %s
+RECAP_LABORS,Labors completed: %d
+RECAP_GOLD,Gold banked: %d
+RECAP_NEW_BEST,New personal best for this Hero and level!
+RECAP_BEST,Personal best: %s
+RECAP_TIP,Tip: %s
+SOURCE_HAZARD_STRIKES,Lightning strike
+SOURCE_HAZARD_DIVINE_STORM,Divine storm
+SOURCE_STATUS,Burning or poison
+SOURCE_DEBUG,Debug
+HUD_SHIELD_RAISED,Shield raised
+HUD_RACE,The Race: reach the golden marker (%d s)
+HUD_RACE_HASTE,Swift as Atalanta!
+HUD_DISGUISED,Disguised: enemies follow the decoy
+HUD_TRAPS,Traps %d / %d
+COSMETIC_GOLDEN_LION_PELT,Golden lion pelt
+COSMETIC_GOLDEN_SUN_AURA,Golden sun aura
+COSMETIC_FORTUNES_WHEEL,Fortune's wheel
+COSMETIC_THE_FORD,The Ford
+PANTHEON_GREEK,Greek
+PANTHEON_NORSE,Norse
+PANTHEON_EGYPTIAN,Egyptian
+PANTHEON_CELTIC,Celtic
+OFFERING_LEVEL_2,Blessing +10%
+OFFERING_LEVEL_3,meter fills 10% faster
+OFFERING_LEVEL_4,Blessing +10%
+OFFERING_LEVEL_5,summon upgrade (+25% strength)
+OFFERING_LEVEL_6,Blessing +10%
+OFFERING_LEVEL_7,its Resonance Harmony is 50% stronger
+OFFERING_LEVEL_8,Blessing +10%
+OFFERING_LEVEL_9,meter fills 10% faster
+OFFERING_LEVEL_10,"Ascended form (+25% summon strength, golden aura)"
+HERO_KING_ARTHUR_NAME,King Arthur
+HERO_ATALANTA_NAME,Atalanta
+HERO_ODYSSEUS_NAME,Odysseus
+TRADITION_ARTHURIAN,Welsh/Arthurian
+ROLE_HOLY_DEFENDER,Holy defender
+ROLE_SWIFT_ARCHER,Swift archer
+ROLE_TRICKSTER,Cunning archer
+TRAIT_SHIELD_WALL,Shield Wall
+TRAIT_SHIELD_WALL_DESC,Stand still to raise his shield: it blocks shots in front of him and halves contact damage.
+PASSIVE_THE_SCABBARD,The Scabbard
+PASSIVE_THE_SCABBARD_DESC,Immune to burning and poison; regenerates 1% HP per second while the shield is raised.
+TRAIT_THE_RACE,The Race
+TRAIT_THE_RACE_DESC,Every 25 s a golden marker appears: reach it in 6 s for XP and speed. Grab the golden apple to double it.
+PASSIVE_SWIFT_HUNTRESS,Swift Huntress
+PASSIVE_SWIFT_HUNTRESS_DESC,+15% Move Speed; bows pierce one more enemy.
+TRAIT_CUNNING,Cunning
+TRAIT_CUNNING_DESC,Standing still lays traps. Every 20 s a disguise leaves a decoy that draws enemies away.
+PASSIVE_MANY_WILES,Of Many Wiles
+PASSIVE_MANY_WILES_DESC,+10% Luck.
+WEAPON_EXCALIBUR_NAME,Excalibur
+WEAPON_EXCALIBUR_DESC,Wide sword arcs; every third swing deals Holy damage.
+WEAPON_HUNTRESS_BOW_NAME,Huntress's Bow
+WEAPON_HUNTRESS_BOW_DESC,Long-range piercing arrows.
+WEAPON_GREAT_BOW_NAME,Great Bow
+WEAPON_GREAT_BOW_DESC,Heavy arrows that pierce several enemies.
+WEAPON_SLING_OF_LUGH_NAME,Sling of Lugh
+WEAPON_SLING_OF_LUGH_DESC,A heavy sling-stone that pierces and knocks enemies back.
+PASSIVE_MIRRORED_SHIELD_NAME,Mirrored Shield
+PASSIVE_MIRRORED_SHIELD_DESC,A chance per level to send an enemy shot back at the nearest enemy.
+PASSIVE_TYRS_OATH_NAME,Tyr's Oath
+PASSIVE_TYRS_OATH_DESC,More damage per level while below half health.
+HERO_HERACLES_LEGEND,"Son of Zeus and the strongest of the Greek heroes. To atone for killing his family in a madness sent by Hera, he served King Eurystheus and completed twelve labors, from the Nemean Lion to bringing Cerberus up from the underworld."
+HERO_CU_CHULAINN_LEGEND,"The great hero of Ulster. As a boy he killed the smith Culann's fierce hound and offered to guard in its place, earning the name 'Hound of Culann'; in the Cattle Raid of Cooley he held the fords of Ulster alone."
+HERO_VAINAMOINEN_LEGEND,"The old, wise singer of the Kalevala, whose songs could shape the world. He sang the boastful young Joukahainen into a swamp, and led the voyage to win the Sampo back from Pohjola."
+HERO_TOMOE_GOZEN_LEGEND,"A warrior of the Genpei War in the late 1100s. The Tale of the Heike calls her a fearless rider and archer, a match for any warrior, who fought beside Kiso Yoshinaka in his last battle."
+HERO_KING_ARTHUR_LEGEND,"The legendary king of Britain. In Malory the Lady of the Lake gives him Excalibur, and Merlin tells him its scabbard is worth ten of the sword, for whoever wears it loses no blood. He fell at Camlann fighting Mordred."
+HERO_ATALANTA_LEGEND,"A huntress of Arcadia, raised in the wild, who joined the hunt for the Calydonian boar. She would marry only a man who could outrun her; Hippomenes won by dropping three golden apples that she stopped to pick up."
+HERO_ODYSSEUS_LEGEND,"King of Ithaca, famed for cunning. He devised the wooden horse that ended the Trojan War, wandered ten years on the way home, and returned disguised as a beggar to string his great bow and reclaim his house."
+HERO_ACHILLES_LEGEND,"The greatest Greek warrior at Troy, son of King Peleus and the sea-nymph Thetis. A later tradition says his mother dipped him in the river Styx, leaving only the heel she held unprotected."
+GOD_TYCHE_MYTH,"Greek goddess of fortune and chance, shown with a rudder, a wheel, or a horn of plenty. Cities honored her as the keeper of their luck."
+GOD_CERNUNNOS_MYTH,"A Gaulish god known mostly from carvings: antlered, often holding a torc, among animals. His name survives on the Pillar of the Boatmen in Paris, and an antlered figure on the Gundestrup cauldron is often identified with him."
+GOD_THOR_MYTH,"Norse god of thunder, son of Odin, who defends gods and people against the giants with his hammer Mjölnir, which returns to his hand."
+GOD_SKADI_MYTH,"A giantess and goddess of winter, skiing, and the hunt. When the gods killed her father Thjazi she came to Asgard seeking amends; Loki made her laugh, and she chose a husband, Njord, by his feet alone."
+GOD_SEKHMET_MYTH,"The lioness goddess of war and healing. Ra sent her as his Eye to punish humankind, then stopped her rampage by flooding the fields with beer dyed red, which she drank as blood."
+GOD_POSEIDON_MYTH,"Greek god of the sea, earthquakes, and horses, brother of Zeus, who wields the trident. When King Laomedon of Troy cheated him he sent a sea monster against the city, which Heracles slew."
+GOD_RA_MYTH,"The Egyptian sun god, who sails the sky in his boat by day and the underworld by night, where the serpent Apep tries to swallow him before each dawn."
+GOD_MORRIGAN_MYTH,"An Irish goddess of battle and fate who appears as a crow. In the Táin she offers Cú Chulainn her love; when he refuses, she hinders him in his fights."
+ENEMY_SHADE_SWARM_MYTH,"In Greek myth the shades are the spirits of the dead, pale shadows that drift through the underworld; in the Odyssey they crowd around Odysseus' offering to drink its blood."
+ENEMY_SHADE_FLYER_MYTH,"In Greek myth the shades are the spirits of the dead, pale shadows that drift through the underworld; in the Odyssey they crowd around Odysseus' offering to drink its blood."
+ENEMY_SHADE_ENCIRCLER_MYTH,"In Greek myth the shades are the spirits of the dead, pale shadows that drift through the underworld; in the Odyssey they crowd around Odysseus' offering to drink its blood."
+ENEMY_HARPY_SWARM_MYTH,"Storm-winged 'snatchers' who, in the tale of the Argonauts, fouled the food of the blind seer Phineus until the winged sons of the North Wind drove them away."
+ENEMY_HARPY_FLYER_MYTH,"Storm-winged 'snatchers' who, in the tale of the Argonauts, fouled the food of the blind seer Phineus until the winged sons of the North Wind drove them away."
+ENEMY_SATYR_SKIRMISHER_MYTH,"Wild spirits of the woods and hills who follow Dionysus, part human and part goat or horse, known for revelry and mischief."
+ENEMY_SIREN_CASTER_MYTH,Sea creatures whose song lured sailors to their deaths. Odysseus stopped his crew's ears with wax and had himself tied to the mast to hear them safely.
+ENEMY_DRAUGR_BRUTE_MYTH,"In the Norse sagas the draugr is the walking dead: a corpse that rises from its burial mound, unnaturally strong and heavy, to guard its treasure or haunt the living."
+ENEMY_MUSPEL_SPARK_BOMBER_MYTH,"Sparks from Muspelheim, the burning realm of the south. At the world's beginning its sparks met the ice of Niflheim; at Ragnarök its sons ride out with Surtr."
+ENEMY_MINOTAUR_MYTH,"Half bull and half man, born to Pasiphaë, queen of Crete, and kept by King Minos in the Labyrinth that Daedalus built, until Theseus killed it with Ariadne's help."
+ENEMY_CYCLOPS_MYTH,"One-eyed giants. Hesiod's Cyclopes forged the thunderbolts of Zeus, while in the Odyssey the shepherd Polyphemus trapped Odysseus' men in his cave until Odysseus blinded him."
+ENEMY_GORGON_KIN_MYTH,"The Gorgons were three sisters with snakes for hair whose gaze turned onlookers to stone. Of the three, only Medusa was mortal."
+ENEMY_MEDUSA_MYTH,"The mortal Gorgon, whose gaze turned onlookers to stone. Perseus beheaded her while watching her reflection in his polished shield."
+ENEMY_ACHILLES_MYTH,"The greatest Greek warrior at Troy. A later tradition says his mother dipped him in the river Styx, leaving only his heel unprotected."
+ENEMY_KRONOS_MYTH,"The youngest Titan, who overthrew his father Ouranos with a sickle and swallowed his own children to keep his throne, until Zeus forced him to give them back."

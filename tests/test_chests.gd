@@ -1,7 +1,7 @@
 extends GutTest
 ## Phase 10: chests (tiers, Luck, contents), standard evolutions, and the Codex.
 
-const TEST_PROFILE := "user://test_profile.cfg"
+const TEST_PROFILE := "user://test_save_scratch.json"
 
 var _parent: Node2D
 var _player: Player
@@ -9,7 +9,7 @@ var _rng := RandomNumberGenerator.new()
 
 
 func before_each() -> void:
-	Profile.path_override = TEST_PROFILE
+	SaveGame.use_test_file(TEST_PROFILE)
 	DirAccess.remove_absolute(TEST_PROFILE)
 	GameAuthority.start_run("aegean_shore")
 	_parent = add_child_autofree(Node2D.new())
@@ -20,7 +20,7 @@ func before_each() -> void:
 func after_each() -> void:
 	GameAuthority.end_scene()
 	DirAccess.remove_absolute(TEST_PROFILE)
-	Profile.path_override = ""
+	SaveGame.use_test_file("")
 
 
 func test_luck_raises_the_odds_of_silver_and_gold() -> void:

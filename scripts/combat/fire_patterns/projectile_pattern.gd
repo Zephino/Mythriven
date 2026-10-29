@@ -41,7 +41,7 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 func _launch(weapon: WeaponInstance, player: Player, direction: Vector2, settings: Dictionary, combat: CombatSystem) -> void:
 	var count: int = maxi(int(settings.get("count", 1)), 1)
 	var spread: float = deg_to_rad(float(settings.get("spread_deg", 0.0)))
-	var speed: float = float(settings.get("speed_px_s", 200.0))
+	var speed: float = float(settings.get("speed_px_s", 200.0)) * player.projectile_speed_mult
 	var lift: float = float(settings.get("lift_px_s", 0.0))
 	for k: int in count:
 		var offset: float = 0.0 if count == 1 else spread * (float(k) / (count - 1) - 0.5)

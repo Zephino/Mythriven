@@ -27,7 +27,7 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 
 **Phase 1 — Project setup**
 1. **No errors:** after pressing F5, the Output panel has no red or yellow lines.
-2. **Debug menu:** F1 shows `Version 00.01.21` and `FPS: …`. Arrow keys / D-pad move between buttons.
+2. **Debug menu:** F1 shows `Version 00.01.22` and `FPS: …`. Arrow keys / D-pad move between buttons.
 3. **Broken JSON:** **Check test data files** lists two errors for `broken_example.json`, naming `speed` and `limits.max_count`.
 4. **Translation:** in the debug menu, turn on **Show translation test line**; the bottom of the screen says "Translation test: …". **Pseudo-localization** makes it longer, accented, and in [brackets].
 5. **Content gate:** turn on **Pretend this is a release build**, then **Run content gate test** shows `1 loaded, 2 refused`.
@@ -124,6 +124,15 @@ Play at **https://zephino.github.io/Mythriven/** (once GitHub Pages is switched 
 3. Dragon's Hoard: a gold box in a big circle; defeat 50 enemies inside it and it drops a chest and gold. Monster's Lair: a broken ring of walls; walk close and 3 elites with guards appear; defeat the elites for a big chest. Hidden Shrine: an extra shrine appears.
 4. Wandering Trader (green stall with a red roof): walking up opens the shop. F1 → **Give 500 gold**, then buy things: the gold in the corner goes down. Prices are higher after 10:00. Reroll and Banish buttons then show on the level-up screen.
 5. At 7:00 (or F1 → **Start a Chaos Surge**) "Chaos Surge!": more enemies and double XP for 60 s. At 13:00 (or F1 → **Start a Divine Storm**) god meters fill twice as fast while lightning strikes around you.
+
+**Phase 15 — Meta, saving, and discovery (00.01.22)**
+1. The game opens on the **title**: Play, Hall of Legends, Leaderboard, Quit (PC). Play → choose a level → choose a Hero (locked Heroes say how to unlock them; **Back** returns).
+2. Die: the results screen shows what felled you (with its element), the most damage in the last 10 s, your build, gods, top weapon %, time, gold banked, your personal best, anything unlocked, and a **Tip** that fits the death (e.g. Medusa's gaze). **Hall of Legends** goes to the Hall.
+3. **Gold**: dying keeps all the run's gold. Pause → **Quit run** before 5:00 keeps none, after 5:00 keeps 10%. Closing the game mid-run counts as quitting (settled the next time it starts).
+4. **Hall of Legends**: Offerings (gods you've bound; offer gold to raise them to level 10), Unlocks (buy King Arthur for 1,000 gold and Breeze / Glimmer / Shade; equip cosmetics), Omens (after surviving 10:00), Bestiary (entries on first kill; weakness at 25 kills, myth at 100), Pantheon Compendium, Hall of Heroes, Codex, Achievements (secrets show ???), the Oracle (a hint every 5 runs).
+5. Survive 20:00 → Atalanta unlocks. Survive 10:00 without picking up any gold → Odysseus. Defeat Medusa without being petrified → the Mirrored Shield passive. Beat Kronos → Swift Mode for the Aegean Shore (toggle in level select): bosses at 7/14/21 min.
+6. The timer shows your best time for that Hero and level ("3:12 (best 9:40)") and a banner when you pass it.
+7. King Arthur: stand still → a shield arc blocks shots in front. Atalanta: a golden marker appears every 25 s; reach it for XP and speed. Odysseus: stand still for traps; every 20 s a decoy draws enemies away.
 
 **Leaderboard (00.01.15)**
 1. Hero select has a **Leaderboard** button: it shows "No scores yet" (or the scores), and **Close** / Esc returns.

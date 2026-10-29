@@ -40,7 +40,7 @@ func is_open() -> bool:
 ## Price of an item now: the base price ×1.5 for each Age passed.
 static func price(item_id: String) -> int:
 	var base: float = float((Data.cfg("economy.trader_prices") as Dictionary).get(item_id, 0))
-	var ages: int = RunArc.age_index(GameAuthority.run.elapsed_s) if GameAuthority.run != null else 0
+	var ages: int = RunArc.age_index(GameAuthority.run.arc_s()) if GameAuthority.run != null else 0
 	return roundi(base * pow(Data.cfg_float("economy.trader_price_mult_per_age"), ages))
 
 
