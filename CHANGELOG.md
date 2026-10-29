@@ -11,6 +11,7 @@ Time: 8:06 PM
 - **Fix: god trials during boss fights.** A god's Trial could start, or keep running, while a boss was being fought, and when it ended it set the spawn rate back to normal, so the full horde returned mid-boss. Now Trials don't start during a boss fight; a Trial already running when a boss arrives is called off without failing, and its shrine stays so you can try again after the fight. The boss fight's spawn rate is never reset by a Trial.
 - **Fix: "Felled by" on the death screen** now also names a god (when a Trial kills you) and the Unraveling. Before, only enemies were named.
 - New test for the Trial/boss fix (155 tests, all passing).
+- Added Godot's ID files (`.uid`) for scripts and tests from Phases 7–14, plus the translation table's import file, so the project opens the same way everywhere (Godot recommends keeping these in the repository).
 
 ### Reason
 The owner asked to test the game and get an honest assessment of where it's at. The playtest found these two bugs.
