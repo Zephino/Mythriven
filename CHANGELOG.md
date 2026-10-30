@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.36
+Date: 10/30/2026
+Time: 7:50 PM
+
+### Changes
+- Recorded the owner's decision to wait on the Steam Cloud backup until the game is on Steam.
+- Review notes: added the co-op trial gap (only the player who starts a god trial can earn the god; the design says everyone in the ring). Updated the old decisions row that said joining mid-run wasn't supported.
+
+### Reason
+The owner decided to wait on Steam and asked what still needs fixing in Phases 1–20.
+
 ## Version 00.01.35
 Date: 10/30/2026
 Time: 7:41 PM

@@ -54,7 +54,7 @@ Reviewer: Claude Code (cloud) · Date: 10/29/2026 · Version reviewed: 00.01.33 
 ## Owner answers (10/30/2026)
 
 1. Pack 1 approved: **yes** (tag `phase-20-approved`).
-2. Steam Cloud backup: the owner asked how hard it would be (answered in chat: little code, but it needs the game on Steam first). Still open.
+2. Steam Cloud backup: **wait** until the game goes on Steam (it needs little code, but the game must be on Steam first).
 3. Build plan update: the owner didn't follow the question; asked again in plain words. Still open.
 4. Catch-up for players who join mid-run: **yes**, as one chest of upgrades per 5 minutes played (built in 00.01.35; numbers to tune).
 5. Joining mid-run in friend-code games: **yes** (built in 00.01.35).
@@ -64,5 +64,6 @@ Reviewer: Claude Code (cloud) · Date: 10/29/2026 · Version reviewed: 00.01.33 
 - **Release builds stay locked until the lore sign-off.** All 9 Heroes, 8 gods, and 12 bosses still have `lore_verified: false`, so a **release** export would refuse every one of them and the game would have nothing to play. That's how the content gate is meant to work. The web link and test builds are debug builds, so they're unaffected. Do the lore sign-off (`docs/LORE_CHECK.md`) before any public release.
 - **Art and audio are still placeholders.** That's fine until the owner is ready, but every new pack adds more placeholder art to replace later. Choosing an art direction before Pack 2 would save redoing work.
 - **Open decisions** in `docs/DECISIONS.md` (numbers 3, 10, 11, tip placement, and the Phase 20 items) are still waiting; none blocks Pack 2 planning.
+- **Co-op gaps found after the review (10/30/2026):** in co-op, a god trial counts only the player who started it, but the design says every player inside the ring at the start (or within the first 10 s) earns the god (Fairness rules). Some boss signature visuals may also run slightly behind on a joining player's screen. Both are in `docs/DECISIONS.md` (row "Not replicated yet in co-op").
 - **Co-op watch list:** the public-games list depends on the Cloudflare Worker's newest deployment (migration v3). If Public Games ever says it can't get the list, check that deployment first.
 - **No problems found** with invented names, cultural rules, or IP in the code reviewed. The names in data come from `GAME_DESIGN.md`, which still has to pass the lore sign-off.
