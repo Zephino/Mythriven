@@ -28,7 +28,7 @@ var level_id: String = ""
 var swift: bool = false
 var omens: PackedStringArray = []
 var run_seed: int = 0
-## A public game: on the public list for anyone to join, even during a run
+## A public game: on the public list for anyone to join
 ## (GAME_DESIGN.md: Online co-op / Public games).
 var public_game: bool = false
 ## On a player who joined a run already in progress: their game waits for the

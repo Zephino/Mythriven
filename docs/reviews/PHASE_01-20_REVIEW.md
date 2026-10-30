@@ -51,6 +51,14 @@ Reviewer: Claude Code (cloud) · Date: 10/29/2026 · Version reviewed: 00.01.33 
 4. Players who join a public game mid-run start with only their signature weapon. Give them a few free level-up picks to catch up? Yes / no
 5. Allow joining mid-run in friend-code games too (today only public games allow it)? Yes / no
 
+## Owner answers (10/30/2026)
+
+1. Pack 1 approved: **yes** (tag `phase-20-approved`).
+2. Steam Cloud backup: the owner asked how hard it would be (answered in chat: little code, but it needs the game on Steam first). Still open.
+3. Build plan update: the owner didn't follow the question; asked again in plain words. Still open.
+4. Catch-up for players who join mid-run: **yes**, as one chest of upgrades per 5 minutes played (built in 00.01.35; numbers to tune).
+5. Joining mid-run in friend-code games: **yes** (built in 00.01.35).
+
 ## Notes for later
 
 - **Release builds stay locked until the lore sign-off.** All 9 Heroes, 8 gods, and 12 bosses still have `lore_verified: false`, so a **release** export would refuse every one of them and the game would have nothing to play. That's how the content gate is meant to work. The web link and test builds are debug builds, so they're unaffected. Do the lore sign-off (`docs/LORE_CHECK.md`) before any public release.

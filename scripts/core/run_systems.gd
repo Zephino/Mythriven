@@ -219,10 +219,10 @@ func _build_coop(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner,
 		coop_host.heals = get_tree().get_first_node_in_group("heal_pickups") as HealPickups
 		coop_turns.host = coop_host
 		add_child(coop_host)
-		if Net.public_game:
-			var late_join := CoopLateJoin.new()
-			late_join.host = coop_host
-			add_child(late_join)
+		# Players may join during the run (public and friend games).
+		var late_join := CoopLateJoin.new()
+		late_join.host = coop_host
+		add_child(late_join)
 	else:
 		spawner.process_mode = Node.PROCESS_MODE_DISABLED
 		director.process_mode = Node.PROCESS_MODE_DISABLED

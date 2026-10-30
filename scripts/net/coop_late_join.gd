@@ -1,13 +1,15 @@
 class_name CoopLateJoin
 extends Node
-## Joining a public game's run in progress (GAME_DESIGN.md: Online co-op /
-## Public games), on the host. A player who arrives gets their Hero beside the
+## Joining a co-op run in progress, public or friend game (GAME_DESIGN.md:
+## Online co-op / Joining in progress), on the host. A player who arrives gets their Hero beside the
 ## host's Hero with its signature weapon (sharing the team's XP and level),
 ## the other players hear about it (E_JOIN), and right after the next update
 ## the newcomer gets a snapshot of everything already in the world: how far
 ## the world has moved (origin shifts), the Age, every enemy, every build, and
 ## every shrine, chest, and boss. Their device (CoopClient) waits for it
-## before showing anything else.
+## before showing anything else. To catch up, they then get one chest's worth
+## of upgrades (no gold) for every 5 minutes already played (config:
+## coop.late_join_chest_every_s / late_join_chests_max), in one chest reveal.
 
 var host: CoopHost
 ## Newcomers whose snapshot goes out after the next update.
@@ -48,9 +50,35 @@ static func add_hero(world: Node, id: int, hero_id: String, at: Vector2) -> Play
 ## Sent right after an update, so nothing waiting in the next one is already in the snapshot.
 func _send_snapshots() -> void:
 	for id: int in _waiting:
-		if GameAuthority.player_by_id(id) != null:
+		var player: Player = GameAuthority.player_by_id(id)
+		if player != null:
 			Net.send(id, snapshot(id))
+			# Goes out with the next update, so it arrives after the snapshot.
+			catch_up(player)
 	_waiting.clear()
+
+
+## The newcomer's catch-up chest: one chest's upgrades per interval played.
+## Returns how many chests it held (0 early in a run).
+static func catch_up(player: Player) -> int:
+	var run: RunState = GameAuthority.run
+	if run == null:
+		return 0
+	var count: int = mini(int(run.elapsed_s / Data.cfg_float("coop.late_join_chest_every_s")), Data.cfg_int("coop.late_join_chests_max"))
+	var rewards: Array = []
+	var evolved: Array[Dictionary] = []
+	var tier: int = 0
+	for _i: int in count:
+		var plan: Dictionary = ChestRules.build(player, run.rng.loot)
+		# Gold is shared by the whole team in co-op, so the catch-up chest has none.
+		plan["rewards"] = (plan["rewards"] as Array).filter(func(r: Dictionary) -> bool: return r.get("kind") != "gold")
+		evolved.append_array(ChestRules.apply(player, plan))
+		rewards.append_array(plan["rewards"])
+		tier = maxi(tier, ChestRules.TIERS.find(str(plan["tier"])))
+	if count > 0 and not rewards.is_empty():
+		var merged: Dictionary = {"tier": ChestRules.TIERS[tier], "rewards": rewards}
+		CoopChoices.offer(player, "chest", [CoopChoices.plain_plan(merged), evolved])
+	return count
 
 
 func snapshot(id: int) -> Array:

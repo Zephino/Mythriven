@@ -2,9 +2,9 @@ class_name NetLobby
 extends RefCounted
 ## Lobby messages for Net (net_session.gd): the host hears players arrive,
 ## pick Heroes, and come back after a run; joining players hear the roster and
-## the start. In a public game a player may arrive while a run is in progress:
-## the host sends them LATE_START and CoopHost adds their Hero to the run
-## (GAME_DESIGN.md: Online co-op / Public games).
+## the start. A player may arrive while a run is in progress (public and
+## friend games alike): the host sends them LATE_START and CoopLateJoin adds
+## their Hero to the run (GAME_DESIGN.md: Online co-op / Joining in progress).
 
 
 static func host_message(net: Node, from: int, msg: Array) -> void:
@@ -17,7 +17,7 @@ static func host_message(net: Node, from: int, msg: Array) -> void:
 			var in_progress: bool = net.in_run() and GameAuthority.run != null and not GameAuthority.run.ended
 			# Someone arriving while the host is on the results screen waits in the lobby.
 			net.roster[from] = {"hero": net.valid_hero(str(msg[2])), "here": not in_progress}
-			if in_progress and net.public_game and net.roster[from]["hero"] != "":
+			if in_progress and net.roster[from]["hero"] != "":
 				net.send(from, [NetMsg.LATE_START, net.run_seed, net.level_id, net.swift, Array(net.omens), net.roster])
 				net.late_joined.emit(from)
 			net.broadcast_roster()

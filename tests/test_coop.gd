@@ -92,7 +92,7 @@ func test_after_a_run_everyone_returns_to_the_same_lobby() -> void:
 	assert_eq(int(newcomer.get("state")), Net.State.LOBBY, "friends can join between runs")
 
 
-func test_a_started_or_unknown_game_cant_be_joined() -> void:
+func test_an_unknown_game_cant_be_joined_but_a_started_one_can() -> void:
 	var host: Node = _session()
 	var late: Node = _session()
 	var reasons: Array[String] = []
@@ -106,7 +106,7 @@ func test_a_started_or_unknown_game_cant_be_joined() -> void:
 	var other: Node = _session()
 	other.call("join_game", host.get("code"), "heracles")
 	await _wait_frames(3)
-	assert_eq(int(other.get("state")), Net.State.OFF, "no joining once the run has started")
+	assert_ne(int(other.get("state")), Net.State.OFF, "friend games can be joined during a run")
 
 
 func test_when_the_host_leaves_the_game_ends_for_everyone() -> void:
@@ -333,3 +333,26 @@ func test_a_newcomers_snapshot_has_the_world_so_far() -> void:
 	assert_eq(int(spawns[0][1]), slot)
 	assert_eq((snapshot[6] as Array).size(), 2, "every player's place")
 	assert_true(NetMsg.encode(snapshot).size() < 256000, "fits in one message")
+
+
+func test_a_late_joiner_gets_a_chest_of_upgrades_for_every_5_minutes_played() -> void:
+	GameAuthority.start_run("aegean_shore")
+	var player: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, false, "heracles", 2)
+	GameAuthority.give_weapon(player, "great_club")
+	GameAuthority.run.elapsed_s = 60.0
+	assert_eq(CoopLateJoin.catch_up(player), 0, "nothing in the first 5 minutes")
+	var before: int = player.weapons[0].level + _passive_levels(player)
+	var gold_before: float = GameAuthority.run.gold
+	GameAuthority.run.elapsed_s = 11.0 * 60.0
+	assert_eq(CoopLateJoin.catch_up(player), 2, "one chest per 5 minutes played")
+	assert_gt(player.weapons[0].level + _passive_levels(player), before, "upgrades applied")
+	assert_eq(GameAuthority.run.gold, gold_before, "no gold (it would go to the whole team)")
+	GameAuthority.run.elapsed_s = 300.0 * 100.0
+	assert_eq(CoopLateJoin.catch_up(player), Data.cfg_int("coop.late_join_chests_max"), "capped")
+
+
+func _passive_levels(player: Player) -> int:
+	var total: int = 0
+	for id: String in player.passives:
+		total += int(player.passives[id])
+	return total

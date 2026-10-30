@@ -2,8 +2,8 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Pack 1 complete (Phases 1–20, version 00.01.34). The owner tested co-op on a PC and a phone, and the game on phones (10/29/2026). Waiting on the owner: art and audio direction, the lore sign-off, and the go-ahead for Pack 2 (plan in `docs/PACK_PLAN.md`)
-**Last reviewed with Claude:** 10/29/2026, Phases 1–20: Approved with fixes (`docs/reviews/PHASE_01-20_REVIEW.md`)
+**Current phase:** Pack 1 complete and approved (Phases 1–20, tag `phase-20-approved`; version 00.01.35). The owner tested co-op on a PC and a phone, and the game on phones (10/29/2026). Waiting on the owner: art and audio direction, the lore sign-off, and the go-ahead for Pack 2 (plan in `docs/PACK_PLAN.md`)
+**Last reviewed with Claude:** 10/29/2026, Phases 1–20: Approved with fixes; owner approved Pack 1 (`docs/reviews/PHASE_01-20_REVIEW.md`)
 
 ---
 

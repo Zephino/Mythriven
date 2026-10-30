@@ -16,7 +16,7 @@ const START := 4
 const WRONG_VERSION := 5
 ## Client → host: [BACK] back in the lobby after a run
 const BACK := 6
-## Host → one client joining a public game's run in progress: like START
+## Host → one client joining a run in progress: like START
 ## (then a SNAPSHOT of the world follows)
 const LATE_START := 7
 

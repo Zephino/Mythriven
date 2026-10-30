@@ -4,8 +4,8 @@
  *   GET /lobby?host=1        (WebSocket) start a game; the reply says its 6-digit code
  *   GET /lobby?code=123456   (WebSocket) join that game
  *   GET /lobby?host=1&public=1  (WebSocket) start a public game: it is listed for
- *                            anyone to find (see public_games.js), and players may
- *                            join while a run is in progress
+ *                            anyone to find (see public_games.js)
+ * Any game may be joined while a run is in progress (owner decision 10/29/2026).
  *
  * Each game is one LobbyRoom Durable Object named by its code. It only passes
  * messages between the players (up to 4); the host's game decides everything
@@ -15,8 +15,8 @@
  * Messages:
  *   text (JSON) from the room:  {t:"welcome", id, code, peers:[ids]}, {t:"join", id},
  *                               {t:"leave", id}, {t:"error", reason}
- *   text from the host:         {t:"start"} (no more joining), {t:"open"} (joining again,
- *                               back in the lobby after a run), {t:"kick", id},
+ *   text from the host:         {t:"start"} (a run began), {t:"open"} (back in the lobby
+ *                               after a run): shown on the public list; {t:"kick", id},
  *                               {t:"info", level, version} (public games: shown on the list)
  *   binary from a player:       [to][data...]   to = 0 for everyone else, or a player id
  *   binary to a player:         [from][data...]
@@ -112,10 +112,6 @@ export class LobbyRoom {
       if (isPublic && this.state.storage.setAlarm) await this.state.storage.setAlarm(Date.now() + REFRESH_MS);
     } else {
       if (!open.some((ws) => this.info(ws).id === HOST_ID)) return plain("no game with that code", 404);
-      // Public games may be joined while a run is in progress; friend games can't.
-      if ((await this.state.storage.get("started")) && !(await this.state.storage.get("public"))) {
-        return plain("that game has already started", 409);
-      }
       if (open.length >= MAX_PLAYERS) return plain("that game is full", 409);
       const taken = new Set(open.map((ws) => this.info(ws).id));
       id = 2;

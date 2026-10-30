@@ -18,7 +18,7 @@ var effects: EffectLayer
 var summons: ResonanceLayer
 
 var _send_in: float = 0.0
-## Joined a public game's run in progress: nothing is shown or sent until the
+## Joined a run in progress: nothing is shown or sent until the
 ## host's snapshot of the world arrives (CoopLateJoin).
 var _waiting_for_world: bool = false
 var _last_tick: int = 0

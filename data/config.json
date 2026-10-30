@@ -481,7 +481,7 @@
   },
 
   "coop": {
-    "_doc": "Online co-op (GAME_DESIGN.md: Online co-op; fairness rules). Scaling, revives, and the Wandering Shade are the design's numbers. sync_rate_hz: host updates per second; enemy_batch: enemies whose position each update corrects (the rest are moved on each device between corrections); damage_numbers_per_tick and events are capped so a busy moment can't flood the connection. state_hz: how often slower things (shrines, chests, bosses' visuals) are sent. revive_reach_px: how close an ally must stand to revive. tether_screens: how far apart players can move. turn_s: seconds each player has to choose a level-up card. smoothing_per_s: how fast other players and enemies glide to where the host says they are. Colours are placeholders.",
+    "_doc": "Online co-op (GAME_DESIGN.md: Online co-op; fairness rules). Scaling, revives, and the Wandering Shade are the design's numbers. sync_rate_hz: host updates per second; enemy_batch: enemies whose position each update corrects (the rest are moved on each device between corrections); damage_numbers_per_tick and events are capped so a busy moment can't flood the connection. state_hz: how often slower things (shrines, chests, bosses' visuals) are sent. revive_reach_px: how close an ally must stand to revive. tether_screens: how far apart players can move. turn_s: seconds each player has to choose a level-up card. smoothing_per_s: how fast other players and enemies glide to where the host says they are. late_join_chest_every_s / late_join_chests_max: a player who joins a run in progress gets one chest's worth of upgrades (no gold) for every this many seconds already played, up to the max (owner request 10/29/2026; placeholder numbers to tune). Colours are placeholders.",
     "max_players": 4,
     "lobby_code_digits": 6,
     "enemy_hp_per_extra_player": 0.6,
@@ -502,6 +502,8 @@
     "turn_s": 20,
     "smoothing_per_s": 12,
     "spawn_spread_px": 40,
+    "late_join_chest_every_s": 300,
+    "late_join_chests_max": 6,
     "shade_color": "#b8c8ff",
     "bleed_color": "#ff5a5a",
     "revive_color": "#7aff9a"

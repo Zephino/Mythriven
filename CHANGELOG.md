@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.35
+Date: 10/30/2026
+Time: 7:41 PM
+
+### Changes
+- **Friends can join during a run.** Friend-code games can now be joined at any time, like public games: type the code mid-run and you go straight into the run. The Worker no longer turns friends away once a run has started.
+- **Catch-up chest for players who join mid-run.** They get one chest's worth of upgrades for every 5 minutes already played (up to 6), shown in one chest reveal. No gold, because gold goes to the whole team. Numbers are in `config.json` (`coop.late_join_chest_every_s`, `coop.late_join_chests_max`) to tune.
+- Pack 1 approved by the owner: tag `phase-20-approved`. Owner answers recorded in the review.
+
+### Reason
+The owner approved Pack 1, asked for catch-up rewards every 5 minutes for late joiners, and asked for joining mid-run in friend games.
+
 ## Version 00.01.34
 Date: 10/29/2026
 Time: 11:31 PM

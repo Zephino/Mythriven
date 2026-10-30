@@ -11,7 +11,6 @@ static var _public: Dictionary = {}
 var my_id: int = 0
 var code: String = ""
 var _locked: bool = false
-var _is_public: bool = false
 
 
 ## The public games, as the Worker lists them.
@@ -29,7 +28,6 @@ static func public_games() -> Array:
 func host(is_public: bool = false) -> void:
 	code = "%06d" % (randi() % 1000000)
 	my_id = HOST_ID
-	_is_public = is_public
 	_rooms[code] = {HOST_ID: self}
 	if is_public:
 		_public[code] = {}
@@ -39,7 +37,8 @@ func host(is_public: bool = false) -> void:
 func join(join_code: String) -> void:
 	var room: Dictionary = _rooms.get(join_code, {})
 	var host_side: LocalLobby = room.get(HOST_ID)
-	if host_side == null or (host_side._locked and not host_side._is_public) or room.size() >= 4:
+	# A run in progress can be joined (CoopLateJoin), so only a full game refuses.
+	if host_side == null or room.size() >= 4:
 		closed.emit.call_deferred("UI_COOP_JOIN_REFUSED")
 		return
 	code = join_code

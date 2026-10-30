@@ -1108,7 +1108,7 @@ UI_COOP_LEAVE,Leave
 UI_COOP_NOT_SET_UP,Co-op isn't set up for this version of the game yet.
 UI_COOP_BAD_CODE,A code is 6 numbers.
 UI_COOP_NO_CONNECTION,Couldn't connect. Check your internet and try again.
-UI_COOP_JOIN_REFUSED,Couldn't join: check the code. The game may be full (4 players) or already started.
+UI_COOP_JOIN_REFUSED,Couldn't join: check the code. The game may be full (4 players).
 UI_COOP_HOST_LEFT,"The host left, so the game ended."
 UI_COOP_KICKED,The host removed you from the game.
 UI_COOP_CONNECTION_LOST,The connection was lost.

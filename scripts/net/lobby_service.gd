@@ -34,12 +34,13 @@ func send(_to: int, _data: PackedByteArray) -> void:
 	pass
 
 
-## Host only: no one else can join (the run is starting).
+## Host only: the run is starting (the public list shows "in a run";
+## players can still join, and CoopLateJoin adds them to the run).
 func lock() -> void:
 	pass
 
 
-## Host only: others may join again (back in the lobby after a run).
+## Host only: back in the lobby after a run.
 func reopen() -> void:
 	pass
 

@@ -1269,11 +1269,13 @@ Up to 4 Heroes share one Last Stand through a 6-digit code; the host's game is t
 2. Friends tap **Join Game** and type the code.
 3. In the lobby, each player picks a Hero (duplicates allowed). The host's Omens apply to everyone.
 4. If the host leaves, the run ends for everyone (no host migration at launch).
+5. Friends can join with the code at any time, even during a run (see Joining in progress below).
 
 **Public games** *(added 10/29/2026, owner request)*
 
 - A separate **Public Games** button (the friend-code Co-op stays as it is). It lists open public games (level, players, in the lobby or in a run) and has **Host a public game**, which puts that game on the list. Only games with the same game version and a free place are listed; friend-code games are never listed.
-- **Joining in progress:** public games can be joined during a run. The newcomer's Hero appears beside the host's Hero with its signature weapon and shares the team's XP and level; the host sends their game a snapshot of the world so far. A newcomer takes the place of a player who left (that player's Shade makes way).
+- **Joining in progress:** any co-op game, public or friend code, can be joined during a run *(friend games added 10/29/2026, owner request)*. The newcomer's Hero appears beside the host's Hero with its signature weapon and shares the team's XP and level; the host sends their game a snapshot of the world so far. A newcomer takes the place of a player who left (that player's Shade makes way).
+- **Catch-up chest:** a newcomer gets one chest's worth of upgrades (no gold) for every 5 minutes already played, up to 6, in one chest reveal *(added 10/29/2026, owner request; numbers to tune in config.json)*.
 - A public game's host may start alone; the same lobby, fairness, and sync rules apply.
 
 **Online service:** the owner's Cloudflare Worker (free plan): a Durable Object per lobby relays messages over WebSockets, so co-op works on the web, PC, and phones; behind a `LobbyService` interface so another service (Epic Online Services, Steam lobbies via GodotSteam, Nakama) can be swapped in. *(Changed 10/29/2026, owner approved: was Epic Online Services, which needs a developer account and has no web support.)*

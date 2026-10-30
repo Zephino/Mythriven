@@ -682,6 +682,8 @@
               "turn_s": "number",
               "smoothing_per_s": "number",
               "spawn_spread_px": "number",
+              "late_join_chest_every_s": "number",
+              "late_join_chests_max": "number",
               "shade_color": "string",
               "bleed_color": "string",
               "revive_color": "string"
