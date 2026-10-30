@@ -11,6 +11,9 @@ extends Node2D
 ##              while they leave decoys.
 ## Winning binds the god; failing makes the shrine vanish. Attacks come from
 ## the shared pattern library (pattern_runner.gd).
+## Co-op (owner decision 10/30/2026): it waits until every standing player is
+## in the ring (up to gods.trial_gather_s; then it can be started again). All who
+## took part earn the god on a win, even if downed; it fails when none is left inside.
 
 signal finished(won: bool, god_id: String)
 
@@ -26,7 +29,11 @@ var ring_radius: float = 0.0
 var time_left: float = 0.0
 var touches: int = 0
 
-var _player: Player
+## Everyone taking part (one player in solo).
+var _players: Array[Player] = []
+## Co-op: waiting for every standing player to come into the ring.
+var gathering: bool = false
+var _gather_left: float = 0.0
 var _avatar_slot: int = -1
 var _god_pos := Vector2.ZERO
 var _god_vel := Vector2.ZERO
@@ -53,19 +60,54 @@ func _ready() -> void:
 	CoopMirror.attach(self, "trial")
 
 
-## Starts the trial of `trial_shrine`'s god for `player`.
+## Starts the trial of `trial_shrine`'s god for `player` (in co-op, first
+## gathers every standing player into the ring).
 func begin(trial_shrine: Dictionary, player: Player) -> void:
 	shrine = trial_shrine
-	_player = player
 	kind = str((shrine["god"].get("shrine", {}) as Dictionary).get("type", ""))
 	center = shrine["pos"]
 	var view: Vector2 = get_viewport().get_visible_rect().size / maxf(Data.cfg_float("camera.zoom"), 0.01)
 	ring_radius = minf(view.x, view.y) * 0.5 * Data.cfg_float("gods.trial_ring_radius_screens")
+	active = true
+	_players = [player]
+	gathering = TrialPlayers.standing().size() > 1
+	if gathering:
+		_gather_left = Data.cfg_float("gods.trial_gather_s")
+		return
+	_start()
+
+
+## Co-op: the trial begins once every standing player is inside the ring.
+func _gather(delta: float) -> void:
+	_gather_left -= delta
+	var standing: Array[Player] = TrialPlayers.standing()
+	var inside: Array[Player] = standing.filter(func(p: Player) -> bool: return p.position.distance_to(center) <= ring_radius)
+	if not standing.is_empty() and inside.size() == standing.size():
+		_players = inside
+		gathering = false
+		_start()
+		return
+	if _gather_left <= 0.0 or standing.is_empty():
+		var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
+		if banner != null:
+			banner.show_text(tr("TRIAL_GATHER_TIMEOUT"))
+		_call_off()
+		return
+	_label.visible = true
+	_label.text = tr("TRIAL_GATHER") % [inside.size(), standing.size(), maxi(ceili(_gather_left), 0)]
+	queue_redraw()
+
+
+## The nearest player still taking part and standing (null when none is).
+func _target(from: Vector2) -> Player:
+	return TrialPlayers.nearest(_players, from)
+
+
+func _start() -> void:
 	touches = 0
 	_pattern_timer = Data.cfg_float("gods.trial_first_attack_s")
 	_pattern_index = 0
 	_decoys.clear()
-	active = true
 	match kind:
 		"trial_duel":
 			time_left = Data.cfg_float("gods.duel_time_limit_s")
@@ -89,14 +131,18 @@ func begin(trial_shrine: Dictionary, player: Player) -> void:
 func _process(delta: float) -> void:
 	if not active:
 		return
-	if _player == null or not is_instance_valid(_player) or not _player.alive:
-		_end(false)
-		return
 	if GameAuthority.run != null and GameAuthority.run.boss_arena_active:
 		_call_off()
 		return
+	if gathering:
+		_gather(delta)
+		return
+	var nearest: Player = _target(center)
+	if nearest == null:
+		_end(false)
+		return
 	time_left -= delta
-	var inside: bool = _player.position.distance_to(center) <= ring_radius
+	var inside: bool = TrialPlayers.any_inside(_players, center, ring_radius)
 	match kind:
 		"trial_duel":
 			var enemies: EnemyManager = GameAuthority.enemies
@@ -140,21 +186,23 @@ func _attack(origin: Vector2, delta: float) -> void:
 	var pattern_id: String = str(list[_pattern_index % list.size()])
 	_pattern_index += 1
 	var scale: float = RunArc.hp_mult(GameAuthority.run.arc_s())
-	patterns.run({"pattern": pattern_id}, origin, _player.position, str(shrine["god"].get("element", "")), "god_" + str(shrine["god_id"]),
+	patterns.run({"pattern": pattern_id}, origin, _target(origin).position, str(shrine["god"].get("element", "")), "god_" + str(shrine["god_id"]),
 			scale * Data.cfg_float("gods.trial_damage_mult"))
 
 
-## The god flees from the player around the ring, leaving decoys.
+## The god flees from the nearest player around the ring, leaving decoys;
+## anyone taking part can touch it.
 func _chase(delta: float) -> void:
-	var speed: float = _player.move_speed * Data.cfg_float("gods.chase_speed_mult")
-	var away: Vector2 = (_god_pos - _player.position).normalized()
+	var chaser: Player = _target(_god_pos)
+	var speed: float = chaser.move_speed * Data.cfg_float("gods.chase_speed_mult")
+	var away: Vector2 = (_god_pos - chaser.position).normalized()
 	var wander := Vector2.from_angle(GameAuthority.run.elapsed_s * 1.7).rotated(float(touches))
 	_god_vel = (away + wander * 0.6).normalized() * speed
 	_god_pos += _god_vel * delta
 	if _god_pos.distance_to(center) > ring_radius * 0.9:
 		_god_pos = center + (_god_pos - center).normalized() * ring_radius * 0.9
-	var reach: float = Data.cfg_float("gods.chase_touch_px") + _player.body_radius
-	if _player.position.distance_to(_god_pos) <= reach:
+	var reach: float = Data.cfg_float("gods.chase_touch_px") + chaser.body_radius
+	if _target(_god_pos).position.distance_to(_god_pos) <= reach:
 		touches += 1
 		var rng: RandomNumberGenerator = GameAuthority.run.rng.world
 		_god_pos = center + Vector2.from_angle(rng.randf() * TAU) * ring_radius * rng.randf_range(0.4, 0.8)
@@ -166,7 +214,7 @@ func _chase(delta: float) -> void:
 		decoy["pos"] = Vector2(decoy["pos"]) + Vector2(decoy["dir"]) * speed * 0.8 * delta
 		if Vector2(decoy["pos"]).distance_to(center) > ring_radius * 0.9:
 			decoy["dir"] = -Vector2(decoy["dir"])
-		if _player.position.distance_to(decoy["pos"]) <= reach:
+		if _target(decoy["pos"]).position.distance_to(decoy["pos"]) <= reach:
 			_decoys.erase(decoy)
 
 
@@ -176,8 +224,11 @@ func _end(won: bool) -> void:
 	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 	if banner != null:
 		banner.show_text(tr("TRIAL_WON" if won else "TRIAL_FAILED"))
-	if won and shrines != null and is_instance_valid(_player):
-		shrines.offer_binding(shrine, _player)
+	if won and shrines != null:
+		# Everyone who took part, including those downed during it (not those who left).
+		for player: Player in _players:
+			if is_instance_valid(player) and GameAuthority.players.has(player) and not player.shade:
+				shrines.offer_binding(shrine, player)
 	elif shrines != null:
 		shrines.shrines.erase(shrine)
 	finished.emit(won, god_id)
@@ -193,6 +244,7 @@ func _call_off() -> void:
 
 func _stop() -> void:
 	active = false
+	gathering = false
 	_label.visible = false
 	# The boss arena sets its own spawn rate; leave it alone during a fight.
 	if spawner != null and not (GameAuthority.run != null and GameAuthority.run.boss_arena_active):

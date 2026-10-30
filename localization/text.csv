@@ -432,6 +432,8 @@ TRIAL_TRIAL_CHASE_BANNER,Chase: touch %s 3 times within 40 s! Beware the decoys.
 TRIAL_STATUS_TIME,%d s
 TRIAL_STATUS_CHASE,%d s · caught %d / %d
 TRIAL_WON,Trial won!
+TRIAL_GATHER,Trial: everyone into the ring to start! %d / %d inside (%d s)
+TRIAL_GATHER_TIMEOUT,"Not everyone reached the ring, so the trial didn't start. Touch the shrine to try again."
 TRIAL_FAILED,Trial failed: the shrine fades.
 UI_GOD_CHOICE_TITLE,%s offers to join you. Release a god?
 UI_GOD_RELEASE,Release %s

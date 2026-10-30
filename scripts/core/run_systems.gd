@@ -169,6 +169,9 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	boss_hud = BossHud.new()
 	boss_hud.bosses = bosses
 	add_child(boss_hud)
+	var boss_pointer := BossPointer.new()
+	boss_pointer.bosses = bosses
+	add_child(boss_pointer)
 	add_child(god_buttons)
 	pause_menu = PauseMenu.new()
 	pause_menu.gods = gods

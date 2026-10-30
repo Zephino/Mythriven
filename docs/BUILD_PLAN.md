@@ -29,12 +29,12 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Empty main scene that runs.
 
 **Done when**
-- [ ] Project opens in Godot with zero errors or warnings.
-- [ ] Pressing F1 shows the debug menu with an FPS counter.
-- [ ] Breaking a field in a test JSON file shows an error that names the file and field.
-- [ ] A test label shows text from the translation table; the pseudo-localization toggle changes it.
-- [ ] A test entry with `care_tier: "B"` is refused when running as a release build.
-- [ ] The same seed always produces the same sequence from each RNG.
+- [ ] Project opens in Godot with zero errors or warnings. *(Not yet: the content gate's "loaded for testing" lore warnings show on purpose until the lore sign-off.)*
+- [x] Pressing F1 shows the debug menu with an FPS counter.
+- [x] Breaking a field in a test JSON file shows an error that names the file and field.
+- [x] A test label shows text from the translation table; the pseudo-localization toggle changes it.
+- [x] A test entry with `care_tier: "B"` is refused when running as a release build.
+- [x] The same seed always produces the same sequence from each RNG.
 
 **Not yet:** player, map, enemies, art.
 
@@ -49,10 +49,10 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Placeholder square sprite; camera follows smoothly with slight look-ahead.
 
 **Done when**
-- [ ] Movement works with keyboard, gamepad, and touch (test touch with Godot's "Emulate Touch From Mouse").
-- [ ] The joystick only appears while touched.
-- [ ] Diagonal movement isn't faster than straight movement.
-- [ ] The camera never jitters.
+- [ ] Movement works with keyboard, gamepad, and touch (test touch with Godot's "Emulate Touch From Mouse"). *(Keyboard and touch played by the owner; gamepad not tried by a person yet.)*
+- [x] The joystick only appears while touched.
+- [x] Diagonal movement isn't faster than straight movement.
+- [x] The camera never jitters.
 
 **Not yet:** map, enemies, weapons.
 
@@ -67,10 +67,10 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - World origin shift past ~50,000 px.
 
 **Done when**
-- [ ] Walking 5 minutes in any direction shows no seams, gaps, or stutter.
-- [ ] Returning to a spot shows the same ground and decorations.
-- [ ] Memory use stays flat during a long walk (check Godot's Monitors).
-- [ ] 60 FPS while walking.
+- [x] Walking 5 minutes in any direction shows no seams, gaps, or stutter.
+- [x] Returning to a spot shows the same ground and decorations.
+- [ ] Memory use stays flat during a long walk (check Godot's Monitors). *(Not measured yet.)*
+- [ ] 60 FPS while walking. *(Not measured yet; no slowdowns reported.)*
 
 **Not yet:** POIs, hazards, other levels.
 
@@ -86,10 +86,10 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Player HP and death; debug-menu options to spawn N enemies and toggle god mode.
 
 **Done when**
-- [ ] 500 enemies at 60 FPS on PC.
-- [ ] Enemies form a ring around a standing player and never overlap.
-- [ ] Standing still while surrounded kills the player.
-- [ ] No objects are created or freed during play (pools only).
+- [ ] 500 enemies at 60 FPS on PC. *(Not measured yet.)*
+- [x] Enemies form a ring around a standing player and never overlap.
+- [x] Standing still while surrounded kills the player.
+- [x] No objects are created or freed during play (pools only).
 
 **Not yet:** weapons, XP, elites, bosses.
 
@@ -104,9 +104,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Each weapon has its own attack interval and per-enemy hit interval in data.
 
 **Done when**
-- [ ] The club hits the nearest enemy even while the player runs away from it.
-- [ ] A small test verifies the damage formula order (Might, crit, weakness/resistance, Armor, minimum 1).
-- [ ] Damage numbers appear and use pooled objects.
+- [x] The club hits the nearest enemy even while the player runs away from it.
+- [x] A small test verifies the damage formula order (Might, crit, weakness/resistance, Armor, minimum 1).
+- [x] Damage numbers appear and use pooled objects.
 
 **Not yet:** XP, level-ups, elements.
 
@@ -123,11 +123,11 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Basic run log saved at the end of each run (time, cause of death, build).
 
 **Done when**
-- [ ] Collecting orbs quickly climbs the scale and holds at the top note.
-- [ ] A magnet-style pickup of hundreds of orbs doesn't spam sound.
-- [ ] Every level-up offers at least one useful card; maxed builds get Gold/Heal.
-- [ ] Auto-collect resolves maxed level-ups without pausing.
-- [ ] A run log file exists after each run.
+- [x] Collecting orbs quickly climbs the scale and holds at the top note.
+- [x] A magnet-style pickup of hundreds of orbs doesn't spam sound.
+- [x] Every level-up offers at least one useful card; maxed builds get Gold/Heal.
+- [x] Auto-collect resolves maxed level-ups without pausing.
+- [x] A run log file exists after each run.
 
 **Not yet:** elements, Heroes other than Heracles, gods.
 
@@ -141,7 +141,7 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Send the Phase 7 report to Claude for review.
 
 **Done when**
-- [ ] The owner says moving and killing feels fun on its own.
+- [x] The owner says moving and killing feels fun on its own.
 
 ---
 
@@ -153,9 +153,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Players are only affected by elemental statuses from 30:00, at reduced strength [Core mechanics].
 
 **Done when**
-- [ ] Each status and reaction works and is visible.
-- [ ] 500 enemies with statuses still run at 60 FPS.
-- [ ] Effect budgets recycle the oldest effects when full.
+- [x] Each status and reaction works and is visible.
+- [ ] 500 enemies with statuses still run at 60 FPS. *(Not measured yet.)*
+- [x] Effect budgets recycle the oldest effects when full.
 
 ---
 
@@ -167,9 +167,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - The four extra general weapons (Javelin, Longbow, Bronze Sword, War Hammer).
 
 **Done when**
-- [ ] Each Hero plays noticeably differently.
-- [ ] Expertise bonuses apply only to the right weapon categories and show an "Expert" badge.
-- [ ] Heracles' Labors appear and reward correctly.
+- [x] Each Hero plays noticeably differently.
+- [x] Expertise bonuses apply only to the right weapon categories and show an "Expert" badge.
+- [x] Heracles' Labors appear and reward correctly.
 
 ---
 
@@ -181,9 +181,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Chests with the pantheon-themed reveal; standard evolutions; Codex [Discovery and feel].
 
 **Done when**
-- [ ] A full 30-minute Aegean run shows all Ages and elites.
-- [ ] Evolutions trigger correctly and the reveal shows the recipe.
-- [ ] Chest reveal is skippable after 0.5 s.
+- [x] A full 30-minute Aegean run shows all Ages and elites.
+- [x] Evolutions trigger correctly and the reveal shows the recipe.
+- [x] Chest reveal is skippable after 0.5 s.
 
 ---
 
@@ -195,9 +195,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Banter lines on binding [Gods (summons)], [Discovery and feel].
 
 **Done when**
-- [ ] All 8 Pack 1 gods can be found, bound, and summoned.
-- [ ] Each trial type can be won and failed.
-- [ ] Both god buttons work independently on PC, gamepad, and touch.
+- [x] All 8 Pack 1 gods can be found, bound, and summoned.
+- [x] Each trial type can be won and failed.
+- [ ] Both god buttons work independently on PC, gamepad, and touch. *(PC and touch played; gamepad not tried by a person yet.)*
 
 ---
 
@@ -207,8 +207,8 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - The 5 Resonances with Harmony and the Resonance button; 8 infusion templates and Empowered [Divine Resonance and Patronage].
 
 **Done when**
-- [ ] Each Resonance triggers only when both meters are full and the pair is compatible.
-- [ ] Infused weapon names build automatically.
+- [x] Each Resonance triggers only when both meters are full and the pair is compatible.
+- [x] Infused weapon names build automatically.
 
 ---
 
@@ -220,9 +220,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Boons, the Unraveling, boss-entrance banter [Bosses], [Core mechanics].
 
 **Done when**
-- [ ] Every attack is telegraphed and dodgeable.
-- [ ] Defeating Achilles unlocks him and saves immediately.
-- [ ] **The Aegean Shore is a complete vertical slice. Full review with Claude before continuing.**
+- [x] Every attack is telegraphed and dodgeable.
+- [x] Defeating Achilles unlocks him and saves immediately.
+- [x] **The Aegean Shore is a complete vertical slice. Full review with Claude before continuing.**
 
 ---
 
@@ -232,8 +232,8 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Region layer, 5 POI types, compass, Wandering Trader, 2 world events [Endless world and discoveries].
 
 **Done when**
-- [ ] The same seed always places the same POIs.
-- [ ] Trader purchases reduce banked gold.
+- [x] The same seed always places the same POIs.
+- [x] Trader purchases reduce banked gold.
 
 ---
 
@@ -245,9 +245,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 - Death recap, secrets, the Oracle, Odysseus; Swift Mode [Death, permanent progression, and saving], [Discovery and feel].
 
 **Done when**
-- [ ] Force-closing the game mid-run never loses an unlock.
-- [ ] Quitting before and after 5:00 banks the correct gold.
-- [ ] The death recap shows a relevant tip.
+- [x] Force-closing the game mid-run never loses an unlock.
+- [x] Quitting before and after 5:00 banks the correct gold.
+- [x] The death recap shows a relevant tip.
 
 ---
 
@@ -256,9 +256,9 @@ Section names in brackets, like [Core mechanics], refer to sections of `GAME_DES
 One phase each: **Midgard's Edge**, **The Two Lands**, **The Misty Isles**. Each needs its tileset, hazard, enemy families, wave table, 3 bosses, and local gods [Regional levels].
 
 **Done when (each)**
-- [ ] A full 30-minute run is playable with all 3 bosses.
-- [ ] Hazards pause during boss arenas.
-- [ ] Review with Claude before the next level.
+- [x] A full 30-minute run is playable with all 3 bosses.
+- [x] Hazards pause during boss arenas.
+- [x] Review with Claude before the next level.
 
 ---
 
@@ -270,9 +270,13 @@ Art, audio, accessibility settings, onboarding tips, mobile UI and safe areas, a
 
 ## Phase 20 — Co-op and cloud saves
 
-Only once single-player is stable: Epic Online Services setup, cross-platform cloud sync with merge rules, 6-digit lobby codes, turn-based co-op level-ups, fairness rules, Wandering Shade mode [Online co-op], [Cloud saves].
+Only once single-player is stable: the owner's Cloudflare Worker for lobbies and cloud saves (changed from Epic Online Services, owner decision 10/29/2026), cross-platform cloud sync with merge rules, 6-digit lobby codes, turn-based co-op level-ups, fairness rules, Wandering Shade mode [Online co-op], [Cloud saves].
 
 ---
+
+## Pack 1 status (10/30/2026)
+
+Boxes are ticked where the work is done and checked (by tests, by Claude's review, or by the owner's play), see `docs/reviews/PHASE_01-20_REVIEW.md`. Boxes left empty say why. Pack 1 was approved by the owner on 10/30/2026.
 
 ## After Pack 1
 

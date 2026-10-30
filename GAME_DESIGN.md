@@ -1286,7 +1286,7 @@ Up to 4 Heroes share one Last Stand through a 6-digit code; the host's game is t
 | --- | --- |
 | Gods | **Personal.** Each player has their own 2 slots, buttons, meters, Patronage, and permanent god levels. |
 | Peaceful shrines | Each player who touches the shrine while active binds their own copy of the god. |
-| God trials | Every player inside the ring at the start (or within the first 10 s) earns the god on success, including players downed during it. Each chooses individually whether to bind it or release a current god. |
+| God trials | The trial doesn't start until every standing player is inside the ring (if not everyone arrives within 30 s, it's called off and can be started again). Everyone who took part earns the god on success, including players downed during it. Each chooses individually whether to bind it or release a current god. *(Changed 10/30/2026, owner decision: was "inside the ring at the start or within the first 10 s".)* |
 | XP | One shared XP bar; everyone levels at the same time. |
 | Level-up choices | **Individual:** each player gets their own 3 cards, chosen on their turn. |
 | Level-up pause | Full pause and the timer stops. Players pick one at a time in rotating turn order, up to 20 s each (see Core mechanics). |

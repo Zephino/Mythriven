@@ -213,17 +213,21 @@ func _draw() -> void:
 
 
 ## A bold, slowly pulsing ring around each living boss so it stands out from
-## the horde and the ground (placeholder art can blend in).
+## the horde and the ground (placeholder art can blend in). The boss is drawn
+## again here, above the other enemies, so the horde never hides it.
 func _draw_markers() -> void:
 	var marker: Dictionary = Data.cfg("bosses.marker")
 	var seconds: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
 	var pulse: float = 0.5 + 0.5 * sin(seconds * TAU * float(marker.get("pulse_hz", 1.0)))
 	var width: float = float(marker.get("width_px", 2.0))
 	for controller: BossController in controllers:
-		if not controller.is_alive():
+		if not controller.is_alive() or controller.slot < 0:
 			continue
 		var at: Vector2 = controller.position_now()
-		var ring: float = GameAuthority.enemies.radius[controller.slot] + float(marker.get("gap_px", 4.0)) + pulse * float(marker.get("pulse_px", 3.0))
+		var body: float = GameAuthority.enemies.radius[controller.slot]
+		draw_circle(at, body + float(marker.get("body_outline_px", 2.0)), Color.html(str(marker.get("outline_color", "#000000"))))
+		draw_circle(at, body, GameAuthority.enemies.base_color(controller.slot))
+		var ring: float = body + float(marker.get("gap_px", 4.0)) + pulse * float(marker.get("pulse_px", 3.0))
 		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("outline_color", "#000000"))), width + 3.0)
 		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("color", "#ff3050"))), width)
 

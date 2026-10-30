@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.37
+Date: 10/30/2026
+Time: 7:55 PM
+
+### Changes
+- **Co-op god trials wait for everyone.** When a player touches a trial shrine in co-op, the ring appears and shows "everyone into the ring: 1 / 3 inside". The trial starts only when every standing player is inside. If not everyone arrives within 30 s, it's called off, and touching the shrine again restarts it. Everyone who took part earns the god when it's won, even if they were downed during it. The trial fails only when nobody taking part is still standing in the ring. Solo trials are unchanged.
+- **Bosses are always easy to see.** A boss is drawn again on top of the crowd (with a dark outline), so other enemies never cover it. A big red arrow at the edge of the screen points to any boss that's off screen.
+- **Build plan boxes ticked** where the work is truly done (45). Seven are left empty with the reason: the intended lore warnings, gamepad not tried by a person, and frame rate and memory not measured. Phase 20 now names Cloudflare instead of Epic Online Services.
+
+### Reason
+The owner asked that trials wait for all players, that bosses always be easy to see, and that the done boxes be ticked.
+
 ## Version 00.01.36
 Date: 10/30/2026
 Time: 7:50 PM

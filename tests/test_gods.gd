@@ -216,3 +216,49 @@ func _enemies_with_type(type_id: String) -> int:
 		if _enemies.active[i] != 0 and str(_enemies.type_of(i)["id"]) == type_id:
 			return i
 	return -1
+
+
+func test_in_coop_a_trial_waits_for_everyone_in_the_ring_and_everyone_earns_the_god() -> void:
+	var shrines := Shrines.new()
+	shrines.gods = _gods
+	_parent.add_child(shrines)
+	shrines.set_process(false)
+	var trial := GodTrial.new()
+	trial.shrines = shrines
+	trial.patterns = add_child_autofree(PatternRunner.new())
+	_parent.add_child(trial)
+	trial.set_process(false)
+	var friend: Player = GameAuthority.spawn_player(_parent, Vector2(5000, 0), null, false, "heracles", 7)
+	var shrine: Dictionary = shrines.add(Vector2.ZERO, "sekhmet")
+	_player.position = Vector2.ZERO
+	trial.begin(shrine, _player)
+	assert_true(trial.gathering, "waits for the friend")
+	trial._process(0.5)
+	assert_true(trial.gathering, "still waiting while the friend is outside the ring")
+	assert_eq(trial.kind, "trial_endurance")
+	friend.position = Vector2(10, 0)
+	trial._process(0.05)
+	assert_false(trial.gathering, "everyone is in: the trial starts")
+	assert_true(trial.active)
+	trial.time_left = 0.01
+	trial._process(0.05)
+	assert_true(_gods.bound_ids(_player).has("sekhmet"), "the starter earns the god")
+	assert_true(_gods.bound_ids(friend).has("sekhmet"), "and so does everyone who took part")
+
+
+func test_a_coop_trial_is_called_off_if_not_everyone_comes() -> void:
+	var shrines := Shrines.new()
+	shrines.gods = _gods
+	_parent.add_child(shrines)
+	shrines.set_process(false)
+	var trial := GodTrial.new()
+	trial.shrines = shrines
+	trial.patterns = add_child_autofree(PatternRunner.new())
+	_parent.add_child(trial)
+	trial.set_process(false)
+	GameAuthority.spawn_player(_parent, Vector2(5000, 0), null, false, "heracles", 7)
+	var shrine: Dictionary = shrines.add(Vector2.ZERO, "sekhmet")
+	trial.begin(shrine, _player)
+	trial._process(Data.cfg_float("gods.trial_gather_s") + 1.0)
+	assert_false(trial.active, "called off")
+	assert_true(shrines.shrines.has(shrine), "the shrine stays, so it can be tried again")

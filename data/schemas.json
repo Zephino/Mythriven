@@ -423,6 +423,7 @@
               "shrine_lifetime_s": "number",
               "rare_god_min_time_s": "number",
               "peaceful_bind_s": "number",
+              "trial_gather_s": "number",
               "trial_ring_radius_screens": "number",
               "duel_spawn_rate": "number",
               "duel_time_limit_s": "number",
@@ -564,7 +565,9 @@
                   "gap_px": "number",
                   "width_px": "number",
                   "pulse_px": "number",
-                  "pulse_hz": "number"
+                  "pulse_hz": "number",
+                  "body_outline_px": "number",
+                  "pointer_px": "number"
                 }
               },
               "post_color": "string",

@@ -262,6 +262,11 @@ func nearest_player(from: Vector2) -> Player:
 	return best
 
 
+## An enemy's own colour (its type's, or a set tint), without status or flash tints.
+func base_color(slot: int) -> Color:
+	return tint_override[slot] if tint_override[slot].a > 0.0 else _type_color[kind[slot]]
+
+
 func _draw_instances(delta: float) -> void:
 	var flash_color := Color.html(Data.cfg_string("enemies.hit_flash_color"))
 	var tint_strength: float = Data.cfg_float("enemies.status_tint_strength")
