@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.33
+Date: 10/29/2026
+Time: 11:16 PM
+
+### Changes
+- New written rule in `AGENTS.md`, `CLAUDE.md`, `docs/AI_WORKFLOW.md`, and Cursor's `.cursor/rules/git-workflow.mdc`: all AI tools commit and push straight to `main` (no feature branches or pull requests) until the owner says otherwise. GitHub keeps only the `main` and `data` branches. Never force-push; run the tests before every push.
+
+### Reason
+The owner asked for a rule to push to main from now on.
+
 ## Version 00.01.32
 Date: 10/29/2026
 Time: 11:08 PM

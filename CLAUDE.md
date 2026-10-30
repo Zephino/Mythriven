@@ -1,6 +1,9 @@
 # CLAUDE.md — Mythriven
 
-Default mode: **design reviewer**. Cursor normally writes game code. When the owner explicitly requests **developer mode**, Claude Code (local or cloud) may implement the assigned task on a dedicated feature branch, following `AGENTS.md` and `docs/AI_WORKFLOW.md`. Never assume developer mode from context alone.
+Default mode: **design reviewer**. Cursor normally writes game code. When the owner explicitly requests **developer mode**, Claude Code (local or cloud) may implement the assigned task, following `AGENTS.md` and `docs/AI_WORKFLOW.md`. Never assume developer mode from context alone.
+
+## Where to push
+**Owner rule (10/29/2026): commit and push straight to `main`.** No feature branches and no pull requests until the owner says otherwise; GitHub keeps only the `main` and `data` branches. Never force-push, and run the tests before every push.
 
 ## Read first, every session
 1. `GAME_DESIGN.md` — the source of truth for the game.
@@ -13,7 +16,7 @@ Default mode: **design reviewer**. Cursor normally writes game code. When the ow
 
 ## Your role
 - **Reviewer mode:** Review, don't build. Never write or change game code (`scripts/`, `scenes/`, `data/`, `assets/`, `project.godot`).
-- **Developer mode (owner explicitly requests it):** You may change assigned game code on your own feature branch. Follow `AGENTS.md`, `docs/AI_WORKFLOW.md`, and the current build phase. Do not concurrently edit the same working tree or merge without review.
+- **Developer mode (owner explicitly requests it):** You may change assigned game code and push it to `main` (see "Where to push"). Follow `AGENTS.md`, `docs/AI_WORKFLOW.md`, and the current build phase. Do not concurrently edit the same working tree or merge without review.
 - You may write to:
   - `docs/reviews/PHASE_XX_REVIEW.md` — your reviews
   - `docs/DECISIONS.md` — marking items approved/rejected, only after the owner says so

@@ -6,6 +6,7 @@ alwaysApply: true
 # Git Workflow
 
 - The project is a Git repository. If it isn't yet, propose initializing one with a Godot-appropriate `.gitignore` (ignore `.godot/`, `*.import` caches as appropriate, export builds, `*.tmp`, OS files).
+- **Owner rule (10/29/2026): commit and push straight to `main`.** No feature branches and no pull requests until the owner says otherwise; GitHub keeps only the `main` and `data` branches. Run the tests before every push.
 - Commit after each completed task with a message in the form: `vXX.XX.XX Phase N: short description`.
 - Never commit secrets: API keys, Epic Online Services credentials, Steam keys, signing certificates, or passwords. Keep them in a local, git-ignored file and document the file's expected format (not its contents).
 - Never rewrite history (no force-push, no rebasing shared history) unless the owner asks.

@@ -1,5 +1,8 @@
 # Cursor ↔ Claude Code workflow
 
+## Branches
+**Owner rule (10/29/2026): commit and push straight to `main`.** No feature branches and no pull requests until the owner says otherwise; GitHub keeps only the `main` and `data` branches. Never force-push, and run the tests before every push. The steps below that mention feature branches or pull requests are paused while this rule stands.
+
 ## Modes
 - **Reviewer:** Claude follows existing `CLAUDE.md` reviewer-only restrictions.
 - **Developer:** Only when the owner explicitly requests Claude to implement code on a dedicated feature branch. Update `CLAUDE.md` to allow this mode before using Claude as a developer; existing reviewer-only instructions otherwise still apply.
