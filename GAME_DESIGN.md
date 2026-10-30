@@ -1270,6 +1270,12 @@ Up to 4 Heroes share one Last Stand through a 6-digit code; the host's game is t
 3. In the lobby, each player picks a Hero (duplicates allowed). The host's Omens apply to everyone.
 4. If the host leaves, the run ends for everyone (no host migration at launch).
 
+**Public games** *(added 10/29/2026, owner request)*
+
+- A separate **Public Games** button (the friend-code Co-op stays as it is). It lists open public games (level, players, in the lobby or in a run) and has **Host a public game**, which puts that game on the list. Only games with the same game version and a free place are listed; friend-code games are never listed.
+- **Joining in progress:** public games can be joined during a run. The newcomer's Hero appears beside the host's Hero with its signature weapon and shares the team's XP and level; the host sends their game a snapshot of the world so far. A newcomer takes the place of a player who left (that player's Shade makes way).
+- A public game's host may start alone; the same lobby, fairness, and sync rules apply.
+
 **Online service:** the owner's Cloudflare Worker (free plan): a Durable Object per lobby relays messages over WebSockets, so co-op works on the web, PC, and phones; behind a `LobbyService` interface so another service (Epic Online Services, Steam lobbies via GodotSteam, Nakama) can be swapped in. *(Changed 10/29/2026, owner approved: was Epic Online Services, which needs a developer account and has no web support.)*
 
 **Fairness rules**
@@ -1310,10 +1316,11 @@ Placeholder shapes and no sound until the game is fun; then original 16-bit-styl
 
 | Screen | Contents |
 | --- | --- |
-| Title | Play, Co-op, Hall of Legends, Settings, Quit (every platform; in a browser it says the tab can be closed) *(changed 10/29/2026, owner request)* |
+| Title | Play, Co-op, Public Games, Hall of Legends, Settings, Quit (every platform; in a browser it says the tab can be closed) *(changed 10/29/2026, owner request; Public Games added 10/29/2026, owner request)* |
 | Hall of Legends (hub menu) | Hero select, Offerings (god levels), Unlocks, Bestiary, Pantheon Compendium, Hall of Heroes, Codex, Achievements, Omens |
 | Hero select | Heroes with tradition, stats, Legend Trait, passive, Divine Link, patron pantheon, signature weapon; locked Heroes show how to unlock |
 | Co-op | Host (shows code) / Join (code entry) / lobby with players and their Heroes |
+| Public Games | List of open public games (join, even during a run) / Host a public game / the same lobby *(added 10/29/2026, owner request)* |
 | In-game HUD | XP bar; timer with personal-best marker; kills; gold; Age banner; weapon and passive icons; 2 god buttons with meter rings; Resonance button when ready; POI compass; HP bar over the Hero; Heracles' current Labor (when playing him) |
 | Level-up | 3 cards: icon, name, level or tier change, description, element icon |
 | Chest | Recipe display (weapon + passive/god = result) and reward |

@@ -9,7 +9,8 @@ binding = "LEADERBOARD_KV"
 id = "db73023753d249a8b47ac3231fc9cb80"
 
 # Durable Objects (SQLite-backed, available on the free plan): one SaveVault
-# per player's cloud save, and one LobbyRoom per co-op game.
+# per player's cloud save, one LobbyRoom per co-op game, and one PublicGames
+# holding the list of public co-op games.
 [[durable_objects.bindings]]
 name = "SAVE_VAULT"
 class_name = "SaveVault"
@@ -18,6 +19,10 @@ class_name = "SaveVault"
 name = "LOBBY"
 class_name = "LobbyRoom"
 
+[[durable_objects.bindings]]
+name = "PUBLIC_GAMES"
+class_name = "PublicGames"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["SaveVault"]
@@ -25,6 +30,10 @@ new_sqlite_classes = ["SaveVault"]
 [[migrations]]
 tag = "v2"
 new_sqlite_classes = ["LobbyRoom"]
+
+[[migrations]]
+tag = "v3"
+new_sqlite_classes = ["PublicGames"]
 
 [vars]
 GITHUB_OWNER = "Zephino"

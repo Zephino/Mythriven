@@ -12,6 +12,8 @@ signal ended(reason: String)
 signal run_message(from: int, msg: Array)
 ## Host → everyone: the run is starting (main.gd builds it).
 signal run_starting
+## Host: a player joined the run in progress (CoopHost adds their Hero).
+signal late_joined(id: int)
 
 enum State { OFF, CONNECTING, LOBBY, IN_RUN }
 
@@ -26,6 +28,12 @@ var level_id: String = ""
 var swift: bool = false
 var omens: PackedStringArray = []
 var run_seed: int = 0
+## A public game: on the public list for anyone to join, even during a run
+## (GAME_DESIGN.md: Online co-op / Public games).
+var public_game: bool = false
+## On a player who joined a run already in progress: their game waits for the
+## host's snapshot of the world (CoopClient).
+var joined_late: bool = false
 ## Set before connecting to use another service (the tests use LocalLobby).
 var service_override: LobbyService = null
 
@@ -61,8 +69,10 @@ func player_ids() -> PackedInt32Array:
 	return ids
 
 
+## Ready to start: everyone has a Hero and is back in the lobby. A friend
+## game needs a second player; a public game can start alone (others join later).
 func everyone_ready() -> bool:
-	if roster.size() < 2:
+	if roster.size() < (1 if public_game else 2):
 		return false
 	for id: int in roster:
 		if str(roster[id].get("hero", "")) == "" or not bool(roster[id].get("here", true)):
@@ -72,15 +82,17 @@ func everyone_ready() -> bool:
 
 # --- Starting and leaving ---------------------------------------------------------------
 
-func host_game(hero_id: String) -> void:
+func host_game(hero_id: String, is_public: bool = false) -> void:
 	_open()
+	public_game = is_public
 	roster = {LobbyService.HOST_ID: {"hero": hero_id, "here": true}}
 	level_id = Meta.selected_level()
-	lobby.host()
+	lobby.host(is_public)
 
 
-func join_game(join_code: String, hero_id: String) -> void:
+func join_game(join_code: String, hero_id: String, is_public: bool = false) -> void:
 	_open()
+	public_game = is_public
 	roster = {}
 	_pending_hero = hero_id
 	lobby.join(join_code)
@@ -96,7 +108,7 @@ func leave() -> void:
 func choose_hero(hero_id: String) -> void:
 	if is_host():
 		roster[my_id]["hero"] = hero_id
-		_broadcast_roster()
+		broadcast_roster()
 	else:
 		send(LobbyService.HOST_ID, [NetMsg.HERO, hero_id])
 	changed.emit()
@@ -106,7 +118,7 @@ func choose_hero(hero_id: String) -> void:
 func set_level(id: String, swift_mode: bool) -> void:
 	level_id = id
 	swift = swift_mode
-	_broadcast_roster()
+	broadcast_roster()
 	changed.emit()
 
 
@@ -120,7 +132,7 @@ func start_run() -> void:
 	omens = OmenRules.active()
 	lobby.lock()
 	send(LobbyService.EVERYONE, [NetMsg.START, run_seed, level_id, swift, Array(omens), roster])
-	_begin_run()
+	begin_run()
 
 
 ## After a run: back to the same lobby (same code, same players) for another
@@ -129,11 +141,12 @@ func back_to_lobby() -> void:
 	if state != State.IN_RUN:
 		return
 	state = State.LOBBY
+	joined_late = false
 	if roster.has(my_id):
 		roster[my_id]["here"] = true
 	if is_host():
 		lobby.reopen()
-		_broadcast_roster()
+		broadcast_roster()
 	else:
 		send(LobbyService.HOST_ID, [NetMsg.BACK])
 	changed.emit()
@@ -167,6 +180,7 @@ func _open() -> void:
 	lobby.received.connect(_on_received)
 	lobby.closed.connect(_close)
 	state = State.CONNECTING
+	joined_late = false
 	my_id = 0
 	code = ""
 	changed.emit()
@@ -177,6 +191,8 @@ func _close(reason: String) -> void:
 		return
 	state = State.OFF
 	roster = {}
+	public_game = false
+	joined_late = false
 	my_id = 0
 	code = ""
 	if lobby != null:
@@ -186,7 +202,8 @@ func _close(reason: String) -> void:
 	changed.emit()
 
 
-func _begin_run() -> void:
+## Starts this device's run (from the host's START, or LATE_START for a run in progress).
+func begin_run() -> void:
 	state = State.IN_RUN
 	# Everyone comes back to the lobby on their own after the run.
 	for id: int in roster:
@@ -204,8 +221,10 @@ func _on_opened(id: int, lobby_code: String, _peers: PackedInt32Array) -> void:
 	my_id = id
 	code = lobby_code
 	state = State.LOBBY
-	if not is_host():
-		send(LobbyService.HOST_ID, [NetMsg.HELLO, _version(), _pending_hero])
+	if is_host():
+		_tell_public_list()
+	else:
+		send(LobbyService.HOST_ID, [NetMsg.HELLO, version(), _pending_hero])
 	changed.emit()
 
 
@@ -216,7 +235,7 @@ func _on_peer_joined(_id: int) -> void:
 func _on_peer_left(id: int) -> void:
 	roster.erase(id)
 	if is_host():
-		_broadcast_roster()
+		broadcast_roster()
 	run_message.emit(id, [NetMsg.BYE])
 	changed.emit()
 
@@ -231,61 +250,28 @@ func _on_received(from: int, data: PackedByteArray) -> void:
 			run_message.emit(from, msg)
 		return
 	if is_host():
-		_host_lobby_message(from, msg)
+		NetLobby.host_message(self, from, msg)
 	elif from == LobbyService.HOST_ID:
-		_client_lobby_message(msg)
-
-
-func _host_lobby_message(from: int, msg: Array) -> void:
-	match int(msg[0]):
-		NetMsg.HELLO:
-			if msg.size() < 3 or str(msg[1]) != _version():
-				send(from, [NetMsg.WRONG_VERSION, _version()])
-				lobby.kick(from)
-				return
-			roster[from] = {"hero": _valid_hero(str(msg[2])), "here": true}
-			_broadcast_roster()
-		NetMsg.HERO:
-			if roster.has(from) and msg.size() >= 2:
-				roster[from]["hero"] = _valid_hero(str(msg[1]))
-				_broadcast_roster()
-		NetMsg.BACK:
-			if roster.has(from):
-				roster[from]["here"] = true
-				_broadcast_roster()
+		NetLobby.client_message(self, msg)
 	changed.emit()
 
 
-func _client_lobby_message(msg: Array) -> void:
-	match int(msg[0]):
-		NetMsg.ROSTER:
-			if msg.size() >= 4 and msg[1] is Dictionary:
-				roster = msg[1]
-				level_id = str(msg[2])
-				swift = bool(msg[3])
-		NetMsg.START:
-			if msg.size() >= 6:
-				run_seed = int(msg[1])
-				level_id = str(msg[2])
-				swift = bool(msg[3])
-				omens = PackedStringArray(msg[4])
-				roster = msg[5]
-				_begin_run()
-		NetMsg.WRONG_VERSION:
-			_close("UI_COOP_WRONG_VERSION")
-			return
-	changed.emit()
-
-
-func _broadcast_roster() -> void:
+func broadcast_roster() -> void:
 	if is_host():
 		send(LobbyService.EVERYONE, [NetMsg.ROSTER, roster, level_id, swift])
+		_tell_public_list()
+
+
+## Public games: what the public list shows about this game.
+func _tell_public_list() -> void:
+	if public_game and lobby != null:
+		lobby.set_info(level_id, version())
 
 
 ## A Hero id this player may use ("" for an unknown one).
-static func _valid_hero(hero_id: String) -> String:
+static func valid_hero(hero_id: String) -> String:
 	return hero_id if not HeroRules.find(hero_id).is_empty() else ""
 
 
-static func _version() -> String:
+static func version() -> String:
 	return str(ProjectSettings.get_setting("application/config/version", ""))

@@ -9,6 +9,9 @@ extends Node2D
 
 signal origin_shifted(shift_px: Vector2, shift_chunks: Vector2i)
 
+## Every shift so far, in chunks (a player joining a co-op run late catches up to it).
+var total_shift := Vector2i.ZERO
+
 
 func _ready() -> void:
 	# After players move (0) and before the camera follows (10).
@@ -38,6 +41,7 @@ func shift_origin(center: Vector2) -> void:
 func shift_by(shift_chunks: Vector2i) -> void:
 	var chunk_px: float = Data.cfg_float("world.tile_px") * Data.cfg_float("world.chunk_tiles")
 	var shift_px := Vector2(shift_chunks) * chunk_px
+	total_shift += shift_chunks
 	for player: Player in GameAuthority.players:
 		player.position -= shift_px
 	var camera: Camera2D = get_viewport().get_camera_2d()

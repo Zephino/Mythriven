@@ -180,6 +180,7 @@ func focus_later(control: Control) -> void:
 	_focus_now.call_deferred(control)
 
 
-func _focus_now(control: Control) -> void:
-	if is_instance_valid(control) and control.is_inside_tree():
-		control.grab_focus()
+## Untyped: the button may have been freed by a refresh before this runs.
+func _focus_now(control: Variant) -> void:
+	if is_instance_valid(control) and (control as Control).is_inside_tree():
+		(control as Control).grab_focus()

@@ -16,6 +16,9 @@ const START := 4
 const WRONG_VERSION := 5
 ## Client → host: [BACK] back in the lobby after a run
 const BACK := 6
+## Host → one client joining a public game's run in progress: like START
+## (then a SNAPSHOT of the world follows)
+const LATE_START := 7
 
 # In a run (host-authoritative; see CoopHost / CoopClient)
 ## Client → host, ~20/s: [INPUT, epoch, x, y, vx, vy, facing_x, facing_y]
@@ -33,6 +36,9 @@ const CHOICE := 25
 const OFFER := 26
 ## Client → host: [BANKED] a quit or a leave (handled as leaving the run)
 const BYE := 27
+## Host → one client who joined late: [SNAPSHOT, shift_x, shift_y, spawn_x,
+## spawn_y, events, player positions] (everything already in the world)
+const SNAPSHOT := 28
 
 
 static func encode(msg: Array) -> PackedByteArray:

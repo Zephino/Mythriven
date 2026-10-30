@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import worker from "../src/index.js";
 import { LobbyRoom, HOST_ID, MAX_PLAYERS, MAX_MESSAGES_PER_S, isCode, randomCode } from "../src/lobby.js";
+import { PublicGames, STALE_MS, cleanEntry } from "../src/public_games.js";
 
 /** Stand-ins for Cloudflare's WebSockets and Durable Object state. */
 class FakeSocket {
@@ -24,7 +25,30 @@ class FakeSocket {
   }
 }
 
-function fakeRoom() {
+function fakeStorage(data) {
+  return {
+    async get(k) {
+      return data.get(k);
+    },
+    async put(k, v) {
+      if (typeof k === "object") for (const [a, b] of Object.entries(k)) data.set(a, b);
+      else data.set(k, v);
+    },
+    async deleteAll() {
+      data.clear();
+    },
+  };
+}
+
+/** A PublicGames list the rooms can reach, as `env.PUBLIC_GAMES`. */
+function fakePublicList() {
+  const list = new PublicGames({ storage: fakeStorage(new Map()) });
+  const env = { PUBLIC_GAMES: { idFromName: (n) => n, get: () => list } };
+  env.games = async () => (await (await list.fetch(new Request("https://public/list"))).json()).games;
+  return env;
+}
+
+function fakeRoom(env = {}) {
   const sockets = [];
   const data = new Map();
   const state = {
@@ -34,24 +58,14 @@ function fakeRoom() {
     getWebSockets() {
       return sockets.filter((ws) => !ws.closed);
     },
-    storage: {
-      async get(k) {
-        return data.get(k);
-      },
-      async put(k, v) {
-        if (typeof k === "object") for (const [a, b] of Object.entries(k)) data.set(a, b);
-        else data.set(k, v);
-      },
-      async deleteAll() {
-        data.clear();
-      },
-    },
+    storage: fakeStorage(data),
   };
   // Responses with status 101 aren't allowed in Node, so the room's reply is faked too.
-  const room = new LobbyRoom(state, {}, () => [new FakeSocket(), new FakeSocket()]);
+  const room = new LobbyRoom(state, env, () => [new FakeSocket(), new FakeSocket()]);
   const original = room.fetch.bind(room);
-  room.connect = async (role, code = "123456") => {
+  room.connect = async (role, code = "123456", isPublic = false) => {
     const headers = new Headers({ "X-Lobby-Code": code, "X-Lobby-Role": role });
+    if (isPublic) headers.set("X-Lobby-Public", "1");
     const before = sockets.length;
     let res;
     try {
@@ -149,4 +163,45 @@ test("the lobby route needs a WebSocket and a valid code", async () => {
   const ws = { headers: { Upgrade: "websocket" } };
   assert.equal((await worker.fetch(new Request("https://w.example/lobby?code=12", ws), env)).status, 400);
   assert.equal((await worker.fetch(new Request("https://w.example/lobby?code=123456", ws), {})).status, 503);
+});
+
+test("a public game is listed, can be joined during a run, and leaves the list when it ends", async () => {
+  const env = fakePublicList();
+  const { room } = fakeRoom(env);
+  const host = (await room.connect("host", "222222", true)).socket;
+  await room.webSocketMessage(host, JSON.stringify({ t: "info", level: "aegean", version: "00.01.32" }));
+  assert.deepEqual(await env.games(), [{ code: "222222", players: 1, level: "aegean", version: "00.01.32", in_run: false }]);
+  await room.webSocketMessage(host, JSON.stringify({ t: "start" }));
+  const late = await room.connect("join", "222222");
+  assert.equal(late.status, 101, "joining a public game in progress");
+  assert.deepEqual((await env.games()).map((g) => [g.players, g.in_run]), [[2, true]]);
+  host.closed = { code: 1000 };
+  await room.webSocketClose(host);
+  assert.deepEqual(await env.games(), [], "gone when the host leaves");
+});
+
+test("friend games are never listed, and full or silent games aren't shown", async () => {
+  const env = fakePublicList();
+  const { room } = fakeRoom(env);
+  await room.connect("host", "333333");
+  assert.deepEqual(await env.games(), []);
+  const list = env.PUBLIC_GAMES.get();
+  const put = (code, entry) => list.fetch(new Request("https://public/put", { method: "POST", body: JSON.stringify({ code, entry }) }));
+  await put("444444", { players: MAX_PLAYERS, level: "x" });
+  await put("555555", { players: 1, level: "<b>".repeat(50) });
+  assert.deepEqual((await env.games()).map((g) => g.code), ["555555"], "a full game isn't shown");
+  assert.equal((await env.games())[0].level.length, 40, "text is cut short");
+  const realNow = Date.now;
+  Date.now = () => realNow() + STALE_MS + 1000;
+  try {
+    assert.deepEqual(await env.games(), [], "a game not heard from is dropped");
+  } finally {
+    Date.now = realNow;
+  }
+  assert.equal(cleanEntry(null, 0), null);
+});
+
+test("the public list route answers without the list set up", async () => {
+  const res = await worker.fetch(new Request("https://w.example/lobby/public"), {});
+  assert.deepEqual(await res.json(), { games: [] });
 });

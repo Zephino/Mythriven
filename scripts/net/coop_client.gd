@@ -18,6 +18,9 @@ var effects: EffectLayer
 var summons: ResonanceLayer
 
 var _send_in: float = 0.0
+## Joined a public game's run in progress: nothing is shown or sent until the
+## host's snapshot of the world arrives (CoopLateJoin).
+var _waiting_for_world: bool = false
 var _last_tick: int = 0
 var _mirrors: Dictionary = {}
 
@@ -27,6 +30,7 @@ func _ready() -> void:
 	Net.run_message.connect(_on_message)
 	Net.ended.connect(_on_session_ended)
 	enemies.remote = true
+	_waiting_for_world = Net.joined_late
 	for node: Node in get_tree().get_nodes_in_group(CoopHost.MIRROR_GROUP):
 		var mirror: CoopMirror = node.get_meta("coop_mirror")
 		_mirrors[mirror.id] = mirror
@@ -35,7 +39,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_glide_others(delta)
 	_send_in -= delta
-	if _send_in > 0.0:
+	if _send_in > 0.0 or _waiting_for_world:
 		return
 	_send_in = 1.0 / Data.cfg_float("coop.sync_rate_hz")
 	var me: Player = GameAuthority.local_player()
@@ -72,6 +76,10 @@ func _glide_others(delta: float) -> void:
 func _on_message(from: int, msg: Array) -> void:
 	if from != LobbyService.HOST_ID:
 		return
+	if _waiting_for_world:
+		if int(msg[0]) == NetMsg.SNAPSHOT and msg.size() >= 7:
+			_apply_snapshot(msg)
+		return
 	match int(msg[0]):
 		NetMsg.TICK:
 			if msg.size() >= 7:
@@ -79,6 +87,26 @@ func _on_message(from: int, msg: Array) -> void:
 		NetMsg.OFFER:
 			if msg.size() >= 3:
 				CoopChoices.on_offer(str(msg[1]), msg[2])
+
+
+## Everything already in the world when this player joined, in the host's places.
+func _apply_snapshot(msg: Array) -> void:
+	_waiting_for_world = false
+	world.shift_by(Vector2i(int(msg[1]), int(msg[2])))
+	GameAuthority.replicating = true
+	for event: Variant in msg[5]:
+		if event is Array and not (event as Array).is_empty():
+			_apply_event(event)
+	GameAuthority.replicating = false
+	for place: Variant in msg[6]:
+		var player: Player = GameAuthority.player_by_id(int(place[0]))
+		if player != null and not player.is_local:
+			player.position = Vector2(float(place[1]), float(place[2]))
+			player.set_meta("net_target", player.position)
+	var me: Player = GameAuthority.local_player()
+	if me != null:
+		me.position = Vector2(float(msg[3]), float(msg[4]))
+		get_tree().call_group(GameCamera.GROUP, "snap_to_target")
 
 
 func _apply_tick(msg: Array) -> void:
@@ -156,6 +184,9 @@ func _apply_event(event: Array) -> void:
 			_play_summon(event)
 		CoopCodec.E_AGE:
 			GameAuthority.age_changed.emit(str(event[1]))
+		CoopCodec.E_JOIN:
+			if int(event[1]) != Net.my_id:
+				CoopLateJoin.add_hero(world, int(event[1]), str(event[2]), Vector2(float(event[3]), float(event[4])))
 		CoopCodec.E_RUN_END:
 			var run: RunState = GameAuthority.run
 			if run != null and not run.ended:

@@ -10,6 +10,9 @@ extends Node
 ## things (shrines, chests, bosses' visuals) are sent a few times a second by
 ## the systems themselves (the "coop_mirror" group, see CoopMirror).
 
+## Each update has just gone out (CoopLateJoin sends newcomers their snapshot then).
+signal tick_sent
+
 const MIRROR_GROUP := "coop_mirror"
 const GROUP := "coop_host"
 
@@ -111,6 +114,7 @@ func _send_tick() -> void:
 	_events = []
 	_removed_at.clear()
 	_damage_sent = 0
+	tick_sent.emit()
 
 
 ## The next enemies to correct, round-robin, so each is corrected every few updates.

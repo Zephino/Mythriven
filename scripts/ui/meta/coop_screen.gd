@@ -6,15 +6,25 @@ extends MenuScreen
 ## (duplicates allowed); the host picks the level and Swift Mode, and the
 ## host's Omens apply to everyone. When the host leaves, the game ends for
 ## everyone.
+## Public Games (GAME_DESIGN.md: Online co-op / Public games) uses the same
+## screen and lobby: a list of open public games to join (even during a run),
+## or host one that goes on the list. Friend codes are never listed.
 
 var flow: MenuFlow
+## The Public Games screen instead of the friend-code one.
+var public_mode: bool = false
 var _code_box: LineEdit
 var _message: String = ""
+var _list: PublicGameList
+var _games: Array[Dictionary] = []
+var _listing: bool = false
+var _list_ok: bool = true
 
 
-static func new_for(menu_flow: MenuFlow) -> CoopScreen:
+static func new_for(menu_flow: MenuFlow, is_public: bool = false) -> CoopScreen:
 	var screen := CoopScreen.new()
 	screen.flow = menu_flow
+	screen.public_mode = is_public
 	return screen
 
 
@@ -23,10 +33,16 @@ func _ready() -> void:
 	Net.changed.connect(refresh)
 	Net.ended.connect(_on_ended)
 	Net.run_starting.connect(_on_run_starting)
+	if public_mode:
+		_list = PublicGameList.new()
+		add_child(_list)
+		_list.listed.connect(_on_listed)
+		if Net.state == Net.State.OFF:
+			_refresh_list()
 
 
 func build() -> void:
-	set_title(tr_key("UI_COOP"))
+	set_title(tr_key("UI_PUBLIC_GAMES" if public_mode else "UI_COOP"))
 	if _message != "":
 		add_line(tr_key(_message))
 	if OnlineConfig.lobby_url() == "" and Net.service_override == null:
@@ -34,7 +50,10 @@ func build() -> void:
 		return
 	match Net.state:
 		Net.State.OFF:
-			_build_start()
+			if public_mode:
+				_build_public_list()
+			else:
+				_build_start()
 		Net.State.CONNECTING:
 			add_line(tr_key("UI_COOP_CONNECTING"))
 			add_button(tr_key("UI_COOP_CANCEL"), _on_leave)
@@ -51,10 +70,29 @@ func _build_start() -> void:
 	add_button(tr_key("UI_COOP_JOIN"), _on_join)
 
 
+## The open public games (same version, a free place), newest first.
+func _build_public_list() -> void:
+	add_line(tr_key("UI_PUBLIC_ABOUT"))
+	add_button(tr_key("UI_PUBLIC_HOST"), _on_host)
+	add_button(tr_key("UI_PUBLIC_REFRESH"), _refresh_list, not _listing)
+	if _listing:
+		add_line(tr_key("UI_PUBLIC_LOOKING"))
+	elif not _list_ok:
+		add_line(tr_key("UI_PUBLIC_LIST_FAILED"))
+	elif _games.is_empty():
+		add_line(tr_key("UI_PUBLIC_NONE"))
+	for game: Dictionary in _games:
+		var level: Dictionary = GameAuthority.find_level(str(game.get("level", "")))
+		var level_name: String = tr_key(str(level.get("name_key", ""))) if not level.is_empty() else "?"
+		var status: String = tr_key("UI_PUBLIC_IN_RUN" if bool(game.get("in_run", false)) else "UI_PUBLIC_IN_LOBBY")
+		add_button(tr_key("UI_PUBLIC_GAME_ROW") % [level_name, int(game.get("players", 0)), status],
+			_on_join_public.bind(str(game.get("code", ""))))
+
+
 func _build_lobby() -> void:
 	add_line(tr_key("UI_COOP_CODE") % Net.code)
 	if Net.is_host():
-		add_line(tr_key("UI_COOP_SHARE_CODE"))
+		add_line(tr_key("UI_PUBLIC_LISTED" if Net.public_game else "UI_COOP_SHARE_CODE"))
 	for id: int in Net.player_ids():
 		var hero_id: String = str(Net.roster[id].get("hero", ""))
 		var hero_name: String = tr_key(str(HeroRules.find(hero_id).get("name_key", ""))) if hero_id != "" else tr_key("UI_COOP_CHOOSING")
@@ -77,7 +115,7 @@ func _build_lobby() -> void:
 			add_line(tr_key("UI_COOP_OMENS") % omens.size())
 		add_button(tr_key("UI_COOP_START"), Net.start_run, Net.everyone_ready())
 		if not Net.everyone_ready():
-			add_line(tr_key("UI_COOP_NEED_PLAYERS"))
+			add_line(tr_key("UI_PUBLIC_NEED_READY" if Net.public_game else "UI_COOP_NEED_PLAYERS"))
 	else:
 		add_line(tr_key("UI_COOP_LEVEL") % level_name + (" · " + tr_key("UI_SWIFT_MODE") if Net.swift else ""))
 		add_line(tr_key("UI_COOP_WAITING_FOR_HOST"))
@@ -94,7 +132,27 @@ func _first_hero() -> String:
 
 func _on_host() -> void:
 	_message = ""
-	Net.host_game(_first_hero())
+	Net.host_game(_first_hero(), public_mode)
+
+
+func _on_join_public(game_code: String) -> void:
+	_message = ""
+	Net.join_game(game_code, _first_hero(), true)
+
+
+func _refresh_list() -> void:
+	if _list == null:
+		return
+	_listing = true
+	_list.refresh()
+	refresh()
+
+
+func _on_listed(games: Array[Dictionary], ok: bool) -> void:
+	_listing = false
+	_games = games
+	_list_ok = ok
+	refresh()
 
 
 func _on_join() -> void:
@@ -127,6 +185,8 @@ func _on_leave() -> void:
 
 func _on_ended(reason: String) -> void:
 	_message = reason
+	if public_mode:
+		_refresh_list()
 	refresh()
 
 

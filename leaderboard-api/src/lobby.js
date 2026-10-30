@@ -3,6 +3,9 @@
  *
  *   GET /lobby?host=1        (WebSocket) start a game; the reply says its 6-digit code
  *   GET /lobby?code=123456   (WebSocket) join that game
+ *   GET /lobby?host=1&public=1  (WebSocket) start a public game: it is listed for
+ *                            anyone to find (see public_games.js), and players may
+ *                            join while a run is in progress
  *
  * Each game is one LobbyRoom Durable Object named by its code. It only passes
  * messages between the players (up to 4); the host's game decides everything
@@ -13,13 +16,16 @@
  *   text (JSON) from the room:  {t:"welcome", id, code, peers:[ids]}, {t:"join", id},
  *                               {t:"leave", id}, {t:"error", reason}
  *   text from the host:         {t:"start"} (no more joining), {t:"open"} (joining again,
- *                               back in the lobby after a run), {t:"kick", id}
+ *                               back in the lobby after a run), {t:"kick", id},
+ *                               {t:"info", level, version} (public games: shown on the list)
  *   binary from a player:       [to][data...]   to = 0 for everyone else, or a player id
  *   binary to a player:         [from][data...]
  * Player ids: the host is 1, others 2–4.
  *
  * Binding: LOBBY (Durable Object class LobbyRoom, see wrangler.toml)
  */
+
+import { REFRESH_MS, tellPublicList } from "./public_games.js";
 
 export const MAX_PLAYERS = 4;
 export const HOST_ID = 1;
@@ -49,7 +55,7 @@ export async function handleLobby(request, env) {
   if (url.searchParams.get("host") === "1") {
     for (let i = 0; i < CODE_TRIES; i++) {
       const code = randomCode();
-      const res = await roomFor(env, code).fetch(withRole(request, code, "host"));
+      const res = await roomFor(env, code).fetch(withRole(request, code, "host", url.searchParams.get("public") === "1"));
       if (res.status !== 409) return res;
     }
     return plain("no free code, try again", 503);
@@ -63,10 +69,11 @@ function roomFor(env, code) {
   return env.LOBBY.get(env.LOBBY.idFromName("lobby:" + code));
 }
 
-function withRole(request, code, role) {
+function withRole(request, code, role, isPublic = false) {
   const headers = new Headers(request.headers);
   headers.set("X-Lobby-Code", code);
   headers.set("X-Lobby-Role", role);
+  if (isPublic) headers.set("X-Lobby-Public", "1");
   return new Request("https://lobby/connect", { method: "GET", headers });
 }
 
@@ -74,6 +81,7 @@ function withRole(request, code, role) {
 export class LobbyRoom {
   constructor(state, env, makePair = () => new WebSocketPair()) {
     this.state = state;
+    this.env = env;
     this.makePair = makePair;
     /** Per-socket message counts for the rate limit: id -> {second, count}. */
     this.rate = new Map();
@@ -98,11 +106,16 @@ export class LobbyRoom {
     let id;
     if (role === "host") {
       if (open.length > 0) return plain("code in use", 409);
-      await this.state.storage.put({ code, started: false });
+      const isPublic = request.headers.get("X-Lobby-Public") === "1";
+      await this.state.storage.put({ code, started: false, public: isPublic, info: {} });
       id = HOST_ID;
+      if (isPublic && this.state.storage.setAlarm) await this.state.storage.setAlarm(Date.now() + REFRESH_MS);
     } else {
       if (!open.some((ws) => this.info(ws).id === HOST_ID)) return plain("no game with that code", 404);
-      if (await this.state.storage.get("started")) return plain("that game has already started", 409);
+      // Public games may be joined while a run is in progress; friend games can't.
+      if ((await this.state.storage.get("started")) && !(await this.state.storage.get("public"))) {
+        return plain("that game has already started", 409);
+      }
       if (open.length >= MAX_PLAYERS) return plain("that game is full", 409);
       const taken = new Set(open.map((ws) => this.info(ws).id));
       id = 2;
@@ -116,6 +129,7 @@ export class LobbyRoom {
     const peers = open.map((ws) => this.info(ws).id);
     server.send(JSON.stringify({ t: "welcome", id, code, peers }));
     for (const ws of open) ws.send(JSON.stringify({ t: "join", id }));
+    await this.publish(open.length + 1);
     return new Response(null, { status: 101, webSocket: client });
   }
 
@@ -132,6 +146,8 @@ export class LobbyRoom {
       }
       if (msg.t === "start") await this.state.storage.put("started", true);
       if (msg.t === "open") await this.state.storage.put("started", false);
+      if (msg.t === "info") await this.state.storage.put("info", { level: msg.level, version: msg.version });
+      if (msg.t === "start" || msg.t === "open" || msg.t === "info") await this.publish(this.sockets().length);
       if (msg.t === "kick" && Number.isInteger(msg.id) && msg.id !== HOST_ID) {
         const target = this.socketOf(msg.id);
         if (target) target.close(4001, "removed by the host");
@@ -163,6 +179,24 @@ export class LobbyRoom {
     return entry.count <= MAX_MESSAGES_PER_S;
   }
 
+  /** Public games: tells the list how this game is doing (`players` = 0 when it's gone). */
+  async publish(players) {
+    if (!(await this.state.storage.get("public"))) return;
+    const code = await this.state.storage.get("code");
+    if (players <= 0) return tellPublicList(this.env, code, null);
+    const info = (await this.state.storage.get("info")) || {};
+    const started = (await this.state.storage.get("started")) === true;
+    await tellPublicList(this.env, code, { players, level: info.level, version: info.version, in_run: started });
+  }
+
+  /** Public games: reminds the list this game is still open. */
+  async alarm() {
+    const open = this.sockets();
+    if (!open.some((ws) => this.info(ws).id === HOST_ID)) return;
+    await this.publish(open.length);
+    await this.state.storage.setAlarm(Date.now() + REFRESH_MS);
+  }
+
   async webSocketClose(ws) {
     await this.leave(ws);
   }
@@ -177,6 +211,7 @@ export class LobbyRoom {
     if (id === HOST_ID) {
       // No host migration at launch: the game ends for everyone.
       for (const other of others) other.close(4000, "the host left");
+      await this.publish(0);
       await this.state.storage.deleteAll();
       return;
     }
@@ -185,6 +220,7 @@ export class LobbyRoom {
         other.send(JSON.stringify({ t: "leave", id }));
       } catch (_) {}
     }
+    await this.publish(others.length);
     if (others.length === 0) await this.state.storage.deleteAll();
   }
 }

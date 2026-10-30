@@ -13,8 +13,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-func host() -> void:
-	_connect("?host=1")
+func host(is_public: bool = false) -> void:
+	_connect("?host=1" + ("&public=1" if is_public else ""))
 
 
 func join(code: String) -> void:
@@ -41,6 +41,11 @@ func lock() -> void:
 func reopen() -> void:
 	if is_open():
 		_socket.send_text(JSON.stringify({"t": "open"}))
+
+
+func set_info(level_id: String, version: String) -> void:
+	if is_open():
+		_socket.send_text(JSON.stringify({"t": "info", "level": level_id, "version": version}))
 
 
 func kick(id: int) -> void:

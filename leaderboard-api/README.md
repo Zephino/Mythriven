@@ -92,12 +92,20 @@ requests, so the free plan covers a good number of co-op games a day. If co-op
 ever stops connecting, check **Workers & Pages → mythriven → Metrics** for
 "Durable Objects" limits and tell Claude.
 
+**Public games** (Public Games button): the host's game asks for a public
+room (`/lobby?host=1&public=1`), and that room tells one `PublicGames` Durable
+Object how the game is doing (players, level, version, lobby or run) whenever
+that changes and once a minute. `GET /lobby/public` returns the list. A game
+not heard from for 2.5 minutes is dropped. Players may join a public game
+while its run is in progress; friend games stay closed once started.
+
 ## For developers
 
 - `src/board.js`: the rules (what a score must look like, ranking, size).
 - `src/index.js`: the web service (GET/POST, rate limits, GitHub commit).
 - `src/cloud.js`: cloud saves (`/cloud/save`, the `SaveVault` Durable Object).
 - `src/lobby.js`: co-op lobbies (`/lobby`, the `LobbyRoom` Durable Object).
+- `src/public_games.js`: the public games list (`/lobby/public`, the `PublicGames` Durable Object).
 - Test the game against a Worker on your own computer: `npx wrangler dev`,
   then start Godot with `-- --api=http://127.0.0.1:8787`.
 - `npm test`: checks the rules and the service with a pretend storage.

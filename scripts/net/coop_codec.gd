@@ -27,6 +27,8 @@ const E_EFFECT := 19
 const E_AGE := 20
 ## [E_OFFER, player id, kind, data]: a choice for that player (sent in order with everything else).
 const E_OFFER := 21
+## [E_JOIN, player id, hero id, x, y]: a player joined the run in progress (public games).
+const E_JOIN := 22
 
 # Player flag bits.
 const ALIVE := 1

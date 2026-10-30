@@ -23,6 +23,8 @@ func after_each() -> void:
 	Net.state = Net.State.OFF
 	Net.my_id = 0
 	Net.roster = {}
+	Net.public_game = false
+	Net.joined_late = false
 	GameAuthority.replicating = false
 	GameAuthority.end_scene()
 	GameAuthority.selected_hero_id = ""
@@ -271,3 +273,63 @@ func test_the_coop_end_screen_has_a_way_back_to_the_title() -> void:
 	assert_true(screen._lobby_button.visible, "and Back to Co-op Lobby")
 	assert_true(screen._lobby_button.has_focus(), "which starts selected")
 	assert_eq(screen._board_status.text, tr("UI_LB_COOP"))
+
+
+func test_a_public_game_is_listed_and_can_be_joined_during_a_run() -> void:
+	var host: Node = _session()
+	host.call("host_game", "heracles", true)
+	await _wait_frames(3)
+	assert_true(host.call("everyone_ready"), "a public game can start with one player")
+	var listed: Array[Dictionary] = PublicGameList.offered(LocalLobby.public_games())
+	assert_eq(listed.size(), 1, "on the public list")
+	assert_eq(str(listed[0]["code"]), str(host.get("code")))
+	assert_eq(str(listed[0]["level"]), str(host.get("level_id")), "with its level")
+	var friends: Node = _session()
+	friends.call("host_game", "heracles")
+	await _wait_frames(3)
+	assert_eq(PublicGameList.offered(LocalLobby.public_games()).size(), 1, "friend games are never listed")
+	GameAuthority.start_run("aegean_shore")
+	host.call("start_run")
+	await _wait_frames(3)
+	assert_true(bool(LocalLobby.public_games()[0]["in_run"]), "the list says it's in a run")
+	var joined: Array[int] = []
+	host.connect("late_joined", func(id: int) -> void: joined.append(id))
+	var late: Node = _session()
+	late.call("join_game", host.get("code"), "atalanta", true)
+	await _wait_frames(8)
+	assert_eq(int(late.get("state")), Net.State.IN_RUN, "joined straight into the run")
+	assert_true(bool(late.get("joined_late")), "and waits for the world's snapshot")
+	assert_eq(int(late.get("run_seed")), int(host.get("run_seed")), "the same map")
+	assert_eq(joined, [2] as Array[int], "the host adds their Hero")
+
+
+func test_a_newcomers_snapshot_has_the_world_so_far() -> void:
+	GameAuthority.start_run("aegean_shore")
+	var enemies: EnemyManager = _manager()
+	GameAuthority.enemies = enemies
+	var world: WorldRoot = add_child_autofree(WorldRoot.new())
+	GameAuthority.spawn_player(world, Vector2.ZERO, null, true, "heracles", 1)
+	world.shift_by(Vector2i(2, -1))
+	var slot: int = enemies.spawn("satyr_skirmisher", Vector2(70, 20))
+	var shade: Player = GameAuthority.spawn_player(world, Vector2(5, 0), null, false, "heracles", 2)
+	var newcomer: Player = CoopLateJoin.add_hero(world, 2, "atalanta", Vector2(40, 0))
+	assert_false(is_instance_valid(shade) and GameAuthority.players.has(shade), "a Shade with the same id makes way")
+	assert_eq(str(newcomer.hero.get("id", "")), "atalanta")
+	assert_false(newcomer.weapons.is_empty(), "with the signature weapon")
+	var host := CoopHost.new()
+	host.world = world
+	host.enemies = enemies
+	var late_join := CoopLateJoin.new()
+	late_join.host = host
+	add_child_autofree(late_join)
+	var snapshot: Array = late_join.snapshot(2)
+	late_join.queue_free()
+	host.free()
+	assert_eq(int(snapshot[0]), NetMsg.SNAPSHOT)
+	assert_eq(Vector2i(int(snapshot[1]), int(snapshot[2])), Vector2i(2, -1), "every origin shift so far")
+	assert_eq(Vector2(float(snapshot[3]), float(snapshot[4])), Vector2(40, 0), "where the newcomer appears")
+	var spawns: Array = (snapshot[5] as Array).filter(func(e: Array) -> bool: return int(e[0]) == CoopCodec.E_SPAWN)
+	assert_eq(spawns.size(), 1, "every enemy")
+	assert_eq(int(spawns[0][1]), slot)
+	assert_eq((snapshot[6] as Array).size(), 2, "every player's place")
+	assert_true(NetMsg.encode(snapshot).size() < 256000, "fits in one message")

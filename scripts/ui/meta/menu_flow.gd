@@ -16,7 +16,7 @@ func _ready() -> void:
 			# Back in the co-op lobby after a run, over the title.
 			var title_screen := TitleScreen.new_for(self)
 			add_child(title_screen)
-			title_screen.open_child(CoopScreen.new_for(self))
+			title_screen.open_child(CoopScreen.new_for(self, Net.public_game))
 		"hall":
 			# The Hall opens over the title, so Back returns to the title.
 			var title := TitleScreen.new_for(self)

@@ -59,5 +59,11 @@ static func lobby_url() -> String:
 	return base.replace("https://", "wss://").replace("http://", "ws://") + "/lobby"
 
 
+## The list of public co-op games (leaderboard-api/src/public_games.js); "" until set up.
+static func public_games_url() -> String:
+	var base: String = api_base()
+	return "" if base.is_empty() else base + "/lobby/public"
+
+
 static func can_post() -> bool:
 	return not post_url().is_empty()

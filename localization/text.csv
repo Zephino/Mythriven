@@ -1127,3 +1127,15 @@ UI_BACK_TO_TITLE,Back to Title
 UI_LB_COOP,Co-op runs don't go on the leaderboard (it's for solo runs).
 UI_BACK_TO_COOP_LOBBY,Back to Co-op Lobby
 UI_COOP_STILL_AT_RESULTS,(still on the results screen)
+UI_PUBLIC_GAMES,Public Games
+UI_PUBLIC_ABOUT,"Play online with anyone, up to 4 Heroes. Join a game from the list (even one already in a run), or host your own and it goes on the list."
+UI_PUBLIC_HOST,Host a public game
+UI_PUBLIC_REFRESH,Refresh the list
+UI_PUBLIC_LOOKING,Looking for games…
+UI_PUBLIC_LIST_FAILED,Couldn't get the list. Check your internet and press Refresh.
+UI_PUBLIC_NONE,No public games right now. Host one and others can join you!
+UI_PUBLIC_GAME_ROW,Join: %s · %d of 4 players · %s
+UI_PUBLIC_IN_RUN,in a run
+UI_PUBLIC_IN_LOBBY,in the lobby
+UI_PUBLIC_LISTED,"Your game is on the Public Games list. Players can join any time, even during a run."
+UI_PUBLIC_NEED_READY,Start opens once everyone has a Hero and is back in the lobby. You can start alone: others can join during the run.

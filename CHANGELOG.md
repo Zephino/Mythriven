@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.32
+Date: 10/29/2026
+Time: 11:08 PM
+
+### Changes
+- **Public Games.** A new **Public Games** button on the title screen, separate from the friend-code Co-op button. It lists open public games (level, how many players, and whether they're in the lobby or in a run) with **Refresh**, and **Host a public game** puts yours on the list. Only games with the same version of the game and a free place are listed; friend games are never listed.
+- **Join a game in progress.** Public games can be joined during a run. The newcomer's Hero appears beside the host's Hero with its signature weapon, sharing the team's level, and their game first receives a snapshot of the world so far (enemies, builds, shrines and chests, the Age, how far the world has moved). If someone leaves mid-run, the next player to join takes their place (their Shade makes way).
+- A public game's host can press **Start** alone; others join during the run. Back to Co-op Lobby works the same for public games.
+- Worker: a new `PublicGames` Durable Object keeps the list (`GET /lobby/public`, migration v3). Games are dropped from it when the host leaves, or after 2.5 minutes without word. Public rooms allow joining after the run starts; friend rooms still don't.
+- Fixed a harmless error in the menus when a screen refreshed twice in one moment.
+
+### Reason
+The owner asked for an online mode to find or host public games, with joining in progress, separate from the friend codes.
+
 ## Version 00.01.31
 Date: 10/29/2026
 Time: 7:07 PM

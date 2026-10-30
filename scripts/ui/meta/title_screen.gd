@@ -1,7 +1,7 @@
 class_name TitleScreen
 extends MenuScreen
-## The title screen (GAME_DESIGN.md: Screens / Title): Play, Hall of Legends,
-## Co-op, Leaderboard, Settings, Suggest a Feature (the owner's in-game
+## The title screen (GAME_DESIGN.md: Screens / Title): Play, Co-op (friends,
+## with a code), Public Games, Hall of Legends, Leaderboard, Settings, Suggest a Feature (the owner's in-game
 ## suggestion form, on the main screen only), and Quit (on every platform; progress is
 ## already saved). In a browser the page asks to close its tab; browsers
 ## usually only allow that for tabs a script opened, so it then says the tab
@@ -30,6 +30,7 @@ func build() -> void:
 		return
 	add_button(tr_key("UI_PLAY"), func() -> void: flow.play(self))
 	add_button(tr_key("UI_COOP"), func() -> void: open_child(CoopScreen.new_for(flow)))
+	add_button(tr_key("UI_PUBLIC_GAMES"), func() -> void: open_child(CoopScreen.new_for(flow, true)))
 	add_button(tr_key("UI_HALL_OF_LEGENDS"), func() -> void: open_child(HallScreen.new_for(flow)))
 	add_button(tr_key("UI_LEADERBOARD"), func() -> void: open_overlay(LeaderboardScreen.new()))
 	add_button(tr_key("UI_SETTINGS"), func() -> void: open_child(SettingsScreen.new()))

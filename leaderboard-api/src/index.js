@@ -4,6 +4,7 @@
  *   POST /leaderboard   send one score; it is checked, then saved
  *   GET/PUT /cloud/save cloud saves, by private sync code (see cloud.js)
  *   GET  /lobby         co-op lobbies with 6-digit codes, over WebSocket (see lobby.js)
+ *   GET  /lobby/public  the public co-op games anyone can join (see public_games.js)
  *
  * The Worker is the only thing that can write the board. It keeps the board in
  * Workers KV (fast) and commits leaderboard.json to the repo's `data` branch so
@@ -18,9 +19,11 @@ import { addEntry, emptyBoard, isDuplicate, normalizeBoard, qualifies, validateS
 import { handleSuggestionPost, suggestionStatus } from "./suggestions.js";
 import { handleCloud } from "./cloud.js";
 import { handleLobby } from "./lobby.js";
+import { handlePublicList } from "./public_games.js";
 
 export { SaveVault } from "./cloud.js";
 export { LobbyRoom } from "./lobby.js";
+export { PublicGames } from "./public_games.js";
 
 const MAX_BODY_BYTES = 8000;
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -177,6 +180,7 @@ export default {
       // write limit (no KV use).
       if (url.pathname === "/cloud/save") return await handleCloud(request, env);
       if (url.pathname === "/lobby") return await handleLobby(request, env);
+      if (url.pathname === "/lobby/public") return await handlePublicList(request, env);
       if (request.method === "OPTIONS") {
         return new Response(null, { status: 204, headers: corsHeaders() });
       }

@@ -21,7 +21,8 @@ const HOST_ID := 1
 const EVERYONE := 0
 
 
-func host() -> void:
+## `is_public`: the game goes on the public list, and players may join during a run.
+func host(_is_public: bool = false) -> void:
 	pass
 
 
@@ -40,6 +41,12 @@ func lock() -> void:
 
 ## Host only: others may join again (back in the lobby after a run).
 func reopen() -> void:
+	pass
+
+
+## Host of a public game: what the public list shows (the level, and the
+## game's version so only matching games are offered).
+func set_info(_level_id: String, _version: String) -> void:
 	pass
 
 
