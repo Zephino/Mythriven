@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.34
+Date: 10/29/2026
+Time: 11:31 PM
+
+### Changes
+- **Review of Phases 1–20** (`docs/reviews/PHASE_01-20_REVIEW.md`): Approved with fixes. Every phase is done except Phase 19's art, audio, and lore sign-off, which the owner is leaving for later. The fixes: the Steam Cloud backup isn't built (decide later), the build plan's boxes and Phase 20 text need updating, and the progress header was out of date (updated). Five yes/no decisions for the owner.
+- **Plan for Packs 2, 3, and 4** (`docs/PACK_PLAN.md`): levels, gods, bosses, hazards, and phases (21–39), taken from `GAME_DESIGN.md` without inventing anything. Each pack lists the owner decisions it needs. Pack 4's realms still need 8 bosses designed.
+- Recorded the owner's playtests: co-op between a PC and a phone works ("a lot of fun"), and the game works on phones.
+
+### Reason
+The owner reported the playtests and asked for the review and a plan for Packs 2–4.
+
 ## Version 00.01.33
 Date: 10/29/2026
 Time: 11:16 PM

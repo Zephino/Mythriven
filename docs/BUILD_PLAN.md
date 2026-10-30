@@ -271,3 +271,9 @@ Art, audio, accessibility settings, onboarding tips, mobile UI and safe areas, a
 ## Phase 20 — Co-op and cloud saves
 
 Only once single-player is stable: Epic Online Services setup, cross-platform cloud sync with merge rules, 6-digit lobby codes, turn-based co-op level-ups, fairness rules, Wandering Shade mode [Online co-op], [Cloud saves].
+
+---
+
+## After Pack 1
+
+Packs 2, 3, and 4 are planned in `docs/PACK_PLAN.md` (10/29/2026, owner request). None is started until the owner approves it.

@@ -2,8 +2,8 @@
 
 Cursor adds an entry after every task. Newest at the top.
 
-**Current phase:** Phase 20 (Co-op and cloud saves) built (00.01.25): all 20 build phases have code; waiting on the owner for a two-device co-op playtest, art and audio direction, a real-phone test, and the lore sign-off
-**Last reviewed with Claude:** (not yet)
+**Current phase:** Pack 1 complete (Phases 1–20, version 00.01.34). The owner tested co-op on a PC and a phone, and the game on phones (10/29/2026). Waiting on the owner: art and audio direction, the lore sign-off, and the go-ahead for Pack 2 (plan in `docs/PACK_PLAN.md`)
+**Last reviewed with Claude:** 10/29/2026, Phases 1–20: Approved with fixes (`docs/reviews/PHASE_01-20_REVIEW.md`)
 
 ---
 
@@ -13,6 +13,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Files touched:
 - Unfinished / next:
 -->
+
+## 2026-10-29 — Review of Phases 1–20 and Pack 2–4 plan (Claude, 00.01.34)
+- What changed: owner playtest results recorded (co-op between a PC and a phone works and is fun; phones work); review of all 20 phases written (Approved with fixes); plan for Packs 2, 3, and 4 written from the design.
+- Files touched: docs/reviews/PHASE_01-20_REVIEW.md, docs/PACK_PLAN.md, docs/PROGRESS.md, docs/AI_STATUS.md, docs/BUILD_PLAN.md (pointer only).
+- Unfinished / next: owner decisions in the review and the pack plan; art, audio, and lore sign-off when the owner is ready.
+
 
 ## 2026-10-29 — Phase 20 — Co-op and cloud saves (Claude, 00.01.25)
 - What changed: cloud saves (private sync code, merge, Settings → Cloud save) and online co-op (6-digit lobbies, host-authoritative sync, turn-based level-ups, personal gods, revives and the Wandering Shade, scaling, tether, team recap) through the owner's Cloudflare Worker (Durable Objects SaveVault and LobbyRoom).
