@@ -1342,3 +1342,4 @@ PASSIVE_OUTSINGING_THE_SIRENS_DESC,+10% attack speed for him and the allies near
 ACH_UNDERWORLD_SURVIVE_20_NAME,Survive 20:00 in the Underworld
 ACH_UNDERWORLD_SURVIVE_20_DESC,Unlocks Orpheus.
 HUD_SONG,Song in %d s
+UI_ALIVE,Alive %d

@@ -122,6 +122,7 @@
     "handheld_scale": 1.5,
     "frame_scale": 2,
     "menu_backdrops": ["greek_dusk", "norse_fjord", "egypt_sunset", "misty_stones", "heroes_road", "heroes_camp"],
+    "hud_alive_scale": 0.8,
     "menu_column_px": 340,
     "menu_wide_px": 780,
     "menu_list_px": 220,

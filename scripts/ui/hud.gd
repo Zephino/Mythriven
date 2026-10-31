@@ -12,6 +12,9 @@ var pause_menu: PauseMenu
 var _xp_bar: ProgressBar
 var _timer_label: Label
 var _kills_label: Label
+## How many monsters are alive right now, under the kills (owner request 10/31/2026: to see how the number on screen
+## affects the frame rate).
+var _alive_label: Label
 var _gold_label: Label
 var _badge: Button
 var _trait_label: Label
@@ -50,8 +53,18 @@ func _ready() -> void:
 	row.add_child(_badge)
 	_timer_label = _make_label()
 	row.add_child(_timer_label)
+	# Kills, with the monsters alive under it, the pair centred in the bar.
+	var counts := VBoxContainer.new()
+	counts.alignment = BoxContainer.ALIGNMENT_CENTER
+	counts.add_theme_constant_override("separation", -4)
+	counts.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(counts)
 	_kills_label = _make_label()
-	row.add_child(_kills_label)
+	counts.add_child(_kills_label)
+	_alive_label = _make_label()
+	_alive_label.add_theme_font_size_override("font_size", roundi(ThemeDB.get_default_theme().default_font_size * Data.cfg_float("ui.hud_alive_scale")))
+	_alive_label.modulate = Color(1, 1, 1, 0.85)
+	counts.add_child(_alive_label)
 	_gold_label = _make_label()
 	row.add_child(_gold_label)
 	var pause := Button.new()
@@ -80,6 +93,7 @@ func _process(_delta: float) -> void:
 	_xp_bar.value = run.xp
 	_timer_label.text = _timer_text(run)
 	_kills_label.text = tr("UI_KILLS") % run.kills
+	_alive_label.text = tr("UI_ALIVE") % (GameAuthority.enemies.active_count() if GameAuthority.enemies != null else 0)
 	_gold_label.text = tr("UI_GOLD") % roundi(TraderScreen.wallet(GameAuthority.local_player()))
 	if run.ropes > 0:
 		_gold_label.text += "  " + tr("UI_ROPES") % run.ropes

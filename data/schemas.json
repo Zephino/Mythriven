@@ -146,6 +146,7 @@
                 "type": "array",
                 "items": "string"
               },
+              "hud_alive_scale": "number",
               "menu_column_px": "number",
               "menu_wide_px": "number",
               "menu_list_px": "number",

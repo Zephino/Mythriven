@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.60
+Date: 10/31/2026
+Time: 1:51 PM
+
+### Changes
+- **"Alive" counter on the HUD.** Under "Kills" in the top bar, in slightly smaller text: how many monsters are alive in the world right now (large animals and bosses count too). Kills moved up a little so the pair sits centred in the bar. New setting `ui.hud_alive_scale`.
+
+### Reason
+The owner's friend sees the frame rate drop when lots of monsters are on screen. The owner asked for a counter of monsters alive under Kills, with Kills moved up so everything stays centred, to track how the number alive affects the frame rate.
+
 ## Version 00.02.59
 Date: 10/31/2026
 Time: 1:50 PM
