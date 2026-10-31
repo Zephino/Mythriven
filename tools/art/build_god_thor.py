@@ -7,8 +7,8 @@ DOC = ("Thor, god (GAME_DESIGN.md: Gods; art 10/31/2026). Built by tools/art/bui
        "docs/ART_RULES.md. From Snorri Sturluson's Prose Edda (Gylfaginning 21: his three treasures, the hammer "
        "Mjollnir, the belt of strength Megingjord, and the iron gloves he needs to grip the hammer; Skaldskaparmal 35: "
        "the hammer's handle is rather short) and the sagas' red-bearded Thor. The hammer's shape follows Viking Age "
-       "Thor's-hammer pendants. Viking Age dress: a tunic, trousers with leg wraps, leather shoes. Not based on any "
-       "modern version (GAME_DESIGN.md: never Marvel's Thor: no winged helmet, no red cape).")
+       "Thor's-hammer pendants. Viking Age dress: a tunic, trousers with leg wraps, leather shoes. The gold crown is the owner's choice "
+       "(10/31/2026), not from the sources. Not based on any modern version (GAME_DESIGN.md: never Marvel's Thor: no winged helmet, no red cape).")
 
 SIZE, ANCHOR = (52, 62), (22, 60)
 STANCE = (17, 23)
@@ -20,7 +20,7 @@ PALETTE = {
     "h": "#b8482a", "H": "#80301c",                 # red hair and beard
     "t": "#4a5a7a", "T": "#323e58",                 # blue-grey wool tunic
     "y": "#c8a048",                                 # woven border
-    "m": "#6a4a2a", "M": "#4a3018", "u": "#d8b048",  # Megingjord, the belt of strength, with gold
+    "m": "#6a4a2a", "M": "#4a3018", "u": "#d8b048", "U": "#a07a20",  # belt of strength; gold and its shadow
     "i": "#8a8e96", "I": "#5c6068",                 # iron gloves, hammer head
     "w": "#7a5030",                                 # hammer's short wooden handle
     "p": "#5a5048", "P": "#3e3630", "l": "#c8b48a",  # trousers, leg wraps
@@ -44,6 +44,12 @@ def draw(c, legs):
     # Red hair falling to his shoulders, a full red beard
     c.row(5, 17, 22, "h"); c.row(6, 15, 24, "h"); c.rect(14, 7, 25, 9, "h"); c.rect(13, 9, 18, 20, "h")
     c.rect(13, 9, 14, 20, "H"); c.row(6, 17, 21, "H")
+    # A gold crown on his red hair (owner request 10/31/2026; not in the sources), with a dark line under it so it
+    # stands apart from his head, as on King Arthur
+    c.rect(15, 3, 24, 5, "u"); c.row(5, 15, 24, "U"); c.row(6, 15, 24, "o")
+    for x in (15, 19, 23):
+        c.rect(x, 1, x + 1, 2, "u")
+    c.px(19, 4, "y"); c.px(20, 4, "y")
     # Face: a heavy brow, a fierce eye, a strong nose
     c.rect(19, 10, 26, 16, "s"); c.rect(19, 10, 20, 16, "S")
     c.row(11, 22, 26, "H"); c.px(24, 12, "k"); c.px(27, 13, "s"); c.px(27, 14, "s")

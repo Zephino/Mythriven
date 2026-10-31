@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.07
+Date: 10/31/2026
+Time: 2:40 AM
+
+### Changes
+- **Thor wears a gold crown** with three points, sitting on his red hair with a dark line under it so it stands apart from his head (as on King Arthur). The crown is the owner's choice, not from the sources; noted in his art file.
+
+### Reason
+The owner asked to put a crown on Thor.
+
 ## Version 00.02.06
 Date: 10/31/2026
 Time: 2:38 AM
