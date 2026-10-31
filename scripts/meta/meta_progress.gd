@@ -114,7 +114,7 @@ func _process(delta: float) -> void:
 
 
 func _checkpoint(run: RunState) -> void:
-	SaveGame.data()["run_in_progress"] = {"gold": TraderScreen.wallet(GameAuthority.local_player()), "arc_s": run.arc_s(), "omens": Array(run.omens), "swift": run.swift,
+	SaveGame.data()["run_in_progress"] = {"gold": TraderScreen.bankable(GameAuthority.local_player()), "arc_s": run.arc_s(), "omens": Array(run.omens), "swift": run.swift,
 		"level": str(run.level_data.get("id", ""))}
 	SaveGame.commit("run_in_progress")
 
@@ -228,7 +228,8 @@ func _finish(run: RunState, quit: bool) -> void:
 	if _finished:
 		return
 	_finished = true
-	var banked: int = Banking.banked(TraderScreen.wallet(GameAuthority.local_player()), run.arc_s(), quit, run.omens, run.swift)
+	# F1 debug gold is never banked (TraderScreen.bankable).
+	var banked: int = Banking.banked(TraderScreen.bankable(GameAuthority.local_player()), run.arc_s(), quit, run.omens, run.swift)
 	var save: Dictionary = SaveGame.data()
 	save["gold"] = SaveGame.gold() + banked
 	save["run_in_progress"] = {}

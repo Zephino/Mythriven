@@ -38,7 +38,7 @@ const SHADE := 4
 
 static func run_state(run: RunState) -> Array:
 	return [run.elapsed_s, run.xp, run.level, run.kills, run.gold, run.unspent_level_ups, run.boss_arena_active,
-		run.double_drops_until_s, run.god_charge_mult]
+		run.double_drops_until_s, run.god_charge_mult, run.debug_gold]
 
 
 static func apply_run_state(run: RunState, state: Array) -> void:
@@ -53,6 +53,8 @@ static func apply_run_state(run: RunState, state: Array) -> void:
 	run.boss_arena_active = bool(state[6])
 	run.double_drops_until_s = float(state[7])
 	run.god_charge_mult = float(state[8])
+	if state.size() >= 10:
+		run.debug_gold = float(state[9])
 
 
 static func player_state(player: Player, gods: GodManager) -> Array:

@@ -38,5 +38,6 @@ func _place_poi() -> void:
 
 func _give_gold() -> void:
 	var player: Player = GameAuthority.local_player()
-	if player != null:
+	if player != null and GameAuthority.run != null:
+		GameAuthority.run.debug_gold += Data.cfg_float("debug.gold_amount")
 		GameAuthority.collect_gold(player, Data.cfg_float("debug.gold_amount"))

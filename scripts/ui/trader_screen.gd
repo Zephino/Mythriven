@@ -77,6 +77,15 @@ static func buy(player: Player, item_id: String, target: int = 0) -> bool:
 
 
 ## Run gold this player can spend (in co-op, the team's gold minus what they spent).
+## Run gold that may be banked into the account: the wallet without F1 debug
+## gold (debug gold is spent first, so the Trader never eats real gold).
+static func bankable(player: Player) -> float:
+	var run: RunState = GameAuthority.run
+	if run == null:
+		return 0.0
+	return clampf(minf(wallet(player), run.gold - run.debug_gold), 0.0, INF)
+
+
 static func wallet(player: Player) -> float:
 	var run: RunState = GameAuthority.run
 	if run == null:

@@ -20,6 +20,9 @@ var unspent_level_ups: int = 0
 var current_offer: Array[Dictionary] = []
 ## Gold collected this run (banking rules come in Phase 15).
 var gold: float = 0.0
+## Gold added with the F1 debug menu: it can be spent in the run, but it's never
+## banked into the account (owner request 10/31/2026).
+var debug_gold: float = 0.0
 ## True once any F1 debug option touched this run; such runs never go on the leaderboard.
 var debug_used: bool = false
 ## True while a boss arena is up (hazards pause, only fodder spawns).

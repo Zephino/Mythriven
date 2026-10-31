@@ -173,3 +173,17 @@ func test_records_keep_the_best_time_per_hero_and_level() -> void:
 	Records.note(run, "heracles")
 	assert_almost_eq(Records.best("heracles", "aegean_shore", false), 500.0, 0.1)
 	assert_eq(Records.best("heracles", "aegean_shore", true), 0.0, "Swift records are separate")
+
+
+func test_f1_debug_gold_is_never_banked_into_the_account() -> void:
+	var run: RunState = GameAuthority.start_run("aegean_shore")
+	var player: Player = GameAuthority.spawn_player(add_child_autofree(Node2D.new()), Vector2.ZERO, null, true, "heracles")
+	run.gold = 300.0
+	run.debug_gold = 1000.0
+	run.gold += run.debug_gold
+	assert_eq(TraderScreen.bankable(player), 300.0, "only the gold earned in play counts")
+	player.gold_spent = 600.0
+	assert_eq(TraderScreen.bankable(player), 300.0, "spending comes out of debug gold first")
+	player.gold_spent = 1200.0
+	assert_eq(TraderScreen.bankable(player), 100.0, "then out of real gold")
+	GameAuthority.end_scene()
