@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.95
+Date: 10/31/2026
+Time: 2:13 AM
+
+### Changes
+- **Surtr's sprite**, from the Poetic Edda (Völuspá 52: he comes from the south with fire, and the sun shines from his sword) and Snorri Sturluson's Prose Edda (Gylfaginning 4 and 51: the giant who guards Muspell, the land of fire; at Ragnarök fire burns before and behind him and his sword shines brighter than the sun):
+  - a huge fire giant, as big as Kronos: skin like coal with embers glowing through the cracks, burning eyes, hair and beard of flame;
+  - a soot-dark leather kilt with iron studs;
+  - his blazing white-hot sword raised, flames licking up the blade;
+  - fire burning behind him and at his feet; 4 walking frames.
+
+### Reason
+The owner approved Loki and asked for the next boss.
+
 ## Version 00.01.94
 Date: 10/31/2026
 Time: 2:06 AM
