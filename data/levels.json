@@ -104,6 +104,11 @@
         "aleppo_pine": 2,
         "holm_oak": 2
       }
+    },
+    "road": {
+      "color": "#c8b48a",
+      "edge": "#a08a64",
+      "stones": "#e2dccc"
     }
   },
   {
@@ -219,6 +224,11 @@
         "scots_pine": 2,
         "birch": 2
       }
+    },
+    "road": {
+      "color": "#8a7a62",
+      "edge": "#6a5c48",
+      "stones": "#9a9ca4"
     }
   },
   {
@@ -335,6 +345,11 @@
         "acacia": 2,
         "sycamore_fig": 1
       }
+    },
+    "road": {
+      "color": "#e0c48a",
+      "edge": "#c0a068",
+      "stones": "#b08c5c"
     }
   },
   {
@@ -454,6 +469,11 @@
         "yew": 1,
         "hawthorn": 2
       }
+    },
+    "road": {
+      "color": "#7a6a4a",
+      "edge": "#5a4c34",
+      "stones": "#9a9a94"
     }
   },
   {
@@ -576,6 +596,11 @@
         "dead_tree": 3
       }
     },
-    "tint": "#c4bed4"
+    "tint": "#c4bed4",
+    "road": {
+      "color": "#6a6462",
+      "edge": "#4a4446",
+      "stones": "#8a8478"
+    }
   }
 ]

@@ -593,6 +593,11 @@ func test_mountains_have_ways_up_a_bridge_and_a_cave() -> void:
 	assert_true(kinds.has("hand") and kinds.has("ladder"), "handholds and a rope ladder up the cliff")
 	assert_false((m["bridge"] as Array).is_empty(), "a rope bridge between the peaks")
 	assert_eq(int(m["tiles"][m["cave"]]), 2, "the cave is up on a peak")
+	# Roads lead to it (owner request 10/31/2026): from the foot of each way up, winding away across the land.
+	var centre: Vector2 = (Vector2(m["c"]) + Vector2(0.5, 0.5)) * Mountains.TILE
+	assert_false((m["roads"] as Array).is_empty(), "roads lead to the mountain")
+	for road: PackedVector2Array in m["roads"]:
+		assert_gt(road[road.size() - 1].distance_to(centre), road[0].distance_to(centre) + 300.0, "each runs away from it")
 	mountains._index(m)
 	var bridge_tile: Vector2i = m["bridge"][0]
 	assert_false(mountains.walkable(bridge_tile, 2), "the broken bridge can't be crossed")

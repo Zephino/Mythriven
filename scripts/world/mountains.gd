@@ -36,6 +36,9 @@ var _climb: Dictionary = {}        # player id -> {"t", "total", "from", "to", "
 var _hint_s: float = 0.0
 var _top_spawn_s: float = 0.0
 var _scan_s: float = 0.0
+## The roads to the mountains, drawn on the ground under trees and Heroes (owner request 10/31/2026).
+var _road_layer: Node2D
+var _road_style: Dictionary = {}
 
 
 func setup(level: Dictionary, run_seed: int) -> void:
@@ -47,6 +50,12 @@ func setup(level: Dictionary, run_seed: int) -> void:
 	_art = PixelArt.find("mountain/" + str(level.get("id", "")))
 	_chunk_px = Data.cfg_float("world.chunk_tiles") * Data.cfg_float("world.tile_px")
 	_region_px = Data.cfg_float("world.mountain_region_chunks") * _chunk_px
+	_road_style = level.get("road", {})
+	_road_layer = Node2D.new()
+	_road_layer.z_as_relative = false
+	_road_layer.z_index = Data.cfg_int("world.road_z")
+	_road_layer.draw.connect(_draw_roads)
+	add_child(_road_layer)
 
 
 func _exit_tree() -> void:
@@ -89,12 +98,16 @@ func is_climbing(player: Player) -> bool:
 	return _climb.has(player.player_id)
 
 
-## Places to keep clear of trees: every loaded mountain's footprint ([absolute centre, radius]).
+## Places to keep clear of trees: every loaded mountain's footprint ([absolute centre, radius]), and its roads.
 func clear_zones() -> Array:
 	var out: Array = []
+	var road_clear: float = Data.cfg_float("world.road_width_px") * 0.5 + Data.cfg_float("world.road_clear_px")
 	for m: Dictionary in _mountains.values():
 		if not m.is_empty():
 			out.append([(Vector2(m["c"]) + Vector2(0.5, 0.5)) * TILE, (float(m["r"]) + 3.0) * TILE])
+			for road: PackedVector2Array in m.get("roads", []):
+				for i: int in range(0, road.size(), 2):
+					out.append([road[i], road_clear])
 	return out
 
 
@@ -162,8 +175,37 @@ func plan(region: Vector2i) -> Dictionary:
 	if not near.is_empty():
 		spots.append({"kind": "hand", "tile": near[rng.randi_range(0, near.size() - 1)], "from": 1, "to": 2})
 	var cave_tile: Vector2i = peaks[1]
+	var roads: Array = []
+	for spot: Dictionary in spots:
+		if int(spot["from"]) == 0:
+			roads.append(_road_from(Vector2i(spot["tile"]), c, r, rng))
 	return {"key": "mtn_%d_%d" % [region.x, region.y], "c": c, "r": r, "tiles": tiles, "bridge": bridge, "spots": spots,
-			"cave": cave_tile}
+			"cave": cave_tile, "roads": roads}
+
+
+## A road (owner request 10/31/2026): from the foot of a way up the cliff, it winds out across the land, away from the
+## mountain, for one to two screens, so a Hero who finds it can follow it to the mountain. Points in absolute px.
+func _road_from(spot: Vector2i, c: Vector2i, r: float, rng: RandomNumberGenerator) -> PackedVector2Array:
+	var at: Vector2 = (Vector2(spot) + Vector2(0.5, 2.5)) * TILE
+	var centre: Vector2 = (Vector2(c) + Vector2(0.5, 0.5)) * TILE
+	var dir: Vector2 = (at - centre).normalized().rotated(rng.randf_range(-0.5, 0.5))
+	var step: float = Data.cfg_float("world.road_step_px")
+	var length: float = rng.randf_range(Data.cfg_float("world.road_min_px"), Data.cfg_float("world.road_max_px"))
+	var turn: float = Data.cfg_float("world.road_turn")
+	var points := PackedVector2Array([at])
+	var bend: float = 0.0
+	var walked: float = 0.0
+	while walked < length:
+		bend = clampf(bend + rng.randf_range(-turn, turn) * 0.5, -turn, turn)
+		dir = dir.rotated(bend)
+		# Never back into the mountain.
+		var out: Vector2 = (at - centre).normalized()
+		if dir.dot(out) < 0.2:
+			dir = dir.lerp(out, 0.5).normalized()
+		at += dir * step
+		walked += step
+		points.append(at)
+	return points
 
 
 ## Tiles of `height` whose southern neighbour is `below`: where a cliff face shows, sorted west to east.
@@ -403,7 +445,54 @@ func _cave_entrances(delta: float) -> void:
 
 # --- Drawing ------------------------------------------------------------------------------------------------------
 
+func _process_roads() -> void:
+	if _road_layer != null:
+		_road_layer.queue_redraw()
+
+
+## The roads: a worn track with darker edges, lighter wheel ruts down the middle and stones along it, fading out at
+## its far end. Each land its own colours (levels.json "road").
+func _draw_roads() -> void:
+	var view: Rect2 = (get_viewport().get_canvas_transform().affine_inverse() * get_viewport_rect()).grow(64.0)
+	var off: Vector2 = _offset()
+	var width: float = Data.cfg_float("world.road_width_px")
+	var base := Color.html(str(_road_style.get("color", "#a08a64")))
+	var edge := Color.html(str(_road_style.get("edge", "#7a6a4c")))
+	var stone := Color.html(str(_road_style.get("stones", "#8a8478")))
+	for m: Dictionary in _mountains.values():
+		if m.is_empty():
+			continue
+		for road: PackedVector2Array in m.get("roads", []):
+			var local := PackedVector2Array()
+			for p: Vector2 in road:
+				local.append(p - off)
+			var box := Rect2(local[0], Vector2.ZERO)
+			for p: Vector2 in local:
+				box = box.expand(p)
+			if not view.intersects(box.grow(width)):
+				continue
+			var n: int = local.size()
+			for i: int in n - 1:
+				var fade: float = clampf(float(n - 1 - i) / 6.0, 0.0, 1.0)    # the far end fades into the ground
+				_road_layer.draw_line(local[i], local[i + 1], Color(edge, 0.8 * fade), width + 4.0, true)
+				_road_layer.draw_circle(local[i], (width + 4.0) * 0.5, Color(edge, 0.8 * fade))
+			for i: int in n - 1:
+				var fade: float = clampf(float(n - 1 - i) / 6.0, 0.0, 1.0)
+				_road_layer.draw_line(local[i], local[i + 1], Color(base, fade), width, true)
+				_road_layer.draw_circle(local[i], width * 0.5, Color(base, fade))
+			for i: int in n - 1:
+				var fade: float = clampf(float(n - 1 - i) / 6.0, 0.0, 1.0)
+				var side: Vector2 = (local[i + 1] - local[i]).normalized().orthogonal()
+				for rut: float in [-0.22, 0.22]:
+					_road_layer.draw_line(local[i] + side * width * rut, local[i + 1] + side * width * rut,
+							Color(base.lightened(0.12), 0.7 * fade), 2.0)
+				var h: int = absi(int(road[i].x * 7.0 + road[i].y * 13.0))
+				if h % 3 == 0:
+					_road_layer.draw_circle(local[i] + side * width * (0.5 if h % 2 == 0 else -0.5), 1.6, Color(stone, fade))
+
+
 func _draw() -> void:
+	_process_roads()
 	if _art.is_empty():
 		return
 	var frames: Dictionary = _art["frames"]

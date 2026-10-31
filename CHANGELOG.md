@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.57
+Date: 10/31/2026
+Time: 1:39 PM
+
+### Changes
+- **Roads to the mountains.** Every mountain now has winding roads leading to it: one from the foot of each way up from the ground (the handholds and the rope-ladder spot), wandering out across the land for one to two screens and fading into the ground at the far end. Come across a road and follow it, and it takes you to the mountain.
+  - Randomly generated from the run's seed, like the mountains, so every co-op player sees the same roads.
+  - No trees grow on them.
+  - Each land has its own road: a dusty track on the Aegean Shore, packed earth in Midgard's Edge, sand in the Two Lands, mud in the Misty Isles, ash in the Underworld. Darker edges, worn ruts and stones along the sides.
+  - New settings `world.road_*`, and a "road" colour per level.
+
+### Reason
+The owner asked for a randomly generated road or path in the map that leads to the mountains.
+
 ## Version 00.02.56
 Date: 10/31/2026
 Time: 1:33 PM

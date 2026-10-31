@@ -264,6 +264,13 @@
               "grove_empty_chance": "number",
               "grove_shrine_chance": "number",
               "mountain_z": "number",
+              "road_z": "number",
+              "road_width_px": "number",
+              "road_clear_px": "number",
+              "road_step_px": "number",
+              "road_min_px": "number",
+              "road_max_px": "number",
+              "road_turn": "number",
               "mountain_region_chunks": "number",
               "mountain_chance": "number",
               "mountain_start_clear_px": "number",
@@ -1221,6 +1228,10 @@
             },
             "tint": {
               "type": "string",
+              "optional": true
+            },
+            "road": {
+              "type": "object",
               "optional": true
             },
             "ground_patches": {
