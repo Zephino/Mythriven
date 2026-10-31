@@ -57,6 +57,7 @@
               "placeholder_max_hp": "number",
               "placeholder_armor": "number",
               "body_radius_px": "number",
+              "walk_frame_px": "number",
               "hp_bar_width_px": "number",
               "hp_bar_height_px": "number",
               "hp_bar_offset_px": "number",

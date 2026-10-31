@@ -53,6 +53,9 @@ var extra_projectiles: int = 0
 ## equipped cosmetic aura (alpha 0 = none).
 var projectile_speed_mult: float = 1.0
 var palette_color := Color(0, 0, 0, 0)
+## Distance walked, for the walking frames of the Hero's pixel art.
+var _stride: float = 0.0
+var _last_drawn_at := Vector2.ZERO
 var aura_color := Color(0, 0, 0, 0)
 ## Ground patches (Phase 16+): quicksand slows (speed multiplier); frozen
 ## ponds slide (grip per second; 0 = full control).
@@ -132,6 +135,12 @@ func _process(delta: float) -> void:
 	if hp != _shown_hp:
 		_shown_hp = hp
 		queue_redraw()
+	# Walking frames: redraw as the Hero moves (own steering, pushes, or co-op updates).
+	var moved: float = position.distance_to(_last_drawn_at)
+	if moved > 0.0:
+		_stride += moved
+		_last_drawn_at = position
+		queue_redraw()
 
 
 ## Moves by one frame in `direction` (a unit vector or zero) and updates facing.
@@ -159,19 +168,41 @@ func _draw() -> void:
 		color = Color(Color.html(Data.cfg_string("coop.shade_color")), 0.55)
 	if aura_color.a > 0.0 and alive:
 		draw_arc(Vector2.ZERO, size_px * 0.95, 0.0, TAU, 24, aura_color, 2.0)
-	draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), color)
+	var art: Dictionary = PixelArt.find(str(hero.get("id", "")))
+	if not art.is_empty():
+		_draw_art(art)
+	else:
+		draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), color)
+		# A small dot on the facing side shows which way the player last moved.
+		var marker_px: float = Data.cfg_float("player.facing_marker_px")
+		var marker_color := Color.html(Data.cfg_string("player.facing_marker_color"))
+		draw_circle(facing * (size_px * 0.5 - marker_px * 0.5), marker_px * 0.5, marker_color)
+		if rooted_s > 0.0:
+			draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), Color.html(Data.cfg_string("bosses.petrified_color")))
 	if invulnerable_s > 0.0:
 		draw_arc(Vector2.ZERO, size_px * 0.9, 0.0, TAU, 20, Color.html(Data.cfg_string("gods.invulnerable_color")), 2.0)
-	if rooted_s > 0.0:
-		draw_rect(Rect2(Vector2(-size_px, -size_px) * 0.5, Vector2(size_px, size_px)), Color.html(Data.cfg_string("bosses.petrified_color")))
-	# A small dot on the facing side shows which way the player last moved.
-	var marker_px: float = Data.cfg_float("player.facing_marker_px")
-	var marker_color := Color.html(Data.cfg_string("player.facing_marker_color"))
-	draw_circle(facing * (size_px * 0.5 - marker_px * 0.5), marker_px * 0.5, marker_color)
 	if downed:
 		_draw_downed(size_px)
 	elif not shade:
 		_draw_hp_bar()
+
+
+## The Hero's pixel art (PixelArt), feet at the bottom of the body, mirrored
+## when facing left; greyed when fallen, faded as a Shade, stone-grey when petrified.
+func _draw_art(art: Dictionary) -> void:
+	var texture: ImageTexture = PixelArt.frame(art, alive and velocity.length() > 1.0, _stride)
+	var anchor: Vector2 = art["anchor"]
+	var tint := Color.WHITE
+	if not alive:
+		tint = Color.html(Data.cfg_string("player.fallen_color"))
+	if shade:
+		tint = Color(Color.html(Data.cfg_string("coop.shade_color")), 0.55)
+	if rooted_s > 0.0:
+		tint = Color.html(Data.cfg_string("bosses.petrified_color"))
+	var left: bool = facing.x < 0.0
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2(-1.0 if left else 1.0, 1.0))
+	draw_texture(texture, Vector2(-anchor.x, body_radius - anchor.y), tint)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
 ## A downed player: a shrinking ring for the bleed-out time, and the revive progress.

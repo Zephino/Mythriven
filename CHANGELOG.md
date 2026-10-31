@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.56
+Date: 10/30/2026
+Time: 10:53 PM
+
+### Changes
+- **First Hero sprite: Heracles** (art style test, owner request). Pixel art drawn in code: 18 × 20 pixels, from Greek art and Pseudo-Apollodorus.
+  - What it shows: the Nemean lion's skin as a hood and cloak (ear, eye and teeth), its paws knotted on his chest, a beard, a white chiton with a belt, sandals, and his club.
+  - Faces the way he moves, with a 4-frame walk.
+  - Greyed when fallen, faded as a Shade, stone-grey when petrified.
+  - Other Heroes keep the coloured square until they get art.
+- How art works: `data/art/<hero>.json` holds rows of letters (1 letter = 1 pixel) plus a palette; `scripts/art/pixel_art.gd` turns them into images. A test checks every art file.
+- **Draft art rules** in `docs/ART_RULES.md` (size, outline, shading, face, weapon, sources, palette letters, frames), to become the rule set for the other Heroes once the owner approves Heracles' look.
+- The HP bar over a Hero sits 4 pixels higher (above the taller sprite).
+
+### Reason
+The owner chose code-drawn sprites (option 1), starting with one Hero, then a rule set for the rest.
+
 ## Version 00.01.55
 Date: 10/30/2026
 Time: 10:28 PM

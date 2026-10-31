@@ -219,3 +219,29 @@ func test_runo_song_cycles_fire_ice_lightning() -> void:
 		ProjectilePattern.new(ProjectileManager.FLIGHT).fire(song, player, {"direction": Vector2.RIGHT}, _combat)
 		elements.append(projectiles._element[attack])
 	assert_eq(elements, ["fire", "ice", "lightning"] as Array[String])
+
+
+func test_hero_pixel_art_files_are_well_formed() -> void:
+	var dir := DirAccess.open(PixelArt.ART_DIR)
+	assert_not_null(dir, "data/art exists")
+	var checked: int = 0
+	for file: String in dir.get_files():
+		if not file.ends_with(".json"):
+			continue
+		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PixelArt.ART_DIR + file))
+		assert_true(data is Dictionary, file + " is JSON")
+		var size: Array = data["size"]
+		for frame_name: String in (data["frames"] as Dictionary):
+			for rows: Variant in data["frames"][frame_name]:
+				assert_eq((rows as Array).size(), int(size[1]), "%s %s: every frame is %d rows" % [file, frame_name, size[1]])
+				for row: Variant in rows:
+					assert_eq(str(row).length(), int(size[0]), "%s %s: every row is %d pixels" % [file, frame_name, size[0]])
+					for letter: String in str(row):
+						assert_true(letter == "." or (data["palette"] as Dictionary).has(letter), "%s: '%s' is in the palette" % [file, letter])
+		assert_false(HeroRules.find(file.get_basename()).is_empty(), file + " is named after a Hero")
+		checked += 1
+	assert_gt(checked, 0)
+	var art: Dictionary = PixelArt.find("heracles")
+	assert_false(art.is_empty(), "Heracles has art")
+	assert_eq((art["frames"]["walk"] as Array).size(), 4, "a four-frame walk")
+	assert_true(PixelArt.find("no_such_hero").is_empty(), "Heroes without art keep the placeholder")
