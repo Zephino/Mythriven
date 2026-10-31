@@ -23,6 +23,7 @@
 - **Muscles as short lines**, not dots: a chest line and a stomach line in the skin shadow. Dots read as spots.
 - **The front arm has a shadow line** between it and the body so it reads as an arm.
 - **A face that reads at a glance:** one dark eye pixel with a row of skin above it (the forehead) and skin around it. Nothing white touches the eye (it reads as a giant eyeball). Facial hair sits below it and is no more than 2 rows.
+- **Cloaks and pelts read as fabric or fur**, never as a plank: they widen as they hang, have a ragged or folded edge, and show texture (lighter tufts or folds). Heracles' lion skin ends in the lion's hind paw with claws.
 - **The signature weapon must be visible** and stand apart from the body and cloak: a different colour and value (lighter or darker), sticking out past the body.
 - **Each Hero's iconic feature first.** Pick the one or two things people know them by, and make them big: Heracles' lion-skin hood and club.
 - **Only from sources.** Clothing, weapons and symbols come from the Hero's myth and from historical and museum sources (see `GAME_DESIGN.md`: Art, and `docs/LORE_CHECK.md`). No stereotypes and no modern pop-culture versions. Write the sources in the file's `_doc`.

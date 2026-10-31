@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.58
+Date: 10/30/2026
+Time: 11:00 PM
+
+### Changes
+- **Heracles' lion-skin cloak looks like fur now**, not a plank: it drapes off his back shoulder and widens as it hangs, with a dark furry edge, lighter tufts, a ragged hem, and the lion's hind paw with white claws at the bottom. A new line in `docs/ART_RULES.md`: cloaks and pelts must read as fabric or fur.
+
+### Reason
+The owner asked what the strip on Heracles' left was (the lion-skin cloak, which read as a plank).
+
 ## Version 00.01.57
 Date: 10/30/2026
 Time: 10:58 PM
