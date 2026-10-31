@@ -119,6 +119,9 @@
               "attack_effect_s": "number",
               "swing_s": "number",
               "bolt_height_px": "number",
+              "burst_px": "number",
+              "burst_s": "number",
+              "reaction_s": "number",
               "default_color": "string",
               "min_reaction_ring_px": "number"
             }
@@ -525,6 +528,9 @@
               "art_hit_flash_tint": "number",
               "art_wind_up_tint": "number",
               "art_override_tint": "number",
+              "art_status_tint": "number",
+              "status_marks_max": "number",
+              "status_marks_margin_px": "number",
               "level_scaling": {
                 "type": "object",
                 "fields": {

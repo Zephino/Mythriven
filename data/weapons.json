@@ -2390,6 +2390,7 @@
   },
   {
     "id": "inferno",
+    "projectile_art": "inferno",
     "name_key": "SPELL_FIRE_T4",
     "desc_key": "WEAPON_INFERNO_DESC",
     "element": "fire",
@@ -2431,6 +2432,8 @@
   },
   {
     "id": "absolute_zero",
+    "projectile_art": "absolute_zero",
+    "projectile_spin_deg_s": 360,
     "name_key": "SPELL_ICE_T4",
     "desc_key": "WEAPON_ABSOLUTE_ZERO_DESC",
     "element": "ice",
@@ -2509,6 +2512,8 @@
   },
   {
     "id": "cyclone",
+    "projectile_art": "cyclone",
+    "projectile_spin_deg_s": 540,
     "name_key": "SPELL_WIND_T4",
     "desc_key": "WEAPON_CYCLONE_DESC",
     "element": "wind",
@@ -2550,6 +2555,8 @@
   },
   {
     "id": "judgment",
+    "projectile_art": "judgment",
+    "projectile_spin_deg_s": 180,
     "name_key": "SPELL_HOLY_T4",
     "desc_key": "WEAPON_JUDGMENT_DESC",
     "element": "holy",

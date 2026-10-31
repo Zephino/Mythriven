@@ -129,3 +129,11 @@ func place(multimesh: MultiMesh, slot: int, type_index: int, at: Vector2, body_r
 
 func hide(multimesh: MultiMesh, slot: int) -> void:
 	multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2.ZERO, 0.0, Vector2.ZERO))
+
+
+## How tall a type's picture stands, in pixels (0 without art).
+func height(type_index: int) -> float:
+	if type_index < 0 or type_index >= types.size() or types[type_index].is_empty():
+		return 0.0
+	var region: Rect2 = types[type_index]["idle"]
+	return region.size.y

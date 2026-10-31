@@ -20,5 +20,5 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 		var center: Vector2 = combat.enemies.positions[target] if target != -1 else \
 				player.position + Vector2.from_angle(rng.randf() * TAU) * rng.randf() * reach
 		combat.hit_circle(center, strike_radius, weapon, player, 1.0)
-		combat.effects.spawn_bolt(center, Elements.color(weapon.element()))
+		combat.effects.spawn_bolt(center, Elements.color(weapon.element()), weapon.data.has("evolved_from"))
 		combat.effects.spawn_ring(center, strike_radius, combat.effect_color(weapon))

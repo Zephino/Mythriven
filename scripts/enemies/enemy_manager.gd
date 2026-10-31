@@ -117,6 +117,9 @@ func setup() -> void:
 	var sprite_drawer: MultiMeshInstance2D = sprites.make_drawer(capacity)
 	_sprite_mm = sprite_drawer.multimesh
 	add_child(sprite_drawer)
+	var marks := EnemyStatusMarks.new()
+	marks.enemies = self
+	add_child(marks)
 	_face_left.resize(capacity)
 	_last_x.resize(capacity)
 	_stride.resize(capacity)
@@ -319,7 +322,7 @@ func _draw_instances(delta: float) -> void:
 				tint = Color(tint_override[i], Data.cfg_float("enemies.art_override_tint"))
 			var status: Color = statuses.tint(i)
 			if status.a > 0.0:
-				tint = Color(status, tint_strength)
+				tint = Color(status, Data.cfg_float("enemies.art_status_tint"))
 			var wind: Color = movement.override_color(self, i)
 			if wind.a > 0.0:
 				tint = Color(wind, Data.cfg_float("enemies.art_wind_up_tint"))

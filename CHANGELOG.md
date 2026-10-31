@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.22
+Date: 10/31/2026
+Time: 4:02 AM
+
+### Changes
+- **Spell hits burst in their element's style**: fire puffs with flying embers, ice shatters into shards, lightning crackles, water splashes, wind curls, holy light flashes as a star, dark shadow collapses inward, earth throws up pebbles and dust, fortune glints gold. Every non-physical hit (spells and infused weapons) shows one; evolved spells' bursts are bigger.
+- **Statuses show on enemies**: flames (Burn), frost specks (Chill), a block of ice (Frozen), sparks (Shock), drips (Soaked), green bubbles (Poison), a halo (Smite), a dark swirl (Hex), circling stars (Stun). Only for enemies on screen, at most 120 at once. The status colour now tints enemy pictures more lightly so you can still see the monster.
+- **Reactions have their own effects**: Conduct sends lightning arcing out, Steam Burst billows clouds, Shatter throws ice shards, Spread blows a gust, each with a white flash in the middle.
+- **Evolved spells look different**: Inferno is a great white-hot fireball, Absolute Zero a spinning snowflake, Cyclone a big whirl of wind, Judgment a blazing star. Tempest's bolts are thicker with forks; Oblivion leaves a dark pool under twice the wisps.
+- New settings `effects.burst_px`, `effects.burst_s`, `effects.reaction_s`, `enemies.art_status_tint`, `enemies.status_marks_max`, `enemies.status_marks_margin_px`. Rules in `docs/ART_RULES.md` (Spells, Statuses).
+
+### Reason
+The owner asked for all four spell-effect pieces: hit bursts per element, status visuals on enemies, reaction effects, and evolved spells that look distinct.
+
 ## Version 00.02.21
 Date: 10/31/2026
 Time: 3:51 AM

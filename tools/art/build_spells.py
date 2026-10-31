@@ -131,6 +131,74 @@ def coin():
     return p
 
 
+# Evolved spells (owner request 10/31/2026: they should look distinct): each is its element's shot grown bigger and
+# brighter, written as data/art/projectiles/<weapon id>.json and named by that weapon's projectile_art.
+def inferno():
+    """Inferno (Ember evolved): a great white-hot fireball, its long flames streaming behind."""
+    p = Pic(15, 25, (7, 9))
+    for y in range(25):
+        t = y / 24
+        half = 6.4 * (1 - t) ** 0.55 if y > 5 else [3.0, 4.4, 5.4, 6.0, 6.4, 6.6][y]
+        for x in range(15):
+            d = abs(x - 7) + (0.8 * math.sin(y * 1.3) if y > 8 else 0)
+            if d <= half:
+                col = "q" if d > half - 1.4 else ("f" if d > half - 3.0 or y > 14 else "F")
+                if 2 <= y <= 8 and d < 2.6:
+                    col = "W"
+                p.px(x, y, col)
+    return p
+
+
+def absolute_zero():
+    """Absolute Zero (Frost evolved): a six-armed snowflake of ice (it spins as it flies)."""
+    p = Pic(17, 17, (8, 8))
+    for k in range(6):
+        a = math.radians(k * 60 + 90)
+        for s in range(1, 8):
+            x = 8 + math.cos(a) * s; y = 8 + math.sin(a) * s
+            p.px(round(x), round(y), "i" if s < 6 else "c")
+            if s in (4, 6):
+                for side in (-1, 1):
+                    b = a + side * math.radians(55)
+                    p.px(round(x + math.cos(b) * 1.6), round(y + math.sin(b) * 1.6), "I")
+    for y in range(6, 11):
+        for x in range(6, 11):
+            if math.hypot(x - 8, y - 8) <= 1.8:
+                p.px(x, y, "j" if (x + y) % 2 else "c")
+    return p
+
+
+def cyclone():
+    """Cyclone (Breeze evolved): a great whirl of wind, five curling bands round a bright eye."""
+    p = Pic(25, 25, (12, 12))
+    for k in range(5):
+        for a in range(0, 260, 5):
+            r = 2.5 + k * 1.6 + a / 60
+            ang = math.radians(a + k * 72)
+            p.px(round(12 + math.cos(ang) * r), round(12 + math.sin(ang) * r), "w" if a < 190 else "v")
+    p.rect(11, 11, 13, 13, "w")
+    return p
+
+
+def judgment():
+    """Judgment (Glimmer evolved): a blazing star of holy light, eight rays round a white heart."""
+    p = Pic(19, 19, (9, 9))
+    for y in range(19):
+        for x in range(19):
+            d = math.hypot(x - 9, y - 9)
+            if d <= 3.6:
+                p.px(x, y, "h" if d < 2.0 else "H")
+    for k in range(1, 10):
+        for dx, dy in ((0, -1), (0, 1), (-1, 0), (1, 0)):
+            p.px(9 + dx * k, 9 + dy * k, "h" if k < 5 else ("H" if k < 8 else "u"))
+        if k < 7:
+            for dx, dy in ((1, 1), (1, -1), (-1, 1), (-1, -1)):
+                p.px(9 + dx * k, 9 + dy * k, "H" if k < 5 else "u")
+    return p
+
+
+EVOLVED = {"inferno": inferno, "absolute_zero": absolute_zero, "cyclone": cyclone, "judgment": judgment}
+
 SPELLS = {"fortune": coin, "fire": fireball, "ice": ice_shard, "lightning": bolt, "wind": gust, "holy": light, "dark": shadow,
           "water": droplet, "earth": stone}
 
@@ -143,4 +211,11 @@ if __name__ == "__main__":
                         % (element, doc), "size": art["size"], "palette": PALETTE, "frames": {"idle": [art["rows"]]}}
         with open(os.path.join(out_dir, "element_" + element + ".json"), "w") as f:
             json.dump(data, f, indent=1)
-    print("wrote", len(SPELLS), "spell pictures")
+    for weapon_id, make in EVOLVED.items():
+        art = finish(make(), 0.0)
+        doc = " ".join((make.__doc__ or "").split())
+        data = {"_doc": "Evolved spell picture (docs/ART_RULES.md: Spells), built by tools/art/build_spells.py. %s" % doc,
+                "size": art["size"], "palette": PALETTE, "frames": {"idle": [art["rows"]]}}
+        with open(os.path.join(out_dir, weapon_id + ".json"), "w") as f:
+            json.dump(data, f, indent=1)
+    print("wrote", len(SPELLS), "spell pictures and", len(EVOLVED), "evolved ones")

@@ -411,3 +411,25 @@ func test_a_hero_holds_the_weapon_they_use_most() -> void:
 	var ember: WeaponInstance = GameAuthority.give_weapon(player, "ember")
 	ember.level = 8
 	assert_eq(PixelArt.held_weapon(player.weapons), PixelArt.find("weapons/bronze_sword"), "spells aren't held")
+
+
+func test_spell_hits_and_reactions_have_their_own_bursts() -> void:
+	var effects: EffectLayer = _combat.effects
+	effects.spawn_burst(Vector2(10, 10), "fire")
+	var found: int = -1
+	for i: int in effects._capacity:
+		if effects._active[i] == 1 and effects._kind[i] == EffectLayer.KIND_BURST:
+			found = i
+	assert_ne(found, -1, "a spell hit shows a burst")
+	assert_eq(effects._tag[found], "fire", "in its element's style")
+	effects.on_reaction("shatter", Vector2(20, 20), 30.0, null)
+	var reaction: bool = false
+	for i: int in effects._capacity:
+		if effects._active[i] == 1 and effects._kind[i] == EffectLayer.KIND_REACTION and effects._tag[i] == "shatter":
+			reaction = true
+	assert_true(reaction, "a reaction shows its own burst")
+	# Evolved spells look distinct: their own pictures, a forked bolt (Tempest), a darker aura (Oblivion).
+	var evolved: Array = ["inferno", "absolute_zero", "cyclone", "judgment"]
+	for weapon: Dictionary in Data.get_file("weapons.json"):
+		if str(weapon["id"]) in evolved:
+			assert_eq(str(weapon.get("projectile_art", "")), str(weapon["id"]), str(weapon["id"]) + " has its own picture")

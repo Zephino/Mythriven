@@ -194,6 +194,9 @@ func _tick_hits(i: int, delta: float) -> void:
 				_vel[i].normalized() * weapon.stat("knockback"), _element[i],
 				weapon.status_chance(), weapon)
 		_barbs(i, slot, at)
+		# A spell's hit shows in its element's style (owner request 10/31/2026).
+		if combat != null and _element[i] != "physical":
+			combat.effects.spawn_burst(at, _element[i], weapon.data.has("evolved_from"))
 		if _chain[i] != 0:
 			_chain[i] = 0
 			Blessings.chain_lightning(_thrower[i], slot, _pos[i], weapon.damage())
