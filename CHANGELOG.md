@@ -4,7 +4,7 @@ One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). 
 
 ## Version 00.02.34
 Date: 10/31/2026
-Time: 11:15 AM
+Time: 11:02 AM
 
 ### Changes
 - **Hidden groves** (World plan step 3). Now and then thick forest hides a clearing: a ring of trees too close to pass, roofed over with leaves so it looks like more forest. A few trees in the ring can be walked through (the way in, with two trees standing before it so the path winds), and a faint glint shows there now and then. Step inside and the leaves fade away to show the clearing: a chest (sometimes a big one), guarded by monsters that wake as you come in. Every co-op player has the same groves; what's inside is decided once, when the first Hero steps in.
