@@ -9,6 +9,8 @@ extends MenuScreen
 var _code_box: LineEdit
 var _name_box: LineEdit
 var _error: String = ""
+## True while the "bring this device's progress?" question is open.
+var _asking: bool = false
 
 
 func _ready() -> void:
@@ -17,8 +19,23 @@ func _ready() -> void:
 	Meta.cloud.sign_in.changed.connect(refresh)
 
 
+## The question asked the first time this device signs in or links, if it has progress (owner request 10/31/2026).
+## `on_answer(keep_local: bool)`: true brings this device's progress into the account; false uses the account's.
+static func import_question(on_answer: Callable) -> NoticeScreen:
+	var text: String = TranslationServer.translate("UI_IMPORT_ASK") % [SaveGame.gold(), SaveGame.list("heroes_unlocked").size(),
+		SaveGame.list("achievements").size()]
+	text += "\n\n" + TranslationServer.translate("UI_IMPORT_YES_MEANS") + "\n" + TranslationServer.translate("UI_IMPORT_NO_MEANS")
+	return NoticeScreen.ask("UI_IMPORT_TITLE", text, [
+		["UI_IMPORT_YES", func() -> void: on_answer.call(true)],
+		["UI_IMPORT_NO", func() -> void: on_answer.call(false)],
+	])
+
+
 func build() -> void:
 	set_title(tr_key("UI_CLOUD_SAVE"))
+	if Meta.cloud.sign_in.state == "asking" and not _asking:
+		_asking = true
+		_ask.call_deferred(func(keep: bool) -> void: Meta.cloud.sign_in.answer(keep))
 	var cloud: CloudSync = Meta.cloud
 	if OnlineConfig.cloud_url() == "":
 		add_line(tr_key("UI_CLOUD_NOT_SET_UP"))
@@ -98,8 +115,26 @@ func _on_turn_on() -> void:
 
 
 func _on_link() -> void:
-	_error = "" if _code_box != null and Meta.cloud.link(_code_box.text) else tr_key("UI_CLOUD_BAD_CODE")
+	var typed: String = _code_box.text if _code_box != null else ""
+	if CloudSync.normalize(typed) == "":
+		_error = tr_key("UI_CLOUD_BAD_CODE")
+		refresh()
+		return
+	_error = ""
+	if CloudSync.should_ask_import(typed):
+		_asking = true
+		_ask(func(keep: bool) -> void: Meta.cloud.link(typed, keep))
+		return
+	Meta.cloud.link(typed)
 	refresh()
+
+
+func _ask(then: Callable) -> void:
+	var question := import_question(func(keep: bool) -> void:
+		_asking = false
+		then.call(keep)
+		refresh())
+	add_child(question)
 
 
 func _on_copy() -> void:

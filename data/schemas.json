@@ -845,6 +845,7 @@
               "profile_file": "string",
               "file": "string",
               "test_file": "string",
+              "put_aside_file": "string",
               "cloud_file": "string"
             }
           },

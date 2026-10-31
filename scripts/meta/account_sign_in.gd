@@ -15,7 +15,8 @@ signal changed
 ## Seconds between asking the Worker whether the player has signed in.
 const POLL_S := 2.0
 
-## "idle", "starting", "waiting" (the browser page is open), or "done".
+## "idle", "starting", "waiting" (the browser page is open), "asking" (signed in; waiting for the player to say
+## whether to bring this device's progress, the first time only), or "done".
 var state: String = "idle"
 ## A translation key when something went wrong ("" otherwise).
 var error: String = ""
@@ -24,6 +25,8 @@ var _http: HTTPRequest
 var _login: String = ""
 var _poll_in: float = -1.0
 var _left_s: float = 0.0
+## While "asking": the account's code and email, to finish with once the player answers.
+var _pending: Array = []
 
 
 func _ready() -> void:
@@ -100,17 +103,23 @@ func _on_reply(result: int, status: int, _headers: PackedStringArray, body: Pack
 			_stop("UI_SIGNIN_EXPIRED")
 
 
-## The Worker handed over the account's save code: link this device to it.
-func finish(account_code: String, account_email: String = "") -> void:
+## The Worker handed over the account's save code: link this device to it. The first time this device signs in,
+## if it has progress, the player is asked first whether to bring it (owner request 10/31/2026; see answer()).
+func finish(account_code: String, account_email: String = "", keep_local: Variant = null) -> void:
 	var cloud: CloudSync = get_parent() as CloudSync
 	if CloudSync.normalize(account_code) == "":
 		_stop("UI_SIGNIN_NO_CONNECTION")
+		return
+	if keep_local == null and CloudSync.should_ask_import(account_code):
+		_pending = [account_code, account_email]
+		state = "asking"
+		changed.emit()
 		return
 	if CloudSync.normalize(account_code) == CloudSync.code():
 		if cloud != null:
 			cloud.request_sync(true)
 	elif cloud != null:
-		cloud.link(account_code)
+		cloud.link(account_code, keep_local != false)
 	else:
 		CloudSync.set_code(CloudSync.normalize(account_code))
 	CloudSync.set_account("google", account_email)
@@ -119,6 +128,16 @@ func finish(account_code: String, account_email: String = "") -> void:
 	changed.emit()
 	if cloud != null:
 		cloud.status_changed.emit()
+
+
+## The player's answer to "bring this device's progress?": true combines it with the account's; false switches
+## this device to the account's progress (its own is put aside).
+func answer(keep_local: bool) -> void:
+	if state != "asking" or _pending.size() < 2:
+		return
+	var pending: Array = _pending
+	_pending = []
+	finish(str(pending[0]), str(pending[1]), keep_local)
 
 
 func _stop(reason: String) -> void:

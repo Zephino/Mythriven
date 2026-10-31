@@ -43,6 +43,32 @@ func build() -> void:
 	add_button(tr_key("UI_SETTING_RESET_TIPS"), _on_reset_tips, not Onboarding.seen().is_empty())
 	add_button(tr_key("UI_CLOUD_SAVE"), func() -> void: open_child(CloudSaveScreen.new()))
 	_build_app()
+	# Start over from nothing (owner request 10/31/2026): only from the menus, never during a run or co-op game.
+	add_section(tr_key("UI_START_OVER_SECTION"))
+	add_note(tr_key("UI_START_OVER_ABOUT"))
+	var playing: bool = Net.active() or (GameAuthority.run != null and not GameAuthority.run.ended)
+	add_button(tr_key("UI_START_OVER"), _on_start_over, not playing)
+
+
+## Asks once more, plainly, before wiping everything.
+func _on_start_over() -> void:
+	var text: String = tr_key("UI_START_OVER_ASK") + ("\n\n" + tr_key("UI_START_OVER_ALL_DEVICES") if CloudSync.is_on() else "")
+	add_child(NoticeScreen.ask("UI_START_OVER_TITLE", text, [
+		# Cancel first, so it's the one chosen if a key is pressed by mistake.
+		["UI_START_OVER_NO", func() -> void: pass],
+		["UI_START_OVER_YES", _start_over],
+	]))
+
+
+func _start_over() -> void:
+	SaveGame.start_over()
+	Onboarding.reset()
+	MenuBackdrop.forget_hero()
+	Meta.cloud.request_sync(true)
+	Meta.notice = ["UI_START_OVER_TITLE", "UI_START_OVER_DONE"]
+	GameAuthority.selected_hero_id = ""
+	Meta.next_screen = "title"
+	get_tree().reload_current_scene()
 
 
 ## A setting's name alone: its row text ("Volume: %s") without the value.

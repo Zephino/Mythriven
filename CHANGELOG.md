@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.46
+Date: 10/31/2026
+Time: 12:34 PM
+
+### Changes
+- **The first sign-in asks about this device's progress.** The first time a device signs in with Google (or links with a sync code), if it has any progress, it asks: "This device has progress: 157 gold, 2 Heroes unlocked, 14 achievements. Bring it into your account?"
+  - **Yes, bring it:** combined with the account's progress. Unlocks from both are kept; gold is the higher of the two, never both added.
+  - **No, use my account's:** the device switches to the account's progress. Its own is kept aside in a file (`save.put_aside_file`), not deleted.
+  - It's asked only once per device. Later sign-ins combine as before. A device with nothing earned isn't asked.
+- **Start over.** Settings → Start over… deletes all progress (gold, unlocked Heroes and weapons, gods' levels, records, achievements, Bestiary, Codex and the rest) after a clear warning. Cancel is chosen by default. Settings and username stay, and first-run tips show again. It can't be used during a run. With cloud saves on, the reset wins on every device: older progress elsewhere never comes back (the save now records when it was reset, `reset_at`). Scores already on the online leaderboard stay there.
+- Tests for both.
+
+### Reason
+The owner asked for the game to ask, on the first sign-in only, whether to take this device's data, and for a way to reset your data and start over from nothing.
+
 ## Version 00.02.45
 Date: 10/31/2026
 Time: 12:28 PM

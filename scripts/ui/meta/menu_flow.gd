@@ -37,6 +37,9 @@ func _ready() -> void:
 	if not Meta.notice.is_empty():
 		add_child(NoticeScreen.make(str(Meta.notice[0]), str(Meta.notice[1])))
 		Meta.notice = []
+	# Signed in while away from the Account screen: ask now whether to bring this device's progress (first time only).
+	if Meta.cloud.sign_in.state == "asking":
+		add_child(CloudSaveScreen.import_question(func(keep: bool) -> void: Meta.cloud.sign_in.answer(keep)))
 
 
 ## Taking over a run (owner decisions 10/31/2026): if this account is playing a solo run on another device right now,

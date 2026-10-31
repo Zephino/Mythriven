@@ -58,6 +58,15 @@ static func remember_hero(hero_id: String) -> void:
 	config.save(SAVE_FILE)
 
 
+## Forgets the Hero played last (after starting over), so the title shows the first Hero again.
+static func forget_hero() -> void:
+	var config := ConfigFile.new()
+	config.load(SAVE_FILE)
+	if config.has_section_key("menu", "last_hero"):
+		config.erase_section_key("menu", "last_hero")
+	config.save(SAVE_FILE)
+
+
 static func last_hero() -> String:
 	var config := ConfigFile.new()
 	config.load(SAVE_FILE)

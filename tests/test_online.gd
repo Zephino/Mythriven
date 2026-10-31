@@ -105,6 +105,9 @@ func test_signing_in_links_this_device_to_the_accounts_save() -> void:
 	SaveGame.add_to("heroes_unlocked", "atalanta")
 	var sync: CloudSync = add_child_autofree(CloudSync.new())
 	sync.sign_in.finish("ABCD-EFGH-JK23", "bot@example.com")
+	assert_eq(sync.sign_in.state, "asking", "the first time, with progress here: ask before linking")
+	assert_eq(CloudSync.code(), "", "nothing linked yet")
+	sync.sign_in.answer(true)
 	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "the account's save")
 	assert_eq(CloudSync.account(), "google")
 	assert_eq(CloudSync.account_email(), "bot@example.com", "which Google account, kept on this device")
@@ -152,3 +155,48 @@ func test_the_username_and_settings_follow_the_device_that_changed_them_last() -
 		assert_eq(CloudSync.username(), "Zeph", "signed in: the username")
 		assert_eq(LeaderboardEntry.load_name(), "Zeph", "the leaderboard name is the username")
 	CloudSync.set_account("")
+
+
+func test_the_first_sign_in_asks_only_once() -> void:
+	assert_false(CloudSync.should_ask_import("ABCD-EFGH-JK23"), "nothing on this device: nothing to ask")
+	SaveGame.add_gold(50)
+	assert_true(CloudSync.should_ask_import("ABCD-EFGH-JK23"), "progress here, first time: ask")
+	var sync: CloudSync = add_child_autofree(CloudSync.new())
+	sync.link("ABCD-EFGH-JK23", true)
+	sync.turn_off()
+	assert_false(CloudSync.should_ask_import("ZZZZ-ZZZZ-ZZ22"), "only ever the first time on this device")
+
+
+func test_choosing_the_accounts_progress_puts_this_devices_aside() -> void:
+	var aside: String = Data.cfg_string("save.put_aside_file")
+	DirAccess.remove_absolute(aside)
+	SaveGame.add_gold(500)
+	SaveGame.add_to("heroes_unlocked", "atalanta")
+	SaveGame.set_player_name("Kept")
+	var cloud: Dictionary = SaveGame.migrate({"save_version": 3, "gold": 30, "heroes_unlocked": ["odysseus"]})
+	var sync: CloudSync = add_child_autofree(CloudSync.new())
+	sync.take_account(cloud)
+	assert_eq(SaveGame.gold(), 30, "the account's gold")
+	assert_eq(SaveGame.list("heroes_unlocked"), ["odysseus"], "the account's unlocks only")
+	assert_eq(SaveGame.player_name(), "Kept", "the username stays")
+	assert_true(FileAccess.file_exists(aside), "this device's own progress is kept aside")
+	assert_true(FileAccess.get_file_as_string(aside).contains("atalanta"))
+	sync.take_account({})
+	assert_false(SaveGame.has_progress(SaveGame.data()), "a brand-new account: a blank start")
+	DirAccess.remove_absolute(aside)
+
+
+func test_starting_over_wipes_progress_everywhere() -> void:
+	SaveGame.add_gold(900)
+	SaveGame.add_to("achievements", "survive_5")
+	SaveGame.set_player_name("Hero")
+	SaveGame.set_setting("volume_pct", 40)
+	var old: Dictionary = SaveGame.data().duplicate(true)
+	SaveGame.start_over()
+	assert_false(SaveGame.has_progress(SaveGame.data()), "nothing earned is left")
+	assert_eq(SaveGame.player_name(), "Hero", "the username stays")
+	assert_eq(int(SaveGame.setting("volume_pct", 0)), 40, "settings stay")
+	assert_true(int(SaveGame.data()["reset_at"]) > 0)
+	# Another device (or the cloud) still has the old progress: the reset wins either way round.
+	assert_false(SaveGame.has_progress(SaveGame.merge(SaveGame.data(), old)), "old progress never comes back")
+	assert_false(SaveGame.has_progress(SaveGame.merge(old, SaveGame.data())), "the other device starts over too")

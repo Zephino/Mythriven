@@ -84,7 +84,7 @@ static func migrate(save: Dictionary) -> Dictionary:
 	var empty: Dictionary = {
 		"device_id": "", "sync_counter": 0, "last_modified": {}, "gold": 0, "gods": {}, "bestiary": {}, "codex": {},
 		"records": {}, "mastery": {}, "settings": {}, "levels": {}, "stats": {}, "oracle": {}, "run_in_progress": {},
-		"profile": {},
+		"profile": {}, "reset_at": 0,
 	}
 	for list: String in UNION_LISTS:
 		empty[list] = []
@@ -142,6 +142,52 @@ static func take_cloud_change() -> bool:
 	var changed: bool = _cloud_change
 	_cloud_change = false
 	return changed
+
+
+## True when a save holds anything earned (gold, a run played, an unlock, a record...).
+static func has_progress(save: Dictionary) -> bool:
+	if int(save.get("gold", 0)) > 0 or float((save.get("stats", {}) as Dictionary).get("runs", 0.0)) > 0.0:
+		return true
+	for section: String in UNION_LISTS:
+		if not (save.get(section, []) as Array).is_empty():
+			return true
+	for section: String in ["gods", "bestiary", "codex", "records", "mastery", "levels"]:
+		if not (save.get(section, {}) as Dictionary).is_empty():
+			return true
+	return false
+
+
+## A save with nothing earned that keeps this device's id, settings and username.
+static func blank() -> Dictionary:
+	var old: Dictionary = data()
+	var out: Dictionary = fresh()
+	out["device_id"] = old["device_id"]
+	out["settings"] = (old["settings"] as Dictionary).duplicate(true)
+	out["profile"] = (old["profile"] as Dictionary).duplicate(true)
+	for section: String in ["settings", "profile"]:
+		if (old["last_modified"] as Dictionary).has(section):
+			out["last_modified"][section] = old["last_modified"][section]
+	return out
+
+
+## Starts over from nothing (owner request 10/31/2026): every bit of progress goes (gold, unlocks, gods' levels,
+## records, achievements, collections); settings and the username stay. Marked with the time, so cloud sync takes
+## this save over the account's older one on every device (merge).
+static func start_over() -> void:
+	var out: Dictionary = blank()
+	out["reset_at"] = int(Time.get_unix_time_from_system())
+	_data = migrate(out)
+	_loaded_from = path()
+	Settings.clear_cache()
+	commit("reset")
+
+
+## Keeps a copy of this device's save aside (before it switches to an account's), never overwritten after.
+static func put_aside(file_name: String) -> void:
+	if not FileAccess.file_exists(file_name):
+		var file := FileAccess.open(file_name, FileAccess.WRITE)
+		if file != null:
+			file.store_string(JSON.stringify(data(), "  "))
 
 
 ## Replaces the whole save (with one merged with the cloud copy) and saves it,
@@ -226,6 +272,13 @@ static func add_stat(key: String, amount: float) -> void:
 static func merge(a: Dictionary, b: Dictionary) -> Dictionary:
 	var out: Dictionary = migrate(a.duplicate(true))
 	var other: Dictionary = migrate(b.duplicate(true))
+	# Starting over (owner request 10/31/2026): the save reset more recently wins whole, so old progress on another
+	# device never comes back into an account that was reset.
+	if int(other["reset_at"]) > int(out["reset_at"]):
+		other["device_id"] = out["device_id"]
+		return other
+	if int(out["reset_at"]) > int(other["reset_at"]):
+		return out
 	for section: String in UNION_LISTS:
 		for item: Variant in other[section]:
 			if not (out[section] as Array).has(item):

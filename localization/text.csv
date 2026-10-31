@@ -1260,3 +1260,19 @@ UI_SETTINGS_GROUP_PLAY,Gameplay
 UI_SETTINGS_GROUP_CONTROLS,Touch controls
 UI_SETTINGS_GROUP_MORE,More
 UI_SETTING_LABEL_EFFECT_OPACITY_PCT,Your attack effects (opacity)
+UI_IMPORT_TITLE,Your progress on this device
+UI_IMPORT_ASK,"This device has progress: %d gold, %d Heroes unlocked, %d achievements. Bring it into your account?"
+UI_IMPORT_YES_MEANS,"Yes: it's combined with your account's progress (unlocks from both are kept; gold is the higher of the two)."
+UI_IMPORT_NO_MEANS,"No: this device uses your account's progress instead. Its own is kept aside, not deleted."
+UI_IMPORT_YES,"Yes, bring it"
+UI_IMPORT_NO,"No, use my account's"
+UI_CLOUD_TOOK_ACCOUNT,This device now uses your account's progress. Its own was kept aside.
+UI_START_OVER_SECTION,Start over
+UI_START_OVER_ABOUT,"Delete all your progress and start again from nothing. Your settings and username stay."
+UI_START_OVER,Start over…
+UI_START_OVER_TITLE,Start over
+UI_START_OVER_ASK,"This deletes all your progress: gold, unlocked Heroes and weapons, gods' levels, records, achievements, the Bestiary, Codex and everything else you've collected. Your settings and username stay. This can't be undone."
+UI_START_OVER_ALL_DEVICES,"Cloud saves are on, so your progress starts over on every device that uses this account."
+UI_START_OVER_YES,"Yes, delete everything"
+UI_START_OVER_NO,Cancel
+UI_START_OVER_DONE,"Your progress was deleted. You're starting over from nothing."

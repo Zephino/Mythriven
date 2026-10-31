@@ -41,6 +41,9 @@ var _since_sync_s: float = 0.0
 ## True from linking until the first sync: the cloud copy's gold wins, so a
 ## fresh device never wipes the gold saved from the other one.
 var _linking: bool = false
+## True from linking until the first sync when the player chose not to bring this device's progress: the account's
+## save replaces this device's (whose own is put aside first).
+var _replace_local: bool = false
 
 
 func _ready() -> void:
@@ -171,15 +174,24 @@ func turn_on() -> void:
 
 
 ## Links this device to the code from another device. Returns false if the code isn't valid.
-func link(typed: String) -> bool:
+## `keep_local` false: this device takes the account's progress instead of combining its own with it.
+func link(typed: String, keep_local: bool = true) -> bool:
 	var tidy: String = normalize(typed)
 	if tidy == "":
 		return false
+	_set_value("asked_import", "yes")
 	set_code(tidy)
 	notice = ""
 	_linking = true
+	_replace_local = not keep_local
 	request_sync(true)
 	return true
+
+
+## True when linking this device to an account should first ask whether to bring its progress (owner request
+## 10/31/2026): only the first time this device links or signs in, and only if it has progress to bring.
+static func should_ask_import(account_code: String) -> bool:
+	return _value("asked_import") == "" and normalize(account_code) != code() and SaveGame.has_progress(SaveGame.data())
 
 
 ## Stops syncing on this device (its save stays; the cloud copy stays too).
@@ -243,8 +255,12 @@ func _on_reply(result: int, status: int, _headers_in: PackedStringArray, body: P
 			return
 		var reply: Variant = _parse(body.get_string_from_utf8())
 		var cloud: Variant = reply.get("save") if reply is Dictionary else null
-		apply_cloud(cloud if cloud is Dictionary else {}, _linking)
+		if _replace_local:
+			take_account(cloud if cloud is Dictionary else {})
+		else:
+			apply_cloud(cloud if cloud is Dictionary else {}, _linking)
 		_linking = false
+		_replace_local = false
 		_phase = "put"
 		if _http.request(OnlineConfig.cloud_url(), _headers(), HTTPClient.METHOD_PUT, JSON.stringify(SaveGame.data())) != OK:
 			_fail()
@@ -272,8 +288,9 @@ func apply_cloud(cloud: Dictionary, linking: bool = false) -> void:
 	var local: Dictionary = SaveGame.data()
 	var gold_before: int = SaveGame.gold()
 	var merged: Dictionary = SaveGame.merge(local, cloud)
-	if linking:
-		merged["gold"] = int(cloud.get("gold", merged["gold"]))
+	if linking and int(cloud.get("reset_at", 0)) == int(local.get("reset_at", 0)):
+		# Bringing this device's progress into an account: the higher of the two golds (never both added).
+		merged["gold"] = maxi(int(cloud.get("gold", 0)), int(local.get("gold", 0)))
 	SaveGame.replace(merged)
 	# Settings may have come from the other device: use them now.
 	Settings.clear_cache()
@@ -281,6 +298,27 @@ func apply_cloud(cloud: Dictionary, linking: bool = false) -> void:
 		Settings.apply(get_tree())
 	if SaveGame.gold() != gold_before:
 		notice = TranslationServer.translate("UI_CLOUD_GOLD_NOTICE") % SaveGame.gold()
+
+
+## The player chose not to bring this device's progress: it's put aside in a file, and the account's save (or a
+## blank one, for a new account) takes its place. The account's settings and username are used if it has them.
+func take_account(cloud: Dictionary) -> void:
+	SaveGame.put_aside(Data.cfg_string("save.put_aside_file"))
+	var keep: Dictionary = SaveGame.blank()
+	if cloud.is_empty():
+		SaveGame.replace(keep)
+	else:
+		var taken: Dictionary = SaveGame.migrate(cloud.duplicate(true))
+		taken["device_id"] = keep["device_id"]
+		# The account's username and settings, or this device's when the account has none yet.
+		for section: String in ["profile", "settings"]:
+			if (taken[section] as Dictionary).is_empty():
+				taken[section] = keep[section]
+		SaveGame.replace(taken)
+	Settings.clear_cache()
+	if is_inside_tree():
+		Settings.apply(get_tree())
+	notice = TranslationServer.translate("UI_CLOUD_TOOK_ACCOUNT")
 
 
 func _fail() -> void:
