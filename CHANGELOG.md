@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.51
+Date: 10/31/2026
+Time: 1:05 PM
+
+### Changes
+- **Pack 2 plan written for the owner to approve:** `docs/PACK_2_PLAN.md` ("Deeper Myths").
+  - The four levels, each with its look, hazard, 4 monster families, 3 bosses and 2 local gods, all from the existing design with sources.
+  - Unlocks from each sister Pack 1 level.
+  - The three new Heroes (Orpheus, Beowulf, Gilgamesh), with suggested stats, kits and unlocks.
+  - The build order, and the questions for the owner.
+- No game changes yet.
+
+### Reason
+The owner's friend has been testing Pack 1 and having a lot of fun, so the owner decided it's time to add more packs. The owner chose: one level at a time; each level unlocks from its sister Pack 1 level; new Heroes Orpheus, Gilgamesh and Beowulf; and the plan written first.
+
 ## Version 00.02.50
 Date: 10/31/2026
 Time: 12:53 PM
