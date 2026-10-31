@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.89
+Date: 10/31/2026
+Time: 1:54 AM
+
+### Changes
+- **Achilles the boss now has a sprite**: his Hero sprite (crested bronze helmet, shield across his body, red chiton, tin greaves) holding his spear, drawn twice as big, so players recognise the Hero they're duelling and he stands out as a boss. He walks with the Hero's 4 frames and faces the way he moves.
+- `tools/art/build_boss_achilles.py` builds it from the Hero art; `docs/ART_RULES.md` notes the rule for bosses who are also Heroes.
+
+### Reason
+The owner approved Medusa and asked for the next boss.
+
 ## Version 00.01.88
 Date: 10/31/2026
 Time: 1:53 AM

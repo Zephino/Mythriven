@@ -63,6 +63,7 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 - One file per boss: `data/art/bosses/<enemy id>.json`, built by `tools/art/build_boss_<id>.py` with `kit.build_boss` (its own canvas size, anchor, and walking poses). A boss without a file keeps its circle.
 - **Bigger than Heroes** (owner OK 10/31/2026: bosses may be bigger than normal so they look better). Medusa is 46 × 58 on a body of radius 18 (no wings, and a serpent's tail in place of legs: both owner requests. The tail goes against the sources on purpose: the ancient Medusa has a woman's legs; the tail is the well-known modern image.)
 - The same rules as Heroes: outline, two shades per material, every part with its own dark edge, solid masses (Medusa's serpents each get a dark edge so they don't run into each other), and only from sources, written in the file's `_doc`.
+- A boss who is also a Hero (Achilles, Scáthach) is their Hero art holding their signature weapon, drawn twice as big (`tools/art/build_boss_<id>.py` composes it), so players recognise them. Rebuild it after changing the Hero's art.
 - In the game the boss's art replaces its circle (BossController draws it above the horde, facing the way it moves, walking while it moves, flashing white when hit and tinted by statuses). The red marker ring goes round the whole picture.
 
 ## Mastery colours
