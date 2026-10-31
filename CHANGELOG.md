@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.02
+Date: 10/31/2026
+Time: 2:26 AM
+
+### Changes
+- **Ferdiad holds his shield across the front of his body** (on his far arm, from his chest to his iron apron), with a dark ring around it so it stands apart. His sword arm stays in front of it.
+
+### Reason
+The owner said the shield can cover the front of his body.
+
 ## Version 00.02.01
 Date: 10/31/2026
 Time: 2:25 AM

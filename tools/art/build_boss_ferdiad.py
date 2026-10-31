@@ -7,7 +7,7 @@ from hero_kit import poly
 DOC = ("Ferdiad, boss (GAME_DESIGN.md: The Misty Isles bosses; art 10/31/2026). Built by tools/art/build_boss_ferdiad.py; "
        "rules in docs/ART_RULES.md. From the Táin Bó Cúailnge (Book of Leinster), the combat at the ford, where he arms "
        "himself against Cú Chulainn: a girdle-apron of striped silk, over it an apron of brown leather and an apron of "
-       "iron; a crested helmet set with gems; a great shield with many bosses; a curved sword. His horn-skin (no weapon "
+       "iron; a crested helmet set with gems; a great shield with many bosses, held across his body; a curved sword. His horn-skin (no weapon "
        "could pierce it) is the training he shared with Cú Chulainn under Scáthach. Fair skin.")
 
 SIZE, ANCHOR = (48, 60), (22, 58)
@@ -29,19 +29,21 @@ PALETTE = {
 
 
 def shield(c):
-    """The great shield on his far arm, round, bronze, with rows of bosses."""
-    cx, cy, r = 9.5, 30.5, 8.5
-    for y in range(20, 42):
-        for x in range(0, 20):
+    """The great shield on his far arm, held across the front of his body (owner request 10/31/2026): round,
+    bronze, with rows of gold bosses, and a dark ring keeping it apart from the body behind it."""
+    cx, cy, r = 19.5, 31.5, 8.5
+    for y in range(20, 44):
+        for x in range(8, 32):
             d = math.hypot(x - cx, y - cy)
             if d <= r:
                 c.px(x, y, "G" if d > r - 1.2 else "g")
+            elif d <= r + 0.9 and c.g[y][x] != ".":
+                c.px(x, y, "o")
     for ring, count in ((6.0, 12), (3.2, 6)):
         for k in range(count):
             a = math.tau * k / count
             c.px(round(cx + math.cos(a) * ring), round(cy + math.sin(a) * ring), "u")
-    c.rect(9, 30, 10, 31, "u")
-    c.rect(17, 22, 17, 39, "o")                       # its own edge against his body
+    c.rect(19, 31, 20, 32, "u")
 
 
 def sword(c):
@@ -54,7 +56,7 @@ def sword(c):
 
 def draw(c, legs):
     back, front = legs
-    shield(c)
+    c.rect(13, 21, 15, 34, "S"); c.rect(13, 35, 15, 36, "s")   # far arm, holding the shield
     # Brown hair at the back of his neck, below the helmet
     c.rect(14, 10, 17, 17, "h")
     # A rounded helmet set with gems, a gold crest along its ridge
@@ -81,6 +83,7 @@ def draw(c, legs):
         for x in range(17, 29, 3):
             c.px(x, y + 1, "I")
     c.row(44, 15, 29, "b")
+    shield(c)
     # Near arm raising the curved sword
     c.rect(26, 20, 28, 24, "s"); c.rect(25, 21, 25, 25, "o")
     c.rect(28, 24, 33, 26, "s"); c.row(26, 28, 33, "S")
