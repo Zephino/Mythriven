@@ -85,5 +85,11 @@ func _draw() -> void:
 	var color := Color.html(str(_sig().get("cyclone_color", "#c06040")))
 	for cyclone: Dictionary in cyclones:
 		var at: Vector2 = Vector2(cyclone["pos"]) - global_position
+		# A whirlwind of sand (owner request 10/31/2026): a dusty funnel, curling bands and grains flying round.
+		var spin: float = float(cyclone["left"]) * 3.0
+		draw_circle(at, 40.0, Color(color, 0.15))
 		for ring: int in 3:
-			draw_arc(at, 12.0 + ring * 14.0, float(cyclone["left"]) * 3.0 + ring, float(cyclone["left"]) * 3.0 + ring + PI * 1.4, 16, color, 2.0)
+			draw_arc(at, 12.0 + ring * 14.0, spin + ring, spin + ring + PI * 1.4, 16, color, 2.0)
+		for g: int in 10:
+			var d: Vector2 = Vector2.from_angle(spin * 1.5 + TAU * g / 10.0)
+			draw_circle(at + d * (10.0 + fmod(g * 7.0, 30.0)), 1.2, Color(0.9, 0.75, 0.5, 0.9))

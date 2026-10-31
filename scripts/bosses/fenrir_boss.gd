@@ -55,6 +55,16 @@ func _draw() -> void:
 	var post_color := Color.html(Data.cfg_string("bosses.post_color"))
 	for k: int in posts:
 		var post: Vector2 = anchor - global_position + Vector2.from_angle(TAU * k / posts) * ring
-		draw_rect(Rect2(post - Vector2(4, 4), Vector2(8, 8)), post_color)
+		# A stout post driven into the ground, and the chain from it to the wolf, link by link (owner request
+		# 10/31/2026).
+		draw_rect(Rect2(post - Vector2(5, 10), Vector2(10, 14)), post_color.darkened(0.4))
+		draw_rect(Rect2(post - Vector2(4, 9), Vector2(8, 12)), post_color)
+		draw_rect(Rect2(post - Vector2(5, 11), Vector2(10, 3)), post_color.lightened(0.2))
 		if k < chains:
-			draw_line(post, at, Color(post_color, 0.8), 2.0)
+			var links: int = maxi(int(post.distance_to(at) / 7.0), 1)
+			var along: Vector2 = (at - post) / links
+			for l: int in links:
+				var mid: Vector2 = post + along * (l + 0.5)
+				draw_set_transform(mid, along.angle() + (PI * 0.5 if l % 2 == 1 else 0.0), Vector2(1.0, 0.55 if l % 2 == 0 else 0.3))
+				draw_arc(Vector2.ZERO, 4.0, 0.0, TAU, 10, Color(0.7, 0.72, 0.78, 0.95), 1.5)
+				draw_set_transform(Vector2.ZERO)

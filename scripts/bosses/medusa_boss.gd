@@ -81,8 +81,16 @@ func _draw() -> void:
 		return
 	var sig: Dictionary = data.get("signature", {})
 	var stone := Color.html(Data.cfg_string("gods.shrine_stone_color"))
+	# Her victims stand turned to stone (owner request 10/31/2026): a grey figure on a plinth.
 	for statue: Vector2 in _statues:
-		draw_circle(statue - global_position, float(sig.get("statue_radius_px", 14.0)), stone)
+		var at: Vector2 = statue - global_position
+		var r: float = float(sig.get("statue_radius_px", 14.0))
+		var dark := stone.darkened(0.35)
+		draw_rect(Rect2(at + Vector2(-r * 0.7, r * 0.3), Vector2(r * 1.4, r * 0.4)), dark)
+		draw_rect(Rect2(at + Vector2(-r * 0.3, -r * 0.6), Vector2(r * 0.6, r * 0.95)), stone)
+		draw_circle(at + Vector2(0, -r * 0.8), r * 0.25, stone)
+		draw_line(at + Vector2(-r * 0.3, -r * 0.4), at + Vector2(-r * 0.6, -r * 0.9), stone, 2.0)
+		draw_line(at + Vector2(r * 0.25, -r * 0.55), at + Vector2(r * 0.25, -r * 0.55), dark, 1.0)
 	if _gaze_charge >= 0.0:
 		var k: float = clampf(_gaze_charge / float(sig.get("charge_s", 1.2)), 0.0, 1.0)
 		var at: Vector2 = position_now() - global_position
@@ -93,3 +101,5 @@ func _draw() -> void:
 			points.append(at + Vector2.from_angle(_gaze_dir.angle() - half + half * 2.0 * s / 12.0) * reach)
 		var color := Color.html(Data.cfg_string("bosses.area_telegraph_color" if k < 0.8 else "bosses.fire_telegraph_color"))
 		draw_colored_polygon(points, Color(color, 0.15 + 0.3 * k))
+		# Her eyes blaze as the gaze builds.
+		draw_circle(at + Vector2(0, -GameAuthority.enemies.radius[slot] * 1.6), 3.0 + 4.0 * k, Color(0.6, 1.0, 0.5, 0.5 + 0.5 * k))

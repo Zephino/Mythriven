@@ -103,13 +103,26 @@ func _win(data: Dictionary) -> void:
 		effects.spawn_ring(player.position, 30.0, Color.html(Data.cfg_string("heroes.race_color")))
 
 
+## The goal is a stone turning post, as at a Greek race-course, glowing gold in a ring; an arrow at the Hero points
+## the way. The apple is a golden apple (data/art/pickups/golden_apple.json). Owner request 10/31/2026.
 func _draw() -> void:
 	var color := Color.html(Data.cfg_string("heroes.race_color"))
 	if marker != Vector2.INF:
 		var local: Vector2 = marker - player.position
-		draw_circle(local, float(trait_data().get("marker_radius_px", 14.0)), Color(color, 0.5))
-		draw_arc(local, float(trait_data().get("marker_radius_px", 14.0)), 0.0, TAU, 24, color, 2.0)
-		# An arrow at the Hero points the way.
+		var radius: float = float(trait_data().get("marker_radius_px", 14.0))
+		var pulse: float = 0.5 + 0.5 * sin(Time.get_ticks_msec() * 0.006)
+		draw_circle(local, radius, Color(color, 0.25 + 0.15 * pulse))
+		draw_arc(local, radius, 0.0, TAU, 24, color, 2.0)
+		var stone := Color.html(Data.cfg_string("gods.shrine_stone_color"))
+		draw_rect(Rect2(local + Vector2(-3, -16), Vector2(6, 18)), Color(0.14, 0.09, 0.05))
+		draw_rect(Rect2(local + Vector2(-2, -15), Vector2(4, 16)), stone)
+		draw_rect(Rect2(local + Vector2(-4, -18), Vector2(8, 3)), stone)
+		draw_line(local + Vector2(-1, -14), local + Vector2(-1, -1), Color(1, 1, 1, 0.35), 1.0)
 		draw_line(local.normalized() * 14.0, local.normalized() * 24.0, color, 2.0)
 	if apple != Vector2.INF:
-		draw_circle(apple - player.position, float(trait_data().get("apple_radius_px", 8.0)), color)
+		var art: Dictionary = PixelArt.find("pickups/golden_apple")
+		if art.is_empty():
+			draw_circle(apple - player.position, float(trait_data().get("apple_radius_px", 8.0)), color)
+		else:
+			var texture: ImageTexture = PixelArt.frame(art, false, 0.0)
+			draw_texture(texture, apple - player.position - texture.get_size() * 0.5)

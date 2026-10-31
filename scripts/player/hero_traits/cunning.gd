@@ -99,12 +99,25 @@ func _exit_tree() -> void:
 	_end_disguise()
 
 
+## Traps are hidden snares: a dark pit ringed with sharpened stakes. The decoy is Odysseus himself in the rags of
+## a beggar, the disguise Athena gives him in Odyssey 13: his picture, faded and dulled. Owner request 10/31/2026.
 func _draw() -> void:
 	var color := Color.html(Data.cfg_string("heroes.trap_color"))
+	var radius: float = float(trait_data().get("trap_radius_px", 22.0)) * 0.4
 	for at: Vector2 in traps:
 		var local: Vector2 = at - player.position
-		draw_line(local + Vector2(-5, -5), local + Vector2(5, 5), color, 2.0)
-		draw_line(local + Vector2(-5, 5), local + Vector2(5, -5), color, 2.0)
+		draw_set_transform(local, 0.0, Vector2(1.0, 0.5))
+		draw_circle(Vector2.ZERO, radius, Color(0.1, 0.06, 0.03, 0.7))
+		draw_set_transform(Vector2.ZERO)
+		for k: int in 6:
+			var d: Vector2 = Vector2.from_angle(TAU * k / 6.0) * Vector2(radius, radius * 0.5)
+			draw_line(local + d, local + d * 1.25 + Vector2(0, -4), color, 1.5)
 	if decoy != Vector2.INF:
-		var size_px: float = Data.cfg_float("player.placeholder_size_px")
-		draw_rect(Rect2(decoy - player.position - Vector2.ONE * size_px * 0.5, Vector2.ONE * size_px), Color(color, 0.6))
+		var art: Dictionary = PixelArt.find(str(hero.get("id", "")))
+		if art.is_empty():
+			var size_px: float = Data.cfg_float("player.placeholder_size_px")
+			draw_rect(Rect2(decoy - player.position - Vector2.ONE * size_px * 0.5, Vector2.ONE * size_px), Color(color, 0.6))
+		else:
+			var anchor: Vector2 = art["anchor"]
+			draw_texture(PixelArt.frame(art, false, 0.0), decoy - player.position + Vector2(-anchor.x, player.body_radius - anchor.y),
+					Color.html(Data.cfg_string("heroes.decoy_tint")))

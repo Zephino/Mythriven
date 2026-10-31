@@ -11,7 +11,16 @@ func setup(owner_player: Player, hero_data: Dictionary) -> void:
 
 
 func incoming_damage_at(amount: float, from: Vector2) -> float:
-	return amount * heel_mult(player.position, player.facing, from, trait_data())
+	var mult: float = heel_mult(player.position, player.facing, from, trait_data())
+	# A gold glint where the front turns the blow; a red flash at the heel when struck from behind (owner request
+	# 10/31/2026).
+	var layer: EffectLayer = effect_layer()
+	if layer != null and mult != 1.0:
+		var front: bool = mult < 1.0
+		var at: Vector2 = player.position + (from - player.position).normalized() * player.body_radius if front else \
+				player.position + Vector2(0, player.body_radius)
+		layer.spawn_ring(at, 8.0, Color.html(Data.cfg_string("heroes.heel_guard_color" if front else "heroes.heel_hit_color")))
+	return amount * mult
 
 
 ## Damage multiplier for a hit from `from` on someone at `at` facing `facing`:

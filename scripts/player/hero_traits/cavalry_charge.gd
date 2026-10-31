@@ -66,6 +66,7 @@ func _process(delta: float) -> void:
 			_still_for = 0.0
 			momentum = floori(momentum / 2.0)
 	_apply_move_bonus()
+	queue_redraw()
 	if is_charging():
 		_charge_left -= delta
 		_trample()
@@ -99,3 +100,25 @@ func _trample() -> void:
 		var away: Vector2 = (enemies.positions[slot] - player.position).normalized()
 		GameAuthority.damage_enemy(slot, float(trait_data().get("trample_damage", 0.0)), player,
 				away * float(trait_data().get("trample_knockback", 0.0)), Elements.PHYSICAL)
+
+
+## Dust kicked up behind her, more as her momentum builds; while charging, streaks of speed and a cloud of dust
+## (owner request 10/31/2026).
+func _draw() -> void:
+	if not player.alive or player.velocity == Vector2.ZERO:
+		return
+	var dust := Color.html(Data.cfg_string("heroes.dust_color"))
+	var back: Vector2 = -player.velocity.normalized()
+	var feet := Vector2(0, player.body_radius)
+	var t: float = Time.get_ticks_msec() * 0.001
+	var puffs: int = mini(1 + momentum / 3, 4)
+	for k: int in puffs:
+		var age: float = fmod(t * 3.0 + k * 0.37, 1.0)
+		draw_circle(feet + back * (4.0 + age * 12.0) + Vector2(0, -age * 3.0), 1.5 + age * 2.5, Color(dust, dust.a * (1.0 - age)))
+	if is_charging():
+		var side: Vector2 = back.orthogonal()
+		for k: int in 4:
+			var off: float = (k - 1.5) * 5.0
+			var start: Vector2 = back * 8.0 + side * off + Vector2(0, -6)
+			draw_line(start, start + back * (10.0 + fmod(t * 40.0 + k * 7.0, 8.0)), Color(1, 1, 1, 0.6), 1.0)
+		draw_circle(feet + back * 10.0, 7.0, Color(dust, dust.a * 0.8))

@@ -117,13 +117,26 @@ func _draw() -> void:
 	if not is_alive():
 		return
 	var stone_color := Color.html(Data.cfg_string("gods.shrine_stone_color"))
+	# Standing stones to hide behind (owner request 10/31/2026).
 	for stone: Vector2 in stones:
-		draw_circle(stone - global_position, float(_sig().get("stone_radius_px", 18.0)), stone_color)
+		var at_stone: Vector2 = stone - global_position
+		var r: float = float(_sig().get("stone_radius_px", 18.0))
+		draw_set_transform(at_stone + Vector2(0, r * 0.5), 0.0, Vector2(1.0, 0.35))
+		draw_circle(Vector2.ZERO, r, Color(0, 0, 0, 0.35))
+		draw_set_transform(Vector2.ZERO)
+		draw_colored_polygon(PackedVector2Array([at_stone + Vector2(-r * 0.6, r * 0.5), at_stone + Vector2(-r * 0.5, -r * 1.2),
+				at_stone + Vector2(r * 0.1, -r * 1.5), at_stone + Vector2(r * 0.55, -r * 1.1), at_stone + Vector2(r * 0.6, r * 0.5)]), stone_color)
+		draw_line(at_stone + Vector2(-r * 0.3, -r * 1.1), at_stone + Vector2(-r * 0.35, r * 0.3), stone_color.lightened(0.25), 2.0)
 	var at: Vector2 = position_now() - global_position
 	var eye_color := Color.html(Data.cfg_string("bosses.fire_telegraph_color"))
 	if _warning >= 0.0:
 		draw_circle(at, 5.0 + _warning * 4.0, Color(eye_color, 0.6))
 	if eye_open():
 		var length: float = GameAuthority.bosses.arena_radius * 2.2 if GameAuthority.bosses != null else 600.0
-		draw_line(at, at + Vector2.from_angle(_beam_angle) * length, Color(eye_color, 0.8), float(_sig().get("beam_width_px", 26.0)))
+		var width: float = float(_sig().get("beam_width_px", 26.0))
+		var end: Vector2 = at + Vector2.from_angle(_beam_angle) * length
+		draw_line(at, end, Color(eye_color, 0.45), width * 1.3)
+		draw_line(at, end, Color(eye_color, 0.85), width)
+		draw_line(at, end, Color(1.0, 0.9, 0.6, 0.95), width * 0.35)
+		draw_circle(at, 9.0, Color(eye_color, 0.8))
 		draw_circle(at, 7.0, Color.WHITE)

@@ -234,17 +234,32 @@ func _draw() -> void:
 		var target: Vector2 = job["target"]
 		match str(job["id"]):
 			"radial_burst", "aimed_fan", "spiral":
-				if k < 1.0 and int(k * 8.0) % 2 == 0:
-					draw_circle(origin, 10.0 + 6.0 * k, fire_flash)
+				# Power gathering: sparks drawn in to the boss, then the red flash just before it fires.
+				if k < 1.0:
+					for s: int in 8:
+						var d: Vector2 = Vector2.from_angle(TAU * s / 8.0 + k * 3.0)
+						draw_line(origin + d * (40.0 * (1.0 - k) + 8.0), origin + d * (40.0 * (1.0 - k) + 14.0), Color(fire_flash, 0.4 + 0.6 * k), 2.0)
+					draw_arc(origin, 10.0 + 6.0 * k, 0.0, TAU, 20, fire_flash, 2.0)
+					if int(k * 8.0) % 2 == 0:
+						draw_circle(origin, 10.0 + 6.0 * k, Color(fire_flash, 0.6))
 			"line_sweep":
 				if k < 1.0:
 					var aim: Vector2 = (target - origin).normalized() if target != origin else Vector2.RIGHT
 					var half: Vector2 = aim.orthogonal() * float(p.get("width_px", 28.0)) * 0.5
 					var end: Vector2 = origin + aim * float(p.get("length_px", 260.0))
 					draw_colored_polygon(PackedVector2Array([origin + half, end + half, end - half, origin - half]), Color(area, area.a * 0.35 * k + 0.1))
+					draw_line(origin + half, end + half, area, 1.5)
+					draw_line(origin - half, end - half, area, 1.5)
+					# Chevrons running along it show which way it sweeps.
+					for c: int in 4:
+						var along: Vector2 = origin + aim * float(p.get("length_px", 260.0)) * fmod(k + c * 0.25, 1.0)
+						draw_polyline(PackedVector2Array([along + half * 0.6, along + aim * 8.0, along - half * 0.6]), Color(area, 0.8), 2.0)
 			"charge_trail":
 				if k < 1.0:
-					draw_line(origin, target, area, 3.0)
+					draw_dashed_line(origin, target, area, 3.0, 8.0)
+					var aim: Vector2 = (target - origin).normalized() if target != origin else Vector2.RIGHT
+					draw_colored_polygon(PackedVector2Array([target + aim * 8.0, target - aim * 4.0 + aim.orthogonal() * 7.0,
+							target - aim * 4.0 - aim.orthogonal() * 7.0]), area)
 			"safe_zone":
 				if k < 1.0:
 					draw_arc(origin, float(p.get("radius_px", 200.0)), 0.0, TAU, 48, area, 2.0)
@@ -258,8 +273,14 @@ func _draw() -> void:
 					var reach: float = float(p.get("radius_px", 24.0))
 					draw_arc(spot, reach, 0.0, TAU, 20, area, 1.5)
 					draw_circle(spot, reach * k, Color(area, area.a * 0.4))
+					# A second ring closing in on the spot as the strike comes.
+					draw_arc(spot, reach * (1.0 + (1.0 - k)), 0.0, TAU, 20, Color(area, area.a * k), 1.0)
+					draw_line(spot - Vector2(4, 0), spot + Vector2(4, 0), area, 1.0)
+					draw_line(spot - Vector2(0, 4), spot + Vector2(0, 4), area, 1.0)
+	var flicker: float = 0.5 + 0.5 * sin(Time.get_ticks_msec() * 0.008)
 	for patch: Dictionary in _patches:
 		draw_circle(patch["at"], float(patch["radius"]), Color(area, area.a * 0.3))
+		draw_arc(patch["at"], float(patch["radius"]), 0.0, TAU, 24, Color(area, 0.4 + 0.4 * flicker), 1.5)
 
 
 # --- Co-op (CoopMirror) ------------------------------------------------------------------

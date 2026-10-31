@@ -64,7 +64,18 @@ func _draw() -> void:
 	super._draw()
 	var sig: Dictionary = data.get("signature", {})
 	var color := Color.html(Data.cfg_string("bosses.time_zone_color"))
+	# Slowed time shows as a clock face (owner request 10/31/2026): twelve marks and a hand sweeping round.
+	var turn: float = GameAuthority.run.elapsed_s * 1.5 if GameAuthority.run != null else 0.0
 	for zone: Dictionary in _zones:
-		draw_circle(Vector2(zone["at"]) - global_position, float(sig.get("zone_radius_px", 46.0)), color)
+		var at: Vector2 = Vector2(zone["at"]) - global_position
+		var r: float = float(sig.get("zone_radius_px", 46.0))
+		draw_circle(at, r, color)
+		var rim := Color(color.lightened(0.4), 0.9)
+		draw_arc(at, r, 0.0, TAU, 32, rim, 1.5)
+		for h: int in 12:
+			var d: Vector2 = Vector2.from_angle(TAU * h / 12.0)
+			draw_line(at + d * r * 0.82, at + d * r * 0.95, rim, 1.5 if h % 3 == 0 else 1.0)
+		draw_line(at, at + Vector2.from_angle(turn - PI * 0.5) * r * 0.75, rim, 2.0)
+		draw_line(at, at + Vector2.from_angle(turn / 12.0 - PI * 0.5) * r * 0.45, rim, 2.5)
 	if is_alive() and bool(phase().get("devour", false)):
 		draw_arc(position_now() - global_position, 60.0 + 20.0 * sin(GameAuthority.run.elapsed_s * 4.0), 0.0, TAU, 32, color, 2.0)

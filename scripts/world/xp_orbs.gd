@@ -16,6 +16,7 @@ var _flying := PackedByteArray()
 var _count: int = 0
 var _merge_timer: float = 0.0
 var _multimesh: MultiMesh
+var _texture: Texture2D
 # Orb tiers (small / medium / large) cached from config.
 var _tier_values := PackedFloat32Array()
 var _tier_sizes := PackedFloat32Array()
@@ -40,7 +41,10 @@ func setup() -> void:
 	_multimesh = PlaceholderArt.make_multimesh(_capacity)
 	var drawer := MultiMeshInstance2D.new()
 	drawer.multimesh = _multimesh
-	drawer.texture = PlaceholderArt.circle_texture(Data.cfg_int("enemies.placeholder_texture_px"))
+	# Its picture (owner request 10/31/2026), tinted by its colour.
+	_texture = PixelArt.pickup_texture("xp_gem")
+	drawer.texture = _texture
+	drawer.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(drawer)
 
 
@@ -167,7 +171,7 @@ func _update_instance(slot: int) -> void:
 		if _value[slot] >= _tier_values[t]:
 			tier = t
 	var size: float = _tier_sizes[tier]
-	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2(size, size), 0.0, _pos[slot]))
+	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, _pos[slot]))
 	_multimesh.set_instance_color(slot, _tier_colors[tier])
 
 

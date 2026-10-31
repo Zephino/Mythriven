@@ -53,6 +53,7 @@ func _process(delta: float) -> void:
 		if _leap_left <= 0.0:
 			_land()
 		queue_redraw()
+		player.queue_redraw()
 		return
 	_cooldown -= delta
 	if _cooldown <= 0.0:
@@ -87,6 +88,7 @@ func _land() -> void:
 	var layer: EffectLayer = effect_layer()
 	if layer != null:
 		layer.spawn_ring(player.position, reach, Color.html(Data.cfg_string("heroes.leap_ring_color")))
+		layer.spawn_burst(player.position + Vector2(0, player.body_radius), "earth", true)
 
 
 func _update_frenzy() -> void:
@@ -99,8 +101,23 @@ func _update_frenzy() -> void:
 
 
 ## The landing shadow while mid-leap.
+## In the air he rises and falls on an arc (owner request 10/31/2026): his shadow stays on the ground under him,
+## shrinking as he climbs, and a faint mark shows where he will land.
+func lift_px() -> float:
+	if not is_leaping():
+		return 0.0
+	var t: float = clampf(1.0 - _leap_left / float(trait_data().get("untargetable_s", 0.8)), 0.0, 1.0)
+	return sin(t * PI) * Data.cfg_float("heroes.leap_height_px")
+
+
 func _draw() -> void:
 	if not is_leaping():
 		return
 	var radius: float = Data.cfg_float("player.placeholder_size_px") * 0.6
-	draw_circle(to_local(_leap_to), radius, Color.html(Data.cfg_string("heroes.leap_shadow_color")))
+	var shadow := Color.html(Data.cfg_string("heroes.leap_shadow_color"))
+	var high: float = lift_px() / maxf(Data.cfg_float("heroes.leap_height_px"), 1.0)
+	var feet := Vector2(0, player.body_radius)
+	draw_set_transform(feet, 0.0, Vector2(1.0, 0.45))
+	draw_circle(Vector2.ZERO, radius * (1.0 - 0.4 * high), Color(shadow, shadow.a * (1.0 - 0.4 * high)))
+	draw_set_transform(Vector2.ZERO)
+	draw_arc(to_local(_leap_to) + feet, radius, 0.0, TAU, 16, Color(shadow, shadow.a * 0.6), 1.0)

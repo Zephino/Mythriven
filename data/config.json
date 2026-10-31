@@ -75,7 +75,14 @@
     "mastery_minutes": [30, 90, 180, 300],
     "mastery_palettes": ["#e0e0e0", "#6ad0c0", "#c06ad8", "#ffd24a"],
     "leap_shadow_color": "#00000066",
-    "leap_ring_color": "#5fbf6aa0"
+    "leap_ring_color": "#5fbf6aa0",
+    "leap_height_px": 22,
+    "verse_color": "#a8d8ff",
+    "dust_color": "#c8b08ab0",
+    "heel_guard_color": "#ffe070",
+    "heel_hit_color": "#ff3030",
+    "labor_ring_px": 60,
+    "decoy_tint": "#b0a090c0"
   },
 
   "camera": {
@@ -238,7 +245,7 @@
     "step_per_level": 30,
     "growth_per_level": 0.015,
     "orb_pool": 600,
-    "orb_size_px": [4, 6, 9],
+    "orb_size_px": [7, 9, 12],
     "orb_colors": ["#5ab4ff", "#5affa0", "#ffd25a"],
     "fly_speed_px_s": 120,
     "fly_accel_px_s2": 600,
@@ -282,7 +289,7 @@
     "ambrosia_heal": 30,
     "ambrosia_drop_chance": 0.02,
     "ambrosia_pool": 32,
-    "ambrosia_size_px": 10,
+    "ambrosia_size_px": 11,
     "ambrosia_color": "#ff9ad5",
     "sound_base_hz": 660,
     "sound_length_s": 0.09,
@@ -294,7 +301,7 @@
     "gold_coin_value": 1,
     "elite_gold": 20,
     "pile_coins": 6,
-    "gold_size_px": 5,
+    "gold_size_px": 9,
     "gold_color": "#ffd040"
   },
 
@@ -407,6 +414,7 @@
     "shot_color": "#ff6060",
     "shot_outline_color": "#1a1020",
     "shot_lifetime_s": 6.0,
+    "shot_trail_steps": 2,
     "flyer_gap_px": 14,
     "encircle_radius_mult": 0.85,
     "elite_bar_width_px": 30,
@@ -479,8 +487,7 @@
     "gold": [8, 20],
     "big_gold": [40, 80],
     "size_px": 7,
-    "color": "#8a5a2a",
-    "trim_color": "#e0c060",
+    "art_scale": 1.0,
     "dim_color": "#000000a0",
     "lines_offset_px": 40,
     "seal_offset_px": 60,

@@ -28,6 +28,9 @@ func _on_card_applied(who: Player, card: Dictionary) -> void:
 		return
 	others[GameAuthority.run.rng.loot.randi_range(0, others.size() - 1)].level += 1
 	lessons += 1
+	var layer: EffectLayer = effect_layer()
+	if layer != null:
+		layer.spawn_burst(player.hand_position(), "fortune", true)
 
 
 func hud_text() -> String:

@@ -127,6 +127,10 @@ func _check(target: float) -> void:
 	_kill_times.clear()
 	_since_hit = 0.0
 	_banner_key = str(labor["name_key"])
+	var layer: EffectLayer = effect_layer()
+	if layer != null:
+		layer.spawn_burst(player.position, "holy", true)
+		layer.spawn_ring(player.position, Data.cfg_float("heroes.labor_ring_px"), Color.html(Data.cfg_string("heroes.race_color")))
 	_banner_left = Data.cfg_float("heroes.labor_banner_s")
 	if labor_index >= labors().size():
 		_all_done_left = Data.cfg_float("heroes.labors_all_done_s")

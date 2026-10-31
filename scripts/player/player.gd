@@ -220,7 +220,7 @@ func _draw_art(art: Dictionary) -> void:
 		tint = Color.html(Data.cfg_string("bosses.petrified_color"))
 	var left: bool = facing.x < 0.0
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(-1.0 if left else 1.0, 1.0))
-	var top_left := Vector2(-anchor.x, body_radius - anchor.y)
+	var top_left := Vector2(-anchor.x, body_radius - anchor.y - (kit.lift_px() if kit != null else 0.0))
 	# The weapon they use most, in their hand (behind the fist, so the fingers wrap round it).
 	var held: Dictionary = PixelArt.held_weapon(weapons) if art.has("hand") and swinging_s <= 0.0 else {}
 	if not held.is_empty():

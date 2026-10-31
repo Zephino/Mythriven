@@ -433,3 +433,11 @@ func test_spell_hits_and_reactions_have_their_own_bursts() -> void:
 	for weapon: Dictionary in Data.get_file("weapons.json"):
 		if str(weapon["id"]) in evolved:
 			assert_eq(str(weapon.get("projectile_art", "")), str(weapon["id"]), str(weapon["id"]) + " has its own picture")
+
+
+func test_pickup_and_summon_pictures_load() -> void:
+	for name: String in ["xp_gem", "gold_coin", "ambrosia", "chest", "chest_big", "golden_apple"]:
+		assert_false(PixelArt.find("pickups/" + name).is_empty(), "pickup picture " + name)
+	for name: String in ["stag", "hammer", "crow", "sun_barque"]:
+		assert_false(PixelArt.find("summons/" + name).is_empty(), "summon picture " + name)
+	assert_true(PixelArt.pickup_scale(PixelArt.pickup_texture("xp_gem"), 9.0).y < 0.0, "pickups are drawn upright")

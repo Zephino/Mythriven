@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.23
+Date: 10/31/2026
+Time: 4:18 AM
+
+### Changes
+- **Enemy shots** look like their element: a flame tail, a point of ice, crackling sparks, a ripple, a tumbling stone, a black heart, little rays or a curl of wind, each with a short trail. They keep their dark outline so they're always easy to see.
+- **Pickups are pictures**: XP gems (blue, green, gold by size), gold coins, ambrosia (a little cup), wooden chests bound with iron, and big chests bound with gold.
+- **God summons** in each god's style: Tyche's wheel spins round you throwing coins, Cernunnos' stags gallop across, Thor's hammer spins out and back with lightning, Skadi's ice arrows rain down, Sekhmet's wind scorches across with sand and embers, Poseidon's wave has a foaming crest, Ra's sun barque sails overhead, and the Morrígan's crows sweep across the screen. The two-god Resonances got matching effects too (heat and blizzard waves, a frozen wave, rain with lightning jumping between soaked enemies, a blazing sun).
+- **Boss special attacks**: gathering sparks before a burst, sweeps with arrows showing their direction, dashed charge lines with arrowheads, closing rings on strike spots. Medusa's victims stand as stone statues and her eyes blaze, Kronos' slowed time is a clock face, Fenrir is bound by wooden posts and chain links, Balor has standing stones and a glowing eye beam, Set's whirlwinds carry sand, Surtr's ring has flames all round, Ferdiad's ford flows, and Achilles burns with rage.
+- **Hero trait effects**: Cú Chulainn really leaps (rises and falls, shadow underneath, dust on landing); Väinämöinen's verses circle him as lights; Tomoe Gozen kicks up dust and speed lines; Achilles glints gold when his front blocks and flashes red when hit in the heel; Arthur's shield wall is a proper shield; Atalanta races to a stone post for a golden apple; Odysseus' traps are staked pits and his decoy is himself disguised as a beggar; Heracles flashes when a Labor is done; Scáthach glints when a lesson levels a weapon.
+- New pictures from `tools/art/build_pickups.py` and `tools/art/build_summons.py`. New settings `enemies.shot_trail_steps`, `chests.art_scale`, `heroes.leap_height_px`, `heroes.verse_color`, `heroes.dust_color`, `heroes.heel_guard_color`, `heroes.heel_hit_color`, `heroes.labor_ring_px`, `heroes.decoy_tint`. Pickup sizes changed to picture heights (`xp.orb_size_px`, `pickups.gold_size_px`, `pickups.ambrosia_size_px`). Removed `chests.color` and `chests.trim_color`. Rules in `docs/ART_RULES.md`.
+
+### Reason
+The owner asked for enemy shots, god summons, boss special attacks, hero trait effects and pickups.
+
 ## Version 00.02.22
 Date: 10/31/2026
 Time: 4:02 AM

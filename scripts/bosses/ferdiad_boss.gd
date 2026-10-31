@@ -75,6 +75,12 @@ func _draw() -> void:
 		var reach: float = GameAuthority.bosses.arena_radius if GameAuthority.bosses != null else 400.0
 		var center: Vector2 = ford_center - global_position
 		draw_rect(Rect2(center - Vector2(reach, width * 0.5), Vector2(reach * 2.0, width)), Color.html(str(_sig().get("ford_color", "#4a7aa080"))))
+		# The water runs across the ford (owner request 10/31/2026).
+		var t: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
+		for r: int in 18:
+			var x: float = center.x - reach + fmod(r * 53.0 + t * 30.0, reach * 2.0)
+			var y: float = center.y - width * 0.4 + fmod(r * 23.0, width * 0.8)
+			draw_line(Vector2(x, y), Vector2(x + 10.0, y), Color(0.85, 0.95, 1.0, 0.55), 1.0)
 	super._draw()
 	if is_alive() and broken_s <= 0.0:
 		var at: Vector2 = position_now() - global_position

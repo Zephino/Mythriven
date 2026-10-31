@@ -11,6 +11,7 @@ var _active := PackedByteArray()
 var _pos := PackedVector2Array()
 var _speed := PackedFloat32Array()
 var _multimesh: MultiMesh
+var _texture: Texture2D
 
 ## Co-op: the host tells the joining players about each Ambrosia (CoopHost).
 signal dropped(at: Vector2)
@@ -26,7 +27,10 @@ func setup() -> void:
 	_multimesh = PlaceholderArt.make_multimesh(_capacity)
 	var drawer := MultiMeshInstance2D.new()
 	drawer.multimesh = _multimesh
-	drawer.texture = PlaceholderArt.circle_texture(Data.cfg_int("enemies.placeholder_texture_px"))
+	# Its picture (owner request 10/31/2026), tinted by its colour.
+	_texture = PixelArt.pickup_texture("ambrosia")
+	drawer.texture = _texture
+	drawer.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(drawer)
 
 
@@ -47,7 +51,7 @@ func drop(at: Vector2) -> void:
 	_pos[slot] = at
 	_speed[slot] = 0.0
 	var size: float = Data.cfg_float("pickups.ambrosia_size_px")
-	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2(size, size), 0.0, at))
+	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, at))
 	_multimesh.set_instance_color(slot, Color.html(Data.cfg_string("pickups.ambrosia_color")))
 
 
@@ -89,7 +93,7 @@ func _process(delta: float) -> void:
 
 func _update_instance(slot: int) -> void:
 	var size: float = Data.cfg_float("pickups.ambrosia_size_px")
-	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2(size, size), 0.0, _pos[slot]))
+	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, _pos[slot]))
 
 
 func _nearest_hurt_player(from: Vector2) -> Player:

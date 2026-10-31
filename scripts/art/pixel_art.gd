@@ -137,3 +137,18 @@ static func frame(art: Dictionary, moving: bool, stride: float) -> ImageTexture:
 		var walk: Array = frames["walk"]
 		return walk[int(stride / Data.cfg_float("player.walk_frame_px")) % walk.size()]
 	return (frames.get("idle", frames.values()[0]) as Array)[0]
+
+
+## A pickup's picture (data/art/pickups/<name>.json) as one texture for a MultiMesh, or the placeholder circle without
+## one. Its quads are drawn with a negative height to stand the picture upright (see `pickup_scale`).
+static func pickup_texture(name: String) -> Texture2D:
+	var art: Dictionary = find("pickups/" + name)
+	if art.is_empty():
+		return PlaceholderArt.circle_texture(Data.cfg_int("enemies.placeholder_texture_px"))
+	return frame(art, false, 0.0)
+
+
+## The quad size that draws `texture` `height_px` tall, upright, keeping its shape.
+static func pickup_scale(texture: Texture2D, height_px: float) -> Vector2:
+	var size: Vector2 = texture.get_size()
+	return Vector2(height_px * size.x / maxf(size.y, 1.0), -height_px)

@@ -16,6 +16,7 @@ var _big := PackedByteArray()
 
 func setup() -> void:
 	z_index = 0
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_active.resize(MAX_CHESTS)
 	_pos.resize(MAX_CHESTS)
 	_big.resize(MAX_CHESTS)
@@ -79,18 +80,15 @@ func _process(_delta: float) -> void:
 				return
 
 
+## A wooden chest bound with iron, or a big one bound with gold (data/art/pickups/chest*.json), standing on the spot.
 func _draw() -> void:
-	var size: float = Data.cfg_float("chests.size_px")
-	var body := Color.html(Data.cfg_string("chests.color"))
-	var trim := Color.html(Data.cfg_string("chests.trim_color"))
 	for i: int in MAX_CHESTS:
 		if _active[i] == 0:
 			continue
-		var scale: float = 1.4 if _big[i] != 0 else 1.0
-		var rect := Rect2(_pos[i] - Vector2(size, size * 0.7) * scale, Vector2(size * 2.0, size * 1.4) * scale)
-		draw_rect(rect, body)
-		draw_rect(rect, trim, false, 1.5)
-		draw_line(Vector2(rect.position.x, _pos[i].y - size * 0.2 * scale), Vector2(rect.end.x, _pos[i].y - size * 0.2 * scale), trim, 1.5)
+		var art: Dictionary = PixelArt.find("pickups/chest_big" if _big[i] != 0 else "pickups/chest")
+		var texture: ImageTexture = PixelArt.frame(art, false, 0.0)
+		var size: Vector2 = texture.get_size() * Data.cfg_float("chests.art_scale")
+		draw_texture_rect(texture, Rect2(_pos[i] - Vector2(size.x * 0.5, size.y * 0.6), size), false)
 
 
 # --- Co-op (CoopMirror) ------------------------------------------------------------------

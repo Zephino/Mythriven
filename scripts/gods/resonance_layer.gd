@@ -112,18 +112,81 @@ func _soak(slot: int, seconds: float) -> void:
 	st.soaked[slot] = maxf(st.soaked[slot], seconds)
 
 
+## Resonances in their two gods' styles (owner request 10/31/2026): Sun and Snow alternates Sekhmet's scorching wind
+## with a blizzard; Frozen Deluge is Poseidon's wave frozen white; Storm Over the Sea is driving rain with lightning
+## leaping between the soaked; the Eye of Ra is a blazing sun charging across.
 func _draw() -> void:
 	super._draw()
 	for effect: Dictionary in _effects:
-		var color: Color = effect["color"]
 		var view: Rect2 = effect["view"]
+		var t: float = float(effect["t"])
+		var fade: float = 1.0 - clampf(t / maxf(float(effect["duration"]), 0.01), 0.0, 1.0)
 		match str(effect["kind"]):
-			"res_sun_and_snow", "res_frozen_deluge":
+			"res_sun_and_snow":
 				if effect.has("band_x"):
-					var w: float = float(effect["band_w"])
-					draw_rect(Rect2(float(effect["band_x"]) - w * 0.5, view.position.y, w, view.size.y), Color(color, 0.35))
+					if int(effect["wave"]) % 2 == 0:
+						_draw_wind(view, float(effect["band_x"]), float(effect["band_w"]), t)
+					else:
+						_draw_blizzard(view, float(effect["band_x"]), float(effect["band_w"]), t)
+			"res_frozen_deluge":
+				if effect.has("band_x"):
+					_draw_wave(view, float(effect["band_x"]), float(effect["band_w"]), t)
+					_draw_blizzard(view, float(effect["band_x"]), float(effect["band_w"]), t)
 			"res_storm_over_the_sea":
-				draw_rect(view, Color(color, 0.1))
+				draw_rect(view, Color(Elements.color("water"), 0.12 * fade))
+				_draw_rain(view, t, fade)
+				_draw_chains(view, t)
 			"res_eye_of_ra":
 				if effect.has("at"):
-					draw_circle(effect["at"], float((effect["s"] as Dictionary).get("radius_px", 60.0)), Color(color, 0.5))
+					_draw_eye(effect["at"], float((effect["s"] as Dictionary).get("radius_px", 60.0)), t)
+
+
+## A band of driving snow.
+func _draw_blizzard(view: Rect2, x: float, width: float, t: float) -> void:
+	var ice: Color = Elements.color("ice")
+	draw_rect(Rect2(x - width * 0.5, view.position.y, width, view.size.y), Color(ice, 0.3))
+	for i: int in 30:
+		var y: float = view.position.y + fmod(i * 41.0 + t * 90.0, view.size.y)
+		var sx: float = x - width * 0.5 + fmod(i * 29.0 + t * 200.0, width)
+		draw_circle(Vector2(sx, y), 1.5, Color(1, 1, 1, 0.9))
+
+
+## Slanting rain over the whole screen.
+func _draw_rain(view: Rect2, t: float, fade: float) -> void:
+	for i: int in 40:
+		var x: float = view.position.x + fmod(i * 83.0 + t * 60.0, view.size.x)
+		var y: float = view.position.y + fmod(i * 47.0 + t * 400.0, view.size.y)
+		draw_line(Vector2(x, y), Vector2(x - 3.0, y + 9.0), Color(0.75, 0.85, 1.0, 0.6 * fade), 1.0)
+
+
+## Lightning leaping between soaked enemies on screen, a few new links each moment.
+func _draw_chains(view: Rect2, t: float) -> void:
+	var soaked: Array[int] = []
+	for slot: int in _enemies_in(view):
+		if GameAuthority.enemies.statuses.soaked[slot] > 0.0:
+			soaked.append(slot)
+			if soaked.size() >= 12:
+				break
+	var flick: int = int(t * 10.0)
+	for i: int in range(1, soaked.size()):
+		if (i + flick) % 3 == 0:
+			continue
+		var a: Vector2 = GameAuthority.enemies.positions[soaked[i - 1]]
+		var b: Vector2 = GameAuthority.enemies.positions[soaked[i]]
+		var side: Vector2 = (b - a).normalized().orthogonal()
+		var points := PackedVector2Array([a, a.lerp(b, 0.33) + side * sin(i + flick) * 5.0,
+				a.lerp(b, 0.66) - side * cos(i + flick) * 5.0, b])
+		draw_polyline(points, Color(Elements.color("lightning"), 0.6), 3.0)
+		draw_polyline(points, Color(1, 1, 0.9), 1.0)
+
+
+## The Eye of Ra: a blazing sun with flames streaming round it.
+func _draw_eye(at: Vector2, radius: float, t: float) -> void:
+	var fire: Color = Elements.color("fire")
+	draw_circle(at, radius, Color(fire, 0.25))
+	for k: int in 12:
+		var a: float = TAU * k / 12.0 + t * 2.0
+		var r: float = radius * (0.55 + 0.15 * sin(t * 12.0 + k))
+		draw_line(at + Vector2.from_angle(a) * radius * 0.3, at + Vector2.from_angle(a) * r, Color(1.0, 0.75, 0.3, 0.85), 3.0)
+	draw_circle(at, radius * 0.32, Color(1.0, 0.85, 0.4))
+	draw_circle(at, radius * 0.18, Color(1, 1, 0.9))

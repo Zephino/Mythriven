@@ -82,10 +82,22 @@ func _nearest_threat() -> Vector2:
 	return best
 
 
+## Raised, a curved wall of shield faces the danger (owner request 10/31/2026): a band with a dark rim and a boss
+## in its middle.
 func _draw() -> void:
 	var color := Color.html(Data.cfg_string("heroes.shield_color"))
 	if raised:
 		var half: float = deg_to_rad(float(trait_data().get("block_arc_deg", 120.0))) * 0.5
-		draw_arc(Vector2.ZERO, Data.cfg_float("player.placeholder_size_px"), _toward.angle() - half, _toward.angle() + half, 16, color, 3.0)
+		var r: float = Data.cfg_float("player.placeholder_size_px")
+		var a: float = _toward.angle()
+		var band := PackedVector2Array()
+		for k: int in 13:
+			band.append(Vector2.from_angle(a - half + half * 2.0 * k / 12.0) * (r + 2.0))
+		for k: int in 13:
+			band.append(Vector2.from_angle(a + half - half * 2.0 * k / 12.0) * (r - 2.0))
+		draw_colored_polygon(band, Color(color, 0.55))
+		draw_arc(Vector2.ZERO, r + 2.0, a - half, a + half, 16, Color(0.14, 0.09, 0.05, 0.9), 1.5)
+		draw_arc(Vector2.ZERO, r - 2.0, a - half, a + half, 16, Color(0.14, 0.09, 0.05, 0.6), 1.0)
+		draw_circle(Vector2.from_angle(a) * r, 2.5, Color.html(Data.cfg_string("heroes.race_color")))
 	if shield_hp > 0.0:
 		draw_arc(Vector2.ZERO, Data.cfg_float("player.placeholder_size_px") * 1.3, 0.0, TAU, 24, color, 1.5)

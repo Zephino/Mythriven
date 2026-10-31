@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 		_verses[i] -= delta
 		if _verses[i] <= 0.0:
 			_verses.remove_at(i)
+	queue_redraw()
 
 
 func _on_reaction(_reaction_id: String, _at: Vector2, _reach: float, by: Player) -> void:
@@ -44,3 +45,16 @@ func _on_reaction(_reaction_id: String, _at: Vector2, _reach: float, by: Player)
 		if _verses.size() >= int(trait_data().get("max_verses", 10)):
 			_verses.remove_at(0)
 		_verses.append(float(trait_data().get("verse_s", 6.0)))
+
+
+## Each verse he sings circles him as a mote of light (owner request 10/31/2026), fading as it runs out.
+func _draw() -> void:
+	var color := Color.html(Data.cfg_string("heroes.verse_color"))
+	var spin: float = Time.get_ticks_msec() * 0.002
+	var count: int = _verses.size()
+	for i: int in count:
+		var a: float = spin + TAU * i / maxf(count, 1)
+		var at := Vector2(cos(a) * 14.0, sin(a) * 6.0 - 4.0)
+		var fade: float = clampf(_verses[i] / 1.0, 0.3, 1.0)
+		draw_circle(at, 2.5, Color(color, 0.35 * fade))
+		draw_circle(at, 1.2, Color(1, 1, 1, fade))

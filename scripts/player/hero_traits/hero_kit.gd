@@ -101,6 +101,11 @@ func on_summon() -> void:
 	pass
 
 
+## How high the Hero's picture is lifted off the ground (Cú Chulainn's leap).
+func lift_px() -> float:
+	return 0.0
+
+
 ## A short line for the HUD (e.g. the current Labor), or "".
 func hud_text() -> String:
 	return ""

@@ -13,6 +13,7 @@ var _value := PackedFloat32Array()
 var _speed := PackedFloat32Array()
 var _flying := PackedByteArray()
 var _multimesh: MultiMesh
+var _texture: Texture2D
 
 ## Co-op: the host tells the joining players about every coin (CoopHost).
 signal dropped(at: Vector2, value: float)
@@ -31,7 +32,10 @@ func setup() -> void:
 	_multimesh = PlaceholderArt.make_multimesh(_capacity)
 	var drawer := MultiMeshInstance2D.new()
 	drawer.multimesh = _multimesh
-	drawer.texture = PlaceholderArt.circle_texture(Data.cfg_int("enemies.placeholder_texture_px"))
+	# Its picture (owner request 10/31/2026), tinted by its colour.
+	_texture = PixelArt.pickup_texture("gold_coin")
+	drawer.texture = _texture
+	drawer.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(drawer)
 
 
@@ -120,7 +124,7 @@ func _process(delta: float) -> void:
 
 func _update_instance(slot: int) -> void:
 	var size: float = Data.cfg_float("pickups.gold_size_px")
-	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2(size, size), 0.0, _pos[slot]))
+	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, _pos[slot]))
 	_multimesh.set_instance_color(slot, Color.html(Data.cfg_string("pickups.gold_color")))
 
 

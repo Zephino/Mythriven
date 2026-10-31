@@ -1,0 +1,57 @@
+{
+ "_doc": "Summon picture (docs/ART_RULES.md: Summons), built by tools/art/build_summons.py. Mj\u00f6lnir, Thor's hammer (Sk\u00e1ldskaparm\u00e1l 35: its handle came out rather short): a broad iron head, a short wrapped handle, and sparks of lightning about it.",
+ "size": [
+  15,
+  16
+ ],
+ "anchor": [
+  7,
+  8
+ ],
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "w": "#ffffff",
+  "b": "#8a5a30",
+  "B": "#5e3a1a",
+  "c": "#e8d0a8",
+  "a": "#d8c8a0",
+  "A": "#a89870",
+  "i": "#b8bcc8",
+  "I": "#787c88",
+  "h": "#6a4422",
+  "H": "#4a2e16",
+  "y": "#ffe878",
+  "d": "#2a2430",
+  "D": "#141018",
+  "e": "#5a5068",
+  "g": "#f0c040",
+  "G": "#b08020",
+  "s": "#ffe070",
+  "S": "#ff9030",
+  "r": "#c83018",
+  "t": "#3a6a9a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...o...........",
+    "..oyooooooooo..",
+    ".oiiiiiiiiiiio.",
+    "oIiiwwwwwwwiiIo",
+    "oIiiiIiIiIiiiIo",
+    "oIIIIIIIIIIIIIo",
+    ".oIIIIIIIIIIIo.",
+    "..ooooHHHoooo..",
+    "..o..ohhho.oyo.",
+    ".oyo.oHHHo..o..",
+    "..o..ohhho.....",
+    ".....oHHHo.....",
+    ".....ohhho.....",
+    ".....oHHHo.....",
+    ".....oiiio.....",
+    "......ooo......"
+   ]
+  ]
+ }
+}

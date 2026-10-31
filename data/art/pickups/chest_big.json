@@ -1,0 +1,45 @@
+{
+ "_doc": "Pickup picture (docs/ART_RULES.md: Pickups), built by tools/art/build_pickups.py. A wooden chest bound with iron (a big one, from bosses and points of interest, is bound with gold).",
+ "size": [
+  19,
+  15
+ ],
+ "palette": {
+  "o": "#24160e",
+  "1": "#ffffff",
+  "2": "#d8d8d8",
+  "3": "#a8a8a8",
+  "4": "#787878",
+  "w": "#8a5a2c",
+  "W": "#5e3a1a",
+  "m": "#b0b4bc",
+  "M": "#6c7078",
+  "g": "#f0c040",
+  "G": "#b08020",
+  "k": "#140c08",
+  "r": "#e8c040",
+  "R": "#b08a20",
+  "l": "#4a8a30"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..ooooooooooooooo..",
+    ".owgwwwwwwwwwwwgwo.",
+    "owwgwwWwwwWwwwWgwwo",
+    "owwgwwwwwwwwwwwgwwo",
+    "owwgwwwwwwwwwwwgwwo",
+    "owwgwwwwgggwwwwgwwo",
+    "oGGgGGGGgggGGGGgGGo",
+    "oWWgWWWWgkgWWWWgWWo",
+    "oWWgWWWWWWWWWWWgWWo",
+    "oWWgWWWWWWWWWWWgWWo",
+    "oWWgWWWWWWWWWWWgWWo",
+    "oWWgWWWWWWWWWWWgWWo",
+    "oWWgWWWWWWWWWWWgWWo",
+    "oGGGGGGGGGGGGGGGGGo",
+    ".ooooooooooooooooo."
+   ]
+  ]
+ }
+}

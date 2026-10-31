@@ -41,4 +41,13 @@ func _draw() -> void:
 	var radius: float = burn_radius()
 	var color := Color.html(Data.cfg_string("bosses.fire_telegraph_color"))
 	draw_arc(center, radius, 0.0, TAU, 96, color, 4.0)
+	# Flames lick up all round the edge (owner request 10/31/2026).
+	var t: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
+	for f: int in 48:
+		var a: float = TAU * f / 48.0
+		var base: Vector2 = center + Vector2.from_angle(a) * radius
+		var tall: float = 8.0 + 6.0 * sin(t * 9.0 + f * 1.7)
+		var out: Vector2 = Vector2.from_angle(a)
+		draw_colored_polygon(PackedVector2Array([base + out.orthogonal() * 4.0, base - out.orthogonal() * 4.0,
+				base + Vector2(0, -tall)]), Color(1.0, 0.55 + 0.2 * sin(f + t * 5.0), 0.15, 0.85))
 	draw_arc(center, (radius + bosses.arena_radius) * 0.5, 0.0, TAU, 96, Color(color, 0.35), maxf(bosses.arena_radius - radius, 1.0))
