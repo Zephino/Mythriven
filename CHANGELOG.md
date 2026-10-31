@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.39
+Date: 10/31/2026
+Time: 11:45 AM
+
+### Changes
+- **Debug menu (F1) testing buttons** for the new world: "Go to the nearest mountain" (puts you at the foot of its cliff, by the handholds), "Get a rope", and "Go to the nearest hidden grove" (puts you outside its way in). Test and dev builds only.
+
+### Reason
+The owner asked how to find a mountain to test it.
+
 ## Version 00.02.38
 Date: 10/31/2026
 Time: 11:42 AM

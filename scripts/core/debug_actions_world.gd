@@ -12,6 +12,9 @@ func _ready() -> void:
 	DebugMenu.add_button(self, "DEBUG_OPEN_CHEST", _open_chest)
 	DebugMenu.add_button(self, "DEBUG_READY_EVOLUTION", _ready_evolution)
 	DebugMenu.add_button(self, "DEBUG_START_STORM", _start_storm)
+	DebugMenu.add_button(self, "DEBUG_GO_MOUNTAIN", _go_mountain)
+	DebugMenu.add_button(self, "DEBUG_GET_ROPE", _get_rope)
+	DebugMenu.add_button(self, "DEBUG_GO_GROVE", _go_grove)
 
 
 func _info() -> String:
@@ -77,3 +80,63 @@ func _ready_evolution() -> void:
 
 func _start_storm() -> void:
 	systems.director.start_hazard()
+
+
+## Puts the Hero at the foot of the nearest mountain, by its handholds (World plan step 5).
+func _go_mountain() -> void:
+	var player: Player = GameAuthority.local_player()
+	var mountains: Mountains = Mountains.current
+	if player == null or mountains == null:
+		return
+	var here: Vector2i = mountains.tile_of(player.position)
+	var best: Dictionary = {}
+	for ry: int in range(-3, 4):
+		for rx: int in range(-3, 4):
+			var region: Vector2i = Vector2i(floori((player.position.x + mountains._offset().x) / mountains._region_px), \
+					floori((player.position.y + mountains._offset().y) / mountains._region_px)) + Vector2i(rx, ry)
+			var m: Dictionary = mountains.plan(region)
+			if not m.is_empty() and (best.is_empty() or Vector2(m["c"]).distance_to(here) < Vector2(best["c"]).distance_to(here)):
+				best = m
+	if best.is_empty():
+		DebugMenu.show_result(tr("DEBUG_NONE_FOUND"))
+		return
+	var foot: Vector2i = Vector2i(best["c"]) + Vector2i(0, int(best["r"]) + 4)
+	for spot: Dictionary in best["spots"]:
+		if str(spot["kind"]) == "hand" and int(spot["from"]) == 0:
+			foot = Vector2i(spot["tile"]) + Vector2i(0, 3)
+	GameAuthority.place_player(player, mountains.tile_center(foot))
+	DebugMenu.show_result(tr("DEBUG_WENT_MOUNTAIN"))
+
+
+func _get_rope() -> void:
+	if GameAuthority.run != null:
+		GameAuthority.run.ropes += 1
+		DebugMenu.show_result(tr("UI_ROPES") % GameAuthority.run.ropes)
+
+
+## Looks for thick forest round the Hero until it finds a hidden grove, and puts them by its way in.
+func _go_grove() -> void:
+	var player: Player = GameAuthority.local_player()
+	var flora: Flora = Flora.current
+	if player == null or flora == null:
+		return
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
+	var start: Vector2 = player.position
+	for attempt: int in 120:
+		if not flora.groves.is_empty():
+			break
+		var spot: Vector2 = start + Vector2.from_angle(rng.randf() * TAU) * rng.randf_range(800.0, 8000.0)
+		if flora.density_at(spot + flora._offset()) < Data.cfg_float("world.grove_min_density"):
+			continue
+		player.position = spot
+		flora._load_around_players()
+	if flora.groves.is_empty():
+		player.position = start
+		DebugMenu.show_result(tr("DEBUG_NONE_FOUND"))
+		return
+	var grove: Dictionary = flora.groves.values()[0]
+	var at: Vector2 = Vector2(grove["at"]) - flora._offset()
+	var gate: Vector2 = Vector2(grove["gate"]) - flora._offset()
+	GameAuthority.place_player(player, gate + (gate - at).normalized() * 50.0)
+	DebugMenu.show_result(tr("DEBUG_WENT_GROVE"))

@@ -1195,3 +1195,9 @@ UI_ROPE_BRIDGE,You mend the rope bridge.
 UI_ROPE_FOUND,A rope! (for climbing mountains)
 TRADER_ROPE,Rope
 TRADER_ROPE_DESC,hang a rope ladder or mend a rope bridge on a mountain
+DEBUG_GO_MOUNTAIN,Go to the nearest mountain
+DEBUG_GET_ROPE,Get a rope
+DEBUG_GO_GROVE,Go to the nearest hidden grove
+DEBUG_WENT_MOUNTAIN,At the foot of a mountain: walk up into the handholds to climb.
+DEBUG_WENT_GROVE,By a hidden grove: look for the glint and walk in between the trees.
+DEBUG_NONE_FOUND,None found nearby.
