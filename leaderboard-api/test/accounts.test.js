@@ -120,3 +120,11 @@ test("without the Google secrets, sign-in says it isn't set up", async () => {
   assert.equal(res.status, 503);
   assert.equal(tokenClaims("not-a-token"), null);
 });
+
+test("the privacy policy page is served for Google's sign-in screen", async () => {
+  const res = await worker.fetch(new Request(BASE + "/privacy"), {});
+  assert.equal(res.status, 200);
+  const text = await res.text();
+  assert.ok(text.includes("Privacy policy"));
+  assert.ok(text.includes("never asks Google for your name, email"));
+});

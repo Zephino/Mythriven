@@ -102,7 +102,11 @@ make here go into Cloudflare as secrets, never into the repo or a chat.
      `https://mythriven.thebotcoder.workers.dev/auth/callback`
    - **Create**. A box shows the **Client ID** and **Client secret**. Keep
      this tab open (or download the JSON) for the next step.
-5. Google Auth Platform → **Audience** → **Publish app** → Confirm. (Until you
+5. Google Auth Platform → **Branding**: Application home page
+   `https://zephino.github.io/Mythriven/`; privacy policy link
+   `https://mythriven.thebotcoder.workers.dev/privacy` (served by this Worker,
+   `src/privacy.js`); authorized domains `thebotcoder.workers.dev` and
+   `zephino.github.io` → Save. Then **Audience** → **Publish app** → Confirm. (Until you
    do, only "test users" you list there can sign in.) The game only asks for
    Google's basic sign-in ("openid"), so Google doesn't need to review it.
 6. Cloudflare dashboard → **Workers & Pages** → **mythriven** → **Settings**
@@ -148,6 +152,7 @@ while its run is in progress; friend games stay closed once started.
 - `src/index.js`: the web service (GET/POST, rate limits, GitHub commit).
 - `src/cloud.js`: cloud saves (`/cloud/save`, the `SaveVault` Durable Object).
 - `src/lobby.js`: co-op lobbies (`/lobby`, the `LobbyRoom` Durable Object).
+- `src/privacy.js`: the privacy policy page (`/privacy`), linked from Google's sign-in screen.
 - `src/accounts.js`: Sign in with Google (`/auth/*`, the `AccountVault` Durable Object).
 - `src/public_games.js`: the public games list (`/lobby/public`, the `PublicGames` Durable Object).
 - Test the game against a Worker on your own computer: `npx wrangler dev`,

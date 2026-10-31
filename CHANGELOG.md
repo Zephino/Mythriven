@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.39
+Date: 10/30/2026
+Time: 8:28 PM
+
+### Changes
+- **Privacy policy page** at `https://mythriven.thebotcoder.workers.dev/privacy`, served by the Worker (`src/privacy.js`). Google needs it to publish the sign-in so anyone can use it. It says what the game keeps (the hashed Google id, cloud saves, the one-device id, leaderboard names and scores, anonymous suggestions), that there are no ads or tracking, and how to have data deleted (by email to the owner's support address).
+- README setup steps updated with the Branding page links.
+
+### Reason
+Google's Branding page asks for a home page and privacy policy before the sign-in can be published.
+
 ## Version 00.01.38
 Date: 10/30/2026
 Time: 8:08 PM
