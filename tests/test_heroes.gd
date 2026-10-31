@@ -559,3 +559,27 @@ func test_hidden_groves_ring_a_clearing_with_a_way_in() -> void:
 			break
 	assert_false(found.is_empty(), "thick forest hides groves")
 	flora.queue_free()
+
+
+func test_mountains_have_ways_up_a_bridge_and_a_cave() -> void:
+	var mountains := Mountains.new()
+	_parent.add_child(mountains)
+	mountains.setup({"id": "aegean_shore"}, 4242)
+	mountains.set_process(false)
+	var m: Dictionary = {}
+	for ry: int in range(-3, 4):
+		for rx: int in range(-3, 4):
+			if m.is_empty():
+				m = mountains.plan(Vector2i(rx, ry))
+	assert_false(m.is_empty(), "the world has mountains")
+	var kinds: Array = (m["spots"] as Array).map(func(s: Dictionary) -> String: return str(s["kind"]))
+	assert_true(kinds.has("hand") and kinds.has("ladder"), "handholds and a rope ladder up the cliff")
+	assert_false((m["bridge"] as Array).is_empty(), "a rope bridge between the peaks")
+	assert_eq(int(m["tiles"][m["cave"]]), 2, "the cave is up on a peak")
+	mountains._index(m)
+	var bridge_tile: Vector2i = m["bridge"][0]
+	assert_false(mountains.walkable(bridge_tile, 2), "the broken bridge can't be crossed")
+	GameAuthority.run.poi_state[str(m["key"]) + "_bridge"] = "fixed"
+	assert_true(mountains.walkable(bridge_tile, 2), "the mended bridge can")
+	assert_false(mountains.walkable(m["cave"], 0), "ground-level Heroes can't walk onto the peaks")
+	mountains.queue_free()

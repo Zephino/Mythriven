@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.35
+Date: 10/31/2026
+Time: 11:10 AM
+
+### Changes
+- **Mountains** (World plan step 5). Now and then raised ground rises from the land, ringed by cliffs nobody can walk through, with two higher peaks, in each land's own rock.
+  - **Handholds** cut into a cliff: anyone can climb, slowly.
+  - A **rope ladder** rolled at the top of a cliff: hanging it uses a rope, then it's a quick way up for everyone.
+  - A **rope bridge** between the two peaks, broken: mending it uses a rope.
+  - A **cave** on the far peak: gather at its mouth to go in. Inside is a dungeon of rough rock, stalagmites and glowing crystals, full of the level's monsters, with a ledge at its end. Touch the chest there and you come back out to the mouth, where a big chest and a pile of gold wait. Each cave can be looted once.
+- Every Hero has a height (ground, raised ground, peak) and walks only on their own; walking monsters too. Monsters can't climb, so while you're up top some appear up there with you; flyers and bosses go anywhere. Trees keep clear of mountains.
+- **Ropes**: buy one from the Wandering Trader (45 gold) or find one in a chest (15%). Your ropes show next to your gold. Without one, the ladder and bridge tell you where to get one.
+- Fixed: flat ground pieces (mountain tops) no longer get the "light from above" bands, which made them look like rows of bricks.
+- `GAME_DESIGN.md` (World) updated with a dated note (owner decision). New `tools/art/build_mountain_parts.py`, `tools/art/build_cave_parts.py`, `scripts/world/mountains.gd`, `scripts/world/cave_dungeon.gd`; `world.mountain_*`, `world.climb_*`, `world.cave_*`, `chests.rope_chance` and a Trader price for the rope.
+
+### Reason
+The owner approved the world plan: mountains to climb with a treasure cave on top, climbing holes, rope ladders and rope bridges, and a rope to buy or find to get through.
+
 ## Version 00.02.34
 Date: 10/31/2026
 Time: 11:02 AM

@@ -2,8 +2,11 @@
 # Every part is aged after it's drawn: the black outline becomes a soft dark edge in the part's own colour, surfaces
 # get a fine grain, light from above (brighter at the top, darker at the foot), chips and stains, and colours lose a
 # little of their brightness. Letters in `keep` (fire, flowers) are left as drawn. The colours are then gathered into
-# a new palette. Frames named "floor" get no light bands (they lie flat).
+# a new palette. Frames named in FLAT get no light bands (they lie flat).
 import random
+
+# Frames that lie flat on the ground get no light bands (they'd look like rows of bricks when tiled).
+FLAT = ("floor", "top", "plank", "plank_broken")
 
 KEYS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&*+-=?@^_~<>:;,|/()[]{}"
 
@@ -61,7 +64,7 @@ def _weather(pal, frames, seed, keep, outline, step):
                     grey = sum(c) / 3.0
                     c = [v * 0.85 + grey * 0.15 for v in c]                               # a little less vivid
                     # Light from above, in a few bands; a fine grain of three tones.
-                    light = 1.06 - 0.16 * round(3 * y / max(h - 1, 1)) / 3 if name != "floor" else 1.0
+                    light = 1.06 - 0.16 * round(3 * y / max(h - 1, 1)) / 3 if name not in FLAT else 1.0
                     grain = rnd.choice((0.95, 1.0, 1.0, 1.05))
                     stain = 0.86 if rnd.random() < 0.06 else 1.0                          # chips and stains
                     line += key_of([v * light * grain * stain * 0.94 for v in c])

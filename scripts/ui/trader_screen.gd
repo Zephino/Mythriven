@@ -7,7 +7,7 @@ extends CanvasLayer
 ## Prices rise ×1.5 per Age. Opens when you walk up to the Trader; pauses the
 ## game; keyboard, gamepad, and touch work.
 
-const ITEMS: PackedStringArray = ["reroll_token", "travelers_bread", "whetstone", "incense", "banish_token"]
+const ITEMS: PackedStringArray = ["reroll_token", "travelers_bread", "whetstone", "incense", "banish_token", "rope"]
 
 var gods: GodManager
 
@@ -58,6 +58,8 @@ static func buy(player: Player, item_id: String, target: int = 0) -> bool:
 			run.reroll_tokens += 1
 		"banish_token":
 			run.banish_tokens += 1
+		"rope":
+			run.ropes += 1
 		"travelers_bread":
 			GameAuthority.heal_player(player, player.max_hp)
 		"whetstone":

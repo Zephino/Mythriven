@@ -1188,3 +1188,10 @@ ENEMY_GAZELLE_NAME,Gazelle
 ENEMY_NUBIAN_IBEX_NAME,Nubian ibex
 ENEMY_RED_DEER_NAME,Red deer
 UI_THIRD_GOD_SLOT,The hidden shrine opens a third god slot for this run!
+UI_ROPES,Rope ×%d
+UI_ROPE_NEEDED,You need a rope (from the Wandering Trader or a chest).
+UI_ROPE_LADDER,You hang the rope ladder.
+UI_ROPE_BRIDGE,You mend the rope bridge.
+UI_ROPE_FOUND,A rope! (for climbing mountains)
+TRADER_ROPE,Rope
+TRADER_ROPE_DESC,hang a rope ladder or mend a rope bridge on a mountain

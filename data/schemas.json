@@ -234,6 +234,20 @@
               "grove_guards": "number",
               "grove_big_chest_chance": "number",
               "grove_shrine_chance": "number",
+              "mountain_z": "number",
+              "mountain_region_chunks": "number",
+              "mountain_chance": "number",
+              "mountain_start_clear_px": "number",
+              "mountain_min_tiles": "number",
+              "mountain_max_tiles": "number",
+              "mountain_teleport_px": "number",
+              "mountain_top_spawn_s": "number",
+              "mountain_top_enemies": "number",
+              "climb_ladder_s": "number",
+              "climb_hand_s": "number",
+              "cave_treasure_drop_px": "number",
+              "cave_gold": "number",
+              "cave_gold_coins": "number",
               "critters_max": "number",
               "critters_z": "number",
               "critter_spawn_s": "number",
@@ -471,7 +485,8 @@
                   "travelers_bread": "number",
                   "whetstone": "number",
                   "incense": "number",
-                  "banish_token": "number"
+                  "banish_token": "number",
+                  "rope": "number"
                 }
               },
               "trader_price_mult_per_age": "number"
@@ -699,6 +714,7 @@
               "buildup_s": "number",
               "coop_pause_max_s": "number",
               "fast_chests": "bool",
+              "rope_chance": "number",
               "fast_buildup_s": "number",
               "tier_odds": {
                 "type": "object",

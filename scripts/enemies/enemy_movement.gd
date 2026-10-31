@@ -65,6 +65,7 @@ func reset(slot: int, code: int, behavior: Dictionary, rng: RandomNumberGenerato
 func step(m: EnemyManager, delta: float) -> void:
 	var decay: float = exp(-Data.cfg_float("enemies.knockback_decay") * delta)
 	var flora: Flora = Flora.current
+	var mountains: Mountains = Mountains.current
 	for i: int in m.capacity:
 		if m.active[i] == 0 or m.asleep[i] == 1:
 			continue
@@ -92,7 +93,11 @@ func step(m: EnemyManager, delta: float) -> void:
 		m.knockback[i] *= decay
 		# Walking monsters slide round trees and boulders and slow on stones; flyers go over (docs/WORLD_PLAN.md: 1).
 		if flora != null and code != FLYER and code != STILL and not m.flies(i):
-			m.positions[i] = flora.move(m.positions[i], moved, m.radius[i])
+			var before: Vector2 = m.positions[i]
+			m.positions[i] = flora.move(before, moved, m.radius[i])
+			# Walking monsters can't climb: they keep to the height they're at (docs/WORLD_PLAN.md: 5).
+			if mountains != null:
+				m.positions[i] = mountains.keep_enemy(i, before, m.positions[i])
 		else:
 			m.positions[i] += moved
 

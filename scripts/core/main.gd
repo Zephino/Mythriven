@@ -53,6 +53,11 @@ func _build_world(joystick: TouchJoystick) -> void:
 	world.add_child(flora)
 	flora.setup(run.level_data, run.seed_value)
 	world.origin_shifted.connect(flora.on_origin_shifted)
+	# Mountains (docs/WORLD_PLAN.md: 5).
+	var mountains := Mountains.new()
+	world.add_child(mountains)
+	mountains.setup(run.level_data, run.seed_value)
+	world.origin_shifted.connect(mountains.on_origin_shifted)
 	# Hidden groves in the forest (docs/WORLD_PLAN.md: 3), drawn over the trees.
 	var groves := HiddenGroves.new()
 	groves.flora = flora

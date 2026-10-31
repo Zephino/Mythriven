@@ -163,6 +163,15 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	world.add_child(ruins_dungeon)
 	world.origin_shifted.connect(ruins_dungeon.on_origin_shifted)
 	pois.ruins_dungeon = ruins_dungeon
+	# The treasure caves on mountain tops (docs/WORLD_PLAN.md: 5).
+	var cave := CaveDungeon.new()
+	cave.chests = chests
+	cave.gold = gold
+	cave.freeze.assign(dungeon.freeze)
+	world.add_child(cave)
+	world.origin_shifted.connect(cave.on_origin_shifted)
+	if Mountains.current != null:
+		Mountains.current.cave = cave
 	if Flora.current != null:
 		Flora.current.shrines = shrines
 		Flora.current.pois = pois

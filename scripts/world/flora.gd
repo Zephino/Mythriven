@@ -123,6 +123,11 @@ func _gather_zones() -> void:
 		for poi: Dictionary in pois.nearby:
 			var reach: float = float(PoiRules.find(str(poi["id"])).get("radius_px", 40.0))
 			zones["poi" + str(poi["key"])] = [Vector2(poi["pos"]), reach + Data.cfg_float("world.clear_margin_px")]
+	if Mountains.current != null:
+		var k: int = 0
+		for zone: Array in Mountains.current.clear_zones():
+			zones["mountain%d" % k] = zone
+			k += 1
 	if zones.hash() != _zones.hash():
 		_zones = zones
 		_refresh_hidden()

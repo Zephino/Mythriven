@@ -51,6 +51,12 @@ func open_for(player: Player, big: bool = false) -> void:
 	if GameAuthority.run == null:
 		return
 	var plan: Dictionary = ChestRules.build(player, GameAuthority.run.rng.loot, big)
+	# Sometimes there's a rope in it too (for climbing mountains; docs/WORLD_PLAN.md: 5).
+	if GameAuthority.run.rng.loot.randf() < Data.cfg_float("chests.rope_chance"):
+		GameAuthority.run.ropes += 1
+		var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
+		if banner != null:
+			banner.show_text(tr("UI_ROPE_FOUND"))
 	var evolved: Array[Dictionary] = ChestRules.apply(player, plan)
 	if CoopChoices.is_remote(player):
 		# Co-op: the reveal plays on the opener's device, and everyone pauses briefly.

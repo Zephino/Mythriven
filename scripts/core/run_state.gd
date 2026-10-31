@@ -38,6 +38,8 @@ var xp_mult: float = 1.0
 ## item from future level-ups. Banished item ids.
 var reroll_tokens: int = 0
 var banish_tokens: int = 0
+## Ropes for climbing (docs/WORLD_PLAN.md: 5): bought from the Trader or found in chests, used on a ladder or bridge.
+var ropes: int = 0
 var banished: PackedStringArray = []
 ## Points of interest whose state changed: region key -> "cleared" or "looted".
 var poi_state: Dictionary = {}

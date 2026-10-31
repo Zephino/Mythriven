@@ -148,6 +148,8 @@ func spawn(type_id: String, at: Vector2) -> int:
 	var slot: int = take_slot()
 	if slot == -1:
 		return -1
+	if Mountains.current != null:
+		Mountains.current.forget_enemy(slot)
 	var data: Dictionary = types[type_index[type_id]]
 	kind[slot] = type_index[type_id]
 	positions[slot] = at

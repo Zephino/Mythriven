@@ -121,6 +121,9 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 ## Wildlife
 - Small animals, birds and insects per land in `data/art/critters/<level id>.json` (two frames each; birds also fly), large animals in `data/art/enemies/<id>.json` (a standing frame and four walking frames), all built by `tools/art/build_critters.py` from the real animals of each land.
 
+## Mountains and caves
+- Per level in `data/art/mountain/<level id>.json`, built by `tools/art/build_mountain_parts.py` in the level's rock and weathered: raised ground tops (flat, no light bands), cliff faces, handholds, a rolled and a hung rope ladder, rope-bridge planks (whole and broken) and posts, a cave mouth. The cave inside is `data/art/dungeon/cave.json` (`tools/art/build_cave_parts.py`): dirt floors, rough rock, stalagmites, glowing crystals, a pool, bones, mushrooms. Drawn by `scripts/world/mountains.gd`, lowest level first, each top above its cliff face.
+
 ## Statuses
 - Enemies show their statuses as small marks over their picture (`scripts/enemies/enemy_status_marks.gd`): flames (Burn), frost specks (Chill, more with more stacks), a block of ice (Frozen), sparks (Shock), drips (Soaked), rising bubbles (Poison, more with more stacks), a halo (Smite), a dark swirl (Hex), circling stars (Stun). Only enemies on screen, up to `enemies.status_marks_max`. The status colour tints the picture lightly (`enemies.art_status_tint`) so the marks and the art both show.
 
