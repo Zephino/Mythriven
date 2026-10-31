@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.03
+Date: 10/31/2026
+Time: 2:28 AM
+
+### Changes
+- **Balor's sprite**, from Cath Maige Tuired (The Second Battle of Mag Tuired): the old Fomorian king whose destroying eye was opened only in battle, when four men lifted its lid with a polished handle passed through it:
+  - a huge, grim old giant (as big as Kronos and Surtr) with grey-pale skin, long dark hair and a long dark beard;
+  - his one great eye glowing orange under a heavy, half-raised lid, the polished handle jutting forward through the lid;
+  - a dark green mantle behind him, a leather war-belt studded with bronze, a leather kilt, boots; an open hand reaching forward; 4 walking frames.
+- **All 12 Pack 1 bosses now have sprites.**
+
+### Reason
+The owner approved Ferdiad and asked for the next boss, and for a complete sprite sheet.
+
 ## Version 00.02.02
 Date: 10/31/2026
 Time: 2:26 AM
