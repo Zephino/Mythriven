@@ -378,7 +378,7 @@ Movement is the main input; weapons aim themselves at nearby threats so players 
 
 | Action | PC | Mobile | Gamepad |
 | --- | --- | --- | --- |
-| Move (8 directions) | WASD or arrow keys | Floating virtual joystick (left half of screen) | Left stick / D-pad |
+| Move (8 directions) | WASD or arrow keys, or hold the left mouse button and drag (the same floating joystick as touch) *(mouse added 10/31/2026, owner request)* | Floating virtual joystick (left half of screen) | Left stick / D-pad |
 | Summon god 1 | Q | Button 1, bottom-right | LB / L1 |
 | Summon god 2 | E | Button 2, bottom-right | RB / R1 |
 | Resonance | R, or Q+E together | Resonance button (appears only when ready) | LB+RB together |

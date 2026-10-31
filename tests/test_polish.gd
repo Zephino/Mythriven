@@ -198,3 +198,27 @@ func test_playing_as_shows_only_when_signed_in_with_google() -> void:
 	DirAccess.remove_absolute(CloudSync.file_path())
 	SaveGame.use_test_file("")
 	DirAccess.remove_absolute("user://test_playing_as.json")
+
+
+func test_the_mouse_moves_the_hero_like_a_finger() -> void:
+	var stick: TouchJoystick = add_child_autofree(TouchJoystick.new())
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.pressed = true
+	press.position = Vector2(200, 300)
+	stick._unhandled_input(press)
+	assert_true(stick.is_active(), "holding the left button places the joystick")
+	var drag := InputEventMouseMotion.new()
+	drag.position = Vector2(500, 300)
+	stick._unhandled_input(drag)
+	assert_almost_eq(stick.get_vector().x, 1.0, 0.01, "dragging right moves right at full speed")
+	press.pressed = false
+	stick._unhandled_input(press)
+	assert_false(stick.is_active(), "letting go stops")
+	var fake := InputEventMouseButton.new()
+	fake.button_index = MOUSE_BUTTON_LEFT
+	fake.pressed = true
+	fake.position = Vector2(200, 300)
+	fake.device = InputEvent.DEVICE_ID_EMULATION
+	stick._unhandled_input(fake)
+	assert_false(stick.is_active(), "a phone's pretend mouse click is ignored (the touch itself drives it)")

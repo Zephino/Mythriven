@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.53
+Date: 10/30/2026
+Time: 10:15 PM
+
+### Changes
+- **Move with the mouse on PC**, the same way as on phones: hold the left mouse button anywhere (except on a button), and the joystick appears there; drag to move; let go to stop. Keyboard and gamepad still work. On phones the touch itself drives the joystick, and the pretend mouse clicks phones also send are ignored, so nothing happens twice. Checked in the game: dragging right moved the Hero right, and letting go stopped him.
+
+### Reason
+The owner asked for mouse movement on PC, like on mobile.
+
 ## Version 00.01.52
 Date: 10/30/2026
 Time: 9:48 PM

@@ -4,10 +4,14 @@ extends Control
 ## finger touches the screen (anywhere but a button, or only the left or
 ## right part, a setting), only while that finger is down, and follows no
 ## fixed position. Placeholder circles for art. Its size is a setting too.
+## On PC the mouse works the same way (owner request 10/31/2026): hold the
+## left button anywhere but a button and drag.
 
 ## On-screen buttons (god buttons, pause, Labors) that a touch should press
 ## instead of starting the joystick.
 const BLOCKERS := "joystick_blockers"
+## The "finger" number used for the mouse (real touches are 0 and up).
+const MOUSE := -2
 
 var _active: bool = false
 var _touch_index: int = -1
@@ -34,28 +38,37 @@ func get_vector() -> Vector2:
 # Unhandled input, so touches on menus and buttons never move the player.
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
-		_on_touch(event as InputEventScreenTouch)
+		var touch := event as InputEventScreenTouch
+		_press(touch.index, touch.pressed, touch.position)
 	elif event is InputEventScreenDrag:
-		_on_drag(event as InputEventScreenDrag)
+		var drag := event as InputEventScreenDrag
+		_move(drag.index, drag.position)
+	elif event.device != InputEvent.DEVICE_ID_EMULATION:
+		# A real mouse (phones also send pretend mouse clicks for touches: those are skipped).
+		if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
+			_press(MOUSE, (event as InputEventMouseButton).pressed, (event as InputEventMouseButton).position)
+		elif event is InputEventMouseMotion:
+			_move(MOUSE, (event as InputEventMouseMotion).position)
 
 
-func _on_touch(touch: InputEventScreenTouch) -> void:
-	if touch.pressed and not _active and _in_joystick_area(touch.position):
+## A finger (or the mouse button) went down or up.
+func _press(index: int, pressed: bool, at: Vector2) -> void:
+	if pressed and not _active and _in_joystick_area(at):
 		_active = true
-		_touch_index = touch.index
-		_center = touch.position
-		_knob = touch.position
+		_touch_index = index
+		_center = at
+		_knob = at
 		queue_redraw()
-	elif not touch.pressed and touch.index == _touch_index:
+	elif not pressed and index == _touch_index:
 		_active = false
 		_touch_index = -1
 		queue_redraw()
 
 
-func _on_drag(drag: InputEventScreenDrag) -> void:
-	if not _active or drag.index != _touch_index:
+func _move(index: int, at: Vector2) -> void:
+	if not _active or index != _touch_index:
 		return
-	_knob = _center + (drag.position - _center).limit_length(_radius())
+	_knob = _center + (at - _center).limit_length(_radius())
 	queue_redraw()
 
 
