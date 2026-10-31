@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.04
+Date: 10/31/2026
+Time: 2:32 AM
+
+### Changes
+- **Gods can have pixel-art sprites.** A god with art stands in their shrine (instead of a coloured dot), and appears in person in their trial: as the duel opponent (instead of the avatar's circle, flashing when hit), at the centre of an endurance trial, and as the one you chase (and their decoys) in a chase trial, always facing the nearest player. Gods without art keep their dot and circles for now.
+- **Tyche's sprite**, goddess of fortune (Hesiod, Theogony; Pindar, Olympian 12: she steers ships at sea), as Hellenistic statues such as the Tyche of Antioch show her:
+  - a crown shaped like a city's walls and towers; dark hair in a knot;
+  - a long blue chiton with a saffron mantle draped across her;
+  - the cornucopia (horn of plenty) spilling fruit in one arm, the ship's steering oar in her hand.
+- `docs/ART_RULES.md`: a Gods section. New setting `gods.shrine_art_feet_px`; a test checks every god art file.
+
+### Reason
+The owner asked to do the gods next (and, after the gods, to redo all the weapons).
+
 ## Version 00.02.03
 Date: 10/31/2026
 Time: 2:28 AM

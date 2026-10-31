@@ -78,9 +78,9 @@ def build(hero_id, draw, palette, doc, out_dir=None, recolor=None):
     return art
 
 
-def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs):
+def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs, folder="bosses"):
     """A boss's art (bigger than a Hero, drawn on its own canvas): draw(canvas, legs) draws one frame for each entry
-    of walk_legs (the first is the standing pose). Writes data/art/bosses/<boss_id>.json."""
+    of walk_legs (the first is the standing pose). Writes data/art/<folder>/<boss_id>.json (gods use "gods")."""
     def frame(legs):
         c = Canvas(*size)
         draw(c, legs)
@@ -89,7 +89,7 @@ def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs):
     walk = [frame(legs) for legs in walk_legs[1:]]
     art = {"_doc": doc, "size": list(size), "anchor": list(anchor), "palette": palette,
            "frames": {"idle": [idle], "walk": walk}}
-    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "bosses")
+    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", folder)
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, boss_id + ".json"), "w") as f:
         json.dump(art, f, indent=1)

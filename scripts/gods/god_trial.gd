@@ -114,6 +114,9 @@ func _start() -> void:
 			_avatar_slot = GameAuthority.spawn_enemy(Data.cfg_string("gods.duel_avatar_enemy"), center)
 			if _avatar_slot != -1:
 				GameAuthority.enemies.tint_override[_avatar_slot] = Color.html(str(shrine["god"].get("placeholder_color", "#ffffff")))
+				# With art, the god is drawn here (_draw) instead of the avatar's circle.
+				if not PixelArt.god(str(shrine.get("god_id", ""))).is_empty():
+					GameAuthority.enemies.drawn_elsewhere[_avatar_slot] = 1
 			if spawner != null:
 				spawner.rate_mult = Data.cfg_float("gods.duel_spawn_rate")
 		"trial_endurance":
@@ -267,12 +270,37 @@ func _draw() -> void:
 		return
 	var color := Color.html(str(shrine["god"].get("placeholder_color", "#ffffff")))
 	draw_arc(center, ring_radius, 0.0, TAU, 64, color, 3.0)
-	if kind == "trial_endurance":
-		draw_circle(center, 9.0, color)
-	elif kind == "trial_chase":
-		draw_circle(_god_pos, 7.0, color)
-		for decoy: Dictionary in _decoys:
-			draw_circle(decoy["pos"], 7.0, color)
+	# The god in person: their art when they have it (docs/ART_RULES.md: Gods), else a coloured circle.
+	var art: Dictionary = PixelArt.god(str(shrine.get("god_id", "")))
+	var target: Player = _target(center)
+	match kind:
+		"trial_duel":
+			var enemies: EnemyManager = GameAuthority.enemies
+			if not art.is_empty() and _avatar_slot != -1 and enemies.active[_avatar_slot] != 0:
+				var at: Vector2 = enemies.positions[_avatar_slot]
+				var tint := Color.WHITE
+				if enemies.flash_timer[_avatar_slot] > 0.0:
+					tint = Color(Data.cfg_float("bosses.art_hit_flash"), Data.cfg_float("bosses.art_hit_flash"), Data.cfg_float("bosses.art_hit_flash"))
+				PixelArt.draw_standing(self, art, at + Vector2(0, enemies.radius[_avatar_slot]), _faces_left(at, target), tint)
+		"trial_endurance":
+			if art.is_empty():
+				draw_circle(center, 9.0, color)
+			else:
+				PixelArt.draw_standing(self, art, center + Vector2(0, 9.0), _faces_left(center, target))
+		"trial_chase":
+			var spots: Array = [_god_pos]
+			for decoy: Dictionary in _decoys:
+				spots.append(decoy["pos"])
+			for at: Vector2 in spots:
+				if art.is_empty():
+					draw_circle(at, 7.0, color)
+				else:
+					PixelArt.draw_standing(self, art, at + Vector2(0, 7.0), _faces_left(at, target))
+
+
+## True when the god should face left, toward `target`.
+static func _faces_left(at: Vector2, target: Player) -> bool:
+	return target != null and target.position.x < at.x
 
 
 # --- Co-op (CoopMirror) ------------------------------------------------------------------

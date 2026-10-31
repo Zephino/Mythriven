@@ -53,6 +53,8 @@ var _type_color: Array[Color] = []
 var _type_movement := PackedInt32Array()
 ## Types drawn by their own node (a boss with art: BossController draws it), so the pooled circle is hidden.
 var _type_drawn_elsewhere := PackedByteArray()
+## Slots drawn by another node for now (a god's avatar in a duel trial: GodTrial draws the god), 1 = hide the circle.
+var drawn_elsewhere := PackedByteArray()
 ## Co-op on a joining player's device (see above; EnemyRemote does the following).
 var remote: bool = false:
 	set(value):
@@ -86,6 +88,7 @@ func setup() -> void:
 	contact_timer.resize(capacity)
 	flash_timer.resize(capacity)
 	tint_override.resize(capacity)
+	drawn_elsewhere.resize(capacity)
 	statuses = EnemyStatuses.new(capacity)
 	movement = EnemyMovement.new(capacity)
 	elites = EliteState.new(capacity)
@@ -134,6 +137,7 @@ func spawn(type_id: String, at: Vector2) -> int:
 	contact_timer[slot] = 0.0
 	flash_timer[slot] = 0.0
 	tint_override[slot] = Color(0, 0, 0, 0)
+	drawn_elsewhere[slot] = 0
 	statuses.clear(slot)
 	statuses.cc_limited[slot] = 1 if bool(data.get("elite", false)) else 0
 	elites.clear(slot)
@@ -288,6 +292,6 @@ func _draw_instances(delta: float) -> void:
 		if flash_timer[i] > 0.0:
 			flash_timer[i] -= delta
 			color = flash_color
-		if _type_drawn_elsewhere[kind[i]] == 1:
+		if _type_drawn_elsewhere[kind[i]] == 1 or drawn_elsewhere[i] == 1:
 			color.a = 0.0
 		_multimesh.set_instance_color(i, color)

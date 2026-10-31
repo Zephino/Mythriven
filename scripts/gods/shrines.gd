@@ -185,7 +185,12 @@ func _draw() -> void:
 			_:
 				for k: int in 7:
 					draw_circle(at + Vector2.from_angle(TAU * k / 7.0) * 14.0, 3.0, stone)
-		draw_circle(at, 4.0, color)
+		# The god stands in their shrine when they have art (docs/ART_RULES.md: Gods); else a coloured dot.
+		var art: Dictionary = PixelArt.god(str(shrine.get("god_id", god.get("id", ""))))
+		if art.is_empty():
+			draw_circle(at, 4.0, color)
+		else:
+			PixelArt.draw_standing(self, art, at + Vector2(0, Data.cfg_float("gods.shrine_art_feet_px")), false)
 		var progress: float = float(shrine["progress"]) / maxf(Data.cfg_float("gods.peaceful_bind_s"), 0.01)
 		if progress > 0.0:
 			draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * progress, 32, color, 3.0)

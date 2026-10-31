@@ -66,6 +66,11 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 - A boss who is also a Hero (Achilles, Scáthach) is their Hero art holding their signature weapon, drawn twice as big (`kit.build_hero_boss` in `tools/art/hero_kit.py` composes it), so players recognise them. Rebuild it after changing the Hero's art.
 - In the game the boss's art replaces its circle (BossController draws it above the horde, facing the way it moves, walking while it moves, flashing white when hit and tinted by statuses). A boss with art has no red marker ring (owner request 10/31/2026: the sprite stands out by itself); the arrow at the screen edge still points to it when it's off screen.
 
+## Gods
+- One file per god: `data/art/gods/<god id>.json`, built by `tools/art/build_god_<id>.py` (`kit.build_boss` with `folder="gods"`). A god without a file keeps their coloured dot or circle.
+- Boss-sized (about 48 × 62), from myth descriptions and museum-era art (never Marvel, God of War, Hades, Smite and the like: `GAME_DESIGN.md`: Gods).
+- In the game the god stands in their shrine, and appears in person in their trial: as the duel opponent (in place of the avatar's circle, flashing when hit), at the centre of an endurance trial, and as the one being chased (and their decoys) in a chase trial, facing the nearest player.
+
 ## Mastery colours
 - Hero select → Color picks one of the colours mastery unlocks (config `heroes.mastery_palettes`: mastery 2–5 unlock colours 1–4; owner request 10/31/2026). It recolours the **Hero's clothes only**: each art file lists those palette letters under `recolor` (set in its build script), and they take the colour's hue and saturation while keeping their own brightness, so light cloth and its shadow stay apart. Skin, hair, metal and weapons keep their colours.
 - A new Hero's script must pass `recolor=[...]` to `kit.build` with the letters of their main clothing.

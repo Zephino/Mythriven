@@ -244,6 +244,12 @@ func test_hero_pixel_art_files_are_well_formed() -> void:
 			assert_false(HeroRules.find(file.get_basename()).is_empty(), file + " is named after a Hero")
 		checked += 1
 	assert_gt(checked, 0)
+	for file: String in DirAccess.get_files_at(PixelArt.ART_DIR + "gods"):
+		if file.ends_with(".json"):
+			var god_data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PixelArt.ART_DIR + "gods/" + file))
+			assert_true(god_data is Dictionary and (god_data as Dictionary).has("anchor"), "gods/" + file + " is art")
+			assert_false(PixelArt.god(file.get_basename()).is_empty(), "gods/" + file + " loads")
+			assert_false(GodRules.find(file.get_basename()).is_empty(), "gods/" + file + " is named after a god")
 	for file: String in DirAccess.get_files_at(PixelArt.ART_DIR + "bosses"):
 		if not file.ends_with(".json"):
 			continue

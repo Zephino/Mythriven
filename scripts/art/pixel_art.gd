@@ -64,6 +64,21 @@ static func boss(enemy_id: String) -> Dictionary:
 	return find("bosses/" + enemy_id) if enemy_id != "" else {}
 
 
+## A god's art (data/art/gods/<god id>.json), or {} while it has none (its
+## coloured dot or circle is drawn instead).
+static func god(god_id: String) -> Dictionary:
+	return find("gods/" + god_id) if god_id != "" else {}
+
+
+## Draws `art`'s standing frame on `canvas` with the middle of its feet at
+## `feet` (in the canvas's own coordinates), mirrored when `face_left`.
+static func draw_standing(canvas: CanvasItem, art: Dictionary, feet: Vector2, face_left: bool, tint: Color = Color.WHITE) -> void:
+	var anchor: Vector2 = art["anchor"]
+	canvas.draw_set_transform(feet, 0.0, Vector2(-1.0 if face_left else 1.0, 1.0))
+	canvas.draw_texture(frame(art, false, 0.0), -anchor, tint)
+	canvas.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
 ## The picture of the weapon the Hero uses most, to draw in their hand: the
 ## highest level among their weapons that have one (on a tie, the one they got
 ## first, so a Hero starts with their signature weapon). Spells have no
