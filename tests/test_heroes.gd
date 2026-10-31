@@ -680,3 +680,23 @@ func test_rerolls_are_free_first_then_bought_at_a_rising_price() -> void:
 	Rerolls.on_level(Data.cfg_int("level_up.free_reroll_every_levels") + 1)
 	GameAuthority.players.erase(player)
 	assert_eq(player.free_rerolls, 1, "another free one every 5 levels")
+
+
+func test_orpheus_charms_monsters_into_turning_on_each_other() -> void:
+	var orpheus: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "orpheus")
+	assert_eq(str(orpheus.hero.get("id", "")), "orpheus")
+	assert_almost_eq(orpheus.kit_attack_speed_bonus(), 0.1, 0.001, "Outsinging the Sirens: +10% attack speed")
+	var a: int = _enemies.spawn("satyr_skirmisher", Vector2(30, 0))
+	var b: int = _enemies.spawn("satyr_skirmisher", Vector2(40, 10))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	orpheus.kit._song_in = 0.0
+	orpheus.kit._process(0.01)
+	assert_eq(_enemies.charmed[a], 1, "his song charms the monsters round him")
+	var hp_before: float = _enemies.hp[b]
+	orpheus.kit._strike_in = 0.0
+	_enemies.charmed[b] = 0
+	orpheus.kit._process(0.01)
+	assert_lt(_enemies.hp[b], hp_before, "a charmed monster strikes another")
+	orpheus.kit._process(10.0)
+	assert_eq(_enemies.charmed[a], 0, "the charm wears off")
+	GameAuthority.remove_player(orpheus)

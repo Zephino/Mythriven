@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.59
+Date: 10/31/2026
+Time: 1:50 PM
+
+### Changes
+- **Orpheus, and the Underworld is open.** The last step of the Underworld (`docs/PACK_2_PLAN.md`). "Coming soon" is gone: beat Kronos on the Aegean Shore and the Underworld can be played.
+  - **Orpheus** (Greek, Song-bard; HP 95, Speed 100, Armor 0): the singer of Thrace, in a laurel wreath, pale chiton and blue mantle (Ovid, *Metamorphoses* 10–11; Virgil, *Georgics* 4; Attic vase painting).
+    - **Lyre of Orpheus:** his signature weapon, the tortoise-shell lyre of the Hymn to Hermes. Rings of music pulse out round him (Wind).
+    - **Legend Trait, Charming Song:** every 12 s his song charms up to 10 monsters round him for 3.5 s (not bosses). They do no harm to Heroes and turn on the monsters near them; a note bobs over each one. The HUD shows when the next song comes.
+    - **Passive, Outsinging the Sirens:** +10% attack speed for him and for allies near him in co-op (he drowned out the Sirens, *Argonautica* 4).
+    - **Unlock:** the new achievement "Survive 20:00 in the Underworld".
+  - Hecate and Persephone now appear at shrines too.
+- Tests for Orpheus. The Underworld now passes every full-level check, including a playthrough of all three bosses.
+
+### Reason
+The owner said "let's move on, it looks okay": finishing the Underworld with Orpheus and releasing it.
+
 ## Version 00.02.58
 Date: 10/31/2026
 Time: 1:40 PM

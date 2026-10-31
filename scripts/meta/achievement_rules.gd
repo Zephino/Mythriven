@@ -51,6 +51,9 @@ static func met(condition: Dictionary, context: Dictionary) -> bool:
 	var save: Dictionary = SaveGame.data()
 	match str(condition.get("type", "")):
 		"survive_s":
+			# A level of its own (survive 20:00 in the Underworld, which unlocks Orpheus).
+			if condition.has("level_id") and str(context.get("level_id", "")) != str(condition["level_id"]):
+				return false
 			return float(context.get("arc_s", 0.0)) >= need and (not bool(condition.get("swift", false)) or bool(context.get("swift", false))) \
 					and int(context.get("omens", 0)) >= int(condition.get("omens", 0))
 		"kills_run":

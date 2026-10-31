@@ -586,5 +586,57 @@
       "type": "defeat_boss",
       "boss": "scathach"
     }
+  },
+  {
+    "id": "orpheus",
+    "name_key": "HERO_ORPHEUS_NAME",
+    "tradition_key": "TRADITION_GREEK",
+    "role_key": "ROLE_SONG_BARD",
+    "placeholder_color": "#2e4a8a",
+    "patron_pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Ovid, Metamorphoses 10.1-85 and 11.1-66; Virgil, Georgics 4.453-527; Apollonius of Rhodes, Argonautica 4.891-911 (he drowns out the Sirens)",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 95,
+      "move_speed": 100,
+      "armor": 0,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "orpheus_lyre",
+    "expertise": [
+      "spell"
+    ],
+    "trait": {
+      "id": "charming_song",
+      "name_key": "TRAIT_CHARMING_SONG",
+      "desc_key": "TRAIT_CHARMING_SONG_DESC",
+      "every_s": 12,
+      "radius_px": 120,
+      "charm_s": 3.5,
+      "max_charmed": 10,
+      "strike_every_s": 0.5,
+      "strike_mult": 2.0,
+      "strike_reach_px": 40
+    },
+    "passive": {
+      "id": "outsinging_the_sirens",
+      "name_key": "PASSIVE_OUTSINGING_THE_SIRENS",
+      "desc_key": "PASSIVE_OUTSINGING_THE_SIRENS_DESC",
+      "attack_speed_pct": 10,
+      "ally_radius_px": 160
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "achievement",
+      "achievement": "underworld_survive_20"
+    }
   }
 ]

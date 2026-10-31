@@ -83,6 +83,7 @@
               "leap_ring_color": "string",
               "leap_height_px": "number",
               "verse_color": "string",
+              "song_color": "string",
               "dust_color": "string",
               "heel_guard_color": "string",
               "heel_hit_color": "string",

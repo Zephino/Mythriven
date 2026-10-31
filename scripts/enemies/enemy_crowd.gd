@@ -63,8 +63,8 @@ static func contact(m: EnemyManager, delta: float) -> void:
 			if m.positions[i].distance_to(player.position) <= player.body_radius + m.radius[i] + margin:
 				m.contact_timer[i] = interval
 				var data: Dictionary = m.types[m.kind[i]]
-				# Wild animals do no harm (docs/WORLD_PLAN.md: 2).
-				if float(data["contact_damage"]) <= 0.0:
+				# Wild animals do no harm (docs/WORLD_PLAN.md: 2), nor do monsters charmed by Orpheus' song.
+				if float(data["contact_damage"]) <= 0.0 or m.charmed[i] == 1:
 					continue
 				GameAuthority.damage_player(player, float(data["contact_damage"]) * m.damage_mult(i), str(data["id"]), m.positions[i])
 				# Skadi's Blessing: enemies that touch you are Chilled.

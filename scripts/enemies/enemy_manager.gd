@@ -65,6 +65,8 @@ var _type_drawn_elsewhere := PackedByteArray()
 var drawn_elsewhere := PackedByteArray()
 ## Slots that don't move or act for now (1): the enemies outside while the party is in a shrine's dungeon.
 var asleep := PackedByteArray()
+## 1 while charmed by Orpheus' song: it does no harm to Heroes and turns on the monsters round it.
+var charmed := PackedByteArray()
 ## Co-op on a joining player's device (see above; EnemyRemote does the following).
 var remote: bool = false:
 	set(value):
@@ -102,6 +104,7 @@ func setup() -> void:
 	tint_override.resize(capacity)
 	drawn_elsewhere.resize(capacity)
 	asleep.resize(capacity)
+	charmed.resize(capacity)
 	statuses = EnemyStatuses.new(capacity)
 	movement = EnemyMovement.new(capacity)
 	elites = EliteState.new(capacity)
@@ -167,6 +170,7 @@ func spawn(type_id: String, at: Vector2) -> int:
 	tint_override[slot] = Color(0, 0, 0, 0)
 	drawn_elsewhere[slot] = 0
 	asleep[slot] = 0
+	charmed[slot] = 0
 	_face_left[slot] = 0
 	_last_x[slot] = at.x
 	_stride[slot] = 0.0

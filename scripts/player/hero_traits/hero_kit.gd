@@ -14,6 +14,7 @@ const KITS: Dictionary = {
 	"the_race": "res://scripts/player/hero_traits/the_race.gd",
 	"cunning": "res://scripts/player/hero_traits/cunning.gd",
 	"trainer": "res://scripts/player/hero_traits/trainer.gd",
+	"charming_song": "res://scripts/player/hero_traits/charming_song.gd",
 }
 
 var player: Player
@@ -43,6 +44,11 @@ func passive_data() -> Dictionary:
 
 ## Extra attack speed right now (e.g. +0.3 = 30% more attacks).
 func attack_speed_bonus() -> float:
+	return 0.0
+
+
+## Extra attack speed this Hero gives `ally` (Orpheus' song, in co-op).
+func ally_attack_speed_bonus(_ally: Player) -> float:
 	return 0.0
 
 

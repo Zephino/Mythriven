@@ -1330,3 +1330,15 @@ GOD_PERSEPHONE_ROLE,Sustain
 GOD_PERSEPHONE_BLESSING,+10% Max HP and a slow heal over time.
 GOD_PERSEPHONE_SUMMON,"Return of Spring: heals half your HP, and flowers bloom round you that root the enemies in them."
 GOD_PERSEPHONE_MYTH,"Demeter's daughter, carried off by Hades to be queen of the dead. Because she ate a pomegranate seed below, she spends part of every year in the underworld; when she returns, the earth blooms again and it is spring (Homeric Hymn to Demeter)."
+HERO_ORPHEUS_NAME,Orpheus
+ROLE_SONG_BARD,Song-bard
+HERO_ORPHEUS_LEGEND,"The singer of Thrace, son of a Muse, whose song moved beasts, trees and stones. He sailed with the Argonauts and drowned out the Sirens with his lyre; when his wife Eurydice died, he sang his way down to the dead and moved even Hades and Persephone to let her go, but he looked back too soon and lost her."
+WEAPON_ORPHEUS_LYRE_NAME,Lyre of Orpheus
+WEAPON_ORPHEUS_LYRE_DESC,Rings of music pulse out round you.
+TRAIT_CHARMING_SONG,Charming Song
+TRAIT_CHARMING_SONG_DESC,"Every 12 s his song charms the monsters round him for 3.5 s: they do no harm and turn on the monsters near them. Not bosses."
+PASSIVE_OUTSINGING_THE_SIRENS,Outsinging the Sirens
+PASSIVE_OUTSINGING_THE_SIRENS_DESC,+10% attack speed for him and the allies near him.
+ACH_UNDERWORLD_SURVIVE_20_NAME,Survive 20:00 in the Underworld
+ACH_UNDERWORLD_SURVIVE_20_DESC,Unlocks Orpheus.
+HUD_SONG,Song in %d s

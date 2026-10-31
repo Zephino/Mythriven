@@ -477,14 +477,13 @@
     }
   },
   {
-    "_doc": "The Underworld, Pack 2 level 1 (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Asphodel meadows, the black rivers of the dead, chasms down to Tartarus. Sources: Homer, Odyssey 10-11; Hesiod, Theogony 720-819. coming_soon hides it from play until every part is built.",
+    "_doc": "The Underworld, Pack 2 level 1 (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Asphodel meadows, the black rivers of the dead, chasms down to Tartarus. Sources: Homer, Odyssey 10-11; Hesiod, Theogony 720-819.",
     "id": "the_underworld",
     "name_key": "LEVEL_THE_UNDERWORLD_NAME",
     "region": "greek",
     "act": 2,
     "order": 1,
     "care_tier": "A",
-    "coming_soon": true,
     "tileset": {
       "id": "the_underworld",
       "noise_frequency": 0.03,

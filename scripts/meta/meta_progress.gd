@@ -136,7 +136,8 @@ func _check_during_run(run: RunState) -> void:
 
 
 func _context(run: RunState) -> Dictionary:
-	return {"arc_s": run.arc_s(), "kills": run.kills, "level": run.level, "swift": run.swift, "omens": run.omens.size()}
+	return {"arc_s": run.arc_s(), "kills": run.kills, "level": run.level, "swift": run.swift, "omens": run.omens.size(),
+		"level_id": str(run.level_data.get("id", ""))}
 
 
 # --- Events from the run -------------------------------------------------------------

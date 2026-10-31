@@ -39,6 +39,21 @@
     }
   },
   {
+    "id": "underworld_survive_20",
+    "name_key": "ACH_UNDERWORLD_SURVIVE_20_NAME",
+    "desc_key": "ACH_UNDERWORLD_SURVIVE_20_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 1200,
+      "level_id": "the_underworld"
+    },
+    "persists": true,
+    "reward": {
+      "type": "hero",
+      "id": "orpheus"
+    }
+  },
+  {
     "id": "survive_30",
     "name_key": "ACH_SURVIVE_30_NAME",
     "desc_key": "ACH_SURVIVE_30_DESC",

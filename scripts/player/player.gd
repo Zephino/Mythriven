@@ -106,7 +106,12 @@ func _ready() -> void:
 
 
 func kit_attack_speed_bonus() -> float:
-	return kit.attack_speed_bonus() if kit != null else 0.0
+	var bonus: float = kit.attack_speed_bonus() if kit != null else 0.0
+	# Orpheus' passive also speeds up the allies near him (co-op).
+	for other: Player in GameAuthority.players:
+		if other != self and other.kit != null and other.alive:
+			bonus += other.kit.ally_attack_speed_bonus(self)
+	return bonus
 
 
 func kit_damage_mult(weapon: WeaponInstance) -> float:

@@ -34,7 +34,7 @@ approve or change.
 
 ---
 
-## Level 5: The Underworld (Greek), built first
+## Level 5: The Underworld (Greek), built first: **done and released 10/31/2026 (00.02.53–00.02.59)**
 
 **Look:** the grey fields of Asphodel, the black river Styx with Charon's ferry landing, cracked chasms down to Tartarus,
 pale poplars and cypress, dim torchlight. Colors: ash grey, deep violet, cold green glow on the rivers.

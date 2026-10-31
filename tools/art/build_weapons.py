@@ -303,6 +303,25 @@ def runo_song():
     return p
 
 
+def orpheus_lyre():
+    """Orpheus' lyre, the chelys of the Homeric Hymn to Hermes: a tortoise-shell sound box, two curved horn arms rising
+    from it to a wooden crossbar, and seven strings (Apollo's gift to Orpheus), held by its sound box."""
+    p = Pic(14, 18, (7, 16))
+    for y in range(11, 18):                                         # the tortoise-shell sound box
+        half = 5 - abs(y - 14) // 1 if y >= 13 else 3 + (y - 11)
+        half = max(2, min(half, 5))
+        p.rect(7 - half, y, 7 + half, y, "b")
+    p.rect(4, 13, 10, 15, "B"); p.px(5, 14, "b"); p.px(9, 14, "b"); p.px(7, 15, "b")   # the shell's plates
+    for side in (-1, 1):                                            # two curved horn arms
+        for y in range(1, 12):
+            x = 7 + side * (2 + (4 - abs(y - 5)) // 2 + (1 if y < 3 else 0))
+            p.px(x, y, "x"); p.px(x + side, y, "a") if y in (1, 2) else None
+    p.rect(2, 2, 12, 2, "c"); p.rect(2, 3, 12, 3, "C")              # the crossbar
+    for x in (4, 5, 6, 7, 8, 9, 10):                                # seven strings
+        p.col(x, 4, 12, "w")
+    return p
+
+
 def arrow():
     """An arrow, for every bow: a steel point, a wooden shaft, feathered fletching."""
     p = Pic(5, 18, (2, 9))
@@ -339,7 +358,7 @@ WEAPONS = {
     "javelin": (javelin, 0.12), "spear_and_shield": (spear_and_shield, 0.12), "gae_bolg": (gae_bolg, 0.12),
     "scathach_spear": (scathach_spear, 0.12), "longbow": (longbow, 0.1), "great_bow": (great_bow, 0.1),
     "huntress_bow": (huntress_bow, 0.1), "bladed_discus": (bladed_discus, 0.0), "sling_of_lugh": (sling_of_lugh, -0.2),
-    "runo_song": (runo_song, 0.0),
+    "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0),
 }
 
 if __name__ == "__main__":
