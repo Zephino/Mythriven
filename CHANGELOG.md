@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.51
+Date: 10/30/2026
+Time: 9:29 PM
+
+### Changes
+- **Update app now really updates, the same way as Wave Defence.** It used to clear the saved copy and reload, but the browser could still use game files it remembered (GitHub lets browsers keep files for 10 minutes), so the old version came back.
+  - The web build writes the version into the page and adds `web/update.js`.
+  - Every game file is now asked for with its version (`index.pck?v=00.01.51`), so old and new files can never mix.
+  - Update app clears the saved copy and reloads with fresh files.
+- **Opening the game picks up new versions by itself.** In the first 30 s it fetches the page fresh from the internet, and if a newer version is online it switches to it (never mid-run). This replaces the 00.01.48 check, which could still be fooled by the browser's memory.
+- The build's final check now confirms the site shows this exact version.
+- Tested with a local server that tells the browser to keep files for 10 minutes (as GitHub does): reopening switched to the newer version by itself, and Update app loaded the newest version with every game file fresh.
+
+### Reason
+The owner found the Update app button didn't update, and asked for it to clear the cache like Wave Defence's.
+
 ## Version 00.01.50
 Date: 10/30/2026
 Time: 9:22 PM

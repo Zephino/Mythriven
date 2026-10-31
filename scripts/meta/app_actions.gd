@@ -6,8 +6,8 @@ extends RefCounted
 ## installed like an app (export preset: progressive web app), which keeps a
 ## copy of the game on the device; Update app clears that copy and reloads,
 ## so the newest version is always one tap away. The page also updates itself:
-## for 30 s after opening it asks for a newer version and switches to it
-## (export preset head include), so a run is never interrupted.
+## for 30 s after opening it checks the online version and switches to a newer
+## one (web/update.js, as in Wave Defence), so a run is never interrupted.
 
 
 ## True where the game can switch fullscreen on and off.
@@ -53,6 +53,10 @@ static func install() -> void:
 ## reloads from the internet. Progress is safe: it's saved separately.
 static func update_now() -> void:
 	if not is_web():
+		return
+	# web/update.js (added by the web build) also makes the reload fetch every game file fresh.
+	if bool(JavaScriptBridge.eval("typeof window.mythrivenForceUpdate === 'function'", true)):
+		JavaScriptBridge.eval("window.mythrivenForceUpdate()", true)
 		return
 	JavaScriptBridge.eval("""(async function(){
 		try{

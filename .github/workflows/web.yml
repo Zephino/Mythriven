@@ -67,6 +67,13 @@ jobs:
           mkdir -p build/web
           godot --headless --verbose --path . --export-debug "Web" build/web/index.html
           test -f build/web/index.html
+          # Write the version into the page and add the updater (web/update.js), so
+          # browsers always load matching files and switch to new versions by themselves.
+          v=$(tr -d '[:space:]' < VERSION)
+          cp web/update.js build/web/update.js
+          sed -i "s/__MYTHRIVEN_VERSION__/$v/g; s|src=\"index.js\"|src=\"index.js?v=$v\"|" build/web/index.html
+          grep -q "MYTHRIVEN_VERSION=\"$v\"" build/web/index.html
+          grep -q "index.js?v=$v" build/web/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -79,6 +86,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: VERSION
+          sparse-checkout-cone-mode: false
+
       - name: Wait for GitHub's own Pages publish of this commit
         env:
           GH_TOKEN: ${{ github.token }}
@@ -100,7 +112,7 @@ jobs:
         run: |
           url="${{ steps.deployment.outputs.page_url }}"
           for i in $(seq 1 12); do
-            if curl -sfL --max-time 20 "$url?check=$i" | grep -q "GODOT_CONFIG"; then echo "The game is live at $url"; exit 0; fi
+            if curl -sfL --max-time 20 "$url?check=$i" | grep -q "MYTHRIVEN_VERSION=\"$(tr -d '[:space:]' < VERSION)\""; then echo "Version $(cat VERSION) is live at $url"; exit 0; fi
             echo "Not the game yet ($i); waiting for GitHub's cache…"
             sleep 15
           done
