@@ -225,15 +225,11 @@ func _draw_markers() -> void:
 			continue
 		var at: Vector2 = controller.position_now()
 		var body: float = GameAuthority.enemies.radius[controller.slot]
-		var art: Dictionary = PixelArt.boss(str(controller.data.get("enemy", "")))
-		if art.is_empty():
-			draw_circle(at, body + float(marker.get("body_outline_px", 2.0)), Color.html(str(marker.get("outline_color", "#000000"))))
-			draw_circle(at, body, GameAuthority.enemies.base_color(controller.slot))
-		else:
-			# Its art is drawn above the horde by the controller; the ring goes round the whole picture.
-			var size: Vector2 = art["size"]
-			at.y += body - (art["anchor"] as Vector2).y + size.y * 0.5
-			body = maxf(size.x, size.y) * 0.5 * float(marker.get("art_ring_mult", 0.8))
+		# A boss with art stands out by itself (drawn above the horde by its controller): no ring (owner request 10/31/2026).
+		if not PixelArt.boss(str(controller.data.get("enemy", ""))).is_empty():
+			continue
+		draw_circle(at, body + float(marker.get("body_outline_px", 2.0)), Color.html(str(marker.get("outline_color", "#000000"))))
+		draw_circle(at, body, GameAuthority.enemies.base_color(controller.slot))
 		var ring: float = body + float(marker.get("gap_px", 4.0)) + pulse * float(marker.get("pulse_px", 3.0))
 		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("outline_color", "#000000"))), width + 3.0)
 		draw_arc(at, ring, 0.0, TAU, 48, Color.html(str(marker.get("color", "#ff3050"))), width)

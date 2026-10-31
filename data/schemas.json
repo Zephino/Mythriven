@@ -572,8 +572,7 @@
                   "pulse_px": "number",
                   "pulse_hz": "number",
                   "body_outline_px": "number",
-                  "pointer_px": "number",
-                  "art_ring_mult": "number"
+                  "pointer_px": "number"
                 }
               },
               "post_color": "string",

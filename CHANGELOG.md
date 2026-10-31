@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.90
+Date: 10/31/2026
+Time: 1:55 AM
+
+### Changes
+- **No red ring around bosses that have a sprite** (Medusa and Achilles so far): the sprite, drawn above the horde, stands out by itself. Bosses still drawn as circles keep their ring, and the arrow at the edge of the screen still points to any boss that's off screen.
+- Removed the setting `bosses.marker.art_ring_mult` (no longer used).
+
+### Reason
+The owner said that now bosses have sprites, they don't need a red ring around them.
+
 ## Version 00.01.89
 Date: 10/31/2026
 Time: 1:54 AM
