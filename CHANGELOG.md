@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.69
+Date: 10/31/2026
+Time: 3:53 PM
+
+### Changes
+- **Four new god pairings (Resonances) for Pack 2.** Each has a bonus that is always on while both gods are bound, and a joint summon when both meters are full:
+  - **Torch in the Dark** (Hecate + Persephone): a Hexed kill heals 1% of your Max HP. Summon: six torches circle you for 6 s, burning and Hexing everything they pass.
+  - **The Chosen Slain** (Odin + Freyja): a 3% chance that a monster you kill rises to fight for you for 8 s. Summon: every monster on screen below 35% health falls, and half of them rise to fight for you for 10 s.
+  - **The Flood and the Sun** (Enki + Shamash): Holy hits deal 30% more to Soaked monsters. Summon: a flood sweeps the screen, hitting and Soaking everything, then sunlight strikes every Soaked monster.
+  - **Thrym's Wedding** (Freyja + Thor): Thor's chain lightning reaches one more monster. Summon: the hammer comes down in a ring round you, striking with Lightning and stunning for 2.5 s.
+- A line from one of the two gods when each pairing is first discovered, added to the lore check.
+- With these, Pack 2 is complete.
+- 2 new tests (297 tests pass).
+
+### Reason
+The owner approved the four proposed pairings ("Yes add them").
+
 ## Version 00.02.68
 Date: 10/31/2026
 Time: 3:48 PM

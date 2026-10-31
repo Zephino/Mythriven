@@ -112,5 +112,91 @@
     },
     "color": "#ffc040",
     "best_against_key": "RESONANCE_EYE_OF_RA_BEST"
+  },
+  {
+    "id": "torch_in_the_dark",
+    "name_key": "RESONANCE_TORCH_IN_THE_DARK_NAME",
+    "desc_key": "RESONANCE_TORCH_IN_THE_DARK_DESC",
+    "gods": [
+      "hecate",
+      "persephone"
+    ],
+    "harmony": {
+      "heal_on_hexed_kill_pct": 1.0
+    },
+    "summon": {
+      "effect": "torch_in_the_dark",
+      "duration_s": 6,
+      "torches": 6,
+      "ring_radius_px": 70,
+      "torch_radius_px": 18,
+      "damage": 12,
+      "tick_s": 0.5
+    },
+    "color": "#f0a040",
+    "best_against_key": "RESONANCE_TORCH_IN_THE_DARK_BEST"
+  },
+  {
+    "id": "chosen_slain",
+    "name_key": "RESONANCE_CHOSEN_SLAIN_NAME",
+    "desc_key": "RESONANCE_CHOSEN_SLAIN_DESC",
+    "gods": [
+      "odin",
+      "freyja"
+    ],
+    "harmony": {
+      "rise_on_kill_chance": 0.03,
+      "risen_s": 8
+    },
+    "summon": {
+      "effect": "chosen_slain",
+      "duration_s": 2,
+      "below_hp_fraction": 0.35,
+      "risen_s": 10,
+      "max_risen": 10
+    },
+    "color": "#c8b070",
+    "best_against_key": "RESONANCE_CHOSEN_SLAIN_BEST"
+  },
+  {
+    "id": "flood_and_sun",
+    "name_key": "RESONANCE_FLOOD_AND_SUN_NAME",
+    "desc_key": "RESONANCE_FLOOD_AND_SUN_DESC",
+    "gods": [
+      "enki",
+      "shamash"
+    ],
+    "harmony": {
+      "holy_vs_soaked_mult": 1.3
+    },
+    "summon": {
+      "effect": "flood_and_sun",
+      "duration_s": 3,
+      "damage": 15,
+      "holy_damage": 35
+    },
+    "color": "#7ac0f0",
+    "best_against_key": "RESONANCE_FLOOD_AND_SUN_BEST"
+  },
+  {
+    "id": "thryms_wedding",
+    "name_key": "RESONANCE_THRYMS_WEDDING_NAME",
+    "desc_key": "RESONANCE_THRYMS_WEDDING_DESC",
+    "gods": [
+      "freyja",
+      "thor"
+    ],
+    "harmony": {
+      "chain_bonus_targets": 1
+    },
+    "summon": {
+      "effect": "thryms_wedding",
+      "duration_s": 1.5,
+      "ring_radius_px": 90,
+      "damage": 35,
+      "stun_s": 2.5
+    },
+    "color": "#ffe080",
+    "best_against_key": "RESONANCE_THRYMS_WEDDING_BEST"
   }
 ]

@@ -1108,5 +1108,45 @@
     "text_key": "BANTER_ODIN_YMIR",
     "lore_source": "Snorri, Gylfaginning 7-8 (Odin and his brothers slay Ymir)",
     "needs_owner_review": true
+  },
+  {
+    "id": "torch_in_the_dark_resonance",
+    "trigger": "resonance",
+    "speaker": "hecate",
+    "hero": "",
+    "god": "torch_in_the_dark",
+    "text_key": "BANTER_TORCH_IN_THE_DARK_RESONANCE",
+    "lore_source": "Homeric Hymn to Demeter 52-61, 438-440 (Hecate with torches meets Demeter and becomes Persephone's companion)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "chosen_slain_resonance",
+    "trigger": "resonance",
+    "speaker": "freyja",
+    "hero": "",
+    "god": "chosen_slain",
+    "text_key": "BANTER_CHOSEN_SLAIN_RESONANCE",
+    "lore_source": "Grimnismal 14 (Freyja chooses half the slain each day, Odin the other half)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "flood_and_sun_resonance",
+    "trigger": "resonance",
+    "speaker": "enki",
+    "hero": "",
+    "god": "flood_and_sun",
+    "text_key": "BANTER_FLOOD_AND_SUN_RESONANCE",
+    "lore_source": "Epic of Gilgamesh, Tablet XI (Ea warns Utnapishtim; Shamash sets the hour of the Flood)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thryms_wedding_resonance",
+    "trigger": "resonance",
+    "speaker": "thor",
+    "hero": "",
+    "god": "thryms_wedding",
+    "text_key": "BANTER_THRYMS_WEDDING_RESONANCE",
+    "lore_source": "Thrymskvida (Thor, dressed as Freyja, takes back his hammer when it is laid in the bride's lap)",
+    "needs_owner_review": true
   }
 ]

@@ -48,9 +48,9 @@ func after_each() -> void:
 	SaveGame.use_test_file("")
 
 
-func test_the_five_launch_resonances_pair_existing_gods() -> void:
+func test_the_launch_and_pack_2_resonances_pair_existing_gods() -> void:
 	var all: Array[Dictionary] = ResonanceManager.all()
-	assert_eq(all.size(), 5)
+	assert_eq(all.size(), 9, "five at launch and four from Pack 2")
 	for resonance: Dictionary in all:
 		for god_id: Variant in resonance["gods"]:
 			assert_false(GodRules.find(str(god_id)).is_empty(), "%s exists" % god_id)
@@ -130,3 +130,40 @@ func test_chests_infuse_a_top_level_weapon_with_a_bound_god() -> void:
 	ChestRules.apply(_player, plan)
 	assert_eq(spear.infusion, "thor")
 	assert_true(Infusions.candidates(_player).is_empty(), "one infusion per weapon")
+
+
+func test_pack_2_harmonies() -> void:
+	_gods.bind(_player, "hecate")
+	_gods.bind(_player, "persephone")
+	var slot: int = _enemies.spawn("satyr_skirmisher", Vector2(30, 0))
+	_enemies.statuses.apply(slot, "hex")
+	_player.hp = 10.0
+	Blessings.on_kill(_player, slot)
+	assert_gt(_player.hp, 10.0, "Torch in the Dark: a Hexed kill heals")
+	_gods.release(_player, 1)
+	_gods.release(_player, 0)
+	_gods.bind(_player, "enki")
+	_gods.bind(_player, "shamash")
+	assert_almost_eq(float(_player.god_flags.get(ResonanceManager.HARMONY + "holy_vs_soaked_mult", 1.0)), 1.3, 0.001)
+	_gods.release(_player, 1)
+	_gods.release(_player, 0)
+	_gods.bind(_player, "odin")
+	_gods.bind(_player, "freyja")
+	_player.god_flags[ResonanceManager.HARMONY + "rise_on_kill_chance"] = 1.0
+	var before: int = _enemies.active_count()
+	_resonance._on_enemy_killed(-1, {"id": "satyr_skirmisher"}, Vector2(50, 0), _player)
+	assert_eq(_enemies.active_count(), before + 1, "The Chosen Slain: the fallen rises")
+
+
+func test_the_chosen_slain_and_thryms_wedding() -> void:
+	var weak: int = _enemies.spawn("satyr_skirmisher", Vector2(30, 0))
+	_enemies.hp[weak] = 1.0
+	var strong: int = _enemies.spawn("satyr_skirmisher", Vector2(-30, 0))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	_layer.run_resonance(ResonanceManager.find_id("chosen_slain"), _player)
+	assert_eq(_enemies.active[strong], 1, "the strong are spared")
+	assert_true(_enemies.active[weak] == 0 or _enemies.charmed[weak] != 0, "the weak fall")
+	var near: int = _enemies.spawn("troll", Vector2(40, 0))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	_layer.run_resonance(ResonanceManager.find_id("thryms_wedding"), _player)
+	assert_gt(_enemies.statuses.stun[near], 0.0, "the hammer stuns")

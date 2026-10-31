@@ -170,6 +170,10 @@ The same check for everything Pack 2 added. Heroes, gods and bosses first; then 
 | thanatos_persephone | boss meets god (with persephone) | thanatos | My queen, step aside; this one is mine to take. | Original line written for Mythriven (Thanatos serves the house of Hades) | no |
 | tiamat_enki | boss meets god (with enki) | tiamat | Ea, you killed my Apsu; now I take back all the waters. | Enuma Elish, Tablet I (Ea slays Apsu, and Tiamat rises in anger) | no |
 | odin_ymir | boss meets god (with odin) | ymir | Son of Borr, you and your brothers made the world from my body; did you think I would forget? | Snorri, Gylfaginning 7-8 (Odin and his brothers slay Ymir) | no |
+| torch_in_the_dark_resonance | resonance (torch_in_the_dark) | hecate | Hold my torch, daughter of Demeter; we will light the dark together. | Homeric Hymn to Demeter 52-61, 438-440 (Hecate with torches meets Demeter and becomes Persephone's companion) | no |
+| chosen_slain_resonance | resonance (chosen_slain) | freyja | Half for me, half for you, All-Father; choose well. | Grimnismal 14 (Freyja chooses half the slain each day, Odin the other half) | no |
+| flood_and_sun_resonance | resonance (flood_and_sun) | enki | Let the waters rise, and let the sun shine on whatever is left. | Epic of Gilgamesh, Tablet XI (Ea warns Utnapishtim; Shamash sets the hour of the Flood) | no |
+| thryms_wedding_resonance | resonance (thryms_wedding) | thor | Lay the hammer in the bride's lap, and watch the wedding end! | Thrymskvida (Thor, dressed as Freyja, takes back his hammer when it is laid in the bride's lap) | no |
 
 Also written for Pack 2 and worth checking: the boss lines shown as banners (`BOSS_MORDRED_ARTHUR`, `BOSS_MORDRED_CAMLANN`, `BOSS_HUMBABA_GILGAMESH`, `BOSS_GREEN_KNIGHT_RISES`) and the myth text for every new monster, god and boss in `localization/text.csv` (`ENEMY_*_MYTH`, `GOD_*_MYTH`, `HERO_*_LEGEND`).
 

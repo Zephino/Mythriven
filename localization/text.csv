@@ -1582,3 +1582,19 @@ BANTER_HUMBABA_SHAMASH,"Sun, you sent your winds against me once; not this time.
 BANTER_THANATOS_PERSEPHONE,"My queen, step aside; this one is mine to take."
 BANTER_TIAMAT_ENKI,"Ea, you killed my Apsu; now I take back all the waters."
 BANTER_ODIN_YMIR,"Son of Borr, you and your brothers made the world from my body; did you think I would forget?"
+BANTER_TORCH_IN_THE_DARK_RESONANCE,"Hold my torch, daughter of Demeter; we will light the dark together."
+BANTER_CHOSEN_SLAIN_RESONANCE,"Half for me, half for you, All-Father; choose well."
+BANTER_FLOOD_AND_SUN_RESONANCE,"Let the waters rise, and let the sun shine on whatever is left."
+BANTER_THRYMS_WEDDING_RESONANCE,"Lay the hammer in the bride's lap, and watch the wedding end!"
+RESONANCE_TORCH_IN_THE_DARK_NAME,Torch in the Dark
+RESONANCE_TORCH_IN_THE_DARK_DESC,"A Hexed kill heals 1% of your Max HP. Resonance: six of Hecate's torches circle you for 6 s, burning and Hexing everything they pass."
+RESONANCE_TORCH_IN_THE_DARK_BEST,Crowds that close in round you
+RESONANCE_CHOSEN_SLAIN_NAME,The Chosen Slain
+RESONANCE_CHOSEN_SLAIN_DESC,"Now and then a monster you kill rises to fight for you for 8 s. Resonance: every weakened monster on screen (below 35% health) falls, and half of them rise to fight for you for 10 s."
+RESONANCE_CHOSEN_SLAIN_BEST,Big crowds you have already worn down
+RESONANCE_FLOOD_AND_SUN_NAME,The Flood and the Sun
+RESONANCE_FLOOD_AND_SUN_DESC,"Holy hits deal 30% more to Soaked monsters. Resonance: a flood sweeps the screen, hitting and Soaking everything, then the sun comes out and strikes every Soaked monster with Holy light."
+RESONANCE_FLOOD_AND_SUN_BEST,Whole screens of monsters
+RESONANCE_THRYMS_WEDDING_NAME,Thrym's Wedding
+RESONANCE_THRYMS_WEDDING_DESC,"Thor's chain lightning reaches one more monster. Resonance: the hammer comes down in a ring round you, striking with Lightning and stunning everything it hits for 2.5 s."
+RESONANCE_THRYMS_WEDDING_BEST,Being surrounded

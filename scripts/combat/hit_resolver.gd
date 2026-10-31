@@ -30,6 +30,9 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 	var at: Vector2 = enemies.positions[slot]
 	var status_id: String = Elements.status_of(element)
 	var element_mult: float = Elements.multiplier(data, element)
+	# The Flood and the Sun Harmony (Enki + Shamash): Holy burns hotter on the Soaked.
+	if attacker != null and element == "holy" and st.has(slot, "soaked"):
+		element_mult *= float(attacker.god_flags.get(ResonanceManager.HARMONY + "holy_vs_soaked_mult", 1.0))
 	var bonus: float = 1.0
 	if allow_reactions:
 		if attacker != null and not attacker.god_flags.is_empty():

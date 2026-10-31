@@ -115,5 +115,7 @@ static func chain_lightning(player: Player, from_slot: int, at: Vector2, damage:
 ## Morrígan: a kill on a Hexed enemy heals its killer.
 static func on_kill(player: Player, slot: int) -> void:
 	var heal: float = float(player.god_flags.get("heal_on_hexed_kill", 0.0))
+	# Torch in the Dark Harmony (Hecate + Persephone): a Hexed kill heals a share of Max HP.
+	heal += player.max_hp * float(player.god_flags.get(ResonanceManager.HARMONY + "heal_on_hexed_kill_pct", 0.0)) / 100.0
 	if heal > 0.0 and GameAuthority.enemies != null and GameAuthority.enemies.statuses.hex[slot] > 0.0:
 		GameAuthority.heal_player(player, heal)

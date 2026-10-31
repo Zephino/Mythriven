@@ -26,6 +26,21 @@ signal fired(player: Player, resonance: Dictionary)
 func _ready() -> void:
 	gods.god_bound.connect(_on_gods_changed)
 	gods.god_released.connect(_on_gods_changed)
+	GameAuthority.enemy_killed.connect(_on_enemy_killed)
+
+
+## The Chosen Slain Harmony (Odin + Freyja): now and then a monster the Hero kills rises to fight for them
+## (Grimnismal 14: they share the slain between them).
+func _on_enemy_killed(_slot: int, enemy_type: Dictionary, at: Vector2, killer: Player) -> void:
+	if killer == null or Net.is_client() or GameAuthority.run == null:
+		return
+	var chance: float = float(killer.god_flags.get(HARMONY + "rise_on_kill_chance", 0.0))
+	if chance <= 0.0 or bool(enemy_type.get("boss", false)) or bool(enemy_type.get("animal", false)) \
+			or str(enemy_type.get("family", "")) == "summons" or GameAuthority.run.rng.combat.randf() >= chance:
+		return
+	var risen: int = GameAuthority.spawn_enemy(str(enemy_type.get("id", "")), at)
+	if risen != -1:
+		GameAuthority.enemies.charm(risen, float(killer.god_flags.get(HARMONY + "risen_s", 8.0)), killer)
 
 
 static func all() -> Array[Dictionary]:
