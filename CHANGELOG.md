@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.94
+Date: 10/31/2026
+Time: 2:06 AM
+
+### Changes
+- **Loki's sprite**, from Snorri Sturluson's Prose Edda and Viking Age finds:
+  - "pleasing and handsome in appearance" (Gylfaginning 33): a sly face with a slanted brow, russet hair swept back, a short pointed beard;
+  - his lips sewn shut, as the dwarf Brokkr did to him (Skáldskaparmál 35) and as the Snaptun stone (Denmark, about 1000 AD) shows him: stitches across his mouth;
+  - Viking Age dress from finds like Birka and Hedeby: a dark red knee-length tunic with a woven gold border, a belt, a dark blue cloak pinned at his shoulder with a silver pin, grey trousers with leg wraps, leather shoes;
+  - a flame dancing over his open hand (his wildfire attack); 4 walking frames.
+  - Nothing from Marvel's Loki (no horned helmet, no green and gold), as `GAME_DESIGN.md` requires.
+
+### Reason
+The owner approved the new Fenrir and asked to continue with the bosses.
+
 ## Version 00.01.93
 Date: 10/31/2026
 Time: 2:04 AM
