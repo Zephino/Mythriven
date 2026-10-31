@@ -328,6 +328,11 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # Niflheim: a frozen waste; dead trees and a few snow-laden spruce.
+    "niflheim": {
+        "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
+        "bushes": {"juniper": ("P", "p", "q", None)},
+        "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
     # Muspelheim: almost nothing grows; dead, burned trees and a little scorched scrub on the ash.
     "muspelheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32)},

@@ -754,5 +754,35 @@
       "id": "sinmara"
     },
     "persists": true
+  },
+  {
+    "id": "boss_hraesvelgr",
+    "name_key": "ACH_BOSS_HRAESVELGR_NAME",
+    "desc_key": "ACH_BOSS_HRAESVELGR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "hraesvelgr"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_garmr",
+    "name_key": "ACH_BOSS_GARMR_NAME",
+    "desc_key": "ACH_BOSS_GARMR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "garmr"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_nidhoggr",
+    "name_key": "ACH_BOSS_NIDHOGGR_NAME",
+    "desc_key": "ACH_BOSS_NIDHOGGR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "nidhoggr"
+    },
+    "persists": true
   }
 ]

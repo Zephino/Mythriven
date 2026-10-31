@@ -1592,5 +1592,129 @@
       "edge": "#2e2420",
       "stones": "#c8501a"
     }
+  },
+  {
+    "_doc": "Niflheim, Pack 4 realm 2, the ice realm (docs/PACK_4_PLAN.md). Sources: Snorri, Gylfaginning 4-5, 16; the Poetic Edda: Grimnismal 32-35, Voluspa 39 and 44, Vafthrudnismal 37. A realm: no local gods.",
+    "id": "niflheim",
+    "name_key": "LEVEL_NIFLHEIM_NAME",
+    "region": "realm_ice",
+    "act": 4,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "niflheim",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "ice",
+          "max": -0.35,
+          "placeholder_color": "#9ab4c8",
+          "placeholder_dots": "#c8dcec"
+        },
+        {
+          "id": "snow",
+          "max": 0.15,
+          "placeholder_color": "#d4dce6",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "packed_snow",
+          "max": 0.6,
+          "placeholder_color": "#b4bcc8",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#5a6068",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "ice_shard",
+      "frozen_root"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "ice_shard": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          26
+        ],
+        "placeholder_color": "#a8d0e8",
+        "weight": 2
+      },
+      "frozen_root": {
+        "shape": "rect",
+        "size_px": [
+          34,
+          16
+        ],
+        "placeholder_color": "#5a4a3a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "hraesvelgr",
+      "20": "garmr",
+      "30": "nidhoggr"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "pohjola",
+      "boss": "louhi"
+    },
+    "waves": "waves_niflheim.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_FREEZING_FOG_NAME",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 22,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.5,
+      "pulse": 0.1,
+      "pulse_hz": 0.2,
+      "veil_color": "#e4ecf4",
+      "particles": "mist",
+      "particle_color": "#ffffff",
+      "fade_s": 2.5,
+      "player_status": "chill",
+      "status_every_s": 3.0
+    },
+    "ground_patches": {
+      "kind": "slide",
+      "count": 6,
+      "radius_px": [
+        28,
+        46
+      ],
+      "color": "#bfe4f4",
+      "grip_per_s": 2.0
+    },
+    "seal": "norse_band",
+    "tint": "#dce4f0",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "dead_tree": 2,
+        "spruce": 1
+      }
+    },
+    "road": {
+      "color": "#c8ccd4",
+      "edge": "#9aa0aa",
+      "stones": "#8a8c90"
+    }
   }
 ]

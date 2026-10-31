@@ -1880,3 +1880,29 @@ BANTER_GIFR_AND_GERI_ENTRANCE,One of us always watches. Always.
 BANTER_VIDOFNIR_ENTRANCE,"Look at me, and see nothing else."
 BANTER_SINMARA_ENTRANCE,"Nine locks on the chest, and every key is mine."
 BANTER_SINMARA_FREYJA,"Goddess, your gold will melt like everything else here."
+LEVEL_NIFLHEIM_NAME,Niflheim
+HAZARD_FREEZING_FOG_NAME,A freezing fog rolls in!
+ENEMY_RIME_WRAITH_NAME,Rime wraith
+ENEMY_RIME_WRAITH_MYTH,"In the beginning, Snorri says, the cold of Niflheim filled the northern half of the great gap with ice and rime, heavy and gloomy, with mists and gusts."
+ENEMY_HVERGELMIR_SERPENT_NAME,Serpent of Hvergelmir
+ENEMY_HVERGELMIR_SERPENT_MYTH,"Hvergelmir is the roaring spring in Niflheim from which the rivers flow. More serpents lie beneath the world-tree than any fool can think, the Eddic poem Grímnismál says, and it names them."
+BOSS_HRAESVELGR_NAME,Hræsvelgr
+BOSS_GARMR_NAME,Garmr
+BOSS_NIDHOGGR_NAME,Níðhöggr
+ENEMY_HRAESVELGR_NAME,Hræsvelgr
+ENEMY_GARMR_NAME,Garmr
+ENEMY_NIDHOGGR_NAME,Níðhöggr
+ENEMY_HRAESVELGR_MYTH,"""Corpse-swallower"", a giant in the shape of an eagle who sits at the end of the heavens. When he beats his wings, the winds blow over all the world."
+ENEMY_GARMR_MYTH,"The greatest of hounds. In the Völuspá he bays loudly before the cave Gnipahellir; his fetters break, and the wolf runs free at the world's end."
+ENEMY_NIDHOGGR_MYTH,"The dragon who lies beneath the world-tree in Niflheim and gnaws at its roots. In the Völuspá he flies over the plain at the end of the world, bearing the dead in his wings."
+BOSS_GARMR_BAYS,"Garmr bays, and the dead come!"
+ACH_BOSS_HRAESVELGR_NAME,Defeat Hræsvelgr
+ACH_BOSS_HRAESVELGR_DESC,The 10:00 boss of Niflheim.
+ACH_BOSS_GARMR_NAME,Defeat Garmr
+ACH_BOSS_GARMR_DESC,The 20:00 boss of Niflheim.
+ACH_BOSS_NIDHOGGR_NAME,Defeat Níðhöggr
+ACH_BOSS_NIDHOGGR_DESC,The 30:00 boss of Niflheim.
+BANTER_HRAESVELGR_ENTRANCE,Every wind in the world comes from my wings.
+BANTER_GARMR_ENTRANCE,Hear me bay; the fetter is wearing thin.
+BANTER_NIDHOGGR_ENTRANCE,I gnaw the roots of the world. You are a smaller meal.
+BANTER_NIDHOGGR_ODIN,"All-Father, your tree is rotting from below, and I am why."

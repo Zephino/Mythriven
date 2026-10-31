@@ -1,0 +1,53 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A frozen root (Niflheim): a huge gnarled root of the world-tree breaking through the ice, gnawed, rimed with frost (Grimnismal 32-35).",
+ "size": [
+  36,
+  14
+ ],
+ "anchor": [
+  18,
+  13
+ ],
+ "palette": {
+  "a": "#120c06",
+  "b": "#2a2418",
+  "c": "#f0f0f6",
+  "d": "#1e1812",
+  "e": "#5a4e3c",
+  "f": "#544236",
+  "g": "#6c5a48",
+  "h": "#483c30",
+  "i": "#665442",
+  "j": "#604e42",
+  "k": "#483c2a",
+  "l": "#4e4236",
+  "m": "#42362a",
+  "n": "#362a24",
+  "o": "#5a483c",
+  "p": "#241e12",
+  "q": "#3c3024",
+  "r": "#241812",
+  "s": "#362a1e",
+  "t": "#544836"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".........................a..........",
+    "......................bbbcbb........",
+    "...................abdefghgibd.a....",
+    ".a................bcjkjelmljjndca...",
+    "aca.............bdjjekiiikeilkjfbd..",
+    "dmdb.........aaajkjiemjeemjojmjjjkd.",
+    "dmijbd.a....apppekiijkiffmeijmejjmeb",
+    "dqeooqdcbdbbeprrjsjeomdbbdbblmeoemeb",
+    "dmjeemeeemleerrremjebd......bdoeomjb",
+    "dqjoemelemeoemejemdb..........bbemeb",
+    ".dooemjjomolemjjbd..............bdeb",
+    "..bbtqtofqoofqtb..................b.",
+    "....bdhffqtobdb.....................",
+    "......bbbdbb........................"
+   ]
+  ]
+ }
+}

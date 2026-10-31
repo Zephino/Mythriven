@@ -3406,5 +3406,246 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Niflheim bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "hraesvelgr",
+    "name_key": "BOSS_HRAESVELGR_NAME",
+    "tradition": "norse",
+    "lore_source": "Vafthrudnismal 37; Gylfaginning 18 (the winds come from his wings)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "hraesvelgr",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "wingbeats",
+      "gust_every_s": 5.0,
+      "gust_s": 1.2,
+      "gust_px_s": 220,
+      "gust_damage": 6
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Niflheim bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "garmr",
+    "name_key": "BOSS_GARMR_NAME",
+    "tradition": "norse",
+    "lore_source": "Voluspa 44 (Garm bays loudly before Gnipahellir)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "garmr",
+    "move_speed": 54,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "baying",
+      "howl_every_s": 8.0,
+      "howl_adds": 5,
+      "add": "draugr",
+      "howl_radius_px": 110,
+      "howl_damage": 8
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Niflheim bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "nidhoggr",
+    "name_key": "BOSS_NIDHOGGR_NAME",
+    "tradition": "norse",
+    "lore_source": "Grimnismal 32-35; Voluspa 39 (Nidhoggr gnaws the roots of the tree)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "nidhoggr",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "under_the_ice",
+      "dive_every_s": 8.0,
+      "under_s": 2.5,
+      "hole_radius_px": 30,
+      "hole_s": 40,
+      "max_holes": 10,
+      "hole_slow": 0.5,
+      "hole_damage": 7,
+      "surface_damage": 20,
+      "surface_radius_px": 50
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "hvergelmir_serpent"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "hvergelmir_serpent"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

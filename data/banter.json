@@ -1611,5 +1611,46 @@
     "text_key": "BANTER_SINMARA_FREYJA",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "hraesvelgr_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "hraesvelgr",
+    "hero": "",
+    "god": "hraesvelgr",
+    "text_key": "BANTER_HRAESVELGR_ENTRANCE",
+    "lore_source": "Vafthrudnismal 37",
+    "needs_owner_review": true
+  },
+  {
+    "id": "garmr_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "garmr",
+    "hero": "",
+    "god": "garmr",
+    "text_key": "BANTER_GARMR_ENTRANCE",
+    "lore_source": "Voluspa 44 (Garm bays; the fetter breaks)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "nidhoggr_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "nidhoggr",
+    "hero": "",
+    "god": "nidhoggr",
+    "text_key": "BANTER_NIDHOGGR_ENTRANCE",
+    "lore_source": "Grimnismal 35 (Nidhoggr gnaws the roots)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "nidhoggr_odin",
+    "trigger": "boss_meets_god",
+    "speaker": "nidhoggr",
+    "hero": "",
+    "god": "nidhoggr",
+    "with_god": "odin",
+    "text_key": "BANTER_NIDHOGGR_ODIN",
+    "lore_source": "Grimnismal 35 (the ash suffers more than men know)",
+    "needs_owner_review": true
   }
 ]

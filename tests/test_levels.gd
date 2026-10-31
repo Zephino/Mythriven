@@ -781,3 +781,31 @@ func test_vidofnir_flares_and_sinmara_takes_up_laevateinn() -> void:
 	var before: float = sinmara._damage_mult()
 	sinmara.phase_index = 2
 	assert_gt(sinmara._damage_mult(), before, "Laevateinn strikes harder")
+
+
+func test_niflheim_fog_chills_and_hraesvelgr_blows() -> void:
+	_start("niflheim")
+	var fog := Hazard.create(_level("niflheim")["hazard"]) as HazardWeather
+	_world.add_child(fog)
+	fog.begin(_level("niflheim")["hazard"])
+	for _i: int in 40:
+		fog._process(0.1)
+	assert_true(_player.statuses.has("chill"), "the freezing fog chills")
+	var eagle: HraesvelgrBoss = _bosses.spawn_boss("hraesvelgr", 0) as HraesvelgrBoss
+	_player.position = eagle.position_now() + Vector2(60, 0)
+	var at: Vector2 = _player.position
+	eagle.signature(5.0)
+	eagle.signature(0.2)
+	assert_gt(_player.position.distance_to(eagle.position_now()), at.distance_to(eagle.position_now()), "the gale shoves you away")
+
+
+func test_garmr_bays_up_the_dead_and_nidhoggr_burrows() -> void:
+	_start("niflheim")
+	var garmr: GarmrBoss = _bosses.spawn_boss("garmr", 1) as GarmrBoss
+	var before: int = _enemies.active_count()
+	garmr.signature(8.0)
+	assert_gt(_enemies.active_count(), before, "the dead come at his baying")
+	var dragon: NidhoggrBoss = _bosses.spawn_boss("nidhoggr", 2) as NidhoggrBoss
+	dragon.target = _player
+	dragon.signature(8.5)
+	assert_gt(dragon.under_s, 0.0, "he burrows down among the roots")

@@ -1,0 +1,70 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. An ice shard (Niflheim): a tall, jagged spike of blue-white ice.",
+ "size": [
+  13,
+  27
+ ],
+ "anchor": [
+  6,
+  26
+ ],
+ "palette": {
+  "a": "#484848",
+  "b": "#a8a8ae",
+  "c": "#aeb4ba",
+  "d": "#a2a2a8",
+  "e": "#120c06",
+  "f": "#f0f0f6",
+  "g": "#aeaea8",
+  "h": "#969c9c",
+  "i": "#8a8a90",
+  "j": "#a8a89c",
+  "k": "#84848a",
+  "l": "#96969c",
+  "m": "#909096",
+  "n": "#7e7e7e",
+  "o": "#9ca2a2",
+  "p": "#90908a",
+  "q": "#9c9c96",
+  "r": "#a2a29c",
+  "s": "#4e4e48",
+  "t": "#727878",
+  "u": "#7e8484",
+  "v": "#787e7e",
+  "w": "#8a8a8a",
+  "x": "#969690"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....aaa.....",
+    "....abcca....",
+    "....acdca....",
+    "....abcda....",
+    "....efba.....",
+    "....aggga....",
+    "...ahhidha...",
+    "...ahbhida...",
+    "...adfdda....",
+    "...adhhdda...",
+    "...ajjggja...",
+    "..abibhdbha..",
+    "..abdfdkda...",
+    "..almnmlmka..",
+    "..aomllllma..",
+    "..apgqgrrrs..",
+    ".allofoolla..",
+    ".allkmlkokma.",
+    ".aollmmlllma.",
+    ".almmlomllla.",
+    ".argrfrgrraa.",
+    "ammmolollooma",
+    "amlmmmmmmtmma",
+    "ammummvlmwmma",
+    "awmmtmmmwlma.",
+    "sqxqrrqxrxqqs",
+    ".sssssssssss."
+   ]
+  ]
+ }
+}

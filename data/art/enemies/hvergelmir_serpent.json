@@ -1,0 +1,94 @@
+{
+ "_doc": "A serpent of Hvergelmir (Grimnismal 34: more serpents lie under the world-tree than any fool knows): a pale, ice-scaled snake from the roaring spring. Built by tools/art/build_realms.py.",
+ "size": [
+  24,
+  12
+ ],
+ "anchor": [
+  11,
+  10
+ ],
+ "palette": {
+  "o": "#1a2a34",
+  "s": "#a8c8d8",
+  "S": "#7a9ab0",
+  "k": "#0a1a24",
+  "r": "#c83030"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "................oo......",
+    "...............ossooo...",
+    "...............ossksso..",
+    "........oooooo.osssssoo.",
+    ".......osSssSsoossooooro",
+    ".oooooossSssSssooo....o.",
+    "ossSssSsoooooosSso......",
+    "ossSssSo......oSso......",
+    ".oooooo........oo.......",
+    "........................"
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "................oo......",
+    "...............ossooo...",
+    "...............ossksso..",
+    ".o........oooooosssssoo.",
+    "oso......ossSssSssooooro",
+    "ossooooooSssSssSso....o.",
+    ".osSssSssSooooooso......",
+    "..oSssSsso......o.......",
+    "...oooooo...............",
+    "........................"
+   ],
+   [
+    "........................",
+    "........................",
+    "................oo......",
+    "...............ossooo...",
+    "...............ossksso..",
+    "........oooooo.osssssoo.",
+    ".......osSssSsoossooooro",
+    ".oooooossSssSssooo....o.",
+    "ossSssSsoooooosSso......",
+    "ossSssSo......oSso......",
+    ".oooooo........oo.......",
+    "........................"
+   ],
+   [
+    "........................",
+    "........................",
+    "................oo......",
+    "...............ossooo...",
+    "...............ossksso..",
+    "......oooooo...osssssoo.",
+    ".....oSssSsso..ossooooro",
+    ".oooosSssSssSooooo....o.",
+    "ossSssooooooSssSso......",
+    "ossSso......ossSso......",
+    ".oooo........oooo.......",
+    "........................"
+   ],
+   [
+    "........................",
+    "........................",
+    "................oo......",
+    "...............ossooo...",
+    "...............ossksso..",
+    "........oooooo.osssssoo.",
+    ".......osSssSsoossooooro",
+    ".oooooossSssSssooo....o.",
+    "ossSssSsoooooosSso......",
+    "ossSssSo......oSso......",
+    ".oooooo........oo.......",
+    "........................"
+   ]
+  ]
+ }
+}

@@ -11,6 +11,8 @@ extends Hazard
 ## blowing across the screen; "" for none) and particle_color.
 
 var wind := Vector2.RIGHT
+## Seconds until the fog next lays its status on the Heroes (data "player_status", every "status_every_s").
+var _status_in: float = 0.0
 
 var _turn_left: float = 0.0
 var _strength: float = 0.0
@@ -74,6 +76,15 @@ func _process(delta: float) -> void:
 	_update_veil()
 	if _strength <= 0.0 or GameAuthority.run == null:
 		return
+	# Niflheim's freezing fog chills whoever is out in it (docs/PACK_4_PLAN.md).
+	var status: String = str(_data.get("player_status", ""))
+	if status != "" and _strength >= 1.0:
+		_status_in -= delta
+		if _status_in <= 0.0:
+			_status_in = float(_data.get("status_every_s", 3.0))
+			for player: Player in GameAuthority.players:
+				if player.alive:
+					player.statuses.apply(status)
 	_turn_left -= delta
 	if _turn_left <= 0.0:
 		_turn_left = float(_data.get("wind_turn_s", 6.0))

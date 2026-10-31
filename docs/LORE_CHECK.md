@@ -304,6 +304,21 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | sinmara_entrance | boss entrance | sinmara | Nine locks on the chest, and every key is mine. | Fjolsvinnsmal 26-30 (Laevateinn in a chest with nine locks) | no |
 | sinmara_freyja | boss meets god (with freyja) | sinmara | Goddess, your gold will melt like everything else here. | Original line written for Mythriven | no |
 
+### Niflheim
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| boss | hraesvelgr | Hræsvelgr | Vafthrudnismal 37; Gylfaginning 18 (the winds come from his wings) | no |
+| boss | garmr | Garmr | Voluspa 44 (Garm bays loudly before Gnipahellir) | no |
+| boss | nidhoggr | Níðhöggr | Grimnismal 32-35; Voluspa 39 (Nidhoggr gnaws the roots of the tree) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| hraesvelgr_entrance | boss entrance | hraesvelgr | Every wind in the world comes from my wings. | Vafthrudnismal 37 | no |
+| garmr_entrance | boss entrance | garmr | Hear me bay; the fetter is wearing thin. | Voluspa 44 (Garm bays; the fetter breaks) | no |
+| nidhoggr_entrance | boss entrance | nidhoggr | I gnaw the roots of the world. You are a smaller meal. | Grimnismal 35 (Nidhoggr gnaws the roots) | no |
+| nidhoggr_odin | boss meets god (with odin) | nidhoggr | All-Father, your tree is rotting from below, and I am why. | Grimnismal 35 (the ash suffers more than men know) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

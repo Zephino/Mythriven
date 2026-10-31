@@ -50,7 +50,7 @@ func _surface() -> void:
 	var reach: float = float(_sig().get("surface_radius_px", 46.0))
 	for player: Player in GameAuthority.players:
 		if player.alive and player.position.distance_to(_rise_at) <= reach:
-			GameAuthority.damage_player(player, float(_sig().get("surface_damage", 18.0)), "iku_turso", _rise_at)
+			GameAuthority.damage_player(player, float(_sig().get("surface_damage", 18.0)), str(data.get("id", "")), _rise_at)
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
 		effects.spawn_ring(_rise_at, reach, Color(0.85, 0.95, 1.0), true)
@@ -73,7 +73,7 @@ func _wade(delta: float) -> void:
 			player.slow_zone_mult = float(_sig().get("hole_slow", 0.5))
 			_slowed[player.player_id] = true
 			if hurting and player.alive:
-				GameAuthority.damage_player(player, float(_sig().get("hole_damage", 6.0)), "iku_turso")
+				GameAuthority.damage_player(player, float(_sig().get("hole_damage", 6.0)), str(data.get("id", "")))
 		elif _slowed.has(player.player_id):
 			player.slow_zone_mult = 1.0
 			_slowed.erase(player.player_id)

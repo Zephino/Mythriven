@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.78
+Date: 10/31/2026
+Time: 6:06 PM
+
+### Changes
+- **Pack 4, Niflheim, the ice realm, is built and open** (`docs/PACK_4_PLAN.md`). Beat Louhi (Pohjola's 30:00 boss) to unlock it.
+  - **The land:** ice, snow and bare rock; ice shards and the frozen roots of the world-tree breaking through; frozen ponds you slide on; a few dead trees and spruce.
+  - **Freezing fog** (the hazard): a white fog closes in and chills every Hero out in it.
+  - **Monsters:** serpents of Hvergelmir, rime wraiths drifting in the mist, the restless dead (draugr) and frost thursar.
+  - **Bosses** (from the Poetic Edda):
+    - **Hræsvelgr** (10:00): the giant in eagle's shape; his wingbeats raise a gale that shoves you away and stings.
+    - **Garmr** (20:00): the great hound bays, hurting anyone close, and the dead come at the sound.
+    - **Níðhöggr** (30:00): the dragon burrows among the roots of the world-tree, where nothing can hurt him, and bursts up beneath you, leaving pits that slow and hurt.
+  - Boss achievements, 4 banter lines (Níðhöggr has words for Odin), and Niflheim's rows on the lore check.
+- 2 new tests (322 tests pass).
+
+### Reason
+The owner said "go for it". Niflheim is Pack 4's second realm.
+
 ## Version 00.02.77
 Date: 10/31/2026
 Time: 5:59 PM

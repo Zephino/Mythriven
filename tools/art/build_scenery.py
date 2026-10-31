@@ -346,6 +346,30 @@ def obsidian_spire():
     return p
 
 
+def ice_shard():
+    """An ice shard (Niflheim): a tall, jagged spike of blue-white ice."""
+    p = Pic(14, 26, (7, 25))
+    for y in range(1, 26):
+        half = (y - 1) * 5 // 25 + 1
+        p.rect(7 - half, y, 7 + half - (y % 4 == 0), y, "h" if y % 5 else "j")
+    for y in range(4, 22, 4):
+        p.px(6, y, "s")
+    return p
+
+
+def frozen_root():
+    """A frozen root (Niflheim): a huge gnarled root of the world-tree breaking through the ice, gnawed, rimed with
+    frost (Grimnismal 32-35)."""
+    p = Pic(34, 16, (17, 15))
+    for x in range(0, 34):
+        y = 8 + round(3 * math.sin(x / 5.0))
+        p.rect(x, y, x, min(y + 4, 15), "b" if x % 4 else "B")
+        if x % 6 == 0:
+            p.px(x, y - 1, "s")
+    p.rect(12, 9, 14, 11, "z")                                          # a gnawed hollow
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -371,7 +395,8 @@ def lekythos():
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
-                                   castle_wall_ruin, smoking_vent, obsidian_spire)}
+                                   castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
+                                   frozen_root)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

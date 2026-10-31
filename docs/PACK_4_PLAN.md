@@ -2,7 +2,7 @@
 
 Status: **approved by the owner** (10/31/2026: "yes as suggested" to all five questions: Elemental Planes first; the drafted
 bosses, monsters and hazards; the unlocks and +60% / +35% / +30%; no new Heroes; St Guénolé kept out). Muspelheim built
-and released 10/31/2026 (00.02.77). The owner asked to start Pack 4 once Pack 3 was done ("then start pack
+and released 10/31/2026 (00.02.77); Niflheim (00.02.78). The owner asked to start Pack 4 once Pack 3 was done ("then start pack
 4"). `docs/PACK_PLAN.md` (Phase 33) says the realms must be designed with the owner before any building: the design
 names only one boss per realm and no monsters or hazards. This is that design, drafted from the old public-domain texts
 only (never modern games, books or films), for the owner to approve, change or reject.
@@ -40,7 +40,7 @@ the stars from such sparks.
 | 20:00 | **Víðófnir** | The gleaming golden cock on the world-tree; its light blinds, and a dive strikes from above | Fjölsvinnsmál 18-26 |
 | 30:00 | **Sinmara** (the design's) | The fire-giantess who keeps the weapon Lævateinn in a locked chest; the arena's flames close in | Fjölsvinnsmál 26-30 |
 
-## Realm 14: Niflheim (ice)
+## Realm 14: Niflheim (ice): **done and released 10/31/2026 (00.02.78)**
 *Sources: Snorri, Gylfaginning 4-5 (Niflheim and the spring Hvergelmir), 16 (the eagle at the world's edge); the
 Poetic Edda: Grímnismál 32-35 (Níðhöggr and the serpents under the tree), Völuspá 39 and 44 (Náströnd; Garmr),
 Vafþrúðnismál 37 (Hræsvelgr).*

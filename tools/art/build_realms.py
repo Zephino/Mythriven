@@ -119,6 +119,86 @@ SINMARA_PAL = {"o": "#120404", "k": "#080202", "r": "#2a1a1e", "R": "#1a0e12", "
                "h": "#2a1210", "f": "#f07a20", "y": "#ffe060", "u": "#b8a060"}
 
 
+# --- Niflheim (Gylfaginning 4-5, 16; Grimnismal 32-35; Voluspa 39, 44; Vafthrudnismal 37) ----------------------------
+
+def rime_wraith(c, f):
+    """A rime wraith (Niflheim; Gylfaginning 5: the rime and frost of Ginnungagap): a pale, drifting shape of frost
+    mist with hollow eyes."""
+    sway = [0, 1, 0, -1, 0][f]
+    for y in range(2, 20):
+        half = 4 - abs(y - 9) * 0.25 if y < 14 else 3 - (y - 14) * 0.5
+        c.rect(round(8 - half + sway * (y > 12)), y, round(8 + half + sway * (y > 12)), y, "w" if y % 3 else "W")
+    c.px(6, 7, "k"); c.px(10, 7, "k")
+    c.px(3, 12, "W"); c.px(13, 11, "W")
+
+
+WRAITH_PAL = {"o": "#2a3a4a", "w": "#e8f2f8", "W": "#b8d0e0", "k": "#2a4a6a"}
+
+
+def hvergelmir_serpent(c, f):
+    """A serpent of Hvergelmir (Grimnismal 34: more serpents lie under the world-tree than any fool knows): a pale,
+    ice-scaled snake from the roaring spring."""
+    s = STEP[f]
+    for x in range(1, 17):
+        y = 7 + round(1.4 * math.sin((x + s * 2) / 2.2))
+        c.rect(x, y, x, y + 1, "s" if x % 3 else "S")
+    poly(c, [(16, 3), (21, 4), (21, 6), (16, 7)], "s"); c.px(18, 4, "k"); c.px(22, 6, "r")
+
+
+SERP_PAL = {"o": "#1a2a34", "s": "#a8c8d8", "S": "#7a9ab0", "k": "#0a1a24", "r": "#c83030"}
+
+
+def hraesvelgr(c, step):
+    """Hraesvelgr (Vafthrudnismal 37; Gylfaginning 18): the giant in the shape of an eagle who sits at the end of the
+    heavens; the wind comes from his wings. A vast pale eagle, wings spread."""
+    ellipse(c, 40, 34, 10, 14, "b")
+    for side in (-1, 1):
+        pts = [(40, 26), (40 + side * 38, 12 + step * side), (40 + side * 34, 26), (40 + side * 38, 34), (40, 38)]
+        poly(c, pts, "B" if side < 0 else "b")
+        for k in range(6):
+            c.rect(40 + side * (12 + k * 4), 30 + k, 40 + side * (12 + k * 4), 34 + k, "w")
+    ellipse(c, 40, 18, 6, 5, "w")
+    poly(c, [(40, 20), (47, 22), (42, 25)], "u"); c.px(42, 17, "k")
+    for k in range(4):
+        c.rect(34 + k * 4, 48, 34 + k * 4, 53, "u")
+
+
+HRAES_PAL = {"o": "#18202a", "k": "#080c10", "b": "#8a9aa8", "B": "#6a7a88", "w": "#e8eef4", "u": "#d8b048"}
+
+
+def garmr(c, step):
+    """Garmr (Voluspa 44: Garm bays loudly before Gnipahellir; Grimnismal 44: the best of hounds): a huge grey hound,
+    its chest dark with blood, baying."""
+    ellipse(c, 26, 22, 18, 9, "g")
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(11 + k * 10 + d, 28, 14 + k * 10 + d, 40, "G" if k % 2 else "g")
+    poly(c, [(40, 10), (54, 6), (56, 14), (42, 22)], "g")                               # head raised, baying
+    c.rect(52, 12, 56, 15, "k"); c.px(48, 9, "y")
+    c.px(43, 6, "g"); c.px(44, 5, "g")
+    ellipse(c, 40, 24, 5, 6, "r")                                                        # the blood on its breast
+    c.rect(4, 17, 9, 19, "G")
+
+
+GARMR_PAL = {"o": "#10100e", "k": "#060604", "g": "#6a6a66", "G": "#4a4a46", "r": "#7a1a18", "y": "#e8d040"}
+
+
+def nidhoggr(c, step):
+    """Nidhoggr (Grimnismal 35; Voluspa 39, 66): the dragon who gnaws the roots of the world-tree from beneath, and
+    flies over the plain with corpses in its wings. A dark winged dragon coiled among great roots."""
+    for k in range(4):                                                                   # the roots of the tree
+        c.rect(2 + k * 18, 46 - k % 2 * 3, 14 + k * 18, 49, "r")
+    for k in range(8):
+        ellipse(c, 10 + k * 7, 38 + round(3 * math.sin(k / 1.4 + step * 0.4)), 6, 5, "d" if k % 2 else "D")
+    poly(c, [(30, 32), (14, 10 + step), (34, 30)], "w"); poly(c, [(42, 32), (58, 10 - step), (46, 30)], "w")
+    poly(c, [(58, 26), (70, 28), (72, 34), (60, 36)], "d")
+    c.rect(66, 32, 72, 35, "D"); c.row(33, 66, 72, "t"); c.px(63, 29, "y")
+    poly(c, [(60, 26), (58, 18), (63, 25)], "t")
+
+
+NID_PAL = {"o": "#08080c", "d": "#2a2a3a", "D": "#1a1a26", "w": "#3a2a3a", "r": "#5a4430", "t": "#d8d0b8",
+           "y": "#c8f040"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_realms.py."
@@ -131,4 +211,10 @@ if __name__ == "__main__":
                    [0, 0, 0, 0, 0])
     kit.build_boss("vidofnir", vidofnir, VIDOFNIR_PAL, doc(vidofnir.__doc__), (48, 48), (24, 46), [0, 1, 0, -1, 0])
     kit.build_boss("sinmara", sinmara, SINMARA_PAL, doc(sinmara.__doc__), (46, 66), (22, 64), [0, 1, 0, -1, 0])
+    kit.build_boss("rime_wraith", rime_wraith, WRAITH_PAL, doc(rime_wraith.__doc__), (16, 22), (8, 21), walk, folder="enemies")
+    kit.build_boss("hvergelmir_serpent", hvergelmir_serpent, SERP_PAL, doc(hvergelmir_serpent.__doc__), (24, 12), (11, 10),
+                   walk, folder="enemies")
+    kit.build_boss("hraesvelgr", hraesvelgr, HRAES_PAL, doc(hraesvelgr.__doc__), (80, 56), (40, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("garmr", garmr, GARMR_PAL, doc(garmr.__doc__), (58, 42), (28, 40), [0, 1, 0, -1, 0])
+    kit.build_boss("nidhoggr", nidhoggr, NID_PAL, doc(nidhoggr.__doc__), (74, 52), (36, 50), [0, 1, 0, -1, 0])
     print("wrote the Elemental Planes' art")
