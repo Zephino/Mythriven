@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.37
+Date: 10/31/2026
+Time: 11:32 AM
+
+### Changes
+- **Medusa hits harder.** Her shots deal about 50% more in every phase (now 10-18, were 7-12), she attacks every 2.2 s instead of 2.6 s, touching her deals 14 instead of 10, and her petrifying gaze comes every 7 s instead of 8. She stays a little below Achilles (the 20-minute boss) so the Aegean bosses still get harder in order.
+
+### Reason
+The owner said Medusa needs to deal more damage.
+
 ## Version 00.02.36
 Date: 10/31/2026
 Time: 11:26 AM

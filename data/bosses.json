@@ -11,7 +11,7 @@
     "enemy": "medusa",
     "move_speed": 34,
     "keep_distance_px": 110,
-    "attack_every_s": 2.6,
+    "attack_every_s": 2.2,
     "guard_gauge": {
       "max": 450,
       "break_s": 4,
@@ -20,7 +20,7 @@
     },
     "signature": {
       "type": "gaze",
-      "every_s": 8,
+      "every_s": 7,
       "charge_s": 1.2,
       "cone_deg": 70,
       "range_px": 320,
@@ -36,12 +36,12 @@
             "pattern": "aimed_fan",
             "count": 7,
             "spread_deg": 50,
-            "damage": 8
+            "damage": 12
           },
           {
             "pattern": "radial_burst",
             "count": 14,
-            "damage": 7
+            "damage": 10
           }
         ],
         "gaze": false,
@@ -54,12 +54,12 @@
             "pattern": "aimed_fan",
             "count": 7,
             "spread_deg": 50,
-            "damage": 9
+            "damage": 14
           },
           {
             "pattern": "ground_circles",
             "count": 5,
-            "damage": 12
+            "damage": 18
           }
         ],
         "gaze": true,
@@ -72,7 +72,7 @@
               "pattern": "spiral",
               "arms": 4,
               "duration_s": 2.0,
-              "damage": 7
+              "damage": 10
             }
           }
         ]
@@ -83,13 +83,13 @@
           {
             "pattern": "radial_burst",
             "count": 18,
-            "damage": 8
+            "damage": 12
           },
           {
             "pattern": "aimed_fan",
             "count": 9,
             "spread_deg": 60,
-            "damage": 9
+            "damage": 14
           }
         ],
         "gaze": true,

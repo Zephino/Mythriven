@@ -453,7 +453,7 @@
     "movement": "still",
     "hp": 2500,
     "speed": 34,
-    "contact_damage": 10,
+    "contact_damage": 14,
     "armor": 2,
     "radius_px": 18,
     "element": "earth",
