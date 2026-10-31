@@ -10,13 +10,13 @@ extends MenuScreen
 ## The rows, in order. Each is a key in config settings.defaults.
 const ROWS: PackedStringArray = [
 	"volume_pct", "text_size_pct", "effect_opacity_pct", "shake", "flash", "damage_numbers", "element_icons",
-	"colorblind", "auto_summon", "auto_collect", "control_size_pct", "joystick_side", "banter", "tips",
+	"colorblind", "auto_summon", "auto_collect", "control_size_pct", "joystick_side", "banter", "tips", "show_fps",
 ]
 ## The same rows under headings (owner decision 10/31/2026: the menus' information laid out tidily).
 const GROUPS: Array = [
 	["UI_SETTINGS_GROUP_SOUND", ["volume_pct", "text_size_pct"]],
 	["UI_SETTINGS_GROUP_EFFECTS", ["effect_opacity_pct", "shake", "flash", "damage_numbers", "element_icons", "colorblind"]],
-	["UI_SETTINGS_GROUP_PLAY", ["auto_summon", "auto_collect", "banter", "tips"]],
+	["UI_SETTINGS_GROUP_PLAY", ["auto_summon", "auto_collect", "banter", "tips", "show_fps"]],
 	["UI_SETTINGS_GROUP_CONTROLS", ["control_size_pct", "joystick_side"]],
 ]
 

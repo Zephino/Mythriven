@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.61
+Date: 10/31/2026
+Time: 2:01 PM
+
+### Changes
+- **Show FPS (a setting).** Settings → Gameplay → "Show FPS" (off by default). When it's on, the frames per second show above the timer in the top bar, the pair centred like Kills and Alive.
+- **Smoother with lots of monsters.** Measured first: with 450 monsters spread out like a real run, the monsters' work each frame went from about 7.3 ms to about 3.8 ms.
+  - **Far-off monsters do less:** monsters more than about a screen from every Hero (off screen, `performance.lod_far_px`) move on every other frame, twice as far each time, so they keep their speed. They aren't pushed apart from each other until they come near. Monsters on screen move every frame as before.
+  - **Drawing monsters** no longer looks up settings by name for every monster every frame; they're read once per frame.
+- Tests unchanged and passing.
+
+### Reason
+The owner asked for an FPS display as a setting, above the timer, centred, and for anything that can be done to start preventing the frame-rate drop with many monsters.
+
 ## Version 00.02.60
 Date: 10/31/2026
 Time: 1:51 PM

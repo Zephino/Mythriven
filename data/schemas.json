@@ -202,6 +202,7 @@
               "spatial_hash_cell_px": "number",
               "separation_hz": "number",
               "separation_max_neighbors": "number",
+              "lod_far_px": "number",
               "status_tick_hz": "number",
               "retarget_interval_s": "number"
             }
@@ -1070,7 +1071,8 @@
                   "damage_numbers": "bool",
                   "text_size_pct": "number",
                   "banter": "bool",
-                  "tips": "bool"
+                  "tips": "bool",
+                  "show_fps": "bool"
                 }
               },
               "choices": {

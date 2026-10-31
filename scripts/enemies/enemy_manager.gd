@@ -319,6 +319,11 @@ func base_color(slot: int) -> Color:
 func _draw_instances(delta: float) -> void:
 	var flash_color := Color.html(Data.cfg_string("enemies.hit_flash_color"))
 	var tint_strength: float = Data.cfg_float("enemies.status_tint_strength")
+	# Read once per frame, not once per monster (performance, owner request 10/31/2026).
+	var override_tint: float = Data.cfg_float("enemies.art_override_tint")
+	var status_tint: float = Data.cfg_float("enemies.art_status_tint")
+	var wind_tint: float = Data.cfg_float("enemies.art_wind_up_tint")
+	var flash_tint: float = Data.cfg_float("enemies.art_hit_flash_tint")
 	for i: int in capacity:
 		if active[i] == 0:
 			continue
@@ -333,16 +338,16 @@ func _draw_instances(delta: float) -> void:
 			# The tint's alpha is how strongly it shows over the picture.
 			var tint := Color(0, 0, 0, 0)
 			if tint_override[i].a > 0.0:
-				tint = Color(tint_override[i], Data.cfg_float("enemies.art_override_tint"))
+				tint = Color(tint_override[i], override_tint)
 			var status: Color = statuses.tint(i)
 			if status.a > 0.0:
-				tint = Color(status, Data.cfg_float("enemies.art_status_tint"))
+				tint = Color(status, status_tint)
 			var wind: Color = movement.override_color(self, i)
 			if wind.a > 0.0:
-				tint = Color(wind, Data.cfg_float("enemies.art_wind_up_tint"))
+				tint = Color(wind, wind_tint)
 			if flash_timer[i] > 0.0:
 				flash_timer[i] -= delta
-				tint = Color(flash_color, Data.cfg_float("enemies.art_hit_flash_tint"))
+				tint = Color(flash_color, flash_tint)
 			sprites.place(_sprite_mm, i, kind[i], positions[i], radius[i], _face_left[i] == 1, absf(dx) > 0.02, _stride[i], tint)
 			continue
 		sprites.hide(_sprite_mm, i)

@@ -15,6 +15,8 @@ var _kills_label: Label
 ## How many monsters are alive right now, under the kills (owner request 10/31/2026: to see how the number on screen
 ## affects the frame rate).
 var _alive_label: Label
+## Frames per second, over the timer, when Settings → Show FPS is on (owner request 10/31/2026).
+var _fps_label: Label
 var _gold_label: Label
 var _badge: Button
 var _trait_label: Label
@@ -51,8 +53,18 @@ func _ready() -> void:
 	_badge.focus_mode = Control.FOCUS_NONE
 	_badge.pressed.connect(_on_badge_pressed)
 	row.add_child(_badge)
+	# The timer, with the frame rate over it when it's switched on, the pair centred in the bar.
+	var clock := VBoxContainer.new()
+	clock.alignment = BoxContainer.ALIGNMENT_CENTER
+	clock.add_theme_constant_override("separation", -4)
+	clock.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(clock)
+	_fps_label = _make_label()
+	_fps_label.add_theme_font_size_override("font_size", roundi(ThemeDB.get_default_theme().default_font_size * Data.cfg_float("ui.hud_alive_scale")))
+	_fps_label.modulate = Color(1, 1, 1, 0.85)
+	clock.add_child(_fps_label)
 	_timer_label = _make_label()
-	row.add_child(_timer_label)
+	clock.add_child(_timer_label)
 	# Kills, with the monsters alive under it, the pair centred in the bar.
 	var counts := VBoxContainer.new()
 	counts.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -92,6 +104,9 @@ func _process(_delta: float) -> void:
 	_xp_bar.max_value = LevelUpRules.xp_to_next(run.level)
 	_xp_bar.value = run.xp
 	_timer_label.text = _timer_text(run)
+	_fps_label.visible = Settings.flag("show_fps")
+	if _fps_label.visible:
+		_fps_label.text = tr("UI_FPS") % roundi(Engine.get_frames_per_second())
 	_kills_label.text = tr("UI_KILLS") % run.kills
 	_alive_label.text = tr("UI_ALIVE") % (GameAuthority.enemies.active_count() if GameAuthority.enemies != null else 0)
 	_gold_label.text = tr("UI_GOLD") % roundi(TraderScreen.wallet(GameAuthority.local_player()))

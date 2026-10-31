@@ -107,13 +107,19 @@ func make_drawer(count: int) -> MultiMeshInstance2D:
 
 ## Places one enemy's picture: feet at the bottom of its body (`at` + radius), facing left or right, standing or
 ## walking (`stride`: distance walked), tinted by `tint` (rgb, and a = how strongly).
+## Pixels walked per walking frame (config enemies.walk_frame_px), read on first use.
+var _walk_px: float = 0.0
+
+
 func place(multimesh: MultiMesh, slot: int, type_index: int, at: Vector2, body_radius: float, face_left: bool,
 		moving: bool, stride: float, tint: Color) -> void:
 	var info: Dictionary = types[type_index]
 	var region: Rect2 = info["idle"]
 	if moving:
 		var walk: Array = info["walk"]
-		region = walk[int(stride / Data.cfg_float("enemies.walk_frame_px")) % walk.size()]
+		if _walk_px <= 0.0:
+			_walk_px = maxf(Data.cfg_float("enemies.walk_frame_px"), 0.01)   # read once, not per monster per frame
+		region = walk[int(stride / _walk_px) % walk.size()]
 	var size: Vector2 = region.size
 	var anchor: Vector2 = info["anchor"]
 	var offset := Vector2(size.x * 0.5 - anchor.x, size.y * 0.5 - anchor.y)

@@ -180,6 +180,7 @@
     "spatial_hash_cell_px": 64,
     "separation_hz": 30,
     "separation_max_neighbors": 8,
+    "lod_far_px": 460,
     "status_tick_hz": 5,
     "retarget_interval_s": 0.1
   },
@@ -707,7 +708,7 @@
     "defaults": {
       "volume_pct": 70, "effect_opacity_pct": 100, "shake": "full", "flash": "full", "element_icons": false, "colorblind": false,
       "auto_summon": false, "auto_collect": "off", "control_size_pct": 100, "joystick_side": "anywhere", "damage_numbers": true,
-      "text_size_pct": 100, "banter": true, "tips": true
+      "text_size_pct": 100, "banter": true, "tips": true, "show_fps": false
     },
     "choices": {
       "volume_pct": [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],

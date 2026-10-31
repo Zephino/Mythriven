@@ -11,8 +11,11 @@ extends RefCounted
 ## Each enemy checks at most `separation_max_neighbors` neighbours.
 static func separate(m: EnemyManager) -> void:
 	var max_neighbors: int = Data.cfg_int("performance.separation_max_neighbors")
+	# Monsters far off screen aren't pushed apart until they come near (performance, owner request 10/31/2026).
+	var heroes: PackedVector2Array = EnemyMovement.hero_positions()
+	var far_sq: float = Data.cfg_float("performance.lod_far_px") ** 2
 	for i: int in m.capacity:
-		if m.active[i] == 0:
+		if m.active[i] == 0 or EnemyMovement.is_far(m.positions[i], heroes, far_sq):
 			continue
 		var checked: int = 0
 		var mass_i: float = m.radius[i] * m.radius[i]
@@ -50,6 +53,7 @@ static func _push_out_of_players(m: EnemyManager, i: int) -> void:
 static func contact(m: EnemyManager, delta: float) -> void:
 	var interval: float = Data.cfg_float("combat.contact_damage_interval_s")
 	var margin: float = Data.cfg_float("enemies.contact_margin_px")
+	var slack: float = Data.cfg_float("enemies.contact_query_slack_px")
 	for i: int in m.capacity:
 		if m.active[i] != 0 and m.contact_timer[i] > 0.0:
 			m.contact_timer[i] -= delta
@@ -57,7 +61,7 @@ static func contact(m: EnemyManager, delta: float) -> void:
 		if not player.alive:
 			continue
 		var reach: float = player.body_radius + m.max_radius() + margin
-		for i: int in m.query(player.position, reach + Data.cfg_float("enemies.contact_query_slack_px")):
+		for i: int in m.query(player.position, reach + slack):
 			if m.contact_timer[i] > 0.0:
 				continue
 			if m.positions[i].distance_to(player.position) <= player.body_radius + m.radius[i] + margin:

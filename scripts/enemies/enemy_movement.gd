@@ -34,6 +34,8 @@ var age := PackedFloat32Array()
 ## Vector2.INF when there is none.
 var lure_pos := Vector2.INF
 var lure_radius: float = 0.0
+## Counts frames, so far-off monsters take turns (performance, owner request 10/31/2026).
+var _frame: int = 0
 
 
 func _init(capacity: int) -> void:
@@ -62,13 +64,25 @@ func reset(slot: int, code: int, behavior: Dictionary, rng: RandomNumberGenerato
 
 
 ## Moves every active enemy by one frame.
+## Monsters far off screen (beyond performance.lod_far_px from every Hero) move on every other frame, twice as
+## far each time, so they keep their speed for half the work; the ones on screen move every frame as before.
 func step(m: EnemyManager, delta: float) -> void:
-	var decay: float = exp(-Data.cfg_float("enemies.knockback_decay") * delta)
+	_frame += 1
+	var near_decay: float = exp(-Data.cfg_float("enemies.knockback_decay") * delta)
+	var far_decay: float = near_decay * near_decay
 	var flora: Flora = Flora.current
 	var mountains: Mountains = Mountains.current
+	var heroes: PackedVector2Array = EnemyMovement.hero_positions()
+	var far_sq: float = Data.cfg_float("performance.lod_far_px") ** 2
+	var full_delta: float = delta
 	for i: int in m.capacity:
 		if m.active[i] == 0 or m.asleep[i] == 1:
 			continue
+		var far: bool = EnemyMovement.is_far(m.positions[i], heroes, far_sq)
+		if far and (i + _frame) % 2 == 1:
+			continue
+		delta = full_delta * 2.0 if far else full_delta
+		var decay: float = far_decay if far else near_decay
 		var code: int = m.movement_code(i)
 		var speed: float = m.speed_of(i)
 		var velocity := Vector2.ZERO
@@ -100,6 +114,23 @@ func step(m: EnemyManager, delta: float) -> void:
 				m.positions[i] = mountains.keep_enemy(i, before, m.positions[i])
 		else:
 			m.positions[i] += moved
+
+
+## Where the living Heroes are this frame.
+static func hero_positions() -> PackedVector2Array:
+	var out := PackedVector2Array()
+	for player: Player in GameAuthority.players:
+		if player.alive:
+			out.append(player.position)
+	return out
+
+
+## True when `at` is farther than the far distance (squared) from every Hero: off screen.
+static func is_far(at: Vector2, heroes: PackedVector2Array, far_sq: float) -> bool:
+	for hero: Vector2 in heroes:
+		if at.distance_squared_to(hero) < far_sq:
+			return false
+	return not heroes.is_empty()
 
 
 ## A winding-up caster glows and a lit bomber flashes; returns the colour to
