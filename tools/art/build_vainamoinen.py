@@ -11,7 +11,7 @@ DOC = ("Väinämöinen (GAME_DESIGN.md: Heroes; art 10/31/2026). Built by tools/
 
 PALETTE = {
     "o": "#24160e", "k": "#140c08",
-    "s": "#e6b48c", "S": "#b8805c",                 # skin, weathered
+    "s": "#f2d0b4", "S": "#cc9a80",                 # fair skin, a little weathered and ruddy (Finnic north)
     "h": "#ece8e0", "H": "#b8b2a8",                 # white hair and beard
     "r": "#3e5a7a", "R": "#2a405a",                 # dark blue-grey wool coat
     "q": "#a83030", "y": "#d8b048",                 # red woven belt with gold thread

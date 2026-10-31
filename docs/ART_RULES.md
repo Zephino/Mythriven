@@ -28,6 +28,7 @@
 - **Cloaks and pelts read as fabric or fur**, never as a plank: they widen as they hang, have a ragged or folded edge, and show texture (lighter tufts or folds). Keep them only if they help: the owner had Heracles' lion-skin cloak removed, since a long strip behind a small figure muddies the silhouette.
 - **The weapon must be visible** and stand apart from the body: a different colour and value, sticking out past the body (see Weapons).
 - **Each Hero's iconic feature first.** Pick the one or two things people know them by, and make them big: Heracles' lion-skin hood and club. Leave out anything that muddies the silhouette.
+- **Skin tone fits the Hero's people and region**, from sources where they say, else what's typical there, never a default. Each Hero's script sets its own `s` / `S` and notes why (Heracles: Mediterranean; Cú Chulainn: fair Irish; Väinämöinen: fair, weathered Finnic north). Check it next to the other Heroes.
 - **Only from sources.** Clothing, weapons and symbols come from the Hero's myth and from historical and museum sources (see `GAME_DESIGN.md`: Art, and `docs/LORE_CHECK.md`). No stereotypes and no modern pop-culture versions. Write the sources in the file's `_doc`.
 
 ## Palette letters (shared where possible)

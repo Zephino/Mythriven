@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.68
+Date: 10/31/2026
+Time: 1:02 AM
+
+### Changes
+- **Väinämöinen's skin is fair**, a little weathered and ruddy, instead of the warm tan close to Heracles'. That fits a Finnish folk figure (the Kalevala doesn't say). New rule in `docs/ART_RULES.md`: skin tone fits each Hero's people and region, set per Hero and checked next to the others.
+
+### Reason
+The owner asked whether Väinämöinen's skin tone was right.
+
 ## Version 00.01.67
 Date: 10/31/2026
 Time: 1:00 AM
