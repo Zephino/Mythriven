@@ -111,8 +111,20 @@ static func set_code(new_code: String) -> void:
 	_set_value("code", new_code)
 
 
-static func set_account(provider: String) -> void:
+## `name` / `email`: who is signed in, shown in Settings (kept only on this device).
+static func set_account(provider: String, name: String = "", email: String = "") -> void:
 	_set_value("account", provider)
+	_set_value("name", name.left(60) if provider != "" else "")
+	_set_value("email", email.left(120) if provider != "" else "")
+
+
+## The signed-in player's Google name and email ("" if unknown).
+static func account_name() -> String:
+	return _value("name")
+
+
+static func account_email() -> String:
+	return _value("email")
 
 
 ## A new random code (60 bits), from letters and digits that can't be mixed up.

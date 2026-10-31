@@ -1070,7 +1070,7 @@ ENEMY_KHALKOTAUROS_BOMBER_MYTH,"The Khalkotauroi, King Aeëtes' bulls with hoove
 UI_SETTING_VALUE_ANYWHERE,Whole screen
 UI_CLOUD_SAVE,Account and cloud save
 UI_CLOUD_NOT_SET_UP,Cloud saves aren't set up for this version of the game yet.
-UI_CLOUD_ABOUT,"Keep your progress on PC and phone. Sign in with Google on each device, and your progress follows you. Mythriven only gets Google's id for you, never your name or email."
+UI_CLOUD_ABOUT,"Keep your progress on PC and phone. Sign in with Google on each device, and your progress follows you. Your Google name and email are only shown here, on your own device."
 UI_CLOUD_TURN_ON,Turn on cloud save
 UI_CLOUD_LINK_HELP,Already using cloud save on another device? Type its code here:
 UI_CLOUD_CODE_PLACEHOLDER,XXXX-XXXX-XXXX
@@ -1157,3 +1157,6 @@ UI_PLAY_CHECKING,Getting ready…
 UI_PLAY_ELSEWHERE_TITLE,Playing on another device
 UI_PLAY_ELSEWHERE,"Your account is already playing on another device. Finish or close the game there, then try again (a closed game lets go within about a minute and a half)."
 UI_PLAY_TAKEN_ELSEWHERE,Your account started playing on another device.
+UI_SIGNED_IN_AS,Signed in as %s
+UI_ACCOUNT_PROGRESS,"On this account: %d gold banked · %d Heroes unlocked · %d achievements"
+UI_ACCOUNT_SHOW_INFO,Show my Google name (sign in again)

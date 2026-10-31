@@ -22,7 +22,10 @@ func build() -> void:
 	if OnlineConfig.cloud_url() == "":
 		add_line(tr_key("UI_CLOUD_NOT_SET_UP"))
 		return
-	add_line(tr_key("UI_CLOUD_ABOUT"))
+	if CloudSync.account() != "" and CloudSync.is_on():
+		_build_account()
+	else:
+		add_line(tr_key("UI_CLOUD_ABOUT"))
 	if CloudSync.account() == "":
 		_build_sign_in()
 	if not CloudSync.is_on():
@@ -40,14 +43,31 @@ func build() -> void:
 	if cloud.notice != "":
 		add_line(cloud.notice)
 	add_line(tr_key("UI_CLOUD_ONE_DEVICE"))
-	if CloudSync.account() != "":
-		add_line(tr_key("UI_SIGNED_IN_GOOGLE"))
-	else:
+	if CloudSync.account() == "":
 		add_line(tr_key("UI_CLOUD_YOUR_CODE") % CloudSync.pretty(CloudSync.code()))
 		add_line(tr_key("UI_CLOUD_CODE_PRIVATE"))
 		add_button(tr_key("UI_CLOUD_COPY"), _on_copy)
 	add_button(tr_key("UI_CLOUD_SYNC_NOW"), _on_sync_now, cloud.state != "syncing")
 	add_button(tr_key("UI_SIGN_OUT" if CloudSync.account() != "" else "UI_CLOUD_TURN_OFF"), _on_turn_off)
+
+
+## Who is signed in, and what this account holds.
+func _build_account() -> void:
+	var name: String = CloudSync.account_name()
+	var email: String = CloudSync.account_email()
+	if name != "" or email != "":
+		add_line(tr_key("UI_SIGNED_IN_AS") % (name if name != "" else email))
+		if name != "" and email != "":
+			add_line(email)
+	else:
+		add_line(tr_key("UI_SIGNED_IN_GOOGLE"))
+		var sign_in: AccountSignIn = Meta.cloud.sign_in
+		if sign_in.state == "starting" or sign_in.state == "waiting":
+			add_line(tr_key("UI_SIGNIN_WAITING"))
+		else:
+			add_button(tr_key("UI_ACCOUNT_SHOW_INFO"), sign_in.start, AccountSignIn.available())
+	add_line(tr_key("UI_ACCOUNT_PROGRESS") % [SaveGame.gold(), SaveGame.list("heroes_unlocked").size(),
+		SaveGame.list("achievements").size()])
 
 
 ## Sign in with Google: opens the browser, then waits for the player there.

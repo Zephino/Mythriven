@@ -119,7 +119,9 @@ make here go into Cloudflare as secrets, never into the repo or a chat.
    same on your phone: both devices now share your progress.
 
 How it works: `src/accounts.js`. The Worker keeps only a hash of Google's id
-for each player (no name, no email) and the account's cloud-save code. The
+for each player and the account's cloud-save code. The player's Google name
+and email are handed to their own device (to show who is signed in) and not
+kept on the server. The
 `AccountVault` Durable Object holds accounts and sign-ins in progress
 (migration v4).
 

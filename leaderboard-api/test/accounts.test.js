@@ -47,7 +47,7 @@ async function withGoogle(sub, run) {
     const form = new URLSearchParams(init.body);
     assert.equal(form.get("client_secret"), "shh");
     assert.equal(form.get("redirect_uri"), BASE + "/auth/callback");
-    return new Response(JSON.stringify({ id_token: fakeIdToken({ sub, aud: "client-123", iss: "https://accounts.google.com" }) }));
+    return new Response(JSON.stringify({ id_token: fakeIdToken({ sub, aud: "client-123", iss: "https://accounts.google.com", name: "Bot Coder", email: sub + "@gmail.com" }) }));
   };
   try {
     return await run();
@@ -62,7 +62,7 @@ async function signIn(env, sub, deviceCode = "") {
   const toGoogle = await worker.fetch(new Request(start.url), env);
   assert.equal(toGoogle.status, 302);
   const google = new URL(toGoogle.headers.get("Location"));
-  assert.equal(google.searchParams.get("scope"), "openid", "no name or email asked for");
+  assert.equal(google.searchParams.get("scope"), "openid email profile", "the name and email, to show in the game");
   assert.equal(google.searchParams.get("state"), start.login);
   assert.equal((await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env).then((r) => r.json())).state, "waiting");
   const back = await withGoogle(sub, () => worker.fetch(new Request(`${BASE}/auth/callback?code=abc&state=${start.login}`), env));
@@ -72,6 +72,8 @@ async function signIn(env, sub, deviceCode = "") {
   assert.ok(html.includes(">Close</button>"), "and has a Close button");
   const done = await (await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env)).json();
   assert.equal(done.state, "done");
+  assert.equal(done.name, "Bot Coder", "the name goes to the player's own device");
+  assert.equal(done.email, sub + "@gmail.com");
   const again = await (await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env)).json();
   assert.equal(again.state, "expired", "the code is handed over only once");
   return done.code;
@@ -84,7 +86,11 @@ test("signing in on two devices gives both the same cloud save", async () => {
   const phone = await signIn(env, "google-user-1");
   assert.equal(phone, pc, "the same account's save on the phone");
   assert.notEqual(await signIn(env, "google-user-2"), pc, "another player gets their own");
-  for (const name of env.ACCOUNTS.vaults.keys()) assert.ok(!name.includes("google-user"), "Google's id is only kept hashed");
+  for (const name of env.ACCOUNTS.vaults.keys()) {
+    assert.ok(!name.includes("google-user"), "Google's id is only kept hashed");
+    const value = (await (await env.ACCOUNTS.get(name).fetch("https://account/get")).json()).value;
+    assert.ok(!JSON.stringify(value).includes("Bot Coder") && !JSON.stringify(value).includes("@gmail"), "the name and email aren't kept");
+  }
 });
 
 test("a device that already had cloud saves brings its save to a new account", async () => {
@@ -129,7 +135,7 @@ test("the privacy policy page is served for Google's sign-in screen", async () =
   assert.equal(res.status, 200);
   const text = await res.text();
   assert.ok(text.includes("Privacy policy"));
-  assert.ok(text.includes("never asks Google for your name, email"));
+  assert.ok(text.includes("the server doesn't keep them"));
 });
 
 test("the web version may call sign-in (the browser's OPTIONS check is answered fully)", async () => {

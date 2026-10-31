@@ -6,7 +6,8 @@ extends Node
 ## has signed in there. The Worker then hands over the account's cloud-save
 ## code, and this device links to it (CloudSync.link: unlocks combine, and the
 ## account's gold wins). A device that already had cloud saves brings its save
-## to a brand-new account. Only Google's id is used, never a name or email.
+## to a brand-new account. The player's Google name and email are kept only
+## on this device, to show who is signed in (the Worker doesn't keep them).
 
 signal changed
 
@@ -91,7 +92,7 @@ func _on_reply(result: int, status: int, _headers: PackedStringArray, body: Pack
 		return
 	match str(reply.get("state", "")):
 		"done":
-			finish(str(reply.get("code", "")))
+			finish(str(reply.get("code", "")), str(reply.get("name", "")), str(reply.get("email", "")))
 		"cancelled":
 			_stop("UI_SIGNIN_CANCELLED")
 		"expired":
@@ -99,7 +100,7 @@ func _on_reply(result: int, status: int, _headers: PackedStringArray, body: Pack
 
 
 ## The Worker handed over the account's save code: link this device to it.
-func finish(account_code: String) -> void:
+func finish(account_code: String, account_name: String = "", account_email: String = "") -> void:
 	var cloud: CloudSync = get_parent() as CloudSync
 	if CloudSync.normalize(account_code) == "":
 		_stop("UI_SIGNIN_NO_CONNECTION")
@@ -111,7 +112,7 @@ func finish(account_code: String) -> void:
 		cloud.link(account_code)
 	else:
 		CloudSync.set_code(CloudSync.normalize(account_code))
-	CloudSync.set_account("google")
+	CloudSync.set_account("google", account_name, account_email)
 	state = "done"
 	error = ""
 	changed.emit()

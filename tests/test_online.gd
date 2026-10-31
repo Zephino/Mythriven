@@ -104,15 +104,19 @@ func test_this_device_keeps_its_own_id_and_account_alongside_the_code() -> void:
 func test_signing_in_links_this_device_to_the_accounts_save() -> void:
 	SaveGame.add_to("heroes_unlocked", "atalanta")
 	var sync: CloudSync = add_child_autofree(CloudSync.new())
-	sync.sign_in.finish("ABCD-EFGH-JK23")
+	sync.sign_in.finish("ABCD-EFGH-JK23", "Bot Coder", "bot@example.com")
 	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "the account's save")
 	assert_eq(CloudSync.account(), "google")
+	assert_eq(CloudSync.account_name(), "Bot Coder", "who is signed in, kept on this device")
+	assert_eq(CloudSync.account_email(), "bot@example.com")
+	assert_false(JSON.stringify(SaveGame.data()).contains("bot@example.com"), "never inside the save that goes to the cloud")
 	assert_eq(sync.sign_in.state, "done")
 	sync.sign_in.finish("not a code")
 	assert_eq(sync.sign_in.error, "UI_SIGNIN_NO_CONNECTION")
 	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "a bad reply changes nothing")
 	sync.turn_off()
 	assert_eq(CloudSync.account(), "", "signing out forgets the account on this device")
+	assert_eq(CloudSync.account_name() + CloudSync.account_email(), "", "and its name and email")
 
 
 func test_without_cloud_saves_play_is_always_allowed_here() -> void:

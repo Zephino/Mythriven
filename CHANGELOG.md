@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.42
+Date: 10/30/2026
+Time: 8:40 PM
+
+### Changes
+- **Your Google name and email show in the game.** The title screen says "Signed in as (your name)" at the top. Settings → Account and cloud save shows your name, email, and what's on the account (gold banked, Heroes unlocked, achievements), then the sync status. It stays after closing the game, because it's saved on the device. The server still keeps only the hashed Google id; the name and email go only to the player's own device. The privacy page says so.
+- Sign-in now asks Google for the basic profile (name and email) as well as the id. Players who signed in before see "Show my Google name (sign in again)".
+- Sign out removes the name and email from the device.
+
+### Reason
+The owner wants the signed-in account's info shown, and kept between sessions.
+
 ## Version 00.01.41
 Date: 10/30/2026
 Time: 8:37 PM
