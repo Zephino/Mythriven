@@ -553,5 +553,560 @@
     "text_key": "BANTER_BALOR_ENTRANCE",
     "lore_source": "Balor's eye destroyed whatever it looked upon (Cath Maige Tuired)",
     "needs_owner_review": true
+  },
+  {
+    "id": "hecate_found",
+    "trigger": "found",
+    "speaker": "hecate",
+    "hero": "",
+    "god": "hecate",
+    "text_key": "BANTER_HECATE_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hecate_bound",
+    "trigger": "bound",
+    "speaker": "hecate",
+    "hero": "",
+    "god": "hecate",
+    "text_key": "BANTER_HECATE_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hecate_summon",
+    "trigger": "summon",
+    "speaker": "hecate",
+    "hero": "",
+    "god": "hecate",
+    "text_key": "BANTER_HECATE_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hecate_patron",
+    "trigger": "patron",
+    "speaker": "hecate",
+    "hero": "",
+    "god": "hecate",
+    "text_key": "BANTER_HECATE_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "persephone_found",
+    "trigger": "found",
+    "speaker": "persephone",
+    "hero": "",
+    "god": "persephone",
+    "text_key": "BANTER_PERSEPHONE_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "persephone_bound",
+    "trigger": "bound",
+    "speaker": "persephone",
+    "hero": "",
+    "god": "persephone",
+    "text_key": "BANTER_PERSEPHONE_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "persephone_summon",
+    "trigger": "summon",
+    "speaker": "persephone",
+    "hero": "",
+    "god": "persephone",
+    "text_key": "BANTER_PERSEPHONE_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "persephone_patron",
+    "trigger": "patron",
+    "speaker": "persephone",
+    "hero": "",
+    "god": "persephone",
+    "text_key": "BANTER_PERSEPHONE_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "odin_found",
+    "trigger": "found",
+    "speaker": "odin",
+    "hero": "",
+    "god": "odin",
+    "text_key": "BANTER_ODIN_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "odin_bound",
+    "trigger": "bound",
+    "speaker": "odin",
+    "hero": "",
+    "god": "odin",
+    "text_key": "BANTER_ODIN_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "odin_summon",
+    "trigger": "summon",
+    "speaker": "odin",
+    "hero": "",
+    "god": "odin",
+    "text_key": "BANTER_ODIN_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "odin_patron",
+    "trigger": "patron",
+    "speaker": "odin",
+    "hero": "",
+    "god": "odin",
+    "text_key": "BANTER_ODIN_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "freyja_found",
+    "trigger": "found",
+    "speaker": "freyja",
+    "hero": "",
+    "god": "freyja",
+    "text_key": "BANTER_FREYJA_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "freyja_bound",
+    "trigger": "bound",
+    "speaker": "freyja",
+    "hero": "",
+    "god": "freyja",
+    "text_key": "BANTER_FREYJA_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "freyja_summon",
+    "trigger": "summon",
+    "speaker": "freyja",
+    "hero": "",
+    "god": "freyja",
+    "text_key": "BANTER_FREYJA_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "freyja_patron",
+    "trigger": "patron",
+    "speaker": "freyja",
+    "hero": "",
+    "god": "freyja",
+    "text_key": "BANTER_FREYJA_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "rhiannon_found",
+    "trigger": "found",
+    "speaker": "rhiannon",
+    "hero": "",
+    "god": "rhiannon",
+    "text_key": "BANTER_RHIANNON_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "rhiannon_bound",
+    "trigger": "bound",
+    "speaker": "rhiannon",
+    "hero": "",
+    "god": "rhiannon",
+    "text_key": "BANTER_RHIANNON_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "rhiannon_summon",
+    "trigger": "summon",
+    "speaker": "rhiannon",
+    "hero": "",
+    "god": "rhiannon",
+    "text_key": "BANTER_RHIANNON_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "arawn_found",
+    "trigger": "found",
+    "speaker": "arawn",
+    "hero": "",
+    "god": "arawn",
+    "text_key": "BANTER_ARAWN_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "arawn_bound",
+    "trigger": "bound",
+    "speaker": "arawn",
+    "hero": "",
+    "god": "arawn",
+    "text_key": "BANTER_ARAWN_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "arawn_summon",
+    "trigger": "summon",
+    "speaker": "arawn",
+    "hero": "",
+    "god": "arawn",
+    "text_key": "BANTER_ARAWN_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "enki_found",
+    "trigger": "found",
+    "speaker": "enki",
+    "hero": "",
+    "god": "enki",
+    "text_key": "BANTER_ENKI_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "enki_bound",
+    "trigger": "bound",
+    "speaker": "enki",
+    "hero": "",
+    "god": "enki",
+    "text_key": "BANTER_ENKI_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "enki_summon",
+    "trigger": "summon",
+    "speaker": "enki",
+    "hero": "",
+    "god": "enki",
+    "text_key": "BANTER_ENKI_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "enki_patron",
+    "trigger": "patron",
+    "speaker": "enki",
+    "hero": "",
+    "god": "enki",
+    "text_key": "BANTER_ENKI_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "shamash_found",
+    "trigger": "found",
+    "speaker": "shamash",
+    "hero": "",
+    "god": "shamash",
+    "text_key": "BANTER_SHAMASH_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "shamash_bound",
+    "trigger": "bound",
+    "speaker": "shamash",
+    "hero": "",
+    "god": "shamash",
+    "text_key": "BANTER_SHAMASH_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "shamash_summon",
+    "trigger": "summon",
+    "speaker": "shamash",
+    "hero": "",
+    "god": "shamash",
+    "text_key": "BANTER_SHAMASH_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "shamash_patron",
+    "trigger": "patron",
+    "speaker": "shamash",
+    "hero": "",
+    "god": "shamash",
+    "text_key": "BANTER_SHAMASH_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "orpheus_binds",
+    "trigger": "hero_bind",
+    "speaker": "orpheus",
+    "hero": "orpheus",
+    "god": "",
+    "text_key": "BANTER_ORPHEUS_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "beowulf_binds",
+    "trigger": "hero_bind",
+    "speaker": "beowulf",
+    "hero": "beowulf",
+    "god": "",
+    "text_key": "BANTER_BEOWULF_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "gilgamesh_binds",
+    "trigger": "hero_bind",
+    "speaker": "gilgamesh",
+    "hero": "gilgamesh",
+    "god": "",
+    "text_key": "BANTER_GILGAMESH_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "persephone_orpheus",
+    "trigger": "bound",
+    "speaker": "persephone",
+    "hero": "orpheus",
+    "god": "persephone",
+    "text_key": "BANTER_PERSEPHONE_ORPHEUS",
+    "lore_source": "Ovid, Metamorphoses 10.40-48 (Orpheus' song moves the rulers of the dead)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "shamash_gilgamesh",
+    "trigger": "bound",
+    "speaker": "shamash",
+    "hero": "gilgamesh",
+    "god": "shamash",
+    "text_key": "BANTER_SHAMASH_GILGAMESH",
+    "lore_source": "Epic of Gilgamesh, Tablet V (Shamash's winds against Humbaba)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cerberus_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "cerberus",
+    "hero": "",
+    "god": "cerberus",
+    "text_key": "BANTER_CERBERUS_ENTRANCE",
+    "lore_source": "Hesiod, Theogony 769-773 (the hound lets all in and none out)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cerberus_heracles",
+    "trigger": "boss_entrance",
+    "speaker": "cerberus",
+    "hero": "heracles",
+    "god": "cerberus",
+    "text_key": "BANTER_CERBERUS_HERACLES",
+    "lore_source": "Apollodorus, Library 2.5.12 (Heracles carries Cerberus up from Hades)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cerberus_orpheus",
+    "trigger": "boss_entrance",
+    "speaker": "cerberus",
+    "hero": "orpheus",
+    "god": "cerberus",
+    "text_key": "BANTER_CERBERUS_ORPHEUS",
+    "lore_source": "Ovid, Metamorphoses 10; Virgil, Georgics 4.483 (Cerberus spellbound by Orpheus)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thanatos_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "thanatos",
+    "hero": "",
+    "god": "thanatos",
+    "text_key": "BANTER_THANATOS_ENTRANCE",
+    "lore_source": "Hesiod, Theogony 758-766 (Death, hated even by the gods)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thanatos_heracles",
+    "trigger": "boss_entrance",
+    "speaker": "thanatos",
+    "hero": "heracles",
+    "god": "thanatos",
+    "text_key": "BANTER_THANATOS_HERACLES",
+    "lore_source": "Euripides, Alcestis (Heracles wrestles Death at her tomb)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "typhon_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "typhon",
+    "hero": "",
+    "god": "typhon",
+    "text_key": "BANTER_TYPHON_ENTRANCE",
+    "lore_source": "Apollodorus, Library 1.6.3 (the gods flee to Egypt before Typhon)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hrungnir_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "hrungnir",
+    "hero": "",
+    "god": "hrungnir",
+    "text_key": "BANTER_HRUNGNIR_ENTRANCE",
+    "lore_source": "Snorri, Skaldskaparmal 17 (Hrungnir's stone heart and head)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thrym_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "thrym",
+    "hero": "",
+    "god": "thrym",
+    "text_key": "BANTER_THRYM_ENTRANCE",
+    "lore_source": "Thrymskvida (Thrym hides Thor's hammer and demands Freyja)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ymir_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ymir",
+    "hero": "",
+    "god": "ymir",
+    "text_key": "BANTER_YMIR_ENTRANCE",
+    "lore_source": "Snorri, Gylfaginning 8 (the world made from Ymir's body)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "green_knight_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "green_knight",
+    "hero": "",
+    "god": "green_knight",
+    "text_key": "BANTER_GREEN_KNIGHT_ENTRANCE",
+    "lore_source": "Sir Gawain and the Green Knight (the beheading game)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "mordred_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "mordred",
+    "hero": "",
+    "god": "mordred",
+    "text_key": "BANTER_MORDRED_ENTRANCE",
+    "lore_source": "Malory, Le Morte d'Arthur, book 21 (Mordred seizes the realm)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "twrch_trwyth_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "twrch_trwyth",
+    "hero": "",
+    "god": "twrch_trwyth",
+    "text_key": "BANTER_TWRCH_TRWYTH_ENTRANCE",
+    "lore_source": "Culhwch and Olwen (a king turned into a boar for his sins)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "humbaba_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "humbaba",
+    "hero": "",
+    "god": "humbaba",
+    "text_key": "BANTER_HUMBABA_ENTRANCE",
+    "lore_source": "Epic of Gilgamesh, Tablets II-V (Humbaba, guardian of the Cedar Forest)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "bull_of_heaven_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "bull_of_heaven",
+    "hero": "",
+    "god": "bull_of_heaven",
+    "text_key": "BANTER_BULL_OF_HEAVEN_ENTRANCE",
+    "lore_source": "Epic of Gilgamesh, Tablet VI (pits open at the Bull's snort)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "tiamat_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "tiamat",
+    "hero": "",
+    "god": "tiamat",
+    "text_key": "BANTER_TIAMAT_ENTRANCE",
+    "lore_source": "Enuma Elish, Tablet I (Tiamat, mother of all)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thrym_freyja",
+    "trigger": "boss_meets_god",
+    "speaker": "thrym",
+    "hero": "",
+    "god": "thrym",
+    "with_god": "freyja",
+    "text_key": "BANTER_THRYM_FREYJA",
+    "lore_source": "Thrymskvida (Thrym demands Freyja as his bride)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "humbaba_shamash",
+    "trigger": "boss_meets_god",
+    "speaker": "humbaba",
+    "hero": "",
+    "god": "humbaba",
+    "with_god": "shamash",
+    "text_key": "BANTER_HUMBABA_SHAMASH",
+    "lore_source": "Epic of Gilgamesh, Tablet V",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thanatos_persephone",
+    "trigger": "boss_meets_god",
+    "speaker": "thanatos",
+    "hero": "",
+    "god": "thanatos",
+    "with_god": "persephone",
+    "text_key": "BANTER_THANATOS_PERSEPHONE",
+    "lore_source": "Original line written for Mythriven (Thanatos serves the house of Hades)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "tiamat_enki",
+    "trigger": "boss_meets_god",
+    "speaker": "tiamat",
+    "hero": "",
+    "god": "tiamat",
+    "with_god": "enki",
+    "text_key": "BANTER_TIAMAT_ENKI",
+    "lore_source": "Enuma Elish, Tablet I (Ea slays Apsu, and Tiamat rises in anger)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "odin_ymir",
+    "trigger": "boss_meets_god",
+    "speaker": "ymir",
+    "hero": "",
+    "god": "ymir",
+    "with_god": "odin",
+    "text_key": "BANTER_ODIN_YMIR",
+    "lore_source": "Snorri, Gylfaginning 7-8 (Odin and his brothers slay Ymir)",
+    "needs_owner_review": true
   }
 ]

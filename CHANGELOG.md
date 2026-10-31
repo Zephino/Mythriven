@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.68
+Date: 10/31/2026
+Time: 3:48 PM
+
+### Changes
+- **55 banter lines for Pack 2**, all original and one sentence each, written in the style of the Pack 1 lines:
+  - Every new god speaks when found, when bound and when summoned (24 lines). The Greek, Norse and Mesopotamian gods also have a line for Heroes of their own people (6 lines).
+  - Orpheus, Beowulf and Gilgamesh each have a line when they bind a god.
+  - Lines where the myths meet: Persephone to Orpheus, Shamash to Gilgamesh, Cerberus to Heracles and to Orpheus, Thanatos to Heracles.
+  - Every new boss has an entrance line.
+  - Bosses who meet a god you have bound: Thrym and Freyja, Humbaba and Shamash, Thanatos and Persephone, Tiamat and Enki, Ymir and Odin.
+- **docs/LORE_CHECK.md** now has a Pack 2 section for the owner's lore check: the 3 Heroes, 8 gods and 12 bosses with their sources, the 8 new secrets' hints, and every new banter line, each marked "no" until checked.
+
+### Reason
+The owner asked Claude to fill in the Pack 2 banter lines and add them to the lore check the owner still needs to do.
+
 ## Version 00.02.67
 Date: 10/31/2026
 Time: 3:39 PM
