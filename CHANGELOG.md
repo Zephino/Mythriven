@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.66
+Date: 10/31/2026
+Time: 12:54 AM
+
+### Changes
+- **Cú Chulainn's sprite**, from the Táin Bó Cúailnge's description of him:
+  - hair of three colours (dark at the roots, blood-red in the middle, gold at the spiky tips), swept up and back;
+  - young and beardless;
+  - a crimson mantle over his shoulders with a gold brooch;
+  - a linen tunic to the knees with red embroidery at the neck, down the front, and a deep hem;
+  - a leather belt and leather shoes.
+  - He holds the Gáe Bolg (or whatever weapon he uses most) and has the same 4-frame walk.
+  - Kept clear of the Fate/Grand Order design, which GAME_DESIGN.md names as one to avoid.
+- **Shared Hero body** `tools/art/hero_kit.py` (canvas, pose, both arms, the hand point, legs, walking frames, outline). Heracles' builder now uses it (his art is pixel-for-pixel unchanged).
+- `docs/ART_RULES.md` marked **approved** after Heracles, with notes on the shared body and on drawing hair as one solid shaped mass.
+
+### Reason
+The owner approved Heracles and asked to start Cú Chulainn.
+
 ## Version 00.01.65
 Date: 10/31/2026
 Time: 12:49 AM

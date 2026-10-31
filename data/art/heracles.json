@@ -1,5 +1,5 @@
 {
- "_doc": "Heracles (GAME_DESIGN.md: Heroes; art style test, owner request 10/31/2026, second version after the owner's feedback). Pixel art as rows of letters, 1 letter = 1 pixel, drawn facing right; the game mirrors it to face left. '.' is transparent; every other letter is a colour from palette. Frames: idle, and walk (played in turn while moving). anchor is the pixel under the middle of the feet; hand is the pixel in his right fist where his weapon's grip goes (the weapon he uses most is drawn there, data/art/weapons/). Iconography from Greek vase painting and Pseudo-Apollodorus (Bibliotheca 2.5.1): the Nemean lion's skin worn as a hood (its head over his), its paws knotted at the throat (no cloak behind him, owner request 10/31/2026); a beard; a short chiton; sandals; and his club. Drawn by scratchpad tool build_heracles.py (shapes, then an automatic dark outline).",
+ "_doc": "Heracles (GAME_DESIGN.md: Heroes; owner-approved art style, 10/31/2026). Built by tools/art/build_heracles.py on the shared body in tools/art/hero_kit.py; rules in docs/ART_RULES.md. Iconography from Greek vase painting and Pseudo-Apollodorus (Bibliotheca 2.5.1): the Nemean lion's skin worn as a hood (its head over his), its paws knotted at the throat (no cloak behind him, owner request); a beard; a short chiton; sandals. His weapon is drawn separately (data/art/weapons/) at his hand.",
  "size": [
   24,
   34
@@ -7,6 +7,10 @@
  "anchor": [
   14,
   32
+ ],
+ "hand": [
+  22,
+  17
  ],
  "palette": {
   "o": "#24160e",
@@ -209,9 +213,5 @@
     "........................"
    ]
   ]
- },
- "hand": [
-  22,
-  17
- ]
+ }
 }

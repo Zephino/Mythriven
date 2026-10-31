@@ -1,6 +1,6 @@
 # Art rules: Hero sprites
 
-**Status: draft.** Written from the first Hero (Heracles, 10/31/2026; second version after the owner's feedback that the first looked like "someone in a diaper": short, big-headed, in a short white tunic). It becomes the rule set for every other Hero once the owner approves how Heracles looks. Change these rules only with the owner's OK, and redraw Heracles if they change.
+**Status: approved** by the owner on 10/31/2026, after Heracles (the first Hero; his first version looked like "someone in a diaper": short, big-headed, in a short white tunic). These are the rules for every Hero. Change them only with the owner's OK, and redraw the Heroes already made if they change.
 
 ## Format
 - One file per Hero: `data/art/<hero id>.json`. The game finds it by the Hero's id; a Hero without a file keeps the coloured-square placeholder.
@@ -17,7 +17,8 @@
 
 ## Look
 - **A dark outline** around the whole figure (`o`, a very dark brown, not black), added automatically around every filled pixel. It keeps Heroes readable against any ground.
-- **Drawn from shapes**: each Hero is built by a small script in `tools/art/` from simple shapes (hood, face, body, arm, clothes, legs, weapon), then the outline is added. Changing a part means changing one shape, not retyping rows.
+- **Drawn from shapes on one shared body**: `tools/art/hero_kit.py` holds what every Hero shares (canvas, pose, far arm, weapon arm and hand point, legs, the 4 walking frames, the outline, writing the file). Each Hero's own script (`tools/art/build_<hero id>.py`) only draws what's theirs: head, face, hair, clothes, footwear, extras. Run it with `python3 tools/art/build_<hero id>.py` from `tools/art/`.
+- **Hair is one solid mass with a shaped edge** (spikes, waves, braids), coloured in bands, never single-pixel strands (each gets its own outline and turns into a checkerboard). Cú Chulainn's is built from overlapping spike wedges around his head, coloured outward from the scalp.
 - **Two shades per material**: a light colour and a shadow colour (light from the top-left). No gradients and no stray single pixels.
 - **Clothing in strong, darker colours** (here a dark red chiton) so it never reads as underwear. Folds are vertical lines in the shadow colour.
 - **Muscles as short lines**, not dots: a chest line and a stomach line in the skin shadow. Dots read as spots.
