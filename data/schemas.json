@@ -61,6 +61,7 @@
               "hp_bar_width_px": "number",
               "hp_bar_height_px": "number",
               "hp_bar_offset_px": "number",
+              "hp_bar_art_gap_px": "number",
               "hp_bar_color": "string",
               "hp_bar_back_color": "string",
               "snap_to_8_directions": "bool",

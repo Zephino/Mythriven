@@ -220,7 +220,12 @@ func _draw_downed(size_px: float) -> void:
 func _draw_hp_bar() -> void:
 	var width: float = Data.cfg_float("player.hp_bar_width_px")
 	var height: float = Data.cfg_float("player.hp_bar_height_px")
-	var top_left := Vector2(-width * 0.5, -Data.cfg_float("player.hp_bar_offset_px"))
+	var offset: float = Data.cfg_float("player.hp_bar_offset_px")
+	var art: Dictionary = PixelArt.find(str(hero.get("id", "")))
+	if not art.is_empty():
+		# Just above the top of the Hero's art.
+		offset = (art["anchor"] as Vector2).y - body_radius + Data.cfg_float("player.hp_bar_art_gap_px")
+	var top_left := Vector2(-width * 0.5, -offset)
 	draw_rect(Rect2(top_left, Vector2(width, height)), Color.html(Data.cfg_string("player.hp_bar_back_color")))
 	var fraction: float = clampf(hp / max_hp, 0.0, 1.0) if max_hp > 0.0 else 0.0
 	draw_rect(Rect2(top_left, Vector2(width * fraction, height)), Color.html(Data.cfg_string("player.hp_bar_color")))

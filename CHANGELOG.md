@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.57
+Date: 10/30/2026
+Time: 10:58 PM
+
+### Changes
+- **Heracles redrawn from scratch** after the owner's feedback (the first one looked like "someone in a diaper").
+  - Taller, heroic proportions: 24 × 34 pixels, head about a quarter of his height, longer legs.
+  - The lion-head hood (ear, eye, teeth at the tip of the snout) and a slim lion-skin cloak behind.
+  - A short beard, and a bare, muscled chest with the lion's paws knotted at the throat.
+  - A **dark red chiton to the knees** with folds and a bronze buckle (no short white tunic), and laced sandals.
+  - His **club** in dark wood: a handle in his hand, widening into a heavy rounded head by his feet.
+- He's now built from shapes by `tools/art/build_heracles.py`, with the dark outline added automatically, so parts are easy to change. The HP bar sits just above whatever height a Hero's art is.
+- `docs/ART_RULES.md` updated with the lessons: heroic proportions, clothing to the knees in strong colours, muscles as lines (not dots), nothing white touching the eye, an arm shadow line, and a weapon that stands apart from the body.
+
+### Reason
+The owner asked to remake Heracles completely ("kinda looks like someone in a diaper") and asked what the thing on his right was (the club, now redrawn so it reads as one).
+
 ## Version 00.01.56
 Date: 10/30/2026
 Time: 10:53 PM

@@ -1,6 +1,6 @@
 # Art rules: Hero sprites
 
-**Status: draft.** Written from the first Hero (Heracles, 10/31/2026). It becomes the rule set for every other Hero once the owner approves how Heracles looks. Change these rules only with the owner's OK, and redraw Heracles if they change.
+**Status: draft.** Written from the first Hero (Heracles, 10/31/2026; second version after the owner's feedback that the first looked like "someone in a diaper": short, big-headed, in a short white tunic). It becomes the rule set for every other Hero once the owner approves how Heracles looks. Change these rules only with the owner's OK, and redraw Heracles if they change.
 
 ## Format
 - One file per Hero: `data/art/<hero id>.json`. The game finds it by the Hero's id; a Hero without a file keeps the coloured-square placeholder.
@@ -9,15 +9,20 @@
 - Drawn **facing right**. The game mirrors it to face left.
 - A test checks every file: all rows are the same width, all frames are the same height, every letter is in the palette, and the file is named after a real Hero.
 
-## Size and scale
-- **18 × 20 pixels** for a normal-sized Hero. The body is about 14 pixels wide and the head is about 8. Extra width is for the signature weapon.
-- 1 art pixel = 1 game pixel. The camera zooms 2×, so a Hero is about 36 × 40 pixels on screen.
+## Size and proportions
+- **24 × 34 pixels** canvas for a normal-sized Hero. The figure is about 32 pixels tall; the extra width is for the signature weapon.
+- **Heroic proportions, not cute:** the head (hood or helmet included) is about a quarter of the height. Legs are at least 6 pixels long below the clothing, and the clothing reaches the knees or lower. No short white "nappy" garments.
+- 1 art pixel = 1 game pixel. The camera zooms 2×, so a Hero is about 48 × 68 pixels on screen.
 - Bigger or smaller Heroes (for example a giant) only when the myth says so, and with the owner's OK.
 
 ## Look
-- **A dark outline** around the whole figure (`o`, a very dark brown, not black). It keeps Heroes readable against any ground.
+- **A dark outline** around the whole figure (`o`, a very dark brown, not black), added automatically around every filled pixel. It keeps Heroes readable against any ground.
+- **Drawn from shapes**: each Hero is built by a small script in `tools/art/` from simple shapes (hood, face, body, arm, clothes, legs, weapon), then the outline is added. Changing a part means changing one shape, not retyping rows.
 - **Two shades per material**: a light colour and a shadow colour (light from the top-left). No gradients and no stray single pixels.
-- **A face that reads at a glance:** one dark eye pixel, set under the brow, with skin around it. Facial hair or a helmet sits below or around the eye, never over it.
+- **Clothing in strong, darker colours** (here a dark red chiton) so it never reads as underwear. Folds are vertical lines in the shadow colour.
+- **Muscles as short lines**, not dots: a chest line and a stomach line in the skin shadow. Dots read as spots.
+- **The front arm has a shadow line** between it and the body so it reads as an arm.
+- **A face that reads at a glance:** one dark eye pixel with a row of skin above it (the forehead) and skin around it. Nothing white touches the eye (it reads as a giant eyeball). Facial hair sits below it and is no more than 2 rows.
 - **The signature weapon must be visible** and stand apart from the body and cloak: a different colour and value (lighter or darker), sticking out past the body.
 - **Each Hero's iconic feature first.** Pick the one or two things people know them by, and make them big: Heracles' lion-skin hood and club.
 - **Only from sources.** Clothing, weapons and symbols come from the Hero's myth and from historical and museum sources (see `GAME_DESIGN.md`: Art, and `docs/LORE_CHECK.md`). No stereotypes and no modern pop-culture versions. Write the sources in the file's `_doc`.
@@ -25,13 +30,14 @@
 ## Palette letters (shared where possible)
 | Letter | Use | Heracles |
 | --- | --- | --- |
-| `o` | Outline | #2a1810 |
-| `s` / `S` | Skin, light / shadow | #e8b080 / #b87a50 |
-| `k` | Eye | #1a1010 |
-| `h` | Hair and beard | #4a2a16 |
-| `t` / `T` | Main cloth, light / shadow | #ece2c8 / #b8aa88 |
-| `b` | Belt and sandals | #6a4020 |
-| `c` / `C` | Signature weapon, light / shadow | #b07a40 / #5a3418 (club) |
+| `o` | Outline | #24160e |
+| `s` / `S` | Skin, light / shadow | #e2a676 / #b0724a |
+| `k` | Eye | #140c08 |
+| `h` | Hair and beard | #3e2414 |
+| `H` | Hair and beard shadow | #2a180c |
+| `r` / `R` | Main cloth, light / shadow | #a83a2c / #7a2620 (dark red chiton) |
+| `b` / `y` | Belt and sandals / metal buckle | #5c3a1c / #d8b048 |
+| `c` / `C` | Signature weapon, light / shadow | #9a6232 / #553012 (club: handle in the hand, heavy rounded head by the feet, knots as dark marks) |
 | `l` / `L` / `m` / `w` | Hero's own extras | lion pelt light / shadow / dark mane, white teeth |
 
 Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek marble and bronze, Norse wood and iron, Egyptian sandstone and lapis, Celtic stone and green-gold).
