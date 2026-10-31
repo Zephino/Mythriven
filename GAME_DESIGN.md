@@ -135,7 +135,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 2 | Deeper Myths | 5 The Underworld · 6 Jotunheim · 7 Avalon's Shadow · 8 Land Between the Rivers | **Approved and released 10/31/2026** (`docs/PACK_2_PLAN.md`) |
 | 3 | Distant Legends | 9 Pohjola · 10 Mazandaran · 11 The Slavic Wilds · 12 The Land of Legends | **Approved and released 10/31/2026** (`docs/PACK_3_PLAN.md`) |
 | 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | **Approved and released 10/31/2026** (`docs/PACK_4_PLAN.md`) |
-| 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | **Building** (`docs/PACK_5_PLAN.md`; Erebus, Karnstein and Ossory released 10/31/2026) |
+| 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | **Building** (`docs/PACK_5_PLAN.md`; all four realms released 10/31/2026) |
 | 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | Later |
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | Later |
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | Later |
@@ -291,6 +291,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 *(10/31/2026: **Karnstein** is built and released (00.02.86), opened by beating Dahut: the languor (a pale mist that hides the view and Poisons every Hero while it lies thick); revenants, night bats, wolves; Varney (the first time he falls, the moonlight raises him again with 35% HP unless a Hero stands over him), Lord Ruthven (fastens on the nearest Hero and drains them to heal himself while they stay close), Carmilla (comes out of the mist beside a Hero and bites, Poison; becomes the monstrous black cat, faster, in her last phase).)*
 
 *(10/31/2026: **Ossory** is built and released (00.02.87), opened by beating Sinmara: the full moon (while it shines every monster runs 35% faster); werewolves of Ossory, wolves, grey wolves, ravens; Bisclavret (stand on his hidden clothes for 1.5 s and he is a man for 6 s, unable to fight and taking double damage), Melion (calls four wolves every 10 s; each wolf near him cuts the damage he takes by 10%, up to 60%), the Beast of Gévaudan (vanishes into cover where it can't be hurt, creeps after a Hero, and pounces where the undergrowth stirs).)*
+
+*(10/31/2026: **the Brocken** is built and released (00.02.88), opened by beating the Roc: the witches' ride (telegraphed strikes that Hex whoever they hit); witches, black goats, will-o'-the-wisps; the Brocken Spectre (always stands opposite the nearest Hero across the arena's middle, a glory round its head), Baubo (charges on her sow, two witches following each charge), Black Annis (goes back to her bower to heal, taking half damage there, then springs on the nearest Hero; her claws Poison). Pack 5's four realms are all built.)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

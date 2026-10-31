@@ -5182,5 +5182,249 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Brocken bosses (docs/PACK_5_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "brocken_spectre",
+    "name_key": "BOSS_BROCKEN_SPECTRE_NAME",
+    "tradition": "german",
+    "lore_source": "Johann Silberschlag (1780): the giant shadows with a ring of coloured light seen in the mist from the Brocken",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "brocken_spectre",
+    "move_speed": 40,
+    "keep_distance_px": 200,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "shadow_in_the_mist",
+      "glide_px_s": 220
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 30,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Brocken bosses (docs/PACK_5_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "baubo",
+    "name_key": "BOSS_BAUBO_NAME",
+    "tradition": "german",
+    "lore_source": "Goethe, Faust I (1808), Walpurgis Night (\"Old Baubo comes alone; she rides a farrow sow\")",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "baubo",
+    "move_speed": 44,
+    "keep_distance_px": 110,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_ride",
+      "gallop_every_s": 5.0,
+      "gallop_px": 280,
+      "gallop_s": 0.7,
+      "foam_s": 3.0,
+      "foam_radius_px": 20,
+      "foam_slow": 0.65,
+      "foam_color": "#6a5a44",
+      "hounds": 2,
+      "hound": "witch"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Brocken bosses (docs/PACK_5_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "black_annis",
+    "name_key": "BOSS_BLACK_ANNIS_NAME",
+    "tradition": "english",
+    "lore_source": "Leicestershire folklore (John Heyrick's poem, 1797; county histories): Black Annis and her bower in the Dane Hills",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "black_annis",
+    "move_speed": 46,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_bower",
+      "bower_offset_px": 150,
+      "out_s": 7.0,
+      "home_s": 4.0,
+      "run_px_s": 260,
+      "heal_per_s": 0.01,
+      "bower_damage_taken": 0.5,
+      "spring_px_s": 600,
+      "claw_radius_px": 46,
+      "claw_damage": 20
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "witch"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "witch"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

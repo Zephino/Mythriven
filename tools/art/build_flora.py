@@ -368,6 +368,11 @@ LEVELS = {
                   "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"fern": ("fern",), "bramble": ("M", "P", "m", "B")},
         "rock": ("g", "G", "H", "l")},
+    # The Brocken: the Harz spruce forest, thinning to heather moor and granite near the summit.
+    "the_brocken": {
+        "trees": {"spruce": (spruce, 22, 40), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"heather": ("r", "R", "r", None), "bilberry": ("M", "m", "y", "B")},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

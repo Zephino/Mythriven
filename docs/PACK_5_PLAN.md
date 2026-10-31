@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time").
 The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one boss idea; everything else below was
 chosen by Claude from old public-domain texts and folklore only (never modern games, books or films). The owner can
-change or veto any of it, before or after it is built. Erebus built and released 10/31/2026 (00.02.85); Karnstein (00.02.86); Ossory (00.02.87).
+change or veto any of it, before or after it is built. Erebus built and released 10/31/2026 (00.02.85); Karnstein (00.02.86); Ossory (00.02.87); the Brocken (00.02.88). **All four realms are built.** Baubo reuses the Wild Hunt's ride (she charges on her sow and calls two witches each time).
 
 Realms work like Pack 4's: endless map, a hazard, monster families, three bosses, **no local gods** (shrines draw gods
 from every pantheon).
@@ -80,7 +80,7 @@ veil, faint silver, with a monster speed boost).
 | 20:00 | **Melion** | The knight left a wolf, who led a pack of wolves through Ireland (Lai de Melion). He calls wolves, and each wolf near him shields him |
 | 30:00 | **The Beast of Gévaudan** (the design's) | The great wolf-like beast of 1764-67. It vanishes into the trees and pounces out where the undergrowth stirs |
 
-## Realm 20: the Brocken (the witches' mountain)
+## Realm 20: the Brocken (the witches' mountain): **done and released 10/31/2026 (00.02.88)**
 *Sources: Goethe, Faust Part One (1808), the Walpurgis Night scene (the witches' ride up the Brocken; the will-o'-the-
 wisp who guides Faust; old Baubo on her sow); Johannes Praetorius, Blockes-Berges Verrichtung (1668); Johann
 Silberschlag (1780) on the Brocken spectre; Leicestershire folklore of Black Annis and her bower in the Dane Hills

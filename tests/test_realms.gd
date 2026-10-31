@@ -207,3 +207,52 @@ func test_the_beast_hides_and_pounces() -> void:
 	beast.signature(1.1)
 	assert_eq(beast.pounces, 1)
 	assert_lt(_player.hp, hp, "it springs on the Hero")
+
+
+func test_the_witches_hex_whoever_they_strike() -> void:
+	_start("the_brocken")
+	assert_eq(str(_level("the_brocken")["unlock"]["boss"]), "roc")
+	var ride := Hazard.create(_level("the_brocken")["hazard"]) as HazardStrikes
+	_world.add_child(ride)
+	ride.begin(_level("the_brocken")["hazard"])
+	ride._strike(_player.position)
+	assert_true(_player.statuses.has("hex"), "hexed")
+
+
+func test_the_brocken_spectre_stands_opposite() -> void:
+	_start("the_brocken")
+	var spectre: BrockenSpectreBoss = _bosses.spawn_boss("brocken_spectre", 0) as BrockenSpectreBoss
+	spectre.target = _player
+	_player.position = _bosses.arena_center + Vector2(100, 0)
+	for k: int in 20:
+		spectre.signature(0.5)
+	assert_lt(spectre.position_now().distance_to(_bosses.arena_center - Vector2(100, 0)), 2.0, "mirrored through the middle")
+
+
+func test_baubo_rides_and_calls_witches() -> void:
+	_start("the_brocken")
+	var baubo: WildHuntBoss = _bosses.spawn_boss("baubo", 1) as WildHuntBoss
+	baubo.target = _player
+	var before: int = _enemies.active_count()
+	baubo.signature(2.6)
+	assert_eq(_enemies.active_count(), before + 2, "two witches follow her")
+
+
+func test_black_annis_goes_home_heals_and_springs() -> void:
+	_start("the_brocken")
+	var annis: BlackAnnisBoss = _bosses.spawn_boss("black_annis", 2) as BlackAnnisBoss
+	_enemies.hp[annis.slot] = _enemies.max_hp[annis.slot] * 0.5
+	annis.signature(7.1)
+	assert_eq(annis.state, "home")
+	for k: int in 20:
+		if annis.state == "spring":
+			break
+		annis.signature(0.25)
+	assert_gt(_enemies.hp[annis.slot], _enemies.max_hp[annis.slot] * 0.5, "she heals in her bower")
+	assert_eq(annis.state, "spring")
+	_player.position = annis._spring_to
+	var hp: float = _player.hp
+	for k: int in 10:
+		annis.signature(0.1)
+	assert_eq(annis.springs, 1)
+	assert_lt(_player.hp, hp, "her claws")

@@ -2153,3 +2153,28 @@ BANTER_BISCLAVRET_ENTRANCE,"Grr... Find what was hidden from me, and I'll be a m
 BANTER_MELION_ENTRANCE,The white stone made me a wolf. Now I lead the pack.
 BANTER_GEVAUDAN_ENTRANCE,(A low growl from the undergrowth. Something huge is watching.)
 BANTER_MELION_KING_ARTHUR,My king! You came all the way to Ireland for me?
+LEVEL_BROCKEN_NAME,The Brocken
+HAZARD_WITCHES_RIDE_NAME,Walpurgis Night: the witches ride over the mountain!
+ENEMY_WITCH_NAME,Witch
+ENEMY_WITCH_MYTH,"On Walpurgis Night, the eve of May Day, German folklore says the witches ride up the Brocken in the Harz on broomsticks, pitchforks and goats. Johannes Praetorius gathered the tales in 1668; Goethe sent Faust up among them."
+ENEMY_BLACK_GOAT_NAME,Black goat
+ENEMY_BLACK_GOAT_MYTH,"The goats the witches ride up the mountain on Walpurgis Night, shaggy and black, butting through the heather."
+BOSS_BROCKEN_SPECTRE_NAME,The Brocken Spectre
+ENEMY_BROCKEN_SPECTRE_NAME,The Brocken Spectre
+ENEMY_BROCKEN_SPECTRE_MYTH,"Climbers on the Brocken sometimes saw a giant figure in the mist below them, surrounded by a ring of rainbow light, that moved when they moved. In 1780 Johann Silberschlag described it: it was their own shadow, cast on the cloud."
+BOSS_BAUBO_NAME,Baubo
+ENEMY_BAUBO_NAME,Baubo
+ENEMY_BAUBO_MYTH,"In Goethe's Walpurgis Night the witches' chorus sings as they climb the Brocken: old Baubo comes alone, riding on a farrow sow, and the whole crowd follows after her."
+BOSS_BLACK_ANNIS_NAME,Black Annis
+ENEMY_BLACK_ANNIS_NAME,Black Annis
+ENEMY_BLACK_ANNIS_MYTH,"A hag of Leicestershire folklore with a blue face and long iron claws. She dug a cave in the Dane Hills with her claws, Black Annis' Bower, and crouched there under an oak to spring out on whoever came by."
+ACH_BOSS_BROCKEN_SPECTRE_NAME,Defeat The Brocken Spectre
+ACH_BOSS_BROCKEN_SPECTRE_DESC,The 10:00 boss of The Brocken.
+ACH_BOSS_BAUBO_NAME,Defeat Baubo
+ACH_BOSS_BAUBO_DESC,The 20:00 boss of The Brocken.
+ACH_BOSS_BLACK_ANNIS_NAME,Defeat Black Annis
+ACH_BOSS_BLACK_ANNIS_DESC,The 30:00 boss of The Brocken.
+BANTER_BROCKEN_SPECTRE_ENTRANCE,(A giant shape in the mist moves when you move.)
+BANTER_BAUBO_ENTRANCE,"Make way! Old Baubo rides alone, and the whole crowd after her!"
+BANTER_BLACK_ANNIS_ENTRANCE,I dug my bower with these claws. I'll dig you out of yours.
+BANTER_BLACK_ANNIS_HECATE,A queen of witches? On my hill there's only one.

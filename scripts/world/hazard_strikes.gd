@@ -6,7 +6,7 @@ extends Hazard
 ## an orange ground marker grows for telegraph_s, then the strike hurts every
 ## player and enemy inside it. Settings come from the level's "hazard" data.
 ## Markers are a small fixed pool. Data: strikes_per_s, radius_px,
-## telegraph_s, damage, element, range_px, color, look ("" = bolts from the sky; "chasm" = the Underworld's
+## telegraph_s, damage, element, range_px, color, player_status (put on each Hero struck), look ("" = bolts from the sky; "chasm" = the Underworld's
 ## collapsing chasms: cracks glow and spread, then the ground drops away into a dark pit that closes again; "grave" =
 ## Erebus' grasping dead: a grave opens and hands reach up, slowing and hurting (grave_dps) whoever stands in it until
 ## it sinks back after bramble_s).
@@ -91,6 +91,9 @@ func _strike(at: Vector2) -> void:
 	for player: Player in GameAuthority.players:
 		if player.alive and player.position.distance_to(at) <= reach + player.body_radius:
 			GameAuthority.damage_player(player, damage, "hazard_" + str(_data.get("type", "strikes")), at)
+			# The Brocken's witches' hexes (docs/PACK_5_PLAN.md): a status on whoever is struck.
+			if str(_data.get("player_status", "")) != "":
+				player.statuses.apply(str(_data["player_status"]))
 	var enemies: EnemyManager = GameAuthority.enemies
 	if enemies != null:
 		for slot: int in enemies.query(at, reach + enemies.max_radius()):

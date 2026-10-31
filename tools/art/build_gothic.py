@@ -298,6 +298,86 @@ def gevaudan(c, step):
 GEVAUDAN_PAL = {"o": "#120804", "r": "#8a4a2a", "R": "#6a3418", "k": "#1a0e08", "y": "#f0c040", "w": "#f0ece0"}
 
 
+# --- The Brocken (Goethe, Faust I 1808: Walpurgis Night; Praetorius 1668; Silberschlag 1780; Black Annis) ------------
+
+def witch(c, f):
+    """A witch of Walpurgis Night (Goethe, Faust I; Praetorius, Blockes-Berges Verrichtung, 1668): an old woman riding
+    a broomstick up the Brocken."""
+    s = STEP[f]
+    c.row(15 + s, 0, 20, "b"); c.rect(0, 13 + s, 3, 17 + s, "y")                          # the broom
+    poly(c, [(7, 6 + s), (14, 6 + s), (15, 15 + s), (6, 15 + s)], "k")
+    ellipse(c, 11, 4 + s, 2.5, 2.5, "g"); c.px(12, 4 + s, "y")
+    poly(c, [(8, 2 + s), (11, -4 + s), (14, 2 + s)], "k"); c.row(2 + s, 7, 15, "k")        # pointed hat
+
+
+WITCH_PAL = {"o": "#0e0a10", "k": "#24182a", "g": "#9aaa7a", "y": "#d8b040", "b": "#6a4a2a"}
+
+
+def black_goat(c, f):
+    """A black goat of the witches' ride (Praetorius; Faust: they ride up on goats): a shaggy black goat, horns curled
+    back."""
+    s = STEP[f]
+    ellipse(c, 10, 9, 7, 4, "k")
+    for k, d in enumerate((-s, s, s, -s)):
+        c.rect(4 + k * 4 + d, 12, 4 + k * 4 + d, 16, "K")
+    poly(c, [(15, 4), (20, 6), (20, 9), (15, 9)], "k"); c.px(17, 6, "y")
+    c.px(15, 2, "h"); c.px(14, 1, "h"); c.px(13, 2, "h"); c.px(19, 10, "k"); c.px(19, 11, "k")
+
+
+GOAT_PAL = {"o": "#2a2830", "k": "#1a181e", "K": "#100e14", "y": "#e8c040", "h": "#a89c88"}
+
+
+def brocken_spectre(c, step):
+    """The Brocken Spectre (Johann Silberschlag, 1780): the giant shadow a climber casts on the mist below the summit,
+    huge and dim, a ring of coloured light round its head."""
+    for k, d in enumerate((-step, step)):
+        c.rect(18 + k * 12 + d, 50, 22 + k * 12 + d, 66, "s")
+    poly(c, [(16, 18), (40, 18), (44, 52), (12, 52)], "s")
+    ellipse(c, 28, 10, 7, 8, "s")
+    c.rect(6, 20, 12, 44, "s"); c.rect(44, 20, 50, 44, "s")
+    for y in range(4, 66, 3):
+        for x in range(4, 54, 5):
+            if (x + y) % 2 and c.g[y][x] == "s":
+                c.px(x, y, "m")                                                          # the mist through it
+
+
+SPECTRE_PAL = {"o": "#3a3e4a", "s": "#4a505e", "m": "#9aa2b4"}
+
+
+def baubo(c, step):
+    """Baubo (Goethe, Faust I, Walpurgis Night: "Old Baubo comes alone; she rides a farrow sow"): an old witch riding a
+    great sow up the mountain."""
+    ellipse(c, 28, 38, 18, 9, "p")
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(14 + k * 9 + d, 44, 17 + k * 9 + d, 54, "P")
+    ellipse(c, 46, 36, 6, 6, "p"); c.rect(50, 36, 54, 39, "P"); c.px(52, 37, "k"); c.px(45, 33, "k")
+    poly(c, [(42, 30), (44, 26), (46, 30)], "p"); c.px(10, 34, "p"); c.px(9, 33, "p")
+    poly(c, [(20, 14), (32, 14), (34, 32), (18, 32)], "k")                                  # the old witch
+    ellipse(c, 26, 10, 4, 4, "g"); c.px(28, 10, "y")
+    poly(c, [(21, 8), (26, 0), (31, 8)], "k"); c.row(8, 20, 32, "k")
+    c.rect(32, 20, 36, 22, "g")
+
+
+BAUBO_PAL = {"o": "#120c10", "p": "#c8907a", "P": "#a06a58", "k": "#2a1e2a", "g": "#9aaa7a", "y": "#d8b040"}
+
+
+def black_annis(c, step):
+    """Black Annis (Leicestershire folklore): a hag with a blue face and long iron claws, who dug her bower in the Dane
+    Hills with her claws."""
+    for k, d in enumerate((-step, step)):
+        c.rect(16 + k * 6 + d, 46, 18 + k * 6 + d, 54, "k")
+    poly(c, [(12, 18), (30, 18), (34, 48), (8, 48)], "k")
+    c.rect(16, 6, 26, 16, "b"); c.px(19, 10, "y"); c.px(23, 10, "y"); c.row(14, 18, 24, "K")
+    c.rect(14, 3, 28, 7, "h"); c.rect(13, 6, 15, 26, "h"); c.rect(27, 6, 29, 26, "h")       # wild grey hair
+    c.rect(4, 22, 9, 30, "b"); c.rect(33, 22, 38, 30, "b")
+    for k in range(4):
+        c.rect(2 + k * 2, 31, 2 + k * 2, 37, "i"); c.rect(32 + k * 2, 31, 32 + k * 2, 37, "i")   # iron claws
+
+
+ANNIS_PAL = {"o": "#08080c", "k": "#1e1a20", "K": "#0e0c10", "b": "#3a5ab0", "y": "#f0e040", "h": "#a8a8a8",
+             "i": "#8a9098"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_gothic.py."
@@ -325,4 +405,9 @@ if __name__ == "__main__":
                    (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("melion", melion, MELION_PAL, doc(melion.__doc__), (58, 50), (28, 48), [0, 1, 0, -1, 0])
     kit.build_boss("gevaudan", gevaudan, GEVAUDAN_PAL, doc(gevaudan.__doc__), (70, 56), (34, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("witch", witch, WITCH_PAL, doc(witch.__doc__), (22, 20), (11, 19), walk, folder="enemies")
+    kit.build_boss("black_goat", black_goat, GOAT_PAL, doc(black_goat.__doc__), (22, 18), (11, 17), walk, folder="enemies")
+    kit.build_boss("brocken_spectre", brocken_spectre, SPECTRE_PAL, doc(brocken_spectre.__doc__), (56, 68), (28, 66), [0, 1, 0, -1, 0])
+    kit.build_boss("baubo", baubo, BAUBO_PAL, doc(baubo.__doc__), (58, 56), (28, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("black_annis", black_annis, ANNIS_PAL, doc(black_annis.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
     print("wrote Gothic Night's art")

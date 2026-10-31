@@ -2599,5 +2599,115 @@
       "edge": "#3e3628",
       "stones": "#7a7060"
     }
+  },
+  {
+    "_doc": "The Brocken, Pack 5 realm 4, the witches' mountain (docs/PACK_5_PLAN.md). Sources: Goethe, Faust I (1808), Walpurgis Night; Praetorius, Blockes-Berges Verrichtung (1668); Silberschlag (1780); Leicestershire folklore of Black Annis. A realm: no local gods.",
+    "id": "the_brocken",
+    "name_key": "LEVEL_BROCKEN_NAME",
+    "region": "realm_witch",
+    "act": 7,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_brocken",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "heather",
+          "max": -0.25,
+          "placeholder_color": "#4a3a44",
+          "placeholder_dots": "#8a5a7a"
+        },
+        {
+          "id": "bog",
+          "max": 0.15,
+          "placeholder_color": "#3a3a30",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "pine_floor",
+          "max": 0.55,
+          "placeholder_color": "#3a3428",
+          "placeholder_dots": "#5a4e38"
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#5a5a60",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "granite_tor",
+      "walpurgis_fire"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "granite_tor": {
+        "shape": "rect",
+        "size_px": [
+          28,
+          22
+        ],
+        "placeholder_color": "#7a7a80",
+        "weight": 2
+      },
+      "walpurgis_fire": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          20
+        ],
+        "placeholder_color": "#e88a2a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "brocken_spectre",
+      "20": "baubo",
+      "30": "black_annis"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "cloud_cuckoo_land",
+      "boss": "roc"
+    },
+    "waves": "waves_the_brocken.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 16,
+      "strikes_per_s": 0.9,
+      "radius_px": 30,
+      "telegraph_s": 1.2,
+      "damage": 10,
+      "element": "dark",
+      "range_px": 230,
+      "color": "#a05ad0",
+      "player_status": "hex",
+      "name_key": "HAZARD_WITCHES_RIDE_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#b8b0c8",
+    "flora": {
+      "density": 0.6,
+      "trees": {
+        "spruce": 3,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#6a6460",
+      "edge": "#4a4642",
+      "stones": "#8a8480"
+    }
   }
 ]

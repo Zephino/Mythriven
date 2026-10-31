@@ -488,12 +488,33 @@ def fallen_log():
     return p
 
 
+def granite_tor():
+    """A granite tor on the Brocken (the summit's rock piles, named the Witches' Altar and the Devil's Pulpit in the
+    old guidebooks): rounded granite blocks stacked on one another."""
+    p = Pic(28, 24, (14, 23))
+    blob(p, 14, 18, 13, 6, "G"); blob(p, 13, 17, 11, 5, "g")
+    blob(p, 12, 10, 8, 5, "G"); blob(p, 11, 9, 7, 4, "g")
+    blob(p, 15, 4, 5, 3.5, "G"); blob(p, 14, 3, 4, 3, "h")
+    for x, y in ((6, 16), (18, 12), (20, 19)): p.px(x, y, "l")
+    return p
+
+
+def walpurgis_fire():
+    """A Walpurgis Night fire (Faust I: the fires on the Brocken): a heap of logs with flames leaping up."""
+    p = Pic(18, 22, (9, 21))
+    p.rect(2, 18, 15, 20, "b"); p.rect(4, 16, 13, 17, "B")
+    for k, h in enumerate((8, 13, 16, 12, 9)):
+        p.rect(4 + k * 2, 17 - h, 5 + k * 2, 16, "r" if k % 2 else "y")
+    p.rect(7, 8, 10, 15, "f")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

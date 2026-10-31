@@ -1,0 +1,65 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A Walpurgis Night fire (Faust I: the fires on the Brocken): a heap of logs with flames leaping up.",
+ "size": [
+  16,
+  22
+ ],
+ "anchor": [
+  8,
+  21
+ ],
+ "palette": {
+  "a": "#664e18",
+  "b": "#e4ba4e",
+  "c": "#f0c654",
+  "d": "#481812",
+  "e": "#963c30",
+  "f": "#d8b448",
+  "g": "#cca848",
+  "h": "#8a3630",
+  "i": "#9c3c30",
+  "j": "#7e362a",
+  "k": "#f0d230",
+  "l": "#ae903c",
+  "m": "#c0a242",
+  "n": "#84362a",
+  "o": "#d8ae48",
+  "p": "#2a2418",
+  "q": "#1e1812",
+  "r": "#42362a",
+  "s": "#3c3024",
+  "t": "#362a24",
+  "u": "#544836",
+  "v": "#5a483c",
+  "w": "#544236",
+  "x": "#483c30"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".......aa.......",
+    "......abca......",
+    "......acba......",
+    ".....ddbba......",
+    "....deefgdd.....",
+    "....dhhbfhed....",
+    "....dheffhid....",
+    "....djebfheda...",
+    "...adhkkkkibfa..",
+    "..agbekkkkeffa..",
+    "..alfikkkkefga..",
+    "..agmhkkkknoga..",
+    "..aogekkkkegoa..",
+    "..aggnkkkkhgoa..",
+    "..agmhkkkkhmoa..",
+    "..aognkkkknoga..",
+    "..amghngghhoga..",
+    ".pqrrrsrstrrsqp.",
+    "puvwxvvvuuuwvvup",
+    "pwxxuuwvuvvvuvvp",
+    "pvuwvvuuwxuwuvwp",
+    ".pppppppppppppp."
+   ]
+  ]
+ }
+}

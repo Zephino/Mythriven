@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.88
+Date: 10/31/2026
+Time: 7:42 PM
+
+### Changes
+- **The Brocken, the witches' mountain, is built and open** (Pack 5, `docs/PACK_5_PLAN.md`). It opens when you beat the Roc (Cloud-Cuckoo-Land's 30:00 boss). With it, all four Gothic Night realms are built.
+  - **Hazard, the witches' ride:** on Walpurgis Night the witches fly over the mountain and loose hexes: telegraphed strikes that Hex whoever they hit (weaker armour and damage for a while).
+  - **Monsters:** witches on broomsticks (casters), black goats (swarms) and will-o'-the-wisps (the Irrlicht who guides Faust up the Brocken).
+  - **10:00, the Brocken Spectre** (Silberschlag, 1780): the giant shadow in the mist, a ring of coloured light round its head. It always stands opposite you across the middle of the arena; walk toward the middle to reach it.
+  - **20:00, Baubo** (Goethe, Faust I): "old Baubo comes alone; she rides a farrow sow". She charges on her sow, leaving churned mud that slows, and two witches follow her each time.
+  - **30:00, Black Annis** (the design's boss; Leicestershire folklore): every so often she runs back to her bower (a cave in the hillside) to heal, taking half damage there, then springs out on the nearest Hero; her iron claws make wounds that bleed (Poison).
+  - Heather moor, Harz spruce, bog and granite tors, with Walpurgis fires; frogs, ravens, owls and moths.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- New game rule behind it: a strikes hazard can put a status on whoever it hits.
+- 4 new tests (351 tests pass).
+
+### Reason
+Pack 5, realm 4 of 4 (owner: "program all 9 packs 1 at a time").
+
 ## Version 00.02.87
 Date: 10/31/2026
 Time: 7:33 PM

@@ -1,0 +1,70 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A granite tor on the Brocken (the summit's rock piles, named the Witches' Altar and the Devil's Pulpit in the old guidebooks): rounded granite blocks stacked on one another.",
+ "size": [
+  29,
+  26
+ ],
+ "anchor": [
+  14,
+  25
+ ],
+ "palette": {
+  "a": "#484848",
+  "b": "#a2a2a8",
+  "c": "#2a2a2a",
+  "d": "#a8a8ae",
+  "e": "#969c9c",
+  "f": "#aeb4ba",
+  "g": "#6c6c6c",
+  "h": "#909096",
+  "i": "#66666c",
+  "j": "#666666",
+  "k": "#606066",
+  "l": "#5a5a60",
+  "m": "#3c3c3c",
+  "n": "#8a8a90",
+  "o": "#84848a",
+  "p": "#545454",
+  "q": "#7e7e7e",
+  "r": "#787878",
+  "s": "#727272",
+  "t": "#54545a",
+  "u": "#4e6636",
+  "v": "#546c3c",
+  "w": "#48484e",
+  "x": "#787e7e",
+  "y": "#4e5454"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..............a..............",
+    "............aabaac...........",
+    "...........abdebfgcc.........",
+    "..........ahddddddggc........",
+    ".........abdfffbbdfic........",
+    ".........cjedbeebbkljc.......",
+    ".......mmmckdbbdekkkc........",
+    ".....mmnooojjkekjpkpc........",
+    "....mooqoroqqkklkkjc.........",
+    "....mooonnqgononoqlkc........",
+    "...mqnsononrooonorqlc........",
+    "...cjnoqnoqnnononqlkkc.......",
+    "....cqoqonqnqoqnsokkc........",
+    "....cltogoqqoqoqklutcc.......",
+    ".....cllltlqllllkllqllcc.....",
+    "...mmqoqlklklklllqrqrrltcc...",
+    "..crqgorrqrqkrgqrrqqooqoklc..",
+    ".ckqqrvrrqoqoqqqqqqgoorollkc.",
+    ".cqqqroqqoqqgrrqqqqrroqroklc.",
+    "cltqoqoqqsoqoooqrgorogqrlktkc",
+    ".cloqqqqqqorrqqoqooovqrqlklc.",
+    ".cwtlrrrkxgxrrssrxrjsstltllc.",
+    "..cttyygsrsxsgrrxsxxyytttwc..",
+    "...cctltttlywktytttlytttcc...",
+    ".....cclayttlyyttlttytcc.....",
+    ".......ccccccccccccccc......."
+   ]
+  ]
+ }
+}

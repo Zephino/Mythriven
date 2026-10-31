@@ -460,6 +460,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | gevaudan_entrance | boss entrance | gevaudan | (A low growl from the undergrowth. Something huge is watching.) | The Beast of Gevaudan (it sprang from cover; a description, not speech) | no |
 | melion_king_arthur | boss entrance (as king_arthur) | melion | My king! You came all the way to Ireland for me? | The Lai de Melion (Arthur comes to Ireland and restores him) | no |
 
+### The Brocken
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | the_brocken | The Brocken | Goethe, Faust I (1808), Walpurgis Night; Praetorius, Blockes-Berges Verrichtung (1668) | no |
+| enemy | witch | Witch | Goethe, Faust I (1808), Walpurgis Night; Praetorius, Blockes-Berges Verrichtung (1668) | no |
+| enemy | black_goat | Black goat | Praetorius (1668); Goethe, Faust I (the witches ride up on goats) | no |
+| boss | brocken_spectre | The Brocken Spectre | Johann Silberschlag (1780): the giant shadows with a ring of coloured light seen in the mist from the Brocken | no |
+| boss | baubo | Baubo | Goethe, Faust I (1808), Walpurgis Night ("Old Baubo comes alone; she rides a farrow sow") | no |
+| boss | black_annis | Black Annis | Leicestershire folklore (John Heyrick's poem, 1797; county histories): Black Annis and her bower in the Dane Hills | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| brocken_spectre_entrance | boss entrance | brocken_spectre | (A giant shape in the mist moves when you move.) | Silberschlag (1780): the shadow on the mist | no |
+| baubo_entrance | boss entrance | baubo | Make way! Old Baubo rides alone, and the whole crowd after her! | Goethe, Faust I, Walpurgis Night (the witches' chorus) | no |
+| black_annis_entrance | boss entrance | black_annis | I dug my bower with these claws. I'll dig you out of yours. | Leicestershire folklore (her claws dug the cave) | no |
+| black_annis_hecate | boss meets god (with hecate) | black_annis | A queen of witches? On my hill there's only one. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

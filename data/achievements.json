@@ -974,5 +974,35 @@
       "id": "gevaudan"
     },
     "persists": true
+  },
+  {
+    "id": "boss_brocken_spectre",
+    "name_key": "ACH_BOSS_BROCKEN_SPECTRE_NAME",
+    "desc_key": "ACH_BOSS_BROCKEN_SPECTRE_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "brocken_spectre"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_baubo",
+    "name_key": "ACH_BOSS_BAUBO_NAME",
+    "desc_key": "ACH_BOSS_BAUBO_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "baubo"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_black_annis",
+    "name_key": "ACH_BOSS_BLACK_ANNIS_NAME",
+    "desc_key": "ACH_BOSS_BLACK_ANNIS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "black_annis"
+    },
+    "persists": true
   }
 ]

@@ -1,0 +1,124 @@
+{
+ "_doc": "A black goat of the witches' ride (Praetorius; Faust: they ride up on goats): a shaggy black goat, horns curled back. Built by tools/art/build_gothic.py.",
+ "size": [
+  22,
+  18
+ ],
+ "anchor": [
+  11,
+  17
+ ],
+ "palette": {
+  "o": "#2a2830",
+  "k": "#1a181e",
+  "K": "#100e14",
+  "y": "#e8c040",
+  "h": "#a89c88"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..............o.......",
+    ".............oho......",
+    "............ohoho.....",
+    ".............o.o......",
+    "..........o...okooo...",
+    "......ooookooookkkko..",
+    "....ookkkkkkkkkkkykko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "..okkkkkkkkkkkkkkkoo..",
+    "...okkkkkkkkkkkkkooko.",
+    "...okkkkkkkkkkkkkooko.",
+    "...oKokkKkkkKkkoKo.o..",
+    "...oKoooKokoKoooKo....",
+    "...oKo.oKoooKo.oKo....",
+    "...oKo.oKo.oKo.oKo....",
+    "...oKo.oKo.oKo.oKo....",
+    "....o...o...o...o....."
+   ]
+  ],
+  "walk": [
+   [
+    "..............o.......",
+    ".............oho......",
+    "............ohoho.....",
+    ".............o.o......",
+    "..........o...okooo...",
+    "......ooookooookkkko..",
+    "....ookkkkkkkkkkkykko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "..okkkkkkkkkkkkkkkoo..",
+    "...okkkkkkkkkkkkkooko.",
+    "...okkkkkkkkkkkkkooko.",
+    "....oKkKkkkKkkkooKoo..",
+    "....oKoKookKooo.oKo...",
+    "....oKoKo.oKo...oKo...",
+    "....oKoKo.oKo...oKo...",
+    "....oKoKo.oKo...oKo...",
+    ".....o.o...o.....o...."
+   ],
+   [
+    "..............o.......",
+    ".............oho......",
+    "............ohoho.....",
+    ".............o.o......",
+    "..........o...okooo...",
+    "......ooookooookkkko..",
+    "....ookkkkkkkkkkkykko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "..okkkkkkkkkkkkkkkoo..",
+    "...okkkkkkkkkkkkkooko.",
+    "...okkkkkkkkkkkkkooko.",
+    "...oKokkKkkkKkkoKo.o..",
+    "...oKoooKokoKoooKo....",
+    "...oKo.oKoooKo.oKo....",
+    "...oKo.oKo.oKo.oKo....",
+    "...oKo.oKo.oKo.oKo....",
+    "....o...o...o...o....."
+   ],
+   [
+    "..............o.......",
+    ".............oho......",
+    "............ohoho.....",
+    ".............o.o......",
+    "..........o...okooo...",
+    "......ooookooookkkko..",
+    "....ookkkkkkkkkkkykko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "..okkkkkkkkkkkkkkkoo..",
+    "...okkkkkkkkkkkkkooko.",
+    "...okkkkkkkkkkkkkooko.",
+    "..oKookkkKkkkKkKo..o..",
+    "..oKo.oooKkooKoKo.....",
+    "..oKo...oKo.oKoKo.....",
+    "..oKo...oKo.oKoKo.....",
+    "..oKo...oKo.oKoKo.....",
+    "...o.....o...o.o......"
+   ],
+   [
+    "..............o.......",
+    ".............oho......",
+    "............ohoho.....",
+    ".............o.o......",
+    "..........o...okooo...",
+    "......ooookooookkkko..",
+    "....ookkkkkkkkkkkykko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "...okkkkkkkkkkkkkkkko.",
+    "..okkkkkkkkkkkkkkkoo..",
+    "...okkkkkkkkkkkkkooko.",
+    "...okkkkkkkkkkkkkooko.",
+    "...oKokkKkkkKkkoKo.o..",
+    "...oKoooKokoKoooKo....",
+    "...oKo.oKoooKo.oKo....",
+    "...oKo.oKo.oKo.oKo....",
+    "...oKo.oKo.oKo.oKo....",
+    "....o...o...o...o....."
+   ]
+  ]
+ }
+}

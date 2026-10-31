@@ -4,6 +4,7 @@ extends MorvarchBoss
 ## black huntsmen gallop straight across the arena at a Hero, trampling whoever is in the way and leaving a trail of
 ## grave-cold mist that slows, and each time they ride they loose their hounds. Sources: the Anglo-Saxon Chronicle for 1127 (black huntsmen on black
 ## horses and black goats, with black hounds with wide eyes); Orderic Vitalis 8.17 (Hellequin's household).
+## Baubo (the Brocken, 20:00) uses this script too: she charges on her sow and calls witches after her ("hound").
 
 var rides: int = 0
 
