@@ -2485,5 +2485,119 @@
       "edge": "#3a3630",
       "stones": "#7a746a"
     }
+  },
+  {
+    "_doc": "Ossory, Pack 5 realm 3, the werewolf forests (docs/PACK_5_PLAN.md). Sources: Gerald of Wales, Topographia Hibernica II.19 (c. 1188); Marie de France, Bisclavret; the Lai de Melion; the Beast of Gevaudan (1764-67). The saint of Gerald's tale is not used. A realm: no local gods.",
+    "id": "ossory",
+    "name_key": "LEVEL_OSSORY_NAME",
+    "region": "realm_werewolf",
+    "act": 7,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "ossory",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "dark_grass",
+          "max": -0.2,
+          "placeholder_color": "#2e3a28",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "pine_floor",
+          "max": 0.25,
+          "placeholder_color": "#3a3426",
+          "placeholder_dots": "#5a4e36"
+        },
+        {
+          "id": "bog",
+          "max": 0.6,
+          "placeholder_color": "#2a3024",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#4e5048",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "standing_stone",
+      "fallen_log"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          22
+        ],
+        "placeholder_color": "#8a8c88",
+        "weight": 1
+      },
+      "fallen_log": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          10
+        ],
+        "placeholder_color": "#5a4430",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "bisclavret",
+      "20": "melion",
+      "30": "gevaudan"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "muspelheim",
+      "boss": "sinmara"
+    },
+    "waves": "waves_ossory.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 24,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0,
+      "pulse": 0.12,
+      "pulse_hz": 0.1,
+      "veil_color": "#c8d4f0",
+      "particles": "mist",
+      "particle_color": "#e8eef8",
+      "fade_s": 3.0,
+      "enemy_speed_mult": 1.35,
+      "name_key": "HAZARD_FULL_MOON_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#b4bccc",
+    "flora": {
+      "density": 0.9,
+      "trees": {
+        "oak": 3,
+        "yew": 1,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#5a4e3a",
+      "edge": "#3e3628",
+      "stones": "#7a7060"
+    }
   }
 ]

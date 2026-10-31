@@ -479,12 +479,21 @@ def stone_tomb():
     return p
 
 
+def fallen_log():
+    """A fallen oak trunk in the forest of Ossory, mossy, with a broken end."""
+    p = Pic(32, 10, (16, 9))
+    p.rect(1, 3, 30, 8, "b"); p.rect(1, 3, 30, 4, "u"); p.rect(1, 8, 30, 8, "B")
+    p.rect(28, 2, 31, 9, "e"); p.px(29, 5, "E"); p.px(30, 6, "E")
+    for x in (5, 11, 18, 24): p.px(x, 2, "l"); p.px(x + 1, 3, "l")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

@@ -1907,5 +1907,45 @@
     "text_key": "BANTER_CARMILLA_PERSEPHONE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "bisclavret_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "bisclavret",
+    "hero": "",
+    "god": "bisclavret",
+    "text_key": "BANTER_BISCLAVRET_ENTRANCE",
+    "lore_source": "Marie de France, Bisclavret (his hidden clothes)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "melion_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "melion",
+    "hero": "",
+    "god": "melion",
+    "text_key": "BANTER_MELION_ENTRANCE",
+    "lore_source": "The Lai de Melion (the ring's white stone)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "gevaudan_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "gevaudan",
+    "hero": "",
+    "god": "gevaudan",
+    "text_key": "BANTER_GEVAUDAN_ENTRANCE",
+    "lore_source": "The Beast of Gevaudan (it sprang from cover; a description, not speech)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "melion_king_arthur",
+    "trigger": "boss_entrance",
+    "speaker": "melion",
+    "hero": "king_arthur",
+    "god": "melion",
+    "text_key": "BANTER_MELION_KING_ARTHUR",
+    "lore_source": "The Lai de Melion (Arthur comes to Ireland and restores him)",
+    "needs_owner_review": true
   }
 ]

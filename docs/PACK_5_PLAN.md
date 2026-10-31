@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time").
 The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one boss idea; everything else below was
 chosen by Claude from old public-domain texts and folklore only (never modern games, books or films). The owner can
-change or veto any of it, before or after it is built. Erebus built and released 10/31/2026 (00.02.85); Karnstein (00.02.86).
+change or veto any of it, before or after it is built. Erebus built and released 10/31/2026 (00.02.85); Karnstein (00.02.86); Ossory (00.02.87).
 
 Realms work like Pack 4's: endless map, a hazard, monster families, three bosses, **no local gods** (shrines draw gods
 from every pantheon).
@@ -60,7 +60,7 @@ Peckett Prest, Varney the Vampire (1845-47); Augustin Calmet, Treatise on the Ap
 | 20:00 | **Lord Ruthven** | The cold nobleman of The Vampyre. He fastens on the nearest Hero and drains their life to heal himself while they stay close |
 | 30:00 | **Carmilla** (the design's) | Mircalla, Countess Karnstein. She fades into mist and appears beside a Hero; her bite wastes (Poison). In her last phase she becomes the "monstrous cat", sooty black (Carmilla, ch. 6) |
 
-## Realm 19: Ossory (the werewolf forests)
+## Realm 19: Ossory (the werewolf forests): **done and released 10/31/2026 (00.02.87)**
 *Sources: Gerald of Wales, Topographia Hibernica II.19 (c. 1188: the werewolves of Ossory); Marie de France,
 Bisclavret (12th c.); the Lai de Melion (13th c.); French newspapers of 1764-67 and the Abbé Pourcher's history (1889)
 on the Beast of Gévaudan. **Care:** the saint who cursed the people of Ossory is not used as a character.*

@@ -944,5 +944,35 @@
       "id": "carmilla"
     },
     "persists": true
+  },
+  {
+    "id": "boss_bisclavret",
+    "name_key": "ACH_BOSS_BISCLAVRET_NAME",
+    "desc_key": "ACH_BOSS_BISCLAVRET_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "bisclavret"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_melion",
+    "name_key": "ACH_BOSS_MELION_NAME",
+    "desc_key": "ACH_BOSS_MELION_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "melion"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_gevaudan",
+    "name_key": "ACH_BOSS_GEVAUDAN_NAME",
+    "desc_key": "ACH_BOSS_GEVAUDAN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "gevaudan"
+    },
+    "persists": true
   }
 ]

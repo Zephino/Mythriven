@@ -1,0 +1,58 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A fallen oak trunk in the forest of Ossory, mossy, with a broken end.",
+ "size": [
+  33,
+  10
+ ],
+ "anchor": [
+  16,
+  9
+ ],
+ "palette": {
+  "a": "#243618",
+  "b": "#5a5442",
+  "c": "#607842",
+  "d": "#4e6c36",
+  "e": "#d2c0a2",
+  "f": "#deccae",
+  "g": "#546c3c",
+  "h": "#5a723c",
+  "i": "#486036",
+  "j": "#c6ba9c",
+  "k": "#c0ae96",
+  "l": "#4e6636",
+  "m": "#2a2418",
+  "n": "#665442",
+  "o": "#604e42",
+  "p": "#5a483c",
+  "q": "#5a4e3c",
+  "r": "#544236",
+  "s": "#b49c7e",
+  "t": "#b4a88a",
+  "u": "#a29072",
+  "v": "#4e3c30",
+  "w": "#1e1812",
+  "x": "#42362a",
+  "y": "#362a24",
+  "z": "#3c3024",
+  "A": "#a2967e",
+  "B": "#baae90",
+  "C": "#9c9078"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....a.....a......a.....a...bbbb.",
+    ".aaaacaaaaacaaaaaacaaaaadaaaefeeb",
+    "agddghgdgdhgghdhghddgidggdgdjjjkb",
+    "adiggghdghlhhdhggggddghghlddjjkkb",
+    "mnononoooooooooooooopoqnoorqjsjkb",
+    "mppqoqopqoqoqoqqpoooooqrqqqqtkukb",
+    "mqpoovppqqoqvpoqpoppqqqqqoppjkttb",
+    "wxxyzxxxzzxxxzxxxxzzxxzxxzxxtAktb",
+    ".wwwwwwwwwwwwwwwwwwwwwwwwwwwBBtCb",
+    "............................bbbb."
+   ]
+  ]
+ }
+}

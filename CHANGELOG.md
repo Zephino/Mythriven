@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.87
+Date: 10/31/2026
+Time: 7:33 PM
+
+### Changes
+- **Ossory, the werewolf forests, is built and open** (Pack 5, `docs/PACK_5_PLAN.md`). It opens when you beat Sinmara (Muspelheim's 30:00 boss).
+  - **Hazard, the full moon:** the moon comes out over the forest, and while it shines every monster runs 35% faster.
+  - **Monsters:** wolves and grey wolves, ravens, and from 10:00 the werewolves of Ossory (Gerald of Wales, c. 1188).
+  - **10:00, Bisclavret** (Marie de France): his clothes lie hidden somewhere in the arena. Stand on them for 1.5 s and he turns back into a man for 6 s: he can't fight and takes double damage. Then he is a wolf again and they are hidden somewhere else.
+  - **20:00, Melion** (the Lai de Melion): every 10 s he calls four wolves, and each wolf close to him cuts the damage he takes by 10% (up to 60%). Kill his pack to reach him.
+  - **30:00, the Beast of Gévaudan** (the design's boss; the reports of 1764-67): every few seconds it vanishes into cover, where it can't be seen or hurt, creeps after a Hero, then pounces where the undergrowth stirs.
+  - A dark Irish forest of oaks and yews, standing stones and fallen logs, hares, hedgehogs, ravens, owls and red deer.
+  - 3 achievements, 4 banter lines (Melion has one for King Arthur) and the realm's rows on the lore check.
+- New game rule behind it: a weather hazard can make every monster faster while it lasts.
+- 4 new tests (347 tests pass).
+
+### Reason
+Pack 5, realm 3 of 4 (owner: "program all 9 packs 1 at a time").
+
 ## Version 00.02.86
 Date: 10/31/2026
 Time: 7:26 PM

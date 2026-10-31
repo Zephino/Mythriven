@@ -4941,5 +4941,246 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Ossory bosses (docs/PACK_5_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "bisclavret",
+    "name_key": "BOSS_BISCLAVRET_NAME",
+    "tradition": "breton",
+    "lore_source": "Marie de France, Bisclavret (12th c.): the baron who must stay a wolf without his hidden clothes",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "bisclavret",
+    "move_speed": 60,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "hidden_clothes",
+      "hide_px": 200,
+      "clothes_reach_px": 18,
+      "restore_s": 1.5,
+      "man_s": 6.0,
+      "man_damage_taken": 2.0,
+      "rehide_s": 3.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ossory bosses (docs/PACK_5_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "melion",
+    "name_key": "BOSS_MELION_NAME",
+    "tradition": "arthurian",
+    "lore_source": "The Lai de Melion (13th c.): the knight left a wolf by his wife, who led a pack of wolves through Ireland",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "melion",
+    "move_speed": 50,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "pack_leader",
+      "call_every_s": 10.0,
+      "wolves": 4,
+      "wolf": "wolf",
+      "shield_radius_px": 120,
+      "shield_per_wolf": 0.1,
+      "max_shield": 0.6
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ossory bosses (docs/PACK_5_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "gevaudan",
+    "name_key": "BOSS_GEVAUDAN_NAME",
+    "tradition": "french",
+    "lore_source": "French newspapers of 1764-67 (the Courrier d'Avignon, the Gazette de France); the Abbe Pourcher's history (1889): the Beast of Gevaudan",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "gevaudan",
+    "move_speed": 52,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_stalker",
+      "open_s": 6.0,
+      "hidden_s": 3.0,
+      "stir_s": 1.0,
+      "creep_px_s": 80,
+      "pounce_radius_px": 44,
+      "pounce_damage": 22
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "wolf"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "wolf"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

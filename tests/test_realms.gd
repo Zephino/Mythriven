@@ -155,3 +155,55 @@ func test_carmilla_comes_out_of_the_mist_and_becomes_a_cat() -> void:
 	assert_true(_player.statuses.has("poison"), "her bite wastes")
 	carmilla._on_phase_started(2)
 	assert_eq(carmilla.art_id(), "carmilla_cat")
+
+
+func test_the_full_moon_speeds_the_monsters() -> void:
+	_start("ossory")
+	assert_eq(str(_level("ossory")["unlock"]["boss"]), "sinmara")
+	var moon := Hazard.create(_level("ossory")["hazard"]) as HazardWeather
+	_world.add_child(moon)
+	moon.begin(_level("ossory")["hazard"])
+	var slot: int = _enemies.spawn("wolf", Vector2(200, 0))
+	var before: float = _enemies.speed_of(slot)
+	for k: int in 10:
+		moon._process(0.5)
+	assert_gt(_enemies.speed_of(slot), before, "the wolves run faster under the moon")
+	moon.queue_free()
+
+
+func test_bisclavret_turns_back_on_his_clothes() -> void:
+	_start("ossory")
+	var wolf: BisclavretBoss = _bosses.spawn_boss("bisclavret", 0) as BisclavretBoss
+	wolf.hide_clothes()
+	_player.position = wolf.clothes
+	wolf.signature(1.0)
+	wolf.signature(1.0)
+	assert_eq(wolf.art_id(), "bisclavret_man", "a man again")
+	assert_almost_eq(wolf.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "and hurt twice as hard")
+	wolf.signature(7.0)
+	assert_eq(wolf.art_id(), "bisclavret", "then a wolf")
+
+
+func test_melions_pack_shields_him() -> void:
+	_start("ossory")
+	var melion: MelionBoss = _bosses.spawn_boss("melion", 1) as MelionBoss
+	var bare: float = melion.modify_hit(100.0, _player, Vector2.ZERO)
+	melion.call_pack()
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	assert_eq(melion.pack_near(), 4)
+	assert_lt(melion.modify_hit(100.0, _player, Vector2.ZERO), bare, "his wolves shield him")
+
+
+func test_the_beast_hides_and_pounces() -> void:
+	_start("ossory")
+	var beast: GevaudanBoss = _bosses.spawn_boss("gevaudan", 2) as GevaudanBoss
+	beast.target = _player
+	beast.signature(6.1)
+	assert_eq(beast.state, "hidden")
+	assert_eq(beast.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "it can't be hurt in cover")
+	beast.signature(3.1)
+	assert_eq(beast.state, "stirring")
+	var hp: float = _player.hp
+	beast.signature(1.1)
+	assert_eq(beast.pounces, 1)
+	assert_lt(_player.hp, hp, "it springs on the Hero")

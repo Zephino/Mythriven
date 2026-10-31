@@ -74,6 +74,9 @@ func _process(delta: float) -> void:
 	var target: float = 1.0 if active and not paused else 0.0
 	_strength = move_toward(_strength, target, delta / maxf(float(_data.get("fade_s", 1.5)), 0.05))
 	_update_veil()
+	# Ossory's full moon: every monster runs faster while it shines (docs/PACK_5_PLAN.md).
+	if _data.has("enemy_speed_mult") and GameAuthority.enemies != null:
+		GameAuthority.enemies.hazard_speed_mult = lerpf(1.0, float(_data["enemy_speed_mult"]), _strength)
 	if _strength <= 0.0 or GameAuthority.run == null:
 		return
 	# Niflheim's freezing fog chills whoever is out in it (docs/PACK_4_PLAN.md).
@@ -191,3 +194,8 @@ func _draw_flakes() -> void:
 		"mist":
 			for i: int in shown / 6:
 				_flakes.draw_circle(_flake_pos[i], 18.0 + _flake_seed[i] * 26.0, Color(color, 0.07))
+
+
+func _exit_tree() -> void:
+	if _data.has("enemy_speed_mult") and GameAuthority.enemies != null and is_instance_valid(GameAuthority.enemies):
+		GameAuthority.enemies.hazard_speed_mult = 1.0

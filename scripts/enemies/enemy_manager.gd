@@ -80,6 +80,9 @@ var remote: bool = false:
 var _remote: EnemyRemote = null
 
 
+## Every monster's speed while a hazard says so (Ossory's full moon), set by that hazard.
+var hazard_speed_mult: float = 1.0
+
 func setup() -> void:
 	process_priority = 1
 	capacity = Data.cfg_int("performance.enemy_cap")
@@ -250,7 +253,7 @@ func flies(slot: int) -> bool:
 
 ## Current move speed: type speed slowed by Chill/Freeze/stuns, raised by Hasted.
 func speed_of(slot: int) -> float:
-	return _type_speed[kind[slot]] * statuses.speed_mult(slot) * elites.speed_mult(slot) * (GameAuthority.run.enemy_speed_mult if GameAuthority.run != null else 1.0)
+	return _type_speed[kind[slot]] * statuses.speed_mult(slot) * elites.speed_mult(slot) * hazard_speed_mult * (GameAuthority.run.enemy_speed_mult if GameAuthority.run != null else 1.0)
 
 
 ## Multiplier on the damage this enemy deals (Hex, and difficulty from player level).

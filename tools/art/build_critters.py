@@ -280,6 +280,11 @@ LEVELS = {
         "birds": {"bat": ("#3a3440", "#24202a", "#24202a", True), "owl": ("#8a7a68", "#5a4a3a", "#d8b040", False)},
         "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650")},
         "large": {}},
+    "ossory": {
+        "ground": {"hare": (hare, "#8a6a48", "#e8e0d0"), "hedgehog": (hedgehog, "#6a5a48", "#c8a888")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True), "owl": ("#8a7a68", "#5a4a3a", "#d8b040", False)},
+        "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650")},
+        "large": {"red_deer": ("#8a5a3a", "#d8c0a0", "#3a2418", "antlers", 28, 26)}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

@@ -442,6 +442,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | carmilla_entrance | boss entrance | carmilla | Don't be afraid, darling. You will be mine, and I yours. | Le Fanu, Carmilla, ch. 4 (her words to Laura) | no |
 | carmilla_persephone | boss meets god (with persephone) | carmilla | Queen of the dead? I have slept in my tomb a hundred years; it never kept me. | Original line written for Mythriven | no |
 
+### Ossory
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | ossory | Ossory | Gerald of Wales, Topographia Hibernica II.19 (c. 1188: the werewolves of Ossory) | no |
+| enemy | werewolf | Werewolf of Ossory | Gerald of Wales, Topographia Hibernica II.19 (c. 1188): the werewolves of Ossory | no |
+| enemy | raven | Raven | Irish forest folklore (ravens follow the wolves) | no |
+| boss | bisclavret | Bisclavret | Marie de France, Bisclavret (12th c.): the baron who must stay a wolf without his hidden clothes | no |
+| boss | melion | Melion | The Lai de Melion (13th c.): the knight left a wolf by his wife, who led a pack of wolves through Ireland | no |
+| boss | gevaudan | The Beast of Gévaudan | French newspapers of 1764-67 (the Courrier d'Avignon, the Gazette de France); the Abbe Pourcher's history (1889): the Beast of Gevaudan | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| bisclavret_entrance | boss entrance | bisclavret | Grr... Find what was hidden from me, and I'll be a man again. | Marie de France, Bisclavret (his hidden clothes) | no |
+| melion_entrance | boss entrance | melion | The white stone made me a wolf. Now I lead the pack. | The Lai de Melion (the ring's white stone) | no |
+| gevaudan_entrance | boss entrance | gevaudan | (A low growl from the undergrowth. Something huge is watching.) | The Beast of Gevaudan (it sprang from cover; a description, not speech) | no |
+| melion_king_arthur | boss entrance (as king_arthur) | melion | My king! You came all the way to Ireland for me? | The Lai de Melion (Arthur comes to Ireland and restores him) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

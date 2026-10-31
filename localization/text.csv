@@ -2127,3 +2127,29 @@ BANTER_VARNEY_ENTRANCE,Strike me down if you like. The moon is up.
 BANTER_RUTHVEN_ENTRANCE,Remember your oath: speak of me to no one.
 BANTER_CARMILLA_ENTRANCE,"Don't be afraid, darling. You will be mine, and I yours."
 BANTER_CARMILLA_PERSEPHONE,Queen of the dead? I have slept in my tomb a hundred years; it never kept me.
+LEVEL_OSSORY_NAME,Ossory
+HAZARD_FULL_MOON_NAME,The full moon rises over the forest!
+ENEMY_WEREWOLF_NAME,Werewolf of Ossory
+ENEMY_WEREWOLF_MYTH,"Gerald of Wales heard in Ireland of the people of Ossory, two of whom, a man and a woman, had to put off their human shape every seven years and live in the forests as wolves. A priest met one by night, and it spoke to him like a man."
+ENEMY_RAVEN_NAME,Raven
+ENEMY_RAVEN_MYTH,"Black ravens wheel over the forest, following the wolves to whatever they bring down."
+BOSS_BISCLAVRET_NAME,Bisclavret
+ENEMY_BISCLAVRET_NAME,Bisclavret
+ENEMY_BISCLAVRET_MYTH,"A Breton baron who became a wolf in the forest three days of every week. His wife learned his secret and had his clothes hidden, so he could never turn back, until the king, who loved the gentle wolf, had them given back to him."
+BOSS_BISCLAVRET_MAN,Bisclavret has his clothes: he is a man again!
+BOSS_MELION_NAME,Melion
+ENEMY_MELION_NAME,Melion
+ENEMY_MELION_MYTH,"A knight of Arthur's court with a ring of two stones: touched with the white, he became a wolf; with the red, a man again. In Ireland his wife took the ring and left him a wolf, and he gathered a pack of wolves and ravaged the land until Arthur came."
+BOSS_GEVAUDAN_NAME,The Beast of Gévaudan
+ENEMY_GEVAUDAN_NAME,The Beast of Gévaudan
+ENEMY_GEVAUDAN_MYTH,"From 1764 to 1767 a beast terrorised the mountains of the Gévaudan in France. Witnesses said it was as big as a calf, reddish, with a black stripe down its back, a broad chest and great teeth, and that it sprang on its victims from the undergrowth."
+ACH_BOSS_BISCLAVRET_NAME,Defeat Bisclavret
+ACH_BOSS_BISCLAVRET_DESC,The 10:00 boss of Ossory.
+ACH_BOSS_MELION_NAME,Defeat Melion
+ACH_BOSS_MELION_DESC,The 20:00 boss of Ossory.
+ACH_BOSS_GEVAUDAN_NAME,Defeat The Beast of Gévaudan
+ACH_BOSS_GEVAUDAN_DESC,The 30:00 boss of Ossory.
+BANTER_BISCLAVRET_ENTRANCE,"Grr... Find what was hidden from me, and I'll be a man again."
+BANTER_MELION_ENTRANCE,The white stone made me a wolf. Now I lead the pack.
+BANTER_GEVAUDAN_ENTRANCE,(A low growl from the undergrowth. Something huge is watching.)
+BANTER_MELION_KING_ARTHUR,My king! You came all the way to Ireland for me?

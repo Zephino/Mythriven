@@ -20,6 +20,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "ys": ("#7a8484", "#5a6464", "#6a7a7a", "#4a5a5a", "#344444", "#3a8a7a"),
     "erebus": ("#3a3842", "#2e2c36", "#4e4a56", "#3a3644", "#24222a", None),
     "karnstein": ("#4a4852", "#3e3c46", "#5e5a66", "#4a4652", "#2e2c34", None),
+    "ossory": ("#5a5c56", "#4a4c46", "#6a6c64", "#54564e", "#3a3c36", None),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),

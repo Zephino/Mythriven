@@ -203,6 +203,101 @@ CARMILLA_PAL = {"o": "#0a080c", "k": "#141016", "K": "#0a080c", "y": "#e8d040", 
                 "s": "#f0dcd0", "e": "#4a3a5a", "r": "#b0202a", "h": "#5a3a22"}
 
 
+# --- Ossory (Gerald of Wales c. 1188; Marie de France, Bisclavret; the Lai de Melion; the Beast of Gevaudan 1764-67) --
+
+def werewolf(c, f):
+    """A werewolf of Ossory (Gerald of Wales, Topographia Hibernica II.19): a man and a woman of Ossory forced to take
+    the shape of wolves; a hulking grey wolf-shape that walks upright, with a man's hands."""
+    s = STEP[f]
+    for x, d in ((8, -s), (14, s)):
+        c.rect(x + d, 20, x + 2 + d, 27, "G")
+    ellipse(c, 12, 15, 7, 7, "g")
+    poly(c, [(8, 6), (17, 6), (20, 10), (6, 10)], "g"); poly(c, [(15, 8), (22, 9), (21, 12), (16, 11)], "g")
+    c.px(9, 4, "g"); c.px(15, 4, "g"); c.px(17, 8, "y"); c.row(11, 19, 21, "w")
+    c.rect(3, 12, 5, 19, "G"); c.rect(19, 12, 21, 19, "G"); c.px(3, 20, "s"); c.px(21, 20, "s")
+
+
+WEREWOLF_PAL = {"o": "#141210", "g": "#6a645a", "G": "#4a463e", "y": "#e8c040", "w": "#ece6d8", "s": "#c8a888"}
+
+
+def raven(c, f):
+    """A raven over the Irish forest: a big black raven, wings spread."""
+    up = f % 2
+    poly(c, [(9, 7), (1, 3 if up else 10), (5, 9)], "k"); poly(c, [(11, 7), (19, 3 if up else 10), (15, 9)], "k")
+    ellipse(c, 10, 8, 3, 3, "b"); poly(c, [(12, 6), (15, 7), (12, 8)], "K"); c.px(11, 7, "w")
+    poly(c, [(8, 10), (12, 10), (10, 14)], "k")
+
+
+RAVEN_PAL = {"o": "#2a2a34", "k": "#141418", "b": "#1e1e26", "K": "#3a3a44", "w": "#c8c8d0"}
+
+
+def bisclavret(man):
+    """Bisclavret (Marie de France, 12th c.): a Breton baron who becomes a wolf in the woods three days a week; when his
+    wife hides his clothes he must stay a wolf, until the king gives them back. As a great gentle grey wolf, and as the
+    baron once more."""
+    def draw(c, step):
+        if man:
+            for k, d in enumerate((-step, step)):
+                c.rect(15 + k * 6 + d, 44, 17 + k * 6 + d, 54, "B")
+            poly(c, [(13, 18), (27, 18), (29, 46), (11, 46)], "r")
+            c.row(30, 12, 28, "y")
+            c.rect(15, 6, 25, 16, "s"); c.px(18, 10, "k"); c.px(22, 10, "k")
+            c.rect(14, 3, 26, 7, "h"); c.rect(16, 14, 24, 17, "h")
+            c.rect(8, 20, 11, 36, "r"); c.rect(29, 20, 32, 36, "r")
+            return
+        ellipse(c, 24, 30, 16, 8, "g")
+        for k, d in enumerate((-step, step, step, -step)):
+            c.rect(11 + k * 8 + d, 34, 13 + k * 8 + d, 48, "G")
+        poly(c, [(36, 20), (48, 22), (48, 28), (36, 30)], "g"); c.px(41, 22, "y")
+        c.px(37, 17, "g"); c.px(38, 16, "g"); c.px(40, 18, "g"); c.row(28, 44, 48, "k")
+        for k in range(8):
+            c.px(8 - k // 2, 28 + k // 3, "G")
+    return draw
+
+
+BISCLAVRET_PAL = {"o": "#141210", "g": "#8a8a90", "G": "#64646a", "y": "#e8d040", "k": "#1a1414", "r": "#3a5a8a",
+                  "B": "#3a2a1a", "s": "#e0b890", "h": "#6a4a2a"}
+
+
+def melion(c, step):
+    """Melion (the Lai de Melion, 13th c.): a knight of Arthur's turned into a wolf by a ring with a white and a red
+    stone, left so by his faithless wife, who led a pack of wolves through Ireland. A big dark wolf, a gold ring still
+    on its foreleg."""
+    ellipse(c, 26, 28, 18, 9, "g")
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(12 + k * 9 + d, 33, 15 + k * 9 + d, 48, "G")
+    c.rect(39, 40, 42, 41, "y"); c.px(40, 39, "w"); c.px(41, 39, "r")                     # the ring and its two stones
+    poly(c, [(40, 16), (54, 18), (54, 25), (40, 27)], "g"); c.px(46, 19, "y")
+    c.px(41, 12, "g"); c.px(42, 11, "g"); c.px(44, 13, "g"); c.row(24, 50, 54, "k")
+    for k in range(10):
+        c.px(8 - k // 2, 26 + k // 3, "G")
+
+
+MELION_PAL = {"o": "#0e0c0a", "g": "#4a4440", "G": "#34302c", "y": "#e8c040", "w": "#f0f0f0", "r": "#c83030",
+              "k": "#1a1010"}
+
+
+def gevaudan(c, step):
+    """The Beast of Gevaudan (French newspapers of 1764-67): a huge wolf-like beast, bigger than a calf, reddish, with a
+    black stripe down its back, a wide chest, a long tail and great teeth."""
+    ellipse(c, 30, 30, 22, 11, "r")
+    for x in range(14, 48):
+        c.px(x, 20 + abs(x - 30) // 8, "k")                                              # the black stripe
+    ellipse(c, 44, 34, 8, 8, "R")                                                         # the wide chest
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(12 + k * 11 + d, 38, 16 + k * 11 + d, 54, "R")
+    poly(c, [(48, 18), (66, 22), (66, 32), (48, 32)], "r"); c.px(55, 22, "y")
+    c.rect(58, 29, 66, 32, "k")
+    for x in range(58, 66, 2):
+        c.px(x, 29, "w")
+    c.px(50, 14, "r"); c.px(51, 13, "r"); c.px(53, 15, "r")
+    for k in range(14):
+        c.px(8 - k // 2, 28 + k // 2, "r")                                               # the long tail
+
+
+GEVAUDAN_PAL = {"o": "#120804", "r": "#8a4a2a", "R": "#6a3418", "k": "#1a0e08", "y": "#f0c040", "w": "#f0ece0"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_gothic.py."
@@ -223,4 +318,11 @@ if __name__ == "__main__":
     kit.build_boss("carmilla", carmilla(False), CARMILLA_PAL, doc(carmilla.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("carmilla_cat", carmilla(True), CARMILLA_PAL, doc(carmilla.__doc__ + " Here, as the cat."), (56, 50),
                    (26, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("werewolf", werewolf, WEREWOLF_PAL, doc(werewolf.__doc__), (24, 28), (12, 27), walk, folder="enemies")
+    kit.build_boss("raven", raven, RAVEN_PAL, doc(raven.__doc__), (20, 16), (10, 15), walk, folder="enemies")
+    kit.build_boss("bisclavret", bisclavret(False), BISCLAVRET_PAL, doc(bisclavret.__doc__), (52, 50), (24, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("bisclavret_man", bisclavret(True), BISCLAVRET_PAL, doc(bisclavret.__doc__ + " Here, a man again."),
+                   (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("melion", melion, MELION_PAL, doc(melion.__doc__), (58, 50), (28, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("gevaudan", gevaudan, GEVAUDAN_PAL, doc(gevaudan.__doc__), (70, 56), (34, 54), [0, 1, 0, -1, 0])
     print("wrote Gothic Night's art")

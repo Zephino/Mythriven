@@ -362,6 +362,12 @@ LEVELS = {
         "trees": {"spruce": (spruce, 22, 40), "oak": (lambda c, r, s: broadleaf(c, r, s), 30, 32), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # Ossory: the dark Irish forest of Gerald of Wales; old oaks, yews, dead trees, ferns and brambles.
+    "ossory": {
+        "trees": {"oak": (broadleaf, 30, 34), "yew": (lambda c, r, s: broadleaf(c, r, s, "P", "P", "p"), 26, 28),
+                  "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"fern": ("fern",), "bramble": ("M", "P", "m", "B")},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

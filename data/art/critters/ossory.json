@@ -1,0 +1,180 @@
+{
+ "_doc": "Critters of ossory (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#8a6a48",
+  "b": "#e8e0d0",
+  "c": "#6a5a48",
+  "d": "#c8a888",
+  "e": "#24222a",
+  "f": "#3a3844",
+  "g": "#8a7a68",
+  "h": "#5a4a3a",
+  "i": "#d8b040",
+  "j": "#c8c4b8",
+  "m": "#4a4650"
+ },
+ "frames": {
+  "hare": [
+   [
+    ".......oaao.",
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    "..oaaaaao...",
+    "..oaaoaao..."
+   ],
+   [
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    ".oaaaaaoo...",
+    ".oaaoooaao..",
+    "..oo..oaao.."
+   ]
+  ],
+  "hedgehog": [
+   [
+    "..o.ooo.o..",
+    ".ododcdodo.",
+    ".occcccccoo",
+    "occccccccdk",
+    "occccccccdd",
+    ".occcccccoo",
+    "..ookckoo.."
+   ],
+   [
+    "..o.ooo.o..",
+    ".ododcdodo.",
+    ".occcccccoo",
+    "occccccccdk",
+    "occccccccdd",
+    ".occcccccoo",
+    "..okcccko.."
+   ]
+  ],
+  "raven": [
+   [
+    ".......oo.",
+    "o..ooooeko",
+    "fooeeeeeee",
+    "offfffeeoo",
+    ".oeeeeeeo.",
+    "..oeeeeo..",
+    "...oeoeo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "fooeeeeeko",
+    "offfffeeee",
+    ".oeeeeeeoo",
+    "..oeeeeo..",
+    "...oeoeo.."
+   ]
+  ],
+  "raven_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...oeeeeeoee",
+    "...oeefeeooo",
+    "....offfo...",
+    "...ofoofo..."
+   ],
+   [
+    "....o..o....",
+    "...ofoofoo..",
+    "....offfokoo",
+    "...oeefeeoee",
+    "...oeeeeeooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "owl": [
+   [
+    ".....oo.",
+    "o.ooogko",
+    "hogggggi",
+    "ohhhhggo",
+    ".oggggo.",
+    "..oioio."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "hoggggko",
+    "ohhhhggi",
+    ".oggggoo",
+    "..oioio."
+   ]
+  ],
+  "owl_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oggggggi",
+    "..ogghggoo",
+    "...ohhho..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ohhhkoo",
+    "..ogghgggi",
+    "..ogggggoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "moth": [
+   [
+    ".......",
+    ".jjkjj.",
+    ".jjkjj.",
+    "..mkm..",
+    "...k...",
+    "......."
+   ],
+   [
+    "jjj.jjj",
+    "jjjkjjj",
+    "jjjkjjj",
+    ".mmkmm.",
+    ".mmkmm.",
+    "......."
+   ]
+  ]
+ },
+ "critters": {
+  "hare": {
+   "kind": "ground"
+  },
+  "hedgehog": {
+   "kind": "ground"
+  },
+  "raven": {
+   "kind": "bird"
+  },
+  "owl": {
+   "kind": "bird"
+  },
+  "moth": {
+   "kind": "insect"
+  }
+ }
+}
