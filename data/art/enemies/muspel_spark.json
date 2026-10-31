@@ -1,0 +1,94 @@
+{
+ "_doc": "Muspell spark (GAME_DESIGN.md: Midgard's Edge enemies; art 10/31/2026). A spark of Muspell (Gylfaginning 4-5: the burning land whose sparks the gods set in the sky; 51: its sons\nride out at Ragnarok): a living flame. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  10,
+  12
+ ],
+ "anchor": [
+  5,
+  11
+ ],
+ "palette": {
+  "o": "#3a1408",
+  "k": "#3a1408",
+  "q": "#c83018",
+  "f": "#ff9030",
+  "F": "#ffe070"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..........",
+    "....oo....",
+    "...oqqo...",
+    "...oqqqo..",
+    "...ofqqqo.",
+    "...offqqo.",
+    "...okfkqqo",
+    "...oqfffqo",
+    "..oqfFFfqo",
+    ".oqqfFFFqo",
+    ".oqfFFFfqo",
+    "..ooooooo."
+   ]
+  ],
+  "walk": [
+   [
+    "...oqo....",
+    "...oqo....",
+    "..oqfqo...",
+    "..oqfqqo..",
+    "..oqffqqo.",
+    "..oqFfqqo.",
+    "..oqkfkqqo",
+    "..oqFFffqo",
+    "..oqfFFffq",
+    "..oqfFFFfq",
+    "...ooooooo",
+    ".........."
+   ],
+   [
+    "....oqo...",
+    "...oqqo...",
+    "..oqqfo...",
+    "..oqqfo...",
+    "..oqffqo..",
+    "..offFqo..",
+    "..ofkfkqo.",
+    "..ofFffqqo",
+    "..oqFFFfqo",
+    "..oqfFFFfq",
+    "...ooooooo",
+    ".........."
+   ],
+   [
+    ".....oo...",
+    "....oqqo..",
+    "...oqqqo..",
+    "..oqqqqo..",
+    "..oqqfqo..",
+    ".oqqffqo..",
+    ".oqfkFko..",
+    ".oqfFFfqo.",
+    ".oqFFFfqqo",
+    ".oqfFFFfqo",
+    "..ooooooo.",
+    ".........."
+   ],
+   [
+    "......o...",
+    ".....oqo..",
+    "....oqqo..",
+    "....oqfo..",
+    "...oqqfqo.",
+    "..oqqffqo.",
+    "..oqkfko..",
+    ".oqqffFqo.",
+    ".oqffFFqo.",
+    "oqffFFfqo.",
+    "oqfFFFfqqo",
+    ".oooooooo."
+   ]
+  ]
+ }
+}

@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.16
+Date: 10/31/2026
+Time: 3:24 AM
+
+### Changes
+- **Every enemy type now has a picture** (all 46: the 12 bosses, the 12 Aegean Shore enemies, and these 22), each with a standing frame and 4 moving frames, from its source:
+  - Midgard's Edge: the draugr and the draugr brute (Grettis saga: swollen, dark-blue walking dead with glowing eyes; the brute with a rusted sword); frost giants and their caster (Gylfaginning: pale icy-blue, icicle beards, furs, a shard of ice); Muspell sparks and the bomber (living flames); the troll and the troll elite (long-nosed, mossy, with a club; the elite already turning to stone, Alvíssmál); the wolves of the Ironwood. Loki's illusions are copies of Loki's own picture, so they fool the player.
+  - The Two Lands: scarabs (the heart scarab; Khepri); the restless dead in linen wrappings; the shabti guardian (Book of the Dead spell 6: a blue faience figure with a striped wig, hoes in crossed arms, a band of writing); the sand cobra, hood spread.
+  - The Misty Isles: the redcap (Henderson 1866: long teeth, talons, red eyes, grey hair, a blood-red cap, iron boots, a pikestaff); the sluagh, the host of the dead (Carmina Gadelica), as dark winged spirits; the kelpie, a grey water-horse with a weed-tangled, dripping mane; a Fomorian caster (seaweed hair, one great eye, a driftwood staff with a shell).
+  - The two placeholder test enemies (dark blobs) and the god's trial avatar (a figure of golden light, only seen for a god without art).
+- `tools/art/build_enemies_rest.py` builds them.
+
+### Reason
+The owner asked to draw all 46 enemies without waiting for their input until every one is drawn.
+
 ## Version 00.02.15
 Date: 10/31/2026
 Time: 3:21 AM

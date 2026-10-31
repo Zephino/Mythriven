@@ -1,0 +1,99 @@
+{
+ "_doc": "Sluagh (GAME_DESIGN.md: The Misty Isles enemies; art 10/31/2026). The sluagh, the host of the dead (Carmichael, Carmina Gadelica, vol. 2): spirits flying in dark flocks like\nstarlings: a ragged dark winged shape with a pale, hollow face. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  15,
+  13
+ ],
+ "anchor": [
+  7,
+  12
+ ],
+ "palette": {
+  "o": "#120e16",
+  "k": "#100c14",
+  "d": "#3a3248",
+  "D": "#262032",
+  "p": "#c8c4d8"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...............",
+    ".o..........o..",
+    "odo.....o..oDo.",
+    ".odoo..opooDo..",
+    ".odddoopppDDo..",
+    ".oddddppkkpDo..",
+    "..oddddpppDoo..",
+    ".ododdddpdooDo.",
+    "..ooddddddDoo..",
+    "....odddddo....",
+    ".....odddo.....",
+    "......odo......",
+    ".......o......."
+   ]
+  ],
+  "walk": [
+   [
+    "...............",
+    "...............",
+    ".o......o...o..",
+    "odoo...opoooDo.",
+    ".oddooopppDDo..",
+    ".oddddppkkpDo..",
+    ".odddddpppDDo..",
+    "..odddddpdDoo..",
+    ".ododdddddooDo.",
+    "..ooddddddDoo..",
+    "....oodddoo....",
+    "......odo......",
+    ".......o......."
+   ],
+   [
+    "...............",
+    "...............",
+    "........o......",
+    ".o.....opo.oo..",
+    "odooo.opppoDDo.",
+    ".odddoppkkpDo..",
+    ".odddddpppDDo..",
+    ".oddddddpdDDo..",
+    "..odddddddDoo..",
+    ".odoodddddooDo.",
+    "..oododddoDoo..",
+    "....o.odo.o....",
+    ".......o......."
+   ],
+   [
+    "...............",
+    "...............",
+    ".o......o...o..",
+    "odoo...opoooDo.",
+    ".oddooopppDDo..",
+    ".oddddppkkpDo..",
+    ".odddddpppDDo..",
+    "..odddddpdDoo..",
+    ".ododdddddooDo.",
+    "..ooddddddDoo..",
+    "....oodddoo....",
+    "......odo......",
+    ".......o......."
+   ],
+   [
+    "...............",
+    ".o..........o..",
+    "odo.....o..oDo.",
+    ".odoo..opooDo..",
+    ".odddoopppDDo..",
+    ".oddddppkkpDo..",
+    "..oddddpppDoo..",
+    ".ododdddpdooDo.",
+    "..ooddddddDoo..",
+    "....odddddo....",
+    ".....odddo.....",
+    "......odo......",
+    ".......o......."
+   ]
+  ]
+ }
+}

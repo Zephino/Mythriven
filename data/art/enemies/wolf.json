@@ -1,0 +1,114 @@
+{
+ "_doc": "Wolf (GAME_DESIGN.md: Midgard's Edge enemies; art 10/31/2026). A wolf of the Ironwood (Gylfaginning 12: the troll-wife who bears wolves in the Ironwood; 34: Fenrir's kin):\na lean dark-grey wolf, ears back, running. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  26,
+  16
+ ],
+ "anchor": [
+  12,
+  14
+ ],
+ "palette": {
+  "o": "#18161a",
+  "k": "#141014",
+  "w": "#6a6a74",
+  "W": "#3e3e48",
+  "y": "#e8c040"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..........................",
+    "................o.........",
+    "...............oWo........",
+    "...............oWWoo......",
+    "......ooooooooooowwwo.....",
+    ".....oWWWWWWWWWWwwwywoooo.",
+    "...o.owwwwwwwwwwwwwwwwwwko",
+    "..owowwwwwwwwwwwwwwwwwwoo.",
+    ".owwwwwwwwwwwwwwwwwwooo...",
+    "owwwWwwwwwwwwwwwwwoo......",
+    "wwooWowwwwwwwwwwwwo.......",
+    "oo.oWoowooowooWoowo.......",
+    "...oWoowo..o.oWoowo.......",
+    "...oWWowWo...oWWowWo......",
+    "....oo.oo.....oo.oo.......",
+    ".........................."
+   ]
+  ],
+  "walk": [
+   [
+    "..........................",
+    "................o.........",
+    "...............oWo........",
+    "...............oWWoo......",
+    "......ooooooooooowwwo.....",
+    ".....oWWWWWWWWWWwwwywoooo.",
+    "...o.owwwwwwwwwwwwwwwwwwko",
+    "..owowwwwwwwwwwwwwwwwwwoo.",
+    ".owwwwwwwwwwwwwwwwwwooo...",
+    "owwwowwwwwwwwwwwwwwo......",
+    "wwoWoowwwwwwwwwwwowo......",
+    "oooWo.oowoowoWoooowo......",
+    "..oWo..owo.ooWo..owo......",
+    "..oWWo.owWo.oWWo.owWo.....",
+    "...oo...oo...oo...oo......",
+    ".........................."
+   ],
+   [
+    "..........................",
+    "................o.........",
+    "...............oWo........",
+    "...............oWWoo......",
+    "......ooooooooooowwwo.....",
+    ".....oWWWWWWWWWWwwwywoooo.",
+    "...o.owwwwwwwwwwwwwwwwwwko",
+    "..owowwwwwwwwwwwwwwwwwwoo.",
+    ".owwwwwwwwwwwwwwwwwwooo...",
+    "owwwWwwwwwwwwwwwwwoo......",
+    "wwooWowwwwwwwwwwwwo.......",
+    "oo.oWoowooowooWoowo.......",
+    "...oWoowo..o.oWoowo.......",
+    "...oWWowWo...oWWowWo......",
+    "....oo.oo.....oo.oo.......",
+    ".........................."
+   ],
+   [
+    "..........................",
+    "................o.........",
+    "...............oWo........",
+    "...............oWWoo......",
+    "......ooooooooooowwwo.....",
+    ".....oWWWWWWWWWWwwwywoooo.",
+    "...o.owwwwwwwwwwwwwwwwwwko",
+    "..owowwwwwwwwwwwwwwwwwwoo.",
+    ".owwwwwwwwwwwwwwwwwwooo...",
+    "owwwowwwwwwwwwwwwwoo......",
+    "wwoooWwwwwwwwwwwwo........",
+    "oo..oWwoooowoooWwo........",
+    "....oWwo...o..oWwo........",
+    "....oWwWo.....oWwWo.......",
+    ".....ooo.......ooo........",
+    ".........................."
+   ],
+   [
+    "..........................",
+    "................o.........",
+    "...............oWo........",
+    "...............oWWoo......",
+    "......ooooooooooowwwo.....",
+    ".....oWWWWWWWWWWwwwywoooo.",
+    "...o.owwwwwwwwwwwwwwwwwwko",
+    "..owowwwwwwwwwwwwwwwwwwoo.",
+    ".owwwwwwwwwwwwwwwwwwooo...",
+    "owwwWwwwwwwwwwwwwwoo......",
+    "wwooWowwwwwwwwwwwwo.......",
+    "oo.oWoowooowooWoowo.......",
+    "...oWoowo..o.oWoowo.......",
+    "...oWWowWo...oWWowWo......",
+    "....oo.oo.....oo.oo.......",
+    ".........................."
+   ]
+  ]
+ }
+}

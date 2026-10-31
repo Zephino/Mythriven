@@ -1,0 +1,93 @@
+{
+ "_doc": "Placeholder enemy (tests and development only). A plain test creature for the placeholder enemy types (not in any level): a dark rounded blob with eyes. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  12,
+  12
+ ],
+ "anchor": [
+  6,
+  11
+ ],
+ "palette": {
+  "o": "#1a1a20",
+  "d": "#5a6a7a",
+  "D": "#3a4a5a",
+  "w": "#efe6d2"
+ },
+ "frames": {
+  "idle": [
+   [
+    "............",
+    "............",
+    "....ooooo...",
+    "..oodddddo..",
+    ".oDDDDDDDDo.",
+    ".oddddwdwddo",
+    ".odddddddddo",
+    ".odddddddddo",
+    ".odddddddddo",
+    "..odddddddo.",
+    "...odddddo..",
+    "....ooooo..."
+   ]
+  ],
+  "walk": [
+   [
+    "............",
+    "......o.....",
+    "...ooodooo..",
+    "..odddddddo.",
+    ".oDDDDDDDDdo",
+    ".oddddwdwddo",
+    "oddddddddddd",
+    ".odddddddddo",
+    ".odddddddddo",
+    "..odddddddo.",
+    "...ooodooo..",
+    "......o....."
+   ],
+   [
+    "............",
+    "....ooooo...",
+    "...odddddo..",
+    "..odddddddo.",
+    ".oDDDDDDDDdo",
+    ".oddddwdwddo",
+    ".odddddddddo",
+    ".odddddddddo",
+    "..odddddddo.",
+    "...odddddo..",
+    "....ooooo...",
+    "............"
+   ],
+   [
+    "............",
+    "......o.....",
+    "...ooodooo..",
+    "..odddddddo.",
+    ".oDDDDDDDDdo",
+    ".oddddwdwddo",
+    "oddddddddddd",
+    ".odddddddddo",
+    ".odddddddddo",
+    "..odddddddo.",
+    "...ooodooo..",
+    "......o....."
+   ],
+   [
+    "............",
+    "............",
+    "....ooooo...",
+    "..oodddddo..",
+    ".oDDDDDDDDo.",
+    ".oddddwdwddo",
+    ".odddddddddo",
+    ".odddddddddo",
+    ".odddddddddo",
+    "..odddddddo.",
+    "...odddddo..",
+    "....ooooo..."
+   ]
+  ]
+ }
+}

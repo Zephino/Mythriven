@@ -1,0 +1,113 @@
+{
+ "_doc": "Placeholder enemy (tests and development only). A plain test creature for the placeholder enemy types (not in any level): a dark rounded blob with eyes. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  16,
+  16
+ ],
+ "anchor": [
+  8,
+  15
+ ],
+ "palette": {
+  "o": "#1a1a20",
+  "d": "#5a6a7a",
+  "D": "#3a4a5a",
+  "w": "#efe6d2"
+ },
+ "frames": {
+  "idle": [
+   [
+    "................",
+    "................",
+    "......ooooo.....",
+    "....oodddddoo...",
+    "...odddddddddo..",
+    "..odddddddddddo.",
+    ".oDDDDDDDDDDDDdo",
+    ".oddddddwdwddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    "..odddddddddddo.",
+    "...odddddddddo..",
+    "....oodddddoo...",
+    "......ooooo....."
+   ]
+  ],
+  "walk": [
+   [
+    "................",
+    "........o.......",
+    ".....ooodooo....",
+    "...oodddddddoo..",
+    "..odddddddddddo.",
+    ".odddddddddddddo",
+    ".oDDDDDDDDDDDDdo",
+    ".oddddddwdwddddo",
+    "oddddddddddddddd",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    "..odddddddddddo.",
+    "...oodddddddoo..",
+    ".....ooodooo....",
+    "........o......."
+   ],
+   [
+    "................",
+    "......ooooo.....",
+    "....oodddddoo...",
+    "...odddddddddo..",
+    "..odddddddddddo.",
+    ".odddddddddddddo",
+    ".oDDDDDDDDDDDDdo",
+    ".oddddddwdwddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    "..odddddddddddo.",
+    "...odddddddddo..",
+    "....oodddddoo...",
+    "......ooooo.....",
+    "................"
+   ],
+   [
+    "................",
+    "........o.......",
+    ".....ooodooo....",
+    "...oodddddddoo..",
+    "..odddddddddddo.",
+    ".odddddddddddddo",
+    ".oDDDDDDDDDDDDdo",
+    ".oddddddwdwddddo",
+    "oddddddddddddddd",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    "..odddddddddddo.",
+    "...oodddddddoo..",
+    ".....ooodooo....",
+    "........o......."
+   ],
+   [
+    "................",
+    "................",
+    "......ooooo.....",
+    "....oodddddoo...",
+    "...odddddddddo..",
+    "..odddddddddddo.",
+    ".oDDDDDDDDDDDDdo",
+    ".oddddddwdwddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    ".odddddddddddddo",
+    "..odddddddddddo.",
+    "...odddddddddo..",
+    "....oodddddoo...",
+    "......ooooo....."
+   ]
+  ]
+ }
+}

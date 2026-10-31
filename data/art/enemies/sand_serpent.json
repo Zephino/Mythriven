@@ -1,0 +1,124 @@
+{
+ "_doc": "Sand serpent (GAME_DESIGN.md: The Two Lands enemies; art 10/31/2026). A serpent of the desert (Book of the Dead, spells 33-35 and 39, against snakes): a sandy cobra reared up,\nhood spread, swaying. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  17,
+  18
+ ],
+ "anchor": [
+  9,
+  17
+ ],
+ "palette": {
+  "o": "#2a1c10",
+  "k": "#140c08",
+  "s": "#c8a060",
+  "S": "#8a6a38",
+  "r": "#c83030"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...........ooo...",
+    "..........ossso..",
+    ".........ossskso.",
+    "........ooosssro.",
+    ".......ossssssso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSso.",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    ".........ossso...",
+    "........ossso....",
+    ".....oooossso.o..",
+    "....osssssssooso.",
+    "...ossssssssssso.",
+    "..ossoooooossso..",
+    "..oso......ooo...",
+    "...o............."
+   ]
+  ],
+  "walk": [
+   [
+    "..........ossso..",
+    ".........ossskso.",
+    "........ooosssro.",
+    ".......ossssssso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    ".........ossso...",
+    ".........ossso...",
+    "...oooooosssooo..",
+    "..osssssssssosso.",
+    "..osssssssssssso.",
+    "...ooooooosssoo..",
+    "..........ooo....",
+    "................."
+   ],
+   [
+    ".........ossskso.",
+    "........ooosssro.",
+    ".......ossssssso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSso.",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    ".........ossso...",
+    ".........ossso...",
+    "...ooooo.osssoo..",
+    "..osssssosssssso.",
+    "..osssssssssssso.",
+    "...ooooosssoooo..",
+    "........ooo......",
+    "................."
+   ],
+   [
+    "..........ossso..",
+    ".........ossskso.",
+    "........ooosssro.",
+    ".......ossssssso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    ".........ossso...",
+    ".........ossso...",
+    "...ooo..osssooo..",
+    "..osssooosssssso.",
+    "..osssssssssssso.",
+    "...ooosssoooooo..",
+    "......ooo........",
+    "................."
+   ],
+   [
+    "...........ooo...",
+    "..........ossso..",
+    ".........ossskso.",
+    "........ooosssro.",
+    ".......ossssssso.",
+    ".......ossSSSSso.",
+    ".......ossSSSSso.",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    "........osSSSSo..",
+    ".........ossso...",
+    "........ossso....",
+    "...o...oosssoo...",
+    "..osooossssssso..",
+    "..osssssssssssso.",
+    "...osssoooooooso.",
+    "....ooo.......o..",
+    "................."
+   ]
+  ]
+ }
+}

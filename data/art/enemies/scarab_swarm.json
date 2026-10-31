@@ -1,0 +1,89 @@
+{
+ "_doc": "Scarab (GAME_DESIGN.md: The Two Lands enemies; art 10/31/2026). A scarab beetle (Book of the Dead 30B, the heart scarab; Khepri, the scarab who rolls the rising sun): a\nblue-green shining beetle, legs scuttling. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  13,
+  11
+ ],
+ "anchor": [
+  6,
+  9
+ ],
+ "palette": {
+  "o": "#10141a",
+  "k": "#141018",
+  "b": "#2a7a8a",
+  "B": "#1a4a5a",
+  "w": "#a8f0f0"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".............",
+    "....oooo.....",
+    "..oobBbboo.o.",
+    ".obBBBBBbboko",
+    ".obbbBbbbbbo.",
+    "obbbbBbbbbbo.",
+    ".obbbBbbbbbo.",
+    ".obbbBbbbboko",
+    "..okbBbboo.o.",
+    "..okokoko....",
+    "...o.o.o....."
+   ]
+  ],
+  "walk": [
+   [
+    ".............",
+    "....oooo.....",
+    "..oobBbboo.o.",
+    ".obBBBBBbboko",
+    ".obbbBbbbbbo.",
+    "obbbbBbbbbbo.",
+    ".obbbBbbbbbo.",
+    ".obbbBbbbboko",
+    "..oobBbbko.o.",
+    "...okoooko...",
+    "....o...o...."
+   ],
+   [
+    ".............",
+    "....oooo.....",
+    "..oobBbboo.o.",
+    ".obBBBBBbboko",
+    ".obbbBbbbbbo.",
+    "obbbbBbbbbbo.",
+    ".obbbBbbbbbo.",
+    ".obbbBbbbboko",
+    "..okbBbboo.o.",
+    "..okokoko....",
+    "...o.o.o....."
+   ],
+   [
+    ".............",
+    "....oooo.....",
+    "..oobBbboo.o.",
+    ".obBBBBBbboko",
+    ".obbbBbbbbbo.",
+    "obbbbBbbbbbo.",
+    ".obbbBbbbbbo.",
+    ".obbbBbbbboko",
+    ".okobBbboo.o.",
+    ".okoooko.....",
+    "..o...o......"
+   ],
+   [
+    ".............",
+    "....oooo.....",
+    "..oobBbboo.o.",
+    ".obBBBBBbboko",
+    ".obbbBbbbbbo.",
+    "obbbbBbbbbbo.",
+    ".obbbBbbbbbo.",
+    ".obbbBbbbboko",
+    "..okbBbboo.o.",
+    "..okokoko....",
+    "...o.o.o....."
+   ]
+  ]
+ }
+}

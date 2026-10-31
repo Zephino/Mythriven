@@ -1,0 +1,114 @@
+{
+ "_doc": "Muspell spark, bomber (GAME_DESIGN.md: Midgard's Edge enemies; art 10/31/2026). A spark of Muspell (Gylfaginning 4-5: the burning land whose sparks the gods set in the sky; 51: its sons\nride out at Ragnarok): a living flame. Built by tools/art/build_enemies_rest.py.",
+ "size": [
+  12,
+  16
+ ],
+ "anchor": [
+  6,
+  15
+ ],
+ "palette": {
+  "o": "#3a1408",
+  "k": "#3a1408",
+  "q": "#c83018",
+  "f": "#ff9030",
+  "F": "#ffe070"
+ },
+ "frames": {
+  "idle": [
+   [
+    "............",
+    ".....oo.....",
+    "....oqqo....",
+    "....oqqqo...",
+    "....oqqqo...",
+    "....oqqqqo..",
+    "....offqqo..",
+    "....offfqqo.",
+    "....offfqqo.",
+    "...oqffffqqo",
+    "...oqkFkfqqo",
+    "...oqfFFffqo",
+    "..oqqfFFFfqo",
+    "..oqffFFFfqo",
+    ".oqffFFFffqo",
+    "..ooooooooo."
+   ]
+  ],
+  "walk": [
+   [
+    "....oqo.....",
+    "....oqo.....",
+    "...oqqqo....",
+    "...oqqqo....",
+    "...oqfqqo...",
+    "...oqfqqo...",
+    "...oqffqqo..",
+    "...oqffqqqo.",
+    "...oqFffqqo.",
+    "...oqFfffqqo",
+    "...oqkFkfqqo",
+    "..oqqfFFffqo",
+    "..oqffFFFfqq",
+    "..oqfFFFFfqq",
+    "...ooooooooo",
+    "............"
+   ],
+   [
+    ".....oqo....",
+    "....oqqo....",
+    "....oqqo....",
+    "...oqqqo....",
+    "...oqqfqo...",
+    "..oqqffqo...",
+    "..oqqffqo...",
+    "..oqfffqqo..",
+    "..oqffFqqo..",
+    "..oqfFffqqo.",
+    "..oqfkFkfqo.",
+    "..oqfFFffqqo",
+    "..oqfFFFffqo",
+    "..oqffFFFfqq",
+    "...ooooooooo",
+    "............"
+   ],
+   [
+    "......oo....",
+    ".....oqqo...",
+    "....oqqqo...",
+    "....oqqqo...",
+    "...oqqqqo...",
+    "...oqqffo...",
+    "..oqqfffo...",
+    "..oqqffqo...",
+    ".oqqfffqqo..",
+    ".oqqffFfqo..",
+    ".oqffkFkqqo.",
+    ".oqfFFFffqo.",
+    ".oqfFFFffqqo",
+    ".oqffFFFffqo",
+    "..ooooooooo.",
+    "............"
+   ],
+   [
+    ".......o....",
+    "......oqo...",
+    "......oqo...",
+    ".....oqqqo..",
+    ".....oqqqo..",
+    "....oqqfqo..",
+    "...oqqqfqo..",
+    "...oqqffqo..",
+    "..oqqfffqo..",
+    "..oqqffFqo..",
+    ".oqqfkfkqo..",
+    ".oqfffFFqo..",
+    ".oqffFFfqqo.",
+    "oqqfFFFffqo.",
+    "oqqfFFFFfqo.",
+    ".ooooooooo.."
+   ]
+  ]
+ }
+}
