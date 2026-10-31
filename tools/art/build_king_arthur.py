@@ -14,7 +14,7 @@ PALETTE = {
     "o": "#24160e", "k": "#140c08",
     "s": "#f0c8a8", "S": "#c49478",                 # fair skin of Britain
     "h": "#6a4426", "H": "#4a2e18",                 # brown hair and beard
-    "u": "#f0c848", "U": "#b08420", "y": "#fff0a0",  # gold crown and fittings, a jewel glint
+    "u": "#e8c050", "U": "#a88028",                 # gold crown and fittings
     "i": "#a8acb4", "I": "#6c727c",                 # mail
     "d": "#2c4c8c", "D": "#1c3264",                 # blue surcoat
     "b": "#5c3a1c", "B": "#3c2410",                 # leather belt, scabbard, boots
@@ -43,14 +43,16 @@ def draw(c, back_leg, front_leg):
     c.row(21, 7, 9, "u"); c.px(4, 28, "u"); c.px(5, 28, "u")
     kit.far_arm(c)
     mail(c, 7, 14, 8, 20)
-    # Gold crown with three points, resting on his brown hair, with hair between
-    # it and his face (owner request 10/31/2026: the crown blended into his head)
-    c.row(4, 10, 16, "h"); c.rect(10, 5, 16, 6, "h"); c.px(10, 3, "h"); c.px(16, 3, "h")
-    c.px(11, 1, "u"); c.px(13, 0, "u"); c.px(13, 1, "u"); c.px(15, 1, "u")
-    c.row(2, 11, 15, "u"); c.row(3, 11, 15, "U"); c.px(13, 2, "y")
-    c.rect(9, 4, 11, 11, "h"); c.rect(9, 4, 9, 11, "H"); c.row(6, 13, 16, "H")
+    # Brown hair, gold crown with three points, and a dark line under the crown so it stands apart from his head
+    # (owner request 10/31/2026)
+    c.row(2, 11, 15, "h"); c.row(3, 10, 16, "h")
+    c.px(10, 2, "u"); c.px(13, 1, "u"); c.px(16, 2, "u"); c.px(13, 2, "u")
+    c.row(3, 10, 16, "u"); c.row(4, 10, 16, "u"); c.px(10, 4, "U"); c.px(11, 4, "U")
+    c.px(12, 3, "U"); c.px(15, 3, "U")
+    c.row(5, 10, 16, "o")
+    c.rect(9, 6, 11, 11, "h"); c.rect(9, 6, 9, 11, "H")
     # Face: forehead, eye, nose; short beard
-    c.rect(12, 7, 16, 10, "s"); c.px(12, 7, "S"); c.px(12, 8, "S"); c.px(12, 6, "h")
+    c.rect(12, 6, 16, 10, "s"); c.px(12, 7, "S"); c.px(12, 8, "S")
     c.px(15, 8, "k"); c.px(17, 8, "s")
     c.rect(12, 11, 16, 12, "h"); c.px(12, 11, "H"); c.px(12, 12, "H"); c.px(16, 11, "s"); c.px(15, 11, "S")
     # Mail at the neck, then the blue surcoat to the knees

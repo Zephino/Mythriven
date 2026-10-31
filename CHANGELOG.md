@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.81
+Date: 10/31/2026
+Time: 1:35 AM
+
+### Changes
+- **King Arthur's crown** is back to the first design (00.01.74: worn low on his head, its original gold), moved up one pixel with a dark line between the bottom of the crown and his forehead so the two stay apart. The 00.01.80 version (crown up on his hair) is undone.
+
+### Reason
+The owner liked the crown better before; it just needed a definition between the bottom of the crown and his head.
+
 ## Version 00.01.80
 Date: 10/31/2026
 Time: 1:33 AM
