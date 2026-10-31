@@ -27,13 +27,13 @@ func build() -> void:
 		_build_username()
 		_build_account()
 	else:
-		add_line(tr_key("UI_CLOUD_ABOUT"))
+		add_note(tr_key("UI_CLOUD_ABOUT"))
 	if CloudSync.account() == "":
 		_build_sign_in()
 	if not CloudSync.is_on():
-		add_line(tr_key("UI_CLOUD_NO_ACCOUNT"))
+		add_note(tr_key("UI_CLOUD_NO_ACCOUNT"))
 		add_button(tr_key("UI_CLOUD_TURN_ON"), _on_turn_on)
-		add_line(tr_key("UI_CLOUD_LINK_HELP"))
+		add_note(tr_key("UI_CLOUD_LINK_HELP"))
 		_code_box = add_input(tr_key("UI_CLOUD_CODE_PLACEHOLDER"), 16, tr_key("UI_CLOUD_LINK_HELP"))
 		add_button(tr_key("UI_CLOUD_LINK"), _on_link)
 		if _error != "":
@@ -44,10 +44,10 @@ func build() -> void:
 		add_line(tr_key("UI_CLOUD_LAST_SYNCED") % Time.get_time_string_from_unix_time(cloud.last_synced_unix + _utc_offset_s()).left(5))
 	if cloud.notice != "":
 		add_line(cloud.notice)
-	add_line(tr_key("UI_CLOUD_ONE_DEVICE"))
+	add_note(tr_key("UI_CLOUD_ONE_DEVICE"))
 	if CloudSync.account() == "":
 		add_line(tr_key("UI_CLOUD_YOUR_CODE") % CloudSync.pretty(CloudSync.code()))
-		add_line(tr_key("UI_CLOUD_CODE_PRIVATE"))
+		add_note(tr_key("UI_CLOUD_CODE_PRIVATE"))
 		add_button(tr_key("UI_CLOUD_COPY"), _on_copy)
 	add_button(tr_key("UI_CLOUD_SYNC_NOW"), _on_sync_now, cloud.state != "syncing")
 	add_button(tr_key("UI_SIGN_OUT" if CloudSync.account() != "" else "UI_CLOUD_TURN_OFF"), _on_turn_off)

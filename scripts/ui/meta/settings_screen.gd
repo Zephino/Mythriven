@@ -12,18 +12,46 @@ const ROWS: PackedStringArray = [
 	"volume_pct", "text_size_pct", "effect_opacity_pct", "shake", "flash", "damage_numbers", "element_icons",
 	"colorblind", "auto_summon", "auto_collect", "control_size_pct", "joystick_side", "banter", "tips",
 ]
+## The same rows under headings (owner decision 10/31/2026: the menus' information laid out tidily).
+const GROUPS: Array = [
+	["UI_SETTINGS_GROUP_SOUND", ["volume_pct", "text_size_pct"]],
+	["UI_SETTINGS_GROUP_EFFECTS", ["effect_opacity_pct", "shake", "flash", "damage_numbers", "element_icons", "colorblind"]],
+	["UI_SETTINGS_GROUP_PLAY", ["auto_summon", "auto_collect", "banter", "tips"]],
+	["UI_SETTINGS_GROUP_CONTROLS", ["control_size_pct", "joystick_side"]],
+]
 
 ## A note under the app buttons (how to install on this device, updating…).
 var _app_message: String = ""
 
 
+## Each setting's button, to put focus back on it after a change.
+var _row_buttons: Dictionary = {}
+
+
+func page_width() -> float:
+	return Data.cfg_float("ui.menu_wide_px")
+
+
 func build() -> void:
 	set_title(tr_key("UI_SETTINGS"))
-	for key: String in ROWS:
-		add_button(tr_key("UI_SETTING_" + key.to_upper()) % value_text(key), _on_row.bind(key))
+	_row_buttons.clear()
+	for group: Array in GROUPS:
+		add_section(tr_key(str(group[0])))
+		for key: String in group[1]:
+			_row_buttons[key] = add_setting(label_text(key), value_text(key), _on_row.bind(key))
+	add_section(tr_key("UI_SETTINGS_GROUP_MORE"))
 	add_button(tr_key("UI_SETTING_RESET_TIPS"), _on_reset_tips, not Onboarding.seen().is_empty())
 	add_button(tr_key("UI_CLOUD_SAVE"), func() -> void: open_child(CloudSaveScreen.new()))
 	_build_app()
+
+
+## A setting's name alone: its row text ("Volume: %s") without the value.
+static func label_text(key: String) -> String:
+	var own: String = "UI_SETTING_LABEL_" + key.to_upper()
+	if TranslationServer.translate(own) != own:
+		return TranslationServer.translate(own)
+	var text: String = TranslationServer.translate("UI_SETTING_" + key.to_upper()) % ""
+	return text.strip_edges().trim_suffix(":").strip_edges()
 
 
 func _build_app() -> void:
@@ -93,9 +121,8 @@ func _on_reset_tips() -> void:
 ## Puts focus back on the row just changed, so stepping through values with a
 ## gamepad or keyboard doesn't jump back to the top.
 func _focus_row(key: String) -> void:
-	var index: int = ROWS.find(key) + (1 if _back.visible else 0)
-	if index >= 0 and index < _buttons.size():
-		focus_later(_buttons[index])
+	if _row_buttons.has(key):
+		focus_later(_row_buttons[key])
 
 
 ## Settings read once per run pick up the change here.

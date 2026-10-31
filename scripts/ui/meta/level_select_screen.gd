@@ -15,23 +15,34 @@ static func new_for(menu_flow: MenuFlow) -> LevelSelectScreen:
 	return screen
 
 
+func page_width() -> float:
+	return Data.cfg_float("ui.menu_wide_px")
+
+
+## Each level is a card (owner decision 10/31/2026: item cards): its best time, bosses beaten and local gods, a Play
+## button, and Swift Mode beside it once unlocked. Locked levels are greyed, saying how to open them.
 func build() -> void:
 	set_title(tr_key("UI_LEVEL_SELECT"))
 	for level: Dictionary in LevelRules.all():
 		var id: String = str(level.get("id", ""))
 		var name: String = tr_key(str(level.get("name_key", id)))
-		if not LevelRules.is_unlocked(level):
-			add_button(tr_key("UI_LEVEL_LOCKED") % name, func() -> void: pass, false)
-			continue
 		var gods: PackedStringArray = []
 		for god_id: Variant in level.get("local_gods", []):
 			gods.append(tr_key(str(GodRules.find(str(god_id)).get("name_key", god_id))))
+		# The level's first local god, as a dark shape until met.
+		var first_god: String = str((level.get("local_gods", [""]) as Array).front()) if not (level.get("local_gods", []) as Array).is_empty() else ""
+		var face: Texture2D = UiTheme.god_face(first_god, 1) if first_god != "" else null
+		var unmet: bool = first_god == "" or not GodLevels.bound_ever(first_god)
+		if not LevelRules.is_unlocked(level):
+			add_card(face, name, [tr_key("LEVEL_LOCKED_HOW")], "", "", Callable(), true, true, true)
+			continue
 		var swift: bool = bool(_swift.get(id, false))
-		var lines: PackedStringArray = [name + (" · " + tr_key("UI_SWIFT_MODE") if swift else ""),
-			tr_key("UI_LEVEL_DETAILS") % [_best_time(id, swift), LevelRules.bosses_defeated(id).size(), ", ".join(gods)]]
-		add_button("\n".join(lines), flow.choose_level.bind(id, swift))
+		var card: PanelContainer = add_card(face, name, [
+			tr_key("LEVEL_BEST") % _best_time(id, swift) + "  ·  " + tr_key("LEVEL_BOSSES") % LevelRules.bosses_defeated(id).size(),
+			tr_key("LEVEL_GODS") % ", ".join(gods),
+		], tr_key("UI_SWIFT_MODE") if swift else "", tr_key("LEVEL_PLAY"), flow.choose_level.bind(id, swift), true, false, unmet)
 		if LevelRules.swift_unlocked(id):
-			add_button(tr_key("UI_SWIFT_ON") if swift else tr_key("UI_SWIFT_OFF"), _toggle_swift.bind(id))
+			add_card_button(card, tr_key("LEVEL_SWIFT_ON") if swift else tr_key("LEVEL_SWIFT_OFF"), _toggle_swift.bind(id))
 
 
 ## The best time on a level with any Hero ("—" when never played).

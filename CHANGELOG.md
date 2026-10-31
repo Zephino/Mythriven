@@ -2,6 +2,27 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.45
+Date: 10/31/2026
+Time: 12:28 PM
+
+### Changes
+- **The rest of the menus in the new layout** (after the owner approved the mock-ups):
+  - **List + detail:** the Pantheon Compendium (gods by pantheon, then Resonances and Words of Legend) and the Hall of Heroes.
+  - **Cards:**
+    - Unlocks: Heroes, weapons and cosmetics with pictures; a price button, how to earn it, or "Unlocked".
+    - Omens: an On/Off button and the gold bonus.
+    - Achievements and secrets: earned ones first, marked "Earned".
+    - The Oracle's hints.
+    - Level select: best time, bosses beaten and local gods, a Play button, and Swift Mode beside it.
+  - **Codex** is now a page inside the Hall: evolutions with the evolved weapon's picture (unfound ones as dark shapes with a hint), then infusions and Resonances.
+  - **Settings** are grouped under headings (Sound and text, Effects, Gameplay, Touch controls, More), with each setting's name on the left and its value on a button on the right.
+  - **Co-op and Account:** explanations are in softer, smaller text, so the buttons stand out.
+  - Anything not met or unlocked yet shows as a dark shape.
+
+### Reason
+The owner liked the mock-ups ("much better") and asked for the rest of the menus to match.
+
 ## Version 00.02.44
 Date: 10/31/2026
 Time: 12:23 PM

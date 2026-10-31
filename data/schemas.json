@@ -156,6 +156,8 @@
               "menu_small_scale": "number",
               "menu_tab_scale": "number",
               "menu_tab_px": "number",
+              "menu_setting_value_px": "number",
+              "menu_section_scale": "number",
               "menu_list_icon_px": "number",
               "menu_locked_dim": "number",
               "menu_button_px": "number",

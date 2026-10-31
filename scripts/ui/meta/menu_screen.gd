@@ -327,6 +327,64 @@ func add_card(picture: Texture2D, title: String, lines: PackedStringArray, note:
 	return card
 
 
+## Another button on a card (beside its first): for example Swift Mode on a level.
+func add_card_button(card: PanelContainer, text: String, on_pressed: Callable, enabled: bool = true) -> Button:
+	var button := Button.new()
+	button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	button.text = text
+	button.disabled = not enabled
+	button.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 2.2, Data.cfg_float("ui.min_touch_target_px"))
+	button.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	button.pressed.connect(on_pressed)
+	card.get_child(0).add_child(button)
+	_buttons.append(button)
+	return button
+
+
+## A setting: its name on the left, its value on a button on the right that steps it.
+func add_setting(label: String, value: String, on_pressed: Callable, enabled: bool = true) -> Button:
+	var row := HBoxContainer.new()
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var name_label := Label.new()
+	name_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.text = label
+	row.add_child(name_label)
+	var button := Button.new()
+	button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	button.text = value
+	button.disabled = not enabled
+	button.custom_minimum_size = Vector2(Data.cfg_float("ui.menu_setting_value_px"), Data.cfg_float("ui.menu_tab_px"))
+	button.pressed.connect(on_pressed)
+	row.add_child(button)
+	_rows.add_child(row)
+	_buttons.append(button)
+	return button
+
+
+## An explanation in the softer, smaller text (help under a heading, what a button does).
+func add_note(text: String) -> Label:
+	var label := small(text)
+	_rows.add_child(label)
+	return label
+
+
+## A heading between groups on a page (Heroes, Weapons, Secrets...).
+func add_section(text: String) -> Label:
+	var label := heading(text)
+	label.add_theme_font_size_override("font_size", roundi(ThemeDB.get_default_theme().default_font_size * Data.cfg_float("ui.menu_section_scale")))
+	_rows.add_child(label)
+	return label
+
+
+## A section heading inside a list (the pantheons in the Compendium's list).
+func add_list_heading(list: VBoxContainer, text: String) -> void:
+	var label := heading(text)
+	label.add_theme_font_size_override("font_size", roundi(ThemeDB.get_default_theme().default_font_size * Data.cfg_float("ui.menu_small_scale")))
+	list.add_child(label)
+
+
 ## A list on the left and a detail panel on the right, each scrolling on its own (the page itself doesn't scroll).
 ## Returns [list VBoxContainer, detail VBoxContainer].
 func add_split() -> Array:
@@ -385,6 +443,12 @@ func add_list_item(list: VBoxContainer, picture: Texture2D, text: String, on_pre
 	list.add_child(item)
 	_buttons.append(item)
 	return item
+
+
+## Shows a list entry's picture as a dark shape (not met or not unlocked yet).
+func silhouette(item: Button) -> void:
+	for state: String in ["icon_normal_color", "icon_hover_color", "icon_pressed_color", "icon_focus_color", "icon_hover_pressed_color"]:
+		item.add_theme_color_override(state, Color(0, 0, 0, 0.85))
 
 
 ## A detail panel's contents: a big picture, the name, short facts, then the longer text.

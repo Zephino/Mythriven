@@ -58,16 +58,14 @@ func build() -> void:
 		enabled.append(str(entry[1]) != "omens" or OmenRules.unlocked())
 	add_tabs(page_names, _page_of[_tab], func(index: int) -> void:
 		var id: String = str(pages[index][1])
-		# The Codex and the Leaderboard are the run's own full screens: they open over the Hall.
-		if id == "codex":
-			open_overlay(CodexScreen.new())
-		elif id == "leaderboard":
+		# The Leaderboard is its own full screen: it opens over the Hall.
+		if id == "leaderboard":
 			open_overlay(LeaderboardScreen.new())
 		else:
 			_page_of[_tab] = index
 			refresh(), enabled)
 	var index: int = _page_of[_tab]
-	if not bool(enabled[index]) or ["codex", "leaderboard"].has(str(pages[index][1])):
+	if not bool(enabled[index]) or str(pages[index][1]) == "leaderboard":
 		index = 0
 	var box := VBoxContainer.new()
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -89,6 +87,7 @@ func _page(id: String) -> MenuScreen:
 			"compendium": page = CompendiumScreen.new()
 			"heroes": page = HeroesHallScreen.new()
 			"achievements": page = AchievementsScreen.new()
+			"codex": page = CodexPage.new()
 			_: page = OracleScreen.new()
 		_pages[id] = page
 	return _pages[id]

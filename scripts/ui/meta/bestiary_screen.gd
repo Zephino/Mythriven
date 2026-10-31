@@ -36,9 +36,7 @@ func build() -> void:
 			_chosen = id
 			_show(detail, enemy, picture))
 		if not known:
-			# A dark shape until it's met.
-			for state: String in ["icon_normal_color", "icon_hover_color", "icon_pressed_color", "icon_focus_color", "icon_hover_pressed_color"]:
-				item.add_theme_color_override(state, Color(0, 0, 0, 0.85))
+			silhouette(item)             # a dark shape until it's met
 		if first == null or id == _chosen:
 			first = item
 			shown = [enemy, picture]

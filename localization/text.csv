@@ -1221,3 +1221,42 @@ DEBUG_WENT_GROVE,By a hidden grove: look for the glint and walk in between the t
 DEBUG_NONE_FOUND,None found nearby.
 UI_PLAY_AS,Play as %s
 UI_HERO_LOCKED,Locked
+HEROES_HALL_MASTERY,Mastery %d
+HEROES_HALL_BEST,Best time: %s
+COMPENDIUM_NOT_MET,"Not met yet. Bind this god in a run to learn its story."
+COMPENDIUM_MORE,More
+COMPENDIUM_WORDS_TITLE,Words of Legend
+ACH_EARNED,✓ Earned
+SECRET_HIDDEN,A secret not yet found. The Oracle may hint at it.
+OMENS_TOTAL,"Omens on: %s"
+OMEN_GOLD,+%d%% gold
+OMEN_ON,On
+OMEN_OFF,Off
+ORACLE_SILENT,Silence
+ORACLE_HINT,Hint %d
+UNLOCK_UNLOCKED,✓ Unlocked
+UNLOCK_EQUIP,Equip
+UNLOCK_EQUIPPED,✓ Equipped
+UNLOCK_TAKE_OFF,Take off
+UNLOCK_COSMETICS_HOW,"Cosmetics come from achievements and secrets."
+UNLOCK_HOW_ACHIEVEMENT,Earn the achievement “%s”
+UNLOCK_HOW_BOSS,Defeat them as a boss
+UNLOCK_HOW_SECRET,A secret
+LEVEL_LOCKED_HOW,Locked: defeat the 20:00 boss of the Aegean Shore
+LEVEL_BEST,Best: %s
+LEVEL_BOSSES,Bosses defeated: %d
+LEVEL_GODS,Local gods: %s
+LEVEL_PLAY,Play
+LEVEL_SWIFT_ON,Swift: on
+LEVEL_SWIFT_OFF,Swift: off
+CODEX_RECIPES,Evolutions  ·  %d / %d found
+CODEX_MADE_FROM,%s + %s
+CODEX_HINT,%s at its top level + a matching item
+CODEX_INFUSIONS_HOW,"Get a weapon to level 8 with a god of another element bound; the next chest offers to infuse it."
+CODEX_RESONANCE_HOW,"Bind the two gods that make this Resonance and use it to find it."
+UI_SETTINGS_GROUP_SOUND,Sound and text
+UI_SETTINGS_GROUP_EFFECTS,Effects
+UI_SETTINGS_GROUP_PLAY,Gameplay
+UI_SETTINGS_GROUP_CONTROLS,Touch controls
+UI_SETTINGS_GROUP_MORE,More
+UI_SETTING_LABEL_EFFECT_OPACITY_PCT,Your attack effects (opacity)
