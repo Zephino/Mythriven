@@ -1292,3 +1292,15 @@ LEVEL_COMING_SOON,Coming soon: being built now.
 LEVEL_LOCKED_BOSS,Locked: defeat %s on %s
 HAZARD_CHASMS_NAME,The chasms open
 ENEMY_BLACK_CATTLE_NAME,Black cattle of Hades
+ENEMY_ERINYS_SWARM_NAME,Furies-kin
+ENEMY_ERINYS_FLYER_NAME,Furies-kin hunter
+ENEMY_SKELETAL_HOPLITE_NAME,Skeletal hoplite
+ENEMY_HOPLITE_SHIELDWALL_NAME,Hoplite shield-bearer
+ENEMY_STYMPHALIAN_FLOCK_NAME,Stymphalian birds
+ENEMY_STYMPHALIAN_ARCHER_NAME,Stymphalian bird (feather-shooter)
+ENEMY_ERINYS_SWARM_MYTH,"The Erinyes, the Furies, were avenging spirits from beneath the earth who hunted down anyone who had shed the blood of kin. In Aeschylus' Eumenides they hound Orestes from Delphi to Athens."
+ENEMY_ERINYS_FLYER_MYTH,"The Erinyes, the Furies, were avenging spirits from beneath the earth who hunted down anyone who had shed the blood of kin. In Aeschylus' Eumenides they hound Orestes from Delphi to Athens."
+ENEMY_SKELETAL_HOPLITE_MYTH,"Among the dead who crowd to Odysseus at the edge of the underworld are men killed in battle, still in their armour stained with blood."
+ENEMY_HOPLITE_SHIELDWALL_MYTH,"Among the dead who crowd to Odysseus at the edge of the underworld are men killed in battle, still in their armour stained with blood."
+ENEMY_STYMPHALIAN_FLOCK_MYTH,"Man-eating birds of the marsh of Stymphalus, driven off by Heracles as one of his labours. Pausanias says they were the size of cranes, like ibises but with stronger, straight beaks."
+ENEMY_STYMPHALIAN_ARCHER_MYTH,"The birds of Stymphalus shed their feathers like arrows: Apollonius tells how one wounded an Argonaut as they sailed past the island of Ares, and how the heroes drove them off with clashing shields."

@@ -1,17 +1,17 @@
 {
-  "_doc": "The Underworld wave table (docs/PACK_2_PLAN.md). STARTER COPY of the Aegean Shore table until the Underworld monster families are built (step 3); the level is coming_soon until then.",
+  "_doc": "The Underworld wave table (docs/PACK_2_PLAN.md). Same pacing as the Aegean Shore's, before Pack 2's own +15% spawns (enemies.pack_difficulty): skeletal hoplites on foot, Stymphalian birds in flocks and shooting feathers from 6:00, shades and Furies-kin in the air, shield-bearer hoplites from 10:00, a ring of shades closing in from 20:00. ALL NUMBERS ARE PLACEHOLDERS until tuned.",
   "level": "the_underworld",
   "rows": [
     {
       "from_min": 0,
       "spawns_per_s": 1.6,
       "singles": {
-        "satyr_skirmisher": 1
+        "skeletal_hoplite": 1
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.08,
+          "chance": 0.07,
           "size": [
             6,
             12
@@ -20,7 +20,7 @@
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
           "every_s": 40,
           "size": 4
@@ -31,32 +31,32 @@
       "from_min": 2,
       "spawns_per_s": 2.0,
       "singles": {
-        "satyr_skirmisher": 1
+        "skeletal_hoplite": 1
       },
       "packs": [
         {
           "type": "shade_swarm",
           "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
-          "chance": 0.04,
+          "type": "stymphalian_flock",
+          "chance": 0.05,
           "size": [
-            6,
-            10
+            5,
+            9
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         }
       ]
     },
@@ -64,32 +64,32 @@
       "from_min": 4,
       "spawns_per_s": 2.3,
       "singles": {
-        "satyr_skirmisher": 1
+        "skeletal_hoplite": 1
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         }
       ]
     },
@@ -97,38 +97,39 @@
       "from_min": 6,
       "spawns_per_s": 2.55,
       "singles": {
-        "satyr_skirmisher": 1
+        "skeletal_hoplite": 1,
+        "stymphalian_archer": 1
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         }
       ]
     },
@@ -136,38 +137,39 @@
       "from_min": 8,
       "spawns_per_s": 2.75,
       "singles": {
-        "satyr_skirmisher": 1
+        "skeletal_hoplite": 1,
+        "stymphalian_archer": 1
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         }
       ]
     },
@@ -175,40 +177,40 @@
       "from_min": 10,
       "spawns_per_s": 2.88,
       "singles": {
-        "satyr_skirmisher": 6,
-        "siren_caster": 1,
-        "spartoi_brute": 1
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 1,
+        "hoplite_shieldwall": 1
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         }
       ]
     },
@@ -216,40 +218,48 @@
       "from_min": 12,
       "spawns_per_s": 3.24,
       "singles": {
-        "satyr_skirmisher": 6,
-        "siren_caster": 1,
-        "spartoi_brute": 2
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 1,
+        "hoplite_shieldwall": 1
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         }
       ]
     },
@@ -257,40 +267,48 @@
       "from_min": 14,
       "spawns_per_s": 3.6,
       "singles": {
-        "satyr_skirmisher": 5,
-        "siren_caster": 1,
-        "spartoi_brute": 2
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 1,
+        "hoplite_shieldwall": 2
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         }
       ]
     },
@@ -298,40 +316,48 @@
       "from_min": 16,
       "spawns_per_s": 3.96,
       "singles": {
-        "satyr_skirmisher": 5,
-        "siren_caster": 1,
-        "spartoi_brute": 2
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 1,
+        "hoplite_shieldwall": 2
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         }
       ]
     },
@@ -339,40 +365,48 @@
       "from_min": 18,
       "spawns_per_s": 4.32,
       "singles": {
-        "satyr_skirmisher": 5,
-        "siren_caster": 1,
-        "spartoi_brute": 3
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 1,
+        "hoplite_shieldwall": 2
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         }
       ]
     },
@@ -380,41 +414,48 @@
       "from_min": 20,
       "spawns_per_s": 4.56,
       "singles": {
-        "satyr_skirmisher": 5,
-        "siren_caster": 1,
-        "spartoi_brute": 2,
-        "khalkotauros_bomber": 2
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 1,
+        "hoplite_shieldwall": 2
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         },
         {
           "type": "shade_encircler",
@@ -428,41 +469,48 @@
       "from_min": 23,
       "spawns_per_s": 5.04,
       "singles": {
-        "satyr_skirmisher": 5,
-        "siren_caster": 1,
-        "spartoi_brute": 3,
-        "khalkotauros_bomber": 2
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 1,
+        "hoplite_shieldwall": 3
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         },
         {
           "type": "shade_encircler",
@@ -476,41 +524,48 @@
       "from_min": 26,
       "spawns_per_s": 5.52,
       "singles": {
-        "satyr_skirmisher": 5,
-        "siren_caster": 1,
-        "spartoi_brute": 3,
-        "khalkotauros_bomber": 3
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 2,
+        "hoplite_shieldwall": 3
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         },
         {
           "type": "shade_encircler",
@@ -524,41 +579,48 @@
       "from_min": 28,
       "spawns_per_s": 6.0,
       "singles": {
-        "satyr_skirmisher": 5,
-        "siren_caster": 2,
-        "spartoi_brute": 3,
-        "khalkotauros_bomber": 3
+        "skeletal_hoplite": 6,
+        "stymphalian_archer": 2,
+        "hoplite_shieldwall": 3
       },
       "packs": [
         {
           "type": "shade_swarm",
-          "chance": 0.06,
+          "chance": 0.07,
           "size": [
-            8,
-            16
+            6,
+            12
           ]
         },
         {
-          "type": "harpy_swarm",
+          "type": "stymphalian_flock",
           "chance": 0.05,
           "size": [
-            8,
-            14
+            5,
+            9
+          ]
+        },
+        {
+          "type": "erinys_swarm",
+          "chance": 0.04,
+          "size": [
+            4,
+            8
           ]
         }
       ],
       "groups": [
         {
-          "type": "shade_flyer",
+          "type": "erinys_flyer",
           "kind": "flyer",
-          "every_s": 28,
-          "size": 6
+          "every_s": 30,
+          "size": 5
         },
         {
-          "type": "harpy_flyer",
+          "type": "shade_flyer",
           "kind": "flyer",
           "every_s": 34,
-          "size": 5
+          "size": 6
         },
         {
           "type": "shade_encircler",
@@ -589,7 +651,7 @@
   },
   "boss_fodder": [
     "shade_swarm",
-    "satyr_skirmisher"
+    "skeletal_hoplite"
   ],
   "events": [
     {

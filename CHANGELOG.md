@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.54
+Date: 10/31/2026
+Time: 1:24 PM
+
+### Changes
+- **The Underworld's monsters and wave table** (step 3 of `docs/PACK_2_PLAN.md`; the level is still "Coming soon").
+  - **Furies-kin:** dark-robed winged huntresses with snakes in their hair (the Erinyes of Aeschylus' *Eumenides*, as Greek vases paint them; none of the three named Furies). A fast swarm, and hunters that sweep across the screen.
+  - **Skeletal hoplites:** the armed dead of the *Odyssey*, book 11, as bones in a crested bronze Corinthian helmet with a round shield and spear. A walking soldier, and a slow, heavily armoured shield-bearer from 10:00.
+  - **Stymphalian birds:** crane-sized marsh birds with straight bronze beaks (Pausanias 8.22). Flocks, and from 6:00 birds that shoot their bronze feathers like arrows (Apollonius, *Argonautica* 2).
+  - **Shades** (already in the game) drift in the air, and a ring of them closes in from 20:00.
+  - Each has its myth and source in the Bestiary. The elites are the Greek ones (Minotaur, Gorgon, Cyclops).
+- Art built by the new `tools/art/build_enemies_underworld.py`.
+
+### Reason
+Building Pack 2, approved by the owner: the Underworld, one part at a time.
+
 ## Version 00.02.53
 Date: 10/31/2026
 Time: 1:20 PM
