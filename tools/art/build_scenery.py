@@ -250,6 +250,22 @@ def boundary_stone():
     return p
 
 
+def log_hut_ruin():
+    """A ruined log hut (Pohjola): the corner of a farmstead of round pine logs, notched at the corners, the roof fallen
+    in and drifted with snow."""
+    p = Pic(30, 22, (15, 21))
+    for k in range(6):
+        y = 8 + k * 2
+        p.rect(1, y, 28 - (k % 2) * 3, y + 1, "b" if k % 2 else "B")
+        p.px(0, y, "t"); p.px(29 - (k % 2) * 3, y, "t")                    # notched log ends
+    p.rect(1, 20, 28, 21, "B")
+    for x in range(4, 22):
+        p.px(x, 7 - (x - 4) // 4, "B")                                     # the fallen roof beam
+    p.rect(10, 12, 14, 19, "z")                                          # doorway
+    p.rect(2, 6, 12, 7, "s"); p.rect(16, 19, 28, 19, "s"); p.rect(20, 7, 26, 7, "s")   # snow
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -274,7 +290,7 @@ def lekythos():
 
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
-                                   ziggurat_ruin, boundary_stone)}
+                                   ziggurat_ruin, boundary_stone, log_hut_ruin)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

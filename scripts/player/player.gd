@@ -39,6 +39,8 @@ var god_flags: Dictionary = {}
 var element_damage: Dictionary = {}
 var gold_mult: float = 1.0
 var invulnerable_s: float = 0.0
+## Seconds left of a shell that stops every enemy shot (Ilmatar's World Egg).
+var shot_shield_s: float = 0.0
 ## Multiplier on reaction damage this player causes (Väinämöinen's Divine Link).
 var reaction_damage_mult: float = 1.0
 ## Elements of the gods bound to this player (used by Divine Links).
@@ -141,6 +143,8 @@ func _process(delta: float) -> void:
 		queue_redraw()                                 # hide the held weapon now, and show it again after
 	if invulnerable_s > 0.0:
 		invulnerable_s = maxf(invulnerable_s - delta, 0.0)
+	if shot_shield_s > 0.0:
+		shot_shield_s = maxf(shot_shield_s - delta, 0.0)
 		queue_redraw()
 	if rooted_s > 0.0:
 		rooted_s = maxf(rooted_s - delta, 0.0)

@@ -5,7 +5,9 @@ extends Hazard
 ## lighter, enemies) in a direction that turns every few seconds, and a veil
 ## closes in around the screen's edges so only a circle around the Hero stays
 ## clear. Data: push_px_s, enemy_push_px_s, wind_turn_s, vision_screens (radius
-## of the clear circle in screen heights; 0 = no veil), veil_color, fade_s, particles ("snow", "sand" or "mist"
+## of the clear circle in screen heights; 0 = no veil), pulse (0-1: how much the clear circle breathes in and out, as
+## Pohjola's polar night does; pulse_hz how fast), veil_color, fade_s, particles ("snow", "sand", "mist", or "aurora":
+## the northern lights rippling across the top of the screen
 ## blowing across the screen; "" for none) and particle_color.
 
 var wind := Vector2.RIGHT
@@ -94,7 +96,9 @@ func _update_veil() -> void:
 	var material: ShaderMaterial = _veil.material
 	var view: Vector2 = get_viewport().get_visible_rect().size
 	material.set_shader_parameter("veil_color", Color.html(str(_data.get("veil_color", "#e8ecf4"))))
-	material.set_shader_parameter("clear_radius", vision * 0.5)
+	var pulse: float = float(_data.get("pulse", 0.0))
+	var breathe: float = 1.0 - pulse * (0.5 + 0.5 * sin(Time.get_ticks_msec() / 1000.0 * TAU * float(_data.get("pulse_hz", 0.2))))
+	material.set_shader_parameter("clear_radius", vision * 0.5 * breathe)
 	material.set_shader_parameter("strength", _strength)
 	material.set_shader_parameter("aspect", view.x / maxf(view.y, 1.0))
 
@@ -155,6 +159,18 @@ func _draw_flakes() -> void:
 		"sand":
 			for i: int in shown:
 				_flakes.draw_line(_flake_pos[i], _flake_pos[i] + wind * (4.0 + _flake_seed[i] * 8.0), Color(color, 0.7), 1.0)
+		"aurora":
+			# The northern lights: soft green and violet ribbons rippling across the top of the sky.
+			var view: Vector2 = get_viewport().get_visible_rect().size
+			var t: float = Time.get_ticks_msec() / 1000.0
+			for band: int in 3:
+				var points := PackedVector2Array()
+				for k: int in 25:
+					var x: float = view.x * k / 24.0
+					points.append(Vector2(x, view.y * (0.08 + 0.06 * band) + sin(x * 0.012 + t * (0.5 + band * 0.2) + band) * 18.0))
+				var tint: Color = color if band != 1 else Color(0.7, 0.5, 1.0)
+				_flakes.draw_polyline(points, Color(tint, 0.18 * _strength), 18.0 - band * 4.0)
+				_flakes.draw_polyline(points, Color(tint, 0.35 * _strength), 3.0)
 		"mist":
 			for i: int in shown / 6:
 				_flakes.draw_circle(_flake_pos[i], 18.0 + _flake_seed[i] * 26.0, Color(color, 0.07))

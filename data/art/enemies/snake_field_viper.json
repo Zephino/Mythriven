@@ -1,0 +1,93 @@
+{
+ "_doc": "A viper of Pohjola's snake field (Kalevala 19): a small dark zig-zag-backed adder coiled to strike. Built by tools/art/build_pohjola.py.",
+ "size": [
+  20,
+  12
+ ],
+ "anchor": [
+  9,
+  10
+ ],
+ "palette": {
+  "o": "#0a0c0a",
+  "k": "#141414",
+  "v": "#5a5a48",
+  "r": "#c83030"
+ },
+ "frames": {
+  "idle": [
+   [
+    "....................",
+    "....................",
+    "..............oo....",
+    ".............ovvoo..",
+    ".............ovvrvo.",
+    "........oooo.ovvvvoo",
+    "......oovkvvooooooor",
+    ".oooookvvvvvkvo....o",
+    "ovvkvvvvoooovvvo....",
+    "ovvvvvoo....oovo....",
+    ".ooooo........o.....",
+    "...................."
+   ]
+  ],
+  "walk": [
+   [
+    "....................",
+    "....................",
+    "..............oo....",
+    ".............ovvoo..",
+    ".............ovvrvo.",
+    ".o........oooovvvvoo",
+    "ovo.....oovvkvooooor",
+    "ovvooooovkvvvvvo...o",
+    ".ovkvvkvvvoooovo....",
+    "..ovvvvvoo....o.....",
+    "...ooooo............",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "..............oo....",
+    ".............ovvoo..",
+    ".............ovvrvo.",
+    "........oooo.ovvvvoo",
+    "......oovkvvooooooor",
+    ".oooookvvvvvkvo....o",
+    "ovvkvvvvoooovvvo....",
+    "ovvvvvoo....oovo....",
+    ".ooooo........o.....",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "..............oo....",
+    ".............ovvoo..",
+    ".............ovvrvo.",
+    "......oooo...ovvvvoo",
+    "....ookvvkoo..ooooor",
+    ".ooovvvvvvvvooo....o",
+    "ovvkvvoooovvkvvo....",
+    "ovvvoo....oovvvo....",
+    ".ooo........ooo.....",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "..............oo....",
+    ".............ovvoo..",
+    ".............ovvrvo.",
+    "........oooo.ovvvvoo",
+    "......oovkvvooooooor",
+    ".oooookvvvvvkvo....o",
+    "ovvkvvvvoooovvvo....",
+    "ovvvvvoo....oovo....",
+    ".ooooo........o.....",
+    "...................."
+   ]
+  ]
+ }
+}

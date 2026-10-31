@@ -262,3 +262,8 @@ func test_a_coop_trial_is_called_off_if_not_everyone_comes() -> void:
 	trial._process(Data.cfg_float("gods.trial_gather_s") + 1.0)
 	assert_false(trial.active, "called off")
 	assert_true(shrines.shrines.has(shrine), "the shrine stays, so it can be tried again")
+
+
+func test_ilmatars_world_egg_stops_enemy_shots() -> void:
+	_summons.run(GodRules.find("ilmatar"), _player)
+	assert_gt(_player.shot_shield_s, 0.0)

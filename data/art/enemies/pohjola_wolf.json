@@ -1,0 +1,124 @@
+{
+ "_doc": "One of Pohjola's wolves (Kalevala 32-33): a lean grey wolf of the north, tail low, pale eyes. Built by tools/art/build_pohjola.py.",
+ "size": [
+  24,
+  18
+ ],
+ "anchor": [
+  11,
+  17
+ ],
+ "palette": {
+  "o": "#14161a",
+  "k": "#08090a",
+  "g": "#8a8e96",
+  "G": "#62666e",
+  "y": "#d8f0ff"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    "....ooogggggggggoggggoo.",
+    "ooooGGGGGGGGGGGGGggggygo",
+    "GGGGGGGGGGGGGGGGGggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "....oggggGGgggggoGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    ".....oo..oo..oo..oo....."
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    "....ooogggggggggoggggoo.",
+    "ooooGGGGGGGGGGGGGggggygo",
+    "GGGGGGGGGGGGGGGGGggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggoo....",
+    ".....oggGGggggggooGGo...",
+    ".....oggGGooggoo.oGGo...",
+    ".....oggGGooggo..oGGo...",
+    ".....oggGGooggo..oGGo...",
+    ".....oggGGooggo..oGGo...",
+    "......oooo..oo....oo...."
+   ],
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    "....ooogggggggggoggggoo.",
+    "ooooGGGGGGGGGGGGGggggygo",
+    "GGGGGGGGGGGGGGGGGggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "....oggggGGgggggoGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    ".....oo..oo..oo..oo....."
+   ],
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    "....ooogggggggggoggggoo.",
+    "ooooGGGGGGGGGGGGGggggygo",
+    "GGGGGGGGGGGGGGGGGggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "...oggogggGGggggGGo.....",
+    "...oggooooGGooggGGo.....",
+    "...oggo..oGGooggGGo.....",
+    "...oggo..oGGooggGGo.....",
+    "...oggo..oGGooggGGo.....",
+    "....oo....oo..oooo......"
+   ],
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    "....ooogggggggggoggggoo.",
+    "ooooGGGGGGGGGGGGGggggygo",
+    "GGGGGGGGGGGGGGGGGggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "....oggggGGgggggoGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    ".....oo..oo..oo..oo....."
+   ]
+  ]
+ }
+}

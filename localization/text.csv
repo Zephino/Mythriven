@@ -1598,3 +1598,57 @@ RESONANCE_FLOOD_AND_SUN_BEST,Whole screens of monsters
 RESONANCE_THRYMS_WEDDING_NAME,Thrym's Wedding
 RESONANCE_THRYMS_WEDDING_DESC,"Thor's chain lightning reaches one more monster. Resonance: the hammer comes down in a ring round you, striking with Lightning and stunning everything it hits for 2.5 s."
 RESONANCE_THRYMS_WEDDING_BEST,Being surrounded
+PACK_3_NAME,Pack 3: Distant Legends
+PANTHEON_FINNISH,Finnish
+LEVEL_POHJOLA_NAME,Pohjola
+HAZARD_POLAR_NIGHT_NAME,The polar night falls!
+ENEMY_HIISI_NAME,Hiisi spirit
+ENEMY_HIISI_MYTH,Hiisi is the demon of the wild woods and rocky hills of Finnish tradition. In the Kalevala it was Hiisi who made the great elk that Lemminkäinen had to hunt down on skis.
+ENEMY_POHJOLA_WOLF_NAME,Wolf of Pohjola
+ENEMY_POHJOLA_WOLF_MYTH,"Pohjola, the dark land of the North, has wolves and bears at its mistress's call. When Kullervo took his revenge, he drove wolves and bears home in place of the cattle."
+ENEMY_SNAKE_FIELD_VIPER_NAME,Viper of the snake field
+ENEMY_SNAKE_FIELD_VIPER_MYTH,"To win the Maid of the North, Ilmarinen had to plough Pohjola's field of vipers, writhing with snakes, with a plough of gold and silver."
+ENEMY_FROST_WISP_NAME,Frost wisp
+ENEMY_FROST_WISP_MYTH,"Pakkanen, the Frost, son of the North wind, was sent by Louhi to freeze Lemminkäinen's ship fast in the sea, until Lemminkäinen sang him back with words of his origin."
+BOSS_ELK_OF_HIISI_NAME,The Elk of Hiisi
+BOSS_IKU_TURSO_NAME,Iku-Turso
+BOSS_LOUHI_NAME,Louhi
+ENEMY_ELK_OF_HIISI_NAME,The Elk of Hiisi
+ENEMY_IKU_TURSO_NAME,Iku-Turso
+ENEMY_LOUHI_NAME,Louhi
+ENEMY_ELK_OF_HIISI_MYTH,"For the hand of the Maid of the North, Louhi set Lemminkäinen to ski down the elk of Hiisi. Hiisi made it, and it ran so fast across Pohjola that no skier could catch it."
+ENEMY_IKU_TURSO_MYTH,"The monster of the deep. When the heroes sailed home with the Sampo, Louhi's magic raised Iku-Turso from the sea against their ship, and Väinämöinen lifted him out of the water by his ears."
+ENEMY_LOUHI_MYTH,"The gap-toothed mistress of Pohjola, mother of the Maid of the North. She took the shape of a great eagle with claws of scythes to win back the Sampo, and hid the sun and the moon inside a mountain."
+BOSS_LOUHI_DARK,Louhi hides the sun and the moon!
+BOSS_LOUHI_EAGLE,Louhi takes the shape of a great eagle!
+GOD_UKKO_NAME,Ukko
+GOD_UKKO_ROLE,Burst damage
+GOD_UKKO_BLESSING,+15% Lightning damage and +5% Might.
+GOD_UKKO_SUMMON,Thunder Axe: eight lightning strikes fall one after another on the thickest crowds on screen.
+GOD_UKKO_MYTH,"The old god of the sky and thunder, highest of the Finnish gods, called on again and again in the Kalevala's songs. Mikael Agricola named him in his list of the old Finnish gods in 1551."
+GOD_ILMATAR_NAME,Ilmatar
+GOD_ILMATAR_ROLE,Survival
+GOD_ILMATAR_BLESSING,+10% Max HP and +10% Wind damage.
+GOD_ILMATAR_SUMMON,World Egg: a shell of light round every Hero stops every enemy shot for 4 s.
+GOD_ILMATAR_MYTH,"The maiden of the air, who came down to the sea. A teal laid its eggs on her knee; they broke, and from them came the earth, the sky, the sun, the moon and the stars. She is Väinämöinen's mother."
+ACH_BOSS_ELK_OF_HIISI_NAME,Defeat the Elk of Hiisi
+ACH_BOSS_ELK_OF_HIISI_DESC,The 10:00 boss of Pohjola.
+ACH_BOSS_IKU_TURSO_NAME,Defeat Iku-Turso
+ACH_BOSS_IKU_TURSO_DESC,The 20:00 boss of Pohjola.
+ACH_BOSS_LOUHI_NAME,Defeat Louhi
+ACH_BOSS_LOUHI_DESC,The 30:00 boss of Pohjola.
+BANTER_UKKO_FOUND,"Face my thunder, and it will fall for you."
+BANTER_UKKO_BOUND,The sky's old lord walks with you now.
+BANTER_UKKO_SUMMON,"Fall, thunder!"
+BANTER_UKKO_PATRON,A singer of the North; the old sky knows your songs.
+BANTER_ILMATAR_FOUND,Rest a while; even the sea was calm for me once.
+BANTER_ILMATAR_BOUND,The air itself will shelter you.
+BANTER_ILMATAR_SUMMON,"Close, shell of the world!"
+BANTER_ILMATAR_PATRON,A child of the Kalevala; you are welcome under my sky.
+BANTER_ILMATAR_VAINAMOINEN,"My son, born old and wise; sing, and I will keep you safe."
+BANTER_ELK_OF_HIISI_ENTRANCE,No skier has ever caught me. Try.
+BANTER_IKU_TURSO_ENTRANCE,"The ice is thin, and I am right beneath it."
+BANTER_IKU_TURSO_VAINAMOINEN,"You lifted me out by my ears once, old man; never again."
+BANTER_LOUHI_ENTRANCE,"The North is mine, and so are its sun and moon."
+BANTER_LOUHI_VAINAMOINEN,"Old singer, you stole my Sampo; now pay for it."
+BANTER_LOUHI_UKKO,"Thunder-god, my hidden sun is no business of yours."

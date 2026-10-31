@@ -22,6 +22,8 @@ extends Node2D
 ##   Waters of the Abzu (Enki)       fresh water floods the screen: heals every Hero, Soaks every monster
 ##   Thirteen Winds (Shamash)        winds from every side pin every monster on screen and strike them; tear away
 ##                                   one of Humbaba's radiances
+##   Thunder Axe (Ukko)              lightning strikes fall on the thickest crowds on screen, one after another
+##   World Egg (Ilmatar)             a shell of light round every Hero stops every enemy shot for 4 s
 ##   Falcon Cloak (Freyja)           the Hero flies, unharmed, for a moment; monsters slain meanwhile rise to fight for them
 
 const MAX_EFFECTS := 8
@@ -113,6 +115,14 @@ func run(god: Dictionary, player: Player) -> void:
 			for boss: Node in get_tree().get_nodes_in_group(BossController.GROUP):
 				if boss is HumbabaBoss:
 					(boss as HumbabaBoss).strip_radiance()
+		"world_egg":
+			for each: Player in GameAuthority.players:
+				if each.alive:
+					each.shot_shield_s = maxf(each.shot_shield_s, float(s.get("duration_s", 4.0)))
+		"thunder_axe":
+			effect["strikes_left"] = int(s.get("strikes", 8))
+			effect["tick"] = 0.0
+			effect["bolts"] = []
 		"hounds_of_annwn":
 			var hounds: Array = []
 			for k: int in int(s.get("hounds", 5)):
@@ -181,6 +191,19 @@ func _step(effect: Dictionary, player: Player, delta: float) -> void:
 	var view: Rect2 = effect["view"]
 	var area: float = player.stats.area_mult()
 	match str(effect["kind"]):
+		"thunder_axe":
+			# Ukko's strikes fall one after another on whichever crowd on screen is thickest.
+			effect["tick"] = float(effect["tick"]) - delta
+			if float(effect["tick"]) <= 0.0 and int(effect["strikes_left"]) > 0:
+				effect["tick"] = float(effect["duration"]) / maxf(float(s.get("strikes", 8)), 1.0)
+				effect["strikes_left"] = int(effect["strikes_left"]) - 1
+				var at: Vector2 = _densest(view, float(s.get("strike_radius_px", 40.0)) * area)
+				if at != Vector2.INF:
+					(effect["bolts"] as Array).append(at)
+					if (effect["bolts"] as Array).size() > 4:
+						(effect["bolts"] as Array).pop_front()
+					_hit_circle(effect, player, at, float(s.get("strike_radius_px", 40.0)) * area, float(s.get("damage", 45.0)), "lightning", Vector2.ZERO, 0.5)
+					(effect["hit"] as Dictionary).clear()
 		"heart_of_the_greenwood":
 			var stags: int = int(s.get("stags", 3))
 			for i: int in stags:
@@ -311,6 +334,22 @@ func _hit_circle(effect: Dictionary, player: Player, center: Vector2, reach: flo
 			GameAuthority.damage_enemy(slot, damage * float(effect["power"]), player, push * 120.0, element, status_chance)
 
 
+## The middle of the thickest crowd of monsters on screen (sampled), or Vector2.INF when the screen is empty.
+func _densest(view: Rect2, reach: float) -> Vector2:
+	var on_screen: Array[int] = _enemies_in(view)
+	if on_screen.is_empty():
+		return Vector2.INF
+	var best := Vector2.INF
+	var best_count: int = -1
+	for k: int in mini(on_screen.size(), 16):
+		var at: Vector2 = GameAuthority.enemies.positions[on_screen[(k * 7919) % on_screen.size()]]
+		var count: int = _enemies_near(at, reach).size()
+		if count > best_count:
+			best_count = count
+			best = at
+	return best
+
+
 func _enemies_near(center: Vector2, reach: float) -> Array[int]:
 	var found: Array[int] = []
 	var enemies: EnemyManager = GameAuthority.enemies
@@ -406,6 +445,19 @@ func _draw() -> void:
 					var to: Vector2 = from.lerp(mid, clampf(k * 1.4, 0.0, 1.0))
 					draw_line(from, to, Color(1.0, 0.92, 0.6, 0.7 * fade), 2.0)
 					draw_line(from.lerp(to, 0.5) + Vector2(0, 4), to + Vector2(0, 4), Color(1, 1, 1, 0.4 * fade), 1.0)
+			"world_egg":
+				for each: Player in GameAuthority.players:
+					if each.alive and each.shot_shield_s > 0.0:
+						draw_set_transform(each.position + Vector2(0, -12), 0.0, Vector2(0.8, 1.0))
+						draw_circle(Vector2.ZERO, 22.0, Color(0.95, 0.97, 1.0, 0.18 * fade + 0.08))
+						draw_arc(Vector2.ZERO, 22.0, 0.0, TAU, 32, Color(1.0, 0.95, 0.7, 0.8), 2.0)
+						draw_set_transform(Vector2.ZERO)
+			"thunder_axe":
+				for bolt: Variant in effect.get("bolts", []):
+					var at: Vector2 = bolt
+					draw_line(at + Vector2(-10, -140), at + Vector2(6, -70), Color(Elements.color("lightning"), fade), 3.0)
+					draw_line(at + Vector2(6, -70), at, Color(Elements.color("lightning"), fade), 3.0)
+					draw_circle(at, 10.0 * fade + 4.0, Color(1, 1, 0.85, 0.5 * fade))
 			"birds_of_rhiannon":
 				for b: int in 7:
 					var fly: Vector2 = Vector2(lerpf(view.position.x, view.end.x, fmod(k + b * 0.14, 1.0)),

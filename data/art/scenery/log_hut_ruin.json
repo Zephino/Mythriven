@@ -1,0 +1,62 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A ruined log hut (Pohjola): the corner of a farmstead of round pine logs, notched at the corners, the roof fallen in and drifted with snow.",
+ "size": [
+  32,
+  21
+ ],
+ "anchor": [
+  16,
+  20
+ ],
+ "palette": {
+  "a": "#1e1812",
+  "b": "#483c2a",
+  "c": "#483c30",
+  "d": "#42362a",
+  "e": "#120c06",
+  "f": "#f0f0f6",
+  "g": "#2a2418",
+  "h": "#604e36",
+  "i": "#3c3024",
+  "j": "#665442",
+  "k": "#4e4236",
+  "l": "#604e42",
+  "m": "#544236",
+  "n": "#5a4e3c",
+  "o": "#5a4830",
+  "p": "#362a24",
+  "q": "#241812",
+  "r": "#241e12",
+  "s": "#5a483c",
+  "t": "#362a1e",
+  "u": "#544836",
+  "v": "#302a1e"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....................aa.........",
+    ".................aaaabca........",
+    ".............aaaadbbcaa.........",
+    "...eeeeeeeeeabbbbaaaa...........",
+    "..efffffffffffaaa....eeeeeee....",
+    ".gafffffffffffaaaaaaafffffffaag.",
+    "ghddiibddbiddbbdddddddddbdddddhg",
+    ".abddddbbbdbdddbddddddddddibdda.",
+    "ghjjkllllkljmnllllllllnljllhaa..",
+    ".gjjnjnjllnnjlljjlnljljnlnlaaag.",
+    "goddddpddddqqarrdddddiddddddidhg",
+    ".aiddiddddiqrqqriiddididdipddia.",
+    "ghsnlnssklnqrrqrnnnnlnsnnsnoaa..",
+    ".glnnnnnnssrrrqrllnnslllnnnaaag.",
+    "godddddddddqaqqqdddddididdddidog",
+    ".aiiddtiddiaqrqrddidddddiiiddda.",
+    "ghlnlnslsssqqqrasnlnslnnlsnhaa..",
+    ".gkusuuuuuuaaqqaufffffffffffffe.",
+    ".aidiidiiiiiiiiiddidiiiiviiidia.",
+    ".aidiviiiiividdiidiiiiiiiidiiia.",
+    "..aaaaaaaaaaaaaaaaaaaaaaaaaaaa.."
+   ]
+  ]
+ }
+}

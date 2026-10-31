@@ -1,0 +1,123 @@
+{
+ "_doc": "A frost wisp (Kalevala 30: Pakkanen, the Frost, sent by Louhi): a drifting cold glow of ice crystals. Built by tools/art/build_pohjola.py.",
+ "size": [
+  16,
+  18
+ ],
+ "anchor": [
+  7,
+  17
+ ],
+ "palette": {
+  "o": "#1a2a3a",
+  "k": "#2a4a6a",
+  "b": "#8ac8f0",
+  "w": "#f0faff"
+ },
+ "frames": {
+  "idle": [
+   [
+    "................",
+    "...o.......o....",
+    "..owo..o..owo...",
+    "...o.ooboo.o....",
+    "....obbbbbo.....",
+    "...obbbwbbbo....",
+    "...obbwwwbbo....",
+    "o..obbkwkbbo..o.",
+    "woobbwwwwwbboowo",
+    "o..obbwwwbbo..o.",
+    "...obbwwwbbo....",
+    "...obbbwbbbo....",
+    "....obbbbbo.....",
+    "....oooboo.o....",
+    "...owo.o..owo...",
+    "....o......o....",
+    "................",
+    "................"
+   ]
+  ],
+  "walk": [
+   [
+    ".....o..........",
+    "....owoo........",
+    ".....ooboo.o....",
+    "....obbbbbowo...",
+    "...obbbwbbbo....",
+    "..obbbwwwbbbo...",
+    "o.obbwwwwwbbo...",
+    "woobbwkwkwbbo...",
+    "oobbwwwwwwwbboo.",
+    "..obbwwwwwbboowo",
+    "..obbwwwwwbbo.o.",
+    "..obbbwwwbbbo...",
+    "...obbbwbbbo....",
+    "..owobbbbbo.....",
+    "...o.ooboo......",
+    ".......oowo.....",
+    ".........o......",
+    "................"
+   ],
+   [
+    "......o.........",
+    ".....owo........",
+    "......oo........",
+    ".....ooboo..o...",
+    "....obbbbboowo..",
+    "o..obbbwbbboo...",
+    "wo.obbwwwbbo....",
+    "o..obbkwkbbo....",
+    "..obbwwwwwbbo...",
+    "...obbwwwbbo..o.",
+    "...obbwwwbbo.owo",
+    "..oobbbwbbbo..o.",
+    ".owoobbbbbo.....",
+    "..o..ooboo......",
+    ".......oo.......",
+    ".......owo......",
+    "........o.......",
+    "................"
+   ],
+   [
+    ".......o........",
+    "......owo.......",
+    ".....ooboo......",
+    ".o..obbbbbo..o..",
+    "owoobbbwbbboowo.",
+    ".oobbbwwwbbboo..",
+    "..obbwwwwwbbo...",
+    "..obbwkwkwbbo...",
+    ".obbwwwwwwwbbo..",
+    "..obbwwwwwbbo...",
+    ".oobbwwwwwbboo..",
+    "owobbbwwwbbbowo.",
+    ".o.obbbwbbbo.o..",
+    "....obbbbbo.....",
+    ".....ooboo......",
+    "......owo.......",
+    ".......o........",
+    "................"
+   ],
+   [
+    "........o.......",
+    ".......owo......",
+    ".......oo.......",
+    "..o..ooboo......",
+    ".owoobbbbbo.....",
+    "..oobbbwbbbo..o.",
+    "...obbwwwbbo.owo",
+    "...obbkwkbbo..o.",
+    "..obbwwwwwbbo...",
+    "o..obbwwwbbo....",
+    "wo.obbwwwbbo....",
+    "o..obbbwbbboo...",
+    "....obbbbboowo..",
+    ".....ooboo..o...",
+    "......oo........",
+    ".....owo........",
+    "......o.........",
+    "................"
+   ]
+  ]
+ }
+}

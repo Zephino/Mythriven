@@ -248,6 +248,13 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    "pohjola": {
+        "ground": {"red_squirrel": (squirrel, "#b05a2a", "#c86a30"), "mountain_hare": (hare, "#e8e8ec", "#ffffff"),
+                   "red_fox": (fox, "#c8642a", "#f0ece4")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True), "ptarmigan": ("#f0f0f0", "#d0d4dc", "#3a3a3a", False)},
+        "insects": {},
+        "large": {"reindeer": ("#8a7a6a", "#e0dcd4", "#4a3e32", "antlers", 28, 26),
+                  "elk": ("#5a4232", "#7a5e48", "#2a2018", "palmate", 32, 30)}},
     # The Land Between the Rivers: herons and ibises in the reed marshes; onagers (the wild asses of the Assyrian hunt
     # reliefs) and wild boar in the thickets.
     "the_land_between_the_rivers": {

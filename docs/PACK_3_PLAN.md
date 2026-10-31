@@ -1,6 +1,7 @@
 # Pack 3 plan: Distant Legends
 
-Status: **draft for the owner** (10/31/2026). The owner asked to start Pack 3 once Pack 2 was finished ("When your done
+Status: **approved by the owner** (10/31/2026: "yes, as suggested" to all five questions). Pohjola built and released
+10/31/2026 (00.02.70). The owner asked to start Pack 3 once Pack 2 was finished ("When your done
 start pack 3"). Like Pack 2, this plan comes first; building starts when the owner answers the questions at the end.
 
 Everything named here comes from `GAME_DESIGN.md` (Act III levels, Gods added with Acts II–III, Acts II–IV bosses,
@@ -31,7 +32,7 @@ are written fresh.
 
 ---
 
-## Level 9: Pohjola (Finnish, the Kalevala)
+## Level 9: Pohjola (Finnish, the Kalevala): **done and released 10/31/2026 (00.02.70)**
 
 **Look:** dark northern pine and spruce, frozen lakes, snow, the northern lights overhead.
 *Source: the Kalevala (Lönnrot, 1849), runos 1, 13–14, 19, 32–33, 42–47.*

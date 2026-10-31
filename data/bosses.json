@@ -2215,5 +2215,244 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Pohjola bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "elk_of_hiisi",
+    "name_key": "BOSS_ELK_OF_HIISI_NAME",
+    "tradition": "finnish",
+    "lore_source": "Kalevala 13-14 (the elk Hiisi made, that no skier could catch)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "elk_of_hiisi",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 631,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "uncatchable",
+      "unslowed_damage_mult": 0.15,
+      "sprint_every_s": 6.0,
+      "sprint_px": 260
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Pohjola bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "iku_turso",
+    "name_key": "BOSS_IKU_TURSO_NAME",
+    "tradition": "finnish",
+    "lore_source": "Kalevala 42 (Turso rises from the water and is lifted out by his ears)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "iku_turso",
+    "move_speed": 54,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 982,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "under_the_ice",
+      "dive_every_s": 9.0,
+      "under_s": 2.5,
+      "hole_radius_px": 30,
+      "hole_s": 40,
+      "max_holes": 8,
+      "hole_slow": 0.5,
+      "hole_damage": 6,
+      "surface_damage": 18,
+      "surface_radius_px": 46
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Pohjola bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "louhi",
+    "name_key": "BOSS_LOUHI_NAME",
+    "tradition": "finnish",
+    "lore_source": "Kalevala 43 (she becomes a great eagle with scythe claws), 47 (she hides the sun and the moon)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "louhi",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1544,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "mistress_of_pohjola",
+      "dark_phase": 1,
+      "dark_vision_screens": 0.4,
+      "eagle_phase": 2,
+      "eagle_speed_mult": 1.8
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "pohjola_wolf"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "pohjola_wolf"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -531,3 +531,51 @@ func test_pack_2_secret_passives() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret + "'s passive exists")
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret + "'s cosmetic exists")
+
+
+func test_pohjola_opens_from_ymir_and_is_harder() -> void:
+	var level: Dictionary = _level("pohjola")
+	assert_eq(str(level["unlock"]["level"]), "jotunheim")
+	assert_eq(int(level["act"]), 3)
+	assert_almost_eq(float((Data.cfg("enemies.pack_difficulty") as Dictionary)["3"]["hp_mult"]), 1.4, 0.001)
+
+
+func test_the_elk_of_hiisi_must_be_slowed_before_it_takes_harm() -> void:
+	_start("pohjola")
+	var elk: ElkOfHiisiBoss = _bosses.spawn_boss("elk_of_hiisi", 0) as ElkOfHiisiBoss
+	assert_not_null(elk)
+	assert_lt(elk.modify_hit(100.0, _player, Vector2.ZERO), 50.0, "running free, it shrugs off harm")
+	_enemies.statuses.apply(elk.slot, "chill", 1.0, false)
+	assert_almost_eq(elk.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01, "slowed, it takes full damage")
+	var at: Vector2 = elk.position_now()
+	_enemies.statuses.chill[elk.slot] = 0.0
+	elk.target = _player
+	elk._sprint_in = 0.0
+	elk.signature(0.2)
+	assert_ne(elk.position_now(), at, "it sprints")
+
+
+func test_iku_turso_dives_and_breaks_the_ice() -> void:
+	_start("pohjola")
+	var turso: IkuTursoBoss = _bosses.spawn_boss("iku_turso", 1) as IkuTursoBoss
+	turso.target = _player
+	turso.signature(4.5)
+	assert_gt(turso.under_s, 0.0, "he dives")
+	assert_eq(turso.modify_hit(100.0, _player, Vector2.ZERO), 0.0, "he can't be hurt under the ice")
+	var hp: float = _player.hp
+	turso.signature(3.0)
+	assert_eq(turso.holes.size(), 1, "the ice breaks where he rises")
+	assert_lt(_player.hp, hp, "and he hurts whoever stands there")
+	turso.signature(0.1)
+	assert_lt(_player.slow_zone_mult, 1.0, "the open water slows")
+
+
+func test_louhi_hides_the_sun_then_becomes_the_eagle() -> void:
+	_start("pohjola")
+	var louhi: LouhiBoss = _bosses.spawn_boss("louhi", 2) as LouhiBoss
+	assert_eq(louhi.art_id(), "louhi")
+	louhi.phase_index = 1
+	assert_true(louhi.is_dark(), "the sun is hidden")
+	louhi.phase_index = 2
+	assert_false(louhi.is_dark())
+	assert_eq(louhi.art_id(), "louhi_eagle", "the great eagle")

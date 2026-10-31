@@ -328,6 +328,11 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # Pohjola: the dark northern forest of spruce and pine, and the birch of the Kalevala (runo 44: the kantele of birch).
+    "pohjola": {
+        "trees": {"spruce": (spruce, 22, 40), "scots_pine": (umbrella_pine, 24, 40), "birch": (birch, 18, 34)},
+        "bushes": {"juniper": ("P", "p", "q", None), "bilberry": ("M", "m", "y", "B")},
+        "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
     # The Land Between the Rivers: the cedars of the Cedar Forest (Gilgamesh, Tablet V), date palms and Euphrates
     # poplars by the water, tamarisk (Gilgamesh and the Huluppu tree); reed beds of the marshes.
     "the_land_between_the_rivers": {

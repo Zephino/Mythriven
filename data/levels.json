@@ -978,5 +978,131 @@
       "edge": "#7a6240",
       "stones": "#b08858"
     }
+  },
+  {
+    "_doc": "Pohjola, Pack 3 level 1 (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Dark northern pine, frozen lakes, the northern lights. Source: the Kalevala (Lonnrot, 1849).",
+    "id": "pohjola",
+    "name_key": "LEVEL_POHJOLA_NAME",
+    "region": "finnish",
+    "act": 3,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "pohjola",
+      "noise_frequency": 0.03,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "ice",
+          "max": -0.45,
+          "placeholder_color": "#a8c4d8",
+          "placeholder_dots": "#d8e8f4"
+        },
+        {
+          "id": "snow",
+          "max": 0.05,
+          "placeholder_color": "#dce4ec",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "packed_snow",
+          "max": 0.5,
+          "placeholder_color": "#c4ccd8",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "pine_floor",
+          "max": 1.0,
+          "placeholder_color": "#4a4a3a",
+          "placeholder_dots": "#6a5a3a"
+        }
+      ]
+    },
+    "decorations": [
+      "pine_tree",
+      "log_hut_ruin"
+    ],
+    "decorations_per_chunk": [
+      2,
+      5
+    ],
+    "decoration_art": {
+      "pine_tree": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          30
+        ],
+        "placeholder_color": "#2e4a32",
+        "weight": 3
+      },
+      "log_hut_ruin": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          22
+        ],
+        "placeholder_color": "#6a5440",
+        "weight": 1
+      }
+    },
+    "local_gods": [
+      "ukko",
+      "ilmatar"
+    ],
+    "local_shrine_chance": 0.5,
+    "bosses": {
+      "10": "elk_of_hiisi",
+      "20": "iku_turso",
+      "30": "louhi"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "jotunheim",
+      "boss": "ymir"
+    },
+    "waves": "waves_pohjola.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_POLAR_NIGHT_NAME",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 24,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.5,
+      "pulse": 0.35,
+      "pulse_hz": 0.15,
+      "veil_color": "#060a18",
+      "particles": "aurora",
+      "particle_color": "#60f0a0",
+      "fade_s": 3.0
+    },
+    "ground_patches": {
+      "kind": "slide",
+      "count": 6,
+      "radius_px": [
+        28,
+        44
+      ],
+      "color": "#b8d4e8",
+      "grip_per_s": 2.0
+    },
+    "seal": "norse_band",
+    "tint": "#d8e0f0",
+    "flora": {
+      "density": 1.0,
+      "trees": {
+        "spruce": 3,
+        "scots_pine": 2,
+        "birch": 2
+      }
+    },
+    "road": {
+      "color": "#c8ccd4",
+      "edge": "#9aa0aa",
+      "stones": "#8a8c90"
+    }
   }
 ]

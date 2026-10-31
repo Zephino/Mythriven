@@ -586,5 +586,78 @@
     },
     "placeholder_color": "#f0c040",
     "persists": false
+  },
+  {
+    "id": "ukko",
+    "name_key": "GOD_UKKO_NAME",
+    "role_key": "GOD_UKKO_ROLE",
+    "blessing_key": "GOD_UKKO_BLESSING",
+    "summon_key": "GOD_UKKO_SUMMON",
+    "pantheon": "finnish",
+    "care_tier": "A",
+    "lore_source": "The Kalevala (Ukko, the chief god of the sky, called on throughout); Mikael Agricola's list of Finnish gods (1551)",
+    "lore_verified": false,
+    "element": "lightning",
+    "role": "damage",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "trial_duel",
+      "patterns": [
+        "aimed_fan",
+        "ground_circles"
+      ]
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 45
+    },
+    "blessing": {
+      "element_damage": {
+        "lightning": 15
+      },
+      "might_pct": 5
+    },
+    "summon": {
+      "effect": "thunder_axe",
+      "duration_s": 3,
+      "strikes": 8,
+      "strike_radius_px": 40,
+      "damage": 45
+    },
+    "placeholder_color": "#c8d4f0",
+    "persists": false
+  },
+  {
+    "id": "ilmatar",
+    "name_key": "GOD_ILMATAR_NAME",
+    "role_key": "GOD_ILMATAR_ROLE",
+    "blessing_key": "GOD_ILMATAR_BLESSING",
+    "summon_key": "GOD_ILMATAR_SUMMON",
+    "pantheon": "finnish",
+    "care_tier": "A",
+    "lore_source": "Kalevala 1 (Ilmatar, the maiden of the air; the teal's eggs on her knee become the world)",
+    "lore_verified": false,
+    "element": "wind",
+    "role": "survival",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 50
+    },
+    "blessing": {
+      "max_hp_pct": 10,
+      "element_damage": {
+        "wind": 10
+      }
+    },
+    "summon": {
+      "effect": "world_egg",
+      "duration_s": 4
+    },
+    "placeholder_color": "#a8c8e8",
+    "persists": false
   }
 ]

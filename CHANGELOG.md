@@ -2,6 +2,29 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.70
+Date: 10/31/2026
+Time: 4:05 PM
+
+### Changes
+- **Pack 3 has begun: Pohjola is built and open** (`docs/PACK_3_PLAN.md`, approved). Beat Ymir (Jotunheim's 30:00 boss) to unlock it. A "Pack 3: Distant Legends" heading joins the level select.
+  - **Harder:** Pack 3 enemies have +40% HP, +25% spawns and +20% damage compared with Pack 1.
+  - **The land:** snow, ice and pine-needle ground; spruce, pine and birch; ruined log huts; reindeer, elk, foxes and ravens.
+  - **The polar night** (the hazard): the dark closes in, and the clear ring round your Hero slowly breathes in and out, while the northern lights ripple across the sky.
+  - **Monsters:** Hiisi forest-spirits, Pohjola's wolves, vipers of the snake field and frost wisps that throw frost (Kalevala 13-14, 19, 30, 32-33).
+  - **Bosses:**
+    - **The Elk of Hiisi** (10:00): it sprints across the field and shrugs off most harm until something slows it (Chill, Freeze, a stun, or a Guard Break).
+    - **Iku-Turso** (20:00): he dives under the ice, where nothing can hurt him, and bursts up beneath you. The broken ice leaves open water that slows and hurts.
+    - **Louhi** (30:00): in her second phase she hides the sun and the moon, and darkness closes round you. In her third she becomes the great eagle with claws of scythes.
+  - **Gods:**
+    - **Ukko** (Lightning, duel): summon **Thunder Axe** sends eight strikes, one after another, onto the thickest crowds.
+    - **Ilmatar** (Wind, peaceful): summon **World Egg** gives a shell of light that stops every enemy shot for 4 s.
+  - Boss achievements, 15 banter lines (Väinämöinen has lines with his mother Ilmatar, with Iku-Turso and with Louhi), and Pohjola's rows on the lore check.
+- 5 new tests (302 tests pass).
+
+### Reason
+The owner approved the Pack 3 plan ("yes, as suggested"). Pohjola is its first level, built and shown before Mazandaran.
+
 ## Version 00.02.69
 Date: 10/31/2026
 Time: 3:53 PM

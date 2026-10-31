@@ -589,5 +589,35 @@
       "id": "tiamat"
     },
     "persists": true
+  },
+  {
+    "id": "boss_elk_of_hiisi",
+    "name_key": "ACH_BOSS_ELK_OF_HIISI_NAME",
+    "desc_key": "ACH_BOSS_ELK_OF_HIISI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "elk_of_hiisi"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_iku_turso",
+    "name_key": "ACH_BOSS_IKU_TURSO_NAME",
+    "desc_key": "ACH_BOSS_IKU_TURSO_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "iku_turso"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_louhi",
+    "name_key": "ACH_BOSS_LOUHI_NAME",
+    "desc_key": "ACH_BOSS_LOUHI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "louhi"
+    },
+    "persists": true
   }
 ]

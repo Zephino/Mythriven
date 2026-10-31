@@ -1,0 +1,126 @@
+{
+ "_doc": "A Hiisi forest-spirit (Kalevala 13-14): a small, gnarled, mossy goblin of the wild woods with twig-like limbs. Built by tools/art/build_pohjola.py.",
+ "size": [
+  18,
+  18
+ ],
+ "anchor": [
+  9,
+  17
+ ],
+ "palette": {
+  "o": "#0e140a",
+  "k": "#060804",
+  "g": "#4a5a32",
+  "G": "#5e6e3e",
+  "b": "#5a4028",
+  "y": "#e0e060",
+  "m": "#8aa04a"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....o.......o....",
+    "....obooooooobo...",
+    ".....obGGGGGbo....",
+    ".....oGGGGGGGo....",
+    ".....oGyGGGyGo....",
+    "....oGGGGGGGGGo...",
+    ".....oGGGGGGGo....",
+    "..oo.oGGkkkGGooo..",
+    ".obboggGGGGGggbbo.",
+    ".obbogggggggggbbo.",
+    ".obbggggggggggbbo.",
+    "..oooggggmggggoo..",
+    "....oggmggggggo...",
+    ".....ogggggggo....",
+    ".....obbogbbo.....",
+    ".....obboobbo.....",
+    ".....obboobbo.....",
+    ".....obboobbo....."
+   ]
+  ],
+  "walk": [
+   [
+    ".....o.......o....",
+    "....obooooooobo...",
+    ".....obGGGGGbo....",
+    ".....oGGGGGGGo....",
+    ".....oGyGGGyGo....",
+    "....oGGGGGGGGGo...",
+    ".....oGGGGGGGo....",
+    "..oo.oGGkkkGGooo..",
+    ".obboggGGGGGggbbo.",
+    ".obbogggggggggbbo.",
+    ".obbggggggggggbbo.",
+    "..oooggggmggggoo..",
+    "....oggmggggggo...",
+    ".....ogggggggo....",
+    "......obbgboo.....",
+    "......obbbbo......",
+    "......obbbbo......",
+    "......obbbbo......"
+   ],
+   [
+    ".....o.......o....",
+    "....obooooooobo...",
+    ".....obGGGGGbo....",
+    ".....oGGGGGGGo....",
+    ".....oGyGGGyGo....",
+    "....oGGGGGGGGGo...",
+    ".....oGGGGGGGo....",
+    "..oo.oGGkkkGGooo..",
+    ".obboggGGGGGggbbo.",
+    ".obbogggggggggbbo.",
+    ".obbggggggggggbbo.",
+    "..oooggggmggggoo..",
+    "....oggmggggggo...",
+    ".....ogggggggo....",
+    ".....obbogbbo.....",
+    ".....obboobbo.....",
+    ".....obboobbo.....",
+    ".....obboobbo....."
+   ],
+   [
+    ".....o.......o....",
+    "....obooooooobo...",
+    ".....obGGGGGbo....",
+    ".....oGGGGGGGo....",
+    ".....oGyGGGyGo....",
+    "....oGGGGGGGGGo...",
+    ".....oGGGGGGGo....",
+    "..oo.oGGkkkGGooo..",
+    ".obboggGGGGGggbbo.",
+    ".obbogggggggggbbo.",
+    ".obbggggggggggbbo.",
+    "..oooggggmggggoo..",
+    "....oggmggggggo...",
+    "....obgggggggo....",
+    "....obboogobbo....",
+    "....obbo.oobbo....",
+    "....obbo..obbo....",
+    "....obbo..obbo...."
+   ],
+   [
+    ".....o.......o....",
+    "....obooooooobo...",
+    ".....obGGGGGbo....",
+    ".....oGGGGGGGo....",
+    ".....oGyGGGyGo....",
+    "....oGGGGGGGGGo...",
+    ".....oGGGGGGGo....",
+    "..oo.oGGkkkGGooo..",
+    ".obboggGGGGGggbbo.",
+    ".obbogggggggggbbo.",
+    ".obbggggggggggbbo.",
+    "..oooggggmggggoo..",
+    "....oggmggggggo...",
+    ".....ogggggggo....",
+    ".....obbogbbo.....",
+    ".....obboobbo.....",
+    ".....obboobbo.....",
+    ".....obboobbo....."
+   ]
+  ]
+ }
+}

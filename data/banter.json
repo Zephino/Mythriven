@@ -1148,5 +1148,156 @@
     "text_key": "BANTER_THRYMS_WEDDING_RESONANCE",
     "lore_source": "Thrymskvida (Thor, dressed as Freyja, takes back his hammer when it is laid in the bride's lap)",
     "needs_owner_review": true
+  },
+  {
+    "id": "ukko_found",
+    "trigger": "found",
+    "speaker": "ukko",
+    "hero": "",
+    "god": "ukko",
+    "text_key": "BANTER_UKKO_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ukko_bound",
+    "trigger": "bound",
+    "speaker": "ukko",
+    "hero": "",
+    "god": "ukko",
+    "text_key": "BANTER_UKKO_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ukko_summon",
+    "trigger": "summon",
+    "speaker": "ukko",
+    "hero": "",
+    "god": "ukko",
+    "text_key": "BANTER_UKKO_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ukko_patron",
+    "trigger": "patron",
+    "speaker": "ukko",
+    "hero": "",
+    "god": "ukko",
+    "text_key": "BANTER_UKKO_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ilmatar_found",
+    "trigger": "found",
+    "speaker": "ilmatar",
+    "hero": "",
+    "god": "ilmatar",
+    "text_key": "BANTER_ILMATAR_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ilmatar_bound",
+    "trigger": "bound",
+    "speaker": "ilmatar",
+    "hero": "",
+    "god": "ilmatar",
+    "text_key": "BANTER_ILMATAR_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ilmatar_summon",
+    "trigger": "summon",
+    "speaker": "ilmatar",
+    "hero": "",
+    "god": "ilmatar",
+    "text_key": "BANTER_ILMATAR_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ilmatar_patron",
+    "trigger": "patron",
+    "speaker": "ilmatar",
+    "hero": "",
+    "god": "ilmatar",
+    "text_key": "BANTER_ILMATAR_PATRON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ilmatar_vainamoinen",
+    "trigger": "bound",
+    "speaker": "ilmatar",
+    "hero": "vainamoinen",
+    "god": "ilmatar",
+    "text_key": "BANTER_ILMATAR_VAINAMOINEN",
+    "lore_source": "Kalevala 1 (Ilmatar is Vainamoinen's mother)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "elk_of_hiisi_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "elk_of_hiisi",
+    "hero": "",
+    "god": "elk_of_hiisi",
+    "text_key": "BANTER_ELK_OF_HIISI_ENTRANCE",
+    "lore_source": "Kalevala 13-14 (the elk no skier could catch)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "iku_turso_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "iku_turso",
+    "hero": "",
+    "god": "iku_turso",
+    "text_key": "BANTER_IKU_TURSO_ENTRANCE",
+    "lore_source": "Kalevala 42 (Turso rises from the water)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "iku_turso_vainamoinen",
+    "trigger": "boss_entrance",
+    "speaker": "iku_turso",
+    "hero": "vainamoinen",
+    "god": "iku_turso",
+    "text_key": "BANTER_IKU_TURSO_VAINAMOINEN",
+    "lore_source": "Kalevala 42 (Vainamoinen lifts Turso by his ears)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "louhi_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "louhi",
+    "hero": "",
+    "god": "louhi",
+    "text_key": "BANTER_LOUHI_ENTRANCE",
+    "lore_source": "Kalevala 47 (Louhi hides the sun and the moon)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "louhi_vainamoinen",
+    "trigger": "boss_entrance",
+    "speaker": "louhi",
+    "hero": "vainamoinen",
+    "god": "louhi",
+    "text_key": "BANTER_LOUHI_VAINAMOINEN",
+    "lore_source": "Kalevala 42-43 (the theft of the Sampo and Louhi's pursuit)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "louhi_ukko",
+    "trigger": "boss_meets_god",
+    "speaker": "louhi",
+    "hero": "",
+    "god": "louhi",
+    "with_god": "ukko",
+    "text_key": "BANTER_LOUHI_UKKO",
+    "lore_source": "Kalevala 47-49 (Ukko strikes fire when the sun and moon are hidden)",
+    "needs_owner_review": true
   }
 ]

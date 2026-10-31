@@ -178,6 +178,36 @@ The same check for everything Pack 2 added. Heroes, gods and bosses first; then 
 Also written for Pack 2 and worth checking: the boss lines shown as banners (`BOSS_MORDRED_ARTHUR`, `BOSS_MORDRED_CAMLANN`, `BOSS_HUMBABA_GILGAMESH`, `BOSS_GREEN_KNIGHT_RISES`) and the myth text for every new monster, god and boss in `localization/text.csv` (`ENEMY_*_MYTH`, `GOD_*_MYTH`, `HERO_*_LEGEND`).
 
 
+## Pack 3 (added as each level is built)
+
+### Pohjola
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| god | ukko | Ukko | The Kalevala (Ukko, the chief god of the sky, called on throughout); Mikael Agricola's list of Finnish gods (1551) | no |
+| god | ilmatar | Ilmatar | Kalevala 1 (Ilmatar, the maiden of the air; the teal's eggs on her knee become the world) | no |
+| boss | elk_of_hiisi | The Elk of Hiisi | Kalevala 13-14 (the elk Hiisi made, that no skier could catch) | no |
+| boss | iku_turso | Iku-Turso | Kalevala 42 (Turso rises from the water and is lifted out by his ears) | no |
+| boss | louhi | Louhi | Kalevala 43 (she becomes a great eagle with scythe claws), 47 (she hides the sun and the moon) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| ukko_found | found | ukko | Face my thunder, and it will fall for you. | Original line written for Mythriven | no |
+| ukko_bound | bound | ukko | The sky's old lord walks with you now. | Original line written for Mythriven | no |
+| ukko_summon | summon | ukko | Fall, thunder! | Original line written for Mythriven | no |
+| ukko_patron | patron | ukko | A singer of the North; the old sky knows your songs. | Original line written for Mythriven | no |
+| ilmatar_found | found | ilmatar | Rest a while; even the sea was calm for me once. | Original line written for Mythriven | no |
+| ilmatar_bound | bound | ilmatar | The air itself will shelter you. | Original line written for Mythriven | no |
+| ilmatar_summon | summon | ilmatar | Close, shell of the world! | Original line written for Mythriven | no |
+| ilmatar_patron | patron | ilmatar | A child of the Kalevala; you are welcome under my sky. | Original line written for Mythriven | no |
+| ilmatar_vainamoinen | bound (as vainamoinen) | ilmatar | My son, born old and wise; sing, and I will keep you safe. | Kalevala 1 (Ilmatar is Vainamoinen's mother) | no |
+| elk_of_hiisi_entrance | boss entrance | elk_of_hiisi | No skier has ever caught me. Try. | Kalevala 13-14 (the elk no skier could catch) | no |
+| iku_turso_entrance | boss entrance | iku_turso | The ice is thin, and I am right beneath it. | Kalevala 42 (Turso rises from the water) | no |
+| iku_turso_vainamoinen | boss entrance (as vainamoinen) | iku_turso | You lifted me out by my ears once, old man; never again. | Kalevala 42 (Vainamoinen lifts Turso by his ears) | no |
+| louhi_entrance | boss entrance | louhi | The North is mine, and so are its sun and moon. | Kalevala 47 (Louhi hides the sun and the moon) | no |
+| louhi_vainamoinen | boss entrance (as vainamoinen) | louhi | Old singer, you stole my Sampo; now pay for it. | Kalevala 42-43 (the theft of the Sampo and Louhi's pursuit) | no |
+| louhi_ukko | boss meets god (with ukko) | louhi | Thunder-god, my hidden sun is no business of yours. | Kalevala 47-49 (Ukko strikes fire when the sun and moon are hidden) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.
