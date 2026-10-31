@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.93
+Date: 10/31/2026
+Time: 2:04 AM
+
+### Changes
+- **Fenrir redrawn**:
+  - a real wolf's build: high shoulders, the back sloping down to the hips, a deep chest, the belly tucked up, long slender forelegs, muscled hind legs that bend back at the hock, a bushy hanging tail;
+  - a wolf's head: tall pointed ears, a brow, a long tapering muzzle with a black nose, a snarl with bared fangs instead of gaping jaws, a yellow eye, a pale cheek ruff;
+  - the white ribbon (Gleipnir) round his neck is gone.
+
+### Reason
+The owner didn't like the first Fenrir: the body shape, the head and jaws, and the white ribbon.
+
 ## Version 00.01.92
 Date: 10/31/2026
 Time: 2:00 AM
