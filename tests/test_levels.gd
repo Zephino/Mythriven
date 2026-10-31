@@ -322,3 +322,34 @@ func test_typhons_heads_strike_from_all_round_the_arena() -> void:
 	var at: Vector2 = _player.position
 	typhon.signature(1.0)
 	assert_ne(_player.position, at, "the storm sweeps the Hero round")
+
+
+func test_hrungnir_shrugs_off_harm_until_lightning_cracks_him() -> void:
+	_start("jotunheim")
+	var hrungnir: HrungnirBoss = _bosses.spawn_boss("hrungnir", 0) as HrungnirBoss
+	assert_not_null(hrungnir)
+	assert_lt(hrungnir.modify_hit(100.0, _player, Vector2.ZERO), 50.0, "stone: most harm is shrugged off")
+	hrungnir.on_element_hit("lightning")
+	assert_almost_eq(hrungnir.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01, "Lightning cracks the stone")
+	hrungnir.signature(10.0)
+	assert_lt(hrungnir.modify_hit(100.0, _player, Vector2.ZERO), 50.0, "and it closes again")
+
+
+func test_thrym_steals_a_weapon_and_his_hoard_gives_it_back() -> void:
+	_start("jotunheim")
+	GameAuthority.give_weapon(_player, "great_club")
+	var thrym: ThrymBoss = _bosses.spawn_boss("thrym", 1) as ThrymBoss
+	thrym.target = _player
+	thrym.signature(8.5)
+	assert_eq(_player.weapons.size(), 0, "he steals it")
+	assert_eq(thrym.stolen.size(), 1)
+	_player.position = thrym.stolen[0]["at"]
+	thrym.signature(0.1)
+	assert_eq(_player.weapons.size(), 1, "reach his hoard and take it back")
+
+
+func test_ymir_splits_into_frost_shapes() -> void:
+	_start("jotunheim")
+	var ymir: YmirBoss = _bosses.spawn_boss("ymir", 2) as YmirBoss
+	ymir.signature(10.0)
+	assert_eq(ymir.shapes.size(), 2, "two rime shapes beside the real Ymir")

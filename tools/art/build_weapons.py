@@ -322,6 +322,17 @@ def orpheus_lyre():
     return p
 
 
+def giant_sword():
+    """The giant-made sword from the hall of Grendel's mother (Beowulf 1557-1569): an old sword of giants, too heavy
+    for any other man, a broad pale blade with a fuller, a golden hilt."""
+    p = Pic(8, 30, (3, 26))
+    p.rect(2, 2, 5, 22, "e"); p.rect(2, 2, 2, 22, "E"); p.col(4, 4, 20, "E")       # broad blade, fuller
+    p.rect(3, 0, 4, 1, "e")
+    p.rect(0, 23, 7, 24, "u"); p.px(0, 24, "U"); p.px(7, 24, "U")                  # golden crossguard
+    p.rect(3, 25, 4, 28, "b"); p.rect(2, 29, 5, 29, "u")
+    return p
+
+
 def arrow():
     """An arrow, for every bow: a steel point, a wooden shaft, feathered fletching."""
     p = Pic(5, 18, (2, 9))
@@ -358,7 +369,7 @@ WEAPONS = {
     "javelin": (javelin, 0.12), "spear_and_shield": (spear_and_shield, 0.12), "gae_bolg": (gae_bolg, 0.12),
     "scathach_spear": (scathach_spear, 0.12), "longbow": (longbow, 0.1), "great_bow": (great_bow, 0.1),
     "huntress_bow": (huntress_bow, 0.1), "bladed_discus": (bladed_discus, 0.0), "sling_of_lugh": (sling_of_lugh, -0.2),
-    "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0),
+    "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0), "giant_sword": (giant_sword, 0.1),
 }
 
 if __name__ == "__main__":

@@ -1,0 +1,192 @@
+{
+ "_doc": "Critters of jotunheim (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#b05a2a",
+  "b": "#c86a30",
+  "c": "#e8e8ec",
+  "d": "#ffffff",
+  "e": "#c8642a",
+  "f": "#f0ece4",
+  "g": "#24222a",
+  "h": "#3a3844",
+  "i": "#f0f0f0",
+  "j": "#d0d4dc",
+  "m": "#3a3a3a"
+ },
+ "frames": {
+  "red_squirrel": [
+   [
+    ".oo.........",
+    "obbo.....o..",
+    "obbo....oao.",
+    "obbbooooaao.",
+    "obbboaaaakao",
+    "obbbaaaaaao.",
+    "obboaaaaao..",
+    "obboaaaaao..",
+    ".oo.oaaao...",
+    "....oaoao..."
+   ],
+   [
+    "obbo.....o..",
+    "obbo....oao.",
+    "obbbooooaao.",
+    "obbboaaaakao",
+    "obbbaaaaaao.",
+    "obboaaaaao..",
+    "obboaaaaao..",
+    ".oo.oaaao...",
+    "....oaoao...",
+    "....oaoo...."
+   ]
+  ],
+  "mountain_hare": [
+   [
+    ".......occo.",
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    "..occccco...",
+    "..occocco..."
+   ],
+   [
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    ".occcccoo...",
+    ".occooocco..",
+    "..oo..occo.."
+   ]
+  ],
+  "red_fox": [
+   [
+    "............oo..",
+    "......ooo..oeeo.",
+    ".oooooeeeooekeeo",
+    "oeeeeeeeeeeeeeeo",
+    "feeeeeeeeeeeefek",
+    "oooeeeeeeeeeoooo",
+    "...ooekeekoo....",
+    "....oekoeko.....",
+    "....oekoeko....."
+   ],
+   [
+    "............oo..",
+    "......ooo..oeeo.",
+    ".oooooeeeooekeeo",
+    "oeeeeeeeeeeeeeeo",
+    "feeeeeeeeeeeefek",
+    "oooeeeeeeeeeoooo",
+    "...oeoekeeko....",
+    "...oeookoeko....",
+    "...oeookoeko...."
+   ]
+  ],
+  "raven": [
+   [
+    ".......oo.",
+    "o..oooogko",
+    "hooggggggg",
+    "ohhhhhggoo",
+    ".oggggggo.",
+    "..oggggo..",
+    "...ogogo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "hoogggggko",
+    "ohhhhhgggg",
+    ".oggggggoo",
+    "..oggggo..",
+    "...ogogo.."
+   ]
+  ],
+  "raven_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...ogggggogg",
+    "...ogghggooo",
+    "....ohhho...",
+    "...ohooho..."
+   ],
+   [
+    "....o..o....",
+    "...ohoohoo..",
+    "....ohhhokoo",
+    "...ogghggogg",
+    "...ogggggooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "ptarmigan": [
+   [
+    ".....oo.",
+    "o.oooiko",
+    "joiiiiim",
+    "ojjjjiio",
+    ".oiiiio.",
+    "..omomo."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "joiiiiko",
+    "ojjjjiim",
+    ".oiiiioo",
+    "..omomo."
+   ]
+  ],
+  "ptarmigan_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oiiiiiim",
+    "..oiijiioo",
+    "...ojjjo..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ojjjkoo",
+    "..oiijiiim",
+    "..oiiiiioo",
+    "...ooooo..",
+    ".........."
+   ]
+  ]
+ },
+ "critters": {
+  "red_squirrel": {
+   "kind": "ground"
+  },
+  "mountain_hare": {
+   "kind": "ground"
+  },
+  "red_fox": {
+   "kind": "ground"
+  },
+  "raven": {
+   "kind": "bird"
+  },
+  "ptarmigan": {
+   "kind": "bird"
+  }
+ }
+}

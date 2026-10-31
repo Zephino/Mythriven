@@ -93,7 +93,7 @@ func _strike(at: Vector2) -> void:
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
 		effects.spawn_ring(at, reach, Color.html(str(_data.get("color", "#ffffff"))), true)
-		if _look() == "chasm":
+		if _look() == "chasm" or _look() == "rockslide":
 			_hole_pos.append(at)
 			_hole_left.append(CHASM_OPEN_S)
 		else:
@@ -113,6 +113,14 @@ func _draw() -> void:
 	# Open chasms: a dark pit with a glowing rim, closing up again.
 	for h: int in _hole_left.size():
 		var open: float = clampf(_hole_left[h] / CHASM_OPEN_S, 0.0, 1.0)
+		if _look() == "rockslide":
+			# The boulder that came down, and the rubble round it, settling into the snow.
+			for r: int in 5:
+				var bit: Vector2 = _hole_pos[h] + Vector2.from_angle(r * 1.3 + h) * reach * (0.3 + 0.12 * r)
+				draw_circle(bit, 2.5 + (r % 2), Color(glow.darkened(0.2), open))
+			draw_circle(_hole_pos[h], reach * 0.45, Color(glow.darkened(0.35), open))
+			draw_circle(_hole_pos[h] + Vector2(-2, -3), reach * 0.3, Color(glow, open))
+			continue
 		draw_set_transform(_hole_pos[h], 0.0, Vector2(1.0, 0.6))
 		draw_circle(Vector2.ZERO, reach * (0.4 + 0.6 * open), Color(glow, 0.35 * open))
 		draw_circle(Vector2.ZERO, reach * (0.3 + 0.6 * open), Color(0.04, 0.03, 0.05, 0.9 * open))
@@ -123,6 +131,13 @@ func _draw() -> void:
 		var filled: float = clampf(1.0 - _marker_left[i] / full, 0.0, 1.0)
 		draw_arc(_marker_pos[i], reach, 0.0, TAU, 24, area_color, 1.5)
 		draw_circle(_marker_pos[i], reach * filled, Color(area_color, area_color.a * 0.4))
+		if _look() == "rockslide":
+			# A boulder tumbling down: its shadow grows on the ground, the rock falling onto it.
+			draw_circle(_marker_pos[i], reach * 0.45 * filled, Color(0, 0, 0, 0.35))
+			var fall: Vector2 = _marker_pos[i] + Vector2(0, -90.0 * (1.0 - filled))
+			draw_circle(fall, reach * 0.4, glow.darkened(0.3))
+			draw_circle(fall + Vector2(-2, -3), reach * 0.26, glow)
+			continue
 		if _look() == "chasm":
 			# Glowing cracks spread out from the middle as the ground gives way.
 			for k: int in 5:

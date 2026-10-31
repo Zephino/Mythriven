@@ -1471,5 +1471,275 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Jotunheim bosses (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Pack 2: about 20% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "hrungnir",
+    "name_key": "BOSS_HRUNGNIR_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri Sturluson, Skaldskaparmal 17 (heart and head of stone, a stone shield, a whetstone; broken by Thor's hammer)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "hrungnir",
+    "move_speed": 40,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 540,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "stone_heart",
+      "stone_damage_mult": 0.25,
+      "crack_s": 6
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.7,
+            "damage": 13
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 5,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 280,
+            "width_px": 30,
+            "damage": 14
+          },
+          {
+            "pattern": "falling_strikes",
+            "count": 10,
+            "damage": 11
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_HRUNGNIR_WHETSTONE",
+            "cast_s": 1.5,
+            "pattern": {
+              "pattern": "aimed_fan",
+              "count": 9,
+              "spread_deg": 60,
+              "damage": 10
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.55,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Jotunheim bosses (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Pack 2: about 20% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "thrym",
+    "name_key": "BOSS_THRYM_NAME",
+    "tradition": "norse",
+    "lore_source": "Thrymskvida, Poetic Edda (Thrym steals Thor's hammer and hides it under the earth)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "thrym",
+    "move_speed": 46,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 840,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "hoard",
+      "first_s": 8,
+      "every_s": 24,
+      "stolen_s": 20,
+      "hoard_distance_px": 170,
+      "hoard_radius_px": 18
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 6,
+            "spread_deg": 40,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "wolf"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Jotunheim bosses (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Pack 2: about 20% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "ymir",
+    "name_key": "BOSS_YMIR_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri Sturluson, Gylfaginning 5-6 (the first giant, formed from the rime)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "ymir",
+    "move_speed": 26,
+    "keep_distance_px": 130,
+    "attack_every_s": 2.6,
+    "guard_gauge": {
+      "max": 1320,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "frost_shapes",
+      "shift_every_s": [
+        9,
+        7,
+        6
+      ],
+      "shapes": 3,
+      "spread_px": 110
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "falling_strikes",
+            "count": 12,
+            "damage": 11
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 320,
+            "width_px": 36,
+            "damage": 15
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_YMIR_WINTER",
+            "cast_s": 2.0,
+            "pattern": {
+              "pattern": "safe_zone",
+              "radius_px": 230,
+              "safe_count": 2,
+              "damage": 22
+            }
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 2.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 6,
+            "duration_s": 2.5,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 22,
+            "damage": 9
+          }
+        ],
+        "casts": [
+          {
+            "name_key": "CAST_YMIR_WINTER",
+            "cast_s": 1.8,
+            "pattern": {
+              "pattern": "safe_zone",
+              "radius_px": 230,
+              "safe_count": 2,
+              "damage": 24
+            }
+          }
+        ]
+      }
+    ]
   }
 ]

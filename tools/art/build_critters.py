@@ -223,6 +223,13 @@ LEVELS = {
         "insects": {},
         "large": {"reindeer": ("#8a7a6a", "#e0dcd4", "#4a3e32", "antlers", 28, 26),
                   "elk": ("#5a4232", "#7a5e48", "#2a2018", "palmate", 32, 30)}},
+    "jotunheim": {
+        "ground": {"red_squirrel": (squirrel, "#b05a2a", "#c86a30"), "mountain_hare": (hare, "#e8e8ec", "#ffffff"),
+                   "red_fox": (fox, "#c8642a", "#f0ece4")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True), "ptarmigan": ("#f0f0f0", "#d0d4dc", "#3a3a3a", False)},
+        "insects": {},
+        "large": {"reindeer": ("#8a7a6a", "#e0dcd4", "#4a3e32", "antlers", 28, 26),
+                  "elk": ("#5a4232", "#7a5e48", "#2a2018", "palmate", 32, 30)}},
     "the_two_lands": {
         "ground": {"jerboa": (lambda col, _b, k: jerboa(col, k), "#d4b080", None), "desert_lizard": (lizard, "#c8a870", "#8a6a40")},
         "birds": {"sacred_ibis": ("#f0f0ec", "#24222a", "#24222a", True), "sparrow": ("#a88a5a", "#6a5434", "#c8a040", False)},

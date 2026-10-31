@@ -1732,6 +1732,111 @@
     ]
   },
   {
+    "id": "beowulf_grip",
+    "name_key": "WEAPON_BEOWULF_HANDS",
+    "desc_key": "WEAPON_BEOWULF_GRIP_DESC",
+    "element": "physical",
+    "categories": [
+      "blunt"
+    ],
+    "targeting": "melee",
+    "pattern": "arc",
+    "signature_of": "beowulf",
+    "in_level_up_pool": false,
+    "tier_names": [
+      "WEAPON_BEOWULF_HANDS",
+      "WEAPON_BEOWULF_HANDS",
+      "WEAPON_GIANT_SWORD"
+    ],
+    "art_at_level": {
+      "level": 8,
+      "art": "giant_sword"
+    },
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "unlock": {
+      "type": "signature"
+    },
+    "placeholder_color": "#e0c8a0",
+    "persists": false,
+    "levels": [
+      {
+        "damage": 11,
+        "cooldown": 0.9,
+        "hit_interval": 0,
+        "range_px": 30,
+        "area": 1.0,
+        "arc_deg": 100,
+        "knockback": 120
+      },
+      {
+        "damage": 12,
+        "cooldown": 0.9,
+        "hit_interval": 0,
+        "range_px": 30,
+        "area": 1.0,
+        "arc_deg": 100,
+        "knockback": 120
+      },
+      {
+        "damage": 14,
+        "cooldown": 0.85,
+        "hit_interval": 0,
+        "range_px": 32,
+        "area": 1.0,
+        "arc_deg": 110,
+        "knockback": 120
+      },
+      {
+        "damage": 16,
+        "cooldown": 0.85,
+        "hit_interval": 0,
+        "range_px": 32,
+        "area": 1.0,
+        "arc_deg": 110,
+        "knockback": 120
+      },
+      {
+        "damage": 18,
+        "cooldown": 0.8,
+        "hit_interval": 0,
+        "range_px": 34,
+        "area": 1.0,
+        "arc_deg": 120,
+        "knockback": 120
+      },
+      {
+        "damage": 21,
+        "cooldown": 0.8,
+        "hit_interval": 0,
+        "range_px": 34,
+        "area": 1.0,
+        "arc_deg": 120,
+        "knockback": 120
+      },
+      {
+        "damage": 24,
+        "cooldown": 0.75,
+        "hit_interval": 0,
+        "range_px": 36,
+        "area": 1.0,
+        "arc_deg": 120,
+        "knockback": 120
+      },
+      {
+        "damage": 40,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 52,
+        "area": 1.0,
+        "arc_deg": 150,
+        "knockback": 120
+      }
+    ]
+  },
+  {
     "id": "sword_and_bow",
     "name_key": "WEAPON_SWORD_AND_BOW_NAME",
     "desc_key": "WEAPON_SWORD_AND_BOW_DESC",

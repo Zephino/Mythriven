@@ -54,6 +54,26 @@
     }
   },
   {
+    "id": "jotunheim_giant_slayer",
+    "name_key": "ACH_JOTUNHEIM_GIANTS_NAME",
+    "desc_key": "ACH_JOTUNHEIM_GIANTS_DESC",
+    "condition": {
+      "type": "family_kills_run",
+      "families": [
+        "frost_thursar",
+        "trolls",
+        "bergrisar"
+      ],
+      "count": 100,
+      "level_id": "jotunheim"
+    },
+    "persists": true,
+    "reward": {
+      "type": "hero",
+      "id": "beowulf"
+    }
+  },
+  {
     "id": "survive_30",
     "name_key": "ACH_SURVIVE_30_NAME",
     "desc_key": "ACH_SURVIVE_30_DESC",

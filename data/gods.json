@@ -370,5 +370,78 @@
     },
     "placeholder_color": "#5a8a4a",
     "persists": false
+  },
+  {
+    "id": "odin",
+    "name_key": "GOD_ODIN_NAME",
+    "role_key": "GOD_ODIN_ROLE",
+    "blessing_key": "GOD_ODIN_BLESSING",
+    "summon_key": "GOD_ODIN_SUMMON",
+    "pantheon": "norse",
+    "care_tier": "A",
+    "lore_source": "Gylfaginning 15 (his eye for Mimir's well); Havamal 138-141 (hanged on the tree, a sacrifice to himself); Grimnismal 20 (Huginn and Muninn); Gungnir (Skaldskaparmal 35)",
+    "lore_verified": false,
+    "element": "wind",
+    "role": "crits",
+    "rarity": "rare",
+    "shrine": {
+      "type": "peaceful",
+      "sacrifice": true
+    },
+    "trigger": {
+      "type": "kills",
+      "amount": 450
+    },
+    "blessing": {
+      "max_hp_pct": -30,
+      "crit_pct": 20,
+      "element_damage": {
+        "wind": 15
+      }
+    },
+    "summon": {
+      "effect": "gungnir",
+      "duration_s": 2,
+      "strikes": 6,
+      "damage": 90,
+      "fated_s": 6,
+      "fated_damage_taken": 0.5
+    },
+    "placeholder_color": "#2a3a6a",
+    "persists": false
+  },
+  {
+    "id": "freyja",
+    "name_key": "GOD_FREYJA_NAME",
+    "role_key": "GOD_FREYJA_ROLE",
+    "blessing_key": "GOD_FREYJA_BLESSING",
+    "summon_key": "GOD_FREYJA_SUMMON",
+    "pantheon": "norse",
+    "care_tier": "A",
+    "lore_source": "Thrymskvida 3 and 13 (her falcon cloak; Brisingamen); Grimnismal 14 and Gylfaginning 24 (she takes half the slain)",
+    "lore_verified": false,
+    "element": "holy",
+    "role": "survival",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "trial_chase"
+    },
+    "trigger": {
+      "type": "damage_taken",
+      "amount": 140
+    },
+    "blessing": {
+      "max_hp_pct": 15,
+      "regen_pct_per_s": 0.5
+    },
+    "summon": {
+      "effect": "falcon_cloak",
+      "duration_s": 5,
+      "invulnerable_s": 3,
+      "risen_s": 6,
+      "max_risen": 8
+    },
+    "placeholder_color": "#3a7a4a",
+    "persists": false
   }
 ]

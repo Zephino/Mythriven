@@ -190,6 +190,17 @@ def gorse():
     return p
 
 
+def giant_steps():
+    """Giant-sized ruins (Jotunheim): three huge cut stone steps, cracked and half buried in snow."""
+    p = Pic(34, 18, (17, 17))
+    for k, (x0, y0) in enumerate(((1, 10), (8, 5), (17, 0))):
+        p.rect(x0, y0, 33, 17, "g" if k % 2 else "h"); p.rect(x0, y0, 33, y0, "h")
+        p.rect(x0, y0, x0, 17, "G")
+    p.px(20, 8, "G"); p.px(21, 9, "G"); p.px(12, 12, "G")
+    p.rect(1, 16, 33, 17, "s"); p.rect(4, 15, 10, 15, "s"); p.rect(24, 15, 30, 15, "s")
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -213,7 +224,7 @@ def lekythos():
 
 
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
-                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos)}
+                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

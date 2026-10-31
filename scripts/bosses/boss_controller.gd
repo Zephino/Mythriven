@@ -91,6 +91,11 @@ func on_hit(amount: float, element_mult: float, attacker: Player, push: Vector2)
 	return amount
 
 
+## Hook: the element of each hit, before it lands (Hrungnir cracks under Lightning).
+func on_element_hit(_element: String) -> void:
+	pass
+
+
 ## Hook for signature mechanics that change damage taken (Achilles' heel).
 func modify_hit(amount: float, _attacker: Player, _push: Vector2) -> float:
 	return amount

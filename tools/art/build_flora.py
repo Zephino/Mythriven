@@ -316,6 +316,11 @@ LEVELS = {
         "rock": ("g", "G", "H", "l")},
     # Pack 2 (docs/PACK_2_PLAN.md). Black poplars and willows grow in Persephone's grove (Odyssey 10.509–510); cypress,
     # the tree of mourning; dead trees. Asphodel (Odyssey 11) and the pomegranate (Homeric Hymn to Demeter).
+    # Jotunheim: the mountain forests of the north, thinner and wind-bitten, with dead trees; snow drifts.
+    "jotunheim": {
+        "trees": {"spruce": (spruce, 22, 40), "scots_pine": (umbrella_pine, 24, 40), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"juniper": ("P", "p", "q", None), "fern": ("fern",)},
+        "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
     "the_underworld": {
         "trees": {"black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40),
                   "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30),

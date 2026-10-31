@@ -1,0 +1,66 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. Giant-sized ruins (Jotunheim): three huge cut stone steps, cracked and half buried in snow.",
+ "size": [
+  35,
+  20
+ ],
+ "anchor": [
+  17,
+  19
+ ],
+ "palette": {
+  "a": "#2a2a2a",
+  "b": "#484848",
+  "c": "#66666c",
+  "d": "#a2a2a8",
+  "e": "#a8a8ae",
+  "f": "#aeb4ba",
+  "g": "#909096",
+  "h": "#545a5a",
+  "i": "#666666",
+  "j": "#969c9c",
+  "k": "#8a8a90",
+  "l": "#84848a",
+  "m": "#606066",
+  "n": "#5a5a60",
+  "o": "#7e7e7e",
+  "p": "#787878",
+  "q": "#6c6c6c",
+  "r": "#9ca2a2",
+  "s": "#96969c",
+  "t": "#54545a",
+  "u": "#545454",
+  "v": "#4e4e54",
+  "w": "#8a8a8a",
+  "x": "#f0f0f6",
+  "y": "#787e7e",
+  "z": "#727272",
+  "A": "#120c06"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".................abbbbbbbbbbbbbbbb.",
+    "................acddeedefeeddedefeb",
+    "................aceegedffedddeefefb",
+    "................ahfefeeefffedefedeb",
+    "................aijededdekdjelededb",
+    "........abbbbbbbamjddededdedejjddjb",
+    ".......aideddedjdidjjejddjddgjddddb",
+    ".......ankolpklloiedededeedkdeeeedb",
+    ".......ailolklllqmeddjddddjdjededdb",
+    ".......amlklloklkiddndjededejdjkddb",
+    ".abbbbbamllppoooonrsstsgglgggrggssb",
+    "amssssgrtllqpocoougsssgsrssggssrgrb",
+    "atsrrgsstoolooolomsgsrsoglslrsrssgb",
+    "angsggrrnoootopoovrgllorsorgssssslb",
+    "atsrrrgstooploooovsrrrlrrrgglrgglsb",
+    "anrrkrggmlpolloopmrsssrggssggsrsssb",
+    "abgwxxxxxxxyzippytwwggwgxxxxxxxwggb",
+    "AxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxA",
+    "AxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxA",
+    ".AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA."
+   ]
+  ]
+ }
+}

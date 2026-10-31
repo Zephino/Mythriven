@@ -57,7 +57,7 @@ func hit(slot: int, base: float, attacker: Player, push: Vector2, element: Strin
 	var amount: float = float(result["amount"]) * st.damage_taken_mult(slot)
 	# Bosses: the Guard gauge, Guard Breaks, and signature rules (Achilles' heel).
 	if bool(data.get("boss", false)) and GameAuthority.bosses != null:
-		amount = GameAuthority.bosses.on_boss_hit(slot, amount, element_mult, attacker, push)
+		amount = GameAuthority.bosses.on_boss_hit(slot, amount, element_mult, attacker, push, element)
 	var to_hp: float = enemies.elites.absorb(slot, amount, element == "holy")
 	enemies.hp[slot] -= to_hp
 	enemies.flash_timer[slot] = Data.cfg_float("enemies.hit_flash_s") * Settings.flash_strength()

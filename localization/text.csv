@@ -1345,3 +1345,44 @@ HUD_SONG,Song in %d s
 UI_ALIVE,Alive %d
 UI_FPS,FPS %d
 UI_SETTING_SHOW_FPS,Show FPS: %s
+LEVEL_JOTUNHEIM_NAME,Jotunheim
+HAZARD_ROCKSLIDE_NAME,Rockslides!
+ENEMY_BERGRISI_NAME,Mountain giant
+ENEMY_BERGRISI_MYTH,"The bergrisar, the mountain giants of the north. Snorri tells how one of them, in disguise as a builder, offered to wall Asgard in a single winter, with his stallion Svadilfari hauling the stones, and was paid instead with Thor's hammer."
+BOSS_HRUNGNIR_NAME,Hrungnir
+BOSS_THRYM_NAME,Thrym
+BOSS_YMIR_NAME,Ymir
+ENEMY_HRUNGNIR_NAME,Hrungnir
+ENEMY_THRYM_NAME,Thrym
+ENEMY_YMIR_NAME,Ymir
+ENEMY_HRUNGNIR_MYTH,"The strongest of the giants, whose heart was of hard stone, sharp-pointed with three corners, and whose head too was stone. He fought Thor with a stone shield and a whetstone; Thor's hammer shattered the whetstone and then his skull."
+ENEMY_THRYM_MYTH,"Lord of the giants, who stole Thor's hammer and hid it eight leagues under the earth, asking Freyja as his bride for its return. Thor came in her place, in a bridal veil, and took the hammer back at the wedding feast."
+ENEMY_YMIR_MYTH,"The first of all beings, formed from the rime where the ice of Niflheim met the heat of Muspell, the father of the frost giants. Odin and his brothers slew him and made the world from his body: the earth from his flesh, the sea from his blood, the sky from his skull."
+BOSS_HRUNGNIR_CRACKED,Hrungnir's stone cracks!
+CAST_HRUNGNIR_WHETSTONE,The Whetstone
+BOSS_THRYM_STEALS,Thrym steals your %s! Take it back from his hoard.
+CAST_YMIR_WINTER,Endless Winter
+GOD_ODIN_NAME,Odin
+GOD_ODIN_ROLE,Crits / foresight
+GOD_ODIN_BLESSING,"His sacrifice: −30% Max HP. +20% crit chance and +15% Wind damage."
+GOD_ODIN_SUMMON,"Gungnir: the spear that never misses strikes the strongest enemies on screen, and his ravens mark them to take more damage."
+GOD_ODIN_MYTH,"The All-Father, who gave an eye for a drink from Mimir's well of wisdom and hung nine nights on the windswept tree, a sacrifice of himself to himself, to win the runes. His ravens Huginn and Muninn fly over the world each day and bring him news; his spear Gungnir never misses."
+GOD_FREYJA_NAME,Freyja
+GOD_FREYJA_ROLE,Survival
+GOD_FREYJA_BLESSING,+15% Max HP and a slow heal over time.
+GOD_FREYJA_SUMMON,"Falcon Cloak: you fly, unharmed, for a moment, and the monsters you slay rise to fight for you."
+GOD_FREYJA_MYTH,"Goddess of love and of the slain: half of those who fall in battle go to her hall, Folkvangr. She owns the necklace Brisingamen and a cloak of falcon feathers that lets the wearer fly, which she lent to Loki to find Thor's stolen hammer."
+HERO_BEOWULF_NAME,Beowulf
+TRADITION_GEATISH,Geatish (Old English poem)
+ROLE_GRAPPLER,Grappler
+HERO_BEOWULF_LEGEND,"The Geat who came over the sea to the hall of Heorot and fought the monster Grendel bare-handed, tearing off his arm with the grip of thirty men. He went down into the mere after Grendel's mother and killed her with an ancient sword made by giants, and in old age died killing a dragon."
+WEAPON_BEOWULF_HANDS,Bare hands
+WEAPON_GIANT_SWORD,Giant-made sword
+WEAPON_BEOWULF_GRIP_DESC,"Heavy blows with his bare hands; at level 8, the giant-made sword."
+TRAIT_GRIP,Grip
+TRAIT_GRIP_DESC,"Every 9 s he seizes a monster within reach (an elite first; never a boss) and hurls it ahead: it takes double damage, and everything where it lands is hit."
+PASSIVE_THIRTY_MEN,The strength of thirty men
+PASSIVE_THIRTY_MEN_DESC,His hits knock monsters back 50% further.
+HUD_GRIP,Grip in %d s
+ACH_JOTUNHEIM_GIANTS_NAME,"Defeat 100 giants and trolls in Jotunheim"
+ACH_JOTUNHEIM_GIANTS_DESC,In a single run. Unlocks Beowulf.

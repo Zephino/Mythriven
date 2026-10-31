@@ -64,6 +64,8 @@ static func weapon_icon(weapon: Dictionary) -> Texture2D:
 	var art: Dictionary = PixelArt.find("weapons/" + str(weapon.get("id", "")))
 	if art.is_empty():
 		art = PixelArt.find("weapons/" + str(weapon.get("evolved_from", "")))
+	if art.is_empty() and weapon.has("art_at_level"):
+		art = PixelArt.find("weapons/" + str((weapon["art_at_level"] as Dictionary).get("art", "")))   # Beowulf's sword
 	if art.is_empty() and str(weapon.get("projectile_art", "")) != "":
 		art = PixelArt.find("projectiles/" + str(weapon["projectile_art"]))
 	if art.is_empty():

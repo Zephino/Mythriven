@@ -332,7 +332,12 @@ func test_hero_pixel_art_files_are_well_formed() -> void:
 						assert_true(letter == "." or (data["palette"] as Dictionary).has(letter), "%s: '%s' is in the palette" % [file, letter])
 		if is_weapon:
 			assert_true(data.get("grip") is Array, file + " marks its grip")
-			assert_false(GameAuthority.find_weapon(file.get_basename()).is_empty(), file + " is named after a weapon")
+			# Named after a weapon, or the picture a weapon changes to at a level (Beowulf's giant-made sword).
+			var later_look: bool = false
+			for weapon: Variant in Data.get_file("weapons.json"):
+				if weapon is Dictionary and str((weapon.get("art_at_level", {}) as Dictionary).get("art", "")) == file.get_basename():
+					later_look = true
+			assert_true(later_look or not GameAuthority.find_weapon(file.get_basename()).is_empty(), file + " is named after a weapon")
 		else:
 			assert_false(HeroRules.find(file.get_basename()).is_empty(), file + " is named after a Hero")
 		checked += 1
@@ -700,3 +705,19 @@ func test_orpheus_charms_monsters_into_turning_on_each_other() -> void:
 	_enemies._tick_charms(10.0)
 	assert_eq(_enemies.charmed[a], 0, "the charm wears off")
 	GameAuthority.remove_player(orpheus)
+
+
+func test_beowulf_seizes_and_hurls_a_monster() -> void:
+	var beowulf: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "beowulf")
+	GameAuthority.give_weapon(beowulf, "beowulf_grip")
+	assert_almost_eq(beowulf.kit.knockback_mult(), 1.5, 0.001, "the strength of thirty men")
+	var slot: int = _enemies.spawn("troll", Vector2(30, 0))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	beowulf.facing = Vector2.RIGHT
+	beowulf.kit._grip_in = 0.0
+	beowulf.kit._process(0.01)
+	assert_gt(_enemies.positions[slot].x, 100.0, "hurled ahead of him")
+	var sword: WeaponInstance = beowulf.weapons[0]
+	sword.level = 8
+	assert_false(PixelArt.weapon_art(sword).is_empty(), "at level 8 he has the giant-made sword")
+	GameAuthority.remove_player(beowulf)

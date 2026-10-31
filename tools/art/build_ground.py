@@ -152,7 +152,16 @@ def cracked(t, rnd):
         t.px(x, y, "a"); y += 1; x += rnd.choice((-1, 0, 1))
 
 
-STYLES = {"stone": cobbles, "asphodel": asphodel, "ash": ash, "cracked": cracked, "dirt": dirt, "grass": grass, "flowers": lambda t, r: grass(t, r, True), "rock": rock,
+def ice(t, rnd):
+    """Glacier ice (Jotunheim): pale blue with white glints and a few dark cracks."""
+    speckle(t, rnd, 6, "l")
+    x, y = rnd.randrange(N), rnd.randrange(N)
+    for _ in range(rnd.randrange(4, 8)):
+        t.px(x, y, "D"); x += rnd.choice((1, 1, 0)); y += rnd.choice((1, 0, -1))
+    speckle(t, rnd, 3, "a")
+
+
+STYLES = {"stone": cobbles, "ice": ice, "asphodel": asphodel, "ash": ash, "cracked": cracked, "dirt": dirt, "grass": grass, "flowers": lambda t, r: grass(t, r, True), "rock": rock,
           "pine_floor": needles, "packed_snow": lambda t, r: snow(t, r, True), "snow": snow, "sand": sand,
           "dune": lambda t, r: sand(t, r, True), "reeds": reeds, "bog": bog, "dark_grass": grass, "heather": heather}
 

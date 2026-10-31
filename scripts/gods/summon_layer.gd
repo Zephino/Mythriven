@@ -15,6 +15,9 @@ extends Node2D
 ##   Crow Storm (the Morrígan)       Hexes every enemy and marks the 5 strongest as fated (+100% damage taken)
 ##   Three Ways (Hecate)             three crossroads portals open round the Hero and fling enemies away, Hexed
 ##   Return of Spring (Persephone)   heals, and flowers bloom round the Hero that root the enemies in them
+##   Gungnir (Odin)                  his spear never misses: it strikes the strongest enemies on screen, and his ravens
+##                                   mark them (they take more damage)
+##   Falcon Cloak (Freyja)           the Hero flies, unharmed, for a moment; monsters slain meanwhile rise to fight for them
 
 const MAX_EFFECTS := 8
 
@@ -74,6 +77,19 @@ func run(god: Dictionary, player: Player) -> void:
 			effect["marked"] = strongest.slice(0, mini(int(s.get("fated_count", 5)), strongest.size()))
 		"earthshaker":
 			effect["quaked"] = false
+		"gungnir":
+			var strongest: Array[int] = []
+			for slot: int in _enemies_in(view):
+				strongest.append(slot)
+			strongest.sort_custom(func(a: int, b: int) -> bool: return GameAuthority.enemies.hp[a] > GameAuthority.enemies.hp[b])
+			strongest = strongest.slice(0, mini(int(s.get("strikes", 6)), strongest.size()))
+			effect["targets"] = strongest
+			effect["struck"] = 0
+		"falcon_cloak":
+			player.invulnerable_s = maxf(player.invulnerable_s, float(s.get("invulnerable_s", 3.0)))
+			effect["risen"] = 0
+			if not GameAuthority.enemy_killed.is_connected(_on_falcon_kill):
+				GameAuthority.enemy_killed.connect(_on_falcon_kill)
 		"three_ways":
 			# The three ways meet at the Hero: a portal on each road, 120 degrees apart.
 			var portals := PackedVector2Array()
@@ -163,6 +179,19 @@ func _step(effect: Dictionary, player: Player, delta: float) -> void:
 					st.burn[int(slot)] = maxf(st.burn[int(slot)], float(s.get("burn_s", 4.0)) * player.stats.status_duration_mult())
 		"earthshaker":
 			_hit_band(effect, player, view, minf(k * 1.5, 1.0), view.size.x * 0.1 * area, float(s.get("wave_damage", 30.0)), "water", 1.0)
+		"gungnir":
+			# One strike after another across the summon, each landing on its target wherever it has moved to.
+			var targets: Array = effect["targets"]
+			var due: int = mini(int(k * targets.size()) + 1, targets.size())
+			while int(effect["struck"]) < due:
+				var slot: int = int(targets[int(effect["struck"])])
+				effect["struck"] = int(effect["struck"]) + 1
+				if GameAuthority.enemies.active[slot] == 0:
+					continue
+				effect["last_at"] = GameAuthority.enemies.positions[slot]
+				GameAuthority.damage_enemy(slot, float(s.get("damage", 90.0)) * float(effect["power"]), player, Vector2.ZERO, "wind", 1.0)
+				if GameAuthority.enemies.active[slot] != 0:
+					GameAuthority.enemies.statuses.apply_fated(slot, float(s.get("fated_s", 6.0)), float(s.get("fated_damage_taken", 0.5)))
 		"three_ways":
 			for portal: Vector2 in effect["portals"]:
 				for slot: int in _enemies_near(portal, float(s.get("radius_px", 46.0)) * area):
@@ -185,6 +214,22 @@ func _step(effect: Dictionary, player: Player, delta: float) -> void:
 			effect["at"] = center
 			_hit_circle(effect, player, center, float(s.get("radius_px", 70.0)) * area, float(s.get("damage", 45.0)), "holy",
 					Vector2.ZERO, 1.0)
+
+
+## Freyja's cloak: while it lasts, each monster its Hero slays rises again to fight for them (Freyja takes half the
+## slain, Grimnismal 14).
+func _on_falcon_kill(_slot: int, enemy_type: Dictionary, at: Vector2, killer: Player) -> void:
+	for effect: Dictionary in _effects:
+		if str(effect["kind"]) != "falcon_cloak" or effect["player"] != killer or bool(enemy_type.get("boss", false)):
+			continue
+		var s: Dictionary = effect["s"]
+		if int(effect["risen"]) >= int(s.get("max_risen", 8)):
+			return
+		var risen: int = GameAuthority.spawn_enemy(str(enemy_type.get("id", "")), at)
+		if risen != -1:
+			effect["risen"] = int(effect["risen"]) + 1
+			GameAuthority.enemies.charm(risen, float(s.get("risen_s", 6.0)), killer)
+		return
 
 
 func _finish(effect: Dictionary, player: Player) -> void:
@@ -295,6 +340,23 @@ func _draw() -> void:
 								Color(Elements.color("dark"), fade), 2.0)
 			"wheel_of_fortune":
 				_draw_wheel(player.position, 26.0 + 50.0 * k, t * 4.0, fade, color)
+			"gungnir":
+				if effect.has("last_at"):
+					var at: Vector2 = effect["last_at"]
+					draw_line(at + Vector2(-40, -120) * fade, at, Color(Elements.color("wind").lightened(0.4), fade), 3.0)
+					draw_line(at + Vector2(-40, -120) * fade, at, Color(1, 1, 1, fade), 1.0)
+					draw_circle(at, 6.0 * fade + 2.0, Color(1, 1, 0.9, 0.6 * fade))
+				for slot: Variant in effect.get("targets", []):
+					if GameAuthority.enemies.active[int(slot)] != 0:
+						var mark: Vector2 = GameAuthority.enemies.positions[int(slot)] + Vector2(0, -GameAuthority.enemies.radius[int(slot)] - 8.0)
+						draw_circle(mark, 2.5, Color(0.1, 0.1, 0.12, fade))
+						draw_line(mark + Vector2(-4, -1), mark + Vector2(4, -1), Color(0.1, 0.1, 0.12, fade), 1.5)
+			"falcon_cloak":
+				for i: int in 6:
+					var a: float = t * 5.0 + i * TAU / 6.0
+					draw_line(player.position + Vector2.from_angle(a) * 14.0, player.position + Vector2.from_angle(a + 0.4) * 22.0,
+							Color(0.85, 0.7, 0.5, fade), 2.0)
+				draw_arc(player.position, 20.0, 0.0, TAU, 24, Color(Elements.color("holy"), 0.6 * fade), 2.0)
 			"three_ways":
 				var reach3: float = float((effect["s"] as Dictionary).get("radius_px", 46.0)) * player.stats.area_mult()
 				for portal: Vector2 in effect["portals"]:

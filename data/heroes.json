@@ -638,5 +638,56 @@
       "type": "achievement",
       "achievement": "underworld_survive_20"
     }
+  },
+  {
+    "id": "beowulf",
+    "name_key": "HERO_BEOWULF_NAME",
+    "tradition_key": "TRADITION_GEATISH",
+    "role_key": "ROLE_GRAPPLER",
+    "placeholder_color": "#9aa2ac",
+    "patron_pantheon": "norse",
+    "care_tier": "A",
+    "lore_source": "Beowulf (the Old English poem): lines 379-381 (the hand-grip of thirty men), 740-836 (Grendel), 1557-1569 (the giant-made sword)",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 135,
+      "move_speed": 95,
+      "armor": 1,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "beowulf_grip",
+    "expertise": [
+      "blunt",
+      "blade"
+    ],
+    "trait": {
+      "id": "grip",
+      "name_key": "TRAIT_GRIP",
+      "desc_key": "TRAIT_GRIP_DESC",
+      "every_s": 9,
+      "reach_px": 60,
+      "throw_px": 150,
+      "land_radius_px": 40,
+      "land_damage": 40,
+      "thrown_damage_mult": 2.0
+    },
+    "passive": {
+      "id": "thirty_mens_strength",
+      "name_key": "PASSIVE_THIRTY_MEN",
+      "desc_key": "PASSIVE_THIRTY_MEN_DESC",
+      "knockback_pct": 50
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "achievement",
+      "achievement": "jotunheim_giant_slayer"
+    }
   }
 ]

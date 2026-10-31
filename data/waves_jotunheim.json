@@ -1,0 +1,384 @@
+{
+  "_doc": "Jotunheim wave table (docs/PACK_2_PLAN.md). Midgard's Edge pacing before Pack 2's +15% spawns: frost giants and giant wolves, frost-giant casters from 4:00, mountain giants hurling rocks from 8:00, trolls from 10:00, a ring of wolves closing in from 20:00. ALL NUMBERS ARE PLACEHOLDERS until tuned.",
+  "level": "jotunheim",
+  "rows": [
+    {
+      "from_min": 0,
+      "spawns_per_s": 1.6,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 2,
+      "spawns_per_s": 2.0,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 4,
+      "spawns_per_s": 2.3,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 6,
+      "spawns_per_s": 2.55,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 8,
+      "spawns_per_s": 2.75,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 1
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 10,
+      "spawns_per_s": 2.88,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 12,
+      "spawns_per_s": 3.24,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 14,
+      "spawns_per_s": 3.6,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 16,
+      "spawns_per_s": 3.96,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 1,
+        "troll": 1
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 18,
+      "spawns_per_s": 4.32,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 1,
+        "troll": 2
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": []
+    },
+    {
+      "from_min": 20,
+      "spawns_per_s": 4.56,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 2,
+        "troll": 2
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "wolf",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 14
+        }
+      ]
+    },
+    {
+      "from_min": 23,
+      "spawns_per_s": 5.04,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 2,
+        "troll": 2
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "wolf",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 14
+        }
+      ]
+    },
+    {
+      "from_min": 26,
+      "spawns_per_s": 5.52,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 2,
+        "troll": 2
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "wolf",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 14
+        }
+      ]
+    },
+    {
+      "from_min": 28,
+      "spawns_per_s": 6.0,
+      "singles": {
+        "frost_thursar": 3,
+        "wolf": 2,
+        "frost_thursar_caster": 1,
+        "bergrisi": 2,
+        "troll": 2
+      },
+      "packs": [
+        {
+          "type": "wolf",
+          "chance": 0.06,
+          "size": [
+            4,
+            8
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "wolf",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 14
+        }
+      ]
+    }
+  ],
+  "elites": {
+    "types": [
+      "troll_elite",
+      "minotaur",
+      "cyclops"
+    ],
+    "times_s": [
+      300,
+      900,
+      1500
+    ],
+    "random_interval_s": [
+      150,
+      240
+    ],
+    "random_after_s": 300,
+    "_doc": "Elites are shared across levels (design: Minotaur, Cyclops, Troll)."
+  },
+  "boss_fodder": [
+    "wolf",
+    "frost_thursar"
+  ],
+  "events": [
+    {
+      "id": "chaos_surge",
+      "at_s": 420
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 780
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1080
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1380
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1560
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1680
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1760
+    }
+  ],
+  "_events_doc": "World events (GAME_DESIGN.md: World events): Chaos Surge (60 s, double spawns and XP) and Divine Storm (45 s, god meters charge twice as fast while telegraphed lightning strikes random spots). More often in Deep Night. Events skip while a boss arena is up."
+}

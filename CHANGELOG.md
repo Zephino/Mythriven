@@ -2,6 +2,32 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.63
+Date: 10/31/2026
+Time: 2:12 PM
+
+### Changes
+- **Pack 2, Jotunheim, is built and open** (`docs/PACK_2_PLAN.md`). Beat Surtr (Midgard's Edge's 30:00 boss) to unlock it.
+  - **The land:** glacier ice, bare rock and snow under a cold light; spruce, pine and dead trees; snow drifts; runestones and giant-sized stone steps; frozen ponds you slide on.
+  - **Rockslides** (the hazard): a boulder's shadow grows, it crashes down, and rubble settles.
+  - **Monsters:** frost giants and their casters, giant wolves, trolls, and the new **mountain giants** (*bergrisar*, Gylfaginning 42), who hurl boulders.
+  - **Bosses:**
+    - **Hrungnir** (10:00): the stone giant with a three-cornered stone heart, a slab shield and a whetstone (Skáldskaparmál 17). He shrugs off most harm until Lightning cracks the stone; a Guard Break cracks it too, so any Hero can win.
+    - **Thrym** (20:00): the frost-giant lord with golden dog-collars (Þrymskviða). He steals one of your weapons for 20 s and drops it in his golden hoard; reach the hoard to take it back.
+    - **Ymir** (30:00): the first giant, made of rime (Gylfaginning 5–6). He splits into three frost shapes and only the real one casts a shadow; his "Endless Winter" freezes the ground except for safe circles.
+  - **Gods:**
+    - **Odin** (Wind, rare): binding him is a sacrifice of 30% of your Max HP, for +20% crit chance and +15% Wind damage. Summon **Gungnir**: the spear that never misses strikes the strongest enemies on screen, and his ravens mark them to take more damage.
+    - **Freyja** (Holy, Chase trial): +15% Max HP and a slow heal. Summon **Falcon Cloak**: you fly unharmed for a moment, and the monsters you slay rise to fight for you.
+  - **Beowulf** (Geatish; HP 135, Speed 95, Armor 1), in a mail shirt and boar-crested helmet (Beowulf 303–306):
+    - Weapon: heavy blows with his bare hands, and at level 8 the **giant-made sword** from Grendel's mother's hall.
+    - Legend Trait, **Grip:** every 9 s he seizes a monster (an elite first, never a boss) and hurls it. It takes double damage, and everything where it lands is hit.
+    - Passive, **the strength of thirty men:** +50% knockback.
+    - Unlock: defeat 100 giants and trolls in Jotunheim in one run.
+- Tests for each boss and Beowulf. Jotunheim passes every full-level check, including a playthrough of its bosses.
+
+### Reason
+The owner asked to finish Pack 2. Jotunheim is level 2 of 4.
+
 ## Version 00.02.62
 Date: 10/31/2026
 Time: 2:05 PM

@@ -29,6 +29,9 @@ const SCRIPTS: Dictionary = {
 	"ferdiad": "res://scripts/bosses/ferdiad_boss.gd",
 	"balor": "res://scripts/bosses/balor_boss.gd",
 	"cerberus": "res://scripts/bosses/cerberus_boss.gd",
+	"hrungnir": "res://scripts/bosses/hrungnir_boss.gd",
+	"thrym": "res://scripts/bosses/thrym_boss.gd",
+	"ymir": "res://scripts/bosses/ymir_boss.gd",
 	"thanatos": "res://scripts/bosses/thanatos_boss.gd",
 	"typhon": "res://scripts/bosses/typhon_boss.gd",
 }
@@ -119,9 +122,10 @@ func spawn_boss(boss_id: String, index: int = -1) -> BossController:
 
 
 ## Routes a hit on a boss's body to its controller.
-func on_boss_hit(slot: int, amount: float, element_mult: float, attacker: Player, push: Vector2) -> float:
+func on_boss_hit(slot: int, amount: float, element_mult: float, attacker: Player, push: Vector2, element: String = "") -> float:
 	for controller: BossController in controllers:
 		if controller.slot == slot and controller.is_alive():
+			controller.on_element_hit(element)
 			return controller.on_hit(amount, element_mult, attacker, push)
 	return amount
 
