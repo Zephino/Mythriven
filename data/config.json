@@ -562,6 +562,7 @@
     "rage_color": "#ff4040",
     "post_color": "#6a5a48",
     "scale_color": "#e8d080",
+    "death_mark_color": "#b03040",
     "time_zone_color": "#8a70c060",
     "statue_ring_px": 120,
     "arena_color": "#ffd27a",

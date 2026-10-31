@@ -271,3 +271,54 @@ func test_balors_eye_is_blocked_by_stone_and_counts_hits_on_the_eye() -> void:
 	balor.on_hit(10.0, 1.0, _player, Vector2.ZERO)
 	assert_almost_eq(balor.guard - guard, 30.0, 0.01, "hits on the open eye fill the gauge ×3")
 	assert_eq(balor.eye_hits, 1)
+
+
+func test_cerberus_loses_a_head_each_phase() -> void:
+	_start("the_underworld")
+	var cerberus: CerberusBoss = _bosses.spawn_boss("cerberus", 0) as CerberusBoss
+	assert_not_null(cerberus)
+	assert_eq(cerberus.heads(), 3)
+	assert_eq(cerberus.art_id(), "cerberus")
+	_enemies.hp[cerberus.slot] = _enemies.max_hp[cerberus.slot] * 0.5
+	cerberus._process(0.01)
+	assert_eq(cerberus.heads(), 2, "the howling head falls")
+	assert_false(PixelArt.boss(cerberus.art_id()).is_empty(), "and his picture shows two heads")
+	_enemies.hp[cerberus.slot] = _enemies.max_hp[cerberus.slot] * 0.1
+	cerberus._process(0.01)
+	assert_eq(cerberus.heads(), 1)
+	assert_false(PixelArt.boss(cerberus.art_id()).is_empty())
+
+
+func test_thanatos_marks_a_hero_and_hitting_him_breaks_it() -> void:
+	_start("the_underworld")
+	var thanatos: ThanatosBoss = _bosses.spawn_boss("thanatos", 1) as ThanatosBoss
+	_player.god_mode = false
+	thanatos.target = _player
+	thanatos.signature(10.0)
+	assert_eq(thanatos.marked, _player.player_id, "marked for death")
+	thanatos.modify_hit(thanatos.cancel_needed(_player) + 1.0, _player, Vector2.ZERO)
+	thanatos.signature(0.1)
+	assert_eq(thanatos.marked, -1, "hit hard enough: the mark breaks")
+	var hp_before: float = _player.hp
+	thanatos.signature(20.0)
+	thanatos.signature(20.0)
+	assert_lt(_player.hp, hp_before, "left alone, the mark lands")
+	_player.hero = HeroRules.find("heracles")
+	var heracles_need: float = thanatos.cancel_needed(_player)
+	_player.hero = {}
+	assert_almost_eq(heracles_need, thanatos.cancel_needed(_player) * 0.5, 0.01, "Heracles breaks it twice as easily")
+
+
+func test_typhons_heads_strike_from_all_round_the_arena() -> void:
+	_start("the_underworld")
+	var typhon: TyphonBoss = _bosses.spawn_boss("typhon", 2) as TyphonBoss
+	typhon.target = _player
+	var before: int = GameAuthority.enemy_shots.count()
+	typhon.signature(10.0)
+	assert_gt(GameAuthority.enemy_shots.count(), before + 3, "a volley closes in from every side")
+	_enemies.hp[typhon.slot] = _enemies.max_hp[typhon.slot] * 0.5
+	typhon._process(0.01)
+	_player.position = _bosses.arena_center + Vector2(120, 0)
+	var at: Vector2 = _player.position
+	typhon.signature(1.0)
+	assert_ne(_player.position, at, "the storm sweeps the Hero round")

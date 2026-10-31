@@ -728,7 +728,8 @@
                 }
               },
               "post_color": "string",
-              "scale_color": "string"
+              "scale_color": "string",
+              "death_mark_color": "string"
             }
           },
           "events": {

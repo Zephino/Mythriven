@@ -28,6 +28,9 @@ const SCRIPTS: Dictionary = {
 	"scathach": "res://scripts/bosses/scathach_boss.gd",
 	"ferdiad": "res://scripts/bosses/ferdiad_boss.gd",
 	"balor": "res://scripts/bosses/balor_boss.gd",
+	"cerberus": "res://scripts/bosses/cerberus_boss.gd",
+	"thanatos": "res://scripts/bosses/thanatos_boss.gd",
+	"typhon": "res://scripts/bosses/typhon_boss.gd",
 }
 
 var world: WorldRoot

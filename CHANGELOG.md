@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.55
+Date: 10/31/2026
+Time: 1:30 PM
+
+### Changes
+- **The Underworld's three bosses** (step 4 of `docs/PACK_2_PLAN.md`; the level is still "Coming soon"). Each is about 20% tougher than the Pack 1 boss at the same time.
+  - **Cerberus (10:00):** the three-headed hound of Hades, with a serpent's tail and snakes along his back (Apollodorus 2.5.12). Each head has its own attack: the fire head's fan of flames, the biting head's lunge, the howling head's call to the shades. Each phase one head falls ("One of Cerberus' heads falls!"), his picture loses it, and its attack goes with it, until only the biting head is left, lunging faster.
+  - **Thanatos (20:00):** Death himself, grey-bearded, black-robed and winged, with a sword (Euripides' *Alcestis*; the Sarpedon vase). He marks a Hero for death with a 10-second countdown over their head. Hit him hard enough before it runs out and the mark breaks (a pale ring shows how close); if not, it takes half your Max HP. **Heracles** breaks it twice as easily and gets his own line, since in the myth he wrestled Death and won. The dead rise to fight for him in phase 2.
+  - **Typhon (30:00):** a towering giant with a serpent's body below the waist, dark wings, and serpent heads from his shoulders (Hesiod, *Theogony*; Apollodorus 1.6.3). Serpent heads rear up all round the arena edge and fire volleys inward, more of them each phase. From phase 2 his storms sweep everyone round the arena, turning the other way each phase. Plus the "Fire of the Hundred Heads" cast.
+  - Myths and sources in the Bestiary. Art by `tools/art/build_bosses_underworld.py`.
+- Bosses can change their picture during a fight (used by Cerberus). Tests for all three bosses.
+
+### Reason
+Building Pack 2, approved by the owner: the Underworld, one part at a time.
+
 ## Version 00.02.54
 Date: 10/31/2026
 Time: 1:24 PM

@@ -152,6 +152,11 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 
+## Which picture to draw (data/art/bosses/<id>.json); a boss whose look changes overrides it (Cerberus' heads).
+func art_id() -> String:
+	return str(data.get("enemy", ""))
+
+
 ## Each boss's signature mechanic, every frame (override).
 func signature(_delta: float) -> void:
 	pass
@@ -240,7 +245,7 @@ func _draw() -> void:
 	if not is_alive():
 		return
 	var at: Vector2 = position_now() - global_position
-	var art: Dictionary = PixelArt.boss(str(data.get("enemy", "")))
+	var art: Dictionary = PixelArt.boss(art_id())
 	if not art.is_empty():
 		_draw_art(art, at)
 	if broken_s > 0.0:

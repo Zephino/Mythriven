@@ -369,7 +369,9 @@ func test_hero_pixel_art_files_are_well_formed() -> void:
 		assert_false(PixelArt.boss(file.get_basename()).is_empty(), "bosses/" + file + " loads")
 		var named_after_boss: bool = false
 		for enemy: Variant in Data.get_file(EnemyManager.ENEMIES_FILE):
-			if str(enemy.get("id", "")) == file.get_basename() and bool(enemy.get("boss", false)):
+			# A boss's other looks are named after it too: cerberus_2, cerberus_1 (Cerberus as his heads fall).
+			var id: String = str(enemy.get("id", ""))
+			if bool(enemy.get("boss", false)) and (id == file.get_basename() or file.get_basename().begins_with(id + "_")):
 				named_after_boss = true
 		assert_true(named_after_boss, "bosses/" + file + " is named after a boss")
 	var art: Dictionary = PixelArt.find("heracles")

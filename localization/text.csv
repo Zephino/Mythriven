@@ -1304,3 +1304,19 @@ ENEMY_SKELETAL_HOPLITE_MYTH,"Among the dead who crowd to Odysseus at the edge of
 ENEMY_HOPLITE_SHIELDWALL_MYTH,"Among the dead who crowd to Odysseus at the edge of the underworld are men killed in battle, still in their armour stained with blood."
 ENEMY_STYMPHALIAN_FLOCK_MYTH,"Man-eating birds of the marsh of Stymphalus, driven off by Heracles as one of his labours. Pausanias says they were the size of cranes, like ibises but with stronger, straight beaks."
 ENEMY_STYMPHALIAN_ARCHER_MYTH,"The birds of Stymphalus shed their feathers like arrows: Apollonius tells how one wounded an Argonaut as they sailed past the island of Ares, and how the heroes drove them off with clashing shields."
+BOSS_CERBERUS_NAME,Cerberus
+BOSS_THANATOS_NAME,Thanatos
+BOSS_TYPHON_NAME,Typhon
+ENEMY_CERBERUS_NAME,Cerberus
+ENEMY_THANATOS_NAME,Thanatos
+ENEMY_TYPHON_NAME,Typhon
+ENEMY_CERBERUS_MYTH,"The hound of Hades, who guards the gate of the underworld: he fawns on those who enter and devours any who try to leave. Apollodorus gives him three dogs' heads, a serpent for a tail, and snakes' heads along his back. Bringing him up from below was the last of Heracles' twelve labours."
+ENEMY_THANATOS_MYTH,"Death, son of Night and brother of Sleep, with a heart of iron. In Euripides' Alcestis he comes for the queen who gave her life for her husband, and Heracles wrestles him by her tomb and brings her back."
+ENEMY_TYPHON_MYTH,"The last child of Earth and Tartarus, who rose against the gods: from his shoulders grew a hundred snakes' heads with fiery eyes, and below his thighs were huge coils of vipers. Zeus struck him down with thunderbolts and buried him under Mount Etna."
+BOSS_CERBERUS_HEAD_FALLS,One of Cerberus' heads falls!
+CAST_CERBERUS_HOWL,The Howl of the Gate
+BOSS_THANATOS_MARK,Thanatos marks you for death! Strike him to break it.
+BOSS_THANATOS_HERACLES,"Thanatos marks you, Heracles. You wrestled Death once before."
+BOSS_THANATOS_MARK_BROKEN,The mark of death breaks!
+BOSS_TYPHON_STORM,Typhon's storms whirl round!
+CAST_TYPHON_FIRE,The Fire of the Hundred Heads
