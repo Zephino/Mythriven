@@ -2695,5 +2695,246 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Slavic Wilds bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "zmey_gorynych",
+    "name_key": "BOSS_ZMEY_GORYNYCH_NAME",
+    "tradition": "slavic",
+    "lore_source": "The byliny (Dobrynya Nikitich and the Serpent: Zmey Gorynych, the many-headed dragon)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "zmey_gorynych",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 631,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "three_heads",
+      "heads": 3,
+      "head_hp": 420,
+      "regrow_s": 6.0,
+      "regrow_heal": 150,
+      "sear_elements": [
+        "fire",
+        "holy"
+      ]
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Slavic Wilds bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "baba_yaga",
+    "name_key": "BOSS_BABA_YAGA_NAME",
+    "tradition": "slavic",
+    "lore_source": "Afanasyev, \"Vasilisa the Beautiful\" (her mortar, pestle and broom; the hut on hen's legs)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "baba_yaga",
+    "move_speed": 54,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 982,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "hut_on_chicken_legs",
+      "hut_speed_px_s": 40,
+      "stomp_every_s": 2.5,
+      "stomp_radius_px": 46,
+      "stomp_damage": 14,
+      "hut_start_px": 160
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Slavic Wilds bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "koschei",
+    "name_key": "BOSS_KOSCHEI_NAME",
+    "tradition": "slavic",
+    "lore_source": "Afanasyev, \"The Death of Koschei the Deathless\" (his death is a needle in an egg, hidden far away)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "koschei",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1544,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "deathless",
+      "egg_distance_px": [
+        320,
+        460
+      ],
+      "egg_reach_px": 18
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "leshy"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "leshy"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1,0 +1,69 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A village well with a sweep (the Slavic Wilds): a log well-frame and a long counterweighted pole on a forked post, as in the old wooden villages.",
+ "size": [
+  23,
+  28
+ ],
+ "anchor": [
+  11,
+  27
+ ],
+ "palette": {
+  "a": "#3c3c3c",
+  "b": "#909096",
+  "c": "#727272",
+  "d": "#84848a",
+  "e": "#8a8a90",
+  "f": "#2a2418",
+  "g": "#665442",
+  "h": "#604e42",
+  "i": "#5a4e3c",
+  "j": "#1e1812",
+  "k": "#483c2a",
+  "l": "#42362a",
+  "m": "#4e4236",
+  "n": "#3c3024",
+  "o": "#5a483c",
+  "p": "#5a4830",
+  "q": "#544236",
+  "r": "#544230",
+  "s": "#4e3c2a",
+  "t": "#4e3c30",
+  "u": "#362a1e",
+  "v": "#544836"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...................aaa.",
+    "..................abcda",
+    "..................adbea",
+    "..................aceea",
+    "..................fgfa.",
+    ".................fhf...",
+    "...............ffhf....",
+    "..............fiifj....",
+    ".............fgkjjlj...",
+    "............fgfjllj....",
+    "...........fmf.jnlj....",
+    ".........ffif..jkkj....",
+    "........fhgf...jllj....",
+    ".......fiff....jllj....",
+    "......fof......jnlj....",
+    "....ffhf.......jlnj....",
+    "...fpif........jllj....",
+    "..fqpf.........jllj....",
+    ".ffjpjffff.....jllj....",
+    "frplllrpspf....jlnj....",
+    "fthllnihihf....jlnj....",
+    "fhhioihhhif....jnnj....",
+    "fomiiioiimf....jllj....",
+    "jlnnnlunnnj....jlnj....",
+    "fqoqqqvooqf....jlnj....",
+    "fovqqqmovvf....jnnj....",
+    "fooovvvvqvf....jnlj....",
+    ".fffffffff......jj....."
+   ]
+  ]
+ }
+}

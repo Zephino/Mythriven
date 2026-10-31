@@ -228,6 +228,29 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | white_div_entrance | boss entrance | white_div | You have come a long way to die in the dark. | Shahnameh, seventh labour (the White Div's cave) | no |
 | white_div_rostam | boss entrance (as rostam) | white_div | Rostam. Six labours, and the seventh is me. | Shahnameh, the Seven Labours | no |
 
+### The Slavic Wilds
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| god | perun | Perun | The Russian Primary Chronicle (980: Vladimir sets up Perun's image at Kiev); treaties of 907-971 (oaths sworn by Perun) | no |
+| god | mokosh | Mokosh | The Russian Primary Chronicle (980: Mokosh among Vladimir's gods); later folk custom ties her to spinning | no |
+| boss | zmey_gorynych | Zmey Gorynych | The byliny (Dobrynya Nikitich and the Serpent: Zmey Gorynych, the many-headed dragon) | no |
+| boss | baba_yaga | Baba Yaga | Afanasyev, "Vasilisa the Beautiful" (her mortar, pestle and broom; the hut on hen's legs) | no |
+| boss | koschei | Koschei the Deathless | Afanasyev, "The Death of Koschei the Deathless" (his death is a needle in an egg, hidden far away) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| perun_found | found | perun | Stand fast in the storm, and I will strike for you. | Original line written for Mythriven | no |
+| perun_bound | bound | perun | My thunder is sworn to you now. | Original line written for Mythriven | no |
+| perun_summon | summon | perun | Serpent, hear the thunder! | Original line written for Mythriven | no |
+| mokosh_found | found | mokosh | Every thread of fate passes through my hands. | Original line written for Mythriven | no |
+| mokosh_bound | bound | mokosh | I will spin you a lucky thread. | Original line written for Mythriven | no |
+| mokosh_summon | summon | mokosh | Hold fast, threads! | Original line written for Mythriven | no |
+| zmey_gorynych_entrance | boss entrance | zmey_gorynych | Cut off a head, little hero; I have plenty more. | The byliny (the many-headed Zmey Gorynych) | no |
+| baba_yaga_entrance | boss entrance | baba_yaga | Fu, fu! I smell a living soul in my forest. | Afanasyev (Baba Yaga smells the Russian smell) | no |
+| koschei_entrance | boss entrance | koschei | I cannot die. Look for my death if you dare. | Afanasyev, "The Death of Koschei the Deathless" | no |
+| zmey_gorynych_perun | boss meets god (with perun) | zmey_gorynych | Thunder-god, I have three heads for every bolt you throw. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

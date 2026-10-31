@@ -6,6 +6,7 @@ extends Node2D
 ## during boss arenas.
 ##   strikes  HazardStrikes   telegraphed strikes (thunderstorm, Divine Storm)
 ##   weather  HazardWeather   push wind and/or shrinking vision (blizzard, sandstorm, mist)
+##   lights   HazardLights    wandering lights that herd monsters onto the Heroes (the Slavic Wilds)
 
 var active: bool = false
 ## True while a boss arena is up (hazards pause during boss fights).
@@ -18,6 +19,8 @@ static func create(data: Dictionary) -> Hazard:
 	match str(data.get("type", "strikes")):
 		"weather":
 			return HazardWeather.new()
+		"lights":
+			return HazardLights.new()
 	return HazardStrikes.new()
 
 

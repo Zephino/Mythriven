@@ -203,6 +203,17 @@ func _draw_seal_pattern(style: String, center: Vector2, radius: float, spin: flo
 			for side: float in [-1.0, 1.0]:
 				_seal.draw_arc(center + Vector2(side * radius * 0.35, 0).rotated(spin), radius * 0.55, PI * 0.5 - side * PI * 0.5 - 0.9,
 						PI * 0.5 - side * PI * 0.5 + 0.9, 12, color, 2.0)
+		"slavic_rhombus":
+			# Rows of rhombuses, the old embroidery pattern of the Slavic lands.
+			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
+			for k: int in 8:
+				var a: float = spin + TAU * k / 8.0
+				var mid: Vector2 = center + Vector2.from_angle(a) * radius * 0.62
+				var side: float = radius * 0.2
+				_seal.draw_polyline(PackedVector2Array([mid + Vector2(0, -side), mid + Vector2(side, 0), mid + Vector2(0, side),
+						mid + Vector2(-side, 0), mid + Vector2(0, -side)]), color, 2.0)
+			_seal.draw_polyline(PackedVector2Array([center + Vector2(0, -radius * 0.3), center + Vector2(radius * 0.3, 0),
+					center + Vector2(0, radius * 0.3), center + Vector2(-radius * 0.3, 0), center + Vector2(0, -radius * 0.3)]), color, 2.0)
 		"persian_rosette":
 			# A twelve-petalled rosette, as carved on the old stone palaces of Iran.
 			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)

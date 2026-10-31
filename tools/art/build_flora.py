@@ -328,6 +328,12 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # The Slavic Wilds: the birch forest, with spruce and willows by the rivers; bilberries and fern.
+    "the_slavic_wilds": {
+        "trees": {"birch": (birch, 18, 34), "spruce": (spruce, 22, 40),
+                  "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30)},
+        "bushes": {"bilberry": ("M", "m", "y", "B"), "fern": ("fern",)},
+        "rock": ("g", "G", "H", "l")},
     # Mazandaran: the Hyrcanian mountain forest of the Caspian shore (oak, hornbeam, plane trees), box and fern.
     "mazandaran": {
         "trees": {"oak": (broadleaf, 30, 34), "hornbeam": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y"), 24, 32),

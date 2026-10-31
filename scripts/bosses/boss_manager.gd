@@ -42,6 +42,9 @@ const SCRIPTS: Dictionary = {
 	"dragon_third_labour": "res://scripts/bosses/dragon_third_labour_boss.gd",
 	"witch_fourth_labour": "res://scripts/bosses/witch_fourth_labour_boss.gd",
 	"white_div": "res://scripts/bosses/white_div_boss.gd",
+	"zmey_gorynych": "res://scripts/bosses/zmey_gorynych_boss.gd",
+	"baba_yaga": "res://scripts/bosses/baba_yaga_boss.gd",
+	"koschei": "res://scripts/bosses/koschei_boss.gd",
 	"thrym": "res://scripts/bosses/thrym_boss.gd",
 	"ymir": "res://scripts/bosses/ymir_boss.gd",
 	"thanatos": "res://scripts/bosses/thanatos_boss.gd",
@@ -139,6 +142,14 @@ func on_boss_hit(slot: int, amount: float, element_mult: float, attacker: Player
 		if controller.slot == slot and controller.is_alive():
 			controller.on_element_hit(element)
 			return controller.on_hit(amount, element_mult, attacker, push)
+	return amount
+
+
+## Damage over time (Burn, Poison) on a boss, after its rules (Koschei can't die while his egg is whole).
+func cap_boss_dot(slot: int, amount: float) -> float:
+	for controller: BossController in controllers:
+		if controller.slot == slot and controller.is_alive():
+			return controller.cap_lethal(amount)
 	return amount
 
 

@@ -1696,3 +1696,54 @@ BANTER_WITCH_FOURTH_LABOUR_ENTRANCE,"Come, traveller, sit and share my feast."
 BANTER_WITCH_FOURTH_LABOUR_ROSTAM,"Sing me your song again, champion, and do not say that name."
 BANTER_WHITE_DIV_ENTRANCE,You have come a long way to die in the dark.
 BANTER_WHITE_DIV_ROSTAM,"Rostam. Six labours, and the seventh is me."
+PANTHEON_SLAVIC,Slavic
+LEVEL_SLAVIC_WILDS_NAME,The Slavic Wilds
+HAZARD_WANDERING_LIGHTS_NAME,Wandering lights draw the monsters in!
+ENEMY_LESHY_NAME,Leshy
+ENEMY_LESHY_MYTH,"The master of the forest in Russian folk tales: a shaggy old man of the woods who can grow as tall as the trees or as small as grass, and who leads travellers round in circles until they are lost."
+ENEMY_RUSALKA_NAME,Rusalka
+ENEMY_RUSALKA_MYTH,"A water-maiden of rivers and pools in Slavic folklore, pale, with long loose hair, who sits on the bank combing it and draws the unwary into the water."
+ENEMY_GREY_WOLF_NAME,Grey wolf
+ENEMY_GREY_WOLF_MYTH,"In the tale of Tsarevich Ivan and the Firebird, a great grey wolf eats Ivan's horse, then carries him on its back and helps him win the Firebird, the horse with the golden mane and Elena the Beautiful."
+ENEMY_FIREBIRD_KIN_NAME,Firebird-kin
+ENEMY_FIREBIRD_KIN_MYTH,"The Firebird of the Russian tales, whose feathers shine like flame and light up a whole dark room; it came at night to steal the tsar's golden apples."
+BOSS_ZMEY_GORYNYCH_NAME,Zmey Gorynych
+BOSS_BABA_YAGA_NAME,Baba Yaga
+BOSS_KOSCHEI_NAME,Koschei the Deathless
+ENEMY_ZMEY_GORYNYCH_NAME,Zmey Gorynych
+ENEMY_BABA_YAGA_NAME,Baba Yaga
+ENEMY_KOSCHEI_NAME,Koschei the Deathless
+ENEMY_ZMEY_GORYNYCH_MYTH,"The great dragon of the old Russian heroic songs, the byliny, with many heads, who carried off a prince's niece; the hero Dobrynya Nikitich fought him at the river and freed his captives."
+ENEMY_BABA_YAGA_MYTH,"The bony-legged old witch of the Russian forest, who flies in a mortar, steers with a pestle and sweeps away her tracks with a broom. Her hut stands on hen's legs and turns round at a word."
+ENEMY_KOSCHEI_MYTH,"The deathless sorcerer-king of the Russian tales. His death is hidden far away: a needle, in an egg, in a duck, in a hare, in an iron chest buried under an oak. Break the needle, and Koschei dies."
+BOSS_ZMEY_HEAD_FALLS,"A head falls, but it will grow back!"
+BOSS_ZMEY_SEARED,The neck is seared: that head won't grow back!
+BOSS_ZMEY_REGROWS,A head grows back!
+BOSS_KOSCHEI_EGG,Koschei can't die: find the egg that hides his death!
+BOSS_KOSCHEI_MORTAL,The needle snaps: Koschei can die!
+GOD_PERUN_NAME,Perun
+GOD_PERUN_ROLE,Execution
+GOD_PERUN_BLESSING,+15% Lightning damage and +5% crit chance.
+GOD_PERUN_SUMMON,Thunder Against the Serpent: a huge lightning strike on the strongest monster on screen; double against dragons and serpents.
+GOD_PERUN_MYTH,"The thunder god of the old Rus. The Primary Chronicle tells how Prince Vladimir set up his image at Kiev, of wood with a silver head and a golden moustache, and how oaths in the treaties with Byzantium were sworn by Perun."
+GOD_MOKOSH_NAME,Mokosh
+GOD_MOKOSH_ROLE,Fate and luck
+GOD_MOKOSH_BLESSING,+10% Luck and +5% Max HP.
+GOD_MOKOSH_SUMMON,"Spindle of Fate: threads bind every monster on screen for 3 s (bosses are only slowed), and your Luck rises for 7 s."
+GOD_MOKOSH_MYTH,The only goddess named among Prince Vladimir's gods in the Primary Chronicle. Little more is known of her; later folk custom tied her to spinning and women's work.
+ACH_BOSS_ZMEY_GORYNYCH_NAME,Defeat Zmey Gorynych
+ACH_BOSS_ZMEY_GORYNYCH_DESC,The 10:00 boss of the Slavic Wilds.
+ACH_BOSS_BABA_YAGA_NAME,Defeat Baba Yaga
+ACH_BOSS_BABA_YAGA_DESC,The 20:00 boss of the Slavic Wilds.
+ACH_BOSS_KOSCHEI_NAME,Defeat Koschei the Deathless
+ACH_BOSS_KOSCHEI_DESC,The 30:00 boss of the Slavic Wilds.
+BANTER_PERUN_FOUND,"Stand fast in the storm, and I will strike for you."
+BANTER_PERUN_BOUND,My thunder is sworn to you now.
+BANTER_PERUN_SUMMON,"Serpent, hear the thunder!"
+BANTER_MOKOSH_FOUND,Every thread of fate passes through my hands.
+BANTER_MOKOSH_BOUND,I will spin you a lucky thread.
+BANTER_MOKOSH_SUMMON,"Hold fast, threads!"
+BANTER_ZMEY_GORYNYCH_ENTRANCE,"Cut off a head, little hero; I have plenty more."
+BANTER_BABA_YAGA_ENTRANCE,"Fu, fu! I smell a living soul in my forest."
+BANTER_KOSCHEI_ENTRANCE,I cannot die. Look for my death if you dare.
+BANTER_ZMEY_GORYNYCH_PERUN,"Thunder-god, I have three heads for every bolt you throw."

@@ -1369,5 +1369,106 @@
     "text_key": "BANTER_WHITE_DIV_ROSTAM",
     "lore_source": "Shahnameh, the Seven Labours",
     "needs_owner_review": true
+  },
+  {
+    "id": "perun_found",
+    "trigger": "found",
+    "speaker": "perun",
+    "hero": "",
+    "god": "perun",
+    "text_key": "BANTER_PERUN_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "perun_bound",
+    "trigger": "bound",
+    "speaker": "perun",
+    "hero": "",
+    "god": "perun",
+    "text_key": "BANTER_PERUN_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "perun_summon",
+    "trigger": "summon",
+    "speaker": "perun",
+    "hero": "",
+    "god": "perun",
+    "text_key": "BANTER_PERUN_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "mokosh_found",
+    "trigger": "found",
+    "speaker": "mokosh",
+    "hero": "",
+    "god": "mokosh",
+    "text_key": "BANTER_MOKOSH_FOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "mokosh_bound",
+    "trigger": "bound",
+    "speaker": "mokosh",
+    "hero": "",
+    "god": "mokosh",
+    "text_key": "BANTER_MOKOSH_BOUND",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "mokosh_summon",
+    "trigger": "summon",
+    "speaker": "mokosh",
+    "hero": "",
+    "god": "mokosh",
+    "text_key": "BANTER_MOKOSH_SUMMON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "zmey_gorynych_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "zmey_gorynych",
+    "hero": "",
+    "god": "zmey_gorynych",
+    "text_key": "BANTER_ZMEY_GORYNYCH_ENTRANCE",
+    "lore_source": "The byliny (the many-headed Zmey Gorynych)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "baba_yaga_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "baba_yaga",
+    "hero": "",
+    "god": "baba_yaga",
+    "text_key": "BANTER_BABA_YAGA_ENTRANCE",
+    "lore_source": "Afanasyev (Baba Yaga smells the Russian smell)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "koschei_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "koschei",
+    "hero": "",
+    "god": "koschei",
+    "text_key": "BANTER_KOSCHEI_ENTRANCE",
+    "lore_source": "Afanasyev, \"The Death of Koschei the Deathless\"",
+    "needs_owner_review": true
+  },
+  {
+    "id": "zmey_gorynych_perun",
+    "trigger": "boss_meets_god",
+    "speaker": "zmey_gorynych",
+    "hero": "",
+    "god": "zmey_gorynych",
+    "with_god": "perun",
+    "text_key": "BANTER_ZMEY_GORYNYCH_PERUN",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

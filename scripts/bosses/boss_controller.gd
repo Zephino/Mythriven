@@ -96,6 +96,11 @@ func on_element_hit(_element: String) -> void:
 	pass
 
 
+## Hook: the most of `amount` that may land now (Koschei can't be brought below 1 HP while his death is safe).
+func cap_lethal(amount: float) -> float:
+	return amount
+
+
 ## Hook for signature mechanics that change damage taken (Achilles' heel).
 func modify_hit(amount: float, _attacker: Player, _push: Vector2) -> float:
 	return amount

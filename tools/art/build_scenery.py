@@ -281,6 +281,21 @@ def div_palace_ruin():
     return p
 
 
+def well_sweep():
+    """A village well with a sweep (the Slavic Wilds): a log well-frame and a long counterweighted pole on a forked
+    post, as in the old wooden villages."""
+    p = Pic(24, 28, (12, 27))
+    p.rect(2, 20, 10, 27, "b"); p.rect(2, 20, 10, 20, "t"); p.rect(2, 24, 10, 24, "B")   # the log well-frame
+    p.rect(17, 10, 18, 27, "B"); p.px(16, 9, "B"); p.px(19, 9, "B")                     # the forked post
+    for k in range(18):
+        p.px(4 + k, 18 - k * 15 // 18, "b")                                              # the long sweep pole
+    p.rect(20, 2, 22, 4, "g")                                                            # counterweight stone
+    for y in range(17, 21):
+        p.px(5, y, "t")                                                                  # the rope
+    p.rect(4, 20, 6, 21, "B")
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -305,7 +320,7 @@ def lekythos():
 
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
-                                   ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin)}
+                                   ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

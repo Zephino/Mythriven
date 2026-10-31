@@ -1,7 +1,7 @@
 # Pack 3 plan: Distant Legends
 
 Status: **approved by the owner** (10/31/2026: "yes, as suggested" to all five questions). Pohjola built and released
-10/31/2026 (00.02.70); Mazandaran (00.02.72). The owner asked to start Pack 3 once Pack 2 was finished ("When your done
+10/31/2026 (00.02.70); Mazandaran (00.02.72); the Slavic Wilds (00.02.73). The owner asked to start Pack 3 once Pack 2 was finished ("When your done
 start pack 3"). Like Pack 2, this plan comes first; building starts when the owner answers the questions at the end.
 
 Everything named here comes from `GAME_DESIGN.md` (Act III levels, Gods added with Acts II–III, Acts II–IV bosses,
@@ -98,7 +98,7 @@ and bow. Unlock: defeat the White Div (his seventh labour).
 
 ---
 
-## Level 11: The Slavic Wilds (Slavic)
+## Level 11: The Slavic Wilds (Slavic): **done and released 10/31/2026 (00.02.73)**
 
 **Look:** birch forests, rivers, wooden villages, swamps.
 *Sources: Afanasyev's Russian Fairy Tales (1855–1863); the byliny (Dobrynya and the Serpent); the Russian Primary

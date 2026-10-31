@@ -1228,5 +1228,127 @@
       "stones": "#9a948a"
     },
     "simurgh": true
+  },
+  {
+    "_doc": "The Slavic Wilds, Pack 3 level 3 (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Birch forests, rivers, wooden villages, swamps. Sources: Afanasyev's Russian Fairy Tales; the byliny; the Russian Primary Chronicle.",
+    "id": "the_slavic_wilds",
+    "name_key": "LEVEL_SLAVIC_WILDS_NAME",
+    "region": "slavic",
+    "act": 3,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_slavic_wilds",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "bog",
+          "max": -0.4,
+          "placeholder_color": "#3e4a3a",
+          "placeholder_dots": "#2e3a2c"
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.05,
+          "placeholder_color": "#45683a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "grass",
+          "max": 0.55,
+          "placeholder_color": "#5a8040",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "flowers",
+          "max": 1.0,
+          "placeholder_color": "#628a44",
+          "placeholder_dots": "#e8d860"
+        }
+      ]
+    },
+    "decorations": [
+      "log_hut_ruin",
+      "well_sweep"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "log_hut_ruin": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          22
+        ],
+        "placeholder_color": "#6a5440",
+        "weight": 1
+      },
+      "well_sweep": {
+        "shape": "rect",
+        "size_px": [
+          24,
+          28
+        ],
+        "placeholder_color": "#7a5a3a",
+        "weight": 1
+      }
+    },
+    "local_gods": [
+      "perun",
+      "mokosh"
+    ],
+    "local_shrine_chance": 0.5,
+    "bosses": {
+      "10": "zmey_gorynych",
+      "20": "baba_yaga",
+      "30": "koschei"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "avalons_shadow",
+      "boss": "twrch_trwyth"
+    },
+    "waves": "waves_the_slavic_wilds.json",
+    "hazard": {
+      "type": "lights",
+      "name_key": "HAZARD_WANDERING_LIGHTS_NAME",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 22,
+      "lights": 3,
+      "lure_radius_px": 130,
+      "lure_px_s": 70,
+      "drift_px_s": 28,
+      "range_px": 260,
+      "color": "#c8f0a0"
+    },
+    "ground_patches": {
+      "kind": "slow",
+      "count": 6,
+      "radius_px": [
+        24,
+        40
+      ],
+      "color": "#3a4a30",
+      "speed_mult": 0.6
+    },
+    "seal": "slavic_rhombus",
+    "tint": "#e6ece2",
+    "flora": {
+      "density": 1.1,
+      "trees": {
+        "birch": 4,
+        "spruce": 2,
+        "willow": 1
+      }
+    },
+    "road": {
+      "color": "#7a6a4a",
+      "edge": "#5a4c34",
+      "stones": "#8a8a84"
+    }
   }
 ]

@@ -1,0 +1,133 @@
+{
+ "_doc": "The egg that holds Koschei's death (a needle in an egg, in a duck, in a hare, in an iron chest under an oak). Built by tools/art/build_slavic.py.",
+ "size": [
+  16,
+  20
+ ],
+ "anchor": [
+  8,
+  18
+ ],
+ "palette": {
+  "o": "#2a2a1a",
+  "w": "#f4ecd0",
+  "W": "#ffffff",
+  "i": "#c8a040"
+ },
+ "frames": {
+  "idle": [
+   [
+    "................",
+    "........o.......",
+    "......oowoo.....",
+    ".....owwwwwo....",
+    "....owWiiwwwo...",
+    "...owWWiiwwwwo..",
+    "..owwWWiiwwwwwo.",
+    "..owWWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    ".owwwwWiiwwwwwwo",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "...owwwiiwwwwo..",
+    "....owwiiwwwo...",
+    ".....owwwwwo....",
+    "......oowoo.....",
+    "........o......."
+   ]
+  ],
+  "walk": [
+   [
+    "................",
+    "........o.......",
+    "......oowoo.....",
+    ".....owwwwwo....",
+    "....owWiiwwwo...",
+    "...owWWiiwwwwo..",
+    "..owwWWiiwwwwwo.",
+    "..owWWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    ".owwwwWiiwwwwwwo",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "...owwwiiwwwwo..",
+    "....owwiiwwwo...",
+    ".....owwwwwo....",
+    "......oowoo.....",
+    "........o......."
+   ],
+   [
+    "................",
+    "........o.......",
+    "......oowoo.....",
+    ".....owwwwwo....",
+    "....owWiiwwwo...",
+    "...owWWiiwwwwo..",
+    "..owwWWiiwwwwwo.",
+    "..owWWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    ".owwwwWiiwwwwwwo",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "...owwwiiwwwwo..",
+    "....owwiiwwwo...",
+    ".....owwwwwo....",
+    "......oowoo.....",
+    "........o......."
+   ],
+   [
+    "................",
+    "........o.......",
+    "......oowoo.....",
+    ".....owwwwwo....",
+    "....owWiiwwwo...",
+    "...owWWiiwwwwo..",
+    "..owwWWiiwwwwwo.",
+    "..owWWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    ".owwwwWiiwwwwwwo",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "...owwwiiwwwwo..",
+    "....owwiiwwwo...",
+    ".....owwwwwo....",
+    "......oowoo.....",
+    "........o......."
+   ],
+   [
+    "................",
+    "........o.......",
+    "......oowoo.....",
+    ".....owwwwwo....",
+    "....owWiiwwwo...",
+    "...owWWiiwwwwo..",
+    "..owwWWiiwwwwwo.",
+    "..owWWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    "..owwWWiiwwwwwo.",
+    ".owwwwWiiwwwwwwo",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "..owwwwiiwwwwwo.",
+    "...owwwiiwwwwo..",
+    "....owwiiwwwo...",
+    ".....owwwwwo....",
+    "......oowoo.....",
+    "........o......."
+   ]
+  ]
+ }
+}

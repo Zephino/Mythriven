@@ -1,0 +1,124 @@
+{
+ "_doc": "The grey wolf (Afanasyev, \"Tsarevich Ivan, the Firebird and the Grey Wolf\"): a big grey forest wolf. Built by tools/art/build_slavic.py.",
+ "size": [
+  24,
+  18
+ ],
+ "anchor": [
+  11,
+  17
+ ],
+ "palette": {
+  "o": "#141210",
+  "k": "#080706",
+  "g": "#7a7266",
+  "G": "#5a544a",
+  "y": "#e0c040"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    ".....oogggggggggoggggoo.",
+    "oooooGGGGGGGGGGGgggggygo",
+    "GGGGgggggggggggggggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "....oggggGGgggggoGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    ".....oo..oo..oo..oo....."
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    ".....oogggggggggoggggoo.",
+    "oooooGGGGGGGGGGGgggggygo",
+    "GGGGgggggggggggggggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggoo....",
+    ".....oggGGggggggooGGo...",
+    ".....oggGGooggoo.oGGo...",
+    ".....oggGGooggo..oGGo...",
+    ".....oggGGooggo..oGGo...",
+    ".....oggGGooggo..oGGo...",
+    "......oooo..oo....oo...."
+   ],
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    ".....oogggggggggoggggoo.",
+    "oooooGGGGGGGGGGGgggggygo",
+    "GGGGgggggggggggggggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "....oggggGGgggggoGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    ".....oo..oo..oo..oo....."
+   ],
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    ".....oogggggggggoggggoo.",
+    "oooooGGGGGGGGGGGgggggygo",
+    "GGGGgggggggggggggggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "...oggogggGGggggGGo.....",
+    "...oggooooGGooggGGo.....",
+    "...oggo..oGGooggGGo.....",
+    "...oggo..oGGooggGGo.....",
+    "...oggo..oGGooggGGo.....",
+    "....oo....oo..oooo......"
+   ],
+   [
+    "........................",
+    "........................",
+    "..................o.....",
+    ".................ogo....",
+    ".................oogo...",
+    ".......oooooooooogooo...",
+    ".....oogggggggggoggggoo.",
+    "oooooGGGGGGGGGGGgggggygo",
+    "GGGGgggggggggggggggggggo",
+    "GGGGgggggggggggggggggggk",
+    "oooogggggggggggggggooooo",
+    "....ogggggggggggggo.....",
+    "....oggggGGgggggoGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    "....oggooGGooggooGGo....",
+    ".....oo..oo..oo..oo....."
+   ]
+  ]
+ }
+}

@@ -649,5 +649,35 @@
       "id": "white_div"
     },
     "persists": true
+  },
+  {
+    "id": "boss_zmey_gorynych",
+    "name_key": "ACH_BOSS_ZMEY_GORYNYCH_NAME",
+    "desc_key": "ACH_BOSS_ZMEY_GORYNYCH_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "zmey_gorynych"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_baba_yaga",
+    "name_key": "ACH_BOSS_BABA_YAGA_NAME",
+    "desc_key": "ACH_BOSS_BABA_YAGA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "baba_yaga"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_koschei",
+    "name_key": "ACH_BOSS_KOSCHEI_NAME",
+    "desc_key": "ACH_BOSS_KOSCHEI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "koschei"
+    },
+    "persists": true
   }
 ]

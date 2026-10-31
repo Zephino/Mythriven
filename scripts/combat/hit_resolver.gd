@@ -87,6 +87,8 @@ func damage_over_time(slot: int, amount: float) -> void:
 	var enemies: EnemyManager = GameAuthority.enemies
 	if enemies == null or enemies.active[slot] == 0:
 		return
+	if bool(enemies.type_of(slot).get("boss", false)) and GameAuthority.bosses != null:
+		amount = GameAuthority.bosses.cap_boss_dot(slot, amount)
 	enemies.hp[slot] -= amount
 	GameAuthority.enemy_damaged.emit(slot, amount, "dot", enemies.positions[slot], "")
 	if enemies.hp[slot] <= 0.0:

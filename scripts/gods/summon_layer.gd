@@ -24,6 +24,8 @@ extends Node2D
 ##                                   one of Humbaba's radiances
 ##   Thunder Axe (Ukko)              lightning strikes fall on the thickest crowds on screen, one after another
 ##   World Egg (Ilmatar)             a shell of light round every Hero stops every enemy shot for 4 s
+##   Thunder Against the Serpent (Perun)  a huge strike on the strongest monster on screen; double on dragons and serpents
+##   Spindle of Fate (Mokosh)        threads bind every monster on screen for 3 s, and Luck rises for 10 s
 ##   Falcon Cloak (Freyja)           the Hero flies, unharmed, for a moment; monsters slain meanwhile rise to fight for them
 
 const MAX_EFFECTS := 8
@@ -115,6 +117,27 @@ func run(god: Dictionary, player: Player) -> void:
 			for boss: Node in get_tree().get_nodes_in_group(BossController.GROUP):
 				if boss is HumbabaBoss:
 					(boss as HumbabaBoss).strip_radiance()
+		"thunder_against_serpent":
+			var strongest: int = -1
+			for slot: int in _enemies_in(view):
+				if strongest == -1 or GameAuthority.enemies.hp[slot] > GameAuthority.enemies.hp[strongest]:
+					strongest = slot
+			if strongest != -1:
+				var at: Vector2 = GameAuthority.enemies.positions[strongest]
+				var mult: float = float(s.get("serpent_mult", 2.0)) if is_serpent(strongest) else 1.0
+				effect["at"] = at
+				GameAuthority.damage_enemy(strongest, float(s.get("damage", 260.0)) * float(effect["power"]) * mult, player, Vector2.ZERO, "lightning", 1.0)
+				for slot: int in _enemies_near(at, float(s.get("radius_px", 36.0)) * area):
+					if slot != strongest:
+						GameAuthority.damage_enemy(slot, float(s.get("damage", 260.0)) * 0.2 * float(effect["power"]), player, Vector2.ZERO, "lightning", 0.5)
+		"spindle_of_fate":
+			for slot: int in _enemies_in(view):
+				if not _is_boss(slot):
+					GameAuthority.enemies.statuses.apply_stun(slot, float(s.get("bind_s", 3.0)) * player.stats.status_duration_mult())
+				else:
+					GameAuthority.enemies.statuses.apply(slot, "chill", 1.0, false)
+			player.stats.add_bonus("luck", float(s.get("luck_bonus", 0.5)))
+			effect["luck_given"] = float(s.get("luck_bonus", 0.5))
 		"world_egg":
 			for each: Player in GameAuthority.players:
 				if each.alive:
@@ -292,6 +315,9 @@ func _on_falcon_kill(_slot: int, enemy_type: Dictionary, at: Vector2, killer: Pl
 
 
 func _finish(effect: Dictionary, player: Player) -> void:
+	if str(effect["kind"]) == "spindle_of_fate":
+		player.stats.add_bonus("luck", -float(effect.get("luck_given", 0.0)))
+		return
 	if str(effect["kind"]) == "hounds_of_annwn":
 		# The hounds go back to Annwn.
 		for hound: Variant in effect.get("hounds", []):
@@ -332,6 +358,16 @@ func _hit_circle(effect: Dictionary, player: Player, center: Vector2, reach: flo
 		if not hit.has(slot):
 			hit[slot] = true
 			GameAuthority.damage_enemy(slot, damage * float(effect["power"]), player, push * 120.0, element, status_chance)
+
+
+## Dragons and serpents, who take double from Perun's strike (the thunder god against the serpent).
+func is_serpent(slot: int) -> bool:
+	var type: Dictionary = GameAuthority.enemies.type_of(slot)
+	var text: String = (str(type.get("id", "")) + " " + str(type.get("family", ""))).to_lower()
+	for word: String in ["serpent", "dragon", "zmey", "viper", "apep", "tiamat", "typhon", "drake"]:
+		if text.contains(word):
+			return true
+	return false
 
 
 ## The middle of the thickest crowd of monsters on screen (sampled), or Vector2.INF when the screen is empty.
@@ -445,6 +481,24 @@ func _draw() -> void:
 					var to: Vector2 = from.lerp(mid, clampf(k * 1.4, 0.0, 1.0))
 					draw_line(from, to, Color(1.0, 0.92, 0.6, 0.7 * fade), 2.0)
 					draw_line(from.lerp(to, 0.5) + Vector2(0, 4), to + Vector2(0, 4), Color(1, 1, 1, 0.4 * fade), 1.0)
+			"thunder_against_serpent":
+				if effect.has("at"):
+					var at: Vector2 = effect["at"]
+					draw_line(at + Vector2(-16, -200), at + Vector2(8, -100), Color(Elements.color("lightning"), fade), 6.0)
+					draw_line(at + Vector2(8, -100), at, Color(Elements.color("lightning"), fade), 6.0)
+					draw_line(at + Vector2(-16, -200), at + Vector2(8, -100), Color(1, 1, 0.9, fade), 2.0)
+					draw_line(at + Vector2(8, -100), at, Color(1, 1, 0.9, fade), 2.0)
+					draw_circle(at, 30.0 * fade + 6.0, Color(1, 1, 0.85, 0.5 * fade))
+			"spindle_of_fate":
+				# Red threads spun out to every monster on screen, fading as the binding ends.
+				var bind: float = clampf(1.0 - t / maxf(float((effect["s"] as Dictionary).get("bind_s", 3.0)), 0.01), 0.0, 1.0)
+				if bind > 0.0:
+					var shown: int = 0
+					for slot: int in _enemies_in(view):
+						draw_line(player.position, GameAuthority.enemies.positions[slot], Color(0.85, 0.2, 0.2, 0.5 * bind), 1.0)
+						shown += 1
+						if shown >= 40:
+							break
 			"world_egg":
 				for each: Player in GameAuthority.players:
 					if each.alive and each.shot_shield_s > 0.0:

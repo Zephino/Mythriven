@@ -2,6 +2,29 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.73
+Date: 10/31/2026
+Time: 5:04 PM
+
+### Changes
+- **Pack 3, the Slavic Wilds, is built and open** (`docs/PACK_3_PLAN.md`). Beat Twrch Trwyth (Avalon's Shadow's 30:00 boss) to unlock it. From Afanasyev's Russian Fairy Tales, the byliny and the Russian Primary Chronicle.
+  - **The land:** birch forest with spruce and willows, bogs and flowering meadows; ruined log huts and village wells with long sweep poles; elk, storks, ravens, hedgehogs and frogs.
+  - **Wandering lights** (the hazard): will-o'-the-wisp lights drift in on you and draw the monsters near them along, herding crowds onto you. As you chose, they don't touch your controls.
+  - **Monsters:** leshies (forest masters), rusalki (water-maidens who cast from afar), grey wolf packs and firebird-kin.
+  - **Bosses:**
+    - **Zmey Gorynych** (10:00): his three heads take your blows. A head cut off with an ordinary hit grows back (and heals him), but one finished with Fire or Holy is seared and never grows back. With every head off, his body takes full damage.
+    - **Baba Yaga** (20:00): she flies in her mortar while her hut on hen's legs stalks you round the arena, stamping.
+    - **Koschei the Deathless** (30:00): he can't die while his death is safe. A golden thread leads you to the egg hidden out on the map; reach it, the needle snaps, and he can die.
+  - **Gods:**
+    - **Perun** (Lightning, duel): summon **Thunder Against the Serpent** sends a huge strike onto the strongest monster on screen, double against dragons and serpents.
+    - **Mokosh** (Earth, peaceful): summon **Spindle of Fate** binds every monster on screen for 3 s with red threads and raises your Luck for 7 s.
+  - Boss achievements, 10 banter lines, and the Slavic Wilds' rows on the lore check.
+- Burning and Poison can no longer finish off a boss whose rules say it can't die yet (Koschei).
+- 4 new tests (311 tests pass).
+
+### Reason
+The owner said "Go build it". The Slavic Wilds is Pack 3's third level.
+
 ## Version 00.02.72
 Date: 10/31/2026
 Time: 4:21 PM

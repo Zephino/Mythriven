@@ -659,5 +659,78 @@
     },
     "placeholder_color": "#a8c8e8",
     "persists": false
+  },
+  {
+    "id": "perun",
+    "name_key": "GOD_PERUN_NAME",
+    "role_key": "GOD_PERUN_ROLE",
+    "blessing_key": "GOD_PERUN_BLESSING",
+    "summon_key": "GOD_PERUN_SUMMON",
+    "pantheon": "slavic",
+    "care_tier": "A",
+    "lore_source": "The Russian Primary Chronicle (980: Vladimir sets up Perun's image at Kiev); treaties of 907-971 (oaths sworn by Perun)",
+    "lore_verified": false,
+    "element": "lightning",
+    "role": "execution",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "trial_duel",
+      "patterns": [
+        "aimed_fan",
+        "ground_circles"
+      ]
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 45
+    },
+    "blessing": {
+      "element_damage": {
+        "lightning": 15
+      },
+      "crit_pct": 5
+    },
+    "summon": {
+      "effect": "thunder_against_serpent",
+      "duration_s": 1.5,
+      "damage": 260,
+      "serpent_mult": 2.0,
+      "radius_px": 36
+    },
+    "placeholder_color": "#d8dcf0",
+    "persists": false
+  },
+  {
+    "id": "mokosh",
+    "name_key": "GOD_MOKOSH_NAME",
+    "role_key": "GOD_MOKOSH_ROLE",
+    "blessing_key": "GOD_MOKOSH_BLESSING",
+    "summon_key": "GOD_MOKOSH_SUMMON",
+    "pantheon": "slavic",
+    "care_tier": "A",
+    "lore_source": "The Russian Primary Chronicle (980: Mokosh among Vladimir's gods); later folk custom ties her to spinning",
+    "lore_verified": false,
+    "element": "earth",
+    "role": "economy",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 50
+    },
+    "blessing": {
+      "luck": 0.1,
+      "max_hp_pct": 5
+    },
+    "summon": {
+      "effect": "spindle_of_fate",
+      "duration_s": 7,
+      "bind_s": 3,
+      "luck_bonus": 0.5
+    },
+    "placeholder_color": "#c83a3a",
+    "persists": false
   }
 ]

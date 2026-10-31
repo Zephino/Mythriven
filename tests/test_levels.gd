@@ -625,3 +625,58 @@ func test_the_simurgh_comes_when_a_feather_burns() -> void:
 	simurgh._process(0.1)
 	assert_almost_eq(_player.hp, _player.max_hp, 0.01, "she heals fully")
 	assert_eq(simurgh.count(_player), 2, "one feather burned")
+
+
+func test_zmeys_heads_regrow_unless_seared_with_fire() -> void:
+	_start("the_slavic_wilds")
+	var zmey: ZmeyGorynychBoss = _bosses.spawn_boss("zmey_gorynych", 0) as ZmeyGorynychBoss
+	assert_not_null(zmey)
+	assert_eq(zmey.modify_hit(100.0, _player, Vector2.ZERO), 0.0, "the heads take the blows")
+	zmey.on_element_hit("physical")
+	zmey.modify_hit(1000.0, _player, Vector2.ZERO)
+	assert_eq(zmey.heads_on(), 2, "a head falls")
+	zmey.signature(7.0)
+	assert_eq(zmey.heads_on(), 3, "and grows back")
+	for _i: int in 3:
+		zmey.on_element_hit("fire")
+		zmey.modify_hit(1000.0, _player, Vector2.ZERO)
+	zmey.signature(10.0)
+	assert_eq(zmey.heads_on(), 0, "seared necks never grow back")
+	assert_almost_eq(zmey.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01, "now the body takes the blows")
+
+
+func test_baba_yagas_hut_stalks_and_stomps() -> void:
+	_start("the_slavic_wilds")
+	var yaga: BabaYagaBoss = _bosses.spawn_boss("baba_yaga", 1) as BabaYagaBoss
+	yaga.target = _player
+	yaga.signature(0.1)
+	_player.position = yaga.hut
+	var hp: float = _player.hp
+	yaga.signature(3.0)
+	assert_lt(_player.hp, hp, "the hut stamps on you")
+
+
+func test_koschei_cannot_die_until_his_egg_breaks() -> void:
+	_start("the_slavic_wilds")
+	var koschei: KoscheiBoss = _bosses.spawn_boss("koschei", 2) as KoscheiBoss
+	koschei.signature(0.1)
+	assert_ne(koschei.egg, Vector2.INF, "his death lies somewhere on the map")
+	var hp: float = _enemies.hp[koschei.slot]
+	assert_almost_eq(koschei.modify_hit(hp * 10.0, _player, Vector2.ZERO), hp - 1.0, 0.01, "deathless")
+	_player.position = koschei.egg
+	koschei.signature(0.1)
+	assert_true(koschei.mortal, "the needle snaps")
+	assert_gt(koschei.modify_hit(hp * 10.0, _player, Vector2.ZERO), hp)
+
+
+func test_wandering_lights_draw_monsters_in() -> void:
+	_start("the_slavic_wilds")
+	var lights := Hazard.create(_level("the_slavic_wilds")["hazard"]) as HazardLights
+	_world.add_child(lights)
+	lights.begin(_level("the_slavic_wilds")["hazard"])
+	assert_eq(lights.lights.size(), 3)
+	var slot: int = _enemies.spawn("grey_wolf", lights.lights[0] + Vector2(80, 0))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	var before: float = _enemies.positions[slot].distance_to(lights.lights[0])
+	lights._process(0.2)
+	assert_lt(_enemies.positions[slot].distance_to(lights.lights[0]), before, "drawn toward the light")

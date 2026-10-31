@@ -248,6 +248,12 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    "the_slavic_wilds": {
+        "ground": {"red_squirrel": (squirrel, "#b05a2a", "#c86a30"), "hedgehog": (hedgehog, "#6a5a48", "#c8a888"),
+                   "common_frog": (frog, "#6a8a3a", "#c8c08a")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True), "white_stork": ("#f0f0ec", "#24222a", "#d84a2a", True)},
+        "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "dragonfly": (dragonfly, "#3a7ab0", "#c8e8f8")},
+        "large": {"elk": ("#5a4232", "#7a5e48", "#2a2018", "palmate", 32, 30)}},
     "mazandaran": {
         "ground": {"red_squirrel": (squirrel, "#b05a2a", "#c86a30"), "red_fox": (fox, "#c8642a", "#f0ece4")},
         "birds": {"pheasant": ("#a8582a", "#5a3a2a", "#d8b040", False), "raven": ("#24222a", "#3a3844", "#24222a", True)},
