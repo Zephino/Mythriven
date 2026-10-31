@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.72
+Date: 10/31/2026
+Time: 1:14 AM
+
+### Changes
+- **Achilles' head redrawn**:
+  - a rounded bronze helmet with a light shine on top, a dark brim with a nose guard, a cheek guard, and a guard over the back of the neck;
+  - the gold crest is now its own ridge running over the top of the helmet (with a dark line between them) and falling down behind as a horsehair tail;
+  - a bigger, clearer face: forehead under the brim, eye, nose and mouth;
+  - golden hair showing below the helmet at the back.
+
+### Reason
+The owner said his head looked weird (the crest and helmet ran together into one gold blob, and the face was small).
+
 ## Version 00.01.71
 Date: 10/31/2026
 Time: 1:11 AM

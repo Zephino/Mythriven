@@ -12,9 +12,9 @@ DOC = ("Achilles (GAME_DESIGN.md: Heroes; art 10/31/2026). Built by tools/art/bu
 PALETTE = {
     "o": "#24160e", "k": "#140c08",
     "s": "#e2a676", "S": "#b0724a",                 # Mediterranean skin, as Heracles
-    "a": "#d8b060",                                 # golden hair (xanthos)
+    "a": "#e0b860", "A": "#b08a3a",                 # golden hair (xanthos)
     "g": "#c89a3c", "G": "#8a6420",                 # bronze (helmet, breastplate, shield)
-    "u": "#f0cc58", "y": "#fff0b0",                 # gold crest, shield boss highlight
+    "u": "#f0cc58", "v": "#c8a030", "y": "#fff0b0",  # gold crest and its shadow, bronze highlight
     "b": "#6a4422", "B": "#4a2e16",                 # leather strips
     "r": "#a83a2c",                                 # red chiton
     "i": "#c4c8d0", "I": "#8a8e96",                 # tin greaves
@@ -43,17 +43,23 @@ def shield(c):
 
 def draw(c, back_leg, front_leg):
     kit.far_arm(c)
-    # Bronze helmet with cheek guards, a gold crest sweeping back, golden hair at the nape
-    c.rect(10, 3, 16, 6, "g"); c.row(3, 10, 15, "G")        # dome, dark band under the crest
-    c.rect(10, 7, 11, 10, "g"); c.rect(16, 6, 17, 7, "g")    # back of the helmet, nose guard
-    c.px(10, 6, "G"); c.px(10, 8, "G")
-    c.row(1, 10, 14, "u"); c.row(2, 9, 15, "u")              # the crest of gold
-    c.rect(7, 2, 9, 4, "u"); c.rect(7, 5, 8, 9, "u"); c.px(7, 9, "G")
-    c.rect(9, 9, 10, 11, "a")                                # golden hair below the helmet
-    # Face in the helmet's opening: eye, mouth
-    c.rect(12, 7, 15, 10, "s"); c.px(12, 7, "S"); c.px(12, 8, "S")
-    c.px(14, 8, "k"); c.px(16, 9, "s"); c.px(14, 10, "S")
-    c.rect(12, 11, 15, 12, "s"); c.px(12, 11, "S")
+    # Bronze helmet: a rounded dome, a brim with a nose guard, a cheek guard, and a guard over the nape
+    c.row(3, 11, 16, "g"); c.rect(10, 4, 17, 6, "g")
+    c.px(12, 4, "y"); c.px(13, 4, "y"); c.px(11, 5, "y")       # light on the bronze
+    c.row(7, 10, 17, "G"); c.rect(17, 8, 17, 9, "G")           # brim and nose guard
+    c.rect(10, 8, 11, 10, "g"); c.px(10, 10, "G")              # nape guard
+    c.rect(12, 8, 12, 10, "g"); c.px(12, 11, "G")             # cheek guard
+    # The crest of gold (Iliad 18): a ridge over the helmet, apart from it, with its tail falling behind
+    c.row(2, 10, 17, "o"); c.px(10, 3, "o"); c.px(17, 3, "o")
+    c.row(1, 8, 16, "u"); c.px(17, 2, "u"); c.px(16, 1, "v")
+    c.rect(6, 2, 9, 2, "u"); c.rect(6, 3, 8, 7, "u"); c.rect(6, 8, 7, 9, "u")
+    c.px(6, 5, "v"); c.px(6, 7, "v"); c.px(6, 9, "v")
+    c.rect(9, 3, 9, 8, "o")
+    # Golden hair below the nape guard
+    c.rect(9, 11, 11, 12, "a"); c.px(9, 12, "A")
+    # Face: forehead under the brim, eye, nose, mouth, chin
+    c.rect(13, 8, 16, 12, "s"); c.px(15, 9, "k"); c.px(18, 10, "s"); c.px(17, 10, "s"); c.px(17, 11, "s")
+    c.px(15, 11, "S"); c.px(14, 12, "S")
     # Bronze breastplate with chest and stomach lines
     c.rect(10, 13, 17, 19, "g"); c.rect(10, 13, 11, 19, "G")
     c.row(15, 12, 13, "G"); c.row(15, 15, 16, "G"); c.px(14, 16, "G"); c.px(14, 17, "G"); c.px(14, 18, "G")
