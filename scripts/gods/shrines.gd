@@ -220,7 +220,7 @@ func _draw() -> void:
 
 
 ## A dungeon's entrance: a patch of floor, a front wall with a dark doorway in the middle (the shrine's position),
-## columns and fire bowls either side, and the ring that fills as the party gathers in the doorway.
+## columns and fire bowls either side, and a ring that fills while the party gathers in the doorway.
 func _draw_entrance(at: Vector2, shrine: Dictionary, parts: Dictionary, color: Color) -> void:
 	var frames: Dictionary = parts["frames"]
 	var tile: float = ShrineLayout.TILE
@@ -239,10 +239,9 @@ func _draw_entrance(at: Vector2, shrine: Dictionary, parts: Dictionary, color: C
 		draw_texture(column, at + Vector2(side * tile - column.get_width() * 0.5, -tile * 0.5 - column.get_height() + 6.0))
 		var bowl: ImageTexture = (frames["brazier"] as Array)[0]
 		draw_texture(bowl, at + Vector2(side * tile * 2.5 - bowl.get_width() * 0.5, tile * 0.5 - bowl.get_height()))
-	if dungeon != null and dungeon.gather_progress() > 0.0:
-		draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * dungeon.gather_progress(), 32, color, 3.0)
-	else:
-		draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), 0.0, TAU, 32, Color(color, 0.6), 2.0)
+	# No ring round the entrance (owner request 10/31/2026): it shows only while the party gathers, filling up.
+	if dungeon != null and dungeon.gather_progress(at) > 0.0:
+		draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * dungeon.gather_progress(at), 32, color, 3.0)
 
 
 ## The altar's stones, in the style of the god's people.

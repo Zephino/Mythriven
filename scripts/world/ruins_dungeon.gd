@@ -65,17 +65,16 @@ func _draw_goal() -> void:
 		PixelArt.draw_standing(self, chest, altar_position() + Vector2(0.0, -2.0), false)
 
 
-## The ruins in the world: the stairway down, with the gathering ring filling as the party waits at it.
-func draw_entrance(canvas: CanvasItem, at: Vector2, done: bool, color: Color) -> void:
+## The ruins in the world: the stairway down. No ring round it (owner request 10/31/2026); one shows only while the
+## party gathers at it, filling up.
+func draw_entrance(canvas: CanvasItem, at: Vector2, done: bool, _color: Color) -> void:
 	var frames: Dictionary = PixelArt.find(PARTS)["frames"]
 	var texture: ImageTexture = (frames["entrance"] as Array)[0]
 	var shade := Color(1, 1, 1, 0.45) if done else Color.WHITE
 	canvas.draw_texture(texture, at - Vector2(texture.get_width() * 0.5, texture.get_height() * 0.75), shade)
-	if not done:
-		canvas.draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), 0.0, TAU, 40, Color(color, 0.5), 1.5)
-		if not active and gather_progress() > 0.0:
-			canvas.draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * gather_progress(), 40,
-					Color.WHITE, 3.0)
+	if not done and not active and gather_progress(at) > 0.0:
+		canvas.draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * gather_progress(at), 40,
+				Color.WHITE, 3.0)
 
 
 # --- Co-op: joining players go in and out with the host (carried by PoiManager's mirror) --------------------------

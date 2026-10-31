@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.27
+Date: 10/31/2026
+Time: 10:02 AM
+
+### Changes
+- **No circles round the dungeon entrances**: the ruins' stairway and the shrines' doorways show just their pictures. A ring appears only while the party stands at one, filling up until they go in, and only on that entrance.
+- Fixed: with two shrine entrances on screen, the other one kept resetting the time to go in (the ruins had the same fix in 00.02.26; now it's fixed for both in one place).
+
+### Reason
+The owner said the circles aren't needed where there are the new sprites.
+
 ## Version 00.02.26
 Date: 10/31/2026
 Time: 10:00 AM

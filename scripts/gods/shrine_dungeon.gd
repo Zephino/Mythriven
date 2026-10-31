@@ -29,6 +29,7 @@ var _origin := Vector2.ZERO
 var _back: Dictionary = {}        # player_id -> where they stood outside
 var _last: Dictionary = {}        # player_id -> last position inside on walkable floor
 var _gather_s: float = 0.0
+var _gather_at := Vector2.INF     # the entrance the party is gathering at
 var _bind_s: Dictionary = {}
 var _spawned: Array = []           # enemy slots spawned inside
 var _enemy_last: Dictionary = {}   # slot -> last position on floor
@@ -163,8 +164,13 @@ func gather(at_shrine: Dictionary, delta: float) -> bool:
 		return false
 	for player: Player in standing:
 		if player.position.distance_to(at_shrine["pos"]) > Data.cfg_float("gods.shrine_radius_px") + player.body_radius:
-			_gather_s = 0.0
+			# Only the entrance being gathered at resets; another one on screen leaves it alone.
+			if Vector2(at_shrine["pos"]) == _gather_at:
+				_gather_s = 0.0
 			return false
+	if Vector2(at_shrine["pos"]) != _gather_at:
+		_gather_s = 0.0
+		_gather_at = at_shrine["pos"]
 	_gather_s += delta
 	if _gather_s < Data.cfg_float("gods.dungeon_gather_s"):
 		return false
@@ -173,7 +179,10 @@ func gather(at_shrine: Dictionary, delta: float) -> bool:
 	return true
 
 
-func gather_progress() -> float:
+## How far the party is through gathering at the entrance at `at` (0 at any other entrance).
+func gather_progress(at: Vector2 = Vector2.INF) -> float:
+	if at != Vector2.INF and at != _gather_at:
+		return 0.0
 	return _gather_s / maxf(Data.cfg_float("gods.dungeon_gather_s"), 0.01)
 
 
