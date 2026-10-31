@@ -86,5 +86,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("cu_chulainn", draw, PALETTE, DOC)
+    kit.build("cu_chulainn", draw, PALETTE, DOC, recolor=["m", "M"])
     print("wrote data/art/cu_chulainn.json")

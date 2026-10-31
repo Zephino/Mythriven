@@ -54,5 +54,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("scathach", draw, PALETTE, DOC)
+    kit.build("scathach", draw, PALETTE, DOC, recolor=["g", "G"])
     print("wrote data/art/scathach.json")

@@ -52,5 +52,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("heracles", draw, PALETTE, DOC)
+    kit.build("heracles", draw, PALETTE, DOC, recolor=["r", "R"])
     print("wrote data/art/heracles.json")

@@ -11,29 +11,38 @@ extends RefCounted
 
 const ART_DIR := "res://data/art/"
 
-## id -> {"anchor": Vector2, "size": Vector2, "frames": {name: [ImageTexture]}}, or {} when there's no art.
+## id (plus "|" and the mastery colour, when recoloured) -> {"anchor": Vector2,
+## "size": Vector2, "frames": {name: [ImageTexture]}}, or {} when there's no art.
 static var _cache: Dictionary = {}
 
 
-## The art for `id` (a Hero id), or {} if it has none yet (the placeholder is drawn instead).
-static func find(id: String) -> Dictionary:
-	if _cache.has(id):
-		return _cache[id]
+## The art for `id` (a Hero id), or {} if it has none yet (the placeholder is
+## drawn instead). With a `colour` (a mastery palette, Hero select: Color), the
+## letters the file lists under "recolor" (the Hero's clothes) take that colour.
+static func find(id: String, colour: Color = Color(0, 0, 0, 0)) -> Dictionary:
+	var key: String = id if colour.a <= 0.0 else id + "|" + colour.to_html(false)
+	if _cache.has(key):
+		return _cache[key]
 	var art: Dictionary = {}
 	var path: String = ART_DIR + id + ".json"
 	if id != "" and FileAccess.file_exists(path):
-		art = build(JSON.parse_string(FileAccess.get_file_as_string(path)))
-	_cache[id] = art
+		art = build(JSON.parse_string(FileAccess.get_file_as_string(path)), colour)
+	_cache[key] = art
 	return art
 
 
-## Textures from an art file's contents ({} if it's malformed).
-static func build(data: Variant) -> Dictionary:
+## Textures from an art file's contents ({} if it's malformed), its clothes in
+## `colour` when one is given.
+static func build(data: Variant, colour: Color = Color(0, 0, 0, 0)) -> Dictionary:
 	if not data is Dictionary or not (data as Dictionary).get("frames") is Dictionary:
 		return {}
 	var palette: Dictionary = {}
 	for key: String in (data["palette"] as Dictionary):
 		palette[key] = Color.html(str(data["palette"][key]))
+	if colour.a > 0.0 and data.get("recolor") is Array:
+		for key: Variant in data["recolor"]:
+			if palette.has(str(key)):
+				palette[str(key)] = recolour(palette[str(key)], colour)
 	var frames: Dictionary = {}
 	for name: String in (data["frames"] as Dictionary):
 		var list: Array[ImageTexture] = []
@@ -65,6 +74,12 @@ static func held_weapon(weapons: Array) -> Dictionary:
 			best = art
 			best_level = weapon.level
 	return best
+
+
+## A clothing colour in a mastery colour: that colour's hue and saturation,
+## keeping the original's brightness, so light cloth and its shadow stay apart.
+static func recolour(original: Color, colour: Color) -> Color:
+	return Color.from_hsv(colour.h, colour.s, original.v)
 
 
 static func _texture(rows: Array, palette: Dictionary) -> ImageTexture:

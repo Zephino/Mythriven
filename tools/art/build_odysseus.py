@@ -55,5 +55,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("odysseus", draw, PALETTE, DOC)
+    kit.build("odysseus", draw, PALETTE, DOC, recolor=["r", "R"])
     print("wrote data/art/odysseus.json")

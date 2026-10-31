@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.82
+Date: 10/31/2026
+Time: 1:38 AM
+
+### Changes
+- **Hero colours now work with the new sprites.** The Color button on Hero select (colours unlocked by mastery 2 to 5: silver, teal, purple, gold) now recolours the Hero's clothes in their sprite, instead of only tinting the old placeholder square. Skin, hair, metal and weapons keep their colours, and each piece of cloth keeps its light and shadow.
+  - Which parts change: Heracles' chiton, Cú Chulainn's mantle, Väinämöinen's coat, Tomoe Gozen's armour and its cords, Achilles' chiton and leather strips, King Arthur's surcoat, Atalanta's chiton, Odysseus' tunic, Scáthach's léine.
+- Each art file lists its clothing colours under `recolor`; `docs/ART_RULES.md` explains it. A new test checks that clothes change and skin doesn't.
+
+### Reason
+The owner asked for Hero colour options next.
+
 ## Version 00.01.81
 Date: 10/31/2026
 Time: 1:35 AM

@@ -70,5 +70,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("tomoe_gozen", draw, PALETTE, DOC)
+    kit.build("tomoe_gozen", draw, PALETTE, DOC, recolor=["q", "r", "R"])
     print("wrote data/art/tomoe_gozen.json")

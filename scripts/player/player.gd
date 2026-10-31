@@ -168,7 +168,8 @@ func _draw() -> void:
 		color = Color(Color.html(Data.cfg_string("coop.shade_color")), 0.55)
 	if aura_color.a > 0.0 and alive:
 		draw_arc(Vector2.ZERO, size_px * 0.95, 0.0, TAU, 24, aura_color, 2.0)
-	var art: Dictionary = PixelArt.find(str(hero.get("id", "")))
+	# The mastery colour (Hero select: Color) recolours the Hero's clothes.
+	var art: Dictionary = PixelArt.find(str(hero.get("id", "")), palette_color)
 	if not art.is_empty():
 		_draw_art(art)
 	else:

@@ -59,5 +59,6 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 - `walk`: 4 frames, played in turn while the Hero moves (one step every 6 game pixels walked; config `player.walk_frame_px`): left foot forward, standing, right foot forward, standing. Only the legs change.
 - More frames later (attack, hurt) when the owner asks.
 
-## Not done yet
-- Mastery colour palettes (Hero select → Color) still tint only the placeholder square. With art, each Hero will need alternate palettes, using the same letters with different colours.
+## Mastery colours
+- Hero select → Color picks one of the colours mastery unlocks (config `heroes.mastery_palettes`: mastery 2–5 unlock colours 1–4; owner request 10/31/2026). It recolours the **Hero's clothes only**: each art file lists those palette letters under `recolor` (set in its build script), and they take the colour's hue and saturation while keeping their own brightness, so light cloth and its shadow stay apart. Skin, hair, metal and weapons keep their colours.
+- A new Hero's script must pass `recolor=[...]` to `kit.build` with the letters of their main clothing.

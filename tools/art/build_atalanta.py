@@ -54,5 +54,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("atalanta", draw, PALETTE, DOC)
+    kit.build("atalanta", draw, PALETTE, DOC, recolor=["t", "T"])
     print("wrote data/art/atalanta.json")

@@ -74,5 +74,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("achilles", draw, PALETTE, DOC)
+    kit.build("achilles", draw, PALETTE, DOC, recolor=["r", "b", "B"])
     print("wrote data/art/achilles.json")

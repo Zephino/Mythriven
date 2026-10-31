@@ -250,6 +250,28 @@ func test_hero_pixel_art_files_are_well_formed() -> void:
 	assert_true(PixelArt.find("no_such_hero").is_empty(), "Heroes without art keep the placeholder")
 
 
+func test_mastery_colours_recolour_a_heros_clothes() -> void:
+	var colour := Color.html(str((Data.cfg("heroes.mastery_palettes") as Array)[2]))
+	var plain: Dictionary = PixelArt.find("heracles")
+	var tinted: Dictionary = PixelArt.find("heracles", colour)
+	assert_ne(plain, tinted, "a mastery colour gives different textures")
+	assert_eq(PixelArt.find("heracles", colour), tinted, "and keeps them")
+	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(PixelArt.ART_DIR + "heracles.json"))
+	assert_true((data["recolor"] as Array).has("r"), "his chiton is listed as his clothes")
+	var cloth := Color.html(str(data["palette"]["r"]))
+	var recoloured: Color = PixelArt.recolour(cloth, colour)
+	assert_almost_eq(recoloured.h, colour.h, 0.01, "clothes take the colour's hue")
+	assert_almost_eq(recoloured.v, cloth.v, 0.01, "and keep their brightness")
+	var image: Image = (tinted["frames"]["idle"][0] as ImageTexture).get_image()
+	var skin := Color.html(str(data["palette"]["s"]))
+	var found_skin: bool = false
+	for y: int in image.get_height():
+		for x: int in image.get_width():
+			if image.get_pixel(x, y).is_equal_approx(skin):
+				found_skin = true
+	assert_true(found_skin, "skin keeps its colour")
+
+
 func test_a_hero_holds_the_weapon_they_use_most() -> void:
 	var player: Player = _hero("heracles")
 	var club: WeaponInstance = player.weapons[0] if not player.weapons.is_empty() else GameAuthority.give_weapon(player, "great_club")

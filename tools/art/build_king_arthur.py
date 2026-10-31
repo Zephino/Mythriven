@@ -75,5 +75,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("king_arthur", draw, PALETTE, DOC)
+    kit.build("king_arthur", draw, PALETTE, DOC, recolor=["d", "D"])
     print("wrote data/art/king_arthur.json")

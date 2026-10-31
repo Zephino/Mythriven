@@ -59,8 +59,10 @@ def legs(c, back, front, footwear):
         footwear(c, x0)
 
 
-def build(hero_id, draw, palette, doc, out_dir=None):
-    """draw(canvas, back_leg, front_leg) draws one frame. Writes data/art/<hero_id>.json."""
+def build(hero_id, draw, palette, doc, out_dir=None, recolor=None):
+    """draw(canvas, back_leg, front_leg) draws one frame. Writes data/art/<hero_id>.json.
+    recolor lists the palette letters of the Hero's clothes, which take the colour of a mastery palette
+    (Hero select: Color; config heroes.mastery_palettes) while skin, hair and metal stay as they are."""
     def frame(legs_x):
         c = Canvas()
         draw(c, *legs_x)
@@ -68,7 +70,7 @@ def build(hero_id, draw, palette, doc, out_dir=None):
     idle = frame(STANCE)
     walk = [idle if pose == STANCE else frame(pose) for pose in WALK]
     art = {"_doc": doc, "size": [W, H], "anchor": list(ANCHOR), "hand": list(HAND), "palette": palette,
-           "frames": {"idle": [idle], "walk": walk}}
+           "recolor": list(recolor or []), "frames": {"idle": [idle], "walk": walk}}
     out_dir = out_dir or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art")
     with open(os.path.join(out_dir, hero_id + ".json"), "w") as f:
         json.dump(art, f, indent=1)

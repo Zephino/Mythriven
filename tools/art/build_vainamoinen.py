@@ -58,5 +58,5 @@ def draw(c, back_leg, front_leg):
 
 
 if __name__ == "__main__":
-    kit.build("vainamoinen", draw, PALETTE, DOC)
+    kit.build("vainamoinen", draw, PALETTE, DOC, recolor=["r", "R"])
     print("wrote data/art/vainamoinen.json")
