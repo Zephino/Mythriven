@@ -1,7 +1,68 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-10-31T17:40:46.995Z",
+	"updated": "2026-10-31T18:05:19.563Z",
 	"entries": [
+		{
+			"name": "Tiny",
+			"hero": "king_arthur",
+			"time_s": 2115,
+			"level": 77,
+			"kills": 69461,
+			"weapons": [
+				{
+					"id": "excalibur",
+					"level": 8
+				},
+				{
+					"id": "heros_blade",
+					"level": 1
+				},
+				{
+					"id": "shade",
+					"level": 8
+				},
+				{
+					"id": "quake_hammer",
+					"level": 1
+				},
+				{
+					"id": "spark",
+					"level": 8
+				},
+				{
+					"id": "glimmer",
+					"level": 8
+				}
+			],
+			"passives": [
+				{
+					"id": "bronze_aegis",
+					"level": 5
+				},
+				{
+					"id": "mirrored_shield",
+					"level": 5
+				},
+				{
+					"id": "belt_of_strength",
+					"level": 5
+				},
+				{
+					"id": "hourglass",
+					"level": 5
+				},
+				{
+					"id": "seers_eye",
+					"level": 5
+				},
+				{
+					"id": "winged_sandals",
+					"level": 5
+				}
+			],
+			"version": "00.02.52",
+			"date": "2026-10-31T18:05:19.563Z"
+		},
 		{
 			"name": "Tiny",
 			"hero": "cu_chulainn",
