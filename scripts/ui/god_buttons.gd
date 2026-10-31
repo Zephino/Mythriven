@@ -25,7 +25,7 @@ func _ready() -> void:
 	add_child(_root)
 	var size: float = Data.cfg_float("ui.god_button_min_px")
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
-	for index: int in 2:
+	for index: int in 3:
 		var button := Button.new()
 		button.add_to_group(TouchJoystick.BLOCKERS)
 		button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
@@ -59,7 +59,7 @@ func _process(_delta: float) -> void:
 	var player: Player = GameAuthority.local_player()
 	var count: int = gods.gods_of(player).size() if player != null and gods != null else 0
 	var size: float = _size()
-	for index: int in 2:
+	for index: int in 3:
 		var button: Button = _buttons[index]
 		button.visible = index < count
 		button.custom_minimum_size = Vector2(size, size)
@@ -88,14 +88,16 @@ func _size() -> float:
 	return Data.cfg_float("ui.god_button_min_px") * Settings.control_scale()
 
 
-## Top-left corner of god button `index` (0 or 1), inside the safe area.
+## Top-left corner of god button `index` (0, 1, or 2 for the hidden shrine's third slot, on the inner side),
+## inside the safe area.
 func _slot_position(index: int, size: float) -> Vector2:
 	var safe: Rect2 = SafeArea.rect(get_viewport())
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
 	var y: float = safe.end.y - margin_px - size
 	if Settings.text("joystick_side") == "right":
 		return Vector2(safe.position.x + margin_px + (size + margin_px) * index, y)
-	return Vector2(safe.end.x - margin_px - size * (2 - index) - margin_px * (1 - index), y)
+	var place: int = index if index < 2 else -1
+	return Vector2(safe.end.x - margin_px - size * (2 - place) - margin_px * (1 - place), y)
 
 
 func _on_resonance_pressed() -> void:

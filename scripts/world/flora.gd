@@ -42,6 +42,8 @@ var _stone_mult: float = 1.0
 var _back_list: Array = []
 var _front_list: Array = []
 var _zones: Dictionary = {}          # key -> [absolute centre, radius]
+## Hidden groves in the loaded forest (HiddenGroves): key -> {"key", "at" (absolute), "r", "gate", "roof", "shrine"}.
+var groves: Dictionary = {}
 var _scan_s: float = 0.0
 var _back: Node2D
 var _front: Node2D
@@ -318,6 +320,10 @@ func _load(coord: Vector2i) -> void:
 						continue
 					var spot: Vector2 = at + Vector2.from_angle(rng.randf() * TAU) * rng.randf_range(14.0, Data.cfg_float("world.rock_cluster_px"))
 					items.append(_item(names[rng.randi_range(0, names.size() - 1)], spot))
+	# Now and then thick forest hides a grove (docs/WORLD_PLAN.md: 3).
+	var grove: Dictionary = HiddenGroves.carve(self, coord, items, rng)
+	if not grove.is_empty():
+		groves[grove["key"]] = grove
 	_chunks[coord] = items
 	_packed_dirty = true
 	for item: Dictionary in items:
@@ -344,6 +350,7 @@ func _item(name: String, at: Vector2) -> Dictionary:
 func _unload(coord: Vector2i) -> void:
 	var items: Array = _chunks[coord]
 	_chunks.erase(coord)
+	groves.erase("grove_%d_%d" % [coord.x, coord.y])
 	_packed_dirty = true
 	var gone := {}
 	for item: Dictionary in items:

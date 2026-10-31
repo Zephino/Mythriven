@@ -523,3 +523,39 @@ func test_flora_blocks_slides_slows_and_keeps_clear() -> void:
 	flora.enabled = false
 	assert_eq(flora.move(Vector2.ZERO, Vector2(5, 0), 6.0), Vector2(5, 0), "nothing blocks in a dungeon")
 	flora.queue_free()
+
+
+func test_hidden_shrine_opens_a_third_god_slot() -> void:
+	var player: Player = _hero("heracles")
+	var gods := GodManager.new()
+	_parent.add_child(gods)
+	assert_eq(gods.max_slots(player), 2, "two god slots normally")
+	player.god_flags["extra_god_slot"] = 1
+	assert_eq(gods.max_slots(player), 3, "three after the hidden shrine")
+	gods.queue_free()
+
+
+func test_hidden_groves_ring_a_clearing_with_a_way_in() -> void:
+	var level: Dictionary = {}
+	for entry: Dictionary in Data.get_file("levels.json"):
+		if str(entry["id"]) == "the_misty_isles":
+			level = entry
+	var flora := Flora.new()
+	_parent.add_child(flora)
+	flora.setup(level, 777)
+	flora.set_process(false)
+	var found: Dictionary = {}
+	for x: int in 40:
+		var rng := RandomNumberGenerator.new()
+		rng.seed = x
+		var items: Array = []
+		var grove: Dictionary = HiddenGroves.carve(flora, Vector2i(x, x * 3), items, rng)
+		if not grove.is_empty():
+			found = grove
+			var ways_in: int = items.filter(func(i: Dictionary) -> bool: return bool(i.get("secret", false))).size()
+			assert_eq(ways_in, Data.cfg_int("world.grove_gate_trees"), "the ring has its walk-through trees")
+			for item: Dictionary in items:
+				assert_true(Vector2(item["at"]).distance_to(grove["at"]) >= float(grove["r"]) - 1.0, "nothing grows in the clearing")
+			break
+	assert_false(found.is_empty(), "thick forest hides groves")
+	flora.queue_free()

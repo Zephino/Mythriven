@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.34
+Date: 10/31/2026
+Time: 11:15 AM
+
+### Changes
+- **Hidden groves** (World plan step 3). Now and then thick forest hides a clearing: a ring of trees too close to pass, roofed over with leaves so it looks like more forest. A few trees in the ring can be walked through (the way in, with two trees standing before it so the path winds), and a faint glint shows there now and then. Step inside and the leaves fade away to show the clearing: a chest (sometimes a big one), guarded by monsters that wake as you come in. Every co-op player has the same groves; what's inside is decided once, when the first Hero steps in.
+- **The hidden shrine** (World plan step 4). Rarely, a grove holds a god's shrine instead of a chest (at most one a run). Binding there opens a **third god slot for the rest of the run**: a third god button appears beside the other two (keyboard: F). With three gods bound, a new god asks which to let go, as before.
+- New `scripts/world/hidden_groves.gd`; `world.grove_*` settings; a `summon_3` input; Shrines can grant the extra slot; GodManager `max_slots`.
+
+### Reason
+The owner approved the world plan: trees you can't walk through unless something is hidden in them, revealing a space when you enter, holding a chest or a hidden shrine that gives a new god slot, and hard to reach.
+
 ## Version 00.02.33
 Date: 10/31/2026
 Time: 10:57 AM

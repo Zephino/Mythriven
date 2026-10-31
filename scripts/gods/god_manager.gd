@@ -62,7 +62,12 @@ func all_bound_ids() -> PackedStringArray:
 
 
 func is_full(player: Player) -> bool:
-	return gods_of(player).size() >= Data.cfg_int("gods.max_bound")
+	return gods_of(player).size() >= max_slots(player)
+
+
+## How many gods a Hero can hold: two, or three after binding at the hidden shrine this run (docs/WORLD_PLAN.md: 4).
+func max_slots(player: Player) -> int:
+	return Data.cfg_int("gods.max_bound") + int(player.god_flags.get("extra_god_slot", 0))
 
 
 ## Binds a god. If both slots are full, `release_index` says which god to let go.
@@ -149,11 +154,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	var player: Player = GameAuthority.local_player()
 	if player == null or get_tree().paused:
 		return
-	for index: int in 2:
+	for index: int in 3:
 		if not event.is_action_pressed("summon_%d" % (index + 1)):
 			continue
 		get_viewport().set_input_as_handled()
-		if resonance != null and resonance.ready_for(player):
+		if index < 2 and resonance != null and resonance.ready_for(player):
 			var other_held: bool = Input.is_action_pressed("summon_%d" % (2 - index))
 			if other_held or (_pending_index == 1 - index and _pending_left > 0.0):
 				_pending_index = -1

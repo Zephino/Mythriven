@@ -38,7 +38,8 @@ func _ready() -> void:
 
 
 ## Places a shrine for `god_id` at `at` (or picks a god when "").
-func add(at: Vector2, god_id: String = "", hidden: bool = false) -> Dictionary:
+## `grants_slot`: the hidden shrine in a grove; binding here also gives a third god slot for the run.
+func add(at: Vector2, god_id: String = "", hidden: bool = false, grants_slot: bool = false) -> Dictionary:
 	var run: RunState = GameAuthority.run
 	if god_id == "":
 		god_id = GodRules.pick_for_shrine(run.level_data, _taken_ids(), run.elapsed_s, run.rng.world, hidden)
@@ -47,7 +48,8 @@ func add(at: Vector2, god_id: String = "", hidden: bool = false) -> Dictionary:
 		return {}
 	var seed_value: int = run.rng.world.randi()
 	var shrine: Dictionary = {"god_id": god_id, "god": god, "pos": at, "left": Data.cfg_float("gods.shrine_lifetime_s"),
-			"progress": 0.0, "seen": false, "hidden": hidden, "progress_by": {}, "bound_by": [], "seed": seed_value}
+			"progress": 0.0, "seen": false, "hidden": hidden, "progress_by": {}, "bound_by": [], "seed": seed_value,
+			"grants_slot": grants_slot}
 	shrines.append(shrine)
 	shrine_added.emit(shrine)
 	return shrine
@@ -144,6 +146,12 @@ func offer_binding(shrine: Dictionary, player: Player) -> void:
 		(shrine["progress_by"] as Dictionary).erase(player.player_id)
 	else:
 		shrines.erase(shrine)
+	# The hidden shrine opens a third god slot for this run (docs/WORLD_PLAN.md: 4).
+	if bool(shrine.get("grants_slot", false)) and int(player.god_flags.get("extra_god_slot", 0)) == 0:
+		player.god_flags["extra_god_slot"] = 1
+		var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
+		if banner != null and player.is_local:
+			banner.show_text(tr("UI_THIRD_GOD_SLOT"))
 	if not gods.is_full(player):
 		gods.bind(player, str(shrine["god_id"]))
 		return

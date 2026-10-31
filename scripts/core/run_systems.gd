@@ -166,6 +166,9 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	if Flora.current != null:
 		Flora.current.shrines = shrines
 		Flora.current.pois = pois
+		for groves: Node in world.find_children("*", "HiddenGroves", false, false):
+			(groves as HiddenGroves).shrines = shrines
+			(groves as HiddenGroves).chests = chests
 	shrines.banter = banter
 	god_choice = GodChoiceScreen.new()
 	god_choice.gods = gods
