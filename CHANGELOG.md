@@ -2,6 +2,27 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.67
+Date: 10/31/2026
+Time: 3:39 PM
+
+### Changes
+- **Eight new secrets for Pack 2**, two per level. Like the Pack 1 secrets, each shows as ??? until found, and the Oracle can hint at it:
+  - **The Lulled Hound:** as Orpheus, defeat Cerberus without being hit by him. Reward: a golden lyre aura.
+  - **The Pomegranate:** bind both Hecate and Persephone in one Underworld run. Reward: the **Pomegranate Seed** passive (heals 6% of Max HP per level whenever a boss falls).
+  - **The Bride's Veil:** take your weapon back from Thrym's hoard 3 times in one fight, then defeat him. Reward: a bridal veil aura.
+  - **The Whetstone:** defeat Hrungnir with a Lightning hit as the final blow. Reward: the **Whetstone Shard** passive (+2% crit chance per level).
+  - **The Green Girdle:** defeat the Green Knight taking at most 1 hit after he picks up his head. Reward: **The Green Girdle** passive (once per level each run, a killing blow leaves you at 1 HP instead).
+  - **Camlann:** as King Arthur, defeat Mordred. Reward: a line from Arthur and a crimson aura.
+  - **The Plant of Youth:** defeat 100 river serpents in one run. Reward: the **Plant of Youth** passive (slowly regenerates health).
+  - **The Thirteen Winds:** as Gilgamesh with Shamash bound, strip all seven of Humbaba's radiances and defeat him. Reward: a cedar wreath aura.
+- Four new passive icons: a pomegranate, a whetstone shard, the green girdle and the plant of youth.
+- The Oracle hints are fresh drafts for the owner to review, like the Pack 1 ones.
+- 3 new tests (295 tests pass).
+
+### Reason
+The owner asked for 8 new secrets for Pack 2 and approved the proposed designs ("yes build them all as they are").
+
 ## Version 00.02.66
 Date: 10/31/2026
 Time: 2:44 PM

@@ -38,6 +38,14 @@ func modify_hit(amount: float, attacker: Player, push: Vector2) -> float:
 	return 0.0
 
 
+## The Thirteen Winds secret: as Gilgamesh with Shamash bound, strip all seven radiances and beat him (Tablet V).
+func secret_earned() -> String:
+	var player: Player = GameAuthority.local_player()
+	if player == null or str(player.hero.get("id", "")) != "gilgamesh" or radiances > 0:
+		return ""
+	return "the_thirteen_winds" if GameAuthority.gods != null and GameAuthority.gods.bound_ids(player).has("shamash") else ""
+
+
 ## Tears away the outermost radiance (a hit, a Guard Break, or Shamash's winds).
 func strip_radiance() -> void:
 	_ensure()

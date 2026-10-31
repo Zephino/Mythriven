@@ -29,6 +29,17 @@ func signature(_delta: float) -> void:
 					banner.show_text(tr("BOSS_MORDRED_ARTHUR"))
 
 
+## Camlann secret: as King Arthur, defeat him (Malory, book 21).
+func secret_earned() -> String:
+	var player: Player = GameAuthority.local_player()
+	if player == null or str(player.hero.get("id", "")) != "king_arthur":
+		return ""
+	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
+	if banner != null:
+		banner.show_text(tr("BOSS_MORDRED_CAMLANN"))
+	return "camlann"
+
+
 func _call_host() -> void:
 	if slot == -1:
 		return

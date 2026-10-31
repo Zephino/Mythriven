@@ -1490,3 +1490,40 @@ ACH_BOSS_BULL_OF_HEAVEN_NAME,Defeat the Bull of Heaven
 ACH_BOSS_BULL_OF_HEAVEN_DESC,The 20:00 boss of the Land Between the Rivers.
 ACH_BOSS_TIAMAT_NAME,Defeat Tiamat
 ACH_BOSS_TIAMAT_DESC,The 30:00 boss of the Land Between the Rivers.
+SECRET_LULLED_HOUND_NAME,The Lulled Hound
+SECRET_LULLED_HOUND_DESC,"As Orpheus, defeat Cerberus without being hit by him. A golden lyre aura."
+SECRET_LULLED_HOUND_HINT,"At the singer's music, even the three-headed watchdog forgot to bite."
+SECRET_POMEGRANATE_NAME,The Pomegranate
+SECRET_POMEGRANATE_DESC,Bind both Hecate and Persephone in one run in the Underworld. Adds the Pomegranate Seed passive.
+SECRET_POMEGRANATE_HINT,"The torch-bearer went down beside the queen of the dead; find them both below."
+SECRET_BRIDES_VEIL_NAME,The Bride's Veil
+SECRET_BRIDES_VEIL_DESC,"Take your weapon back from Thrym's hoard 3 times in one fight, then defeat him. A bridal veil aura."
+SECRET_BRIDES_VEIL_HINT,"A giant's wedding, a veiled bride, and a weapon won back three times."
+SECRET_WHETSTONE_NAME,The Whetstone
+SECRET_WHETSTONE_DESC,Defeat Hrungnir with a Lightning hit as the final blow. Adds the Whetstone Shard passive.
+SECRET_WHETSTONE_HINT,"Stone breaks best under the thunderer's blow; let the storm strike last."
+SECRET_GREEN_GIRDLE_NAME,The Green Girdle
+SECRET_GREEN_GIRDLE_DESC,"Defeat the Green Knight, taking at most 1 hit after he picks up his head. Adds the Green Girdle passive."
+SECRET_GREEN_GIRDLE_HINT,"When the headless knight returns the blow, take no more than a nick."
+SECRET_CAMLANN_NAME,Camlann
+SECRET_CAMLANN_DESC,"As King Arthur, defeat Mordred. Special lines and a crimson aura."
+SECRET_CAMLANN_HINT,"Father and son meet on the last field; let the king be the one who stands."
+SECRET_PLANT_OF_YOUTH_NAME,The Plant of Youth
+SECRET_PLANT_OF_YOUTH_DESC,Defeat 100 river serpents in one run. Adds the Plant of Youth passive.
+SECRET_PLANT_OF_YOUTH_HINT,"A serpent stole the plant that makes the old young. Take a hundred serpents in return."
+SECRET_THIRTEEN_WINDS_NAME,The Thirteen Winds
+SECRET_THIRTEEN_WINDS_DESC,"As Gilgamesh with Shamash bound, strip all seven of Humbaba's radiances and defeat him. A cedar wreath aura."
+SECRET_THIRTEEN_WINDS_HINT,"The king of Uruk did not go into the cedars alone: the sun sent his winds."
+PASSIVE_POMEGRANATE_SEED_NAME,Pomegranate Seed
+PASSIVE_POMEGRANATE_SEED_DESC,Heals 6% of Max HP per level each time a boss falls.
+PASSIVE_WHETSTONE_SHARD_NAME,Whetstone Shard
+PASSIVE_WHETSTONE_SHARD_DESC,+2% crit chance per level.
+PASSIVE_GREEN_GIRDLE_NAME,The Green Girdle
+PASSIVE_GREEN_GIRDLE_DESC,"Once per level each run, a killing blow leaves you at 1 HP instead."
+PASSIVE_PLANT_OF_YOUTH_NAME,Plant of Youth
+PASSIVE_PLANT_OF_YOUTH_DESC,Regenerates 0.15% of Max HP per second per level.
+COSMETIC_GOLDEN_LYRE,Golden lyre
+COSMETIC_BRIDAL_VEIL,Bridal veil
+COSMETIC_CAMLANN,Camlann
+COSMETIC_CEDAR_WREATH,Cedar wreath
+BOSS_MORDRED_CAMLANN,"Arthur: ""It ends here, Mordred, as it was always going to."""

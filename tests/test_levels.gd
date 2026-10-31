@@ -458,3 +458,76 @@ func test_floods_slow_and_put_out_fire() -> void:
 	flood._process(0.016)
 	assert_lt(_player.slow_zone_mult, 1.0, "wading in the long flood band")
 	assert_false(_player.statuses.has("burn"), "the water puts the fire out")
+
+
+func _as_hero(hero_id: String) -> void:
+	_player.hero = _player.hero.duplicate()
+	_player.hero["id"] = hero_id
+
+
+func test_pack_2_boss_secrets() -> void:
+	_start("the_underworld")
+	_as_hero("orpheus")
+	var cerberus: CerberusBoss = _bosses.spawn_boss("cerberus", 0) as CerberusBoss
+	assert_eq(cerberus.secret_earned(), "the_lulled_hound", "Orpheus, never bitten")
+	GameAuthority.player_damaged.emit(_player, 5.0, "cerberus")
+	assert_eq(cerberus.secret_earned(), "", "bitten once: no secret")
+	GameAuthority.end_scene()
+	_start("jotunheim")
+	var thrym: ThrymBoss = _bosses.spawn_boss("thrym", 1) as ThrymBoss
+	thrym.taken_back = 3
+	assert_eq(thrym.secret_earned(), "the_brides_veil")
+	var hrungnir: HrungnirBoss = _bosses.spawn_boss("hrungnir", 0) as HrungnirBoss
+	hrungnir.on_element_hit("fire")
+	assert_eq(hrungnir.secret_earned(), "")
+	hrungnir.on_element_hit("lightning")
+	assert_eq(hrungnir.secret_earned(), "the_whetstone", "the last blow was Lightning")
+
+
+func test_avalon_and_rivers_boss_secrets() -> void:
+	_start("avalons_shadow")
+	var knight: GreenKnightBoss = _bosses.spawn_boss("green_knight", 0) as GreenKnightBoss
+	assert_eq(knight.secret_earned(), "", "he must pick up his head first")
+	knight.headless = true
+	GameAuthority.player_damaged.emit(_player, 5.0, "green_knight")
+	assert_eq(knight.secret_earned(), "the_green_girdle", "only a nick")
+	GameAuthority.player_damaged.emit(_player, 5.0, "green_knight")
+	assert_eq(knight.secret_earned(), "")
+	_as_hero("king_arthur")
+	var mordred: MordredBoss = _bosses.spawn_boss("mordred", 1) as MordredBoss
+	assert_eq(mordred.secret_earned(), "camlann")
+	GameAuthority.end_scene()
+	_start("the_land_between_the_rivers")
+	_as_hero("gilgamesh")
+	var humbaba: HumbabaBoss = _bosses.spawn_boss("humbaba", 0) as HumbabaBoss
+	for _i: int in 7:
+		humbaba.strip_radiance()
+	assert_eq(humbaba.secret_earned(), "", "Shamash must be bound too")
+
+
+func test_pack_2_secret_passives() -> void:
+	_start("the_land_between_the_rivers")
+	_player.passives["green_girdle"] = 1
+	GameAuthority.damage_player(_player, _player.max_hp * 5.0, "test")
+	assert_true(_player.alive, "the girdle keeps him from death")
+	assert_almost_eq(_player.hp, 1.0, 0.01)
+	_player.invulnerable_s = 0.0
+	GameAuthority.damage_player(_player, _player.max_hp * 5.0, "test")
+	assert_false(_player.alive, "but only once per level")
+	GameAuthority.end_scene()
+	_start("the_land_between_the_rivers")
+	_player.passives["pomegranate_seed"] = 2
+	_player.hp = 10.0
+	SecretPassives.on_boss_defeated()
+	assert_almost_eq(_player.hp, 10.0 + _player.max_hp * 0.12, 0.01, "6% per level after a boss")
+	_player.passives["plant_of_youth"] = 2
+	assert_almost_eq(SecretPassives.regen_pct(_player), 0.3, 0.001)
+	for secret: String in ["the_lulled_hound", "the_pomegranate", "the_brides_veil", "the_whetstone", "the_green_girdle",
+			"camlann", "the_plant_of_youth", "the_thirteen_winds"]:
+		var data: Dictionary = SecretRules.find(secret)
+		assert_false(data.is_empty(), secret)
+		var reward: Dictionary = data["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret + "'s passive exists")
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret + "'s cosmetic exists")

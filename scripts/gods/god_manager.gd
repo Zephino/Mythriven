@@ -185,7 +185,7 @@ func _process(delta: float) -> void:
 		# Co-op: on a joining player's device the meters come from the host.
 		if not player.alive or Net.is_client():
 			continue
-		var regen: float = float(player.god_flags.get("regen_pct_per_s", 0.0))
+		var regen: float = float(player.god_flags.get("regen_pct_per_s", 0.0)) + SecretPassives.regen_pct(player)
 		if regen > 0.0:
 			GameAuthority.heal_player(player, player.max_hp * regen / 100.0 * delta)
 		for slot: Dictionary in gods_of(player):

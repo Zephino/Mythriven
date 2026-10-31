@@ -692,7 +692,7 @@
     "arc_time_scale": 0.7, "enemy_speed_mult": 1.5, "spawn_mult": 1.5, "player_speed_mult": 1.25, "projectile_speed_mult": 1.25, "xp_mult": 1.25, "gold_mult": 1.5
   },
 
-  "secrets": { "_doc": "Secret conditions (GAME_DESIGN.md: Secret unlocks).", "beggar_king_s": 600, "fortune_gold": 777 },
+  "secrets": { "_doc": "Secret conditions (GAME_DESIGN.md: Secret unlocks).", "beggar_king_s": 600, "fortune_gold": 777, "plant_of_youth_serpents": 100 },
 
   "recap": { "_doc": "Death recap: 'most damage in the last N seconds'.", "recent_window_s": 10 },
 
@@ -704,7 +704,11 @@
       { "id": "golden_lion_pelt", "name_key": "COSMETIC_GOLDEN_LION_PELT", "color": "#ffd24a" },
       { "id": "golden_sun_aura", "name_key": "COSMETIC_GOLDEN_SUN_AURA", "color": "#ffb030" },
       { "id": "fortunes_wheel", "name_key": "COSMETIC_FORTUNES_WHEEL", "color": "#e8c860" },
-      { "id": "the_ford", "name_key": "COSMETIC_THE_FORD", "color": "#6ab0d8" }
+      { "id": "the_ford", "name_key": "COSMETIC_THE_FORD", "color": "#6ab0d8" },
+      { "id": "golden_lyre", "name_key": "COSMETIC_GOLDEN_LYRE", "color": "#f0d070" },
+      { "id": "bridal_veil", "name_key": "COSMETIC_BRIDAL_VEIL", "color": "#f4f0ea" },
+      { "id": "camlann", "name_key": "COSMETIC_CAMLANN", "color": "#a8283a" },
+      { "id": "cedar_wreath", "name_key": "COSMETIC_CEDAR_WREATH", "color": "#4a8a4a" }
     ]
   },
 

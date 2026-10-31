@@ -1025,7 +1025,8 @@
             "type": "object",
             "fields": {
               "beggar_king_s": "number",
-              "fortune_gold": "number"
+              "fortune_gold": "number",
+              "plant_of_youth_serpents": "number"
             }
           },
           "recap": {

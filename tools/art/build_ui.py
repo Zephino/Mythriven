@@ -95,7 +95,7 @@ ICON_PALETTE = {
     "b": "#6a4422", "B": "#4a2e16", "g": "#c89a3c", "G": "#8a6420", "y": "#f0cc58",
     "e": "#e8e0d0", "E": "#b8b0a0", "u": "#5a9ad8", "U": "#2a5a9a", "s": "#c8ccd4", "S": "#8a8e96",
     "r": "#e8c040", "R": "#b08a20", "l": "#4a8a30", "c": "#6a6a78", "C": "#44444e", "m": "#a8d8ff", "f": "#e2a676",
-    "F": "#b0724a", "q": "#d8e8f0",
+    "F": "#b0724a", "q": "#d8e8f0", "p": "#b02a3a", "P": "#701a26", "h": "#f0d8c8", "v": "#3a7a3a",
 }
 
 
@@ -249,9 +249,59 @@ def crit():
     return p
 
 
+def pomegranate():
+    """Pomegranate Seed (Persephone's pomegranate): a split pomegranate, its red seeds showing."""
+    p = icon()
+    for y in range(3, 15):
+        for x in range(16):
+            d = math.hypot(x - 7.5, (y - 9) * 1.1)
+            if d <= 6.0:
+                p.px(x, y, "P" if d > 4.6 else "h")
+    for x, y in ((6, 8), (8, 8), (7, 10), (9, 10), (5, 10), (6, 12), (8, 12), (7, 7)):
+        p.px(x, y, "p")
+    p.rect(6, 1, 9, 2, "P"); p.px(5, 1, "P"); p.px(10, 1, "P")          # the crown
+    return p
+
+
+def whetstone():
+    """Whetstone Shard (Hrungnir's whetstone, Skaldskaparmal 17): a grey shard of whetstone with a lightning spark."""
+    p = icon()
+    for k in range(10):
+        p.rect(3 + k // 2, 13 - k, 7 + k // 2, 13 - k, "c" if k % 3 else "C")
+    for x, y in ((12, 2), (11, 4), (13, 4), (12, 6), (11, 7)):
+        p.px(x, y, "y")
+    p.px(12, 4, "w")
+    return p
+
+
+def girdle():
+    """The Green Girdle (Sir Gawain and the Green Knight): a green silk girdle tied in a knot, gold at its ends."""
+    p = icon()
+    p.rect(1, 6, 14, 8, "l"); p.rect(1, 8, 14, 8, "v")
+    p.rect(6, 5, 9, 9, "v"); p.rect(7, 6, 8, 8, "l")
+    for k in range(5):
+        p.px(6 - k // 2, 10 + k, "l"); p.px(9 + k // 2, 10 + k, "v")
+    p.px(4, 14, "y"); p.px(11, 14, "y")
+    return p
+
+
+def plant():
+    """Plant of Youth (Epic of Gilgamesh, Tablet XI): a thorny sprig drawn up from the deep, with green leaves."""
+    p = icon()
+    p.rect(7, 4, 8, 15, "v")
+    for y, side in ((5, -1), (7, 1), (9, -1), (11, 1)):
+        for k in range(4):
+            p.px(7 + side * (k + 1) + (1 if side > 0 else 0), y - k // 2, "l")
+    for y in range(6, 14, 3):
+        p.px(6, y, "w"); p.px(9, y + 1, "w")                            # thorns
+    p.rect(6, 1, 9, 3, "l")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
-         "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand}
+         "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
+         "pomegranate_seed": pomegranate, "whetstone_shard": whetstone, "green_girdle": girdle, "plant_of_youth": plant}
 
 
 def outlined(p):

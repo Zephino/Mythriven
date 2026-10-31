@@ -17,8 +17,17 @@ func modify_hit(amount: float, attacker: Player, push: Vector2) -> float:
 	return super.modify_hit(amount if cracked_s > 0.0 else amount * float(_sig().get("stone_damage_mult", 0.25)), attacker, push)
 
 
+## The element of the latest hit (the Whetstone secret: the final blow is Lightning; Skaldskaparmal 17).
+var last_element: String = ""
+
+
+func secret_earned() -> String:
+	return "the_whetstone" if last_element == "lightning" else ""
+
+
 ## Lightning cracks the stone (called by GameAuthority when he's hit, through the element of the hit).
 func on_element_hit(element: String) -> void:
+	last_element = element
 	if element == "lightning":
 		_crack()
 

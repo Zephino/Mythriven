@@ -6,6 +6,9 @@ extends BossController
 
 ## Each {"player": id, "weapon": WeaponInstance, "left": seconds, "at": Vector2 (the hoard)}.
 var stolen: Array = []
+## Weapons the local Hero took back from the hoard themselves (the Bride's Veil secret: 3, then beat him; Thor won
+## back his hammer at Thrym's wedding, Thrymskvida).
+var taken_back: int = 0
 var _steal_in: float = -1.0
 
 
@@ -25,7 +28,13 @@ func signature(delta: float) -> void:
 		var player: Player = GameAuthority.player_by_id(int(entry["player"]))
 		var reached: bool = player != null and player.position.distance_to(entry["at"]) <= float(_sig().get("hoard_radius_px", 18.0)) + player.body_radius
 		if float(entry["left"]) <= 0.0 or reached:
+			if reached and player.is_local:
+				taken_back += 1
 			_give_back(entry)
+
+
+func secret_earned() -> String:
+	return "the_brides_veil" if taken_back >= int(_sig().get("veil_taken_back", 3)) else ""
 
 
 func _steal(player: Player) -> void:

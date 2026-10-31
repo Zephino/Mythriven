@@ -133,6 +133,9 @@ func _check_during_run(run: RunState) -> void:
 	_announce(AchievementRules.check(_context(run)))
 	if run.arc_s() >= Data.cfg_float("secrets.beggar_king_s") and tracker.gold_pickups == 0:
 		note_secret("the_beggar_king")
+	# The Plant of Youth: a serpent stole it from Gilgamesh (Tablet XI).
+	if int(tracker.family_kills.get("river_serpents", 0)) >= Data.cfg_int("secrets.plant_of_youth_serpents"):
+		note_secret("the_plant_of_youth")
 
 
 func _context(run: RunState) -> Dictionary:
@@ -171,6 +174,10 @@ func note_god_bound(god_id: String) -> void:
 	if not tracker.gods_bound.has(god_id):
 		tracker.gods_bound.append(god_id)
 	GodLevels.mark_bound(god_id)
+	# The Pomegranate: Hecate and Persephone both bound in one Underworld run (Homeric Hymn to Demeter).
+	if GameAuthority.run != null and str(GameAuthority.run.level_data.get("id", "")) == "the_underworld" \
+			and tracker.gods_bound.has("hecate") and tracker.gods_bound.has("persephone"):
+		note_secret("the_pomegranate")
 
 
 func note_resonance_fired(resonance_id: String) -> void:

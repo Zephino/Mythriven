@@ -209,6 +209,7 @@ func _on_defeated(controller: BossController) -> void:
 	var hero_id: String = str(controller.data.get("unlocks_hero", ""))
 	if hero_id != "" and HeroRules.unlock(hero_id):
 		Meta.note_unlock(tr("HERO_UNLOCKED") % tr(str(HeroRules.find(hero_id).get("name_key", ""))))
+	SecretPassives.on_boss_defeated()
 	Meta.note_boss_defeated(str(controller.data.get("enemy", boss_id)), index,
 			str(controller.call("secret_earned")) if controller.has_method("secret_earned") else "")
 	if index == 2 and unraveling != null:

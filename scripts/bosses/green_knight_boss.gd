@@ -5,6 +5,22 @@ extends BossController
 ## Source: Sir Gawain and the Green Knight.
 
 var headless: bool = false
+## Hits the local Hero took after he picked up his head (the Green Girdle secret: at most 1; Gawain was only nicked).
+var hits_after: int = 0
+
+
+func _ready() -> void:
+	super._ready()
+	GameAuthority.player_damaged.connect(_on_player_damaged)
+
+
+func _on_player_damaged(player: Player, _amount: float, _source_id: String) -> void:
+	if headless and player.is_local and is_alive():
+		hits_after += 1
+
+
+func secret_earned() -> String:
+	return "the_green_girdle" if headless and hits_after <= int(_sig().get("girdle_hits", 1)) else ""
 
 
 func _sig() -> Dictionary:

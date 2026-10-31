@@ -7,6 +7,26 @@ extends BossController
 ## Sources: Hesiod, Theogony 311; Apollodorus, Library 2.5.12 (three dogs' heads, a serpent's tail).
 
 
+## The Lulled Hound secret (as Orpheus, beat him without being hit by him; Ovid, Metamorphoses 10): true once he has
+## hurt the local Hero.
+var hurt_local: bool = false
+
+
+func _ready() -> void:
+	super._ready()
+	GameAuthority.player_damaged.connect(_on_player_damaged)
+
+
+func _on_player_damaged(player: Player, _amount: float, source_id: String) -> void:
+	if player.is_local and is_alive() and source_id.begins_with("cerberus"):
+		hurt_local = true
+
+
+func secret_earned() -> String:
+	var player: Player = GameAuthority.local_player()
+	return "the_lulled_hound" if player != null and str(player.hero.get("id", "")) == "orpheus" and not hurt_local else ""
+
+
 ## How many heads he still has: 3, then 2, then 1.
 func heads() -> int:
 	return clampi(3 - phase_index, 1, 3)

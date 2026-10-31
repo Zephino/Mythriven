@@ -20,7 +20,7 @@ static func damage(player: Player, amount: float, source_id: String, from: Vecto
 			return
 	player.hp -= dealt
 	GameAuthority.player_damaged.emit(player, dealt, source_id)
-	if player.hp <= 0.0:
+	if player.hp <= 0.0 and not SecretPassives.girdle_saves(player):
 		_fall(player, source_id)
 
 
@@ -29,7 +29,7 @@ static func damage_over_time(player: Player, amount: float) -> void:
 	if not GameAuthority.decides() or not player.alive or player.god_mode or (player.kit != null and player.kit.immune_to_dot()):
 		return
 	player.hp -= amount
-	if player.hp <= 0.0:
+	if player.hp <= 0.0 and not SecretPassives.girdle_saves(player):
 		_fall(player, "status")
 
 

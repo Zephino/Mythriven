@@ -1,5 +1,5 @@
 {
- "_doc": "Passive icons (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py. crit: Critical strike (the Crit Chance card): a blade's point striking a bright spark. belt_of_strength: Belt of Strength: a broad leather belt with a bronze buckle. winged_sandals: Winged Sandals (the winged sandals Hermes lends Perseus): a sandal with a white wing at the heel. hourglass: Hourglass: sand running through, in a wooden frame. seers_eye: Seer's Eye: a wide eye with a bright blue iris. lodestone: Lodestone: a dark magnetic stone drawing in specks of gold. bronze_aegis: Bronze Aegis: a round bronze shield with a boss. ferrymans_coin: Ferryman's Coin (the obol paid to Charon): a silver coin with an owl's eyes struck on it. golden_apple: Golden Apple: a golden apple with a leaf. votive_bell: Votive Bell: a small bronze temple bell. mirrored_shield: Mirrored Shield (Perseus' polished shield): a round shield polished bright, with a gleam. tyrs_oath: Tyr's Oath (Tyr's hand pledged in Fenrir's jaws): an open right hand, raised.",
+ "_doc": "Passive icons (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py. crit: Critical strike (the Crit Chance card): a blade's point striking a bright spark. belt_of_strength: Belt of Strength: a broad leather belt with a bronze buckle. winged_sandals: Winged Sandals (the winged sandals Hermes lends Perseus): a sandal with a white wing at the heel. hourglass: Hourglass: sand running through, in a wooden frame. seers_eye: Seer's Eye: a wide eye with a bright blue iris. lodestone: Lodestone: a dark magnetic stone drawing in specks of gold. bronze_aegis: Bronze Aegis: a round bronze shield with a boss. ferrymans_coin: Ferryman's Coin (the obol paid to Charon): a silver coin with an owl's eyes struck on it. golden_apple: Golden Apple: a golden apple with a leaf. votive_bell: Votive Bell: a small bronze temple bell. mirrored_shield: Mirrored Shield (Perseus' polished shield): a round shield polished bright, with a gleam. tyrs_oath: Tyr's Oath (Tyr's hand pledged in Fenrir's jaws): an open right hand, raised. pomegranate_seed: Pomegranate Seed (Persephone's pomegranate): a split pomegranate, its red seeds showing. whetstone_shard: Whetstone Shard (Hrungnir's whetstone, Skaldskaparmal 17): a grey shard of whetstone with a lightning spark. green_girdle: The Green Girdle (Sir Gawain and the Green Knight): a green silk girdle tied in a knot, gold at its ends. plant_of_youth: Plant of Youth (Epic of Gilgamesh, Tablet XI): a thorny sprig drawn up from the deep, with green leaves.",
  "size": [
   16,
   16
@@ -27,7 +27,11 @@
   "m": "#a8d8ff",
   "f": "#e2a676",
   "F": "#b0724a",
-  "q": "#d8e8f0"
+  "q": "#d8e8f0",
+  "p": "#b02a3a",
+  "P": "#701a26",
+  "h": "#f0d8c8",
+  "v": "#3a7a3a"
  },
  "frames": {
   "crit": [
@@ -268,6 +272,86 @@
     "..oFFFFFFFFFo...",
     "...oFFFFFFFo....",
     "...oFFFFFFFo...."
+   ]
+  ],
+  "pomegranate_seed": [
+   [
+    ".....oooooo.....",
+    "....oPPPPPPo....",
+    ".....oPPPPo.....",
+    "......oooo......",
+    "....ooPPPPoo....",
+    "...oPPPhhPPPo...",
+    "..oPPhhhhhhPPo..",
+    ".oPPhhhphhhhPPo.",
+    ".oPPhhphphhhPPo.",
+    ".oPhhhhhhhhhhPo.",
+    ".oPPhphphphhPPo.",
+    ".oPPhhhhhhhhPPo.",
+    "..oPPhphphhPPo..",
+    "...oPPPhhPPPo...",
+    "....ooPPPPoo....",
+    "......oooo......"
+   ]
+  ],
+  "whetstone_shard": [
+   [
+    "................",
+    "............o...",
+    "...........oyo..",
+    ".......ooooooo..",
+    "......oCCCCywyo.",
+    "......occcccoo..",
+    ".....occcccoyo..",
+    ".....oCCCCCyo...",
+    "....occcccoo....",
+    "....occccco.....",
+    "...oCCCCCo......",
+    "...occccco......",
+    "..occccco.......",
+    "..oCCCCCo.......",
+    "...ooooo........",
+    "................"
+   ]
+  ],
+  "green_girdle": [
+   [
+    "................",
+    "................",
+    "................",
+    "................",
+    "......oooo......",
+    ".ooooovvvvooooo.",
+    "olllllvllvlllllo",
+    "olllllvllvlllllo",
+    "ovvvvvvllvvvvvvo",
+    ".ooooovvvvooooo.",
+    ".....oloovo.....",
+    ".....oloovo.....",
+    "....olo..ovo....",
+    "....olo..ovo....",
+    "...oyo....oyo...",
+    "....o......o...."
+   ]
+  ],
+  "plant_of_youth": [
+   [
+    "......oooo......",
+    ".....ollllo.....",
+    ".....ollllo.....",
+    "...ooollllo.....",
+    "..olloovvo......",
+    "...oollvvo.oo...",
+    ".....owvvoollo..",
+    "...oo.ovvwloo...",
+    "..olloovvoo.....",
+    "...oolwvvo.oo...",
+    ".....oovvwollo..",
+    "......ovvlloo...",
+    ".....owvvoo.....",
+    "......ovvwo.....",
+    "......ovvo......",
+    "......ovvo......"
    ]
   ]
  }

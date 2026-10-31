@@ -110,5 +110,60 @@
       "secret": "tyrs_oath"
     },
     "persists": false
+  },
+  {
+    "id": "pomegranate_seed",
+    "name_key": "PASSIVE_POMEGRANATE_SEED_NAME",
+    "desc_key": "PASSIVE_POMEGRANATE_SEED_DESC",
+    "stat": "none",
+    "per_level": 0,
+    "max_level": 5,
+    "heal_pct_per_level": 6,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_pomegranate"
+    },
+    "persists": false
+  },
+  {
+    "id": "whetstone_shard",
+    "name_key": "PASSIVE_WHETSTONE_SHARD_NAME",
+    "desc_key": "PASSIVE_WHETSTONE_SHARD_DESC",
+    "stat": "crit",
+    "per_level": 0.02,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_whetstone"
+    },
+    "persists": false
+  },
+  {
+    "id": "green_girdle",
+    "name_key": "PASSIVE_GREEN_GIRDLE_NAME",
+    "desc_key": "PASSIVE_GREEN_GIRDLE_DESC",
+    "stat": "none",
+    "per_level": 0,
+    "max_level": 3,
+    "saved_invulnerable_s": 1.5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_green_girdle"
+    },
+    "persists": false
+  },
+  {
+    "id": "plant_of_youth",
+    "name_key": "PASSIVE_PLANT_OF_YOUTH_NAME",
+    "desc_key": "PASSIVE_PLANT_OF_YOUTH_DESC",
+    "stat": "none",
+    "per_level": 0,
+    "max_level": 5,
+    "regen_pct_per_s_per_level": 0.15,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_plant_of_youth"
+    },
+    "persists": false
   }
 ]
