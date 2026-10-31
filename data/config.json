@@ -64,6 +64,9 @@
   "heroes": {
     "_doc": "Hero select and Legend Trait visuals. Each Hero's own numbers are in heroes.json.",
     "select_columns": 2,
+    "compact_below_px": 1000,
+    "compact_list_px": 230,
+    "compact_portrait_scale": 1,
     "select_background": "#14121cf0",
     "menu_background": "#14121c",
     "labor_banner_s": 3.0,

@@ -74,6 +74,9 @@
             "type": "object",
             "fields": {
               "select_columns": "number",
+              "compact_below_px": "number",
+              "compact_list_px": "number",
+              "compact_portrait_scale": "number",
               "select_background": "string",
               "labor_banner_s": "number",
               "leap_shadow_color": "string",

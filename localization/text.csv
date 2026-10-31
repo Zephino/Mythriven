@@ -1201,3 +1201,5 @@ DEBUG_GO_GROVE,Go to the nearest hidden grove
 DEBUG_WENT_MOUNTAIN,At the foot of a mountain: walk up into the handholds to climb.
 DEBUG_WENT_GROVE,By a hidden grove: look for the glint and walk in between the trees.
 DEBUG_NONE_FOUND,None found nearby.
+UI_PLAY_AS,Play as %s
+UI_HERO_LOCKED,Locked

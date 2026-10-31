@@ -5,7 +5,8 @@ extends CanvasLayer
 ## their mastery; locked Heroes show how to unlock them. Picking one starts the
 ## run on the level chosen in level select, with the Omens switched on in the
 ## Hall of Legends. Color cycles the palettes mastery has unlocked; Back
-## returns to the menus. Keyboard, gamepad, and touch all work; the first Hero
+## returns to the menus. On phones and small windows the Heroes are a list
+## beside the picked one's card, with a big button to play as them. Keyboard, gamepad, and touch all work; the first Hero
 ## is focused when the screen opens.
 
 signal hero_chosen(hero_id: String)
@@ -13,40 +14,54 @@ signal back
 
 var _last_hero: String = ""
 var _palette: Button
+## The compact (phone) layout's card text and play button.
+var _detail: Label
+var _play: Button
 
 
 func _ready() -> void:
 	layer = 95
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	var touch: float = Data.cfg_float("ui.min_touch_target_px")
 	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(root)
 	root.add_child(MenuBackdrop.new())
 	# Contents stay clear of phone notches; the backdrop fills the whole screen. The cards sit in a framed panel in
-	# the middle (owner decision 10/31/2026: no full-width buttons).
+	# the middle (owner decision 10/31/2026: no full-width buttons), never wider than the screen.
 	var safe := SafeAreaBox.new()
 	root.add_child(safe)
 	var middle := HBoxContainer.new()
 	middle.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
 	middle.alignment = BoxContainer.ALIGNMENT_CENTER
 	safe.add_child(middle)
+	var room: float = get_viewport().get_visible_rect().size.x - margin_px * 4.0
 	var panel := PanelContainer.new()
-	panel.custom_minimum_size = Vector2(Data.cfg_float("ui.hero_select_width_px"), 0)
+	panel.custom_minimum_size = Vector2(minf(Data.cfg_float("ui.hero_select_width_px"), room), 0)
 	middle.add_child(panel)
-	var scroll := ScrollContainer.new()
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	panel.add_child(scroll)
 	var box := VBoxContainer.new()
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(box)
 	var title := Label.new()
 	title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	title.text = tr("UI_CHOOSE_HERO") + "  ·  " + run_line()
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	box.add_child(title)
+	# Phones and small windows (owner request 10/31/2026): a list of Heroes beside the chosen one's details.
+	if room < Data.cfg_float("heroes.compact_below_px"):
+		panel.add_child(box)
+		_build_compact(box)
+		return
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	panel.add_child(scroll)
+	scroll.add_child(box)
+	_build_cards(box)
+
+
+## The full cards, two to a row: portrait, tradition and role, stats, weapon, Legend Trait, passive, mastery.
+func _build_cards(box: VBoxContainer) -> void:
+	var touch: float = Data.cfg_float("ui.min_touch_target_px")
 	var grid := GridContainer.new()
 	grid.columns = Data.cfg_int("heroes.select_columns")
 	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -74,23 +89,97 @@ func _ready() -> void:
 		if not button.disabled:
 			buttons.append(button)
 	_link_focus(buttons, grid.columns)
+	_bottom_row(box, buttons, grid.columns)
+
+
+## The compact layout: a scrolling list of Heroes (portrait and name) on the left; the one picked shows its whole
+## card on the right, with a big button to play as them.
+func _build_compact(box: VBoxContainer) -> void:
+	var touch: float = Data.cfg_float("ui.min_touch_target_px")
+	var content := HBoxContainer.new()
+	content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(content)
+	var list_scroll := ScrollContainer.new()
+	list_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	list_scroll.custom_minimum_size = Vector2(Data.cfg_float("heroes.compact_list_px"), 0)
+	content.add_child(list_scroll)
+	var list := VBoxContainer.new()
+	list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	list_scroll.add_child(list)
+	var side := VBoxContainer.new()
+	side.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.add_child(side)
+	var detail_scroll := ScrollContainer.new()
+	detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	detail_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	side.add_child(detail_scroll)
+	_detail = Label.new()
+	_detail.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	detail_scroll.add_child(_detail)
+	_play = Button.new()
+	_play.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_play.custom_minimum_size = Vector2(0, touch)
+	_play.pressed.connect(func() -> void:
+		if _last_hero != "":
+			_on_pressed(_last_hero))
+	side.add_child(_play)
+	var buttons: Array[Control] = []
+	for hero: Dictionary in HeroRules.all():
+		var id: String = str(hero["id"])
+		var button := Button.new()
+		button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		button.text = TranslationServer.translate(str(hero.get("name_key", "")))
+		button.icon = UiTheme.portrait(PixelArt.find(id), Data.cfg_int("heroes.compact_portrait_scale"))
+		button.add_theme_constant_override("icon_max_width", 0)
+		button.custom_minimum_size = Vector2(0, touch)
+		button.pressed.connect(_show.bind(id))
+		button.focus_entered.connect(_show.bind(id))
+		list.add_child(button)
+		buttons.append(button)
+	_link_focus(buttons, 1)
+	_bottom_row(box, buttons, 1)
+	_show(str(HeroRules.all()[0]["id"]) if not HeroRules.all().is_empty() else "")
+
+
+## Shows a Hero's whole card in the compact layout, and what the big button does.
+func _show(hero_id: String) -> void:
+	var hero: Dictionary = HeroRules.find(hero_id)
+	if hero.is_empty() or _detail == null:
+		return
+	_remember(hero_id)
+	if HeroRules.is_unlocked(hero):
+		_detail.text = describe(hero) + "\n" + tr("UI_HERO_MASTERY") % Rewards.mastery(hero_id)
+		_play.text = tr("UI_PLAY_AS") % tr(str(hero.get("name_key", "")))
+		_play.disabled = false
+	else:
+		_detail.text = TranslationServer.translate(str(hero.get("name_key", ""))) + "\n" + unlock_text(hero)
+		_play.text = tr("UI_HERO_LOCKED")
+		_play.disabled = true
+
+
+## Leaderboard, Color and Back under the Heroes.
+func _bottom_row(box: VBoxContainer, buttons: Array[Control], columns: int) -> void:
+	var touch: float = Data.cfg_float("ui.min_touch_target_px")
 	var row := HBoxContainer.new()
 	row.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	box.add_child(row)
 	var board := Button.new()
 	board.text = "UI_LEADERBOARD"
-	board.custom_minimum_size = Vector2(touch * 3.0, touch)
+	board.custom_minimum_size = Vector2(touch * 2.4, touch)
 	board.pressed.connect(_on_view_board.bind(board))
 	row.add_child(board)
 	var palette := Button.new()
 	_palette = palette
 	palette.text = "UI_HERO_COLOR"
-	palette.custom_minimum_size = Vector2(touch * 3.0, touch)
+	palette.custom_minimum_size = Vector2(touch * 2.4, touch)
 	palette.pressed.connect(_on_palette)
 	row.add_child(palette)
 	var back_button := Button.new()
 	back_button.text = "UI_BACK"
-	back_button.custom_minimum_size = Vector2(touch * 3.0, touch)
+	back_button.custom_minimum_size = Vector2(touch * 2.4, touch)
 	back_button.pressed.connect(_on_back)
 	row.add_child(back_button)
 	board.focus_neighbor_right = board.get_path_to(palette)
@@ -99,7 +188,7 @@ func _ready() -> void:
 	back_button.focus_neighbor_left = back_button.get_path_to(palette)
 	# Down from the bottom row reaches the Leaderboard button; up or down from it returns to the Heroes.
 	for i: int in buttons.size():
-		if i + grid.columns >= buttons.size():
+		if i + columns >= buttons.size():
 			buttons[i].focus_neighbor_bottom = buttons[i].get_path_to(board)
 	if not buttons.is_empty():
 		board.focus_neighbor_top = board.get_path_to(buttons[0])

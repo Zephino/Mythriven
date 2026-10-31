@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.40
+Date: 10/31/2026
+Time: 11:49 AM
+
+### Changes
+- **Hero select fits phones.** On phones and small windows (less than 1000 px of room) the Heroes are a scrolling list of portraits and names on the left; tapping one shows their whole card on the right, with a big "Play as …" button under it. Before, the two columns of full cards ran off the right of the screen. On a PC the cards stay as they were, but the panel is never wider than the window.
+- New settings `heroes.compact_below_px`, `heroes.compact_list_px`, `heroes.compact_portrait_scale`.
+
+### Reason
+The owner said the character screen needs to be fixed for mobile devices.
+
 ## Version 00.02.39
 Date: 10/31/2026
 Time: 11:45 AM
