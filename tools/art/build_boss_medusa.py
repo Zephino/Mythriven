@@ -41,14 +41,21 @@ DY = 6   # everything sits 6 pixels down, leaving room above for her serpents
 
 
 def wings(c):
-    """Golden wings behind her, fanned feathers from the shoulder, each with a shadow edge."""
-    root = (19, 22 + DY)
-    for ang, length in [(200, 18), (215, 18), (230, 16), (245, 12)]:
-        tip = (root[0] + math.cos(math.radians(ang)) * length, root[1] + math.sin(math.radians(ang)) * length)
-        capsule(c, root, tip, 2.2, "u")
-    for ang, length in [(207, 16), (222, 16), (237, 13)]:
-        tip = (root[0] + math.cos(math.radians(ang)) * length, root[1] + math.sin(math.radians(ang)) * length)
-        capsule(c, (root[0] - 3, root[1] - 1), tip, 0.6, "U")
+    """A golden wing behind her, raised from the shoulder (owner 10/31/2026: the first, a fan of rods, didn't read as
+    a wing): an arched top edge, a band of small covert feathers, then long flight feathers hanging down in a row,
+    each with its own shadow line and a ragged tip."""
+    sx, sy = 19, 22 + DY
+    for x in range(3, sx + 1):
+        k = (sx - x) / (sx - 3)
+        top = round(sy - 20 * math.sin(math.pi / 2 * k))
+        bottom = round(top + 5 + 9 * k + (2 if x % 3 == 0 else 0))
+        for y in range(top, bottom + 1):
+            c.px(x, y, "u")
+        c.px(x, top + 3, "U")                                   # the edge of the covert feathers
+        if x % 3 == 1:
+            for y in range(top + 4, bottom + 1):
+                c.px(x, y, "U")                                 # a line between flight feathers
+        c.px(x, bottom, "U")
 
 
 def serpents(c):

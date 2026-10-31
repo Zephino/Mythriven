@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.86
+Date: 10/31/2026
+Time: 1:50 AM
+
+### Changes
+- **Medusa's golden wing redrawn** so it reads as a wing: raised from her shoulder with an arched top edge, a band of small feathers along it, and long flight feathers hanging down in a row, each with its own shadow line and a ragged tip. (Before, it was a fan of thick rods.)
+
+### Reason
+The owner asked what the yellow thing behind her was.
+
 ## Version 00.01.85
 Date: 10/31/2026
 Time: 1:48 AM
