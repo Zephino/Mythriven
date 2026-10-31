@@ -548,6 +548,7 @@
               "safe_zone_color": "string",
               "second_boss_arena_mult": "number",
               "petrified_color": "string",
+              "art_hit_flash": "number",
               "guard_break_color": "string",
               "rage_color": "string",
               "time_zone_color": "string",
@@ -571,7 +572,8 @@
                   "pulse_px": "number",
                   "pulse_hz": "number",
                   "body_outline_px": "number",
-                  "pointer_px": "number"
+                  "pointer_px": "number",
+                  "art_ring_mult": "number"
                 }
               },
               "post_color": "string",

@@ -58,6 +58,12 @@ static func build(data: Variant, colour: Color = Color(0, 0, 0, 0)) -> Dictionar
 	return art
 
 
+## A boss's art (data/art/bosses/<enemy id>.json), or {} while it has none
+## (its pooled circle is drawn instead).
+static func boss(enemy_id: String) -> Dictionary:
+	return find("bosses/" + enemy_id) if enemy_id != "" else {}
+
+
 ## The picture of the weapon the Hero uses most, to draw in their hand: the
 ## highest level among their weapons that have one (on a tie, the one they got
 ## first, so a Hero starts with their signature weapon). Spells have no

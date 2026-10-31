@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.85
+Date: 10/31/2026
+Time: 1:48 AM
+
+### Changes
+- **Bosses can have pixel-art sprites.** A boss with art is drawn as its picture instead of a coloured circle: bigger than the Heroes, facing the way it moves, walking while it moves, flashing white when hit and tinted by statuses. The red marker ring now goes round the whole picture. Bosses without art keep their circle for now.
+- **Medusa's sprite**, from Pseudo-Apollodorus (Bibliotheca 2.4.2: heads twined with serpents, great tusks like a boar's, hands of bronze, wings of gold) and Ovid (Metamorphoses 4, snakes for hair):
+  - writhing green serpents for hair, each with its own dark edge and eye;
+  - golden feathered wings; bronze clawed hands; a tusk at her mouth; pallid skin;
+  - a dark short chiton with a gold border, as archaic Greek vase paintings and temple reliefs show her; sandals; 4 walking frames.
+- `docs/ART_RULES.md`: a Bosses section. New settings `bosses.art_hit_flash` and `bosses.marker.art_ring_mult`; a test checks every boss art file.
+
+### Reason
+The owner asked to do the bosses next (then the gods), and is OK with boss sprites being bigger than normal so they look better.
+
 ## Version 00.01.84
 Date: 10/31/2026
 Time: 1:42 AM

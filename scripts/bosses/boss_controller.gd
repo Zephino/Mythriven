@@ -38,6 +38,9 @@ var _charge_delay: float = 0.0
 var _charge_left: float = 0.0
 var _charge_speed: float = 0.0
 var _was_alive: bool = false
+## Distance walked, for the walking frames of the boss's art.
+var _stride: float = 0.0
+var _last_at := Vector2.INF
 
 
 func _ready() -> void:
@@ -237,9 +240,35 @@ func _draw() -> void:
 	if not is_alive():
 		return
 	var at: Vector2 = position_now() - global_position
+	var art: Dictionary = PixelArt.boss(str(data.get("enemy", "")))
+	if not art.is_empty():
+		_draw_art(art, at)
 	if broken_s > 0.0:
 		draw_arc(at, GameAuthority.enemies.radius[slot] + 6.0, 0.0, TAU, 24, Color.html(Data.cfg_string("bosses.guard_break_color")), 3.0)
-	draw_line(at, at + facing * (GameAuthority.enemies.radius[slot] + 6.0), Color.WHITE, 2.0)
+	if art.is_empty():
+		draw_line(at, at + facing * (GameAuthority.enemies.radius[slot] + 6.0), Color.WHITE, 2.0)
+
+
+## The boss's pixel art (docs/ART_RULES.md: Bosses) in place of its circle: feet
+## at the bottom of its body, facing the way it moves, walking while it moves,
+## flashing when hit and tinted by statuses like the circle was.
+func _draw_art(art: Dictionary, at: Vector2) -> void:
+	var enemies: EnemyManager = GameAuthority.enemies
+	var now: Vector2 = position_now()
+	var moved: float = 0.0 if _last_at == Vector2.INF else now.distance_to(_last_at)
+	_last_at = now
+	_stride += moved
+	var tint := Color.WHITE
+	var status: Color = enemies.statuses.tint(slot)
+	if status.a > 0.0:
+		tint = tint.lerp(status, Data.cfg_float("enemies.status_tint_strength"))
+	if enemies.flash_timer[slot] > 0.0:
+		tint = Color(Data.cfg_float("bosses.art_hit_flash"), Data.cfg_float("bosses.art_hit_flash"), Data.cfg_float("bosses.art_hit_flash"))
+	var anchor: Vector2 = art["anchor"]
+	var left: bool = facing.x < 0.0
+	draw_set_transform(at, 0.0, Vector2(-1.0 if left else 1.0, 1.0))
+	draw_texture(PixelArt.frame(art, moved > 0.05, _stride), Vector2(-anchor.x, enemies.radius[slot] - anchor.y), tint)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
 # --- Co-op (BossManager's CoopMirror) ------------------------------------------------------

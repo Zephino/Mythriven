@@ -13,11 +13,12 @@ WALK = [(10, 16), STANCE, (12, 14), STANCE]   # left foot forward, together, rig
 
 
 class Canvas:
-    def __init__(self):
-        self.g = [["." for _ in range(W)] for _ in range(H)]
+    def __init__(self, w=W, h=H):
+        self.w, self.h = w, h
+        self.g = [["." for _ in range(w)] for _ in range(h)]
 
     def px(self, x, y, c):
-        if 0 <= x < W and 0 <= y < H:
+        if 0 <= x < self.w and 0 <= y < self.h:
             self.g[y][x] = c
 
     def rect(self, x0, y0, x1, y1, c):
@@ -31,9 +32,9 @@ class Canvas:
     def outline(self):
         """A dark outline (o) round every filled pixel; returns the rows."""
         fill = [r[:] for r in self.g]
-        for y in range(H):
-            for x in range(W):
-                if fill[y][x] == "." and any(0 <= x + dx < W and 0 <= y + dy < H and fill[y + dy][x + dx] != "."
+        for y in range(self.h):
+            for x in range(self.w):
+                if fill[y][x] == "." and any(0 <= x + dx < self.w and 0 <= y + dy < self.h and fill[y + dy][x + dx] != "."
                                              for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
                     self.g[y][x] = "o"
         return ["".join(r) for r in self.g]
@@ -73,5 +74,23 @@ def build(hero_id, draw, palette, doc, out_dir=None, recolor=None):
            "recolor": list(recolor or []), "frames": {"idle": [idle], "walk": walk}}
     out_dir = out_dir or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art")
     with open(os.path.join(out_dir, hero_id + ".json"), "w") as f:
+        json.dump(art, f, indent=1)
+    return art
+
+
+def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs):
+    """A boss's art (bigger than a Hero, drawn on its own canvas): draw(canvas, legs) draws one frame for each entry
+    of walk_legs (the first is the standing pose). Writes data/art/bosses/<boss_id>.json."""
+    def frame(legs):
+        c = Canvas(*size)
+        draw(c, legs)
+        return c.outline()
+    idle = frame(walk_legs[0])
+    walk = [frame(legs) for legs in walk_legs[1:]]
+    art = {"_doc": doc, "size": list(size), "anchor": list(anchor), "palette": palette,
+           "frames": {"idle": [idle], "walk": walk}}
+    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "bosses")
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, boss_id + ".json"), "w") as f:
         json.dump(art, f, indent=1)
     return art

@@ -244,6 +244,25 @@ func test_hero_pixel_art_files_are_well_formed() -> void:
 			assert_false(HeroRules.find(file.get_basename()).is_empty(), file + " is named after a Hero")
 		checked += 1
 	assert_gt(checked, 0)
+	for file: String in DirAccess.get_files_at(PixelArt.ART_DIR + "bosses"):
+		if not file.ends_with(".json"):
+			continue
+		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PixelArt.ART_DIR + "bosses/" + file))
+		assert_true(data is Dictionary, "bosses/" + file + " is JSON")
+		var size: Array = data["size"]
+		for frame_name: String in (data["frames"] as Dictionary):
+			for rows: Variant in data["frames"][frame_name]:
+				assert_eq((rows as Array).size(), int(size[1]), "bosses/%s %s: every frame is %d rows" % [file, frame_name, size[1]])
+				for row: Variant in rows:
+					assert_eq(str(row).length(), int(size[0]), "bosses/%s: every row is %d pixels" % [file, size[0]])
+					for letter: String in str(row):
+						assert_true(letter == "." or (data["palette"] as Dictionary).has(letter), "bosses/%s: '%s' is in the palette" % [file, letter])
+		assert_false(PixelArt.boss(file.get_basename()).is_empty(), "bosses/" + file + " loads")
+		var named_after_boss: bool = false
+		for enemy: Variant in Data.get_file(EnemyManager.ENEMIES_FILE):
+			if str(enemy.get("id", "")) == file.get_basename() and bool(enemy.get("boss", false)):
+				named_after_boss = true
+		assert_true(named_after_boss, "bosses/" + file + " is named after a boss")
 	var art: Dictionary = PixelArt.find("heracles")
 	assert_false(art.is_empty(), "Heracles has art")
 	assert_eq((art["frames"]["walk"] as Array).size(), 4, "a four-frame walk")

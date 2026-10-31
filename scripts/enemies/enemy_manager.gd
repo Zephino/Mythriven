@@ -51,6 +51,8 @@ var _multimesh: MultiMesh
 var _type_speed := PackedFloat32Array()
 var _type_color: Array[Color] = []
 var _type_movement := PackedInt32Array()
+## Types drawn by their own node (a boss with art: BossController draws it), so the pooled circle is hidden.
+var _type_drawn_elsewhere := PackedByteArray()
 ## Co-op on a joining player's device (see above; EnemyRemote does the following).
 var remote: bool = false:
 	set(value):
@@ -73,6 +75,7 @@ func setup() -> void:
 		_type_movement.append(EnemyMovement.code_of(str(entry.get("movement", "chaser"))))
 		var element_id: String = str(entry.get("element", ""))
 		_type_color.append(Elements.color(element_id) if element_id != "" else Color.html(str(entry["placeholder_color"])))
+		_type_drawn_elsewhere.append(1 if bool(entry.get("boss", false)) and not PixelArt.boss(str(entry["id"])).is_empty() else 0)
 	active.resize(capacity)
 	positions.resize(capacity)
 	knockback.resize(capacity)
@@ -285,4 +288,6 @@ func _draw_instances(delta: float) -> void:
 		if flash_timer[i] > 0.0:
 			flash_timer[i] -= delta
 			color = flash_color
+		if _type_drawn_elsewhere[kind[i]] == 1:
+			color.a = 0.0
 		_multimesh.set_instance_color(i, color)
