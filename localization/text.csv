@@ -2178,3 +2178,39 @@ BANTER_BROCKEN_SPECTRE_ENTRANCE,(A giant shape in the mist moves when you move.)
 BANTER_BAUBO_ENTRANCE,"Make way! Old Baubo rides alone, and the whole crowd after her!"
 BANTER_BLACK_ANNIS_ENTRANCE,I dug my bower with these claws. I'll dig you out of yours.
 BANTER_BLACK_ANNIS_HECATE,A queen of witches? On my hill there's only one.
+SECRET_NOTHING_TO_EAT_NAME,Nothing to Eat
+SECRET_NOTHING_TO_EAT_DESC,Defeat Eurynomos before he devours 10 monsters. A bone-white aura.
+SECRET_NOTHING_TO_EAT_HINT,He grows fat on the fallen; give him nothing to eat.
+SECRET_LAST_HORN_NAME,The Last Horn
+SECRET_LAST_HORN_DESC,Defeat the Wild Hunt before it rides 8 times. Adds the Hunter's Horn passive.
+SECRET_LAST_HORN_HINT,The horns blew all night long at Peterborough; end the hunt before dawn.
+SECRET_MOON_BLOCKED_NAME,The Moon Blocked
+SECRET_MOON_BLOCKED_DESC,Defeat Varney without letting him rise again: stand over him while he lies in the moonlight. A moonlight aura.
+SECRET_MOON_BLOCKED_HINT,The moon gives him back his life. Stand between them.
+SECRET_LAURAS_CHARM_NAME,Laura's Charm
+SECRET_LAURAS_CHARM_DESC,Defeat Carmilla without her bite ever landing on you. Adds the Pedlar's Charm passive.
+SECRET_LAURAS_CHARM_HINT,"The pedlar sold charms against the oupire; be charmed, and never bitten."
+SECRET_KINGS_MERCY_NAME,The King's Mercy
+SECRET_KINGS_MERCY_DESC,Give Bisclavret back his clothes twice before you defeat him. A wolf-grey aura.
+SECRET_KINGS_MERCY_HINT,The king was kind to the gentle wolf; be kind more than once.
+SECRET_OUT_OF_THE_UNDERGROWTH_NAME,Out of the Undergrowth
+SECRET_OUT_OF_THE_UNDERGROWTH_DESC,Defeat the Beast of Gévaudan without a single pounce landing on you. Adds the Wolf's Tooth passive.
+SECRET_OUT_OF_THE_UNDERGROWTH_HINT,"Watch where the undergrowth stirs, and never be there."
+SECRET_GLORY_NAME,The Glory
+SECRET_GLORY_DESC,Defeat the Brocken Spectre within 60 s of its coming. A glory of rainbow light.
+SECRET_GLORY_HINT,It is only your own shadow; walk straight through the mist to meet it.
+SECRET_EMPTY_BOWER_NAME,The Empty Bower
+SECRET_EMPTY_BOWER_DESC,Defeat Black Annis before she goes back to her bower a third time. Adds the Iron Claw passive.
+SECRET_EMPTY_BOWER_HINT,She hides in her bower to mend. Don't give her the time.
+PASSIVE_HUNTERS_HORN_NAME,Hunter's Horn
+PASSIVE_HUNTERS_HORN_DESC,+4% move speed per level.
+PASSIVE_MOUNTEBANKS_CHARM_NAME,Pedlar's Charm
+PASSIVE_MOUNTEBANKS_CHARM_DESC,+1 Armor per level.
+PASSIVE_WOLF_TOOTH_NAME,Wolf's Tooth
+PASSIVE_WOLF_TOOTH_DESC,+4% weapon area per level.
+PASSIVE_IRON_CLAW_NAME,Iron Claw
+PASSIVE_IRON_CLAW_DESC,+4% damage per level.
+COSMETIC_BONE_WHITE,Bone White
+COSMETIC_MOONLIGHT,Moonlight
+COSMETIC_WOLF_GREY,Wolf Grey
+COSMETIC_GLORY,Glory

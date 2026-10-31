@@ -256,3 +256,49 @@ func test_black_annis_goes_home_heals_and_springs() -> void:
 		annis.signature(0.1)
 	assert_eq(annis.springs, 1)
 	assert_lt(_player.hp, hp, "her claws")
+
+
+func test_pack_5_boss_secrets() -> void:
+	_start("erebus")
+	var eater: EurynomosBoss = _bosses.spawn_boss("eurynomos", 1) as EurynomosBoss
+	assert_eq(eater.secret_earned(), "nothing_to_eat")
+	eater.devoured = 10
+	assert_eq(eater.secret_earned(), "", "he ate too well")
+	var hunt: WildHuntBoss = _bosses.spawn_boss("wild_hunt", 2) as WildHuntBoss
+	assert_eq(hunt.secret_earned(), "the_last_horn")
+	hunt.rides = 8
+	assert_eq(hunt.secret_earned(), "")
+	GameAuthority.end_scene()
+	_start("the_brocken")
+	var baubo: WildHuntBoss = _bosses.spawn_boss("baubo", 1) as WildHuntBoss
+	assert_eq(baubo.secret_earned(), "", "Baubo shares the ride, not the secret")
+	var spectre: BrockenSpectreBoss = _bosses.spawn_boss("brocken_spectre", 0) as BrockenSpectreBoss
+	assert_eq(spectre.secret_earned(), "the_glory")
+	spectre.age = 61.0
+	assert_eq(spectre.secret_earned(), "")
+	var annis: BlackAnnisBoss = _bosses.spawn_boss("black_annis", 2) as BlackAnnisBoss
+	assert_eq(annis.secret_earned(), "the_empty_bower")
+	GameAuthority.end_scene()
+	_start("karnstein")
+	var varney: VarneyBoss = _bosses.spawn_boss("varney", 0) as VarneyBoss
+	assert_eq(varney.secret_earned(), "", "not yet beaten that way")
+	varney.finished = true
+	assert_eq(varney.secret_earned(), "the_moon_blocked")
+	var carmilla: CarmillaBoss = _bosses.spawn_boss("carmilla", 2) as CarmillaBoss
+	assert_eq(carmilla.secret_earned(), "lauras_charm")
+	carmilla.appear_beside(_player)
+	assert_eq(carmilla.secret_earned(), "", "bitten")
+	GameAuthority.end_scene()
+	_start("ossory")
+	var wolf: BisclavretBoss = _bosses.spawn_boss("bisclavret", 0) as BisclavretBoss
+	wolf.turned = 2
+	assert_eq(wolf.secret_earned(), "the_kings_mercy")
+	var beast: GevaudanBoss = _bosses.spawn_boss("gevaudan", 2) as GevaudanBoss
+	assert_eq(beast.secret_earned(), "out_of_the_undergrowth")
+	for secret: String in ["nothing_to_eat", "the_last_horn", "the_moon_blocked", "lauras_charm", "the_kings_mercy",
+			"out_of_the_undergrowth", "the_glory", "the_empty_bower"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)

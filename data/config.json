@@ -736,7 +736,11 @@
       { "id": "sea_foam", "name_key": "COSMETIC_SEA_FOAM", "color": "#8ac0d8" },
       { "id": "rainbow", "name_key": "COSMETIC_RAINBOW", "color": "#c890f0" },
       { "id": "red_lantern", "name_key": "COSMETIC_RED_LANTERN", "color": "#d8302a" },
-      { "id": "many_threads", "name_key": "COSMETIC_MANY_THREADS", "color": "#9a6ad0" }
+      { "id": "many_threads", "name_key": "COSMETIC_MANY_THREADS", "color": "#9a6ad0" },
+      { "id": "bone_white", "name_key": "COSMETIC_BONE_WHITE", "color": "#ece6d8" },
+      { "id": "moonlight", "name_key": "COSMETIC_MOONLIGHT", "color": "#c8d8f8" },
+      { "id": "wolf_grey", "name_key": "COSMETIC_WOLF_GREY", "color": "#8a8a90" },
+      { "id": "glory", "name_key": "COSMETIC_GLORY", "color": "#d8c8f0" }
     ]
   },
 

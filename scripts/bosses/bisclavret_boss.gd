@@ -80,3 +80,8 @@ func _draw() -> void:
 	draw_arc(at, 18.0, 0.0, TAU, 24, Color(1, 1, 1, 0.5), 1.0)
 	if _held > 0.0:
 		draw_arc(at, 18.0, -PI / 2, -PI / 2 + TAU * _held / float(_sig().get("restore_s", 1.5)), 24, Color(1.0, 0.9, 0.5), 2.0)
+
+
+## The King's Mercy secret: he was given his clothes back at least twice.
+func secret_earned() -> String:
+	return "the_kings_mercy" if turned >= 2 else ""

@@ -2,6 +2,27 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.89
+Date: 10/31/2026
+Time: 7:47 PM
+
+### Changes
+- **Eight Pack 5 secrets**, two for each Gothic Night realm (`docs/PACK_5_PLAN.md`):
+  - **Nothing to Eat:** beat Eurynomos before he devours 10 monsters. A bone-white aura.
+  - **The Last Horn:** beat the Wild Hunt before it rides 8 times. The **Hunter's Horn** passive (+4% move speed per level).
+  - **The Moon Blocked:** beat Varney without letting him rise again (stand over him while he lies in the moonlight). A moonlight aura.
+  - **Laura's Charm:** beat Carmilla without her bite ever landing on you. The **Pedlar's Charm** passive (+1 Armor per level, up to 3).
+  - **The King's Mercy:** give Bisclavret his clothes back twice, then beat him. A wolf-grey aura.
+  - **Out of the Undergrowth:** beat the Beast of Gévaudan without a single pounce landing on you. The **Wolf's Tooth** passive (+4% weapon area per level).
+  - **The Glory:** beat the Brocken Spectre within 60 s of its coming. A glory of rainbow light.
+  - **The Empty Bower:** beat Black Annis before she goes back to her bower a third time. The **Iron Claw** passive (+4% damage per level).
+- Four new passive icons (a hunting horn, a pedlar's charm, a wolf's tooth, iron claws).
+- The secrets are on the lore check (their Oracle hints are original drafts). **Pack 5 is complete.**
+- 1 new test (352 tests pass).
+
+### Reason
+Every level gets two secrets; this finishes Pack 5 (owner: "program all 9 packs 1 at a time").
+
 ## Version 00.02.88
 Date: 10/31/2026
 Time: 7:42 PM

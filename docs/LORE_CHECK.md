@@ -478,6 +478,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | black_annis_entrance | boss entrance | black_annis | I dug my bower with these claws. I'll dig you out of yours. | Leicestershire folklore (her claws dug the cave) | no |
 | black_annis_hecate | boss meets god (with hecate) | black_annis | A queen of witches? On my hill there's only one. | Original line written for Mythriven | no |
 
+### Pack 5 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| nothing_to_eat | Nothing to Eat | He grows fat on the fallen; give him nothing to eat. | Pausanias 10.28.7 (Eurynomos eats the flesh of the dead) | no |
+| the_last_horn | The Last Horn | The horns blew all night long at Peterborough; end the hunt before dawn. | The Anglo-Saxon Chronicle for 1127 (the hunt's horns heard all night) | no |
+| the_moon_blocked | The Moon Blocked | The moon gives him back his life. Stand between them. | Rymer and Prest, Varney the Vampire (the moon revives him) | no |
+| lauras_charm | Laura's Charm | The pedlar sold charms against the oupire; be charmed, and never bitten. | Le Fanu, Carmilla, ch. 5 (the pedlar's charms against the oupire) | no |
+| the_kings_mercy | The King's Mercy | The king was kind to the gentle wolf; be kind more than once. | Marie de France, Bisclavret (the king gives him back his clothes) | no |
+| out_of_the_undergrowth | Out of the Undergrowth | Watch where the undergrowth stirs, and never be there. | French newspapers of 1764-67 (the Beast sprang from cover) | no |
+| the_glory | The Glory | It is only your own shadow; walk straight through the mist to meet it. | Silberschlag (1780): the ring of coloured light round the Brocken spectre | no |
+| the_empty_bower | The Empty Bower | She hides in her bower to mend. Don't give her the time. | Leicestershire folklore (Black Annis' Bower in the Dane Hills) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

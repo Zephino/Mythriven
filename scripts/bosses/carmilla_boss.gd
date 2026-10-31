@@ -6,6 +6,8 @@ extends BossController
 ## J. Sheridan Le Fanu, Carmilla (1872), chapter 6 and on.
 
 var as_cat: bool = false
+## Laura's Charm secret: her bite never lands on the local Hero.
+var bit_local: bool = false
 var visits: int = 0
 var _mist_in: float = 5.0
 var _mist_s: float = 0.0
@@ -53,6 +55,8 @@ func appear_beside(player: Player) -> void:
 		if other.alive and other.position.distance_to(at) <= float(_sig().get("bite_radius_px", 50.0)) + other.body_radius:
 			GameAuthority.damage_player(other, float(_sig().get("bite_damage", 10.0)), str(data.get("id", "")), at)
 			other.statuses.apply("poison")
+			if other.is_local:
+				bit_local = true
 	if effects != null:
 		effects.spawn_ring(at, float(_sig().get("bite_radius_px", 50.0)), Color(0.6, 0.1, 0.2), true)
 
@@ -61,3 +65,7 @@ func _draw() -> void:
 	super._draw()
 	if _mist_s > 0.0 and is_alive():
 		draw_circle(position_now() - global_position, 30.0, Color(0.9, 0.9, 0.95, 0.35 * _mist_s / 0.6))
+
+
+func secret_earned() -> String:
+	return "lauras_charm" if not bit_local else ""

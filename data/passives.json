@@ -295,5 +295,57 @@
       "secret": "the_last_thread"
     },
     "persists": false
+  },
+  {
+    "id": "hunters_horn",
+    "name_key": "PASSIVE_HUNTERS_HORN_NAME",
+    "desc_key": "PASSIVE_HUNTERS_HORN_DESC",
+    "stat": "move_speed",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_last_horn"
+    },
+    "persists": false
+  },
+  {
+    "id": "mountebanks_charm",
+    "name_key": "PASSIVE_MOUNTEBANKS_CHARM_NAME",
+    "desc_key": "PASSIVE_MOUNTEBANKS_CHARM_DESC",
+    "stat": "armor",
+    "per_level": 1,
+    "max_level": 3,
+    "unlock": {
+      "type": "secret",
+      "secret": "lauras_charm"
+    },
+    "persists": false
+  },
+  {
+    "id": "wolf_tooth",
+    "name_key": "PASSIVE_WOLF_TOOTH_NAME",
+    "desc_key": "PASSIVE_WOLF_TOOTH_DESC",
+    "stat": "area",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "out_of_the_undergrowth"
+    },
+    "persists": false
+  },
+  {
+    "id": "iron_claw",
+    "name_key": "PASSIVE_IRON_CLAW_NAME",
+    "desc_key": "PASSIVE_IRON_CLAW_DESC",
+    "stat": "might",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_empty_bower"
+    },
+    "persists": false
   }
 ]

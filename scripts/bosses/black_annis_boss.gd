@@ -10,6 +10,8 @@ extends BossController
 var state: String = "out"
 var bower := Vector2.INF
 var springs: int = 0
+## The Empty Bower secret: how many times she has gone home (beaten before the third).
+var homes: int = 0
 var _left: float = -1.0
 var _spring_to := Vector2.ZERO
 
@@ -38,6 +40,7 @@ func signature(delta: float) -> void:
 		"out":
 			if _left <= 0.0:
 				state = "home"
+				homes += 1
 				_left = float(_sig().get("home_s", 4.0))
 		"home":
 			enemies.positions[slot] = enemies.positions[slot].move_toward(bower, float(_sig().get("run_px_s", 260.0)) * delta)
@@ -82,3 +85,7 @@ func _draw() -> void:
 		draw_circle(Vector2.ZERO, 22.0, Color(0.04, 0.03, 0.03, 0.95))
 		draw_set_transform(Vector2.ZERO)
 	super._draw()
+
+
+func secret_earned() -> String:
+	return "the_empty_bower" if homes < 3 else ""

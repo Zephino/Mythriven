@@ -23,3 +23,9 @@ func loose_hounds() -> void:
 	var at: Vector2 = position_now()
 	for _k: int in int(_sig().get("hounds", 3)):
 		GameAuthority.spawn_enemy(str(_sig().get("hound", "hunt_hound")), at + Vector2.from_angle(rng.randf() * TAU) * rng.randf_range(30.0, 60.0))
+
+
+## The Last Horn secret (the Wild Hunt only; Baubo has none): beaten before it rides `secret_max_rides` times.
+func secret_earned() -> String:
+	var secret: String = str(_sig().get("secret", ""))
+	return secret if secret != "" and rides < int(_sig().get("secret_max_rides", 8)) else ""

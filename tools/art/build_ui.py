@@ -400,13 +400,55 @@ def loose_thread():
     return p
 
 
+def hunters_horn():
+    """Hunter's Horn (the Wild Hunt: the horns heard all night, the Anglo-Saxon Chronicle 1127): a curved hunting horn."""
+    p = icon()
+    for k in range(11):
+        w = 1 + k // 4
+        y = 11 - round(4 * math.sin(k / 10 * math.pi))
+        p.rect(2 + k, y - w // 2, 2 + k, y + w // 2, "y" if k % 4 else "G")
+    p.rect(12, 5, 14, 12, "g")
+    return p
+
+
+def pedlar_charm():
+    """Pedlar's Charm (Carmilla, ch. 5: the hunchbacked pedlar's charms against the oupire): a little rolled paper
+    charm on a cord."""
+    p = icon()
+    for k in range(6):
+        p.px(4 + k, 2 + k // 2, "B")
+    p.rect(7, 5, 11, 13, "e"); p.rect(7, 5, 11, 5, "E"); p.rect(7, 13, 11, 13, "E")
+    p.rect(8, 8, 10, 9, "p")
+    return p
+
+
+def wolf_tooth():
+    """Wolf's Tooth (the Beast of Gevaudan): a long white fang."""
+    p = icon()
+    for y in range(2, 15):
+        w = max(0, 3 - (y - 2) // 4)
+        p.rect(8 - w, y, 8 + w // 2, y, "e")
+    p.rect(5, 2, 10, 3, "E")
+    return p
+
+
+def iron_claw():
+    """Iron Claw (Black Annis): three long curved iron claws."""
+    p = icon()
+    for k in range(3):
+        for t in range(10):
+            p.px(3 + k * 4 + t // 4, 3 + t, "s" if t < 7 else "S")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
          "pomegranate_seed": pomegranate, "whetstone_shard": whetstone, "green_girdle": girdle, "plant_of_youth": plant,
          "elk_skis": skis, "white_div_blood": div_blood, "firebird_feather": feather, "oeyama_sake": sake,
          "laevateinn_shard": flame_blade, "yggdrasil_dew": dew, "golden_key": golden_key, "roc_feather": roc_feather,
-         "sun_crow_feather": crow_feather, "loose_thread": loose_thread}
+         "sun_crow_feather": crow_feather, "loose_thread": loose_thread,
+         "hunters_horn": hunters_horn, "mountebanks_charm": pedlar_charm, "wolf_tooth": wolf_tooth, "iron_claw": iron_claw}
 
 
 def outlined(p):

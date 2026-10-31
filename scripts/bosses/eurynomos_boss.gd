@@ -43,3 +43,8 @@ func devour() -> int:
 		if effects != null:
 			effects.spawn_ring(at, reach, Color(0.35, 0.5, 0.75), true)
 	return eaten
+
+
+## Nothing to Eat secret: beaten before he has devoured `secret_max_devoured` monsters.
+func secret_earned() -> String:
+	return "nothing_to_eat" if devoured < int(_sig().get("secret_max_devoured", 10)) else ""

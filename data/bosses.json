@@ -4564,7 +4564,8 @@
       "devour_every_s": 5.0,
       "devour_radius_px": 90,
       "devour_max": 6,
-      "heal_fraction_each": 0.01
+      "heal_fraction_each": 0.01,
+      "secret_max_devoured": 10
     },
     "phases": [
       {
@@ -4648,7 +4649,9 @@
       "foam_slow": 0.6,
       "foam_color": "#8a9ab8",
       "hounds": 3,
-      "hound": "hunt_hound"
+      "hound": "hunt_hound",
+      "secret": "the_last_horn",
+      "secret_max_rides": 8
     },
     "phases": [
       {
@@ -5204,7 +5207,8 @@
     },
     "signature": {
       "type": "shadow_in_the_mist",
-      "glide_px_s": 220
+      "glide_px_s": 220,
+      "secret_s": 60.0
     },
     "phases": [
       {

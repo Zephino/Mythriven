@@ -6,6 +6,14 @@ extends BossController
 ## first description of the giant shadows seen from the Brocken.
 
 
+## The Glory secret: seconds since it came (beaten within secret_s).
+var age: float = 0.0
+
+
+func secret_earned() -> String:
+	return "the_glory" if age <= float(_sig().get("secret_s", 60.0)) else ""
+
+
 func _sig() -> Dictionary:
 	return data.get("signature", {})
 
@@ -17,6 +25,7 @@ func mirror_point(of: Vector2) -> Vector2:
 
 
 func signature(delta: float) -> void:
+	age += delta
 	if not is_alive() or target == null or not is_instance_valid(target):
 		return
 	var enemies: EnemyManager = GameAuthority.enemies

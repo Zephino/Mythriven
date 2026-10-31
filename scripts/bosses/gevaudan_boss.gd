@@ -10,6 +10,8 @@ extends BossController
 var state: String = "open"
 var pounce_at := Vector2.INF
 var pounces: int = 0
+## Out of the Undergrowth secret: no pounce ever lands on the local Hero.
+var caught_local: bool = false
 var _left: float = -1.0
 
 
@@ -58,6 +60,8 @@ func pounce() -> void:
 	for player: Player in GameAuthority.players:
 		if player.alive and player.position.distance_to(pounce_at) <= reach + player.body_radius:
 			GameAuthority.damage_player(player, float(_sig().get("pounce_damage", 22.0)), str(data.get("id", "")), pounce_at)
+			if player.is_local:
+				caught_local = true
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
 		effects.spawn_ring(pounce_at, reach, Color(0.7, 0.3, 0.15), true)
@@ -75,3 +79,7 @@ func _draw() -> void:
 		for k: int in 7:
 			var leaf: Vector2 = at + Vector2.from_angle(k * 0.9 + Time.get_ticks_msec() * 0.01) * reach * (0.3 + 0.08 * k)
 			draw_line(leaf, leaf + Vector2(0, -6), Color(0.3, 0.5, 0.2), 2.0)
+
+
+func secret_earned() -> String:
+	return "out_of_the_undergrowth" if not caught_local else ""

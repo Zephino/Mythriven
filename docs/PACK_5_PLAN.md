@@ -100,3 +100,17 @@ that Hex whoever they hit (weaker armour and damage for a while).
 | 10:00 | **The Brocken Spectre** | The giant shadow seen in the Brocken's mist (Silberschlag, 1780). It always stands opposite you across the arena, like a shadow: walk toward the middle to reach it |
 | 20:00 | **Baubo** | "Old Baubo comes alone; she rides a farrow sow" (Faust). She charges on her sow and calls witches after her |
 | 30:00 | **Black Annis** (the design's) | The blue-faced hag with iron claws who dug her bower in the Dane Hills. She hides in her bower to heal, then springs out at the nearest Hero; her claws make wounds that bleed (Poison) |
+
+## Secrets (00.02.89, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Erebus | Nothing to Eat | Beat Eurynomos before he devours 10 monsters | Bone-white aura |
+| Erebus | The Last Horn | Beat the Wild Hunt before it rides 8 times | Hunter's Horn passive (+4% move speed per level) |
+| Karnstein | The Moon Blocked | Beat Varney without letting him rise again | Moonlight aura |
+| Karnstein | Laura's Charm | Beat Carmilla without her bite landing on you | Pedlar's Charm passive (+1 Armor per level, 3 levels) |
+| Ossory | The King's Mercy | Give Bisclavret his clothes back twice, then beat him | Wolf-grey aura |
+| Ossory | Out of the Undergrowth | Beat the Beast of Gévaudan without a pounce landing on you | Wolf's Tooth passive (+4% area per level) |
+| The Brocken | The Glory | Beat the Brocken Spectre within 60 s | Glory aura |
+| The Brocken | The Empty Bower | Beat Black Annis before she goes home a third time | Iron Claw passive (+4% damage per level) |
+
+**Pack 5 is complete.**

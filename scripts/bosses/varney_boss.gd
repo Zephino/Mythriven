@@ -80,3 +80,8 @@ func _draw() -> void:
 	var reach: float = float(_sig().get("block_radius_px", 34.0))
 	draw_circle(at, reach, Color(0.85, 0.9, 1.0, 0.18))
 	draw_arc(at, reach, 0.0, TAU, 32, Color(0.9, 0.95, 1.0, 0.7), 1.5)
+
+
+## The Moon Blocked secret: he never rose again.
+func secret_earned() -> String:
+	return "the_moon_blocked" if finished and not risen else ""
