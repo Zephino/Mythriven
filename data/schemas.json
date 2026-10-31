@@ -118,6 +118,7 @@
               "max_visual_effects": "number",
               "attack_effect_s": "number",
               "swing_s": "number",
+              "bolt_height_px": "number",
               "default_color": "string",
               "min_reaction_ring_px": "number"
             }

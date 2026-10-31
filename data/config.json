@@ -99,6 +99,7 @@
     "max_visual_effects": 64,
     "attack_effect_s": 0.18,
     "swing_s": 0.22,
+    "bolt_height_px": 90,
     "default_color": "#ffffffa0",
     "min_reaction_ring_px": 20
   },

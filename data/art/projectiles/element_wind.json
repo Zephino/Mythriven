@@ -1,0 +1,59 @@
+{
+ "_doc": "Spell picture for the wind element (docs/ART_RULES.md: Spells), built by tools/art/build_spells.py. Breeze: a gust of wind, curling lines in a ring (it spins as it flies).",
+ "size": [
+  17,
+  19
+ ],
+ "palette": {
+  "o": "#24160e",
+  "q": "#c83018",
+  "f": "#ff9030",
+  "F": "#ffe070",
+  "W": "#fffbe0",
+  "i": "#d8f0ff",
+  "I": "#88b8d8",
+  "j": "#4a88b8",
+  "y": "#fff6a0",
+  "Y": "#ffd040",
+  "l": "#a8c8ff",
+  "w": "#e8f4f0",
+  "v": "#a8d0c8",
+  "h": "#fffbe0",
+  "H": "#ffe070",
+  "u": "#f0c040",
+  "d": "#4a3060",
+  "D": "#2a1840",
+  "p": "#9a6ac8",
+  "b": "#7ac0e8",
+  "B": "#3a80c0",
+  "c": "#d8f0ff",
+  "e": "#9a7a50",
+  "E": "#6a5034",
+  "g": "#b89a6a"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....oooo.o......",
+    "...oowwwwowoo....",
+    "..owwowvvoowwo...",
+    "...owwooovvvowo..",
+    "..owoo...ooovwwo.",
+    ".owo........oooo.",
+    ".owo..........owo",
+    "owoo..........owo",
+    "owovo.....o....o.",
+    "owvvo....owo.....",
+    "owovo....owo.....",
+    ".owvwo..oowo.....",
+    ".owowwoowwo....o.",
+    "..owwowwwo....owo",
+    "...owoooo.....ovo",
+    "....o........ovo.",
+    "...........oovo..",
+    "..........ovvo...",
+    "...........oo...."
+   ]
+  ]
+ }
+}

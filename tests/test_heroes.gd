@@ -236,6 +236,14 @@ func test_thrown_weapons_and_shots_fly_as_pictures() -> void:
 	var javelin: WeaponInstance = GameAuthority.give_weapon(player, "javelin")
 	ProjectilePattern.new(ProjectileManager.FLIGHT).fire(javelin, player, {"direction": Vector2.RIGHT}, _combat)
 	assert_false(projectiles._art[0].is_empty(), "the javelin flies as its picture")
+	# Spells fly as their element's picture (owner request 10/31/2026).
+	var elements: Dictionary = (Data.get_file("elements.json") as Dictionary)["elements"]
+	for element: String in elements:
+		if element != "physical":
+			assert_false(PixelArt.find("projectiles/element_" + element).is_empty(), element + " has a spell picture")
+	var ember: WeaponInstance = GameAuthority.give_weapon(player, "ember")
+	ProjectilePattern.new(ProjectileManager.FLIGHT).fire(ember, player, {"direction": Vector2.RIGHT}, _combat)
+	assert_eq(projectiles._art[1], PixelArt.find("projectiles/element_fire"), "Ember flies as a fireball")
 	for weapon: Dictionary in Data.get_file("weapons.json"):
 		var picture: String = str(weapon.get("projectile_art", ""))
 		if picture != "":

@@ -9,6 +9,8 @@ extends Node2D
 const FLIGHT := 0
 const BOOMERANG := 1
 const ORBIT := 2
+## Element pictures that spin as they fly (degrees/s); the rest point along their flight.
+const ELEMENT_SPIN_DEG_S := {"wind": 720.0, "holy": 240.0, "dark": 300.0, "earth": 540.0}
 
 var enemies: EnemyManager
 ## For the Gáe Bolg's barbs (a thrown spear's kills burst into barbs).
@@ -105,9 +107,17 @@ func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vecto
 	_multimesh.set_instance_color(i, color)
 	if not _art[i].is_empty():
 		_pictures -= 1
+	# Its own picture (weapons.json projectile_art), else its element's: spells fly as fireballs, ice shards,
+	# bolts, gusts, motes of light (owner request 10/31/2026; data/art/projectiles/element_<element>.json).
 	var picture: String = str(weapon.data.get("projectile_art", ""))
-	_art[i] = PixelArt.find("projectiles/" + picture) if picture != "" and flight_kind != ORBIT else {}
-	_spin[i] = deg_to_rad(float(weapon.data.get("projectile_spin_deg_s", 0.0)))
+	var spin: float = float(weapon.data.get("projectile_spin_deg_s", 0.0))
+	if picture == "" and _element[i] != "physical":
+		picture = "element_" + _element[i]
+		spin = float(ELEMENT_SPIN_DEG_S.get(_element[i], 0.0))
+	_art[i] = PixelArt.find("projectiles/" + picture) if picture != "" else {}
+	if flight_kind == ORBIT and spin == 0.0:
+		spin = 240.0
+	_spin[i] = deg_to_rad(spin)
 	if not _art[i].is_empty():
 		_pictures += 1
 

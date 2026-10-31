@@ -11,4 +11,4 @@ func fire(weapon: WeaponInstance, player: Player, _aim: Dictionary, combat: Comb
 	var lifesteal: float = float(settings.get("lifesteal_hp", 0.0))
 	if hits > 0 and lifesteal > 0.0:
 		GameAuthority.heal_player(player, lifesteal * hits)
-	combat.effects.spawn_ring(player.position, aura_radius, combat.effect_color(weapon))
+	combat.effects.spawn_aura(player.position, aura_radius, Elements.color(weapon.element()))

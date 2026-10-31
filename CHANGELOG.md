@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.17
+Date: 10/31/2026
+Time: 3:32 AM
+
+### Changes
+- **Spells look like what they are** instead of coloured orbs:
+  - Ember flies as a fireball with streaming flames; Frost as pointed ice shards; Breeze as a spinning gust of wind; Runo Song's verses as a fireball, an ice shard and a lightning bolt in turn; Glimmer's lights as spinning motes of holy light with four rays.
+  - Spark and Tempest call a jagged lightning bolt down from the sky onto each spot they strike, with a flash where it lands.
+  - Shade and Oblivion show wisps of shadow swirling round the Hero each time they hit.
+  - Every element has a picture (fire, ice, lightning, wind, holy, dark, water, earth), so infused shots and later spells fly as their element too. Built by `tools/art/build_spells.py`; new setting `effects.bolt_height_px`.
+- `docs/ART_RULES.md`: a Spells section. A test checks every element has a spell picture and that Ember flies as a fireball.
+
+### Reason
+The owner asked to work on the spells next (and for the full sprite sheet to show all the walking frames too).
+
 ## Version 00.02.16
 Date: 10/31/2026
 Time: 3:24 AM
