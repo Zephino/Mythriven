@@ -52,6 +52,11 @@ func ally_attack_speed_bonus(_ally: Player) -> float:
 	return 0.0
 
 
+## Multiplier on this Hero's knockback (Beowulf: the strength of thirty men).
+func knockback_mult() -> float:
+	return 1.0
+
+
 ## Damage multiplier for one of this Hero's weapons.
 func damage_mult(_weapon: WeaponInstance) -> float:
 	return 1.0

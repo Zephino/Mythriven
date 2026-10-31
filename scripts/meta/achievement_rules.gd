@@ -58,6 +58,14 @@ static func met(condition: Dictionary, context: Dictionary) -> bool:
 					and int(context.get("omens", 0)) >= int(condition.get("omens", 0))
 		"kills_run":
 			return float(context.get("kills", 0)) >= need
+		"family_kills_run":
+			# Kills of some families in one run, on one level (Beowulf: giants and trolls in Jotunheim).
+			if condition.has("level_id") and str(context.get("level_id", "")) != str(condition["level_id"]):
+				return false
+			var total: int = 0
+			for family: Variant in condition.get("families", []):
+				total += int((context.get("family_kills", {}) as Dictionary).get(str(family), 0))
+			return total >= need
 		"level_run":
 			return float(context.get("level", 0)) >= need
 		"kills_total", "elites_total", "runs", "gold_banked_total", "bosses_total":

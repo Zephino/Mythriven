@@ -110,6 +110,10 @@ static func recolour(original: Color, colour: Color) -> Color:
 
 ## One weapon's picture (an evolved weapon uses its base weapon's until it has its own), or {}.
 static func weapon_art(weapon: WeaponInstance) -> Dictionary:
+	# A weapon that changes at a level (Beowulf's bare hands become the giant-made sword at level 8).
+	var change: Dictionary = weapon.data.get("art_at_level", {})
+	if not change.is_empty() and weapon.level >= int(change.get("level", 99)):
+		return find("weapons/" + str(change.get("art", "")))
 	var art: Dictionary = find("weapons/" + weapon.id())
 	if art.is_empty():
 		art = find("weapons/" + str(weapon.data.get("evolved_from", "")))

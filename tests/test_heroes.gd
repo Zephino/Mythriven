@@ -693,10 +693,10 @@ func test_orpheus_charms_monsters_into_turning_on_each_other() -> void:
 	orpheus.kit._process(0.01)
 	assert_eq(_enemies.charmed[a], 1, "his song charms the monsters round him")
 	var hp_before: float = _enemies.hp[b]
-	orpheus.kit._strike_in = 0.0
 	_enemies.charmed[b] = 0
-	orpheus.kit._process(0.01)
+	_enemies._charm_strike_in = 0.0
+	_enemies._tick_charms(0.01)
 	assert_lt(_enemies.hp[b], hp_before, "a charmed monster strikes another")
-	orpheus.kit._process(10.0)
+	_enemies._tick_charms(10.0)
 	assert_eq(_enemies.charmed[a], 0, "the charm wears off")
 	GameAuthority.remove_player(orpheus)

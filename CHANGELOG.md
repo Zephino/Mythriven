@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.62
+Date: 10/31/2026
+Time: 2:05 PM
+
+### Changes
+- **Groundwork for the rest of Pack 2** (no change to how the game plays):
+  - Charming a monster is now shared by the whole game (Orpheus' song uses it, and the gods of the next levels will). A charmed monster does no harm to Heroes and turns on the monsters next to it. New settings `enemies.charm_strike_*`.
+  - Each run counts kills by monster family, and achievements can ask for kills of certain families on a certain level (Beowulf's unlock).
+  - A weapon can change its picture at a set level (Beowulf's bare hands become the giant-made sword).
+  - A Hero can hit with more knockback (Beowulf's passive).
+
+### Reason
+The owner asked to finish Pack 2. These shared pieces come first, then Jotunheim, Avalon's Shadow and the Land Between the Rivers, one at a time.
+
 ## Version 00.02.61
 Date: 10/31/2026
 Time: 2:01 PM

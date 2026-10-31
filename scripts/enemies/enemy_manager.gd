@@ -65,8 +65,12 @@ var _type_drawn_elsewhere := PackedByteArray()
 var drawn_elsewhere := PackedByteArray()
 ## Slots that don't move or act for now (1): the enemies outside while the party is in a shrine's dungeon.
 var asleep := PackedByteArray()
-## 1 while charmed by Orpheus' song: it does no harm to Heroes and turns on the monsters round it.
+## 1 while charmed (Orpheus' song, Freyja's summon): it does no harm to Heroes and turns on the monsters round it.
 var charmed := PackedByteArray()
+## Seconds of charm left, and the id of the Hero it fights for (kills count as theirs).
+var charm_left := PackedFloat32Array()
+var charmed_by := PackedInt32Array()
+var _charm_strike_in: float = 0.0
 ## Co-op on a joining player's device (see above; EnemyRemote does the following).
 var remote: bool = false:
 	set(value):
@@ -105,6 +109,8 @@ func setup() -> void:
 	drawn_elsewhere.resize(capacity)
 	asleep.resize(capacity)
 	charmed.resize(capacity)
+	charm_left.resize(capacity)
+	charmed_by.resize(capacity)
 	statuses = EnemyStatuses.new(capacity)
 	movement = EnemyMovement.new(capacity)
 	elites = EliteState.new(capacity)
@@ -171,6 +177,7 @@ func spawn(type_id: String, at: Vector2) -> int:
 	drawn_elsewhere[slot] = 0
 	asleep[slot] = 0
 	charmed[slot] = 0
+	charm_left[slot] = 0.0
 	_face_left[slot] = 0
 	_last_x[slot] = at.x
 	_stride[slot] = 0.0
@@ -295,7 +302,44 @@ func _process(delta: float) -> void:
 		_status_timer += step
 		statuses.tick(step, active, GameAuthority.hits.damage_over_time)
 	EnemyCrowd.contact(self, delta)
+	_tick_charms(delta)
 	_draw_instances(delta)
+
+
+## Charms a monster for `seconds` (never a boss): it fights for `player` (performance.charm_* settings).
+func charm(slot: int, seconds: float, player: Player) -> void:
+	if active[slot] == 0 or bool(types[kind[slot]].get("boss", false)):
+		return
+	charmed[slot] = 1
+	charm_left[slot] = maxf(charm_left[slot], seconds)
+	charmed_by[slot] = player.player_id if player != null else -1
+
+
+## Charmed monsters count down, and every so often each strikes a monster next to it for twice its own contact
+## damage (as Orpheus' song turned beasts on each other).
+func _tick_charms(delta: float) -> void:
+	_charm_strike_in -= delta
+	var striking: bool = _charm_strike_in <= 0.0
+	if striking:
+		_charm_strike_in = Data.cfg_float("enemies.charm_strike_every_s")
+	var reach: float = Data.cfg_float("enemies.charm_strike_reach_px")
+	var mult: float = Data.cfg_float("enemies.charm_strike_mult")
+	for i: int in capacity:
+		if active[i] == 0 or charmed[i] == 0:
+			continue
+		charm_left[i] -= delta
+		if charm_left[i] <= 0.0:
+			charmed[i] = 0
+			continue
+		if not striking:
+			continue
+		var damage: float = float(types[kind[i]].get("contact_damage", 0.0)) * mult
+		if damage <= 0.0:
+			continue
+		for other: int in query(positions[i], reach + max_radius()):
+			if other != i and charmed[other] == 0 and positions[other].distance_to(positions[i]) <= reach:
+				GameAuthority.damage_enemy(other, damage, GameAuthority.player_by_id(charmed_by[i]), Vector2.ZERO, "physical", 0.0)
+				break
 
 
 func nearest_player(from: Vector2) -> Player:

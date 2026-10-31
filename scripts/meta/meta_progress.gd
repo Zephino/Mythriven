@@ -137,7 +137,7 @@ func _check_during_run(run: RunState) -> void:
 
 func _context(run: RunState) -> Dictionary:
 	return {"arc_s": run.arc_s(), "kills": run.kills, "level": run.level, "swift": run.swift, "omens": run.omens.size(),
-		"level_id": str(run.level_data.get("id", ""))}
+		"level_id": str(run.level_data.get("id", "")), "family_kills": tracker.family_kills}
 
 
 # --- Events from the run -------------------------------------------------------------
@@ -149,6 +149,8 @@ func _on_player_damaged(player: Player, amount: float, source_id: String) -> voi
 
 func _on_enemy_killed(_slot: int, enemy_type: Dictionary, _at: Vector2, _killer: Player) -> void:
 	Bestiary.count_kill(str(enemy_type.get("id", "")))
+	var family: String = str(enemy_type.get("family", ""))
+	tracker.family_kills[family] = int(tracker.family_kills.get(family, 0)) + 1
 	SaveGame.add_stat("kills_total", 1.0)
 
 

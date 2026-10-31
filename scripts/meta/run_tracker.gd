@@ -13,6 +13,8 @@ var gods_bound: PackedStringArray = []
 var resonances_fired: PackedStringArray = []
 var bosses_defeated: PackedStringArray = []
 var elites_killed: int = 0
+## Kills this run by monster family (Beowulf's unlock counts giants and trolls).
+var family_kills: Dictionary = {}
 var gold_pickups: int = 0
 var petrified: bool = false
 var labors_done: int = 0
