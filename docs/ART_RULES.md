@@ -109,6 +109,9 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 - Icons (`data/art/ui/icons.json`): one per passive, from its name or source (Hermes' winged sandals, the obol paid to Charon, Perseus' polished shield, Tyr's hand), plus crit. Level-up cards show the weapon's picture (a spell's flying picture), the passive's icon, the icon of the passive that raises the same stat, a coin for gold and ambrosia for healing, all centred on a square at `ui.icon_px`.
 - Hero select shows each Hero's picture (`ui.portrait_scale`); the title screen shows the unlocked Heroes standing in a row (`ui.title_hero_scale`); the god buttons show their gods; the banter bubble shows the speaker over their colour.
 
+## Dungeons
+- The Ancient Ruins' dungeon has its own parts, unlike any shrine (`data/art/dungeon/ruins.json`, built by `tools/art/build_dungeon_parts.py`): three kinds of cracked and mossy flagstones, a wall of dark stone blocks broken off at the top, a snapped pillar, a stone dais, a torch in an iron bracket, rubble, a skull and bones, a broken urn and cobwebs (one is picked for each spot), small debris scattered on the corridor floors, and the ruined stairway that leads down from the world. Same shape as the shrine sets, so the same generator builds with them (`scripts/world/ruins_dungeon.gd` on `scripts/gods/shrine_dungeon.gd`). The vault's treasure is the big gold-bound chest.
+
 ## Statuses
 - Enemies show their statuses as small marks over their picture (`scripts/enemies/enemy_status_marks.gd`): flames (Burn), frost specks (Chill, more with more stacks), a block of ice (Frozen), sparks (Shock), drips (Soaked), rising bubbles (Poison, more with more stacks), a halo (Smite), a dark swirl (Hex), circling stars (Stun). Only enemies on screen, up to `enemies.status_marks_max`. The status colour tints the picture lightly (`enemies.art_status_tint`) so the marks and the art both show.
 

@@ -747,6 +747,7 @@ Each god is also a **divine infusion** source (see Weapons) and has a **Divine L
 - **Hidden shrines** also appear as world POIs (see World) and favor uncommon/rare gods.
 - When found, the god speaks one short line written for our game (e.g. Thor: "Show me your strength, little hero.").
 - **Shrine dungeons** *(owner decisions, 10/31/2026)*: the shrine in the world is an entrance built from its people's architecture. Standing in its doorway takes the party inside (in co-op every standing player must be at the doorway together, or it can't start). While the party is inside, **the run outside pauses**: the clock, enemies, spawns, hazards and bosses all stop. The dungeon is built at random (sometimes a twisting maze, sometimes wide halls with loops, different sizes). **Monsters of the level spawn in its corridors** (no elites or bosses), and walls stop them too, **until someone reaches the god's throne room**: then the rest are banished and none come in with the god. Nothing spawns outside meanwhile; the enemies outside wait where they were. *(Changed 10/31/2026, owner decision: was no monsters inside at all.)* At its far end is the god's throne room, where the god sits on their throne or walks about inside it. Standing at the altar binds a peaceful god; a trial god's trial then starts outside at the shrine. Either way the party is **warped back out** to where they went in; walking back out of the entrance also leaves.
+- **Ruins dungeons** *(owner decision, 10/31/2026)*: the Ancient Ruins work the same way as shrine dungeons (gather at the stairway, the run outside pauses, a random maze, the level's monsters in its corridors, walls stop everyone, no monsters in the end room), but they're built from their own set of parts (an old, crumbling underground ruin rather than a temple) and the end room is a treasure vault. Touching the chest on its dais warps the party out and offers the Ruins' gift.
 
 ### Shrine types
 
@@ -1059,7 +1060,7 @@ Each regional level generates endlessly from chunks around the player, and a sec
 | POI | What happens | Risk | Reward | Scope |
 | --- | --- | --- | --- | --- |
 | Hidden Shrine | An extra shrine, often uncommon/rare gods | Usually a trial | A god | \[Launch\] |
-| Ancient Ruins | Stand in the circle 10 s while spawns spike ×3 | Getting surrounded | Choose: weapon/passive level, heal, or gold | \[Launch\] |
+| Ancient Ruins | A crumbling stairway down into a dungeon: fight through its monsters to the treasure vault and open the chest *(owner decision 10/31/2026; was: stand in the circle 10 s while spawns spike ×3)* | Getting surrounded in the corridors | Choose: weapon/passive level, heal, or gold | \[Launch\] |
 | Dragon's Hoard | Guarded treasure; kill 50 enemies within its radius to break the seal | Time spent fighting in place | Chest (evolution-eligible) + gold | \[Launch\] |
 | Monster's Lair | 3 elites with guards (a labyrinth-like ring of walls) | Very dangerous | Big chest + gold | \[Launch\] |
 | Wandering Trader | Sells items for your **run gold** | Spending gold you'd otherwise bank | Rerolls, heals, weapon levels, meter fills | \[Launch\] |

@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.26
+Date: 10/31/2026
+Time: 10:00 AM
+
+### Changes
+- **The Ancient Ruins are now dungeons.** In the world they're a ruined stone stairway going down. Gather at it (in co-op, everyone standing must be there together) and you go in; the run outside pauses, just like the shrine dungeons.
+- **A new set of dungeon pictures** for them, separate from the shrines: cracked and mossy flagstones, broken dark stone walls, snapped pillars, a stone dais, torches, rubble, skulls and bones, broken urns, cobwebs, and small debris scattered along the corridors.
+- Inside: a random maze that fills with the level's monsters until you reach the **treasure vault** at the far end, lit by torches. Touching the chest takes you back out and gives the Ruins' gift choice (a weapon or passive level, a heal, or gold) as before.
+- Fixed while building it: with two ruins on screen, the farther one kept resetting the gathering timer.
+- `GAME_DESIGN.md` (World discoveries; Finding gods) updated with dated notes (owner decision). New `tools/art/build_dungeon_parts.py`, `scripts/world/ruins_dungeon.gd`; the shrine dungeon's end room and its parts can now be swapped. Rules in `docs/ART_RULES.md` (Dungeons).
+
+### Reason
+The owner wanted the Ancient Ruins (a ring of columns) to look better and be a dungeon, with a new set of sprites for the dungeon generator.
+
 ## Version 00.02.25
 Date: 10/31/2026
 Time: 9:54 AM

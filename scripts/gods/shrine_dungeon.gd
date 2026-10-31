@@ -179,7 +179,7 @@ func gather_progress() -> float:
 
 func enter(at_shrine: Dictionary) -> void:
 	shrine = at_shrine
-	_plan = plan(int(shrine.get("seed", 0)), str(shrine["god"].get("pantheon", "")))
+	_plan = plan(int(shrine.get("seed", 0)), "")
 	walkable = _plan["walk"]
 	_origin = Vector2(shrine["pos"]) + Vector2(0, -Data.cfg_float("gods.dungeon_offset_px"))
 	active = true
@@ -355,15 +355,21 @@ func _process(delta: float) -> void:
 				_banish()
 				break
 	_spawn_inside(delta)
+	for player: Player in GameAuthority.players:
+		if player.alive and _exit_tiles().has(_tile_of(player.position)):
+			leave()
+			return
+	_goal(delta)
+
+
+## What waits at the far end. Here: the god's altar, where standing binds a peaceful god or starts a trial outside.
+func _goal(delta: float) -> void:
 	var altar: Vector2 = altar_position()
 	var reach: float = Data.cfg_float("gods.shrine_radius_px")
 	var kind: String = str((shrine["god"].get("shrine", {}) as Dictionary).get("type", "peaceful"))
 	for player: Player in GameAuthority.players:
 		if not player.alive:
 			continue
-		if _exit_tiles().has(_tile_of(player.position)):
-			leave()
-			return
 		if player.position.distance_to(altar) > reach + player.body_radius:
 			_bind_s.erase(player.player_id)
 			continue
@@ -450,7 +456,7 @@ func _tile_center(tile: Vector2i) -> Vector2:
 func _draw() -> void:
 	if not active:
 		return
-	var parts: Dictionary = PixelArt.find("shrines/" + str(shrine["god"].get("pantheon", "")))
+	var parts: Dictionary = PixelArt.find(_parts_id())
 	var art: Dictionary = PixelArt.god(str(shrine.get("god_id", "")))
 	if parts.is_empty():
 		return
@@ -466,6 +472,15 @@ func _draw() -> void:
 	var shade := Color.html(Data.cfg_string("gods.dungeon_floor_tint"))
 	for t: Vector2i in walkable:
 		draw_texture(floor_frames[(t.x * 7 + t.y * 3) % floor_frames.size()], _origin + Vector2(t) * TILE, shade)
+	# Sets with debris scatter a little on the corridor floors (the same every time for this dungeon).
+	if frames.has("debris"):
+		var bits: Array = frames["debris"]
+		var salt: int = int(shrine.get("seed", 0))
+		for t: Vector2i in walkable:
+			var roll: int = absi((t.x * 73856093) ^ (t.y * 19349663) ^ salt)
+			if roll % 7 == 0:
+				var bit: ImageTexture = bits[roll % bits.size()]
+				draw_texture(bit, _origin + Vector2(t) * TILE + Vector2(roll % 7, (roll / 7) % 9), shade)
 	# The throne room's floor, walls, altar, throne and god (ShrineLayout), drawn round its altar.
 	var items: Array = []
 	for tile: Array in room["floor"]:
@@ -490,9 +505,20 @@ func _draw() -> void:
 			"god":
 				PixelArt.draw_standing(self, art, at, bool(walk["left"]), Color.WHITE, true, float(walk["stride"]))
 			_:
-				var texture: ImageTexture = (frames[str(item["part"])] as Array)[0]
+				# Parts with several pictures (the ruins' rubble, bones, urns) pick one by where they stand.
+				var pictures: Array = frames[str(item["part"])]
+				var texture: ImageTexture = pictures[absi(int(at.x * 3.0 + at.y * 7.0)) % pictures.size()]
 				draw_texture(texture, at - Vector2(texture.get_width() * 0.5, texture.get_height()))
-	# The altar's binding ring, filling as the party stands at it.
+	_draw_goal()
+
+
+## The parts this dungeon is built from.
+func _parts_id() -> String:
+	return "shrines/" + str(shrine["god"].get("pantheon", ""))
+
+
+## Drawn over the room: the altar's binding ring, filling as the party stands at it.
+func _draw_goal() -> void:
 	var color := Color.html(str(shrine["god"].get("placeholder_color", "#ffffff")))
 	var most: float = 0.0
 	for value: Variant in _bind_s.values():

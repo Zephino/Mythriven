@@ -31,6 +31,7 @@ var resonance: ResonanceManager
 var infusion_choice: InfusionChoiceScreen
 var shrines: Shrines
 var dungeon: ShrineDungeon
+var ruins_dungeon: RuinsDungeon
 var trial: GodTrial
 var god_choice: GodChoiceScreen
 var banter: BanterBubble
@@ -155,6 +156,13 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	world.add_child(dungeon)
 	world.origin_shifted.connect(dungeon.on_origin_shifted)
 	shrines.dungeon = dungeon
+	# The Ancient Ruins are dungeons too, built from their own crumbling parts (owner request 10/31/2026).
+	ruins_dungeon = RuinsDungeon.new()
+	ruins_dungeon.pois = pois
+	ruins_dungeon.freeze.assign(dungeon.freeze)
+	world.add_child(ruins_dungeon)
+	world.origin_shifted.connect(ruins_dungeon.on_origin_shifted)
+	pois.ruins_dungeon = ruins_dungeon
 	shrines.banter = banter
 	god_choice = GodChoiceScreen.new()
 	god_choice.gods = gods

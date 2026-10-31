@@ -465,3 +465,24 @@ func test_menus_have_frames_and_every_card_an_icon() -> void:
 		assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.WEAPON_NEW, "id": weapon["id"]}), "%s has an icon" % weapon["id"])
 	assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.GOLD}), "gold card icon")
 	assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.HEAL}), "heal card icon")
+
+
+func test_ruins_dungeon_has_its_own_parts_and_reachable_vault() -> void:
+	assert_true(RuinsDungeon.has_art(), "the ruins have dungeon parts")
+	var frames: Dictionary = PixelArt.find(RuinsDungeon.PARTS)["frames"]
+	for part: String in ["floor", "wall", "column", "altar", "brazier", "decor", "debris", "entrance"]:
+		assert_true(frames.has(part), "ruins part " + part)
+	for seed_value: int in 10:
+		var layout: Dictionary = ShrineDungeon.plan(seed_value * 977, "")
+		var walk: Dictionary = layout["walk"]
+		var start: Vector2i = layout["start"]
+		var goal := Vector2i(Vector2(layout["room_origin"]).floor())
+		var seen := {start: true}
+		var queue: Array = [start]
+		while not queue.is_empty():
+			var t: Vector2i = queue.pop_front()
+			for d: Vector2i in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+				if walk.has(t + d) and not seen.has(t + d):
+					seen[t + d] = true
+					queue.append(t + d)
+		assert_true(seen.has(goal), "the vault is reachable (seed %d)" % seed_value)

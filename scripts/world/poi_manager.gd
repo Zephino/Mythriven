@@ -2,8 +2,9 @@ class_name PoiManager
 extends Node2D
 ## Points of interest in the world (GAME_DESIGN.md: Regions and POIs):
 ##   Hidden Shrine     an extra shrine, often an uncommon or rare god
-##   Ancient Ruins     stand in the circle 10 s while spawns spike ×3, then
-##                     choose a weapon/passive level, a heal, or gold
+##   Ancient Ruins     a stairway down into a dungeon (RuinsDungeon); the chest at its end
+##                     gives the choice of a weapon/passive level, a heal, or gold
+##                     (without the dungeon's art: stand in the circle 10 s while spawns spike ×3)
 ##   Dragon's Hoard    kill 50 enemies inside its circle to break the seal: chest + gold
 ##   Monster's Lair    3 elites with guards inside a ring of walls: big chest + gold
 ##   Wandering Trader  sells items for run gold
@@ -18,6 +19,7 @@ var chests: ChestPickups
 var gold: GoldPickups
 var trader: TraderScreen
 var ruins_choice: RuinsChoiceScreen
+var ruins_dungeon: RuinsDungeon
 
 ## How far the world origin has moved, in chunks (absolute = local + this × chunk size).
 var origin_chunk: Vector2i = Vector2i.ZERO
@@ -107,7 +109,9 @@ func _process(delta: float) -> void:
 					shrines.add(at, "", true)
 					set_state(poi, "looted")
 			"ancient_ruins":
-				if dist <= reach:
+				if ruins_dungeon != null and RuinsDungeon.has_art():
+					ruins_dungeon.tick_entrance(poi, at, delta)
+				elif dist <= reach:
 					in_ruins = true
 					poi["progress"] = float(poi.get("progress", 0.0)) + delta
 					if float(poi["progress"]) >= float(data.get("hold_s", 10.0)):
@@ -122,6 +126,13 @@ func _process(delta: float) -> void:
 	if spawner != null:
 		spawner.poi_mult = float(PoiRules.find("ancient_ruins").get("spawn_mult", 3.0)) if in_ruins else 1.0
 	queue_redraw()
+
+
+## The ruins' chest was opened (RuinsDungeon): they're explored, and the opener chooses their gift.
+func finish_ruins(key: String, player: Player) -> void:
+	GameAuthority.run.poi_state[key] = "cleared"
+	if ruins_choice != null:
+		ruins_choice.offer(player, float(PoiRules.find("ancient_ruins").get("gold", 40.0)))
 
 
 func _check_trader(poi: Dictionary, player: Player, dist: float, reach: float) -> void:
@@ -146,13 +157,16 @@ func _closest_player(at: Vector2) -> Player:
 # --- Co-op (CoopMirror) ------------------------------------------------------------------
 
 func net_capture() -> Variant:
-	return [CoopMirror.copy_dicts(nearby), GameAuthority.run.poi_state.duplicate() if GameAuthority.run != null else {}]
+	return [CoopMirror.copy_dicts(nearby), GameAuthority.run.poi_state.duplicate() if GameAuthority.run != null else {},
+			ruins_dungeon.net_state() if ruins_dungeon != null else []]
 
 
 func net_apply(state: Variant) -> void:
 	nearby.assign(state[0])
 	if GameAuthority.run != null:
 		GameAuthority.run.poi_state = state[1]
+	if ruins_dungeon != null and (state as Array).size() > 2:
+		ruins_dungeon.net_follow(state[2])
 
 
 ## Finds the POIs in the regions around the player and keeps the nearest few.
@@ -245,6 +259,9 @@ func _draw() -> void:
 		var reach: float = float(data.get("radius_px", 40.0))
 		match str(poi["id"]):
 			"ancient_ruins":
+				if ruins_dungeon != null and RuinsDungeon.has_art():
+					ruins_dungeon.draw_entrance(self, at, done, color)
+					continue
 				draw_arc(at, reach, 0.0, TAU, 40, color, 2.0)
 				var k: float = float(poi.get("progress", 0.0)) / float(data.get("hold_s", 10.0))
 				if k > 0.0 and not done:
