@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.05
+Date: 10/31/2026
+Time: 2:35 AM
+
+### Changes
+- **Cernunnos' sprite**, from the few ancient images of him (kept light, as `GAME_DESIGN.md` asks): the antlered god of the Gundestrup cauldron (National Museum of Denmark) and the name on the Pillar of the Boatmen (Paris):
+  - a stag's antlers spreading wide from his head, with tines; short brown hair, beardless;
+  - a gold torc round his neck, and another torc held out in his hand;
+  - a ram-horned serpent held in his other hand;
+  - a close-fitting green garment with a belt, trousers and shoes. (The cauldron shows him seated cross-legged; here he stands.)
+
+### Reason
+The owner approved Tyche and asked for the next god.
+
 ## Version 00.02.04
 Date: 10/31/2026
 Time: 2:32 AM
