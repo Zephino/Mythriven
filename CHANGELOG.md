@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.92
+Date: 10/31/2026
+Time: 2:00 AM
+
+### Changes
+- **Fenrir's sprite**, from Snorri Sturluson's Prose Edda (Gylfaginning 34 and 51):
+  - a huge grey wolf on four legs, darker along his back, with a pale chest and throat, a bushy tail, and a yellow eye;
+  - his jaws gaping (at Ragnarök they open from the earth to the sky), with fangs;
+  - Gleipnir, the fetter "smooth and soft as a silken ribbon" the gods bound him with, broken but still round his neck, its torn end fluttering back;
+  - 4 running frames (his legs move in pairs).
+
+### Reason
+The owner approved Kronos and asked for the next boss.
+
 ## Version 00.01.91
 Date: 10/31/2026
 Time: 1:57 AM
