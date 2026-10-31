@@ -15,6 +15,11 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 	var spread: float = deg_to_rad(weapon.stat("arc_deg"))
 	combat.hit_sector(player.position, direction, reach, spread, weapon, player, 1.0)
 	combat.effects.spawn_arc(player.position, direction.angle(), reach, spread, combat.effect_color(weapon))
+	# The weapon itself sweeps through the swing from the Hero's hand (owner request 10/31/2026).
+	var art: Dictionary = PixelArt.weapon_art(weapon)
+	if not art.is_empty():
+		combat.effects.spawn_swing(player.hand_position(), direction.angle(), spread, art, direction.x < 0.0)
+		player.swinging_s = Data.cfg_float("effects.swing_s")
 	var quake: Dictionary = weapon.data.get("quake", {})
 	var every: int = int(quake.get("every", 0))
 	# Heracles' Divine Link: after a summon, his signature slams become full shockwaves.

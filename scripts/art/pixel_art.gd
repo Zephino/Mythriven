@@ -95,9 +95,7 @@ static func held_weapon(weapons: Array) -> Dictionary:
 	var best: Dictionary = {}
 	var best_level: int = -1
 	for weapon: WeaponInstance in weapons:
-		var art: Dictionary = find("weapons/" + weapon.id())
-		if art.is_empty():
-			art = find("weapons/" + str(weapon.data.get("evolved_from", "")))
+		var art: Dictionary = weapon_art(weapon)
 		if not art.is_empty() and weapon.level > best_level:
 			best = art
 			best_level = weapon.level
@@ -108,6 +106,14 @@ static func held_weapon(weapons: Array) -> Dictionary:
 ## keeping the original's brightness, so light cloth and its shadow stay apart.
 static func recolour(original: Color, colour: Color) -> Color:
 	return Color.from_hsv(colour.h, colour.s, original.v)
+
+
+## One weapon's picture (an evolved weapon uses its base weapon's until it has its own), or {}.
+static func weapon_art(weapon: WeaponInstance) -> Dictionary:
+	var art: Dictionary = find("weapons/" + weapon.id())
+	if art.is_empty():
+		art = find("weapons/" + str(weapon.data.get("evolved_from", "")))
+	return art
 
 
 static func _texture(rows: Array, palette: Dictionary) -> ImageTexture:

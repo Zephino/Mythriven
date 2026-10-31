@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.11
+Date: 10/31/2026
+Time: 3:03 AM
+
+### Changes
+- **Spears are thrown.** The Gáe Bolg (and Thirty Barbs), Achilles' Spear and Shield and Scáthach's spear now fly at their target as their own pictures and pierce through several enemies (3 at level 1, more as they level), instead of a thrust along a line. Enemies the Gáe Bolg kills still burst into barbs. Their reach was doubled to suit a throw. `GAME_DESIGN.md` updated (owner decision).
+- **Thrown weapons and shots fly as pictures** instead of coloured dots: javelins and spears point along their flight; throwing axes, the bladed discus and Lugh's sling-stone spin; every bow shoots a real arrow (steel point, feathered fletching). New pictures in `data/art/projectiles/`; weapons say which with `projectile_art` and `projectile_spin_deg_s`. Spells keep their coloured orbs for now.
+- **Attacks come from the Hero:** everything thrown or shot leaves from the Hero's hand, and every melee swing (clubs, swords, Excalibur, the tachi, hammers) shows the weapon itself sweeping from the hand through the swing (the held weapon is hidden while it swings). New setting `effects.swing_s`.
+- The Gáe Bolg test now checks a thrown spear: it flies as a picture, kills, pierces to the next enemy, and bursts into barbs. Every `projectile_art` must have a picture.
+
+### Reason
+The owner asked for effects coming from the character, and said spears are thrown, so they need to fly to enemies.
+
 ## Version 00.02.10
 Date: 10/31/2026
 Time: 2:57 AM

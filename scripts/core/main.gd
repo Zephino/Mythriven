@@ -96,6 +96,7 @@ func _build_world(joystick: TouchJoystick) -> void:
 	combat.enemies = _enemies
 	combat.effects = effects
 	combat.projectiles = projectiles
+	projectiles.combat = combat
 	world.add_child(combat)
 	chunks.update_chunks()
 	chunks.build_all_now()

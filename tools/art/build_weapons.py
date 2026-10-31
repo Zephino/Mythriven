@@ -303,6 +303,34 @@ def runo_song():
     return p
 
 
+def arrow():
+    """An arrow, for every bow: a steel point, a wooden shaft, feathered fletching."""
+    p = Pic(5, 18, (2, 9))
+    p.px(2, 0, "e"); p.rect(1, 1, 3, 1, "E"); p.px(2, 1, "e")
+    p.col(2, 2, 14, "a")
+    p.rect(1, 13, 1, 16, "J"); p.rect(3, 13, 3, 16, "J"); p.px(2, 15, "w"); p.px(2, 16, "w")
+    return p
+
+
+def sling_stone():
+    """Lugh's sling-stone (the tathlum of Cath Maige Tuired): a round stone."""
+    p = Pic(6, 6, (2, 2))
+    for y in range(6):
+        for x in range(6):
+            d = math.hypot(x - 2.5, y - 2.5)
+            if d <= 2.4:
+                p.px(x, y, "i" if d > 1.2 else "e")
+    p.px(3, 3, "I"); p.px(4, 3, "I")
+    return p
+
+
+# What each thrown weapon or shot flies as (data/art/projectiles/; weapons.json projectile_art), drawn upright and
+# not tipped, so the game can turn it to face its flight.
+PROJECTILES = {
+    "javelin": javelin, "throwing_axe": throwing_axe, "bladed_discus": bladed_discus, "gae_bolg": gae_bolg,
+    "spear_and_shield": spear_and_shield, "scathach_spear": scathach_spear, "arrow": arrow, "sling_stone": sling_stone,
+}
+
 # (picture, lean). Held ready, not dragged (owner request 10/31/2026): swords, clubs, hammers and axes raised and
 # tipped forward; spears, javelins and bows upright, tipped a little; the sling hangs.
 WEAPONS = {
@@ -326,3 +354,13 @@ if __name__ == "__main__":
         with open(os.path.join(out_dir, weapon_id + ".json"), "w") as f:
             json.dump(data, f, indent=1)
     print("wrote", len(WEAPONS), "weapons")
+    proj_dir = os.path.join(out_dir, "..", "projectiles")
+    os.makedirs(proj_dir, exist_ok=True)
+    for name, make in PROJECTILES.items():
+        art = finish(make(), 0.0)
+        data = {"_doc": "Flying weapon or shot (docs/ART_RULES.md: Weapons), built by tools/art/build_weapons.py: drawn "
+                        "tip up; the game turns it to face its flight (or spins it).",
+                "size": art["size"], "palette": PALETTE, "frames": {"idle": [art["rows"]]}}
+        with open(os.path.join(proj_dir, name + ".json"), "w") as f:
+            json.dump(data, f, indent=1)
+    print("wrote", len(PROJECTILES), "projectiles")

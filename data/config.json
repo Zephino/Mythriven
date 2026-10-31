@@ -98,6 +98,7 @@
     "_doc": "Placeholder attack visuals (swing arcs, quake rings). max_visual_effects is a budget: when full, the oldest is reused.",
     "max_visual_effects": 64,
     "attack_effect_s": 0.18,
+    "swing_s": 0.22,
     "default_color": "#ffffffa0",
     "min_reaction_ring_px": 20
   },

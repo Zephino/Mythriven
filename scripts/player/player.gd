@@ -53,6 +53,8 @@ var extra_projectiles: int = 0
 ## equipped cosmetic aura (alpha 0 = none).
 var projectile_speed_mult: float = 1.0
 var palette_color := Color(0, 0, 0, 0)
+## Seconds left of a weapon swing: the held weapon is hidden while its picture sweeps (EffectLayer.spawn_swing).
+var swinging_s: float = 0.0
 ## Distance walked, for the walking frames of the Hero's pixel art.
 var _stride: float = 0.0
 var _last_drawn_at := Vector2.ZERO
@@ -116,6 +118,8 @@ func refresh_stats() -> void:
 
 
 func _process(delta: float) -> void:
+	if swinging_s > 0.0:
+		swinging_s -= delta
 	if invulnerable_s > 0.0:
 		invulnerable_s = maxf(invulnerable_s - delta, 0.0)
 		queue_redraw()
@@ -188,6 +192,19 @@ func _draw() -> void:
 		_draw_hp_bar()
 
 
+## Where the Hero's weapon hand is in the world (their art's "hand" point, mirrored when facing left), so
+## thrown weapons and swings start from it (owner request 10/31/2026); the body's centre without art.
+func hand_position() -> Vector2:
+	var art: Dictionary = PixelArt.find(str(hero.get("id", "")))
+	if art.is_empty() or not art.has("hand"):
+		return position
+	var anchor: Vector2 = art["anchor"]
+	var local: Vector2 = Vector2(-anchor.x, body_radius - anchor.y) + art["hand"]
+	if facing.x < 0.0:
+		local.x = -local.x
+	return position + local
+
+
 ## The Hero's pixel art (PixelArt), feet at the bottom of the body, mirrored
 ## when facing left; greyed when fallen, faded as a Shade, stone-grey when petrified.
 func _draw_art(art: Dictionary) -> void:
@@ -204,7 +221,7 @@ func _draw_art(art: Dictionary) -> void:
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(-1.0 if left else 1.0, 1.0))
 	var top_left := Vector2(-anchor.x, body_radius - anchor.y)
 	# The weapon they use most, in their hand (behind the fist, so the fingers wrap round it).
-	var held: Dictionary = PixelArt.held_weapon(weapons) if art.has("hand") else {}
+	var held: Dictionary = PixelArt.held_weapon(weapons) if art.has("hand") and swinging_s <= 0.0 else {}
 	if not held.is_empty():
 		draw_texture(PixelArt.frame(held, false, 0.0), top_left + art["hand"] - held["grip"], tint)
 	draw_texture(texture, top_left, tint)

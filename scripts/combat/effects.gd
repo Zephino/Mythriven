@@ -8,6 +8,8 @@ extends Node2D
 const GROUP := "effect_layer"
 const KIND_ARC := 0
 const KIND_RING := 1
+## A weapon's picture sweeping through its swing from the Hero's hand (owner request 10/31/2026).
+const KIND_SWING := 2
 const ARC_SEGMENTS := 12
 const RING_SEGMENTS := 24
 
@@ -22,6 +24,8 @@ var _spread := PackedFloat32Array()
 var _age := PackedFloat32Array()
 var _duration := PackedFloat32Array()
 var _color: Array[Color] = []
+## KIND_SWING: the weapon's picture (PixelArt) for each effect, else {}.
+var _art: Array[Dictionary] = []
 
 
 func setup() -> void:
@@ -38,6 +42,9 @@ func setup() -> void:
 	_age.resize(_capacity)
 	_duration.resize(_capacity)
 	_color.resize(_capacity)
+	_art.resize(_capacity)
+	for i: int in _capacity:
+		_art[i] = {}
 
 
 ## Co-op: an effect from something only the host's game runs (hazards,
@@ -59,6 +66,17 @@ func spawn_ring(at: Vector2, ring_radius: float, color: Color, share: bool = fal
 	_spawn(KIND_RING, at, 0.0, ring_radius, 0.0, color)
 	if share:
 		shared.emit(KIND_RING, at, 0.0, ring_radius, 0.0, color)
+
+
+## A weapon swinging from `at` (the Hero's hand) through `spread` radians centred on `angle`: its picture (`art`,
+## PixelArt) turns about its grip from one side of the swing to the other. Each device draws its own.
+func spawn_swing(at: Vector2, angle: float, spread: float, art: Dictionary, face_left: bool) -> void:
+	if art.is_empty() or _capacity <= 0:
+		return
+	var i: int = _next
+	_spawn(KIND_SWING, at, angle, 1.0 if face_left else 0.0, spread, Color.WHITE)
+	_art[i] = art
+	_duration[i] = Data.cfg_float("effects.swing_s")
 
 
 ## Co-op (joining player): an effect the host shared.
@@ -114,7 +132,9 @@ func _draw() -> void:
 		var t: float = clampf(_age[i] / _duration[i], 0.0, 1.0)
 		var color: Color = _color[i]
 		color.a *= 1.0 - t
-		if _kind[i] == KIND_ARC:
+		if _kind[i] == KIND_SWING:
+			_draw_swing(i, t)
+		elif _kind[i] == KIND_ARC:
 			var points := PackedVector2Array([_pos[i]])
 			for s: int in ARC_SEGMENTS + 1:
 				var a: float = _angle[i] - _spread[i] * 0.5 + _spread[i] * s / ARC_SEGMENTS
@@ -122,3 +142,18 @@ func _draw() -> void:
 			draw_colored_polygon(points, color)
 		else:
 			draw_arc(_pos[i], _radius[i] * (0.4 + 0.6 * t), 0.0, TAU, RING_SEGMENTS, color, 2.0)
+
+
+## The weapon's picture is drawn tip up with its grip at the hand; turning it by (angle + a quarter turn) points it
+## along `angle`. It sweeps from above down (mirrored, as the Hero is, when swinging to the left) and fades out over
+## the last third.
+func _draw_swing(i: int, t: float) -> void:
+	var art: Dictionary = _art[i]
+	var texture: ImageTexture = PixelArt.frame(art, false, 0.0)
+	var grip: Vector2 = art.get("grip", texture.get_size() * 0.5)
+	var left: bool = _radius[i] > 0.5
+	var start: float = _angle[i] + (_spread[i] * 0.5 if left else -_spread[i] * 0.5)
+	var swept: float = start + (-1.0 if left else 1.0) * _spread[i] * ease(t, 0.6)
+	draw_set_transform(_pos[i], swept + PI * 0.5, Vector2(-1.0 if left else 1.0, 1.0))
+	draw_texture(texture, -grip, Color(1, 1, 1, clampf((1.0 - t) * 3.0, 0.0, 1.0)))
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)

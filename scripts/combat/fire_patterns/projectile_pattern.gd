@@ -46,4 +46,5 @@ func _launch(weapon: WeaponInstance, player: Player, direction: Vector2, setting
 	for k: int in count:
 		var offset: float = 0.0 if count == 1 else spread * (float(k) / (count - 1) - 0.5)
 		var velocity: Vector2 = direction.rotated(offset) * speed + Vector2(0.0, -lift)
-		combat.projectiles.launch(weapon, player, player.position, velocity, flight_kind, settings)
+		# Thrown and shot from the Hero's hand (owner request 10/31/2026).
+		combat.projectiles.launch(weapon, player, player.hand_position(), velocity, flight_kind, settings)

@@ -117,6 +117,7 @@
             "fields": {
               "max_visual_effects": "number",
               "attack_effect_s": "number",
+              "swing_s": "number",
               "default_color": "string",
               "min_reaction_ring_px": "number"
             }
@@ -1301,6 +1302,14 @@
             },
             "barbs_on_every_hit": {
               "type": "bool",
+              "optional": true
+            },
+            "projectile_art": {
+              "type": "string",
+              "optional": true
+            },
+            "projectile_spin_deg_s": {
+              "type": "number",
               "optional": true
             },
             "charge_arrows": {

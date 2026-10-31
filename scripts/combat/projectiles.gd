@@ -11,6 +11,8 @@ const BOOMERANG := 1
 const ORBIT := 2
 
 var enemies: EnemyManager
+## For the Gáe Bolg's barbs (a thrown spear's kills burst into barbs).
+var combat: CombatSystem
 
 var _capacity: int = 0
 var _next: int = 0
@@ -34,6 +36,11 @@ var _weapon: Array[WeaponInstance] = []
 var _thrower: Array[Player] = []
 ## Per projectile: enemy slot -> seconds until it may hit that enemy again.
 var _hits: Array[Dictionary] = []
+## Per projectile: its picture (weapons.json projectile_art; {} = a coloured dot) and spin (radians/s, 0 = it
+## points along its flight). Pictures are drawn in _draw; dots by the MultiMesh.
+var _art: Array[Dictionary] = []
+var _spin := PackedFloat32Array()
+var _pictures: int = 0
 var _multimesh: MultiMesh
 
 
@@ -58,8 +65,11 @@ func setup() -> void:
 	_orbit_speed.resize(_capacity)
 	_weapon.resize(_capacity)
 	_thrower.resize(_capacity)
+	_art.resize(_capacity)
+	_spin.resize(_capacity)
 	for i: int in _capacity:
 		_hits.append({})
+		_art[i] = {}
 	_multimesh = PlaceholderArt.make_multimesh(_capacity)
 	var drawer := MultiMeshInstance2D.new()
 	drawer.multimesh = _multimesh
@@ -93,6 +103,13 @@ func launch(weapon: WeaponInstance, player: Player, at: Vector2, velocity: Vecto
 	if settings.has("element") or weapon.infusion != "":
 		color = Elements.color(_element[i])
 	_multimesh.set_instance_color(i, color)
+	if not _art[i].is_empty():
+		_pictures -= 1
+	var picture: String = str(weapon.data.get("projectile_art", ""))
+	_art[i] = PixelArt.find("projectiles/" + picture) if picture != "" and flight_kind != ORBIT else {}
+	_spin[i] = deg_to_rad(float(weapon.data.get("projectile_spin_deg_s", 0.0)))
+	if not _art[i].is_empty():
+		_pictures += 1
 
 
 ## Launches a projectile that circles `player`, starting at `start_angle` (radians).
@@ -120,6 +137,8 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 
 
 func _process(delta: float) -> void:
+	if _pictures > 0:
+		queue_redraw()
 	for i: int in _capacity:
 		if _active[i] == 0:
 			continue
@@ -160,9 +179,11 @@ func _tick_hits(i: int, delta: float) -> void:
 		if hits.has(slot) or _pos[i].distance_to(enemies.positions[slot]) > _radius[i] + enemies.radius[slot]:
 			continue
 		hits[slot] = interval if interval > 0.0 else INF
+		var at: Vector2 = enemies.positions[slot]
 		GameAuthority.damage_enemy(slot, weapon.damage(), _thrower[i],
 				_vel[i].normalized() * weapon.stat("knockback"), _element[i],
 				weapon.status_chance(), weapon)
+		_barbs(i, slot, at)
 		if _chain[i] != 0:
 			_chain[i] = 0
 			Blessings.chain_lightning(_thrower[i], slot, _pos[i], weapon.damage())
@@ -172,12 +193,48 @@ func _tick_hits(i: int, delta: float) -> void:
 			return
 
 
+## Gáe Bolg (on_kill_barbs): the enemy the thrown spear kills bursts into barbs that hit those nearby (Thirty Barbs:
+## every enemy it hits).
+func _barbs(i: int, slot: int, at: Vector2) -> void:
+	var weapon: WeaponInstance = _weapon[i]
+	var barbs: Dictionary = weapon.data.get("on_kill_barbs", {})
+	if barbs.is_empty() or combat == null:
+		return
+	if enemies.active[slot] != 0 and not bool(weapon.data.get("barbs_on_every_hit", false)):
+		return
+	var player: Player = _thrower[i]
+	var reach: float = float(barbs.get("radius_px", 0.0)) * player.stats.area_mult() * weapon.stat("area", 1.0)
+	combat.hit_circle(at, reach, weapon, player, float(barbs.get("damage_mult", 0.5)))
+	combat.effects.spawn_ring(at, reach, combat.effect_color(weapon))
+
+
 func _draw_instance(i: int) -> void:
+	if not _art[i].is_empty():
+		_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2.ZERO, 0.0, _pos[i]))
+		return
 	var size: float = _radius[i] * 2.0
 	_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2(size, size), 0.0, _pos[i]))
 
 
+## Thrown weapons and shots with a picture: pointing along their flight (drawn tip up, so turned a quarter more), or
+## spinning.
+func _draw() -> void:
+	if _pictures <= 0:
+		return
+	for i: int in _capacity:
+		if _active[i] == 0 or _art[i].is_empty():
+			continue
+		var angle: float = _age[i] * _spin[i] if _spin[i] != 0.0 else _vel[i].angle() + PI * 0.5
+		var texture: ImageTexture = PixelArt.frame(_art[i], false, 0.0)
+		draw_set_transform(_pos[i], angle, Vector2.ONE)
+		draw_texture(texture, -texture.get_size() * 0.5)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
 func _remove(i: int) -> void:
+	if _active[i] != 0 and not _art[i].is_empty():
+		_pictures -= 1
+		_art[i] = {}
 	_active[i] = 0
 	_weapon[i] = null
 	_thrower[i] = null
