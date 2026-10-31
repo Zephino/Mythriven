@@ -95,6 +95,10 @@ func _open(grove: Dictionary, at: Vector2, player: Player) -> void:
 		return
 	run.poi_state[str(grove["key"])] = "opened"
 	var shrine_here: bool = bool(grove["shrine"]) and not run.poi_state.has("hidden_god_slot_shrine")
+	# Owner request 10/31/2026: some groves hide nothing at all (no chest, no guards). Never the hidden shrine's grove.
+	if not shrine_here and run.rng.loot.randf() < Data.cfg_float("world.grove_empty_chance"):
+		run.poi_state[str(grove["key"])] = "empty"
+		return
 	if shrine_here and shrines != null:
 		run.poi_state["hidden_god_slot_shrine"] = str(grove["key"])
 		shrines.add(at, "", true, true)

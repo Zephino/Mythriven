@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.41
+Date: 10/31/2026
+Time: 11:56 AM
+
+### Changes
+- **Some hidden groves are empty.** About 3 in 10 hidden groves now turn out to hold nothing when you step inside: no chest and no guards. The grove with the hidden shrine is never empty.
+- New setting `world.grove_empty_chance` (0.3).
+
+### Reason
+The owner asked for the clusters of trees to have nothing in them sometimes.
+
 ## Version 00.02.40
 Date: 10/31/2026
 Time: 11:49 AM

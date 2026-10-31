@@ -247,6 +247,7 @@
               "grove_reveal_fade": "number",
               "grove_guards": "number",
               "grove_big_chest_chance": "number",
+              "grove_empty_chance": "number",
               "grove_shrine_chance": "number",
               "mountain_z": "number",
               "mountain_region_chunks": "number",

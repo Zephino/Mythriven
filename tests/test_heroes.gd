@@ -561,6 +561,21 @@ func test_hidden_groves_ring_a_clearing_with_a_way_in() -> void:
 	flora.queue_free()
 
 
+func test_some_hidden_groves_are_empty() -> void:
+	var world: Dictionary = Data.get_file("config.json")["world"]
+	var before: float = float(world["grove_empty_chance"])
+	assert_true(before > 0.0 and before < 1.0, "groves are only sometimes empty")
+	world["grove_empty_chance"] = 1.0
+	var groves := HiddenGroves.new()
+	groves.set_process(false)
+	_parent.add_child(groves)
+	var grove: Dictionary = {"key": "grove_test_empty", "shrine": false}
+	groves._open(grove, Vector2.ZERO, null)
+	assert_eq(GameAuthority.run.poi_state.get("grove_test_empty", ""), "empty", "this one hid nothing")
+	world["grove_empty_chance"] = before
+	groves.queue_free()
+
+
 func test_mountains_have_ways_up_a_bridge_and_a_cave() -> void:
 	var mountains := Mountains.new()
 	_parent.add_child(mountains)
