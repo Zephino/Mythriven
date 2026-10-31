@@ -45,7 +45,7 @@ func _spawn(at: Vector2, hp: float = 10000.0) -> int:
 
 
 func test_four_starting_heroes_with_design_stats() -> void:
-	var expected: Dictionary = {"heracles": [150, 90, 2], "cu_chulainn": [110, 105, 1], "vainamoinen": [100, 95, 0], "tomoe_gozen": [95, 115, 0]}
+	var expected: Dictionary = {"heracles": [150, 90, 2], "cu_chulainn": [110, 105, 1], "vainamoinen": [100, 95, 0], "tomoe_gozen": [95, 115, 1]}
 	for hero_id: String in expected:
 		var stats: Dictionary = HeroRules.find(hero_id)["stats"]
 		assert_eq([int(stats["max_hp"]), int(stats["move_speed"]), int(stats["armor"])], expected[hero_id], hero_id)

@@ -501,9 +501,11 @@ Heroes are legendary figures from Tier A traditions in your database, and each p
 | Heracles | Greek | 150 | 90 | 2 | Bruiser | \[Launch\] starting |
 | Cú Chulainn | Irish | 110 | 105 | 1 | Mobile spear striker | \[Launch\] starting |
 | Väinämöinen | Finnish (Kalevala) | 100 | 95 | 0 | Elemental song-mage | \[Launch\] starting |
-| Tomoe Gozen | Japanese legend | 95 | 115 | 0 | Agile sword-and-bow skirmisher | \[Launch\] starting |
+| Tomoe Gozen | Japanese legend | 95 | 115 | 1 | Agile sword-and-bow skirmisher | \[Launch\] starting |
 | King Arthur | Welsh/Arthurian | 130 | 95 | 2 | Holy defender | \[Launch\] unlock: 1,000 gold |
-| Atalanta | Greek | 90 | 125 | 0 | Swift archer | \[Launch\] unlock: survive 20:00 with any Hero |
+| Atalanta | Greek | 90 | 125 | 1 | Swift archer | \[Launch\] unlock: survive 20:00 with any Hero |
+
+*(10/31/2026, owner decision: the bow Heroes are scaled down a little. Atalanta, Tomoe Gozen and Odysseus each get +1 Armor (Odysseus 1 → 2). Their bows shoot one more arrow at every level, starting with 2 in a fan, each arrow dealing about 45% of the old damage, so they hit crowds as before but single targets less. Tomoe's sword keeps its damage; only her arrows change.)*
 
 ### Heracles (Greek)
 

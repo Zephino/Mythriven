@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.50
+Date: 10/31/2026
+Time: 12:53 PM
+
+### Changes
+- **Bow Heroes scaled down a little** (Atalanta, Odysseus, Tomoe Gozen):
+  - **A fan of arrows:** their bows shoot one more arrow at every level, so 2 to start, spread in a fan (Huntress's Bow 20°, Great Bow 18°, Tomoe's arrows 22°).
+  - **Less damage:** each arrow deals about 45% of the old damage. A single enemy usually takes one arrow of the fan, so single targets take about half the damage; crowds take about the same as before. Examples at level 1: Huntress's Bow 13 → 6 per arrow, Great Bow 26 → 12, Tomoe's arrows 11 → 5.
+  - **+1 Armor:** Atalanta 0 → 1, Tomoe Gozen 0 → 1, Odysseus 1 → 2.
+  - **Tomoe's sword keeps its full damage:** only her arrows changed. Weapons can now give arrows their own damage (`arrow_damage`).
+- GAME_DESIGN.md: the Hero table shows the new Armor, with a dated note.
+
+### Reason
+The owner asked for the ranged characters to be scaled a little: less damage, another arrow (2 with the bow in a fan), and 1 more point of Armor, for all three bow Heroes.
+
 ## Version 00.02.49
 Date: 10/31/2026
 Time: 12:49 PM

@@ -93,9 +93,11 @@ func attack_interval() -> float:
 	return stat("cooldown") * cooldown_mult / speed
 
 
-## Base damage per hit after expertise (+15%) and the Hero's own bonuses.
-func damage() -> float:
-	var amount: float = stat("damage")
+## Base damage per hit after expertise (+15%) and the Hero's own bonuses. `shot`: the hit is from a projectile;
+## a weapon that also swings (Sword and Bow) can give its arrows their own damage, arrow_damage (owner request
+## 10/31/2026: ranged Heroes deal less).
+func damage(shot: bool = false) -> float:
+	var amount: float = stat("arrow_damage", stat("damage")) if shot else stat("damage")
 	if expert:
 		amount *= 1.0 + Data.cfg_float("combat.expertise_damage_pct") / 100.0
 	if owner_player != null:

@@ -190,7 +190,7 @@ func _tick_hits(i: int, delta: float) -> void:
 			continue
 		hits[slot] = interval if interval > 0.0 else INF
 		var at: Vector2 = enemies.positions[slot]
-		GameAuthority.damage_enemy(slot, weapon.damage(), _thrower[i],
+		GameAuthority.damage_enemy(slot, weapon.damage(true), _thrower[i],
 				_vel[i].normalized() * weapon.stat("knockback"), _element[i],
 				weapon.status_chance(), weapon)
 		_barbs(i, slot, at)
@@ -199,7 +199,7 @@ func _tick_hits(i: int, delta: float) -> void:
 			combat.effects.spawn_burst(at, _element[i], weapon.data.has("evolved_from"))
 		if _chain[i] != 0:
 			_chain[i] = 0
-			Blessings.chain_lightning(_thrower[i], slot, _pos[i], weapon.damage())
+			Blessings.chain_lightning(_thrower[i], slot, _pos[i], weapon.damage(true))
 		_pierce[i] -= 1
 		if _pierce[i] < 0:
 			_remove(i)
