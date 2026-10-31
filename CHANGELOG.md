@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.96
+Date: 10/31/2026
+Time: 2:17 AM
+
+### Changes
+- **Ammit's sprite**, from the Book of the Dead, spell 125 (the weighing of the heart), as painted in the Papyrus of Ani (British Museum): the Devourer of the Dead, with the head of a crocodile, the forepart of a lion, and the hindquarters of a hippopotamus:
+  - a green crocodile head with a long snout, jaws open with teeth, a yellow eye;
+  - a lion's tawny forepart and legs, with her mane painted in blue and gold stripes as in the papyrus;
+  - a hippopotamus's heavy rump, short thick legs and little tail; 4 walking frames.
+- The art tools share ellipse and polygon helpers for boss bodies (`tools/art/hero_kit.py`).
+
+### Reason
+The owner approved Surtr and asked for the next boss, and for a sprite sheet.
+
 ## Version 00.01.95
 Date: 10/31/2026
 Time: 2:13 AM

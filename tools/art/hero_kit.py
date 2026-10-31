@@ -94,3 +94,27 @@ def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs):
     with open(os.path.join(out_dir, boss_id + ".json"), "w") as f:
         json.dump(art, f, indent=1)
     return art
+
+
+def ellipse(c, cx, cy, rx, ry, col):
+    """Fills an ellipse (for boss bodies)."""
+    for y in range(int(cy - ry) - 1, int(cy + ry) + 2):
+        for x in range(int(cx - rx) - 1, int(cx + rx) + 2):
+            if ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1.0:
+                c.px(x, y, col)
+
+
+def poly(c, pts, col):
+    """Fills a polygon given as (x, y) corners (for boss bodies)."""
+    xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
+    for y in range(int(min(ys)), int(max(ys)) + 1):
+        for x in range(int(min(xs)), int(max(xs)) + 1):
+            inside = False
+            j = len(pts) - 1
+            for i in range(len(pts)):
+                (xi, yi), (xj, yj) = pts[i], pts[j]
+                if (yi > y + 0.5) != (yj > y + 0.5) and x + 0.5 < (xj - xi) * (y + 0.5 - yi) / (yj - yi) + xi:
+                    inside = not inside
+                j = i
+            if inside:
+                c.px(x, y, col)
