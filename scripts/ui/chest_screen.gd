@@ -203,6 +203,13 @@ func _draw_seal_pattern(style: String, center: Vector2, radius: float, spin: flo
 			for side: float in [-1.0, 1.0]:
 				_seal.draw_arc(center + Vector2(side * radius * 0.35, 0).rotated(spin), radius * 0.55, PI * 0.5 - side * PI * 0.5 - 0.9,
 						PI * 0.5 - side * PI * 0.5 + 0.9, 12, color, 2.0)
+		"seigaiha":
+			# Seigaiha, the old Japanese pattern of overlapping waves: rows of half-rings.
+			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
+			for row: int in 3:
+				for k: int in 4:
+					var at: Vector2 = center + Vector2((k - 1.5) * radius * 0.45 + (row % 2) * radius * 0.22, (row - 1) * radius * 0.4)
+					_seal.draw_arc(at, radius * 0.22, PI, TAU, 10, color, 2.0)
 		"slavic_rhombus":
 			# Rows of rhombuses, the old embroidery pattern of the Slavic lands.
 			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)

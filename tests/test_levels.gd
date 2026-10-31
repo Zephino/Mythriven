@@ -680,3 +680,41 @@ func test_wandering_lights_draw_monsters_in() -> void:
 	var before: float = _enemies.positions[slot].distance_to(lights.lights[0])
 	lights._process(0.2)
 	assert_lt(_enemies.positions[slot].distance_to(lights.lights[0]), before, "drawn toward the light")
+
+
+func test_tsuchigumos_webs_hold_and_fire_burns_them() -> void:
+	_start("the_land_of_legends")
+	var spider: TsuchigumoBoss = _bosses.spawn_boss("tsuchigumo", 0) as TsuchigumoBoss
+	spider.target = _player
+	spider.signature(4.0)
+	assert_eq(spider.webs.size(), 2)
+	_player.position = spider.webs[0]["pos"]
+	spider.signature(0.1)
+	assert_gt(_player.rooted_s, 0.0, "stuck fast in the web")
+	spider.on_element_hit("fire")
+	assert_eq(spider.webs.size(), 0, "fire burns every web")
+
+
+func test_benkei_holds_the_bridge_and_dies_standing() -> void:
+	_start("the_land_of_legends")
+	var benkei: BenkeiBoss = _bosses.spawn_boss("benkei", 1) as BenkeiBoss
+	_player.position = _bosses.arena_center + Vector2(0, 200)
+	benkei.signature(0.1)
+	assert_lt(_player.slow_zone_mult, 1.0, "the river slows")
+	_player.position = _bosses.arena_center
+	benkei.signature(0.1)
+	assert_eq(_player.slow_zone_mult, 1.0, "the bridge does not")
+	benkei.phase_index = 2
+	assert_lt(benkei.modify_hit(100.0, _player, Vector2.ZERO), 50.0, "his standing death")
+	assert_eq(str(benkei.data.get("unlocks_hero", "")), "benkei")
+
+
+func test_shuten_doji_lurches_and_water_slows_him() -> void:
+	_start("the_land_of_legends")
+	var shuten: ShutenDojiBoss = _bosses.spawn_boss("shuten_doji", 2) as ShutenDojiBoss
+	var at: Vector2 = shuten.position_now()
+	shuten.signature(1.7)
+	shuten.signature(0.2)
+	assert_ne(shuten.position_now(), at, "he lurches")
+	shuten.on_element_hit("water")
+	assert_true(_enemies.statuses.has(shuten.slot, "chill"), "water slows him")

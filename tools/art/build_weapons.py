@@ -361,6 +361,29 @@ def rostam_mace():
     return p
 
 
+def naginata():
+    """Benkei's naginata (the Gikeiki): a long pole of dark lacquered wood with a broad curved blade at the tip and an
+    iron butt-cap, the weapon of the warrior monks."""
+    p = Pic(10, 44, (4, 30))
+    p.col(4, 12, 43, "h"); p.col(5, 12, 43, "H")
+    p.rect(4, 42, 5, 43, "i")
+    for y in range(0, 13):
+        off = round((12 - y) ** 2 / 40)
+        p.px(5 + off, y, "e"); p.px(6 + off, y, "l"); p.px(4 + off, y, "E")
+    p.rect(3, 12, 6, 12, "u")
+    for y in range(26, 34, 2):
+        p.px(4, y, "u")                                                # bindings at the grip
+    return p
+
+
+def yoshitsune_sword():
+    """Yoshitsune's tachi: a long curved sword with a gilded scabbard-fitting look, a round tsuba and a grip wrapped in
+    dark silk."""
+    p = tachi()
+    p.rect(1, 18, 5, 18, "g"); p.rect(2, 19, 4, 19, "G")
+    return p
+
+
 def arrow():
     """An arrow, for every bow: a steel point, a wooden shaft, feathered fletching."""
     p = Pic(5, 18, (2, 9))
@@ -399,6 +422,7 @@ WEAPONS = {
     "huntress_bow": (huntress_bow, 0.1), "bladed_discus": (bladed_discus, 0.0), "sling_of_lugh": (sling_of_lugh, -0.2),
     "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0), "giant_sword": (giant_sword, 0.1),
     "gilgamesh_axe": (gilgamesh_axe, 0.4), "rostam_mace": (rostam_mace, 0.4),
+    "naginata": (naginata, 0.15), "yoshitsune_sword": (yoshitsune_sword, 0.35),
 }
 
 if __name__ == "__main__":

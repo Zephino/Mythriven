@@ -747,3 +747,22 @@ func test_rostam_and_rakhsh() -> void:
 		rostam.kit._process(0.05)
 	assert_lt(_enemies.hp[slot], hp, "Rakhsh charges and kicks it")
 	GameAuthority.remove_player(rostam)
+
+
+func test_benkei_hits_harder_when_surrounded_and_yoshitsune_leaps() -> void:
+	var benkei: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "benkei")
+	for k: int in 5:
+		_enemies.spawn("troll", Vector2.from_angle(k) * 40.0)
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	benkei.kit._process(1.0)
+	assert_almost_eq(benkei.kit.damage_mult(null), 1.2, 0.001, "+4% for each of five")
+	GameAuthority.remove_player(benkei)
+	var yoshi: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "yoshitsune")
+	var hp: float = yoshi.hp
+	GameAuthority.damage_player(yoshi, 20.0, "test", Vector2(-30, 0))
+	assert_eq(yoshi.hp, hp, "the first blow is leapt away from")
+	assert_gt(yoshi.position.x, 0.0, "away from the blow")
+	GameAuthority.damage_player(yoshi, 20.0, "test", Vector2(-30, 0))
+	GameAuthority.damage_player(yoshi, 20.0, "test", Vector2(-30, 0))
+	assert_lt(yoshi.hp, hp, "two leaps, then he is hit")
+	GameAuthority.remove_player(yoshi)

@@ -2,6 +2,28 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.74
+Date: 10/31/2026
+Time: 5:15 PM
+
+### Changes
+- **Pack 3, the Land of Legends, is built and open** (`docs/PACK_3_PLAN.md`). Beat Typhon (the Underworld's 30:00 boss) to unlock it. With it, all four Pack 3 levels and all three Pack 3 Heroes are in the game. From Japanese historical legend: the Gikeiki, the Tale of the Heike, the Tsuchigumo Soshi and the Ōeyama tale.
+  - **The land:** mountain paths of Japanese cedar, black pine and maple; bamboo stands and the ruined stone bases of old castles; cranes, foxes and sika deer. No kami are used (Shinto is a living religion), so shrines bring gods from every other pantheon.
+  - **Blossom storms** (the hazard): cherry blossom blows in on the wind and the view closes into a ring.
+  - **Monsters:** oni with iron clubs, tengu swooping from the mountains, earth spider swarms and restless warriors.
+  - **Bosses:**
+    - **Tsuchigumo** (10:00): the earth spider casts webs round you; step in one and you're stuck fast for a moment. Any Fire hit on the spider burns every web away.
+    - **Benkei** (20:00): he holds the Gojō Bridge across the arena, and the river on either side slows you. In his last phase comes his "standing death": he takes 60% less harm. Defeating him unlocks him.
+    - **Shuten-dōji** (30:00): the drunken oni king lurches about at random and calls his oni; every Water hit chills him (he was laid low by drugged sake).
+  - **New Hero: Benkei** (Warrior monk; HP 160, Speed 80, Armor 3), unlocked by defeating him. Signature weapon: the **naginata**. Legend Trait **Stands his ground**: +4% damage for every monster close by, up to +40%. Passive **The seven weapons**: +10% Max HP.
+  - **New Hero: Minamoto no Yoshitsune** (Swift general; HP 100, Speed 105), unlocked by surviving 30:00 in the Land of Legends. Signature weapon: **his tachi**. Legend Trait **The eight-boat leap**: he holds 2 leaps; a blow that would land is dodged and he springs away from it, each leap coming back after 5 s. Passive **Trained on Mount Kurama**: +15% Move Speed.
+  - Boss achievements, a survival achievement that unlocks Yoshitsune, 7 banter lines (Benkei has lines for Yoshitsune and for Tomoe Gozen, who fought in the same war), and the level's rows on the lore check.
+- Sprite sheets rebuilt with everything new.
+- 4 new tests (315 tests pass).
+
+### Reason
+The owner said "Go build it". The Land of Legends is Pack 3's fourth and last level.
+
 ## Version 00.02.73
 Date: 10/31/2026
 Time: 5:04 PM

@@ -1,0 +1,79 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A clump of bamboo (the Land of Legends): tall green jointed canes with narrow leaves at the top.",
+ "size": [
+  18,
+  34
+ ],
+ "anchor": [
+  9,
+  33
+ ],
+ "palette": {
+  "a": "#2a3c18",
+  "b": "#667e42",
+  "c": "#6c8448",
+  "d": "#5a723c",
+  "e": "#1e2a12",
+  "f": "#6c8a48",
+  "g": "#48662a",
+  "h": "#48602a",
+  "i": "#4e6c30",
+  "j": "#a2b466",
+  "k": "#425a2a",
+  "l": "#425424",
+  "m": "#60783c",
+  "n": "#668448",
+  "o": "#3c5424",
+  "p": "#96a260",
+  "q": "#484e2a",
+  "r": "#3c4e24",
+  "s": "#9ca860",
+  "t": "#7e8a4e",
+  "u": "#78844e",
+  "v": "#8a965a",
+  "w": "#4e6036",
+  "x": "#364e24",
+  "y": "#849054",
+  "z": "#546c36"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....a..aa.a......",
+    "....abaacbada.....",
+    ".....aceccfa......",
+    "......egcge.ee.a..",
+    ".a..ee.eccaehgeda.",
+    "acaeiiedjjcehgca..",
+    ".abeklmannekghe...",
+    "..egoleabbaegke...",
+    "...egheannaajpaa..",
+    "...qpjqabbamkhbma.",
+    "...egkeanbaamgbbna",
+    "...ekgeqppqekgnhe.",
+    "...ekheabmaeokbba.",
+    "...ehheanbaehhpjq.",
+    "...ekreabbaqjsbba.",
+    "...qssqannaekhnma.",
+    "...eggeanmaekknna.",
+    "...ekheqppqeoomma.",
+    "...eooeambaekkdda.",
+    "...ehkeamdaehotuq.",
+    "...eooeaddaqpsmma.",
+    "...qvsqambaehkmma.",
+    "...eoheabmaehkbma.",
+    "...ekheqvpqekobwa.",
+    "...ekkeaddaekomba.",
+    "...ekoeambaehkppq.",
+    "...exkeammaqpumda.",
+    "...qppqabmaekhdma.",
+    "...eooeaddaeoodma.",
+    "...eooeqvyqeoodda.",
+    "...eooeazdaeoodda.",
+    "...ekoeamzaeoovvq.",
+    "...eooeamdaeoozza.",
+    "....ee..aa..eeaa.."
+   ]
+  ]
+ }
+}

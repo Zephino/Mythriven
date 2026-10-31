@@ -793,5 +793,101 @@
       "type": "defeat_boss",
       "boss": "white_div"
     }
+  },
+  {
+    "id": "benkei",
+    "name_key": "HERO_BENKEI_NAME",
+    "tradition_key": "TRADITION_JAPANESE",
+    "role_key": "ROLE_WARRIOR_MONK",
+    "placeholder_color": "#ece8e0",
+    "patron_pantheon": "",
+    "care_tier": "A",
+    "lore_source": "The Gikeiki (the Gojo Bridge duel; Benkei's standing death at Koromogawa)",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 160,
+      "move_speed": 80,
+      "armor": 3,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "naginata",
+    "expertise": [
+      "spear",
+      "blunt"
+    ],
+    "trait": {
+      "id": "stands_his_ground",
+      "name_key": "TRAIT_STANDS_HIS_GROUND",
+      "desc_key": "TRAIT_STANDS_HIS_GROUND_DESC",
+      "radius_px": 90,
+      "per_enemy_pct": 4,
+      "max_enemies": 10
+    },
+    "passive": {
+      "id": "seven_weapons",
+      "name_key": "PASSIVE_SEVEN_WEAPONS",
+      "desc_key": "PASSIVE_SEVEN_WEAPONS_DESC",
+      "max_hp_pct": 10
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "defeat_boss",
+      "boss": "benkei"
+    }
+  },
+  {
+    "id": "yoshitsune",
+    "name_key": "HERO_YOSHITSUNE_NAME",
+    "tradition_key": "TRADITION_JAPANESE",
+    "role_key": "ROLE_GENERAL",
+    "placeholder_color": "#b02a2a",
+    "patron_pantheon": "",
+    "care_tier": "A",
+    "lore_source": "The Tale of the Heike (Dan-no-ura: his leap across eight boats); the Gikeiki (taught by the tengu of Mount Kurama)",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 100,
+      "move_speed": 105,
+      "armor": 0,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 8
+    },
+    "signature_weapon": "yoshitsune_sword",
+    "expertise": [
+      "blade",
+      "bow"
+    ],
+    "trait": {
+      "id": "eight_boat_leap",
+      "name_key": "TRAIT_EIGHT_BOAT_LEAP",
+      "desc_key": "TRAIT_EIGHT_BOAT_LEAP_DESC",
+      "charges": 2,
+      "recharge_s": 5.0,
+      "leap_px": 48
+    },
+    "passive": {
+      "id": "kurama_training",
+      "name_key": "PASSIVE_KURAMA_TRAINING",
+      "desc_key": "PASSIVE_KURAMA_TRAINING_DESC",
+      "move_speed_pct": 15
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "achievement",
+      "achievement": "legends_survive_30"
+    }
   }
 ]

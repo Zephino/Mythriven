@@ -1350,5 +1350,127 @@
       "edge": "#5a4c34",
       "stones": "#8a8a84"
     }
+  },
+  {
+    "_doc": "The Land of Legends, Pack 3 level 4 (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). The outer paths of mountain shrines, bamboo, castle ruins. Japanese historical legend: the Gikeiki, the Tale of the Heike, the Tsuchigumo Soshi, the Oeyama tale. No kami are used (Shinto is a living religion, Tier B): shrines draw gods from every pantheon.",
+    "id": "the_land_of_legends",
+    "name_key": "LEVEL_LAND_OF_LEGENDS_NAME",
+    "region": "japanese",
+    "act": 3,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_land_of_legends",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "dark_grass",
+          "max": -0.3,
+          "placeholder_color": "#3e5a34",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "grass",
+          "max": 0.2,
+          "placeholder_color": "#56783e",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "pine_floor",
+          "max": 0.6,
+          "placeholder_color": "#5a4a36",
+          "placeholder_dots": "#7a5a3a"
+        },
+        {
+          "id": "stone",
+          "max": 1.0,
+          "placeholder_color": "#8a8680",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "bamboo_clump",
+      "castle_wall_ruin"
+    ],
+    "decorations_per_chunk": [
+      2,
+      5
+    ],
+    "decoration_art": {
+      "bamboo_clump": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          32
+        ],
+        "placeholder_color": "#6a9a4a",
+        "weight": 3
+      },
+      "castle_wall_ruin": {
+        "shape": "rect",
+        "size_px": [
+          34,
+          22
+        ],
+        "placeholder_color": "#8a8680",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "tsuchigumo",
+      "20": "benkei",
+      "30": "shuten_doji"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_underworld",
+      "boss": "typhon"
+    },
+    "waves": "waves_the_land_of_legends.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_BLOSSOM_STORM_NAME",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 20,
+      "push_px_s": 20,
+      "enemy_push_px_s": 10,
+      "wind_turn_s": 7,
+      "vision_screens": 0.55,
+      "pulse": 0.0,
+      "veil_color": "#f4d8e4",
+      "particles": "petals",
+      "particle_color": "#f8c8d8",
+      "fade_s": 2.5
+    },
+    "ground_patches": {
+      "kind": "slow",
+      "count": 5,
+      "radius_px": [
+        24,
+        36
+      ],
+      "color": "#3a5a3a",
+      "speed_mult": 0.65
+    },
+    "seal": "seigaiha",
+    "tint": "#ece6e2",
+    "flora": {
+      "density": 1.0,
+      "trees": {
+        "japanese_cedar": 2,
+        "black_pine": 2,
+        "maple": 2
+      }
+    },
+    "road": {
+      "color": "#9a8a6a",
+      "edge": "#6a5c44",
+      "stones": "#a8a49a"
+    }
   }
 ]

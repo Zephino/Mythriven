@@ -296,6 +296,32 @@ def well_sweep():
     return p
 
 
+def bamboo_clump():
+    """A clump of bamboo (the Land of Legends): tall green jointed canes with narrow leaves at the top."""
+    p = Pic(16, 32, (8, 31))
+    for k, (x, top) in enumerate(((3, 4), (7, 0), (11, 3), (13, 8))):
+        p.rect(x, top, x + 1, 31, "c" if k % 2 else "C")
+        for y in range(top + 4, 31, 6):
+            p.rect(x, y, x + 1, y, "a")                                  # the joints
+        for d in (-1, 1):
+            p.px(x + d * 2, top + 1, "c"); p.px(x + d * 3, top, "c"); p.px(x + d, top + 2, "C")
+    return p
+
+
+def castle_wall_ruin():
+    """A ruined castle wall base (the Land of Legends): the sloping dry-stone foundation of a fallen castle, its
+    timber keep long gone, grass on top."""
+    p = Pic(34, 22, (17, 21))
+    for y in range(6, 22):
+        inset = (21 - y) // 3
+        for x in range(inset, 34 - inset):
+            p.px(x, y, "g" if (x // 3 + y // 2) % 2 else "G")
+    for x in range(2, 32, 3):
+        p.px(x, 5 + (x % 2), "u")                                         # grass on top
+    p.rect(3, 5, 30, 5, "u")
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -320,7 +346,8 @@ def lekythos():
 
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
-                                   ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep)}
+                                   ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
+                                   castle_wall_ruin)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

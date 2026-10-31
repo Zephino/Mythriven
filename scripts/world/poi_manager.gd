@@ -242,7 +242,7 @@ func _view() -> Vector2:
 
 ## The ruin each region's Ancient Ruins are built from (its own scenery picture).
 const RUINS := {"greek": "broken_column", "norse": "runestone", "egyptian": "obelisk", "irish": "standing_stone",
-		"welsh": "standing_stone", "mesopotamian": "boundary_stone", "finnish": "log_hut_ruin", "persian": "div_palace_ruin", "slavic": "log_hut_ruin"}
+		"welsh": "standing_stone", "mesopotamian": "boundary_stone", "finnish": "log_hut_ruin", "persian": "div_palace_ruin", "slavic": "log_hut_ruin", "japanese": "castle_wall_ruin"}
 
 
 func _region() -> String:

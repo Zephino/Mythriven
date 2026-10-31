@@ -2936,5 +2936,242 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Land of Legends bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "tsuchigumo",
+    "name_key": "BOSS_TSUCHIGUMO_NAME",
+    "tradition": "japanese",
+    "lore_source": "The Tsuchigumo Soshi (Raiko and the earth spider)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "tsuchigumo",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 631,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "webs",
+      "every_s": 3.5,
+      "webs": 2,
+      "web_radius_px": 24,
+      "web_s": 20,
+      "max_webs": 10,
+      "root_s": 1.2
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Land of Legends bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "benkei",
+    "name_key": "BOSS_BENKEI_NAME",
+    "tradition": "japanese",
+    "lore_source": "The Gikeiki (the duel on the Gojo Bridge; his standing death at Koromogawa)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "benkei",
+    "move_speed": 54,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 982,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "gojo_bridge",
+      "bridge_half_width_px": 46,
+      "river_slow": 0.55,
+      "standing_phase": 2,
+      "standing_damage_mult": 0.4
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ],
+    "unlocks_hero": "benkei"
+  },
+  {
+    "_doc": "The Land of Legends bosses (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Pack 3: about 40% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "shuten_doji",
+    "name_key": "BOSS_SHUTEN_DOJI_NAME",
+    "tradition": "japanese",
+    "lore_source": "The Oeyama tale (the oni king, made drunk with poisoned sake)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "shuten_doji",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1544,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "drunken",
+      "lurch_every_s": 1.2,
+      "lurch_px": 60,
+      "water_chill": true
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "oni"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "oni"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

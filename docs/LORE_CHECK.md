@@ -251,6 +251,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | koschei_entrance | boss entrance | koschei | I cannot die. Look for my death if you dare. | Afanasyev, "The Death of Koschei the Deathless" | no |
 | zmey_gorynych_perun | boss meets god (with perun) | zmey_gorynych | Thunder-god, I have three heads for every bolt you throw. | Original line written for Mythriven | no |
 
+### The Land of Legends
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| hero | benkei | Benkei | The Gikeiki (the Gojo Bridge duel; Benkei's standing death at Koromogawa) | no |
+| hero | yoshitsune | Minamoto no Yoshitsune | The Tale of the Heike (Dan-no-ura: his leap across eight boats); the Gikeiki (taught by the tengu of Mount Kurama) | no |
+| boss | tsuchigumo | Tsuchigumo | The Tsuchigumo Soshi (Raiko and the earth spider) | no |
+| boss | benkei | Benkei | The Gikeiki (the duel on the Gojo Bridge; his standing death at Koromogawa) | no |
+| boss | shuten_doji | Shuten-dōji | The Oeyama tale (the oni king, made drunk with poisoned sake) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| benkei_binds | hero bind | benkei | Stand beside me; I will not give a step. | Original line written for Mythriven | no |
+| yoshitsune_binds | hero bind | yoshitsune | Quick, then; we fight as we move. | Original line written for Mythriven | no |
+| tsuchigumo_entrance | boss entrance | tsuchigumo | Come into my cave. Mind the threads. | The Tsuchigumo Soshi (the spider's lair) | no |
+| benkei_entrance | boss entrance | benkei | Nine hundred and ninety-nine swords. Yours makes a thousand. | The Gikeiki (Benkei vowed to take a thousand swords) | no |
+| benkei_yoshitsune | boss entrance (as yoshitsune) | benkei | The boy from the bridge. This time I will not fall. | The Gikeiki (the Gojo Bridge duel) | no |
+| benkei_tomoe_gozen | boss entrance (as tomoe_gozen) | benkei | Lady Tomoe; your lord and mine were cousins, and still they fought. | The Tale of the Heike (Kiso Yoshinaka and Yoshitsune, cousins of the Minamoto, at war in 1184) | no |
+| shuten_doji_entrance | boss entrance | shuten_doji | More sake! And then, more heroes! | The Oeyama tale (Shuten-doji's love of sake) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

@@ -328,6 +328,12 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # The Land of Legends: Japanese cedar (sugi), black pine and maple on the mountain paths; bamboo stands as scenery.
+    "the_land_of_legends": {
+        "trees": {"japanese_cedar": (spruce, 22, 42), "black_pine": (umbrella_pine, 28, 34),
+                  "maple": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "c"), 24, 28)},
+        "bushes": {"azalea": ("M", "m", "y", "R"), "fern": ("fern",)},
+        "rock": ("g", "G", "H", "l")},
     # The Slavic Wilds: the birch forest, with spruce and willows by the rivers; bilberries and fern.
     "the_slavic_wilds": {
         "trees": {"birch": (birch, 18, 34), "spruce": (spruce, 22, 40),

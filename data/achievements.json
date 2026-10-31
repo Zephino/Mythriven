@@ -679,5 +679,50 @@
       "id": "koschei"
     },
     "persists": true
+  },
+  {
+    "id": "legends_survive_30",
+    "name_key": "ACH_LEGENDS_SURVIVE_30_NAME",
+    "desc_key": "ACH_LEGENDS_SURVIVE_30_DESC",
+    "condition": {
+      "type": "survive_s",
+      "seconds": 1800,
+      "level_id": "the_land_of_legends"
+    },
+    "reward": {
+      "type": "hero",
+      "id": "yoshitsune"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_tsuchigumo",
+    "name_key": "ACH_BOSS_TSUCHIGUMO_NAME",
+    "desc_key": "ACH_BOSS_TSUCHIGUMO_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "tsuchigumo"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_benkei",
+    "name_key": "ACH_BOSS_BENKEI_NAME",
+    "desc_key": "ACH_BOSS_BENKEI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "benkei"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_shuten_doji",
+    "name_key": "ACH_BOSS_SHUTEN_DOJI_NAME",
+    "desc_key": "ACH_BOSS_SHUTEN_DOJI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "shuten_doji"
+    },
+    "persists": true
   }
 ]

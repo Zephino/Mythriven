@@ -1470,5 +1470,75 @@
     "text_key": "BANTER_ZMEY_GORYNYCH_PERUN",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "benkei_binds",
+    "trigger": "hero_bind",
+    "speaker": "benkei",
+    "hero": "benkei",
+    "god": "",
+    "text_key": "BANTER_BENKEI_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "yoshitsune_binds",
+    "trigger": "hero_bind",
+    "speaker": "yoshitsune",
+    "hero": "yoshitsune",
+    "god": "",
+    "text_key": "BANTER_YOSHITSUNE_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "tsuchigumo_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "tsuchigumo",
+    "hero": "",
+    "god": "tsuchigumo",
+    "text_key": "BANTER_TSUCHIGUMO_ENTRANCE",
+    "lore_source": "The Tsuchigumo Soshi (the spider's lair)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "benkei_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "benkei",
+    "hero": "",
+    "god": "benkei",
+    "text_key": "BANTER_BENKEI_ENTRANCE",
+    "lore_source": "The Gikeiki (Benkei vowed to take a thousand swords)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "benkei_yoshitsune",
+    "trigger": "boss_entrance",
+    "speaker": "benkei",
+    "hero": "yoshitsune",
+    "god": "benkei",
+    "text_key": "BANTER_BENKEI_YOSHITSUNE",
+    "lore_source": "The Gikeiki (the Gojo Bridge duel)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "benkei_tomoe_gozen",
+    "trigger": "boss_entrance",
+    "speaker": "benkei",
+    "hero": "tomoe_gozen",
+    "god": "benkei",
+    "text_key": "BANTER_BENKEI_TOMOE_GOZEN",
+    "lore_source": "The Tale of the Heike (Kiso Yoshinaka and Yoshitsune, cousins of the Minamoto, at war in 1184)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "shuten_doji_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "shuten_doji",
+    "hero": "",
+    "god": "shuten_doji",
+    "text_key": "BANTER_SHUTEN_DOJI_ENTRANCE",
+    "lore_source": "The Oeyama tale (Shuten-doji's love of sake)",
+    "needs_owner_review": true
   }
 ]

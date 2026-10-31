@@ -18,6 +18,8 @@ const KITS: Dictionary = {
 	"grip": "res://scripts/player/hero_traits/grip.gd",
 	"enkidu": "res://scripts/player/hero_traits/enkidu.gd",
 	"rakhsh": "res://scripts/player/hero_traits/enkidu.gd",
+	"stands_his_ground": "res://scripts/player/hero_traits/stands_his_ground.gd",
+	"eight_boat_leap": "res://scripts/player/hero_traits/eight_boat_leap.gd",
 }
 
 var player: Player

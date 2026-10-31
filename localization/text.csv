@@ -1747,3 +1747,60 @@ BANTER_ZMEY_GORYNYCH_ENTRANCE,"Cut off a head, little hero; I have plenty more."
 BANTER_BABA_YAGA_ENTRANCE,"Fu, fu! I smell a living soul in my forest."
 BANTER_KOSCHEI_ENTRANCE,I cannot die. Look for my death if you dare.
 BANTER_ZMEY_GORYNYCH_PERUN,"Thunder-god, I have three heads for every bolt you throw."
+LEVEL_LAND_OF_LEGENDS_NAME,The Land of Legends
+HAZARD_BLOSSOM_STORM_NAME,A storm of blossom blows in!
+ENEMY_ONI_NAME,Oni
+ENEMY_ONI_MYTH,"The ogres of Japanese legend, horned and fierce, with iron clubs. Shuten-doji's band of oni raided the capital from their stronghold on Mount Oe."
+ENEMY_TENGU_NAME,Tengu
+ENEMY_TENGU_MYTH,"Winged mountain goblins with the beaks of crows. In the Gikeiki, the boy Yoshitsune learned swordsmanship from the tengu of Mount Kurama."
+ENEMY_EARTH_SPIDER_NAME,Earth spider
+ENEMY_EARTH_SPIDER_MYTH,"The tsuchigumo, earth spiders of the mountain caves. The picture scroll of the Tsuchigumo Soshi shows Minamoto no Raiko tracking a monstrous one to its lair."
+ENEMY_RESTLESS_WARRIOR_NAME,Restless warrior
+ENEMY_RESTLESS_WARRIOR_MYTH,"The Tale of the Heike tells of the war between the Taira and the Minamoto, which ended at sea at Dan-no-ura. Many tales say its fallen warriors never found rest."
+ENEMY_SIKA_DEER_NAME,Sika deer
+BOSS_TSUCHIGUMO_NAME,Tsuchigumo
+BOSS_BENKEI_NAME,Benkei
+BOSS_SHUTEN_DOJI_NAME,Shuten-dōji
+ENEMY_TSUCHIGUMO_NAME,Tsuchigumo
+ENEMY_BENKEI_NAME,Benkei
+ENEMY_SHUTEN_DOJI_NAME,Shuten-dōji
+ENEMY_TSUCHIGUMO_MYTH,"A monstrous earth spider. When the warrior Minamoto no Raiko fell sick, the spider came to him in disguise; he drove it off with his sword, followed its trail of blood to its cave, and killed it."
+ENEMY_BENKEI_MYTH,"The giant warrior monk who stood on the Gojo Bridge and took a sword from every man who passed, until the boy Yoshitsune beat him. He served Yoshitsune to the end, and died standing, still guarding his lord, at Koromogawa."
+ENEMY_SHUTEN_DOJI_MYTH,"The oni king of Mount Oe, who loved sake. Minamoto no Raiko and his men came to him disguised as mountain monks, shared their drugged sake with him, and killed him while he slept."
+BOSS_TSUCHIGUMO_WEBS_BURN,Fire! The webs burn away!
+BOSS_BENKEI_STANDING,Benkei stands his ground: his standing death!
+ROLE_WARRIOR_MONK,Warrior monk
+ROLE_GENERAL,Swift general
+HERO_BENKEI_NAME,Benkei
+HERO_BENKEI_LEGEND,"The giant warrior monk of the Gikeiki, who fought the young Yoshitsune on the Gojo Bridge and lost, and served him ever after. At Koromogawa he held the bridge alone and died on his feet, still guarding his lord."
+HERO_YOSHITSUNE_NAME,Minamoto no Yoshitsune
+HERO_YOSHITSUNE_LEGEND,"The brilliant young general of the Genpei war, trained in swordsmanship by the tengu of Mount Kurama. At Dan-no-ura, the Tale of the Heike says, he leapt from boat to boat across eight boats."
+WEAPON_NAGINATA_NAME,Naginata
+WEAPON_NAGINATA_DESC,Long piercing thrusts with the warrior monk's curved polearm.
+WEAPON_YOSHITSUNE_SWORD_NAME,Yoshitsune's tachi
+WEAPON_YOSHITSUNE_SWORD_DESC,Quick sweeping cuts with a long curved sword.
+TRAIT_STANDS_HIS_GROUND,Stands his ground
+TRAIT_STANDS_HIS_GROUND_DESC,"The more monsters round him, the harder he hits: +4% damage for each one close by, up to +40%."
+PASSIVE_SEVEN_WEAPONS,The seven weapons
+PASSIVE_SEVEN_WEAPONS_DESC,He went to war carrying seven weapons: +10% Max HP.
+TRAIT_EIGHT_BOAT_LEAP,The eight-boat leap
+TRAIT_EIGHT_BOAT_LEAP_DESC,"He holds 2 leaps: a blow that would land is dodged, and he springs away from it. Each leap comes back after 5 s."
+PASSIVE_KURAMA_TRAINING,Trained on Mount Kurama
+PASSIVE_KURAMA_TRAINING_DESC,+15% Move Speed.
+HUD_STANDS_HIS_GROUND,Standing: +%d%%
+HUD_EIGHT_BOAT_LEAP,Leaps: %d
+ACH_LEGENDS_SURVIVE_30_NAME,Survive 30:00 in the Land of Legends
+ACH_LEGENDS_SURVIVE_30_DESC,Unlocks Minamoto no Yoshitsune.
+ACH_BOSS_TSUCHIGUMO_NAME,Defeat Tsuchigumo
+ACH_BOSS_TSUCHIGUMO_DESC,The 10:00 boss of the Land of Legends.
+ACH_BOSS_BENKEI_NAME,Defeat Benkei
+ACH_BOSS_BENKEI_DESC,The 20:00 boss of the Land of Legends.
+ACH_BOSS_SHUTEN_DOJI_NAME,Defeat Shuten-dōji
+ACH_BOSS_SHUTEN_DOJI_DESC,The 30:00 boss of the Land of Legends.
+BANTER_BENKEI_BINDS,Stand beside me; I will not give a step.
+BANTER_YOSHITSUNE_BINDS,"Quick, then; we fight as we move."
+BANTER_TSUCHIGUMO_ENTRANCE,Come into my cave. Mind the threads.
+BANTER_BENKEI_ENTRANCE,Nine hundred and ninety-nine swords. Yours makes a thousand.
+BANTER_BENKEI_YOSHITSUNE,The boy from the bridge. This time I will not fall.
+BANTER_BENKEI_TOMOE_GOZEN,"Lady Tomoe; your lord and mine were cousins, and still they fought."
+BANTER_SHUTEN_DOJI_ENTRANCE,"More sake! And then, more heroes!"

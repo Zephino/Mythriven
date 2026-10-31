@@ -1,0 +1,93 @@
+{
+ "_doc": "An earth spider (the Tsuchigumo Soshi): a small dark mountain spider, hairy legs splayed. Built by tools/art/build_legends.py.",
+ "size": [
+  20,
+  12
+ ],
+ "anchor": [
+  10,
+  11
+ ],
+ "palette": {
+  "o": "#08060a",
+  "b": "#3a3028",
+  "B": "#24201a",
+  "r": "#e04020"
+ },
+ "frames": {
+  "idle": [
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....o...........o...",
+    "...obo.ooooo...obo..",
+    "..obooobbbbbooooobo.",
+    "..obbbbbbbbbbBBBbobo",
+    "..obobbbbbbbBBBrBbbo",
+    "..obbbbbbbbBBBBBrBbo",
+    "..obobbbbbbbBBBBBobo",
+    "...oobbbbbbbbBBBo.o.",
+    ".....oobbbbboooo...."
+   ]
+  ],
+  "walk": [
+   [
+    "....................",
+    "....................",
+    "....................",
+    "...o.............o..",
+    "..obo..ooooo....obo.",
+    "...oboobbbbbooooboo.",
+    "..obobbbbbbbbBBBobbo",
+    "..obbbbbbbbbBBBrbobo",
+    "..obbbbbbbbBBBBBrBbo",
+    "..obobbbbbbbBBBBBobo",
+    "...oobbbbbbbbBBBo.o.",
+    ".....oobbbbboooo...."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....o...........o...",
+    "...obo.ooooo...obo..",
+    "..obooobbbbbooooobo.",
+    "..obbbbbbbbbbBBBbobo",
+    "..obobbbbbbbBBBrBbbo",
+    "..obbbbbbbbBBBBBrBbo",
+    "..obobbbbbbbBBBBBobo",
+    "...oobbbbbbbbBBBo.o.",
+    ".....oobbbbboooo...."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "...o.............o..",
+    "..obo..ooooo....obo.",
+    "...oboobbbbbooooboo.",
+    "..obobbbbbbbbBBBobbo",
+    "..obbbbbbbbbBBBrbobo",
+    "..obbbbbbbbBBBBBrBbo",
+    "..obobbbbbbbBBBBBobo",
+    "...oobbbbbbbbBBBo.o.",
+    ".....oobbbbboooo...."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....o...........o...",
+    "...obo.ooooo...obo..",
+    "..obooobbbbbooooobo.",
+    "..obbbbbbbbbbBBBbobo",
+    "..obobbbbbbbBBBrBbbo",
+    "..obbbbbbbbBBBBBrBbo",
+    "..obobbbbbbbBBBBBobo",
+    "...oobbbbbbbbBBBo.o.",
+    ".....oobbbbboooo...."
+   ]
+  ]
+ }
+}

@@ -1,0 +1,65 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A ruined castle wall base (the Land of Legends): the sloping dry-stone foundation of a fallen castle, its timber keep long gone, grass on top.",
+ "size": [
+  36,
+  19
+ ],
+ "anchor": [
+  18,
+  18
+ ],
+ "palette": {
+  "a": "#243618",
+  "b": "#546c3c",
+  "c": "#5a723c",
+  "d": "#607842",
+  "e": "#4e6636",
+  "f": "#8a8a90",
+  "g": "#606066",
+  "h": "#6c6c6c",
+  "i": "#84848a",
+  "j": "#787878",
+  "k": "#66666c",
+  "l": "#909096",
+  "m": "#545a5a",
+  "n": "#2a2a2a",
+  "o": "#7e7e84",
+  "p": "#3c3c3c",
+  "q": "#666666",
+  "r": "#5a5a60",
+  "s": "#545454",
+  "t": "#7e7e7e",
+  "u": "#4e4e54",
+  "v": "#727272",
+  "w": "#48484e",
+  "x": "#54545a",
+  "y": "#484848",
+  "z": "#787e7e",
+  "A": "#4e5454"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...aaaaaaaaaaaaaaaaaaaaaaaaaaaaa....",
+    "..abcdbcbcbdbcdbbccdbcdedbbcdcbca...",
+    "...aaacfffghciiighbjifgkclilmhca....",
+    "....nkkffihghiffkgkfiighkffokkgn....",
+    "....pfiggqiiigrqiiigqrjiisrmiifp....",
+    "....nhigqgtitqrgiijrrriitqgqfitp....",
+    "...ngggijtggriiigqgiifrqgfitgrgip...",
+    "...nqqgfiirqgiiirggtfiqrgiftgrqtp...",
+    "...niiirqgfiiruqiivqqriiiqrqittgn...",
+    "..nwtjtrxxhiirgxtitrrrjttrxgkitrrn..",
+    "..pjsrxtijuxrjttxrgkttrrgtjtrrrjip..",
+    "..nhxxgtttxrrihtxrxitjgggjtixxgjin..",
+    ".nxrijirrxitirxxhjtxgxttirrrjijgxrn.",
+    ".nxrtjtrxutitusgttirgwtjtrxrjttgrun.",
+    ".pttrrrijtgrrtivxrrijtrrsthigxukijn.",
+    "ptttrggtttgrxtjjrrxjttrrrtttggxtjtxn",
+    "nryyzjjrAwzjjrxAvvjrAAjgjrrAjvzxxxjp",
+    "nArrjjjxrxjvjxxxvjjAxxjvzxxrhjzxAxvp",
+    ".nnnpppnnnpppnnnpppnnnpppnnnpppnnnp."
+   ]
+  ]
+ }
+}

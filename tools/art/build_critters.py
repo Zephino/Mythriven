@@ -248,6 +248,11 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    "the_land_of_legends": {
+        "ground": {"red_fox": (fox, "#c8642a", "#f0ece4"), "hare": (hare, "#8a6a48", "#e8e0d0")},
+        "birds": {"crane": ("#f0f0ec", "#24222a", "#c83030", True), "sparrow": ("#8a6a4a", "#5a4430", "#c8a040", False)},
+        "insects": {"butterfly": (butterfly, "#f0d860", "#3a3020"), "firefly": (lambda *a: firefly(a[-1]),)},
+        "large": {"sika_deer": ("#a8724a", "#e8d4b8", "#4a3020", "antlers", 26, 24)}},
     "the_slavic_wilds": {
         "ground": {"red_squirrel": (squirrel, "#b05a2a", "#c86a30"), "hedgehog": (hedgehog, "#6a5a48", "#c8a888"),
                    "common_frog": (frog, "#6a8a3a", "#c8c08a")},

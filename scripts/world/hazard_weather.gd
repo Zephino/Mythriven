@@ -159,6 +159,12 @@ func _draw_flakes() -> void:
 		"sand":
 			for i: int in shown:
 				_flakes.draw_line(_flake_pos[i], _flake_pos[i] + wind * (4.0 + _flake_seed[i] * 8.0), Color(color, 0.7), 1.0)
+		"petals":
+			# Cherry blossom: little pink petals tumbling on the wind.
+			for i: int in shown:
+				var spin: float = Time.get_ticks_msec() * 0.004 + _flake_seed[i] * 6.0
+				var tip: Vector2 = Vector2.from_angle(spin) * (2.0 + _flake_seed[i] * 1.5)
+				_flakes.draw_line(_flake_pos[i] - tip, _flake_pos[i] + tip, Color(color, 0.9), 2.0)
 		"aurora":
 			# The northern lights: soft green and violet ribbons rippling across the top of the sky.
 			var view: Vector2 = get_viewport().get_visible_rect().size

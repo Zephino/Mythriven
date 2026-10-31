@@ -1,0 +1,200 @@
+{
+ "_doc": "Critters of the_land_of_legends (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#c8642a",
+  "b": "#f0ece4",
+  "c": "#8a6a48",
+  "d": "#e8e0d0",
+  "e": "#f0f0ec",
+  "f": "#24222a",
+  "g": "#c83030",
+  "h": "#8a6a4a",
+  "i": "#5a4430",
+  "j": "#c8a040",
+  "m": "#f0d860",
+  "n": "#3a3020"
+ },
+ "frames": {
+  "red_fox": [
+   [
+    "............oo..",
+    "......ooo..oaao.",
+    ".oooooaaaooakaao",
+    "oaaaaaaaaaaaaaao",
+    "baaaaaaaaaaaabak",
+    "oooaaaaaaaaaoooo",
+    "...ooakaakoo....",
+    "....oakoako.....",
+    "....oakoako....."
+   ],
+   [
+    "............oo..",
+    "......ooo..oaao.",
+    ".oooooaaaooakaao",
+    "oaaaaaaaaaaaaaao",
+    "baaaaaaaaaaaabak",
+    "oooaaaaaaaaaoooo",
+    "...oaoakaako....",
+    "...oaookoako....",
+    "...oaookoako...."
+   ]
+  ],
+  "hare": [
+   [
+    ".......occo.",
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    "..occccco...",
+    "..occocco..."
+   ],
+   [
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    ".occcccoo...",
+    ".occooocco..",
+    "..oo..occo.."
+   ]
+  ],
+  "crane": [
+   [
+    ".......oo.",
+    "o..ooooeko",
+    "fooeeeeeeg",
+    "offfffeeoo",
+    ".oeeeeeeo.",
+    "..oeeeeo..",
+    "...ogogo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "fooeeeeeko",
+    "offfffeeeg",
+    ".oeeeeeeoo",
+    "..oeeeeo..",
+    "...ogogo.."
+   ]
+  ],
+  "crane_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...oeeeeeoeg",
+    "...oeefeeooo",
+    "....offfo...",
+    "...ofoofo..."
+   ],
+   [
+    "....o..o....",
+    "...ofoofoo..",
+    "....offfokoo",
+    "...oeefeeoeg",
+    "...oeeeeeooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "sparrow": [
+   [
+    ".....oo.",
+    "o.ooohko",
+    "iohhhhhj",
+    "oiiiihho",
+    ".ohhhho.",
+    "..ojojo."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "iohhhhko",
+    "oiiiihhj",
+    ".ohhhhoo",
+    "..ojojo."
+   ]
+  ],
+  "sparrow_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..ohhhhhhj",
+    "..ohhihhoo",
+    "...oiiio..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...oiiikoo",
+    "..ohhihhhj",
+    "..ohhhhhoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".mmkmm.",
+    ".mmkmm.",
+    "..nkn..",
+    "...k...",
+    "......."
+   ],
+   [
+    "mmm.mmm",
+    "mmmkmmm",
+    "mmmkmmm",
+    ".nnknn.",
+    ".nnknn.",
+    "......."
+   ]
+  ],
+  "firefly": [
+   [
+    "...",
+    ".L.",
+    "..."
+   ],
+   [
+    ".l.",
+    "lLl",
+    ".l."
+   ]
+  ]
+ },
+ "critters": {
+  "red_fox": {
+   "kind": "ground"
+  },
+  "hare": {
+   "kind": "ground"
+  },
+  "crane": {
+   "kind": "bird"
+  },
+  "sparrow": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  },
+  "firefly": {
+   "kind": "firefly"
+  }
+ }
+}
