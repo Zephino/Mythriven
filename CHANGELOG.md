@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.43
+Date: 10/30/2026
+Time: 8:43 PM
+
+### Changes
+- **The game link no longer shows the README after an update.** GitHub publishes the repository itself a minute before the game build replaces it.
+  - A holding page (`index.html` at the top of the repository) now says "Mythriven is updating…" and reloads itself until the game is back.
+  - The web build waits for GitHub's own publish to finish, so the game is always published last.
+  - After publishing, the build checks that the site really shows the game, and fails with a clear message if it doesn't.
+- The permanent fix is still the owner's one-time setting: GitHub → Settings → Pages → Source → "GitHub Actions".
+
+### Reason
+The owner landed on the README again and asked for a check.
+
 ## Version 00.01.42
 Date: 10/30/2026
 Time: 8:40 PM
