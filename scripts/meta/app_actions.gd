@@ -5,7 +5,9 @@ extends RefCounted
 ## screen). Install app and Update app are for the web version: it can be
 ## installed like an app (export preset: progressive web app), which keeps a
 ## copy of the game on the device; Update app clears that copy and reloads,
-## so the newest version is always one tap away.
+## so the newest version is always one tap away. The page also updates itself:
+## for 30 s after opening it asks for a newer version and switches to it
+## (export preset head include), so a run is never interrupted.
 
 
 ## True where the game can switch fullscreen on and off.

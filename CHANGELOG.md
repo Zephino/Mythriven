@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.48
+Date: 10/30/2026
+Time: 9:15 PM
+
+### Changes
+- **The web version updates itself.** Since 00.01.44 (installable app) the browser keeps a saved copy of the game and kept using it until every tab was closed, so new versions didn't show up. Now, in the first 30 seconds after the game opens, it checks for a newer version and switches to it straight away (the page reloads once). It never does this mid-run. Checked in Chrome: with a newer version online, reopening the page reloaded itself into the new version.
+- Settings → Update app still forces it at any time.
+
+### Reason
+The owner's game stayed on 00.01.45 after newer versions were online.
+
 ## Version 00.01.47
 Date: 10/30/2026
 Time: 9:10 PM
