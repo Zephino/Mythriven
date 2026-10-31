@@ -30,6 +30,7 @@ var ground: GroundEffects
 var resonance: ResonanceManager
 var infusion_choice: InfusionChoiceScreen
 var shrines: Shrines
+var dungeon: ShrineDungeon
 var trial: GodTrial
 var god_choice: GodChoiceScreen
 var banter: BanterBubble
@@ -144,6 +145,15 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	add_child(infusion_choice)
 	chest_screen.infusion_choice = infusion_choice
 	shrines.gods = gods
+	# Shrines lead into dungeons; while the party is inside, the run outside stops (owner decision 10/31/2026).
+	dungeon = ShrineDungeon.new()
+	dungeon.shrines = shrines
+	dungeon.trial = trial
+	dungeon.freeze.assign([enemies, spawner, shots, gold, chests, hazard, ground_patches, elite_bars, patterns, ground,
+			summons, shrines, trial, storm, pois, unraveling, bosses])
+	world.add_child(dungeon)
+	world.origin_shifted.connect(dungeon.on_origin_shifted)
+	shrines.dungeon = dungeon
 	shrines.banter = banter
 	god_choice = GodChoiceScreen.new()
 	god_choice.gods = gods

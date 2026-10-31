@@ -16,6 +16,8 @@ var gods: GodManager
 var trial: GodTrial
 var choice: GodChoiceScreen
 var banter: BanterBubble
+## Shrines with art are entrances to a dungeon with the god at the far end (owner decision 10/31/2026).
+var dungeon: ShrineDungeon
 
 ## Each {"god_id", "god", "pos", "left", "progress", "seen", "hidden"}.
 var shrines: Array[Dictionary] = []
@@ -45,8 +47,7 @@ func add(at: Vector2, god_id: String = "", hidden: bool = false) -> Dictionary:
 		return {}
 	var seed_value: int = run.rng.world.randi()
 	var shrine: Dictionary = {"god_id": god_id, "god": god, "pos": at, "left": Data.cfg_float("gods.shrine_lifetime_s"),
-			"progress": 0.0, "seen": false, "hidden": hidden, "progress_by": {}, "bound_by": [], "seed": seed_value,
-			"layout": ShrineLayout.make(seed_value, str(god.get("pantheon", "")))}
+			"progress": 0.0, "seen": false, "hidden": hidden, "progress_by": {}, "bound_by": [], "seed": seed_value}
 	shrines.append(shrine)
 	shrine_added.emit(shrine)
 	return shrine
@@ -82,6 +83,12 @@ func _process(delta: float) -> void:
 		if float(shrine["left"]) <= 0.0:
 			shrines.erase(shrine)
 			continue
+		if has_dungeon(shrine):
+			for player: Player in GameAuthority.players:
+				_notice(shrine, player)
+			if GameAuthority.decides() and dungeon.gather(shrine, delta):
+				break
+			continue
 		for player: Player in GameAuthority.players:
 			if not shrines.has(shrine):
 				break
@@ -95,12 +102,23 @@ func _process(delta: float) -> void:
 	_arrows.queue_redraw()
 
 
-func _check_player(shrine: Dictionary, player: Player, delta: float) -> void:
-	var dist: float = player.position.distance_to(shrine["pos"])
-	if player.is_local and not bool(shrine["seen"]) and dist <= _view().size.x * 0.5:
+## True when this shrine is a dungeon entrance: its god and its people's parts have art.
+func has_dungeon(shrine: Dictionary) -> bool:
+	return dungeon != null and not PixelArt.god(str(shrine["god_id"])).is_empty() \
+			and not PixelArt.find("shrines/" + str(shrine["god"].get("pantheon", ""))).is_empty()
+
+
+## The god says a line when the shrine first comes into view.
+func _notice(shrine: Dictionary, player: Player) -> void:
+	if player.is_local and not bool(shrine["seen"]) and player.position.distance_to(shrine["pos"]) <= _view().size.x * 0.5:
 		shrine["seen"] = true
 		if banter != null:
 			banter.say_line(GodRules.line("found", str(shrine["god_id"]), ""))
+
+
+func _check_player(shrine: Dictionary, player: Player, delta: float) -> void:
+	var dist: float = player.position.distance_to(shrine["pos"])
+	_notice(shrine, player)
 	if dist > Data.cfg_float("gods.shrine_radius_px") + player.body_radius:
 		(shrine["progress_by"] as Dictionary).erase(player.player_id)
 		return
@@ -137,6 +155,9 @@ func offer_binding(shrine: Dictionary, player: Player) -> void:
 
 func net_capture() -> Variant:
 	var out: Array = []
+	# The dungeon the party is in, if any, so joining players go in and out with the host.
+	if dungeon != null and dungeon.active:
+		out.append(["__dungeon", str(dungeon.shrine.get("god_id", "")), int(dungeon.shrine.get("seed", 0)), dungeon.shrine["pos"]])
 	for shrine: Dictionary in shrines:
 		out.append([str(shrine["god_id"]), shrine["pos"], float(shrine["left"]), float(shrine["progress"]), bool(shrine["hidden"]),
 				int(shrine.get("seed", 0))])
@@ -145,13 +166,23 @@ func net_capture() -> Variant:
 
 func net_apply(state: Variant) -> void:
 	shrines.clear()
+	var inside: Array = []
 	for row: Variant in state:
+		if str(row[0]) == "__dungeon":
+			inside = row
+			continue
 		var god: Dictionary = GodRules.find(str(row[0]))
 		if not god.is_empty():
 			var seed_value: int = int(row[5]) if (row as Array).size() > 5 else 0
 			shrines.append({"god_id": str(row[0]), "god": god, "pos": row[1], "left": float(row[2]), "progress": float(row[3]),
-				"seen": true, "hidden": bool(row[4]), "progress_by": {}, "bound_by": [], "seed": seed_value,
-				"layout": ShrineLayout.make(seed_value, str(god.get("pantheon", "")))})
+				"seen": true, "hidden": bool(row[4]), "progress_by": {}, "bound_by": [], "seed": seed_value})
+	if dungeon != null:
+		if not inside.is_empty() and not dungeon.active:
+			var god: Dictionary = GodRules.find(str(inside[1]))
+			dungeon.enter({"god_id": str(inside[1]), "god": god, "pos": inside[3], "seed": int(inside[2]), "bound_by": [],
+					"progress_by": {}})
+		elif inside.is_empty() and dungeon.active:
+			dungeon.leave()
 	_arrows.queue_redraw()
 
 
@@ -174,19 +205,13 @@ func _draw() -> void:
 		var at: Vector2 = shrine["pos"]
 		var god: Dictionary = shrine["god"]
 		var color := Color.html(str(god.get("placeholder_color", "#ffffff")))
-		# A shrine built from its people's parts round the altar, the god on their throne or walking about inside
-		# (owner request 10/31/2026; ShrineLayout). Gods without art keep the plain altar and a coloured dot.
-		var art: Dictionary = PixelArt.god(str(shrine.get("god_id", god.get("id", ""))))
-		var parts: Dictionary = PixelArt.find("shrines/" + str(god.get("pantheon", "")))
-		if art.is_empty() or parts.is_empty() or not shrine.has("layout"):
-			_draw_altar(at, god, color)
-			if not art.is_empty():
-				PixelArt.draw_standing(self, art, at + Vector2(0, Data.cfg_float("gods.throne_feet_px")), false, Color.WHITE,
-						false, 0.0, "seated")
-			else:
-				draw_circle(at, 4.0, color)
-		else:
-			_draw_temple(at, shrine["layout"], parts, art)
+		# A dungeon entrance built from its people's parts (owner decision 10/31/2026: the god waits at the far end
+		# of a dungeon). Gods without art keep the plain altar and a coloured dot.
+		if has_dungeon(shrine):
+			_draw_entrance(at, shrine, PixelArt.find("shrines/" + str(god.get("pantheon", ""))), color)
+			continue
+		_draw_altar(at, god, color)
+		draw_circle(at, 4.0, color)
 		var progress: float = float(shrine["progress"]) / maxf(Data.cfg_float("gods.peaceful_bind_s"), 0.01)
 		if progress > 0.0:
 			draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * progress, 32, color, 3.0)
@@ -194,34 +219,30 @@ func _draw() -> void:
 			draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), 0.0, TAU, 32, Color(color, 0.4), 1.0)
 
 
-## Floor first, then walls, columns, altar, decorations, throne and god from the back to the front, so nearer things
-## cover farther ones.
-func _draw_temple(at: Vector2, layout: Dictionary, parts: Dictionary, art: Dictionary) -> void:
+## A dungeon's entrance: a patch of floor, a front wall with a dark doorway in the middle (the shrine's position),
+## columns and fire bowls either side, and the ring that fills as the party gathers in the doorway.
+func _draw_entrance(at: Vector2, shrine: Dictionary, parts: Dictionary, color: Color) -> void:
 	var frames: Dictionary = parts["frames"]
-	for tile: Array in layout["floor"]:
-		var floor_frames: Array = frames["floor"]
-		draw_texture(floor_frames[int(tile[1]) % floor_frames.size()], at + Vector2(tile[0]))
-	var items: Array = []
-	for item: Dictionary in layout["objects"]:
-		items.append([Vector2(item["at"]).y, item])
-	var seconds: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
-	var walk: Dictionary = {} if bool(layout["sits"]) else ShrineLayout.walker(layout, seconds, Data.cfg_float("gods.temple_walk_speed_px"))
-	items.append([Vector2(layout["throne"]).y, {"part": "throne"}])
-	if not walk.is_empty():
-		items.append([Vector2(walk["feet"]).y, {"part": "god"}])
-	items.sort_custom(func(a: Array, b: Array) -> bool: return float(a[0]) < float(b[0]))
-	for entry: Array in items:
-		var item: Dictionary = entry[1]
-		match str(item["part"]):
-			"throne":
-				PixelArt.draw_standing(self, art, at + Vector2(layout["throne"]), false, Color.WHITE, false, 0.0,
-						"seated" if bool(layout["sits"]) else "throne")
-			"god":
-				PixelArt.draw_standing(self, art, at + Vector2(walk["feet"]), bool(walk["left"]), Color.WHITE, true,
-						float(walk["stride"]))
-			_:
-				var texture: ImageTexture = (frames[str(item["part"])] as Array)[0]
-				draw_texture(texture, at + Vector2(item["at"]) - Vector2(texture.get_width() * 0.5, texture.get_height()))
+	var tile: float = ShrineLayout.TILE
+	var floor_frames: Array = frames["floor"]
+	for y: int in range(-1, 2):
+		for x: int in range(-3, 4):
+			draw_texture(floor_frames[absi(x + y) % floor_frames.size()], at + Vector2(x - 0.5, y - 0.5) * tile)
+	var wall: ImageTexture = (frames["wall"] as Array)[0]
+	for x: int in range(-4, 5):
+		if x != 0:
+			draw_texture(wall, at + Vector2(x * tile - wall.get_width() * 0.5, -tile * 0.5 - wall.get_height()))
+	draw_rect(Rect2(at + Vector2(-tile * 0.5, -tile * 0.5 - wall.get_height() + 4.0), Vector2(tile, wall.get_height() - 4.0)),
+			Color.html(Data.cfg_string("gods.dungeon_dark_color")))
+	for side: float in [-1.0, 1.0]:
+		var column: ImageTexture = (frames["column"] as Array)[0]
+		draw_texture(column, at + Vector2(side * tile - column.get_width() * 0.5, -tile * 0.5 - column.get_height() + 6.0))
+		var bowl: ImageTexture = (frames["brazier"] as Array)[0]
+		draw_texture(bowl, at + Vector2(side * tile * 2.5 - bowl.get_width() * 0.5, tile * 0.5 - bowl.get_height()))
+	if dungeon != null and dungeon.gather_progress() > 0.0:
+		draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * dungeon.gather_progress(), 32, color, 3.0)
+	else:
+		draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), 0.0, TAU, 32, Color(color, 0.6), 2.0)
 
 
 ## The altar's stones, in the style of the god's people.

@@ -251,6 +251,27 @@ func test_shrines_are_built_at_random_and_the_god_stays_inside() -> void:
 	assert_eq(sits.size(), 2, "some gods sit, some walk")
 
 
+func test_shrine_dungeons_lead_from_the_entrance_to_the_god() -> void:
+	# Owner decisions 10/31/2026: a random dungeon (sometimes a maze) leads to the god's throne room.
+	var kinds := {}
+	for seed_value: int in 30:
+		var plan: Dictionary = ShrineDungeon.plan(seed_value, "celtic")
+		assert_eq(ShrineDungeon.plan(seed_value, "celtic")["floor"].size(), plan["floor"].size(), "the same seed, the same dungeon")
+		var walk: Dictionary = plan["walk"]
+		var altar_tile := Vector2i(floori(Vector2(plan["room_origin"]).x), floori(Vector2(plan["room_origin"]).y))
+		var seen := {plan["start"]: true}
+		var queue: Array = [plan["start"]]
+		while not queue.is_empty():
+			var t: Vector2i = queue.pop_front()
+			for d: Vector2i in [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.UP, Vector2i.DOWN]:
+				if walk.has(t + d) and not seen.has(t + d):
+					seen[t + d] = true
+					queue.append(t + d)
+		assert_true(seen.has(altar_tile), "seed %d: the way through reaches the god's altar" % seed_value)
+		kinds[walk.size() / 10] = true
+	assert_gt(kinds.size(), 3, "dungeons come in different sizes")
+
+
 func test_thrown_weapons_and_shots_fly_as_pictures() -> void:
 	var player: Player = _hero("atalanta")
 	var projectiles := ProjectileManager.new()

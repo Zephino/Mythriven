@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.20
+Date: 10/31/2026
+Time: 3:48 AM
+
+### Changes
+- **Shrines are now dungeon entrances.** In the world a shrine is an entrance in its people's style (a wall with a dark doorway, columns, fire bowls). Standing in the doorway for 1.5 s takes the party inside; in co-op every standing player must be in the doorway together or it can't start.
+- **While you're inside, the run outside pauses:** the clock, enemies, spawns, enemy shots, hazards, bosses, pickups and the Unraveling all stop, and start again when you come out.
+- **The dungeon is built at random** from the same parts: different sizes, sometimes a twisting maze, sometimes wide halls with loops. There are **no monsters** inside. The walls block you. The corridors lead to the **god's throne room** at the far end (a little bigger than before: 9-13 cells wide, 6-8 deep), where the god sits on their throne or walks about inside.
+- **At the altar** a peaceful god binds after 2 s, and the party is **warped back out** to where they went in. For a trial god, reaching the altar warps you out and starts the trial at the shrine. Walking back out of the entrance also leaves.
+- Co-op: joining players go in and out with the host and see the same dungeon (built from the shrine's shared seed).
+- `GAME_DESIGN.md` (Finding gods) and `docs/ART_RULES.md` updated. New settings `gods.dungeon_gather_s`, `gods.dungeon_offset_px`, `gods.dungeon_dark_color`, `gods.dungeon_floor_tint`. A new test checks 30 dungeons: the same seed builds the same dungeon, they vary in size, and the way through always reaches the god's altar.
+
+### Reason
+The owner asked for bigger shrines, made like a dungeon with the shrine at the end, warping you out once the shrine is unlocked, with no monsters in the shrine with the god; the run pauses inside (in co-op all party members have to go in together), and the dungeon is random, sometimes maze-like.
+
 ## Version 00.02.19
 Date: 10/31/2026
 Time: 3:38 AM

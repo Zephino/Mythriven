@@ -13,8 +13,9 @@ const TILE := 16.0
 static func make(seed_value: int, pantheon: String) -> Dictionary:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_value
-	var cols: int = [7, 9, 11][rng.randi_range(0, 2)]
-	var rows: int = rng.randi_range(5, 7)
+	# A little bigger than first built (owner request 10/31/2026).
+	var cols: int = [9, 11, 13][rng.randi_range(0, 2)]
+	var rows: int = rng.randi_range(6, 8)
 	var altar_cell := Vector2i(cols / 2, maxi(3, rows / 2 + 1))
 	# Cell (x, y) has its bottom-centre at this offset from the altar.
 	var cell_foot := func(x: int, y: int) -> Vector2:
@@ -30,7 +31,7 @@ static func make(seed_value: int, pantheon: String) -> Dictionary:
 		objects.append({"part": part, "at": cell_foot.call(x, y)})
 		taken[Vector2i(x, y)] = true
 	# Walls round three sides, and the front with an entrance of 1 or 3 cells (centred, or a little to one side).
-	var gap: int = 1 if cols == 7 else [1, 3][rng.randi_range(0, 1)]
+	var gap: int = [1, 3][rng.randi_range(0, 1)]
 	var gap_left: int = clampi(cols / 2 - gap / 2 + rng.randi_range(-1, 1), 2, cols - 2 - gap)
 	for x: int in cols:
 		put.call("wall", x, 0)
@@ -66,7 +67,8 @@ static func make(seed_value: int, pantheon: String) -> Dictionary:
 		var y: float = rng.randf_range(2.0, rows - 2.0)
 		path.append(Vector2((x - altar_cell.x) * TILE, (y - altar_cell.y) * TILE + TILE * 0.4))
 	return {"floor": floor_tiles, "objects": objects, "throne": cell_foot.call(throne_cell.x, throne_cell.y),
-			"sits": rng.randf() < 0.5, "path": path, "size": Vector2(cols, rows)}
+			"sits": rng.randf() < 0.5, "path": path, "size": Vector2(cols, rows), "altar_cell": altar_cell,
+			"gap_left": gap_left, "gap": gap}
 
 
 ## Where the walking god is `seconds` into their loop (walking `speed` px/s): {"feet", "left", "stride"}.

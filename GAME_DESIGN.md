@@ -746,6 +746,7 @@ Each god is also a **divine infusion** source (see Weapons) and has a **Divine L
 - Which god: random by rarity, never one already bound this run. Rare gods can't appear before 8:00.
 - **Hidden shrines** also appear as world POIs (see World) and favor uncommon/rare gods.
 - When found, the god speaks one short line written for our game (e.g. Thor: "Show me your strength, little hero.").
+- **Shrine dungeons** *(owner decisions, 10/31/2026)*: the shrine in the world is an entrance built from its people's architecture. Standing in its doorway takes the party inside (in co-op every standing player must be at the doorway together, or it can't start). While the party is inside, **the run outside pauses**: the clock, enemies, spawns, hazards and bosses all stop. The dungeon is built at random (sometimes a twisting maze, sometimes wide halls with loops, different sizes) and has **no monsters**. At its far end is the god's throne room, where the god sits on their throne or walks about inside it. Standing at the altar binds a peaceful god; a trial god's trial then starts outside at the shrine. Either way the party is **warped back out** to where they went in; walking back out of the entrance also leaves.
 
 ### Shrine types
 

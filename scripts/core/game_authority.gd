@@ -62,7 +62,8 @@ func decides() -> bool:
 
 
 func _process(delta: float) -> void:
-	if run != null and not run.ended:
+	# The clock stops while the party is in a shrine's dungeon (ShrineDungeon).
+	if run != null and not run.ended and not bool(run.get_meta("frozen", false)):
 		run.elapsed_s += delta
 
 
