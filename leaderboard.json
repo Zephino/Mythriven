@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-10-31T16:42:52.159Z",
+	"updated": "2026-10-31T17:14:20.967Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -221,6 +221,31 @@
 			],
 			"version": "00.01.25",
 			"date": "2026-10-29T19:56:16.930Z"
+		},
+		{
+			"name": "DanK",
+			"hero": "heracles",
+			"time_s": 48,
+			"level": 4,
+			"kills": 119,
+			"weapons": [
+				{
+					"id": "great_club",
+					"level": 2
+				}
+			],
+			"passives": [
+				{
+					"id": "seers_eye",
+					"level": 1
+				},
+				{
+					"id": "hourglass",
+					"level": 1
+				}
+			],
+			"version": "00.02.51",
+			"date": "2026-10-31T17:14:20.967Z"
 		}
 	]
 }
