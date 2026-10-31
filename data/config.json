@@ -245,6 +245,8 @@
     "road_min_px": 520,
     "road_max_px": 1100,
     "road_turn": 0.12,
+    "road_trail_end_px": 130,
+    "road_trail_max_px": 9000,
     "mountain_region_chunks": 20,
     "mountain_chance": 0.85,
     "mountain_start_clear_px": 2500,

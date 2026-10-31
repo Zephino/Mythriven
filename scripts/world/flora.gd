@@ -45,6 +45,10 @@ var _structures: Array = []
 var _back_list: Array = []
 var _front_list: Array = []
 var _zones: Dictionary = {}          # key -> [absolute centre, radius]
+## The same zones filed by coarse cell (ZONE_CELL px), so each tree only checks the zones near it (roads to the
+## mountains add many small zones).
+var _zone_cells: Dictionary = {}
+const ZONE_CELL := 256.0
 ## Hidden groves in the loaded forest (HiddenGroves): key -> {"key", "at" (absolute), "r", "gate", "roof", "shrine"}.
 var groves: Dictionary = {}
 var _scan_s: float = 0.0
@@ -72,6 +76,7 @@ func setup(level: Dictionary, run_seed: int) -> void:
 				_trees[tree] = []
 			(_trees[tree] as Array).append(name)
 	_zones["start"] = [Vector2.ZERO, Data.cfg_float("world.clear_start_px")]
+	_file_zones()
 	_stone_mult = Data.cfg_float("world.stone_speed_mult")
 	_noise.seed = RunRng.derive_seed(run_seed, "forest")
 	_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
@@ -102,11 +107,13 @@ func has_art() -> bool:
 ## Keeps a circle clear of trees and rocks (a shrine, a boss arena...). `at` is in local (on-screen world) px.
 func clear_zone(key: String, at: Vector2, radius: float) -> void:
 	_zones[key] = [_absolute(at), radius]
+	_file_zones()
 	_refresh_hidden()
 
 
 func remove_zone(key: String) -> void:
 	if _zones.erase(key):
+		_file_zones()
 		_refresh_hidden()
 
 
@@ -133,6 +140,7 @@ func _gather_zones() -> void:
 			k += 1
 	if zones.hash() != _zones.hash():
 		_zones = zones
+		_file_zones()
 		_refresh_hidden()
 	_gather_structures()
 
@@ -181,8 +189,21 @@ func _refresh_hidden() -> void:
 			item["hidden"] = _in_zone(item["at"])
 
 
-func _in_zone(at: Vector2) -> bool:
+func _file_zones() -> void:
+	_zone_cells.clear()
 	for zone: Array in _zones.values():
+		var centre: Vector2 = zone[0]
+		var reach: float = float(zone[1])
+		for cy: int in range(floori((centre.y - reach) / ZONE_CELL), floori((centre.y + reach) / ZONE_CELL) + 1):
+			for cx: int in range(floori((centre.x - reach) / ZONE_CELL), floori((centre.x + reach) / ZONE_CELL) + 1):
+				var cell := Vector2i(cx, cy)
+				if not _zone_cells.has(cell):
+					_zone_cells[cell] = []
+				(_zone_cells[cell] as Array).append(zone)
+
+
+func _in_zone(at: Vector2) -> bool:
+	for zone: Array in _zone_cells.get(Vector2i(floori(at.x / ZONE_CELL), floori(at.y / ZONE_CELL)), []):
 		if at.distance_to(zone[0]) <= float(zone[1]):
 			return true
 	return false

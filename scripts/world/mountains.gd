@@ -179,19 +179,48 @@ func plan(region: Vector2i) -> Dictionary:
 	for spot: Dictionary in spots:
 		if int(spot["from"]) == 0:
 			roads.append(_road_from(Vector2i(spot["tile"]), c, r, rng))
+	# And a long trail from the first way up all the way back towards where the run began, ending about a screen
+	# from it, so a Hero setting out soon finds a road that leads to a mountain (owner request 10/31/2026).
+	if not spots.is_empty():
+		roads.append(_road_from(Vector2i(spots[0]["tile"]), c, r, rng, Vector2.ZERO))
 	return {"key": "mtn_%d_%d" % [region.x, region.y], "c": c, "r": r, "tiles": tiles, "bridge": bridge, "spots": spots,
 			"cave": cave_tile, "roads": roads}
 
 
+## The long trail: winds from the mountain towards `toward`, pulled a little more towards it each step, and stops
+## world.road_trail_end_px short of it (or after world.road_trail_max_px).
+func _trail(at: Vector2, centre: Vector2, toward: Vector2, step: float, turn: float, rng: RandomNumberGenerator) -> PackedVector2Array:
+	var points := PackedVector2Array([at])
+	var dir: Vector2 = (at - centre).normalized()
+	var bend: float = 0.0
+	var walked: float = 0.0
+	var stop: float = Data.cfg_float("world.road_trail_end_px")
+	var limit: float = Data.cfg_float("world.road_trail_max_px")
+	while at.distance_to(toward) > stop and walked < limit:
+		bend = clampf(bend + rng.randf_range(-turn, turn) * 0.5, -turn, turn)
+		var wish: Vector2 = (toward - at).normalized()
+		# First clear of the mountain, then bending round towards the start.
+		var pull: float = 0.25 if walked > 160.0 else 0.0
+		dir = dir.rotated(bend).lerp(wish, pull).normalized()
+		at += dir * step
+		walked += step
+		points.append(at)
+	return points
+
+
 ## A road (owner request 10/31/2026): from the foot of a way up the cliff, it winds out across the land, away from the
 ## mountain, for one to two screens, so a Hero who finds it can follow it to the mountain. Points in absolute px.
-func _road_from(spot: Vector2i, c: Vector2i, r: float, rng: RandomNumberGenerator) -> PackedVector2Array:
+## `toward` (absolute px, the run's start): the road heads there instead of wandering off, and stops
+## world.road_trail_end_px short of it.
+func _road_from(spot: Vector2i, c: Vector2i, r: float, rng: RandomNumberGenerator, toward: Vector2 = Vector2.INF) -> PackedVector2Array:
 	var at: Vector2 = (Vector2(spot) + Vector2(0.5, 2.5)) * TILE
 	var centre: Vector2 = (Vector2(c) + Vector2(0.5, 0.5)) * TILE
 	var dir: Vector2 = (at - centre).normalized().rotated(rng.randf_range(-0.5, 0.5))
 	var step: float = Data.cfg_float("world.road_step_px")
 	var length: float = rng.randf_range(Data.cfg_float("world.road_min_px"), Data.cfg_float("world.road_max_px"))
 	var turn: float = Data.cfg_float("world.road_turn")
+	if toward != Vector2.INF:
+		return _trail(at, centre, toward, step, turn, rng)
 	var points := PackedVector2Array([at])
 	var bend: float = 0.0
 	var walked: float = 0.0
@@ -472,16 +501,17 @@ func _draw_roads() -> void:
 			if not view.intersects(box.grow(width)):
 				continue
 			var n: int = local.size()
+			var fade_steps: float = 2.0 if n > 60 else 6.0     # the long trails to the start fade only at the very end
 			for i: int in n - 1:
-				var fade: float = clampf(float(n - 1 - i) / 6.0, 0.0, 1.0)    # the far end fades into the ground
+				var fade: float = clampf(float(n - 1 - i) / fade_steps, 0.0, 1.0)    # the far end fades into the ground
 				_road_layer.draw_line(local[i], local[i + 1], Color(edge, 0.8 * fade), width + 4.0, true)
 				_road_layer.draw_circle(local[i], (width + 4.0) * 0.5, Color(edge, 0.8 * fade))
 			for i: int in n - 1:
-				var fade: float = clampf(float(n - 1 - i) / 6.0, 0.0, 1.0)
+				var fade: float = clampf(float(n - 1 - i) / fade_steps, 0.0, 1.0)
 				_road_layer.draw_line(local[i], local[i + 1], Color(base, fade), width, true)
 				_road_layer.draw_circle(local[i], width * 0.5, Color(base, fade))
 			for i: int in n - 1:
-				var fade: float = clampf(float(n - 1 - i) / 6.0, 0.0, 1.0)
+				var fade: float = clampf(float(n - 1 - i) / fade_steps, 0.0, 1.0)
 				var side: Vector2 = (local[i + 1] - local[i]).normalized().orthogonal()
 				for rut: float in [-0.22, 0.22]:
 					_road_layer.draw_line(local[i] + side * width * rut, local[i + 1] + side * width * rut,

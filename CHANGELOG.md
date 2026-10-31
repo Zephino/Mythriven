@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.64
+Date: 10/31/2026
+Time: 2:17 PM
+
+### Changes
+- **Roads lead from the start to the mountains.** Each mountain now also has a long trail from its first way up, winding all the way back to where the run begins and ending just off the Hero at the start. A run starts with a few trails leaving the starting area, each leading to a mountain. Its other roads still wander out round it as before. New settings `world.road_trail_end_px` (130) and `world.road_trail_max_px`. The long trails fade only at their very end, so you can see them from the start.
+- Trees now check only the clear zones near them (filed in a coarse grid), so the many zones along the long trails cost nothing extra.
+
+### Reason
+The owner said the mountains are hard to find and asked for the road to the mountain to come closer to where the run starts.
+
 ## Version 00.02.63
 Date: 10/31/2026
 Time: 2:12 PM

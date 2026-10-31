@@ -274,6 +274,8 @@
               "road_min_px": "number",
               "road_max_px": "number",
               "road_turn": "number",
+              "road_trail_end_px": "number",
+              "road_trail_max_px": "number",
               "mountain_region_chunks": "number",
               "mountain_chance": "number",
               "mountain_start_clear_px": "number",
