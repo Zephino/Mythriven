@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.74
+Date: 10/31/2026
+Time: 1:18 AM
+
+### Changes
+- **King Arthur's sprite**, from Malory's Le Morte d'Arthur and Geoffrey of Monmouth's History of the Kings of Britain:
+  - a gold crown on brown hair and a short beard (as in the medieval Nine Worthies pictures), fair skin;
+  - a coat of mail (Geoffrey) on his arms, neck and legs, drawn as rows of rings;
+  - a blue surcoat to the knees with a gold crown on the chest (from the three gold crowns on blue that medieval rolls of arms give Arthur), split at the front, with a belt and gold buckle;
+  - Excalibur's scabbard (Malory, book 1 ch. 25) hanging at his far hip, with gold fittings;
+  - leather boots; built on the shared Hero body, with the same walk. He holds Excalibur.
+
+### Reason
+The owner approved Heracles without the hood and asked to go on to King Arthur.
+
 ## Version 00.01.73
 Date: 10/31/2026
 Time: 1:16 AM
