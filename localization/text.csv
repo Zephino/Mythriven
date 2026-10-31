@@ -1283,3 +1283,5 @@ UI_LB_COL_TIME,Time
 UI_LB_COL_LEVEL,Level
 UI_LB_COL_KILLS,Kills
 UI_LB_PLAYED_ON,Played on version %s
+UI_REROLL_FREE,Reroll (free: %d)
+UI_REROLL_BUY,Reroll: %d gold

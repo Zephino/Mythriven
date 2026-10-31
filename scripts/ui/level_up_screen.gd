@@ -23,6 +23,8 @@ var _offer: Array[Dictionary] = []
 var _tier_sound: AudioStreamPlayer
 ## Co-op: called with the card's index when this player picks on their turn.
 var _coop_pick: Callable = Callable()
+## Co-op: what the Reroll button does on this player's turn (asks the host for new cards).
+var _coop_reroll: Callable = Callable()
 var _status: Label
 
 
@@ -84,8 +86,10 @@ func _on_level_up_ready(_run: RunState) -> void:
 # --- Co-op turns (CoopTurns) ---------------------------------------------------------------
 
 ## This player's turn: their cards; `on_pick` gets the chosen card's index.
-func show_coop_cards(cards: Array, on_pick: Callable, seconds: int) -> void:
+## `reroll` (Rerolls.info) and `on_reroll` show this player's Reroll button (owner decision 10/31/2026).
+func show_coop_cards(cards: Array, on_pick: Callable, seconds: int, reroll: Dictionary = {}, on_reroll: Callable = Callable()) -> void:
 	_coop_pick = on_pick
+	_coop_reroll = on_reroll
 	_offer.clear()
 	for card: Variant in cards:
 		_offer.append(card)
@@ -98,6 +102,11 @@ func show_coop_cards(cards: Array, on_pick: Callable, seconds: int) -> void:
 			shown.append(_card_buttons[i])
 	for extra: Control in [_reroll_button, _banish_button, _bank_button, _auto_collect.get_parent()]:
 		extra.visible = false
+	if on_reroll.is_valid() and not reroll.is_empty():
+		_reroll_button.visible = true
+		_reroll_button.text = Rerolls.label(reroll)
+		_reroll_button.disabled = not bool(reroll.get("can", false))
+		shown.append(_reroll_button)
 	_status.text = tr("UI_COOP_YOUR_TURN") % seconds
 	visible = true
 	if not shown.is_empty():
@@ -108,6 +117,7 @@ func show_coop_cards(cards: Array, on_pick: Callable, seconds: int) -> void:
 ## Someone else is choosing (or this player already did).
 func show_coop_wait(text: String) -> void:
 	_coop_pick = Callable()
+	_coop_reroll = Callable()
 	for button: Button in _card_buttons:
 		button.visible = false
 	for extra: Control in [_reroll_button, _banish_button, _bank_button, _auto_collect.get_parent()]:
@@ -144,8 +154,11 @@ func _show_offer(player: Player) -> void:
 			button.text = CardText.full(_offer[i])
 			button.icon = UiTheme.card_icon(_offer[i])
 			shown.append(button)
-	_reroll_button.visible = GameAuthority.run.reroll_tokens > 0
-	_reroll_button.text = tr("UI_REROLL") % GameAuthority.run.reroll_tokens
+	# Always there: free rerolls, then tokens, then one bought with run gold (Rerolls).
+	var reroll: Dictionary = Rerolls.info(player)
+	_reroll_button.visible = true
+	_reroll_button.text = Rerolls.label(reroll)
+	_reroll_button.disabled = not bool(reroll["can"])
 	_banish_button.visible = GameAuthority.run.banish_tokens > 0
 	_banish_button.text = tr("UI_BANISH_ON" if _banish_mode else "UI_BANISH") % GameAuthority.run.banish_tokens
 	for extra: Button in [_reroll_button, _banish_button]:
@@ -256,10 +269,12 @@ func _build() -> void:
 
 
 func _on_reroll() -> void:
-	var player: Player = GameAuthority.local_player()
-	if player == null or GameAuthority.run.reroll_tokens <= 0:
+	if _coop_reroll.is_valid():
+		_coop_reroll.call()
 		return
-	GameAuthority.run.reroll_tokens -= 1
+	var player: Player = GameAuthority.local_player()
+	if player == null or not Rerolls.spend(player):
+		return
 	GameAuthority.run.current_offer.clear()
 	_show_offer(player)
 

@@ -76,7 +76,11 @@ static func on_offer(kind: String, data: Variant) -> void:
 		"cards":
 			var screen: LevelUpScreen = _screen("level_up_screen")
 			if screen != null:
-				screen.show_coop_cards(data, _on_card_picked, Data.cfg_int("coop.turn_s"))
+				# The cards, with this player's Reroll button (free rerolls left, or the price).
+				var cards: Array = data["cards"] if data is Dictionary else data
+				var reroll: Dictionary = data.get("reroll", {}) if data is Dictionary else {}
+				screen.show_coop_cards(cards, _on_card_picked, Data.cfg_int("coop.turn_s"), reroll,
+						func() -> void: choose("reroll", null))
 		"chest":
 			var chest: ChestScreen = _screen("chest_screen")
 			var plan: Dictionary = data[0]
@@ -179,6 +183,10 @@ static func on_choice(player: Player, kind: String, data: Variant) -> void:
 			for boon: Dictionary in BoonScreen.all():
 				if str(boon["id"]) == str(data):
 					BoonScreen.apply(player, boon)
+		"reroll":
+			var host: CoopHost = _tree().get_first_node_in_group(CoopHost.GROUP) as CoopHost
+			if host != null and host.turns != null:
+				host.turns.reroll(player)
 		"buy":
 			var item: Array = data
 			TraderScreen.buy(player, str(item[0]), int(item[1]))

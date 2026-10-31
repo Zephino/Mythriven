@@ -86,6 +86,9 @@ var shade: bool = false
 var net_speed_mult: float = 1.0
 ## Co-op: run gold this player spent at the Trader (each player spends only their own).
 var gold_spent: float = 0.0
+## Free level-up rerolls left, and how many this Hero bought this run (Rerolls).
+var free_rerolls: int = 0
+var rerolls_bought: int = 0
 
 var _shown_hp: float = -1.0
 

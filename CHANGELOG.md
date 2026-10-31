@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.49
+Date: 10/31/2026
+Time: 12:49 PM
+
+### Changes
+- **Buy rerolls when you level up.** The level-up screen always has a Reroll button now.
+  - Each Hero gets **1 free reroll** at the start of a run and **1 more every 5 levels** ("Reroll (free: 1)").
+  - After the free ones and any reroll tokens (from the Wandering Trader or found), you **buy** one with run gold: **25**, doubling each time you buy one in the same run (25, 50, 100, 200…). The button shows the price and is greyed when you can't afford it.
+  - **Co-op:** each player gets their own Reroll button on their turn, with their own free rerolls, paying from their own share of the gold. Their turn's timer keeps running.
+  - A run taken over on another device keeps its free rerolls and prices.
+- New settings `level_up.free_rerolls_start`, `free_reroll_every_levels`, `reroll_price`, `reroll_price_mult`. GAME_DESIGN.md has a dated note.
+
+### Reason
+The owner asked for a way to buy rerolls when you level up: a price that rises with each purchase, 1 free reroll and another every 5 levels, and co-op players each paying with their own gold.
+
 ## Version 00.02.48
 Date: 10/31/2026
 Time: 12:45 PM

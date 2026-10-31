@@ -44,7 +44,7 @@ static func capture() -> Dictionary:
 		"build": CoopCodec.build(player),
 		"hp": player.hp,
 		"player": [player.revives_used, player.gold_spent, player.gold_mult, player.extra_projectiles,
-			player.projectile_speed_mult],
+			player.projectile_speed_mult, player.free_rerolls, player.rerolls_bought],
 		"flags": player.god_flags.duplicate(true),
 		"element": player.element_damage.duplicate(true),
 		"gods": slots,
@@ -114,6 +114,9 @@ static func restore(snap: Dictionary) -> void:
 		player.gold_mult = float(numbers[2])
 		player.extra_projectiles = int(numbers[3])
 		player.projectile_speed_mult = float(numbers[4])
+	if numbers.size() >= 7:
+		player.free_rerolls = int(numbers[5])
+		player.rerolls_bought = int(numbers[6])
 	player.hp = clampf(float(snap.get("hp", player.max_hp)), 1.0, player.max_hp)
 	var gods: GodManager = GameAuthority.gods
 	if gods != null:

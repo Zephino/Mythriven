@@ -75,16 +75,30 @@ func _next_turn() -> void:
 			continue
 		_left_s = Data.cfg_float("coop.turn_s")
 		_announce_in = 0.0
-		if _current.is_local:
-			level_up.show_coop_cards(_cards, _on_local_pick, ceili(_left_s))
-		else:
-			CoopChoices.offer(_current, "cards", _cards)
+		_show_cards()
+		if not _current.is_local:
 			level_up.show_coop_wait(_waiting_text(_current))
 		return
 	# Everyone has picked: that level-up is used up.
 	_current = null
 	run.unspent_level_ups = maxi(run.unspent_level_ups - 1, 0)
 	_start_round()
+
+
+## Shows the current player their cards and Reroll button (on this device, or sent to theirs).
+func _show_cards() -> void:
+	if _current.is_local:
+		level_up.show_coop_cards(_cards, _on_local_pick, ceili(_left_s), Rerolls.info(_current), func() -> void: reroll(_current))
+	else:
+		CoopChoices.offer(_current, "cards", {"cards": _cards, "reroll": Rerolls.info(_current)})
+
+
+## A player rerolls their cards on their turn (free, a token, or paid from their own gold). The turn's timer runs on.
+func reroll(player: Player) -> void:
+	if not _active or player != _current or _cards.is_empty() or not Rerolls.spend(player):
+		return
+	_cards = LevelUpRules.build_offer(player, GameAuthority.run.rng.loot)
+	_show_cards()
 
 
 func _process(delta: float) -> void:

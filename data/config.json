@@ -347,6 +347,10 @@
   "level_up": {
     "cards": 3,
     "cards_high_luck": 4,
+    "free_rerolls_start": 1,
+    "free_reroll_every_levels": 5,
+    "reroll_price": 25,
+    "reroll_price_mult": 2,
     "maxed_gold": 25,
     "maxed_heal_pct": 0.3,
     "smart_heal_below_hp_pct": 0.5,

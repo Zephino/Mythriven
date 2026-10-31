@@ -111,6 +111,7 @@ func spawn_player(parent: Node, spawn_position: Vector2, input: PlayerInput, is_
 	player.is_local = is_local
 	player.input = input
 	player.position = spawn_position
+	Rerolls.start(player)
 	parent.add_child(player)
 	players.append(player)
 	player_spawned.emit(player)
@@ -274,6 +275,7 @@ func collect_xp(player: Player, amount: float) -> void:
 	while run.xp >= LevelUpRules.xp_to_next(run.level):
 		run.xp -= LevelUpRules.xp_to_next(run.level)
 		run.level += 1
+		Rerolls.on_level(run.level)
 		gained += 1
 	xp_changed.emit(run)
 	if gained > 0:

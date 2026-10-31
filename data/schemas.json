@@ -423,6 +423,10 @@
             "fields": {
               "cards": "number",
               "cards_high_luck": "number",
+              "free_rerolls_start": "number",
+              "free_reroll_every_levels": "number",
+              "reroll_price": "number",
+              "reroll_price_mult": "number",
               "maxed_gold": "number",
               "maxed_heal_pct": "number",
               "smart_heal_below_hp_pct": "number",

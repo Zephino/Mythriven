@@ -648,3 +648,28 @@ func test_every_achievement_unlock_names_a_real_achievement() -> void:
 			var unlock: Variant = (entry as Dictionary).get("unlock") if entry is Dictionary else null
 			if unlock is Dictionary and str(unlock.get("type", "")) == "achievement":
 				assert_true(ids.has(str(unlock.get("achievement", ""))), "%s: %s is an achievement" % [entry.get("id"), unlock.get("achievement")])
+
+
+func test_rerolls_are_free_first_then_bought_at_a_rising_price() -> void:
+	var player := Player.new()
+	add_child_autofree(player)
+	Rerolls.start(player)
+	var run: RunState = GameAuthority.run
+	run.reroll_tokens = 0
+	run.gold = 1000.0
+	assert_eq(player.free_rerolls, Data.cfg_int("level_up.free_rerolls_start"), "one free reroll to start")
+	assert_true(Rerolls.spend(player), "the free one")
+	assert_eq(player.gold_spent, 0.0, "cost nothing")
+	var first: int = Rerolls.price(player)
+	assert_eq(first, Data.cfg_int("level_up.reroll_price"))
+	assert_true(Rerolls.spend(player))
+	assert_eq(player.gold_spent, float(first), "then bought with run gold")
+	assert_eq(Rerolls.price(player), first * 2, "each one bought costs double")
+	run.gold = player.gold_spent + 1.0
+	assert_false(Rerolls.spend(player), "not enough gold: no reroll")
+	player.free_rerolls = 0
+	GameAuthority.players.append(player)
+	Rerolls.on_level(Data.cfg_int("level_up.free_reroll_every_levels"))
+	Rerolls.on_level(Data.cfg_int("level_up.free_reroll_every_levels") + 1)
+	GameAuthority.players.erase(player)
+	assert_eq(player.free_rerolls, 1, "another free one every 5 levels")

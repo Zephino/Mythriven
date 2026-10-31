@@ -458,6 +458,7 @@ Damage over time (Burn, Poison) skips Armor. Damage to the player works the same
 ### Level-up choices
 
 - Each level offers 3 cards (4 with high Luck). Cards can be **items** (new weapons or passives, or upgrades), **stats** (+Might, +Max HP, +Move Speed, +Area, −Cooldown, +Armor, +Luck, +Crit, +Pickup Radius), or **skills** (upgrades to the Hero's Legend Trait, e.g. Salmon Leap recharges 1 s faster). Every level offers something that helps.
+- **Rerolls on the level-up screen** *(added 10/31/2026, owner decision)*: each Hero gets 1 free reroll at the start of a run and 1 more every 5 levels. The Reroll button uses a free one first, then a reroll token (from the Wandering Trader or found), and after that buys one with run gold: 25, doubling each time that Hero buys one in the same run (25, 50, 100, 200…). In co-op each player has their own free rerolls and pays from their own share of the gold, on their own turn.
 - **No hard stat caps.** Stats keep growing every level. Stats that would break the game use soft curves instead: cooldown = base ÷ (1 + cooldown bonus), so it keeps improving but never reaches zero; Move Speed bonus beyond +100% and Area bonus beyond +150% count at half value.
 - Cards slightly favor items already owned, and if a weapon can complete an evolution recipe, at least one card helps toward it.
 - **When everything is maxed,** cards become Gold (+25, more in later Ages) and Heal (+30% HP).
