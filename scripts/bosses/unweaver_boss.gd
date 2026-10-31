@@ -8,6 +8,8 @@ extends BossController
 ## The bosses whose attacks it uses, one per phase.
 var stolen: Array = []
 var unweavings: int = 0
+## Nothing to Steal secret: it once unweaved a full god meter of the local Hero.
+var stole_full: bool = false
 var _unweave_in: float = 8.0
 var _thread_s: float = 0.0
 
@@ -59,10 +61,22 @@ func unweave() -> void:
 	if GameAuthority.gods != null:
 		for player: Player in GameAuthority.players:
 			for k: int in 2:
+				if player.is_local and GameAuthority.gods.meter(player, k) >= 1.0:
+					stole_full = true
 				GameAuthority.gods.set_meter(player, k, 0.0)
 	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 	if banner != null:
 		banner.show_text(tr("BOSS_UNWEAVER_UNWEAVES"))
+
+
+## The Last Thread secret: beaten before its fourth unweaving.
+func secret_earned() -> String:
+	return "the_last_thread" if unweavings <= Data.cfg_int("secrets.last_thread_unweavings") else ""
+
+
+## Nothing to Steal: it never unweaved a full god meter (and unweaved at least once).
+func extra_secrets() -> Array:
+	return ["nothing_to_steal"] if unweavings > 0 and not stole_full else []
 
 
 ## Threads pulled from every Hero into the Unweaver as it unweaves.

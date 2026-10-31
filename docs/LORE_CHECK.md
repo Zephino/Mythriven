@@ -394,6 +394,15 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | unweaver_heracles | boss entrance (as heracles) | unweaver | Twelve labours, and still one more. I will unpick them all. | Original line written for Mythriven | no |
 | unweaver_apep | boss meets god (with ra) | unweaver | Little sun. The serpent only swallowed you; I will unweave you. | Original line written for Mythriven | no |
 
+### Bonus level secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| firecrackers | Firecrackers | The villagers drove the beast off with noise, fire and red; give it all three, again and again. | Chinese New Year folklore (firecrackers and red drive the Nian away) | no |
+| the_nine_crows | The Nine Crows | A crow lived in every sun; when Yi's arrows struck, nine fell from the sky one after another. | Huainanzi (Yi shoots down nine suns); Wang Yi's commentary on the Chuci, Tianwen (the crows in the suns die and their feathers fall) | no |
+| the_last_thread | The Last Thread | Cut the last thread before it pulls the rest loose. | Original, the game's own (the Unweaver) | no |
+| nothing_to_steal | Nothing to Steal | What is spent can't be stolen: call your gods before the threads come. | Original, the game's own (the Unweaver) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

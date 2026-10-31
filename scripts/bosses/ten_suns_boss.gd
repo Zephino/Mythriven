@@ -7,6 +7,8 @@ extends BossController
 
 var _scorch_in: float = 3.0
 var _spoken: bool = false
+## The Nine Crows secret: seconds since the suns rose.
+var blazing_s: float = 0.0
 
 
 func _sig() -> Dictionary:
@@ -39,6 +41,7 @@ func signature(delta: float) -> void:
 		var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 		if banner != null:
 			banner.show_text(tr("BOSS_TEN_SUNS_RISE"))
+	blazing_s += delta
 	_scorch_in -= delta
 	if _scorch_in <= 0.0:
 		_scorch_in = float(_sig().get("scorch_every_s", 4.0))
@@ -58,3 +61,7 @@ func _draw() -> void:
 		var spot: Vector2 = at + Vector2((k - (n - 1) * 0.5) * 14.0, sin(k + Time.get_ticks_msec() * 0.002) * 3.0)
 		draw_circle(spot, 5.0, Color(1.0, 0.6, 0.15))
 		draw_circle(spot, 3.0, Color(1.0, 0.95, 0.6))
+
+
+func secret_earned() -> String:
+	return "the_nine_crows" if blazing_s <= Data.cfg_float("secrets.nine_crows_s") else ""

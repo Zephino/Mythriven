@@ -380,12 +380,33 @@ def roc_feather():
     return p
 
 
+def crow_feather():
+    """Sun-crow Feather (the Huainanzi; the Chuci commentary): a black feather of a crow from the sun, gold-tipped."""
+    p = icon()
+    for k in range(12):
+        p.px(3 + k, 14 - k, "k" if k < 9 else "r")
+        for d in (1, 2):
+            p.px(3 + k - d, 14 - k - d + 1, "C" if k < 9 else "y")
+    return p
+
+
+def loose_thread():
+    """Loose Thread (the Unweaver, the game's own): a loose thread unravelling from a spool."""
+    p = icon()
+    p.rect(2, 4, 7, 12, "b"); p.rect(1, 3, 8, 3, "B"); p.rect(1, 13, 8, 13, "B")
+    p.rect(3, 5, 6, 11, "p")
+    for x in range(7, 15):
+        p.px(x, 8 + round(2 * math.sin(x * 1.1)), "p")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
          "pomegranate_seed": pomegranate, "whetstone_shard": whetstone, "green_girdle": girdle, "plant_of_youth": plant,
          "elk_skis": skis, "white_div_blood": div_blood, "firebird_feather": feather, "oeyama_sake": sake,
-         "laevateinn_shard": flame_blade, "yggdrasil_dew": dew, "golden_key": golden_key, "roc_feather": roc_feather}
+         "laevateinn_shard": flame_blade, "yggdrasil_dew": dew, "golden_key": golden_key, "roc_feather": roc_feather,
+         "sun_crow_feather": crow_feather, "loose_thread": loose_thread}
 
 
 def outlined(p):

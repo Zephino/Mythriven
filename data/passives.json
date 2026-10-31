@@ -269,5 +269,31 @@
       "secret": "sindbads_escape"
     },
     "persists": false
+  },
+  {
+    "id": "sun_crow_feather",
+    "name_key": "PASSIVE_SUN_CROW_FEATHER_NAME",
+    "desc_key": "PASSIVE_SUN_CROW_FEATHER_DESC",
+    "stat": "crit",
+    "per_level": 0.02,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_nine_crows"
+    },
+    "persists": false
+  },
+  {
+    "id": "loose_thread",
+    "name_key": "PASSIVE_LOOSE_THREAD_NAME",
+    "desc_key": "PASSIVE_LOOSE_THREAD_DESC",
+    "stat": "cooldown",
+    "per_level": 0.03,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_last_thread"
+    },
+    "persists": false
   }
 ]

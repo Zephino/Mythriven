@@ -1034,7 +1034,10 @@
             "fields": {
               "beggar_king_s": "number",
               "fortune_gold": "number",
-              "plant_of_youth_serpents": "number"
+              "plant_of_youth_serpents": "number",
+              "nine_crows_s": "number",
+              "last_thread_unweavings": "number",
+              "firecrackers_scares": "number"
             }
           },
           "recap": {

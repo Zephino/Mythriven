@@ -2053,3 +2053,21 @@ UNLOCK_CROSSROADS_HOW,Defeat the 30:00 boss in %d levels (%d so far).
 BANTER_UNWEAVER_ENTRANCE,Every story ends. I am how.
 BANTER_UNWEAVER_HERACLES,"Twelve labours, and still one more. I will unpick them all."
 BANTER_UNWEAVER_APEP,Little sun. The serpent only swallowed you; I will unweave you.
+SECRET_FIRECRACKERS_NAME,Firecrackers
+SECRET_FIRECRACKERS_DESC,Frighten Nian 5 times with Fire or Lightning before you defeat it. A red-lantern aura.
+SECRET_FIRECRACKERS_HINT,"The villagers drove the beast off with noise, fire and red; give it all three, again and again."
+SECRET_NINE_CROWS_NAME,The Nine Crows
+SECRET_NINE_CROWS_DESC,Shoot down the nine suns within 120 s of their rising. Adds the Sun-crow Feather passive.
+SECRET_NINE_CROWS_HINT,"A crow lived in every sun; when Yi's arrows struck, nine fell from the sky one after another."
+SECRET_LAST_THREAD_NAME,The Last Thread
+SECRET_LAST_THREAD_DESC,Defeat the Unweaver before it unweaves your gods a fourth time. Adds the Loose Thread passive.
+SECRET_LAST_THREAD_HINT,Cut the last thread before it pulls the rest loose.
+SECRET_NOTHING_TO_STEAL_NAME,Nothing to Steal
+SECRET_NOTHING_TO_STEAL_DESC,"Defeat the Unweaver without it ever unweaving a full god meter of yours. A many-coloured thread aura."
+SECRET_NOTHING_TO_STEAL_HINT,"What is spent can't be stolen: call your gods before the threads come."
+PASSIVE_SUN_CROW_FEATHER_NAME,Sun-crow Feather
+PASSIVE_SUN_CROW_FEATHER_DESC,+2% critical chance per level.
+PASSIVE_LOOSE_THREAD_NAME,Loose Thread
+PASSIVE_LOOSE_THREAD_DESC,Weapon cooldowns 3% shorter per level.
+COSMETIC_RED_LANTERN,Red Lantern
+COSMETIC_MANY_THREADS,Many-coloured Thread

@@ -5,6 +5,8 @@ extends BossController
 ## seconds). Source: Chinese New Year folklore (firecrackers and red drive the Nian away).
 
 var _scare_ready: float = 0.0
+## Firecrackers secret: how many times it has been frightened.
+var scares: int = 0
 
 
 func _sig() -> Dictionary:
@@ -15,6 +17,7 @@ func on_element_hit(element: String) -> void:
 	if _scare_ready > 0.0 or not is_alive() or not (_sig().get("elements", ["lightning", "fire"]) as Array).has(element):
 		return
 	_scare_ready = float(_sig().get("cooldown_s", 3.0))
+	scares += 1
 	GameAuthority.enemies.statuses.stun[slot] = maxf(GameAuthority.enemies.statuses.stun[slot], float(_sig().get("stun_s", 0.8)))
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
@@ -23,3 +26,7 @@ func on_element_hit(element: String) -> void:
 
 func signature(delta: float) -> void:
 	_scare_ready = maxf(_scare_ready - delta, 0.0)
+
+
+func secret_earned() -> String:
+	return "firecrackers" if scares >= Data.cfg_int("secrets.firecrackers_scares") else ""

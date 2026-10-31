@@ -960,3 +960,35 @@ func test_crossroads_random_bosses_rotating_hazard_and_the_unweaver() -> void:
 	assert_eq(unweaver.stolen.size(), (unweaver.data["phases"] as Array).size(), "an attack stolen for every phase")
 	unweaver.signature(9.0)
 	assert_gt(unweaver.unweavings, 0, "it unweaves the gods")
+
+
+func test_bonus_level_boss_secrets() -> void:
+	_start("the_realm_of_the_ten_suns")
+	var nian: NianBoss = _bosses.spawn_boss("nian", 0) as NianBoss
+	assert_eq(nian.secret_earned(), "", "not frightened yet")
+	for k: int in 5:
+		nian.on_element_hit("fire")
+		nian.signature(5.0)
+	assert_eq(nian.secret_earned(), "firecrackers")
+	var suns: TenSunsBoss = _bosses.spawn_boss("ten_suns", 2) as TenSunsBoss
+	suns.signature(10.0)
+	assert_eq(suns.secret_earned(), "the_nine_crows")
+	suns.signature(200.0)
+	assert_eq(suns.secret_earned(), "", "too slow")
+	GameAuthority.end_scene()
+	_start("the_crossroads")
+	var weaver: UnweaverBoss = _bosses.spawn_boss("unweaver", 2) as UnweaverBoss
+	assert_eq(weaver.extra_secrets(), [], "it hasn't unweaved yet")
+	weaver.unweave()
+	assert_eq(weaver.secret_earned(), "the_last_thread")
+	assert_eq(weaver.extra_secrets(), ["nothing_to_steal"])
+	weaver.unweavings = 4
+	assert_eq(weaver.secret_earned(), "", "a fourth unweaving")
+	weaver.stole_full = true
+	assert_eq(weaver.extra_secrets(), [], "it stole a full meter")
+	for secret: String in ["firecrackers", "the_nine_crows", "the_last_thread", "nothing_to_steal"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)

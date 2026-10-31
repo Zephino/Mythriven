@@ -696,7 +696,10 @@
     "arc_time_scale": 0.7, "enemy_speed_mult": 1.5, "spawn_mult": 1.5, "player_speed_mult": 1.25, "projectile_speed_mult": 1.25, "xp_mult": 1.25, "gold_mult": 1.5
   },
 
-  "secrets": { "_doc": "Secret conditions (GAME_DESIGN.md: Secret unlocks).", "beggar_king_s": 600, "fortune_gold": 777, "plant_of_youth_serpents": 100 },
+  "secrets": { "_doc": "Secret conditions (GAME_DESIGN.md: Secret unlocks).", "beggar_king_s": 600, "fortune_gold": 777, "nine_crows_s": 120.0,
+    "last_thread_unweavings": 3,
+    "firecrackers_scares": 5,
+    "plant_of_youth_serpents": 100 },
 
   "recap": { "_doc": "Death recap: 'most damage in the last N seconds'.", "recent_window_s": 10 },
 
@@ -722,7 +725,9 @@
       { "id": "muspell_ember", "name_key": "COSMETIC_MUSPELL_EMBER", "color": "#f07a20" },
       { "id": "rime_crown", "name_key": "COSMETIC_RIME_CROWN", "color": "#d8ecf8" },
       { "id": "sea_foam", "name_key": "COSMETIC_SEA_FOAM", "color": "#8ac0d8" },
-      { "id": "rainbow", "name_key": "COSMETIC_RAINBOW", "color": "#c890f0" }
+      { "id": "rainbow", "name_key": "COSMETIC_RAINBOW", "color": "#c890f0" },
+      { "id": "red_lantern", "name_key": "COSMETIC_RED_LANTERN", "color": "#d8302a" },
+      { "id": "many_threads", "name_key": "COSMETIC_MANY_THREADS", "color": "#9a6ad0" }
     ]
   },
 

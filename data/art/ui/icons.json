@@ -1,5 +1,5 @@
 {
- "_doc": "Passive icons (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py. crit: Critical strike (the Crit Chance card): a blade's point striking a bright spark. belt_of_strength: Belt of Strength: a broad leather belt with a bronze buckle. winged_sandals: Winged Sandals (the winged sandals Hermes lends Perseus): a sandal with a white wing at the heel. hourglass: Hourglass: sand running through, in a wooden frame. seers_eye: Seer's Eye: a wide eye with a bright blue iris. lodestone: Lodestone: a dark magnetic stone drawing in specks of gold. bronze_aegis: Bronze Aegis: a round bronze shield with a boss. ferrymans_coin: Ferryman's Coin (the obol paid to Charon): a silver coin with an owl's eyes struck on it. golden_apple: Golden Apple: a golden apple with a leaf. votive_bell: Votive Bell: a small bronze temple bell. mirrored_shield: Mirrored Shield (Perseus' polished shield): a round shield polished bright, with a gleam. tyrs_oath: Tyr's Oath (Tyr's hand pledged in Fenrir's jaws): an open right hand, raised. pomegranate_seed: Pomegranate Seed (Persephone's pomegranate): a split pomegranate, its red seeds showing. whetstone_shard: Whetstone Shard (Hrungnir's whetstone, Skaldskaparmal 17): a grey shard of whetstone with a lightning spark. green_girdle: The Green Girdle (Sir Gawain and the Green Knight): a green silk girdle tied in a knot, gold at its ends. plant_of_youth: Plant of Youth (Epic of Gilgamesh, Tablet XI): a thorny sprig drawn up from the deep, with green leaves. elk_skis: Elk-Hunter's Skis (Kalevala 13-14, Lemminkainen's chase): a pair of long wooden skis, tips curled up. white_div_blood: White Div's Blood (the Shahnameh, seventh labour): a pale drop that restored the blinded king's sight. firebird_feather: Firebird's Feather (the Russian tales): a feather that shines like fire. oeyama_sake: Oeyama Sake (the Oeyama tale): a red lacquered sake cup. laevateinn_shard: Laevateinn Shard (Fjolsvinnsmal): a shard of a blade of flame. yggdrasil_dew: Dew of the Ash (Gylfaginning 16): a drop of honeydew falling from a green ash leaf. golden_key: The Golden Key (the legend of Ys): the golden key of the sea gates. roc_feather: Roc's Feather (the Thousand and One Nights): a huge brown feather.",
+ "_doc": "Passive icons (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py. crit: Critical strike (the Crit Chance card): a blade's point striking a bright spark. belt_of_strength: Belt of Strength: a broad leather belt with a bronze buckle. winged_sandals: Winged Sandals (the winged sandals Hermes lends Perseus): a sandal with a white wing at the heel. hourglass: Hourglass: sand running through, in a wooden frame. seers_eye: Seer's Eye: a wide eye with a bright blue iris. lodestone: Lodestone: a dark magnetic stone drawing in specks of gold. bronze_aegis: Bronze Aegis: a round bronze shield with a boss. ferrymans_coin: Ferryman's Coin (the obol paid to Charon): a silver coin with an owl's eyes struck on it. golden_apple: Golden Apple: a golden apple with a leaf. votive_bell: Votive Bell: a small bronze temple bell. mirrored_shield: Mirrored Shield (Perseus' polished shield): a round shield polished bright, with a gleam. tyrs_oath: Tyr's Oath (Tyr's hand pledged in Fenrir's jaws): an open right hand, raised. pomegranate_seed: Pomegranate Seed (Persephone's pomegranate): a split pomegranate, its red seeds showing. whetstone_shard: Whetstone Shard (Hrungnir's whetstone, Skaldskaparmal 17): a grey shard of whetstone with a lightning spark. green_girdle: The Green Girdle (Sir Gawain and the Green Knight): a green silk girdle tied in a knot, gold at its ends. plant_of_youth: Plant of Youth (Epic of Gilgamesh, Tablet XI): a thorny sprig drawn up from the deep, with green leaves. elk_skis: Elk-Hunter's Skis (Kalevala 13-14, Lemminkainen's chase): a pair of long wooden skis, tips curled up. white_div_blood: White Div's Blood (the Shahnameh, seventh labour): a pale drop that restored the blinded king's sight. firebird_feather: Firebird's Feather (the Russian tales): a feather that shines like fire. oeyama_sake: Oeyama Sake (the Oeyama tale): a red lacquered sake cup. laevateinn_shard: Laevateinn Shard (Fjolsvinnsmal): a shard of a blade of flame. yggdrasil_dew: Dew of the Ash (Gylfaginning 16): a drop of honeydew falling from a green ash leaf. golden_key: The Golden Key (the legend of Ys): the golden key of the sea gates. roc_feather: Roc's Feather (the Thousand and One Nights): a huge brown feather. sun_crow_feather: Sun-crow Feather (the Huainanzi; the Chuci commentary): a black feather of a crow from the sun, gold-tipped. loose_thread: Loose Thread (the Unweaver, the game's own): a loose thread unravelling from a spool.",
  "size": [
   16,
   16
@@ -512,6 +512,46 @@
     "obobBo..........",
     ".obBo...........",
     "..oo............"
+   ]
+  ],
+  "sun_crow_feather": [
+   [
+    "................",
+    "............o...",
+    "...........oyoo.",
+    "..........oyoyro",
+    ".........oyoyro.",
+    "........oCoyro..",
+    ".......oCoCko...",
+    "......oCoCko....",
+    ".....oCoCko.....",
+    "....oCoCko......",
+    "...oCoCko.......",
+    "..oCoCko........",
+    ".oCoCko.........",
+    "oCoCko..........",
+    ".oCko...........",
+    "..oo............"
+   ]
+  ],
+  "loose_thread": [
+   [
+    "................",
+    "................",
+    ".oooooooo.......",
+    "oBBBBBBBBo......",
+    ".obbbbbbo.......",
+    ".obppppbo.o.....",
+    ".obppppboopo....",
+    ".obppppbopopo...",
+    ".obppppboo.oo.o.",
+    ".obppppbpo.opopo",
+    ".obpppppo...opo.",
+    ".obppppbo....o..",
+    ".obbbbbbo.......",
+    "oBBBBBBBBo......",
+    ".oooooooo.......",
+    "................"
    ]
   ]
  }

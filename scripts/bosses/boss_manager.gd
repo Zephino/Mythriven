@@ -266,6 +266,10 @@ func _on_defeated(controller: BossController) -> void:
 	SecretPassives.on_boss_defeated()
 	Meta.note_boss_defeated(str(controller.data.get("enemy", boss_id)), index,
 			str(controller.call("secret_earned")) if controller.has_method("secret_earned") else "")
+	# A boss can earn more than one secret (the Unweaver).
+	if controller.has_method("extra_secrets"):
+		for secret: Variant in controller.call("extra_secrets"):
+			Meta.note_secret(str(secret))
 	if index == 2 and unraveling != null:
 		unraveling.begin()
 	boss_defeated.emit(boss_id)

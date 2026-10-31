@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.84
+Date: 10/31/2026
+Time: 7:03 PM
+
+### Changes
+- **Four bonus-level secrets**, two for each bonus level (`docs/BONUS_LEVELS_PLAN.md`):
+  - **Firecrackers** (the Realm of the Ten Suns): frighten Nian 5 times with Fire or Lightning before you defeat it. Reward: a red-lantern aura.
+  - **The Nine Crows** (the Realm of the Ten Suns): shoot down the nine suns within 120 s of their rising. Reward: the **Sun-crow Feather** passive (+2% critical chance per level).
+  - **The Last Thread** (the Crossroads): defeat the Unweaver before it unweaves your gods a fourth time. Reward: the **Loose Thread** passive (weapon cooldowns 3% shorter per level).
+  - **Nothing to Steal** (the Crossroads): defeat the Unweaver without it ever unweaving a full god meter of yours (use your gods before it comes for them). Reward: a many-coloured thread aura.
+- Two new passive icons (a crow's feather and a spool with a loose thread). A boss can now earn more than one secret in a fight.
+- The four secrets are on the lore check (their Oracle hints are original drafts).
+- 1 new test (334 tests pass).
+
+### Reason
+The owner asked to finish the bonus levels and then build the nine remaining packs one at a time; every level gets two secrets.
+
 ## Version 00.02.83
 Date: 10/31/2026
 Time: 6:55 PM

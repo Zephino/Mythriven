@@ -53,3 +53,9 @@ monsters from every land and changes every couple of minutes; fairy-ring style p
 blended land; the 10:00 and 20:00 bosses are drawn from the other levels when the run starts; the Unweaver takes one
 stolen boss's attacks for each of its phases (from bosses you have beaten, else any) and unweaves both god meters of
 every Hero every 15 s.)*
+
+*(Secrets, 00.02.84: **Firecrackers** (frighten Nian 5 times, a red-lantern aura); **the Nine Crows** (shoot down the
+nine suns within 120 s, the Sun-crow Feather passive: +2% crit per level); **the Last Thread** (beat the Unweaver
+before its fourth unweaving, the Loose Thread passive: weapon cooldowns 3% shorter per level); **Nothing to Steal**
+(beat the Unweaver without it ever unweaving a full god meter of yours, a many-coloured thread aura). Baigujing has no
+secret, so each bonus level has two.)*
