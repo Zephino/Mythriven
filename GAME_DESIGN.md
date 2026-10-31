@@ -132,7 +132,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | Pack | Name | Levels | Status |
 | --- | --- | --- | --- |
 | 1 | Legends of the West | 1 The Aegean Shore · 2 Midgard's Edge · 3 The Two Lands · 4 The Misty Isles | **Build now** (Aegean Shore first as the vertical slice) |
-| 2 | Deeper Myths | 5 The Underworld · 6 Jotunheim · 7 Avalon's Shadow · 8 Land Between the Rivers | Later |
+| 2 | Deeper Myths | 5 The Underworld · 6 Jotunheim · 7 Avalon's Shadow · 8 Land Between the Rivers | **Approved 10/31/2026; building** (`docs/PACK_2_PLAN.md`) |
 | 3 | Distant Legends | 9 Pohjola · 10 Mazandaran · 11 The Slavic Wilds · 12 The Land of Legends | Later |
 | 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | Later |
 | 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | Later |
@@ -145,6 +145,8 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 12 | Otherworlds | 45 Tír na nÓg · 46 Hy-Brasil · 47 The Shadow's Court · 48 The Knockers' Deep | Later |
 | 13 | Wild Frontiers | 49 Mount Pelion · 50 Dovrefjell · 51 The City of Brass · 52 The Sea King's Hall | Later |
 | Extra | Bonus and finale | 53 Realm of the Ten Suns · 54 The Crossroads (finale) | Later |
+
+*(10/31/2026, owner decision: Pack 1 is working and fun, so **Pack 2 is approved and being built**, one level at a time, as planned in `docs/PACK_2_PLAN.md`: each level unlocks by beating the 30:00 boss of its sister Pack 1 level (Kronos → the Underworld, Surtr → Jotunheim, Balor → Avalon's Shadow, Apep → the Land Between the Rivers); new Heroes Orpheus (survive 20:00 in the Underworld), Beowulf (defeat 100 giants and trolls in Jotunheim) and Gilgamesh (defeat Humbaba); Pack 2 is harder (enemy HP +20%, spawns +15%, damage +10%). Two unsourced Act II monsters are replaced: Jotunheim's "ice wisps" by mountain giants (bergrisar, Gylfaginning) and the Rivers' "dust demons" by the raging storms (umū dabrūtu, Enuma Elish).)*
 
 Pack names are working labels. The Act tables below are the same levels: Act I = Pack 1, Act II = Pack 2, Act III = Pack 3, Act IV = the extras. Fantasy realm packs still need two more bosses designed per level, from the same public-domain lore, before they're built.
 
@@ -164,9 +166,9 @@ The game has **14 regional levels plus a finale**, grouped into Acts that match 
 | # | Level | Region | Look | Hazard | Enemy families | Local gods |
 | --- | --- | --- | --- | --- | --- | --- |
 | 5 | **The Underworld** | Greek | Asphodel fields, river Styx, Tartarus chasms | Rivers of the dead slow and drain; chasms collapse (telegraphed) | Shades, Furies-kin flyers, skeletal hoplites, Stymphalian birds | Hecate, Persephone |
-| 6 | **Jotunheim** | Norse | Mountain passes, giant-sized ruins, glaciers | Rockslides from cliffs | Frost Thursar, Trolls, giant wolves, ice wisps | Odin, Freyja |
+| 6 | **Jotunheim** | Norse | Mountain passes, giant-sized ruins, glaciers | Rockslides from cliffs | Frost Thursar, Trolls, giant wolves, mountain giants (bergrisar) | Odin, Freyja |
 | 7 | **Avalon's Shadow** | Welsh / Arthurian | Ruined castles, enchanted forest, misty lake | Enchanted brambles grow and block paths | Black knights, enchanted hounds, Afanc (lake beasts), will-o'-wisps | Rhiannon, Arawn |
-| 8 | **The Land Between the Rivers** | Mesopotamian | Ziggurats, cedar forest, flood plains | Floods sweep across in bands | Scorpion-men, Ugallu storm-demons, dust demons, river serpents | Enki, Shamash |
+| 8 | **The Land Between the Rivers** | Mesopotamian | Ziggurats, cedar forest, flood plains | Floods sweep across in bands | Scorpion-men, Ugallu storm-demons, raging storms (umū dabrūtu), river serpents | Enki, Shamash |
 
 **Act III — Second major update**
 

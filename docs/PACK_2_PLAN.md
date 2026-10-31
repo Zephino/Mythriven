@@ -1,8 +1,9 @@
 # Pack 2 plan: Deeper Myths
 
-Status: **draft for the owner to approve** (10/31/2026). Nothing here is built yet. When approved, the agreed parts go
-into `GAME_DESIGN.md` with dated notes, and the levels are built one at a time in this order: the Underworld,
-Jotunheim, Avalon's Shadow, the Land Between the Rivers. Each is shown to the owner before the next starts.
+Status: **approved by the owner** (10/31/2026): "plan looks great"; the Hero unlocks as suggested; the two unsourced
+monsters replaced with sourced ones (below; the owner was happy for Claude to name them); Pack 2 harder than Pack 1, the
+numbers left to Claude's judgement (enemy HP +20%, spawns +15%, damage +10% at the same minute, all settings). Built one
+level at a time in this order: the Underworld, Jotunheim, Avalon's Shadow, the Land Between the Rivers.
 
 Owner decisions so far (10/31/2026): Pack 1 is working and fun, so Pack 2 starts; one level at a time; each level
 unlocks from its "sister" Pack 1 level; three new Heroes (Orpheus, Gilgamesh, Beowulf); this plan first.
@@ -21,7 +22,7 @@ approve or change.
 | **Level select** | A "Pack 2: Deeper Myths" heading under Pack 1's levels. Locked levels show how to open them. |
 | **Unlocks** | Each level opens when you beat the 30:00 boss of its sister Pack 1 level (below). |
 | **Run shape** | Same as Pack 1: bosses at 10:00, 20:00 and 30:00, the Unraveling after, 2 local gods, a hazard, 4 monster families plus elites, its own wave table, trees, rocks, critters, mountains and hidden groves in its own style. |
-| **Difficulty** | A little harder than Pack 1 (enemy HP and spawns about +15% at the same minute) **(suggestion)**, since players arrive with more unlocks. |
+| **Difficulty** | Harder than Pack 1 (owner, 10/31/2026): enemy HP +20%, spawns +15%, enemy damage +10% at the same minute, as settings. |
 | **Art** | The weathered, less cartoony style the whole world now uses. New tilesets, flora, critters, monsters, bosses, gods and Heroes. |
 
 | Pack 2 level | Unlocked by beating | Why |
@@ -82,7 +83,7 @@ Blessings and trigger numbers are designed when the level is built, in line with
 | Frost thursar (already in the game) | Hulking frost giants | Prose Edda |
 | Trolls (already in the game) | Tough brutes | Norse folklore |
 | Giant wolves | Fast packs; the wolf-kin of the giants | Gylfaginning (the wolves born of a giantess in Iron-wood) |
-| Ice wisps | Floating cold lights that chill and slow | **(suggestion: needs a source)**: if none is found, swap for a sourced creature |
+| Mountain giants (*bergrisar*) | Hurl rocks from a distance (fits the rockslide passes). Replaces "ice wisps", which had no source (owner, 10/31/2026) | Snorri, Prose Edda: Gylfaginning (the *bergrisi*, hill giants) |
 
 **Bosses (from the design)**
 | Time | Boss | Mechanic | Source |
@@ -145,7 +146,7 @@ Blessings and trigger numbers are designed when the level is built, in line with
 | --- | --- | --- |
 | Scorpion-men | Guardians with poison tails | Epic of Gilgamesh, Tablet IX (the scorpion-people at the mountain gate) |
 | Ugallu storm-demons | Lion-headed storm spirits | Babylonian protective spirits (Enuma Elish lists the *ugallu* among Tiamat's brood) |
-| Dust demons | Whirling sand spirits | **(suggestion: needs a source)**: if none is found, swap for another of Tiamat's eleven monsters from Enuma Elish |
+| Raging storms (*umū dabrūtu*) | Whirling storm-beasts that spin across the plain. Replaces "dust demons", which had no source (owner, 10/31/2026) | Enuma Elish, Tablet I (among the eleven monsters Tiamat makes) |
 | River serpents | Water snakes that strike from the floods | Enuma Elish (Tiamat's serpents) |
 
 **Bosses (from the design)**
@@ -215,7 +216,7 @@ Heroes, for the owner to approve.
 
 Each step also gets: tests, settings in `config.json`, art rules in `docs/ART_RULES.md`, a changelog entry and screenshots.
 
-## Questions for the owner
+## Questions for the owner (answered 10/31/2026: all yes; see Status)
 1. Is the plan right as written? (Or change any level, boss, monster or Hero.)
 2. Unlock suggestions for the three Heroes: OK?
 3. The two monsters with no source yet (ice wisps, dust demons): find sourced ones instead?

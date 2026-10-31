@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.52
+Date: 10/31/2026
+Time: 1:11 PM
+
+### Changes
+- **Pack 2 approved.** `docs/PACK_2_PLAN.md` is marked approved, with the owner's answers:
+  - The Hero unlocks are as suggested.
+  - Pack 2 is harder: enemy HP +20%, spawns +15%, enemy damage +10%.
+  - Two monsters had no source, so they're replaced with real ones from the myths:
+    - Jotunheim's "ice wisps" become the mountain giants (*bergrisar*, Prose Edda).
+    - The Rivers' "dust demons" become the raging storms (*umū dabrūtu*, Enuma Elish).
+- GAME_DESIGN.md (Pack roadmap and the Act II table) and docs/DECISIONS.md are updated with dated notes.
+- The Underworld is next.
+
+### Reason
+The owner approved the Pack 2 plan ("plan looks great"), liked the Hero unlocks, let Claude name the two unsourced monsters, and asked for Pack 2 to be harder by Claude's judgement.
+
 ## Version 00.02.51
 Date: 10/31/2026
 Time: 1:05 PM
