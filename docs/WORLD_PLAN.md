@@ -1,7 +1,8 @@
 # World plan: forests, rocks, critters, hidden groves and mountains
 
-Status: **draft for the owner to read and approve** (10/31/2026). Nothing here is built yet. When approved, the
-agreed parts go into `GAME_DESIGN.md` with a dated note, and the work is done in the order at the end.
+Status: **approved by the owner and built** (10/31/2026; versions 00.02.32 to 00.02.35). The agreed parts are in
+`GAME_DESIGN.md` with dated notes. Open questions were settled with Claude's suggestions: rarities as below, the rope is
+only for climbing, large animals in every level.
 
 Everything is drawn in the world's weathered style (`tools/art/weathering.py`) and generated at random from the run's
 seed, so every co-op player sees the same world.
