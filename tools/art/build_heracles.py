@@ -19,18 +19,8 @@ def draw(back_leg, front_leg):
 
 
 def _draw(back_leg, front_leg):
-    # Lion-skin cloak down his back: draped off the back shoulder, widening to
-    # a ragged furry edge, with the lion's hind paw hanging at the bottom.
-    for y in range(8, 27):
-        width = 2 if y < 14 else (3 if y < 21 else 4)
-        x0 = 9 - width
-        row(y, x0, 8, "L")
-        px(x0, y, "m")                      # dark fur along the outer edge
-        if y % 3 == 0:
-            px(x0 + 1, y, "l")              # lighter tufts of fur
-    for x in (5, 7):
-        px(x, 27, "L"); px(x, 28, "m")      # ragged hem
-    rect(5, 29, 6, 29, "l"); px(5, 30, "w"); px(6, 30, "w")   # the hind paw and its claws
+    # No cloak hanging behind (owner request 10/31/2026): the lion skin shows as
+    # the hood and the paws knotted at his throat.
     # Lion head hood
     row(1, 10, 11, "m")                       # ear
     row(2, 9, 15, "l"); px(10, 2, "L")

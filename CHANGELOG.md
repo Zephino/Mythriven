@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.60
+Date: 10/30/2026
+Time: 11:05 PM
+
+### Changes
+- **Heracles' cloak is gone.** The lion skin now shows as the lion-head hood and the paws knotted at his throat, giving a cleaner outline. `docs/ART_RULES.md`: keep cloaks only if they help the silhouette.
+
+### Reason
+The owner asked to remove the cloak.
+
 ## Version 00.01.59
 Date: 10/30/2026
 Time: 11:03 PM
