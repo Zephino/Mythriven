@@ -205,3 +205,16 @@ test("the public list route answers without the list set up", async () => {
   const res = await worker.fetch(new Request("https://w.example/lobby/public"), {});
   assert.deepEqual(await res.json(), { games: [] });
 });
+
+test("a host can put a game on the public list and take it off again", async () => {
+  const env = fakePublicList();
+  const { room } = fakeRoom(env);
+  const host = (await room.connect("host", "666666")).socket;
+  await room.webSocketMessage(host, JSON.stringify({ t: "start" }));
+  assert.deepEqual(await env.games(), [], "a friend game isn't listed");
+  await room.webSocketMessage(host, JSON.stringify({ t: "info", level: "aegean_shore", version: "1" }));
+  await room.webSocketMessage(host, JSON.stringify({ t: "public", on: true }));
+  assert.deepEqual((await env.games()).map((g) => [g.code, g.in_run]), [["666666", true]], "listed, in a run");
+  await room.webSocketMessage(host, JSON.stringify({ t: "public", on: false }));
+  assert.deepEqual(await env.games(), [], "taken off the list");
+});

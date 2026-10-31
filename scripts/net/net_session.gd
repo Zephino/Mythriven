@@ -14,6 +14,8 @@ signal run_message(from: int, msg: Array)
 signal run_starting
 ## Host: a player joined the run in progress (CoopHost adds their Hero).
 signal late_joined(id: int)
+## A solo run went online (Invite friends in the pause menu): RunSystems adds co-op to it.
+signal went_online
 
 enum State { OFF, CONNECTING, LOBBY, IN_RUN }
 
@@ -98,6 +100,16 @@ func join_game(join_code: String, hero_id: String, is_public: bool = false) -> v
 	lobby.join(join_code)
 
 
+## Invite friends mid-run: this solo run becomes a co-op game hosted here (NetLobby).
+func host_running_game(is_public: bool) -> void:
+	_from_run = NetLobby.go_online(self, is_public)
+
+
+## Host: list the game publicly, or make it friends-only (code) again.
+func set_public(on: bool) -> void:
+	NetLobby.set_public(self, on)
+
+
 ## Leaves the lobby or the run (the host leaving ends it for everyone).
 ## `reason`: a translation key shown on the Co-op screen ("" when the player chose to leave).
 func leave(reason: String = "") -> void:
@@ -167,6 +179,8 @@ func my_hero() -> String:
 
 
 var _pending_hero: String = ""
+## True while a solo run is going online (host_running_game).
+var _from_run: bool = false
 
 
 func _open() -> void:
@@ -193,6 +207,7 @@ func _close(reason: String) -> void:
 	state = State.OFF
 	roster = {}
 	public_game = false
+	_from_run = false
 	joined_late = false
 	my_id = 0
 	code = ""
@@ -222,8 +237,11 @@ func _on_opened(id: int, lobby_code: String, _peers: PackedInt32Array) -> void:
 	my_id = id
 	code = lobby_code
 	state = State.LOBBY
+	if is_host() and _from_run:
+		_from_run = false
+		NetLobby.now_online(self)
 	if is_host():
-		_tell_public_list()
+		tell_public_list()
 	else:
 		send(LobbyService.HOST_ID, [NetMsg.HELLO, version(), _pending_hero])
 	changed.emit()
@@ -260,11 +278,11 @@ func _on_received(from: int, data: PackedByteArray) -> void:
 func broadcast_roster() -> void:
 	if is_host():
 		send(LobbyService.EVERYONE, [NetMsg.ROSTER, roster, level_id, swift])
-		_tell_public_list()
+		tell_public_list()
 
 
 ## Public games: what the public list shows about this game.
-func _tell_public_list() -> void:
+func tell_public_list() -> void:
 	if public_game and lobby != null:
 		lobby.set_info(level_id, version())
 

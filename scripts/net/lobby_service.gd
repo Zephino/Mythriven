@@ -51,6 +51,11 @@ func set_info(_level_id: String, _version: String) -> void:
 	pass
 
 
+## Host only: put the game on the public list, or take it off (friends with the code can still join).
+func set_public(_on: bool) -> void:
+	pass
+
+
 ## Host only: removes a player from the lobby.
 func kick(_id: int) -> void:
 	pass

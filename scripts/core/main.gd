@@ -143,13 +143,14 @@ func _build_world(joystick: TouchJoystick) -> void:
 
 ## The local player (and, in co-op, everyone in the lobby with their Heroes,
 ## side by side; ids match the lobby's). Each starts with their signature weapon.
+## A solo player has the host's id, so the run can go online later (Invite friends).
 func _spawn_players(world: WorldRoot, input: PlayerInput) -> Player:
 	var local: Player = null
 	var spread: float = Data.cfg_float("coop.spawn_spread_px")
-	var ids: PackedInt32Array = Net.player_ids() if Net.in_run() else PackedInt32Array([-1])
+	var ids: PackedInt32Array = Net.player_ids() if Net.in_run() else PackedInt32Array([LobbyService.HOST_ID])
 	for i: int in ids.size():
 		var id: int = ids[i]
-		var mine: bool = id == -1 or id == Net.my_id
+		var mine: bool = not Net.in_run() or id == Net.my_id
 		var hero_id: String = GameAuthority.selected_hero_id if mine else str(Net.roster[id].get("hero", ""))
 		var at := Vector2((i - (ids.size() - 1) * 0.5) * spread, 0.0)
 		var player: Player = GameAuthority.spawn_player(world, at, input if mine else null, mine, hero_id, id)

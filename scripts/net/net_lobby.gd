@@ -5,6 +5,42 @@ extends RefCounted
 ## the start. A player may arrive while a run is in progress (public and
 ## friend games alike): the host sends them LATE_START and CoopLateJoin adds
 ## their Hero to the run (GAME_DESIGN.md: Online co-op / Joining in progress).
+## A solo run can also go online from the pause menu (Invite friends), and the
+## host can put the game on the public list or take it off at any time.
+
+
+## Invite friends mid-run (owner request 10/31/2026): this solo run becomes a
+## co-op game hosted here. Friends join with the code (or from the public list
+## when `is_public`) straight into the run, the same as joining in progress.
+## Returns true when the lobby is opening (now_online follows).
+static func go_online(net: Node, is_public: bool) -> bool:
+	var run: RunState = GameAuthority.run
+	if net.active() or run == null or run.ended:
+		return false
+	net.host_game(GameAuthority.selected_hero_id, is_public)
+	net.level_id = str(run.level_data.get("id", net.level_id))
+	net.swift = Meta.swift
+	net.omens = OmenRules.active()
+	net.run_seed = run.seed_value
+	return true
+
+
+## The lobby for a solo run is open: the run is now this host's co-op run.
+static func now_online(net: Node) -> void:
+	net.state = net.State.IN_RUN
+	net.roster[net.my_id]["here"] = false
+	net.lobby.lock()
+	net.went_online.emit()
+
+
+## Host: list the game publicly, or make it friends-only (code) again.
+static func set_public(net: Node, on: bool) -> void:
+	if not net.is_host():
+		return
+	net.public_game = on
+	net.lobby.set_public(on)
+	net.tell_public_list()
+	net.changed.emit()
 
 
 static func host_message(net: Node, from: int, msg: Array) -> void:

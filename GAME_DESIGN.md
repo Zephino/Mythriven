@@ -1279,6 +1279,7 @@ Up to 4 Heroes share one Last Stand through a 6-digit code; the host's game is t
 - **Joining in progress:** any co-op game, public or friend code, can be joined during a run *(friend games added 10/29/2026, owner request)*. The newcomer's Hero appears beside the host's Hero with its signature weapon and shares the team's XP and level; the host sends their game a snapshot of the world so far. A newcomer takes the place of a player who left (that player's Shade makes way).
 - **Catch-up chest:** a newcomer gets one chest's worth of upgrades (no gold) for every 5 minutes already played, up to 6, in one chest reveal *(added 10/29/2026, owner request; numbers to tune in config.json)*.
 - A public game's host may start alone; the same lobby, fairness, and sync rules apply.
+- **Invite friends mid-run** *(added 10/31/2026, owner request)*: in a solo run, the pause menu has **Invite friends** (shows a code) and **Open to public**. The run becomes a co-op game hosted by that player without stopping, and others join it in progress. The host can switch between public and friends-only (code) at any time from the pause menu.
 
 **Online service:** the owner's Cloudflare Worker (free plan): a Durable Object per lobby relays messages over WebSockets, so co-op works on the web, PC, and phones; behind a `LobbyService` interface so another service (Epic Online Services, Steam lobbies via GodotSteam, Nakama) can be swapped in. *(Changed 10/29/2026, owner approved: was Epic Online Services, which needs a developer account and has no web support.)*
 

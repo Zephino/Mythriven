@@ -356,3 +356,26 @@ func _passive_levels(player: Player) -> int:
 	for id: String in player.passives:
 		total += int(player.passives[id])
 	return total
+
+
+func test_a_solo_run_can_invite_friends_and_switch_public_or_private() -> void:
+	GameAuthority.start_run("aegean_shore")
+	GameAuthority.selected_hero_id = "heracles"
+	var host: Node = _session()
+	var online: Array[bool] = []
+	host.connect("went_online", func() -> void: online.append(true))
+	host.call("host_running_game", false)
+	await _wait_frames(3)
+	assert_eq(online, [true] as Array[bool], "the solo run went online")
+	assert_eq(int(host.get("state")), Net.State.IN_RUN, "still the same run, now hosted here")
+	assert_eq(int(host.get("run_seed")), GameAuthority.run.seed_value, "friends get the same map")
+	assert_true(PublicGameList.offered(LocalLobby.public_games()).is_empty(), "friends-only: not listed")
+	host.call("set_public", true)
+	assert_eq(PublicGameList.offered(LocalLobby.public_games()).size(), 1, "now on the public list")
+	var friend: Node = _session()
+	friend.call("join_game", host.get("code"), "atalanta")
+	await _wait_frames(8)
+	assert_true(bool(friend.get("joined_late")), "a friend joins straight into the run")
+	host.call("set_public", false)
+	assert_true(PublicGameList.offered(LocalLobby.public_games()).is_empty(), "back to friends-only")
+	GameAuthority.selected_hero_id = ""

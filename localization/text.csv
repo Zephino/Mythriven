@@ -1168,3 +1168,10 @@ UI_INSTALL_UNAVAILABLE,"Your browser can't install from this button. Open the br
 UI_UPDATE_APP,Update app
 UI_UPDATE_IN_RUN,Finish or leave the run to update.
 UI_UPDATING,Getting the newest version…
+UI_INVITE_FRIENDS,Invite friends
+UI_OPEN_TO_PUBLIC,Open to public
+UI_GOING_ONLINE,Opening your game…
+UI_ONLINE_FRIENDS,"Friends can join with this code, even now."
+UI_ONLINE_PUBLIC,"On the Public Games list: anyone can join, even now."
+UI_MAKE_PUBLIC,Make public
+UI_MAKE_PRIVATE,Make friends-only (code)

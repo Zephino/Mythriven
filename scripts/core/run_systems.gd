@@ -192,6 +192,9 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	add_child(director)
 	if Net.in_run():
 		_build_coop(world, enemies, spawner, level_up)
+	else:
+		# Invite friends (pause menu): the solo run can go online later.
+		Net.went_online.connect(func() -> void: _build_coop(world, enemies, spawner, level_up), CONNECT_ONE_SHOT)
 	if OS.is_debug_build():
 		for path: String in ["res://scripts/core/debug_actions_world.gd", "res://scripts/core/debug_actions_gods.gd",
 				"res://scripts/core/debug_actions_bosses.gd", "res://scripts/core/debug_actions_discoveries.gd"]:
@@ -204,6 +207,8 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 ## player's device, CoopClient shows it and the systems that decide things
 ## (spawning, the director) are switched off.
 func _build_coop(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level_up: LevelUpScreen) -> void:
+	if coop_host != null or coop_client != null or not is_inside_tree():
+		return
 	add_child(CoopRevives.new())
 	add_child(CoopTether.new())
 	coop_turns = CoopTurns.new()

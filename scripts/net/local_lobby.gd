@@ -66,6 +66,13 @@ func reopen() -> void:
 	_locked = false
 
 
+func set_public(on: bool) -> void:
+	if on and not _public.has(code):
+		_public[code] = {}
+	elif not on:
+		_public.erase(code)
+
+
 func set_info(level_id: String, version: String) -> void:
 	if _public.has(code):
 		_public[code] = {"level": level_id, "version": version}

@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.46
+Date: 10/30/2026
+Time: 9:07 PM
+
+### Changes
+- **Invite friends during a solo run.** The pause menu now has **Invite friends** and **Open to public**. Either one turns the run into an online game hosted on this device, without stopping it.
+  - Invite friends shows a 6-digit code; friends type it and join straight into the run (with the catch-up chest).
+  - Open to public also puts the game on the Public Games list.
+  - Once online, the pause menu shows the code and a **Make public** / **Make friends-only (code)** switch.
+- A solo player now has player number 1 (the host's number), so a run can go online with nothing renumbered. The pause menu also remembers that it paused the game itself, so closing it after going online still un-pauses.
+- Worker: the host can send {t:"public", on} to put a game on the public list or take it off.
+- Tested with two game windows through a local Worker: a solo run went online from the pause menu, and a friend joined with the code and saw the same enemies and positions. New tests: 1 game, 1 Worker.
+
+### Reason
+The owner asked to invite friends while playing solo, and to switch a game between public and closed.
+
 ## Version 00.01.45
 Date: 10/30/2026
 Time: 8:52 PM

@@ -48,6 +48,11 @@ func set_info(level_id: String, version: String) -> void:
 		_socket.send_text(JSON.stringify({"t": "info", "level": level_id, "version": version}))
 
 
+func set_public(on: bool) -> void:
+	if is_open():
+		_socket.send_text(JSON.stringify({"t": "public", "on": on}))
+
+
 func kick(id: int) -> void:
 	if is_open():
 		_socket.send_text(JSON.stringify({"t": "kick", "id": id}))

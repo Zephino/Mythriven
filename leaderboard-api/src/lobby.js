@@ -17,7 +17,8 @@
  *                               {t:"leave", id}, {t:"error", reason}
  *   text from the host:         {t:"start"} (a run began), {t:"open"} (back in the lobby
  *                               after a run): shown on the public list; {t:"kick", id},
- *                               {t:"info", level, version} (public games: shown on the list)
+ *                               {t:"info", level, version} (public games: shown on the list),
+ *                               {t:"public", on} (put the game on the public list or take it off)
  *   binary from a player:       [to][data...]   to = 0 for everyone else, or a player id
  *   binary to a player:         [from][data...]
  * Player ids: the host is 1, others 2–4.
@@ -143,7 +144,16 @@ export class LobbyRoom {
       if (msg.t === "start") await this.state.storage.put("started", true);
       if (msg.t === "open") await this.state.storage.put("started", false);
       if (msg.t === "info") await this.state.storage.put("info", { level: msg.level, version: msg.version });
-      if (msg.t === "start" || msg.t === "open" || msg.t === "info") await this.publish(this.sockets().length);
+      if (msg.t === "public") {
+        const on = msg.on === true;
+        if (!on && (await this.state.storage.get("public"))) {
+          const code = await this.state.storage.get("code");
+          await tellPublicList(this.env, code, null);
+        }
+        await this.state.storage.put("public", on);
+        if (on && this.state.storage.setAlarm) await this.state.storage.setAlarm(Date.now() + REFRESH_MS);
+      }
+      if (["start", "open", "info", "public"].includes(msg.t)) await this.publish(this.sockets().length);
       if (msg.t === "kick" && Number.isInteger(msg.id) && msg.id !== HOST_ID) {
         const target = this.socketOf(msg.id);
         if (target) target.close(4001, "removed by the host");
