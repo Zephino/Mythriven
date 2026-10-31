@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.09
+Date: 10/31/2026
+Time: 2:50 AM
+
+### Changes
+- **The last five gods have sprites, each standing and seated on their throne** (all 8 Pack 1 gods are now done):
+  - **Skadi** (Prose Edda: she goes on skis with her bow, hunting in the mountains): a fur-trimmed blue-grey hooded cloak, a long pale-gold braid, a dark blue wool dress with a fur hem, fur boots, her bow; Norse high seat.
+  - **Sekhmet** (Book of the Heavenly Cow; her statues from the temple of Mut at Karnak): a lioness head, a striped wig, the sun disk with a rearing cobra, a broad collar, a close red linen dress ("Lady of the Red Linen"), an ankh and a papyrus sceptre; Egyptian gilded throne.
+  - **Ra** (Book of the Heavenly Cow; the Amduat; tomb paintings of Ra-Horakhty): a falcon head with the dark mark under the eye, the sun disk and cobra, a striped wig, a broad collar, a pleated kilt with a gold belt and panel, the was-sceptre; Egyptian gilded throne.
+  - **Poseidon** (Homer; Hesiod; vase paintings and the Artemision bronze): dark hair bound with a gold fillet, a dark beard, his chest bare, a sea-blue himation over one shoulder and round his hips, the trident; Greek marble throne.
+  - **The Morrígan** (Táin Bó Cúailnge; Táin Bó Regamna, the red-haired woman in the red cloak; Cath Maige Tuired): red hair and brows, a red cloak, a dark dress, a grey spear, and a hooded crow, her bird shape, on her shoulder; Celtic carved throne.
+
+### Reason
+The owner asked for a throne for each god with the god sitting in it, then a completed sprite sheet.
+
 ## Version 00.02.08
 Date: 10/31/2026
 Time: 2:47 AM
