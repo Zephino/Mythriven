@@ -583,3 +583,17 @@ func test_mountains_have_ways_up_a_bridge_and_a_cave() -> void:
 	assert_true(mountains.walkable(bridge_tile, 2), "the mended bridge can")
 	assert_false(mountains.walkable(m["cave"], 0), "ground-level Heroes can't walk onto the peaks")
 	mountains.queue_free()
+
+
+func test_menu_backdrop_never_repeats_and_has_its_style() -> void:
+	var frames: Dictionary = PixelArt.find("ui/frames")["frames"]
+	for name: Variant in Data.cfg("ui.menu_backdrops"):
+		assert_false(PixelArt.find("menu/" + str(name)).is_empty(), "backdrop %s has its picture" % name)
+	var last: String = ""
+	for k: int in 12:
+		MenuBackdrop._scene = ""
+		MenuBackdrop._choose()
+		assert_ne(MenuBackdrop.scene(), last, "never the same backdrop twice in a row")
+		last = MenuBackdrop.scene()
+		assert_true(frames.has(MenuBackdrop.style() + "_button"), "%s has its matching buttons" % last)
+	assert_false(PixelArt.find("menu/logo").is_empty(), "the logo")

@@ -124,6 +124,12 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 ## Mountains and caves
 - Per level in `data/art/mountain/<level id>.json`, built by `tools/art/build_mountain_parts.py` in the level's rock and weathered: raised ground tops (flat, no light bands), cliff faces, handholds, a rolled and a hung rope ladder, rope-bridge planks (whole and broken) and posts, a cave mouth. The cave inside is `data/art/dungeon/cave.json` (`tools/art/build_cave_parts.py`): dirt floors, rough rock, stalagmites, glowing crystals, a pool, bones, mushrooms. Drawn by `scripts/world/mountains.gd`, lowest level first, each top above its cliff face.
 
+## Menu backdrops and logo
+- Six painted backdrops in `data/art/menu/` (480 x 270, built by `tools/art/build_menu_art.py`): Greek temple at dusk, Norse fjord and longhouse under the northern lights, Egyptian gateway and obelisk by the Nile at sunset, a stone circle in moonlit mist, a road over the hills to a stone shrine at dawn, and a campfire at night below a lit temple. Each carries its "scene" (frame style; walk or camp; where the shrine, ground and fire are). One is chosen at random when the game loads, never the same twice in a row (`user://menu.cfg`), and kept for the session (`scripts/ui/meta/menu_backdrop.gd`); it's scaled to cover the screen, never stretched.
+- Each backdrop's frame style (`data/art/ui/frames.json`, prefixes greek_, norse_, egyptian_, celtic_): marble and gold, wood and iron, sandstone and lapis, mossy stone. `UiTheme` uses it for every panel and button that session.
+- The logo (`data/art/menu/logo.json`): MYTHRIVEN in carved gold letters over a laurel line, above the title screen's column.
+- On the title screen the unlocked Heroes walk the road to the shrine (fading into it and starting again) or stand round the campfire, and the Hero played last stands on the right (`ui.menu_*`).
+
 ## Statuses
 - Enemies show their statuses as small marks over their picture (`scripts/enemies/enemy_status_marks.gd`): flames (Burn), frost specks (Chill, more with more stacks), a block of ice (Frozen), sparks (Shock), drips (Soaked), rising bubbles (Poison, more with more stacks), a halo (Smite), a dark swirl (Hex), circling stars (Stun). Only enemies on screen, up to `enemies.status_marks_max`. The status colour tints the picture lightly (`enemies.art_status_tint`) so the marks and the art both show.
 

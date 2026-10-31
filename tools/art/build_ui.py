@@ -38,6 +38,58 @@ FRAMES = {
     "button_disabled": frame("S", "d", "d", "o", "S"),
 }
 
+# The four menu styles (owner decision 10/31/2026), each matching its backdrop: a stone, wood or sandstone border
+# lit at the top left, an inner trim, corner studs, and a dark fill so the cream text reads.
+STYLE_PALETTE = {
+    # greek: marble and gold
+    "A": "#efe6d4", "B": "#fffaf0", "C": "#a89e8c", "D": "#d8a838", "E": "#2c2430", "F": "#3e3448", "I": "#4e4258",
+    # norse: wood and iron
+    "J": "#7a5232", "K": "#9a6c44", "L": "#4a3020", "M": "#9aa0a8", "N": "#2a2218", "P": "#3a2e22", "Q": "#4a3c2c",
+    # egyptian: sandstone and lapis
+    "R": "#d8b47e", "T": "#f0d4a0", "U": "#a8844e", "V": "#2a5aa0", "X": "#1e2236", "Y": "#2a3048", "Z": "#3a4260",
+    # celtic: mossy stone
+    "a": "#8a8a84", "b": "#a8a8a0", "c": "#5e5e58", "e": "#5a7a3a", "f": "#1e2620", "i": "#2a342c", "j": "#38463a",
+    "k": "#f0cc58",
+}
+
+
+def styled(edge, light, dark, trim, stud, fill, hover, hollow=False, dim=False):
+    """A 12 x 12 frame in one style: outline, a border lit at the top left, a thin trim inside it, a stud at each
+    corner of the trim, and the fill. `dim`: greyed (disabled)."""
+    p = Pic(12, 12, (0, 0))
+    p.rect(0, 0, 11, 11, "o")
+    p.rect(1, 1, 10, 10, edge)
+    p.rect(1, 1, 10, 1, light); p.rect(1, 1, 1, 10, light)
+    p.rect(1, 10, 10, 10, dark); p.rect(10, 1, 10, 10, dark)
+    p.rect(2, 2, 9, 9, trim)
+    p.rect(3, 3, 8, 8, hover if hover else fill)
+    for x, y in ((2, 2), (9, 2), (2, 9), (9, 9)):
+        p.px(x, y, stud)
+    for x, y in ((0, 0), (11, 0), (0, 11), (11, 11)):
+        p.px(x, y, ".")
+    rows = ["".join(r) for r in p.g]
+    if dim:
+        rows = [r.replace(edge, "d").replace(light, "d").replace(trim, "S").replace(stud, "S") for r in rows]
+    return rows
+
+
+def style_set(name, edge, light, dark, trim, stud, fill, fill_hover, fill_pressed):
+    return {
+        name + "_panel": styled(edge, light, dark, trim, stud, fill, None),
+        name + "_button": styled(edge, light, dark, dark, stud, fill_hover, None),
+        name + "_button_hover": styled(light, light, edge, trim, stud, fill_pressed, None),
+        name + "_button_pressed": styled(dark, dark, light, dark, dark, fill, None),
+        name + "_button_focus": styled(trim, "w", trim, trim, "w", fill_pressed, None),
+        name + "_button_disabled": styled(edge, light, dark, dark, stud, "S", None, dim=True),
+    }
+
+
+STYLES = {}
+STYLES.update(style_set("greek", "A", "B", "C", "D", "D", "E", "F", "I"))
+STYLES.update(style_set("norse", "J", "K", "L", "M", "M", "N", "P", "Q"))
+STYLES.update(style_set("egyptian", "R", "T", "U", "V", "k", "X", "Y", "Z"))
+STYLES.update(style_set("celtic", "a", "b", "c", "e", "e", "f", "i", "j"))
+
 ICON_PALETTE = {
     "o": "#24160e", "k": "#140c08", "w": "#ffffff",
     "b": "#6a4422", "B": "#4a2e16", "g": "#c89a3c", "G": "#8a6420", "y": "#f0cc58",
@@ -216,8 +268,11 @@ if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(OUT, "frames.json"), "w") as f:
         json.dump({"_doc": "Menu frames (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py: dark stone with a bronze "
-                           "trim, stretched by their 4 px edges (nine-slice) for every panel and button.",
-                   "size": [12, 12], "margin": 4, "palette": FRAME_PALETTE, "frames": {k: [v] for k, v in FRAMES.items()}},
+                           "trim (no prefix), and the four menu styles that match the menu backdrops (greek_: marble and gold, norse_: wood and "
+                           "iron, egyptian_: sandstone and lapis, celtic_: mossy stone), stretched by their 4 px edges "
+                           "(nine-slice) for every panel and button.",
+                   "size": [12, 12], "margin": 4, "palette": dict(FRAME_PALETTE, **STYLE_PALETTE),
+                   "frames": {k: [v] for k, v in dict(FRAMES, **STYLES).items()}},
                   f, indent=1)
     docs = " ".join("%s: %s" % (k, " ".join(v.__doc__.split())) for k, v in ICONS.items())
     with open(os.path.join(OUT, "icons.json"), "w") as f:

@@ -23,17 +23,21 @@ func _ready() -> void:
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(root)
-	var background := ColorRect.new()
-	background.color = Color.html(Data.cfg_string("heroes.menu_background"))
-	background.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.add_child(background)
-	# Contents stay clear of phone notches; the background fills the whole screen.
+	root.add_child(MenuBackdrop.new())
+	# Contents stay clear of phone notches; the backdrop fills the whole screen. The cards sit in a framed panel in
+	# the middle (owner decision 10/31/2026: no full-width buttons).
 	var safe := SafeAreaBox.new()
 	root.add_child(safe)
+	var middle := HBoxContainer.new()
+	middle.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
+	middle.alignment = BoxContainer.ALIGNMENT_CENTER
+	safe.add_child(middle)
+	var panel := PanelContainer.new()
+	panel.custom_minimum_size = Vector2(Data.cfg_float("ui.hero_select_width_px"), 0)
+	middle.add_child(panel)
 	var scroll := ScrollContainer.new()
-	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	safe.add_child(scroll)
+	panel.add_child(scroll)
 	var box := VBoxContainer.new()
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(box)

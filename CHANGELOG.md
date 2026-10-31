@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.36
+Date: 10/31/2026
+Time: 11:26 AM
+
+### Changes
+- **New menus** (as agreed with the owner, `docs/DECISIONS.md` "Menus"):
+  - **Six painted backdrops**: a Greek temple on a cliff at dusk over the wine-dark sea; a Norse longhouse by a fjord under the northern lights; an Egyptian temple gateway and obelisk by the Nile at sunset; a stone circle in moonlit mist; a road over the hills to a stone shrine at dawn; a campfire at night below a lit temple. One is picked at random each time the game loads, never the same one twice in a row.
+  - **Matching buttons and panels** for each: marble and gold (Greek and the campfire), wood and iron (Norse), sandstone and lapis (Egyptian), mossy stone (the stone circle and the hill road). Every screen that session uses them, in the menus and in the run.
+  - A pixel-art **MYTHRIVEN logo** in carved gold above the title screen's buttons.
+  - **Narrow centred buttons** instead of full-width ones, on every menu screen; gold and the version in the bottom corners. Hero select's cards sit in a centred panel over the backdrop.
+  - On the title screen your **Heroes walk the road toward the shrine** (or gather round the campfire), and the **Hero you played last stands on the right**.
+- New `tools/art/build_menu_art.py`, `scripts/ui/meta/menu_backdrop.gd`; four styles added to `tools/art/build_ui.py`; new `ui.menu_*` and `ui.hero_select_width_px` settings. Rules in `docs/ART_RULES.md` (Menu backdrops and logo).
+
+### Reason
+The owner asked to work on the menu as agreed: a logo, a centred column of buttons, random backdrops that never repeat in a row with matching frame styles, Heroes walking toward a shrine and the last-used Hero on the right.
+
 ## Version 00.02.35
 Date: 10/31/2026
 Time: 11:10 AM

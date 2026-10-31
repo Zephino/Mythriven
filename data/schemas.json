@@ -138,6 +138,17 @@
             "fields": {
               "handheld_scale": "number",
               "frame_scale": "number",
+              "menu_backdrops": {
+                "type": "array",
+                "items": "string"
+              },
+              "menu_column_px": "number",
+              "menu_button_px": "number",
+              "menu_logo_px": "number",
+              "menu_walkers": "number",
+              "menu_walk_speed": "number",
+              "menu_last_hero_scale": "number",
+              "hero_select_width_px": "number",
               "frame_padding_px": "number",
               "icon_px": "number",
               "portrait_scale": "number",

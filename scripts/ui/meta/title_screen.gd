@@ -22,8 +22,17 @@ func has_back() -> bool:
 	return false
 
 
+## The logo above the column, and the Heroes walking to the shrine on the backdrop (owner decisions 10/31/2026).
+func shows_logo() -> bool:
+	return true
+
+
+func shows_heroes() -> bool:
+	return true
+
+
 func build() -> void:
-	set_title(tr_key("UI_GAME_TITLE"))
+	set_title("")
 	if _quit:
 		add_line(tr_key("UI_QUIT_WEB"))
 		add_button(tr_key("UI_KEEP_PLAYING"), _on_keep_playing)
@@ -33,14 +42,6 @@ func build() -> void:
 	if CloudSync.signed_in():
 		var username: String = CloudSync.username()
 		add_line(tr_key("UI_PLAYING_AS") % username if username != "" else tr_key("UI_SIGNED_IN_GOOGLE"))
-	# The Heroes you have, standing in a row (owner request 10/31/2026).
-	var heroes: Array[Texture2D] = []
-	for hero: Dictionary in HeroRules.all():
-		if HeroRules.is_unlocked(hero):
-			var picture: Texture2D = UiTheme.portrait(PixelArt.find(str(hero["id"])), Data.cfg_int("ui.title_hero_scale"))
-			if picture != null:
-				heroes.append(picture)
-	add_pictures(heroes)
 	add_button(tr_key("UI_PLAY"), func() -> void: flow.play(self))
 	add_button(tr_key("UI_COOP"), func() -> void: open_child(CoopScreen.new_for(flow)))
 	add_button(tr_key("UI_PUBLIC_GAMES"), func() -> void: open_child(CoopScreen.new_for(flow, true)))
@@ -49,8 +50,8 @@ func build() -> void:
 	add_button(tr_key("UI_SETTINGS"), func() -> void: open_child(SettingsScreen.new()))
 	add_button(tr_key("UI_SUGGEST_FEATURE"), func() -> void: open_overlay(SuggestionForm.new()))
 	add_button(tr_key("UI_QUIT_GAME"), _on_quit)
-	add_line(tr_key("UI_GOLD_BANKED") % SaveGame.gold())
-	add_line(tr_key("UI_VERSION_LABEL") % ProjectSettings.get_setting("application/config/version", ""))
+	set_corners(tr_key("UI_GOLD_BANKED") % SaveGame.gold(),
+			tr_key("UI_VERSION_LABEL") % ProjectSettings.get_setting("application/config/version", ""))
 
 
 func _on_quit() -> void:

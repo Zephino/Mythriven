@@ -1,10 +1,13 @@
 class_name MenuScreen
 extends CanvasLayer
 ## Base for the full-screen menus outside a run (Phase 15): the title, the
-## Hall of Legends and its pages, and level select. A title bar with a Back
-## button, then a scrolling list of lines and buttons that each page fills in
-## build(). Keyboard, gamepad, and touch all work: arrow keys / D-pad move
-## between buttons, Esc / B goes back, and the first button is focused.
+## Hall of Legends and its pages, and level select. Over the session's painted
+## backdrop (MenuBackdrop), a narrow framed column in the middle of the screen
+## (owner decision 10/31/2026: no full-width buttons) holds a title bar with a
+## Back button, then a scrolling list of lines and buttons that each page fills
+## in build(); the title screen also shows the logo above it. Keyboard,
+## gamepad, and touch all work: arrow keys / D-pad move between buttons, Esc /
+## B goes back, and the first button is focused.
 
 signal closed
 
@@ -12,6 +15,8 @@ var _rows: VBoxContainer
 var _back: Button
 var _title: Label
 var _buttons: Array[Control] = []
+var _column: PanelContainer
+var _corners: HBoxContainer
 
 
 func _ready() -> void:
@@ -22,17 +27,41 @@ func _ready() -> void:
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(root)
-	var background := ColorRect.new()
-	background.color = Color.html(Data.cfg_string("heroes.menu_background"))
-	background.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.add_child(background)
-	# Contents stay clear of phone notches; the background fills the whole screen.
+	var backdrop := MenuBackdrop.new()
+	backdrop.show_heroes = shows_heroes()
+	root.add_child(backdrop)
+	# Contents stay clear of phone notches; the backdrop fills the whole screen.
 	var safe := SafeAreaBox.new()
 	root.add_child(safe)
+	var outer := VBoxContainer.new()
+	outer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
+	safe.add_child(outer)
+	if shows_logo():
+		var logo := TextureRect.new()
+		var art: Dictionary = PixelArt.find("menu/logo")
+		if not art.is_empty():
+			logo.texture = PixelArt.frame(art, false, 0.0)
+		logo.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		logo.custom_minimum_size = Vector2(0, Data.cfg_float("ui.menu_logo_px"))
+		outer.add_child(logo)
+	# The narrow column in the middle.
+	var middle := HBoxContainer.new()
+	middle.alignment = BoxContainer.ALIGNMENT_CENTER
+	middle.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	outer.add_child(middle)
+	var column := PanelContainer.new()
+	column.custom_minimum_size = Vector2(Data.cfg_float("ui.menu_column_px"), 0)
+	column.size_flags_vertical = Control.SIZE_EXPAND_FILL if not shows_logo() else Control.SIZE_SHRINK_CENTER
+	middle.add_child(column)
+	_column = column
 	var box := VBoxContainer.new()
-	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
-	safe.add_child(box)
+	column.add_child(box)
+	_corners = HBoxContainer.new()
+	outer.add_child(_corners)
 	var top := HBoxContainer.new()
+	top.visible = not shows_logo()            # the title screen has the logo instead of a title bar
 	box.add_child(top)
 	_title = Label.new()
 	_title.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
@@ -46,6 +75,8 @@ func _ready() -> void:
 	top.add_child(_back)
 	var scroll := ScrollContainer.new()
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	if shows_logo():
+		scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	box.add_child(scroll)
 	_rows = VBoxContainer.new()
@@ -63,6 +94,30 @@ func _input(event: InputEvent) -> void:
 ## False for screens with no way back (the title).
 func has_back() -> bool:
 	return true
+
+
+## The title screen shows the logo above its column, and the Heroes on the backdrop.
+func shows_logo() -> bool:
+	return false
+
+
+func shows_heroes() -> bool:
+	return false
+
+
+## Small text in the bottom corners of the screen, outside the column (gold, the version).
+func set_corners(left: String, right: String) -> void:
+	for child: Node in _corners.get_children():
+		child.queue_free()
+	for k: int in 2:
+		var label := Label.new()
+		label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		label.text = left if k == 0 else right
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT if k == 0 else HORIZONTAL_ALIGNMENT_RIGHT
+		label.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+		label.add_theme_constant_override("outline_size", 4)
+		_corners.add_child(label)
 
 
 ## True when no other menu is open on top of this one.
@@ -123,10 +178,10 @@ func add_button(text: String, on_pressed: Callable, enabled: bool = true) -> But
 	var button := Button.new()
 	button.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	button.alignment = HORIZONTAL_ALIGNMENT_CENTER
 	button.text = text
 	button.disabled = not enabled
-	button.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 5.0, Data.cfg_float("ui.min_touch_target_px"))
+	button.custom_minimum_size = Vector2(0, Data.cfg_float("ui.menu_button_px"))
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.pressed.connect(on_pressed)
 	_rows.add_child(button)

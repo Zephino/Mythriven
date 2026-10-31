@@ -51,6 +51,7 @@ func show_hero_select() -> void:
 
 func _on_hero_chosen(hero_id: String) -> void:
 	GameAuthority.selected_hero_id = hero_id
+	MenuBackdrop.remember_hero(hero_id)
 	var checking := NoticeScreen.make("UI_PLAY", "UI_PLAY_CHECKING", false)
 	add_child(checking)
 	Meta.cloud.play_lock.claim(func(allowed: bool) -> void:

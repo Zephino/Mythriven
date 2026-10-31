@@ -1,5 +1,5 @@
 {
- "_doc": "Menu frames (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py: dark stone with a bronze trim, stretched by their 4 px edges (nine-slice) for every panel and button.",
+ "_doc": "Menu frames (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py: dark stone with a bronze trim (no prefix), and the four menu styles that match the menu backdrops (greek_: marble and gold, norse_: wood and iron, egyptian_: sandstone and lapis, celtic_: mossy stone), stretched by their 4 px edges (nine-slice) for every panel and button.",
  "size": [
   12,
   12
@@ -17,7 +17,36 @@
   "H": "#5a4c66",
   "p": "#1a1420",
   "w": "#fff0b0",
-  "d": "#55505a"
+  "d": "#55505a",
+  "A": "#efe6d4",
+  "B": "#fffaf0",
+  "C": "#a89e8c",
+  "D": "#d8a838",
+  "E": "#2c2430",
+  "F": "#3e3448",
+  "I": "#4e4258",
+  "J": "#7a5232",
+  "K": "#9a6c44",
+  "L": "#4a3020",
+  "M": "#9aa0a8",
+  "N": "#2a2218",
+  "P": "#3a2e22",
+  "Q": "#4a3c2c",
+  "R": "#d8b47e",
+  "T": "#f0d4a0",
+  "U": "#a8844e",
+  "V": "#2a5aa0",
+  "X": "#1e2236",
+  "Y": "#2a3048",
+  "Z": "#3a4260",
+  "a": "#8a8a84",
+  "b": "#a8a8a0",
+  "c": "#5e5e58",
+  "e": "#5a7a3a",
+  "f": "#1e2620",
+  "i": "#2a342c",
+  "j": "#38463a",
+  "k": "#f0cc58"
  },
  "frames": {
   "panel": [
@@ -113,6 +142,390 @@
     "odoSSSSSSooo",
     "odoooooooooo",
     "oooooooooooo",
+    ".oooooooooo."
+   ]
+  ],
+  "greek_panel": [
+   [
+    ".oooooooooo.",
+    "oBBBBBBBBBCo",
+    "oBDDDDDDDDCo",
+    "oBDEEEEEEDCo",
+    "oBDEEEEEEDCo",
+    "oBDEEEEEEDCo",
+    "oBDEEEEEEDCo",
+    "oBDEEEEEEDCo",
+    "oBDEEEEEEDCo",
+    "oBDDDDDDDDCo",
+    "oCCCCCCCCCCo",
+    ".oooooooooo."
+   ]
+  ],
+  "greek_button": [
+   [
+    ".oooooooooo.",
+    "oBBBBBBBBBCo",
+    "oBDCCCCCCDCo",
+    "oBCFFFFFFCCo",
+    "oBCFFFFFFCCo",
+    "oBCFFFFFFCCo",
+    "oBCFFFFFFCCo",
+    "oBCFFFFFFCCo",
+    "oBCFFFFFFCCo",
+    "oBDCCCCCCDCo",
+    "oCCCCCCCCCCo",
+    ".oooooooooo."
+   ]
+  ],
+  "greek_button_hover": [
+   [
+    ".oooooooooo.",
+    "oBBBBBBBBBAo",
+    "oBDDDDDDDDAo",
+    "oBDIIIIIIDAo",
+    "oBDIIIIIIDAo",
+    "oBDIIIIIIDAo",
+    "oBDIIIIIIDAo",
+    "oBDIIIIIIDAo",
+    "oBDIIIIIIDAo",
+    "oBDDDDDDDDAo",
+    "oAAAAAAAAAAo",
+    ".oooooooooo."
+   ]
+  ],
+  "greek_button_pressed": [
+   [
+    ".oooooooooo.",
+    "oCCCCCCCCCBo",
+    "oCCCCCCCCCBo",
+    "oCCEEEEEECBo",
+    "oCCEEEEEECBo",
+    "oCCEEEEEECBo",
+    "oCCEEEEEECBo",
+    "oCCEEEEEECBo",
+    "oCCEEEEEECBo",
+    "oCCCCCCCCCBo",
+    "oBBBBBBBBBBo",
+    ".oooooooooo."
+   ]
+  ],
+  "greek_button_focus": [
+   [
+    ".oooooooooo.",
+    "owwwwwwwwwDo",
+    "owwDDDDDDwDo",
+    "owDIIIIIIDDo",
+    "owDIIIIIIDDo",
+    "owDIIIIIIDDo",
+    "owDIIIIIIDDo",
+    "owDIIIIIIDDo",
+    "owDIIIIIIDDo",
+    "owwDDDDDDwDo",
+    "oDDDDDDDDDDo",
+    ".oooooooooo."
+   ]
+  ],
+  "greek_button_disabled": [
+   [
+    ".oooooooooo.",
+    "odddddddddSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "oSSSSSSSSSSo",
+    ".oooooooooo."
+   ]
+  ],
+  "norse_panel": [
+   [
+    ".oooooooooo.",
+    "oKKKKKKKKKLo",
+    "oKMMMMMMMMLo",
+    "oKMNNNNNNMLo",
+    "oKMNNNNNNMLo",
+    "oKMNNNNNNMLo",
+    "oKMNNNNNNMLo",
+    "oKMNNNNNNMLo",
+    "oKMNNNNNNMLo",
+    "oKMMMMMMMMLo",
+    "oLLLLLLLLLLo",
+    ".oooooooooo."
+   ]
+  ],
+  "norse_button": [
+   [
+    ".oooooooooo.",
+    "oKKKKKKKKKLo",
+    "oKMLLLLLLMLo",
+    "oKLPPPPPPLLo",
+    "oKLPPPPPPLLo",
+    "oKLPPPPPPLLo",
+    "oKLPPPPPPLLo",
+    "oKLPPPPPPLLo",
+    "oKLPPPPPPLLo",
+    "oKMLLLLLLMLo",
+    "oLLLLLLLLLLo",
+    ".oooooooooo."
+   ]
+  ],
+  "norse_button_hover": [
+   [
+    ".oooooooooo.",
+    "oKKKKKKKKKJo",
+    "oKMMMMMMMMJo",
+    "oKMQQQQQQMJo",
+    "oKMQQQQQQMJo",
+    "oKMQQQQQQMJo",
+    "oKMQQQQQQMJo",
+    "oKMQQQQQQMJo",
+    "oKMQQQQQQMJo",
+    "oKMMMMMMMMJo",
+    "oJJJJJJJJJJo",
+    ".oooooooooo."
+   ]
+  ],
+  "norse_button_pressed": [
+   [
+    ".oooooooooo.",
+    "oLLLLLLLLLKo",
+    "oLLLLLLLLLKo",
+    "oLLNNNNNNLKo",
+    "oLLNNNNNNLKo",
+    "oLLNNNNNNLKo",
+    "oLLNNNNNNLKo",
+    "oLLNNNNNNLKo",
+    "oLLNNNNNNLKo",
+    "oLLLLLLLLLKo",
+    "oKKKKKKKKKKo",
+    ".oooooooooo."
+   ]
+  ],
+  "norse_button_focus": [
+   [
+    ".oooooooooo.",
+    "owwwwwwwwwMo",
+    "owwMMMMMMwMo",
+    "owMQQQQQQMMo",
+    "owMQQQQQQMMo",
+    "owMQQQQQQMMo",
+    "owMQQQQQQMMo",
+    "owMQQQQQQMMo",
+    "owMQQQQQQMMo",
+    "owwMMMMMMwMo",
+    "oMMMMMMMMMMo",
+    ".oooooooooo."
+   ]
+  ],
+  "norse_button_disabled": [
+   [
+    ".oooooooooo.",
+    "odddddddddSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "oSSSSSSSSSSo",
+    ".oooooooooo."
+   ]
+  ],
+  "egyptian_panel": [
+   [
+    ".oooooooooo.",
+    "oTTTTTTTTTUo",
+    "oTkVVVVVVkUo",
+    "oTVXXXXXXVUo",
+    "oTVXXXXXXVUo",
+    "oTVXXXXXXVUo",
+    "oTVXXXXXXVUo",
+    "oTVXXXXXXVUo",
+    "oTVXXXXXXVUo",
+    "oTkVVVVVVkUo",
+    "oUUUUUUUUUUo",
+    ".oooooooooo."
+   ]
+  ],
+  "egyptian_button": [
+   [
+    ".oooooooooo.",
+    "oTTTTTTTTTUo",
+    "oTkUUUUUUkUo",
+    "oTUYYYYYYUUo",
+    "oTUYYYYYYUUo",
+    "oTUYYYYYYUUo",
+    "oTUYYYYYYUUo",
+    "oTUYYYYYYUUo",
+    "oTUYYYYYYUUo",
+    "oTkUUUUUUkUo",
+    "oUUUUUUUUUUo",
+    ".oooooooooo."
+   ]
+  ],
+  "egyptian_button_hover": [
+   [
+    ".oooooooooo.",
+    "oTTTTTTTTTRo",
+    "oTkVVVVVVkRo",
+    "oTVZZZZZZVRo",
+    "oTVZZZZZZVRo",
+    "oTVZZZZZZVRo",
+    "oTVZZZZZZVRo",
+    "oTVZZZZZZVRo",
+    "oTVZZZZZZVRo",
+    "oTkVVVVVVkRo",
+    "oRRRRRRRRRRo",
+    ".oooooooooo."
+   ]
+  ],
+  "egyptian_button_pressed": [
+   [
+    ".oooooooooo.",
+    "oUUUUUUUUUTo",
+    "oUUUUUUUUUTo",
+    "oUUXXXXXXUTo",
+    "oUUXXXXXXUTo",
+    "oUUXXXXXXUTo",
+    "oUUXXXXXXUTo",
+    "oUUXXXXXXUTo",
+    "oUUXXXXXXUTo",
+    "oUUUUUUUUUTo",
+    "oTTTTTTTTTTo",
+    ".oooooooooo."
+   ]
+  ],
+  "egyptian_button_focus": [
+   [
+    ".oooooooooo.",
+    "owwwwwwwwwVo",
+    "owwVVVVVVwVo",
+    "owVZZZZZZVVo",
+    "owVZZZZZZVVo",
+    "owVZZZZZZVVo",
+    "owVZZZZZZVVo",
+    "owVZZZZZZVVo",
+    "owVZZZZZZVVo",
+    "owwVVVVVVwVo",
+    "oVVVVVVVVVVo",
+    ".oooooooooo."
+   ]
+  ],
+  "egyptian_button_disabled": [
+   [
+    ".oooooooooo.",
+    "odddddddddSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "oSSSSSSSSSSo",
+    ".oooooooooo."
+   ]
+  ],
+  "celtic_panel": [
+   [
+    ".oooooooooo.",
+    "obbbbbbbbbco",
+    "obeeeeeeeeco",
+    "obeffffffeco",
+    "obeffffffeco",
+    "obeffffffeco",
+    "obeffffffeco",
+    "obeffffffeco",
+    "obeffffffeco",
+    "obeeeeeeeeco",
+    "occcccccccco",
+    ".oooooooooo."
+   ]
+  ],
+  "celtic_button": [
+   [
+    ".oooooooooo.",
+    "obbbbbbbbbco",
+    "obecccccceco",
+    "obciiiiiicco",
+    "obciiiiiicco",
+    "obciiiiiicco",
+    "obciiiiiicco",
+    "obciiiiiicco",
+    "obciiiiiicco",
+    "obecccccceco",
+    "occcccccccco",
+    ".oooooooooo."
+   ]
+  ],
+  "celtic_button_hover": [
+   [
+    ".oooooooooo.",
+    "obbbbbbbbbao",
+    "obeeeeeeeeao",
+    "obejjjjjjeao",
+    "obejjjjjjeao",
+    "obejjjjjjeao",
+    "obejjjjjjeao",
+    "obejjjjjjeao",
+    "obejjjjjjeao",
+    "obeeeeeeeeao",
+    "oaaaaaaaaaao",
+    ".oooooooooo."
+   ]
+  ],
+  "celtic_button_pressed": [
+   [
+    ".oooooooooo.",
+    "occcccccccbo",
+    "occcccccccbo",
+    "occffffffcbo",
+    "occffffffcbo",
+    "occffffffcbo",
+    "occffffffcbo",
+    "occffffffcbo",
+    "occffffffcbo",
+    "occcccccccbo",
+    "obbbbbbbbbbo",
+    ".oooooooooo."
+   ]
+  ],
+  "celtic_button_focus": [
+   [
+    ".oooooooooo.",
+    "owwwwwwwwweo",
+    "owweeeeeeweo",
+    "owejjjjjjeeo",
+    "owejjjjjjeeo",
+    "owejjjjjjeeo",
+    "owejjjjjjeeo",
+    "owejjjjjjeeo",
+    "owejjjjjjeeo",
+    "owweeeeeeweo",
+    "oeeeeeeeeeeo",
+    ".oooooooooo."
+   ]
+  ],
+  "celtic_button_disabled": [
+   [
+    ".oooooooooo.",
+    "odddddddddSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "odSSSSSSSSSo",
+    "oSSSSSSSSSSo",
     ".oooooooooo."
    ]
   ]

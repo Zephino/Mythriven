@@ -7,12 +7,16 @@ extends RefCounted
 const FRAMES := "ui/frames"
 const ICONS := "ui/icons"
 
+static var _style: String = ""
 
-## Styles the default theme. Safe to call again (settings changes call it).
+
+## Styles the default theme in the frame style that goes with this session's menu backdrop (marble and gold, wood
+## and iron, sandstone and lapis, mossy stone), or the plain bronze one. Safe to call again (settings changes call it).
 static func apply() -> void:
 	var art: Dictionary = PixelArt.find(FRAMES)
 	if art.is_empty():
 		return
+	_style = MenuBackdrop.style()
 	var theme: Theme = ThemeDB.get_default_theme()
 	var panel: StyleBoxTexture = _box(art, "panel", false)
 	for type: String in ["PanelContainer", "Panel", "PopupMenu", "PopupPanel", "TooltipPanel"]:
@@ -107,6 +111,9 @@ static func _scaled(image: Image, scale: int) -> ImageTexture:
 ## One frame as a stretchable box; `hollow` clears its middle (a focus outline drawn over the button).
 static func _box(art: Dictionary, frame_name: String, hollow: bool) -> StyleBoxTexture:
 	var scale: int = Data.cfg_int("ui.frame_scale")
+	var styled: String = _style + "_" + frame_name
+	if _style != "" and (art["frames"] as Dictionary).has(styled):
+		frame_name = styled
 	var image: Image = (art["frames"][frame_name][0] as ImageTexture).get_image().duplicate()
 	var edge: int = 4
 	if hollow:
