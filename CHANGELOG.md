@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.63
+Date: 10/31/2026
+Time: 12:14 AM
+
+### Changes
+- **Weapons hang clear of Heracles' body.** His weapon arm now angles out from his side (forearm outward, fist two pixels further out), so whatever he holds has a gap between it and his tunic and legs. Rule added to `docs/ART_RULES.md`.
+
+### Reason
+The owner said weapons were too close to the body.
+
 ## Version 00.01.62
 Date: 10/31/2026
 Time: 12:09 AM

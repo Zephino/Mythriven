@@ -44,8 +44,11 @@ def _draw(back_leg, front_leg):
     # Bare, muscled chest
     rect(10, 14, 17, 19, "s"); rect(10, 14, 11, 19, "S")
     row(16, 12, 13, "S"); row(16, 15, 16, "S"); px(14, 17, "S"); px(14, 18, "S")   # chest and stomach lines
-    # Front arm, hand gripping the club
-    rect(18, 14, 19, 19, "s"); rect(17, 15, 17, 19, "o"); px(19, 14, "S"); rect(18, 20, 19, 20, "s")
+    # Front arm held a little out from his side, so his weapon hangs clear of his
+    # body (owner request 10/31/2026): upper arm down, forearm angled outward.
+    rect(18, 14, 19, 17, "s"); rect(17, 15, 17, 17, "o"); px(19, 14, "S")
+    rect(19, 18, 20, 19, "s"); px(19, 19, "S")                  # forearm angling out
+    rect(20, 20, 21, 20, "s")                                   # fist
     # Belt with a bronze buckle
     row(20, 10, 17, "b"); px(14, 20, "y")
     # Dark red chiton to the knees, flaring a little, with folds
@@ -61,7 +64,7 @@ def _draw(back_leg, front_leg):
         row(31, x0, x0 + 3, "b")
     # His weapon is drawn separately (data/art/weapons/, tools/art/build_weapons.py)
     # and placed at his hand ("hand" in the art file); fingers wrap round it.
-    rect(20, 20, 20, 20, "s")
+    px(22, 20, "s")                                             # fingers round the grip
 
 # Dark outline around everything
 def outline():
@@ -82,4 +85,4 @@ palette = {
  "s": "#e2a676", "S": "#b0724a", "h": "#3e2414", "H": "#2a180c",
  "r": "#a83a2c", "R": "#7a2620", "b": "#5c3a1c", "y": "#d8b048", "c": "#9a6232", "C": "#553012"
 }
-json.dump({"palette": palette, "frames": [idle] + frames["walk"], "all": frames, "hand": [20, 20]}, open(sys.argv[1], "w"), indent=1)
+json.dump({"palette": palette, "frames": [idle] + frames["walk"], "all": frames, "hand": [22, 20]}, open(sys.argv[1], "w"), indent=1)
