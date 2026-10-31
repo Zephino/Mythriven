@@ -3,6 +3,7 @@
 # Writes data/art/scenery/<decoration id>.json, drawn with the middle of its base on the decoration's spot.
 import json, math, os, random
 from build_weapons import Pic, finish
+from weathering import weather
 
 PALETTE = {
     "o": "#24160e", "k": "#140c08",
@@ -198,9 +199,11 @@ if __name__ == "__main__":
     palette = {k: v for k, v in PALETTE.items() if len(k) == 1}
     for name, make in SCENERY.items():
         art = finish(make(), 0.0)
-        data = {"_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py. "
-                        + " ".join(make.__doc__.split()), "size": art["size"], "anchor": [art["grip"][0], art["size"][1] - 1],
-                "palette": palette, "frames": {"idle": [art["rows"]]}}
+        # Weathered like the shrines (owner request 10/31/2026); gorse flowers and snow keep their brightness.
+        pal, frames = weather(palette, {"idle": [art["rows"]]}, name, keep={"f", "s"})
+        data = {"_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by "
+                        "tools/art/weathering.py. " + " ".join(make.__doc__.split()), "size": art["size"],
+                "anchor": [art["grip"][0], art["size"][1] - 1], "palette": pal, "frames": frames}
         with open(os.path.join(out_dir, name + ".json"), "w") as f:
             json.dump(data, f, indent=1)
     print("wrote", len(SCENERY), "scenery pictures")

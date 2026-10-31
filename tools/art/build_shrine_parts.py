@@ -2,8 +2,9 @@
 # columns, an altar, a fire bowl and decorations, one set per people, in data/art/shrines/<pantheon>.json (one frame
 # per part). The game lays them out at random round each shrine's altar (scripts/gods/shrine_layout.gd). Every part
 # is drawn standing on its bottom edge. Run: python3 build_shrine_parts.py from tools/art/.
-import json, math, os, random
+import json, math, os
 from hero_kit import Canvas, ellipse, poly
+from weathering import weather
 
 TILE = 16
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "shrines")
@@ -210,72 +211,11 @@ DOCS = {
               "(as at Newgrange), a slab altar with a bronze bowl, a fire bowl, a bronze cauldron.",
 }
 
-# --- Weathering (owner request 10/31/2026: less cartoony) ---------------------------------------------------------
-# Every part is aged after it's drawn: the black outline becomes a soft dark edge in the part's own colour, stone gets
-# a fine grain, light from above (brighter at the top, darker at the foot), chips and stains, and colours lose a
-# little of their brightness. Fire is left alone. The colours are then gathered into a new palette.
-
-KEYS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&*+-=?@^_~<>:;,|/()[]{}"
-
-
-def _rgb(h):
-    return [int(h[i:i + 2], 16) for i in (1, 3, 5)]
-
-
-def weather(pal, frames, seed):
-    rnd = random.Random(seed)
-    fire = set(FIRE)
-    out_frames, colours = {}, {}
-
-    def key_of(c):
-        c = tuple(max(0, min(255, int(round(v / 6.0) * 6))) for v in c)
-        if c not in colours:
-            colours[c] = KEYS[len(colours)]
-        return colours[c]
-
-    for name, pictures in frames.items():
-        aged = []
-        for rows in pictures:
-            h, w = len(rows), len(rows[0])
-            grid = [[None if ch == "." else (ch, _rgb(pal[ch])) for ch in row] for row in rows]
-            new = []
-            for y in range(h):
-                line = ""
-                for x in range(w):
-                    cell = grid[y][x]
-                    if cell is None:
-                        line += "."
-                        continue
-                    ch, c = cell
-                    if ch in fire:
-                        line += key_of(c)
-                        continue
-                    if ch == "o":
-                        # A soft edge: the darkest neighbouring colour, much darker, instead of black.
-                        near = [grid[y + dy][x + dx][1] for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))
-                                if 0 <= x + dx < w and 0 <= y + dy < h and grid[y + dy][x + dx] is not None
-                                and grid[y + dy][x + dx][0] not in ("o",) and grid[y + dy][x + dx][0] not in fire]
-                        base = min(near, key=sum) if near else c
-                        line += key_of([v * 0.42 for v in base])
-                        continue
-                    grey = sum(c) / 3.0
-                    c = [v * 0.85 + grey * 0.15 for v in c]                               # a little less vivid
-                    # Light from above, in a few bands; a fine grain of three tones.
-                    light = 1.06 - 0.16 * round(3 * y / max(h - 1, 1)) / 3 if name != "floor" else 1.0
-                    grain = rnd.choice((0.95, 1.0, 1.0, 1.05))
-                    stain = 0.86 if rnd.random() < 0.06 else 1.0                          # chips and stains
-                    line += key_of([v * light * grain * stain * 0.94 for v in c])
-                new.append(line)
-            aged.append(new)
-        out_frames[name] = aged
-    return {k: "#%02x%02x%02x" % c for c, k in colours.items()}, out_frames
-
-
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
     for name, make in (("greek", greek), ("norse", norse), ("egyptian", egyptian), ("celtic", celtic)):
         pal, frames = make()
-        pal, frames = weather(pal, frames, name)
+        pal, frames = weather(pal, frames, name, keep=FIRE)
         data = {"_doc": "Shrine parts, " + DOCS[name] + " Built by tools/art/build_shrine_parts.py; each frame is one "
                         "part, drawn standing on its bottom edge; floor tiles are 16 × 16.",
                 "palette": pal, "frames": frames}

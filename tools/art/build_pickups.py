@@ -3,6 +3,7 @@
 # pickups.gold_color, pickups.ambrosia_color); chests are in full colour. Written to data/art/pickups/<name>.json.
 import json, math, os
 from build_weapons import Pic, finish
+from weathering import weather
 
 # Light-grey shades for the tinted pickups, full colours for the chests and the golden apple.
 PALETTE = {
@@ -89,8 +90,12 @@ if __name__ == "__main__":
     for name, make in PICKUPS.items():
         art = finish(make(), 0.0)
         doc = " ".join((DOCS.get(name) or make.__doc__ or "").split())
+        pal, frames = PALETTE, {"idle": [art["rows"]]}
+        if name.startswith("chest"):
+            # Chests stand in the world: weathered like it (owner request 10/31/2026); the gold keeps its shine.
+            pal, frames = weather(PALETTE, frames, name, keep={"g", "G"})
         data = {"_doc": "Pickup picture (docs/ART_RULES.md: Pickups), built by tools/art/build_pickups.py. %s" % doc,
-                "size": art["size"], "palette": PALETTE, "frames": {"idle": [art["rows"]]}}
+                "size": art["size"], "palette": pal, "frames": frames}
         with open(os.path.join(out_dir, name + ".json"), "w") as f:
             json.dump(data, f, indent=1)
     print("wrote", len(PICKUPS), "pickup pictures")

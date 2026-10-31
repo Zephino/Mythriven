@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.30
+Date: 10/31/2026
+Time: 10:30 AM
+
+### Changes
+- **The whole world now has the shrines' less cartoony look**: all 12 scenery pieces (olive trees, columns, ruins, pines, runestones, longhouses, obelisks, tombs, reeds, standing stones, stone circles, gorse), the Ancient Ruins dungeon parts and its stairway, and the chests are weathered the same way: soft dark edges instead of black outlines, a fine grain, light from above, chips and stains, slightly muted colours. Fire, snow, gorse flowers and the chests' gold keep their brightness.
+- The weathering is now one shared tool (`tools/art/weathering.py`) used by the shrine, dungeon, scenery and chest builders, so everything new in the world can get the same look. The shrines come out exactly as before.
+
+### Reason
+The owner liked the less cartoony shrine style and asked to finish the world in it before the menu.
+
 ## Version 00.02.29
 Date: 10/31/2026
 Time: 10:23 AM

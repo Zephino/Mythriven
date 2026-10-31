@@ -8,6 +8,7 @@
 import json, os, random
 from hero_kit import Canvas, ellipse, poly
 from build_shrine_parts import part, flame, FIRE, TILE
+from weathering import weather
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "dungeon")
 
@@ -171,6 +172,8 @@ if __name__ == "__main__":
         "debris": [debris(k) for k in range(6)],
         "entrance": [part(44, 40, entrance)],
     }
+    # Weathered like the shrines (owner request 10/31/2026); fire and the cobwebs stay as drawn.
+    pal, frames = weather(PAL, frames, "ruins", keep=set(FIRE) | {"w"})
     # The arch's front stones alone (its opening and steps left out), drawn over the Heroes as they walk through.
     front = []
     for y, row in enumerate(frames["entrance"][0]):
@@ -180,7 +183,7 @@ if __name__ == "__main__":
                     "built by tools/art/build_dungeon_parts.py. Cracked and mossy flagstones, broken dark stone walls, a "
                     "snapped pillar, a stone dais for the treasure, a wall torch, rubble, bones, a broken urn, cobwebs, "
                     "floor debris and the ruined stairway down from the world. Floor tiles are 16 x 16; every other part "
-                    "stands on its bottom edge.", "palette": PAL, "frames": frames}
+                    "stands on its bottom edge. Weathered (tools/art/weathering.py).", "palette": pal, "frames": frames}
     with open(os.path.join(OUT, "ruins.json"), "w") as f:
         json.dump(data, f, indent=1)
     print("wrote dungeon parts:", {k: len(v) for k, v in frames.items()})
