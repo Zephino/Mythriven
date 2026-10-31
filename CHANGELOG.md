@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.50
+Date: 10/30/2026
+Time: 9:22 PM
+
+### Changes
+- **The username belongs to the Google sign-in.** When you're not signed in with Google:
+  - the Username box isn't shown in Settings → Account and cloud save;
+  - the title screen shows no "Playing as";
+  - co-op lobbies show no name;
+  - the leaderboard uses the name typed on that device, as before.
+- Sign in again and your username comes back (it's kept with the account's cloud save).
+
+### Reason
+The owner saw the username box and "Playing as" while not signed in to Google.
+
 ## Version 00.01.49
 Date: 10/30/2026
 Time: 9:18 PM

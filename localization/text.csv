@@ -1070,7 +1070,7 @@ ENEMY_KHALKOTAUROS_BOMBER_MYTH,"The Khalkotauroi, King Aeëtes' bulls with hoove
 UI_SETTING_VALUE_ANYWHERE,Whole screen
 UI_CLOUD_SAVE,Account and cloud save
 UI_CLOUD_NOT_SET_UP,Cloud saves aren't set up for this version of the game yet.
-UI_CLOUD_ABOUT,"Keep your progress on PC and phone. Sign in with Google on each device, and your progress follows you. Other players only ever see your username, never your real name."
+UI_CLOUD_ABOUT,"Keep your progress on PC and phone. Sign in with Google on each device, and your progress and username follow you. Other players only ever see your username, never your real name."
 UI_CLOUD_TURN_ON,Turn on cloud save
 UI_CLOUD_LINK_HELP,Already using cloud save on another device? Type its code here:
 UI_CLOUD_CODE_PLACEHOLDER,XXXX-XXXX-XXXX

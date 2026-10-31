@@ -23,8 +23,8 @@ func build() -> void:
 	if OnlineConfig.cloud_url() == "":
 		add_line(tr_key("UI_CLOUD_NOT_SET_UP"))
 		return
-	_build_username()
-	if CloudSync.account() != "" and CloudSync.is_on():
+	if CloudSync.signed_in():
+		_build_username()
 		_build_account()
 	else:
 		add_line(tr_key("UI_CLOUD_ABOUT"))
@@ -61,7 +61,8 @@ func _build_account() -> void:
 		SaveGame.list("achievements").size()])
 
 
-## The username other players see (never the real name). Saved with progress.
+## The username other players see (never the real name), only while signed
+## in with Google. Saved with progress, so it follows the account.
 func _build_username() -> void:
 	var current: String = SaveGame.player_name()
 	add_line(tr_key("UI_USERNAME") % current if current != "" else tr_key("UI_USERNAME_NONE"))

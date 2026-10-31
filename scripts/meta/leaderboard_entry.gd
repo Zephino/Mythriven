@@ -46,11 +46,11 @@ static func build(run: RunState, player: Player, player_name: String) -> Diction
 	}
 
 
-## The player's username (Settings → Account), or the name typed last time on
-## this device before usernames existed, so players don't retype it every run.
+## The player's username while signed in with Google (Settings → Account),
+## else the name typed last time on this device, so players don't retype it.
 static func load_name() -> String:
-	if SaveGame.player_name() != "":
-		return clean_name(SaveGame.player_name())
+	if CloudSync.username() != "":
+		return clean_name(CloudSync.username())
 	var file := ConfigFile.new()
 	if file.load(Data.cfg_string("leaderboard.profile_file")) != OK:
 		return ""
@@ -58,7 +58,7 @@ static func load_name() -> String:
 
 
 static func save_name(player_name: String) -> void:
-	if SaveGame.player_name() == "":
+	if CloudSync.signed_in() and SaveGame.player_name() == "":
 		SaveGame.set_player_name(clean_name(player_name))
 	var file := ConfigFile.new()
 	var path: String = Data.cfg_string("leaderboard.profile_file")

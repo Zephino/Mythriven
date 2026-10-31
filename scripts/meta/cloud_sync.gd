@@ -119,6 +119,17 @@ static func set_account(provider: String, email: String = "") -> void:
 	_set_value("email", email.left(120) if provider != "" else "")
 
 
+## True while this device is signed in with Google (cloud saves on).
+static func signed_in() -> bool:
+	return account() != "" and is_on()
+
+
+## The player's username, only while signed in with Google (owner request
+## 10/31/2026: no username without an account). It's kept in the save.
+static func username() -> String:
+	return SaveGame.player_name() if signed_in() else ""
+
+
 ## The signed-in Google account's email ("" if unknown).
 static func account_email() -> String:
 	return _value("email")

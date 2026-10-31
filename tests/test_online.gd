@@ -145,4 +145,10 @@ func test_the_username_and_settings_follow_the_device_that_changed_them_last() -
 	other["last_modified"]["settings"] = 99999999999
 	merged = SaveGame.merge(here, other)
 	assert_eq(int(merged["settings"]["volume_pct"]), 10, "the other device changed settings later, so its settings win")
-	assert_eq(LeaderboardEntry.load_name(), "Zeph", "the leaderboard name is the username")
+	assert_eq(CloudSync.username(), "", "no username without a Google sign-in")
+	CloudSync.set_code("ABCDEFGHJK23")
+	CloudSync.set_account("google", "zeph@example.com")
+	if OnlineConfig.cloud_url() != "":
+		assert_eq(CloudSync.username(), "Zeph", "signed in: the username")
+		assert_eq(LeaderboardEntry.load_name(), "Zeph", "the leaderboard name is the username")
+	CloudSync.set_account("")
