@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.71
+Date: 10/31/2026
+Time: 1:11 AM
+
+### Changes
+- **Achilles' shield now covers his body**: he holds it on his far arm across his chest and stomach, in front of his breastplate, with a dark ring around it so it stands apart. His spear arm stays in front of the shield.
+
+### Reason
+The owner asked: "the shield should cover his body no?"
+
 ## Version 00.01.70
 Date: 10/31/2026
 Time: 1:08 AM
