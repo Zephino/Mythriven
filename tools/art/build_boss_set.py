@@ -5,7 +5,7 @@ from hero_kit import poly
 
 DOC = ("Set, boss (GAME_DESIGN.md: The Two Lands bosses; art 10/31/2026). Built by tools/art/build_boss_set.py; "
        "rules in docs/ART_RULES.md. As Egyptian temple reliefs and papyri show him (for example at Karnak and Abydos): a "
-       "man's body with the head of the 'Set animal', with its long curved snout and tall flat-topped ears, a striped "
+       "man's body with the head of the 'Set animal', with its curved muzzle and tall ears with squared tips, a striped "
        "wig, a broad beaded collar, a pleated linen kilt (shendyt) to the knee with a gold belt, and the was-sceptre, a "
        "staff topped with the Set animal's head and forked at the foot. Lord of the desert and storms (The Contendings "
        "of Horus and Set; Plutarch, On Isis and Osiris, which also gives him red colouring). Skin in the red-brown that "
@@ -44,12 +44,14 @@ def draw(c, legs):
     poly(c, [(13, 9), (21, 7), (21, 21), (13, 21)], "h")
     for y in range(9, 22, 2):
         c.row(y, 13, 20, "H")
-    # The Set animal's head: tall flat-topped ears, a long curved snout, a yellow eye
-    c.rect(17, 1, 18, 8, "a"); c.rect(20, 0, 21, 8, "a"); c.row(0, 17, 18, "A"); c.row(0, 20, 21, "A")
-    c.rect(17, 7, 25, 15, "a"); c.rect(17, 7, 18, 15, "A")
-    poly(c, [(24, 10), (30, 11), (33, 14), (32, 16), (28, 14), (24, 15)], "a")
-    c.px(32, 15, "A"); c.px(33, 15, "A"); c.row(14, 25, 30, "A")
-    c.px(22, 10, "y"); c.px(23, 10, "k")
+    # The Set animal's head (owner 10/31/2026: a first, long thin snout looked like an anteater's): tall ears that
+    # widen to flat, squared tips, a short, deep muzzle with a slight downward curve, a yellow eye
+    c.rect(17, 2, 17, 8, "a"); c.rect(16, 0, 18, 1, "a"); c.rect(21, 2, 21, 8, "a"); c.rect(20, 0, 22, 1, "a")
+    c.row(0, 16, 18, "A"); c.row(0, 20, 22, "A")
+    c.rect(17, 7, 25, 16, "a"); c.rect(17, 7, 18, 16, "A")
+    poly(c, [(24, 9), (28, 10), (30, 13), (29, 16), (24, 16)], "a")
+    c.px(30, 14, "A"); c.px(29, 15, "A"); c.row(15, 25, 28, "A"); c.px(29, 12, "k")
+    c.px(22, 10, "y"); c.px(23, 10, "k"); c.row(9, 21, 24, "A")
     c.rect(19, 16, 23, 18, "a")                                   # throat
     # Broad collar of beads: rows of blue, red and gold
     c.row(19, 15, 26, "b"); c.row(20, 14, 27, "u"); c.row(21, 14, 27, "r"); c.row(22, 15, 26, "b")

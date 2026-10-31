@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.98
+Date: 10/31/2026
+Time: 2:20 AM
+
+### Changes
+- **Set's head redrawn**: a short, deep muzzle with a slight downward curve instead of the long thin snout, and his tall ears now widen to flat, squared tips (the Set animal's best-known feature), with a heavier brow over the eye.
+
+### Reason
+The owner said Set looked like an anteater.
+
 ## Version 00.01.97
 Date: 10/31/2026
 Time: 2:19 AM
