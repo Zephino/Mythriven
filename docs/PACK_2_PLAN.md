@@ -70,7 +70,7 @@ Blessings and trigger numbers are designed when the level is built, in line with
 
 ---
 
-## Level 6: Jotunheim (Norse)
+## Level 6: Jotunheim (Norse): **done and released 10/31/2026 (00.02.60–00.02.63)**
 
 **Look:** high mountain passes, giant-sized ruined halls and steps, blue glaciers, pine forest.
 *Sources: Snorri, Prose Edda (Gylfaginning; Skáldskaparmál).*
@@ -102,7 +102,7 @@ Blessings and trigger numbers are designed when the level is built, in line with
 
 ---
 
-## Level 7: Avalon's Shadow (Welsh / Arthurian)
+## Level 7: Avalon's Shadow (Welsh / Arthurian): **done and released 10/31/2026 (00.02.65)**
 
 **Look:** ruined castles, enchanted forest, a misty lake with reeds.
 *Sources: the Mabinogion (Pwyll; Culhwch and Olwen); Sir Gawain and the Green Knight; Malory, Le Morte d'Arthur.*

@@ -150,6 +150,8 @@ All the world's myths are threads in one great tapestry, and something is pullin
 
 *(10/31/2026: **the Underworld is built and released** (versions 00.02.53–00.02.59): its look, rivers of the dead and collapsing chasms, Furies-kin, skeletal hoplites and Stymphalian birds, Cerberus, Thanatos and Typhon, Hecate and Persephone, and Orpheus (Legend Trait: Charming Song; passive: Outsinging the Sirens; no Divine Link, like the other post-launch Heroes; unlocked by surviving 20:00 in the Underworld). Jotunheim is next.)*
 
+*(10/31/2026: **Jotunheim** (00.02.60–00.02.63) and **Avalon's Shadow** (00.02.65) are built and released. In Avalon's Shadow the enchanted brambles slow Heroes caught in them rather than walling off paths, so the hazard can't trap a Hero in a corner; Arawn's Hounds of Annwn hunt for 7 s. The Land Between the Rivers and Gilgamesh are next.)*
+
 Pack names are working labels. The Act tables below are the same levels: Act I = Pack 1, Act II = Pack 2, Act III = Pack 3, Act IV = the extras. Fantasy realm packs still need two more bosses designed per level, from the same public-domain lore, before they're built.
 
 The game has **14 regional levels plus a finale**, grouped into Acts that match Packs 1–3 plus the extras in the Pack roadmap. Each level is an endless procedural map with the same 30-minute run arc, but its own look, music, environmental hazard, enemy families, local gods, and three bosses from that region's myths. Any Hero can play any level. All regions are Tier A (see Cultural care and IP).

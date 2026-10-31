@@ -1386,3 +1386,38 @@ PASSIVE_THIRTY_MEN_DESC,His hits knock monsters back 50% further.
 HUD_GRIP,Grip in %d s
 ACH_JOTUNHEIM_GIANTS_NAME,"Defeat 100 giants and trolls in Jotunheim"
 ACH_JOTUNHEIM_GIANTS_DESC,In a single run. Unlocks Beowulf.
+LEVEL_AVALONS_SHADOW_NAME,Avalon's Shadow
+HAZARD_BRAMBLES_NAME,The brambles grow!
+ENEMY_BLACK_KNIGHT_NAME,Black knight
+ENEMY_BLACK_KNIGHT_MYTH,"In Malory's tales of Arthur, knights in black armour hold the fords and the fields against all comers, and every knight-errant must ride through them."
+ENEMY_ENCHANTED_HOUND_NAME,Enchanted hound
+ENEMY_ENCHANTED_HOUND_MYTH,"Hunting hounds run through the Welsh tales: Pwyll first meets the king of the Otherworld when their hounds cross on the hunt."
+ENEMY_AFANC_NAME,Afanc
+ENEMY_AFANC_MYTH,"A lake monster of Welsh tradition, so heavy and strong that it took oxen to drag it from its lake; the old Triads tell of the flood that broke out when it burst its lake."
+ENEMY_WILL_O_WISP_NAME,Will-o'-the-wisp
+ENEMY_WILL_O_WISP_MYTH,"The wandering light over bogs and marshes in British folklore, which leads travellers who follow it astray into the mire."
+ENEMY_YOUNG_BOAR_NAME,Young boar
+ENEMY_YOUNG_BOAR_MYTH,"In Culhwch and Olwen, Twrch Trwyth runs with his seven young pigs, Grugyn Silver-bristle and Llwydawg the Hewer among them, and Arthur's men must hunt them all."
+ENEMY_HOUND_OF_ANNWN_NAME,Hound of Annwn
+BOSS_GREEN_KNIGHT_NAME,The Green Knight
+BOSS_MORDRED_NAME,Mordred
+BOSS_TWRCH_TRWYTH_NAME,Twrch Trwyth
+ENEMY_GREEN_KNIGHT_NAME,The Green Knight
+ENEMY_MORDRED_NAME,Mordred
+ENEMY_TWRCH_TRWYTH_NAME,Twrch Trwyth
+ENEMY_GREEN_KNIGHT_MYTH,"A giant knight, green from head to foot on a green horse, who rode into Arthur's hall at Christmas and offered a beheading game. Gawain struck off his head, and he picked it up by the hair and rode away, to return the blow a year later."
+ENEMY_MORDRED_MYTH,"Arthur's son and betrayer, who seized the kingdom while Arthur was abroad. At the last battle at Camlann, father and son struck each other down."
+ENEMY_TWRCH_TRWYTH_MYTH,"A king turned into a monstrous boar for his wickedness. Arthur and his men hunted him across Ireland and Wales to win the comb, the razor and the shears between his ears, which Culhwch needed to win Olwen."
+BOSS_GREEN_KNIGHT_RISES,The Green Knight picks up his head and rides on!
+BOSS_MORDRED_ARTHUR,"Mordred: ""Father. The kingdom is mine now."""
+BOSS_TWRCH_TREASURE,One of the treasures between his ears falls!
+GOD_RHIANNON_NAME,Rhiannon
+GOD_RHIANNON_ROLE,Speed
+GOD_RHIANNON_BLESSING,"+15% Move Speed and +10% Wind damage. Her shrine: stand still to bind her."
+GOD_RHIANNON_SUMMON,"Birds of Rhiannon: their song puts every monster on screen to sleep for 3 s (bosses are only slowed)."
+GOD_RHIANNON_MYTH,"She rode past the mound of Arberth on a pale-white horse, and no rider could catch her however hard they chased, until Pwyll called out and asked her to stop. Her birds sing so sweetly that the dead wake and the living fall asleep."
+GOD_ARAWN_NAME,Arawn
+GOD_ARAWN_ROLE,Summoner
+GOD_ARAWN_BLESSING,+15% Dark damage and +5% Max HP.
+GOD_ARAWN_SUMMON,"Hounds of Annwn: five white, red-eared hounds run out and hunt monsters for you for 7 s."
+GOD_ARAWN_MYTH,"King of Annwn, the Otherworld, first met hunting with his hounds, shining white with red ears. He and Pwyll traded places and faces for a year, and Pwyll fought his enemy for him."

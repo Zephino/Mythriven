@@ -321,6 +321,13 @@ LEVELS = {
         "trees": {"spruce": (spruce, 22, 40), "scots_pine": (umbrella_pine, 24, 40), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"juniper": ("P", "p", "q", None), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
+    # Avalon's Shadow: the enchanted forest (oak, yew, hawthorn, ash); brambles and fern.
+    "avalons_shadow": {
+        "trees": {"oak": (broadleaf, 30, 34), "ash": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y"), 26, 36),
+                  "yew": (lambda c, r, s: broadleaf(c, r, s, "P", "P", "p"), 26, 28),
+                  "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
+        "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
+        "rock": ("g", "G", "H", "l")},
     "the_underworld": {
         "trees": {"black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40),
                   "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30),

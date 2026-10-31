@@ -1,0 +1,124 @@
+{
+ "_doc": "Hound of Annwn (Arawn's summon). The First Branch of the Mabinogi: shining white hounds with red ears. Built by tools/art/build_avalon.py.",
+ "size": [
+  24,
+  18
+ ],
+ "anchor": [
+  11,
+  17
+ ],
+ "palette": {
+  "o": "#2a1c18",
+  "k": "#140c08",
+  "g": "#f2f0ea",
+  "G": "#cfcac0",
+  "r": "#c02a2a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oro.oggo...",
+    ".......ooooooooroggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....oGGggggGGgggo.......",
+    "....oGGggggGGgggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    ".....oo.oo.oo.oo........"
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oro.oggo...",
+    ".......ooooooooroggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....ogGgggGGgggggo......",
+    ".....oGgggGGggoggo......",
+    ".....oGggoGGoooggo......",
+    ".....oGggoGGo.oggo......",
+    ".....oGggoGGo.oggo......",
+    ".....oGggoGGo.oggo......",
+    "......ooo.oo...oo......."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oro.oggo...",
+    ".......ooooooooroggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....oGGggggGGgggo.......",
+    "....oGGggggGGgggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    ".....oo.oo.oo.oo........"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oro.oggo...",
+    ".......ooooooooroggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "...oGGggggggGgggo.......",
+    "...oGGogggggGggo........",
+    "...oGGoooggoGggo........",
+    "...oGGo.oggoGggo........",
+    "...oGGo.oggoGggo........",
+    "...oGGo.oggoGggo........",
+    "....oo...oo.ooo........."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oro.oggo...",
+    ".......ooooooooroggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....oGGggggGGgggo.......",
+    "....oGGggggGGgggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    ".....oo.oo.oo.oo........"
+   ]
+  ]
+ }
+}

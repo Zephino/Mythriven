@@ -1,0 +1,218 @@
+{
+ "_doc": "Critters of avalons_shadow (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#6a5a48",
+  "b": "#c8a888",
+  "c": "#8a6a48",
+  "d": "#e8e0d0",
+  "e": "#6a8a3a",
+  "f": "#c8c08a",
+  "g": "#7a5a3a",
+  "h": "#5a4028",
+  "i": "#3a2a1a",
+  "j": "#7a6a4a",
+  "m": "#5a4a30",
+  "n": "#2a2018",
+  "p": "#e8f0f8",
+  "q": "#6a6a8a"
+ },
+ "frames": {
+  "hedgehog": [
+   [
+    "..o.ooo.o..",
+    ".obobabobo.",
+    ".oaaaaaaaoo",
+    "oaaaaaaaabk",
+    "oaaaaaaaabb",
+    ".oaaaaaaaoo",
+    "..ookakoo.."
+   ],
+   [
+    "..o.ooo.o..",
+    ".obobabobo.",
+    ".oaaaaaaaoo",
+    "oaaaaaaaabk",
+    "oaaaaaaaabb",
+    ".oaaaaaaaoo",
+    "..okaaako.."
+   ]
+  ],
+  "hare": [
+   [
+    ".......occo.",
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    "..occccco...",
+    "..occocco..."
+   ],
+   [
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    ".occcccoo...",
+    ".occooocco..",
+    "..oo..occo.."
+   ]
+  ],
+  "common_frog": [
+   [
+    ".........",
+    ".....oo..",
+    "..oooeko.",
+    ".oeeeeeo.",
+    "oeeeeeeeo",
+    "oeefffeo."
+   ],
+   [
+    ".....oo..",
+    "..oooeko.",
+    ".oeeeeeo.",
+    "oeeeeeeeo",
+    "ooffffeo.",
+    "eeooooo..",
+    "eeo......"
+   ]
+  ],
+  "wren": [
+   [
+    ".....oo.",
+    "o.ooogko",
+    "hogggggi",
+    "ohhhhggo",
+    ".oggggo.",
+    "..oioio."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "hoggggko",
+    "ohhhhggi",
+    ".oggggoo",
+    "..oioio."
+   ]
+  ],
+  "wren_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oggggggi",
+    "..ogghggoo",
+    "...ohhho..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ohhhkoo",
+    "..ogghgggi",
+    "..ogggggoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "robin": [
+   [
+    ".....oo.",
+    "o.ooojko",
+    "mojjjjjn",
+    "ommmmjjo",
+    ".ojjjjo.",
+    "..onono."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "mojjjjko",
+    "ommmmjjn",
+    ".ojjjjoo",
+    "..onono."
+   ]
+  ],
+  "robin_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..ojjjjjjn",
+    "..ojjmjjoo",
+    "...ommmo..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ommmkoo",
+    "..ojjmjjjn",
+    "..ojjjjjoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".ppkpp.",
+    ".ppkpp.",
+    "..qkq..",
+    "...k...",
+    "......."
+   ],
+   [
+    "ppp.ppp",
+    "pppkppp",
+    "pppkppp",
+    ".qqkqq.",
+    ".qqkqq.",
+    "......."
+   ]
+  ],
+  "firefly": [
+   [
+    "...",
+    ".L.",
+    "..."
+   ],
+   [
+    ".l.",
+    "lLl",
+    ".l."
+   ]
+  ]
+ },
+ "critters": {
+  "hedgehog": {
+   "kind": "ground"
+  },
+  "hare": {
+   "kind": "ground"
+  },
+  "common_frog": {
+   "kind": "ground"
+  },
+  "wren": {
+   "kind": "bird"
+  },
+  "robin": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  },
+  "firefly": {
+   "kind": "firefly"
+  }
+ }
+}

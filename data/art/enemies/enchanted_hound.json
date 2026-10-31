@@ -1,0 +1,123 @@
+{
+ "_doc": "Enchanted hound (docs/PACK_2_PLAN.md: Avalon's Shadow). The hunting hounds of the Welsh tales (Pwyll, Prince of Dyfed). A lean grey hound. Built by tools/art/build_avalon.py.",
+ "size": [
+  24,
+  18
+ ],
+ "anchor": [
+  11,
+  17
+ ],
+ "palette": {
+  "o": "#140c08",
+  "k": "#0a0604",
+  "g": "#7a7068",
+  "G": "#5a524c"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oGo.oggo...",
+    ".......ooooooooGoggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....oGGggggGGgggo.......",
+    "....oGGggggGGgggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    ".....oo.oo.oo.oo........"
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oGo.oggo...",
+    ".......ooooooooGoggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....ogGgggGGgggggo......",
+    ".....oGgggGGggoggo......",
+    ".....oGggoGGoooggo......",
+    ".....oGggoGGo.oggo......",
+    ".....oGggoGGo.oggo......",
+    ".....oGggoGGo.oggo......",
+    "......ooo.oo...oo......."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oGo.oggo...",
+    ".......ooooooooGoggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....oGGggggGGgggo.......",
+    "....oGGggggGGgggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    ".....oo.oo.oo.oo........"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oGo.oggo...",
+    ".......ooooooooGoggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "...oGGggggggGgggo.......",
+    "...oGGogggggGggo........",
+    "...oGGoooggoGggo........",
+    "...oGGo.oggoGggo........",
+    "...oGGo.oggoGggo........",
+    "...oGGo.oggoGggo........",
+    "....oo...oo.ooo........."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "..............o...oo....",
+    ".............oGo.oggo...",
+    ".......ooooooooGoggkgo..",
+    ".ooo.oogggggggoogggggoo.",
+    "oGGGogggggggggggggggooko",
+    "oGGGgggggggggggggggo..o.",
+    ".oogggggggggggggggo.....",
+    "...ogggggggggggggo......",
+    "....oGGggggGGgggo.......",
+    "....oGGggggGGgggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    "....oGGoggoGGoggo.......",
+    ".....oo.oo.oo.oo........"
+   ]
+  ]
+ }
+}

@@ -131,8 +131,13 @@ func _touch(shrine: Dictionary, player: Player, delta: float) -> void:
 	var kind: String = str((shrine["god"].get("shrine", {}) as Dictionary).get("type", "peaceful"))
 	if kind == "peaceful":
 		var progress: Dictionary = shrine["progress_by"]
+		var rules: Dictionary = shrine["god"].get("shrine", {})
+		# Rhiannon: she can't be caught by running, only by asking; stand still to bind her (the First Branch).
+		if bool(rules.get("still", false)) and player.velocity.length() > 5.0:
+			progress[player.player_id] = 0.0
+			return
 		progress[player.player_id] = float(progress.get(player.player_id, 0.0)) + delta
-		if float(progress[player.player_id]) >= Data.cfg_float("gods.peaceful_bind_s"):
+		if float(progress[player.player_id]) >= float(rules.get("bind_s", Data.cfg_float("gods.peaceful_bind_s"))):
 			offer_binding(shrine, player)
 	elif trial != null and not trial.active and not GameAuthority.run.boss_arena_active:
 		trial.begin(shrine, player)

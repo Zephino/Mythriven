@@ -201,6 +201,23 @@ def giant_steps():
     return p
 
 
+def castle_ruin():
+    """A ruined castle wall (Avalon's Shadow): grey stone courses, a broken top, an arrow slit, ivy creeping up."""
+    p = Pic(32, 24, (16, 23))
+    for x in range(0, 32):
+        top = 4 + (x * 7 % 5) + (6 if 12 < x < 20 else 0)
+        for y in range(top, 24):
+            p.px(x, y, "i" if (x // 4 + y // 3) % 2 else "I")
+        p.px(x, top, "j")
+    for y in range(4, 24, 3):
+        for x in range(0, 32, 4):
+            p.px(x + (y // 3) % 2 * 2, y, "I")
+    p.rect(6, 10, 7, 15, "z")                                     # arrow slit
+    for y in range(12, 24):
+        p.px(26 + (y % 3), y, "l"); p.px(27 + (y % 2), y, "x")    # ivy
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -224,7 +241,7 @@ def lekythos():
 
 
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
-                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps)}
+                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

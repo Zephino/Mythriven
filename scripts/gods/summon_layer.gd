@@ -17,6 +17,8 @@ extends Node2D
 ##   Return of Spring (Persephone)   heals, and flowers bloom round the Hero that root the enemies in them
 ##   Gungnir (Odin)                  his spear never misses: it strikes the strongest enemies on screen, and his ravens
 ##                                   mark them (they take more damage)
+##   Birds of Rhiannon (Rhiannon)    their song puts every monster on screen to sleep (bosses only slowed)
+##   Hounds of Annwn (Arawn)         white, red-eared hounds run out and hunt monsters for the Hero, then are gone
 ##   Falcon Cloak (Freyja)           the Hero flies, unharmed, for a moment; monsters slain meanwhile rise to fight for them
 
 const MAX_EFFECTS := 8
@@ -85,6 +87,20 @@ func run(god: Dictionary, player: Player) -> void:
 			strongest = strongest.slice(0, mini(int(s.get("strikes", 6)), strongest.size()))
 			effect["targets"] = strongest
 			effect["struck"] = 0
+		"birds_of_rhiannon":
+			for slot: int in _enemies_in(view):
+				if _is_boss(slot):
+					GameAuthority.enemies.statuses.apply(slot, "chill", 1.0, false)
+				else:
+					GameAuthority.enemies.statuses.apply_stun(slot, float(s.get("sleep_s", 3.0)) * player.stats.status_duration_mult())
+		"hounds_of_annwn":
+			var hounds: Array = []
+			for k: int in int(s.get("hounds", 5)):
+				var hound: int = GameAuthority.spawn_enemy("hound_of_annwn", player.position + Vector2.from_angle(TAU * k / 5.0) * 24.0)
+				if hound != -1:
+					GameAuthority.enemies.charm(hound, float(s.get("duration_s", 8.0)) + 1.0, player)
+					hounds.append(hound)
+			effect["hounds"] = hounds
 		"falcon_cloak":
 			player.invulnerable_s = maxf(player.invulnerable_s, float(s.get("invulnerable_s", 3.0)))
 			effect["risen"] = 0
@@ -233,6 +249,13 @@ func _on_falcon_kill(_slot: int, enemy_type: Dictionary, at: Vector2, killer: Pl
 
 
 func _finish(effect: Dictionary, player: Player) -> void:
+	if str(effect["kind"]) == "hounds_of_annwn":
+		# The hounds go back to Annwn.
+		for hound: Variant in effect.get("hounds", []):
+			var slot: int = int(hound)
+			if GameAuthority.enemies.active[slot] != 0 and str(GameAuthority.enemies.type_of(slot).get("id", "")) == "hound_of_annwn":
+				GameAuthority.enemies.remove_quietly(slot)
+		return
 	if str(effect["kind"]) != "earthshaker":
 		return
 	var s: Dictionary = effect["s"]
@@ -351,6 +374,13 @@ func _draw() -> void:
 						var mark: Vector2 = GameAuthority.enemies.positions[int(slot)] + Vector2(0, -GameAuthority.enemies.radius[int(slot)] - 8.0)
 						draw_circle(mark, 2.5, Color(0.1, 0.1, 0.12, fade))
 						draw_line(mark + Vector2(-4, -1), mark + Vector2(4, -1), Color(0.1, 0.1, 0.12, fade), 1.5)
+			"birds_of_rhiannon":
+				for b: int in 7:
+					var fly: Vector2 = Vector2(lerpf(view.position.x, view.end.x, fmod(k + b * 0.14, 1.0)),
+							view.position.y + view.size.y * (0.2 + 0.1 * b) + sin(t * 6.0 + b) * 6.0)
+					draw_line(fly + Vector2(-4, -2), fly, Color(0.95, 0.9, 0.6, fade), 1.5)
+					draw_line(fly, fly + Vector2(4, -2), Color(0.95, 0.9, 0.6, fade), 1.5)
+				draw_rect(view, Color(0.2, 0.25, 0.4, 0.12 * fade))
 			"falcon_cloak":
 				for i: int in 6:
 					var a: float = t * 5.0 + i * TAU / 6.0

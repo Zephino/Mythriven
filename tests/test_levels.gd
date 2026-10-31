@@ -353,3 +353,48 @@ func test_ymir_splits_into_frost_shapes() -> void:
 	var ymir: YmirBoss = _bosses.spawn_boss("ymir", 2) as YmirBoss
 	ymir.signature(10.0)
 	assert_eq(ymir.shapes.size(), 2, "two rime shapes beside the real Ymir")
+
+
+func test_the_green_knight_picks_up_his_head_once() -> void:
+	_start("avalons_shadow")
+	var knight: GreenKnightBoss = _bosses.spawn_boss("green_knight", 0) as GreenKnightBoss
+	assert_not_null(knight)
+	var slot: int = knight.slot
+	var lethal: float = _enemies.hp[slot] + 10.0
+	knight.modify_hit(lethal, _player, Vector2.ZERO)
+	assert_true(knight.headless, "the beheading blow")
+	assert_eq(knight.art_id(), "green_knight_headless")
+	assert_gt(_enemies.hp[slot] - lethal, 0.0, "he fights on")
+	assert_almost_eq(float(knight.phase()["attack_every_s"]), 1.6, 0.01, "and faster")
+
+
+func test_mordreds_host_halves_harm_until_they_fall() -> void:
+	_start("avalons_shadow")
+	var mordred: MordredBoss = _bosses.spawn_boss("mordred", 1) as MordredBoss
+	mordred.signature(0.1)
+	assert_eq(mordred.host.size(), 5, "five knights ride out")
+	assert_almost_eq(mordred.modify_hit(100.0, _player, Vector2.ZERO), 50.0, 0.01)
+	for knight: Variant in mordred.host.duplicate():
+		_enemies.remove_quietly(int(knight))
+	assert_almost_eq(mordred.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)
+
+
+func test_twrch_trwyth_drops_his_three_treasures_on_guard_breaks() -> void:
+	_start("avalons_shadow")
+	var boar: TwrchTrwythBoss = _bosses.spawn_boss("twrch_trwyth", 2) as TwrchTrwythBoss
+	for _i: int in 4:
+		boar.guard_break()
+	assert_eq(boar.treasures_left, 0, "only three treasures between his ears")
+
+
+func test_brambles_spring_up_and_slow_the_hero() -> void:
+	_start("avalons_shadow")
+	var brambles := Hazard.create(_level("avalons_shadow")["hazard"]) as HazardStrikes
+	_world.add_child(brambles)
+	brambles.begin(_level("avalons_shadow")["hazard"])
+	brambles._strike(_player.position)
+	brambles._process(0.016)
+	assert_lt(_player.slow_zone_mult, 1.0, "caught in the thorns")
+	_player.position = Vector2(2000, 0)
+	brambles._process(0.016)
+	assert_eq(_player.slow_zone_mult, 1.0)

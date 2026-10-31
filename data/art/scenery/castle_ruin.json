@@ -1,0 +1,78 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A ruined castle wall (Avalon's Shadow): grey stone courses, a broken top, an arrow slit, ivy creeping up.",
+ "size": [
+  34,
+  22
+ ],
+ "anchor": [
+  17,
+  21
+ ],
+ "palette": {
+  "a": "#4e4e48",
+  "b": "#303030",
+  "c": "#b4b4ae",
+  "d": "#78786c",
+  "e": "#aeaea8",
+  "f": "#7e7e72",
+  "g": "#727266",
+  "h": "#c0c0ba",
+  "i": "#6c6c66",
+  "j": "#42423c",
+  "k": "#9c9c96",
+  "l": "#90908a",
+  "m": "#a2a29c",
+  "n": "#84847e",
+  "o": "#72726c",
+  "p": "#5a5a54",
+  "q": "#8a8a84",
+  "r": "#969690",
+  "s": "#969696",
+  "t": "#666660",
+  "u": "#60605a",
+  "v": "#7e7e78",
+  "w": "#2a1e18",
+  "x": "#241e12",
+  "y": "#787872",
+  "z": "#a8a89c",
+  "A": "#546c3c",
+  "B": "#364e2a",
+  "C": "#36542a",
+  "D": "#545454",
+  "E": "#241812",
+  "F": "#304824",
+  "G": "#485a30",
+  "H": "#4e6636",
+  "I": "#54544e",
+  "J": "#2a3c1e",
+  "K": "#182412"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".a.b..ab...b...b...b.a.b..ab...b..",
+    "acbdbaedbabdb.bfb.bdbcbgbahdbabib.",
+    "jkjbcbdbacjlj..b...bbfbbcjmbaebgb.",
+    "bfcbdbmkbfbdeb...b..jkejkbdcjkjnca",
+    "biobggllbgegggb.bpb.biqjloiobgrlsj",
+    "bioeglqscgggtea..b..jlqeliuieqslqj",
+    "jlslsigoivsqltbba..bbgguollllioiob",
+    "jllgqgiwxlloqoboeabgbgioisqilggoob",
+    "jqlyvggxxqlsqgzbibaebgipgllvsggggb",
+    "boggolvxxoggglljvebiblllsiiABlsssj",
+    "bgoiiolwxiugoglelgbgeglllggiAClslj",
+    "biDiillEEiiiiqnqyimtilqqqtiiFGqlnj",
+    "jylqnitEElqqliiuiqnnluptilqAnBiiib",
+    "jlntlpiuinniqtiiiqqiqiiiiqltBitiib",
+    "jqqyniiitnlqlttitllnnititqqylBiiib",
+    "bDtiilllniiiiyqqliiiinqlniiHFqlqnj",
+    "biiuiiqqniiiiiqqqiiiitqnliiiHFqnqj",
+    "biiitlnlntiiiqnqqitipnlqqiiiBHoqqj",
+    "jnqnqttttviqntIutnnqittttnvHqFtttb",
+    "jvvunttttqntnutuuvqunutttqntBptutb",
+    "jnnqnttutqvqntuttqqqqtuttvnnvJtptb",
+    ".jjjjbbbbjjjjbbbbjjjjbbbbjjjjKbbb."
+   ]
+  ]
+ }
+}

@@ -2,6 +2,27 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.65
+Date: 10/31/2026
+Time: 2:28 PM
+
+### Changes
+- **Pack 2, Avalon's Shadow, is built and open** (`docs/PACK_2_PLAN.md`). Beat Balor (the Misty Isles' 30:00 boss) to unlock it.
+  - **The land:** green fields and dark woods with ruined castles, old stones and a misty lake.
+  - **Enchanted brambles** (the hazard): thorny shoots creep out across the ground, then a bramble thicket springs up and slows any Hero caught in it (to 40% speed) for 7 s before it withers.
+  - **Monsters:** black knights on horseback (Malory), enchanted hounds (Pwyll), the afanc lake beast (Welsh tradition), and will-o'-the-wisps (British folklore).
+  - **Bosses:**
+    - **The Green Knight** (10:00): the beheading game (Sir Gawain and the Green Knight). The first time he is "slain" he picks up his head, comes back at half health and attacks faster, once.
+    - **Mordred** (20:00): five black knights ride out round him at the start of each phase, and while any of them live he takes half damage (a dark ring shows it). He has words for King Arthur (Malory).
+    - **Twrch Trwyth** (30:00): the great boar charges with his young boars (Culhwch and Olwen). Each Guard Break knocks loose one of the three treasures between his ears (the comb, the razor and the shears), which drops a chest and gold.
+  - **Gods:**
+    - **Rhiannon** (Wind): her shrine can't be caught by running; stand still beside it to bind her, as Pwyll had to ask her to stop. Summon **Birds of Rhiannon**: their song puts every monster on screen to sleep for 3 s (bosses are only slowed).
+    - **Arawn** (Dark, a duel trial): summon **Hounds of Annwn**: five white, red-eared hounds run out and hunt monsters for you for 7 s, then go back to the Otherworld.
+- New tests for the four new boss and hazard rules (287 tests pass).
+
+### Reason
+The owner asked to finish Pack 2 ("okay lets finnish the pack"). Avalon's Shadow is the third of its four levels, built from the approved plan.
+
 ## Version 00.02.64
 Date: 10/31/2026
 Time: 2:17 PM

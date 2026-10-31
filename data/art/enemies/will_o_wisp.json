@@ -1,0 +1,114 @@
+{
+ "_doc": "Will-o'-the-wisp (docs/PACK_2_PLAN.md: Avalon's Shadow). The wandering marsh light of British folklore that leads travellers astray: a pale green-white glow. Built by tools/art/build_avalon.py.",
+ "size": [
+  12,
+  16
+ ],
+ "anchor": [
+  6,
+  15
+ ],
+ "palette": {
+  "o": "#2a3a20",
+  "k": "#101808",
+  "l": "#a8e870",
+  "w": "#e8ffd0",
+  "W": "#ffffff"
+ },
+ "frames": {
+  "idle": [
+   [
+    "............",
+    "......o.....",
+    "...ooolooo..",
+    "..olllllllo.",
+    ".ollllwllllo",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    "ollwwwWwwwll",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    ".ollllwllllo",
+    "..olllllllo.",
+    "...ooolooo..",
+    ".....olo....",
+    "....olo.....",
+    ".....o......"
+   ]
+  ],
+  "walk": [
+   [
+    "......o.....",
+    "...ooolooo..",
+    "..olllllllo.",
+    ".ollllwllllo",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    "ollwwwWwwwll",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    ".ollllwllllo",
+    "..olllllllo.",
+    "...ooolooo..",
+    ".....olo....",
+    "....olo.....",
+    ".....o......",
+    "............"
+   ],
+   [
+    "...ooolooo..",
+    "..olllllllo.",
+    ".ollllwllllo",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    "ollwwwWwwwll",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    ".ollllwllllo",
+    "..olllllllo.",
+    "...ooolooo..",
+    ".....olo....",
+    "....olo.....",
+    ".....o......",
+    "............",
+    "............"
+   ],
+   [
+    "......o.....",
+    "...ooolooo..",
+    "..olllllllo.",
+    ".ollllwllllo",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    "ollwwwWwwwll",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    ".ollllwllllo",
+    "..olllllllo.",
+    "...ooolooo..",
+    ".....olo....",
+    "....olo.....",
+    ".....o......",
+    "............"
+   ],
+   [
+    "............",
+    "......o.....",
+    "...ooolooo..",
+    "..olllllllo.",
+    ".ollllwllllo",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    "ollwwwWwwwll",
+    ".ollwwwwwllo",
+    ".ollwwwwwllo",
+    ".ollllwllllo",
+    "..olllllllo.",
+    "...ooolooo..",
+    ".....olo....",
+    "....olo.....",
+    ".....o......"
+   ]
+  ]
+ }
+}

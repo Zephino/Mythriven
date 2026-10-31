@@ -1,0 +1,127 @@
+{
+ "_doc": "Young boar (docs/PACK_2_PLAN.md: Avalon's Shadow). Culhwch and Olwen: the seven young pigs that ran with Twrch Trwyth, Grugyn Silver-bristle among them. Built by tools/art/build_avalon.py.",
+ "size": [
+  24,
+  18
+ ],
+ "anchor": [
+  11,
+  17
+ ],
+ "palette": {
+  "o": "#140c08",
+  "k": "#0a0604",
+  "b": "#4a3a30",
+  "B": "#30261e",
+  "w": "#ece4d0",
+  "r": "#d03020",
+  "u": "#e0c050",
+  "i": "#c8ccd4"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    ".....o..o..o..o..o......",
+    "....okookookookooko.....",
+    ".....oobbbbbbboooo......",
+    "...oobbbbbbbbbbbbooo....",
+    "..obbbbbbbbbbbbbbbbbo...",
+    "..obbbbbbbbbbbbbbbrbbo..",
+    ".obbbbbBBBBBBBbbbbbbbo..",
+    "..obbBBBBBBBBBBBbbbbko..",
+    "..obBBBBBBBBBBBBbbbbbo..",
+    "...ooBBBBBBBBBBBooooowo.",
+    "...oBBoBBBBBBBooBBo..o..",
+    "...oBBooBBooBBooBBo.....",
+    "...oBBooBBooBBooBBo.....",
+    "...oBBooBBooBBooBBo.....",
+    "....oo..oo..oo..oo......"
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    ".....o..o..o..o..o......",
+    "....okookookookooko.....",
+    ".....oobbbbbbboooo......",
+    "...oobbbbbbbbbbbbooo....",
+    "..obbbbbbbbbbbbbbbbbo...",
+    "..obbbbbbbbbbbbbbbrbbo..",
+    ".obbbbbBBBBBBBbbbbbbbo..",
+    "..obbBBBBBBBBBBBbbbbko..",
+    "..obBBBBBBBBBBBBbbbbbo..",
+    "...ooBBBBBBBBBBBooooowo.",
+    "....oBBBBBBBBBoooBBo.o..",
+    "....oBBBBooBBo..oBBo....",
+    "....oBBBBooBBo..oBBo....",
+    "....oBBBBooBBo..oBBo....",
+    ".....oooo..oo....oo....."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    ".....o..o..o..o..o......",
+    "....okookookookooko.....",
+    ".....oobbbbbbboooo......",
+    "...oobbbbbbbbbbbbooo....",
+    "..obbbbbbbbbbbbbbbbbo...",
+    "..obbbbbbbbbbbbbbbrbbo..",
+    ".obbbbbBBBBBBBbbbbbbbo..",
+    "..obbBBBBBBBBBBBbbbbko..",
+    "..obBBBBBBBBBBBBbbbbbo..",
+    "...ooBBBBBBBBBBBooooowo.",
+    "...oBBoBBBBBBBooBBo..o..",
+    "...oBBooBBooBBooBBo.....",
+    "...oBBooBBooBBooBBo.....",
+    "...oBBooBBooBBooBBo.....",
+    "....oo..oo..oo..oo......"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    ".....o..o..o..o..o......",
+    "....okookookookooko.....",
+    ".....oobbbbbbboooo......",
+    "...oobbbbbbbbbbbbooo....",
+    "..obbbbbbbbbbbbbbbbbo...",
+    "..obbbbbbbbbbbbbbbrbbo..",
+    ".obbbbbBBBBBBBbbbbbbbo..",
+    "..obbBBBBBBBBBBBbbbbko..",
+    "..obBBBBBBBBBBBBbbbbbo..",
+    "...ooBBBBBBBBBBBooooowo.",
+    "..oBBooBBBBBBBBBBo...o..",
+    "..oBBo.ooBBooBBBBo......",
+    "..oBBo..oBBooBBBBo......",
+    "..oBBo..oBBooBBBBo......",
+    "...oo....oo..oooo......."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    ".....o..o..o..o..o......",
+    "....okookookookooko.....",
+    ".....oobbbbbbboooo......",
+    "...oobbbbbbbbbbbbooo....",
+    "..obbbbbbbbbbbbbbbbbo...",
+    "..obbbbbbbbbbbbbbbrbbo..",
+    ".obbbbbBBBBBBBbbbbbbbo..",
+    "..obbBBBBBBBBBBBbbbbko..",
+    "..obBBBBBBBBBBBBbbbbbo..",
+    "...ooBBBBBBBBBBBooooowo.",
+    "...oBBoBBBBBBBooBBo..o..",
+    "...oBBooBBooBBooBBo.....",
+    "...oBBooBBooBBooBBo.....",
+    "...oBBooBBooBBooBBo.....",
+    "....oo..oo..oo..oo......"
+   ]
+  ]
+ }
+}
