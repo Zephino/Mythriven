@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.77
+Date: 10/31/2026
+Time: 1:28 AM
+
+### Changes
+- **Atalanta's arrows removed**: nothing sticks up behind her shoulder now. Her bow shows she's an archer; her hair knot is clear again.
+
+### Reason
+The owner said "no" to the arrows above her shoulder.
+
 ## Version 00.01.76
 Date: 10/31/2026
 Time: 1:27 AM
