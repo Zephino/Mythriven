@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.91
+Date: 10/31/2026
+Time: 1:57 AM
+
+### Changes
+- **Kronos' sprite**, from Hesiod's Theogony (the youngest Titan, who overthrew his father with the great jagged sickle of grey adamant that Gaia made, then swallowed his children):
+  - a huge old man, the biggest boss so far (68 × 72), with long grey hair down his back and a long grey beard;
+  - a dark purple himation (mantle) over one shoulder with a gold edge, his chest bare on the other side, the mantle falling to his shins; sandals;
+  - the jagged adamant sickle raised in his hand; 4 walking frames.
+
+### Reason
+The owner approved Achilles the boss and asked for Kronos next.
+
 ## Version 00.01.90
 Date: 10/31/2026
 Time: 1:55 AM
