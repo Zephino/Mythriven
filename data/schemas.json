@@ -137,6 +137,14 @@
             "type": "object",
             "fields": {
               "handheld_scale": "number",
+              "frame_scale": "number",
+              "frame_padding_px": "number",
+              "icon_px": "number",
+              "portrait_scale": "number",
+              "title_hero_scale": "number",
+              "button_text_color": "string",
+              "button_hover_text_color": "string",
+              "button_disabled_text_color": "string",
               "xp_bar_height_px": "number",
               "damage_number_pool": "number",
               "damage_number_styles": {

@@ -452,3 +452,16 @@ func test_every_level_has_ground_tiles_and_scenery() -> void:
 			assert_eq((ground["frames"].get(str(entry["id"]), []) as Array).size(), 2, "%s: two %s tiles" % [level["id"], entry["id"]])
 		for id: Variant in level.get("decorations", []):
 			assert_false(PixelArt.find("scenery/" + str(id)).is_empty(), "%s has a picture" % id)
+
+
+func test_menus_have_frames_and_every_card_an_icon() -> void:
+	UiTheme.apply()
+	assert_true(ThemeDB.get_default_theme().get_stylebox("normal", "Button") is StyleBoxTexture, "buttons are framed")
+	for passive: Dictionary in Data.get_file("passives.json"):
+		assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.PASSIVE_NEW, "id": passive["id"]}), "%s has an icon" % passive["id"])
+	for stat: String in (Data.cfg("level_up.stat_card_values") as Dictionary):
+		assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.STAT, "id": stat}), "stat %s has an icon" % stat)
+	for weapon: Dictionary in Data.get_file("weapons.json"):
+		assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.WEAPON_NEW, "id": weapon["id"]}), "%s has an icon" % weapon["id"])
+	assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.GOLD}), "gold card icon")
+	assert_not_null(UiTheme.card_icon({"kind": LevelUpRules.HEAL}), "heal card icon")

@@ -33,6 +33,14 @@ func build() -> void:
 	if CloudSync.signed_in():
 		var username: String = CloudSync.username()
 		add_line(tr_key("UI_PLAYING_AS") % username if username != "" else tr_key("UI_SIGNED_IN_GOOGLE"))
+	# The Heroes you have, standing in a row (owner request 10/31/2026).
+	var heroes: Array[Texture2D] = []
+	for hero: Dictionary in HeroRules.all():
+		if HeroRules.is_unlocked(hero):
+			var picture: Texture2D = UiTheme.portrait(PixelArt.find(str(hero["id"])), Data.cfg_int("ui.title_hero_scale"))
+			if picture != null:
+				heroes.append(picture)
+	add_pictures(heroes)
 	add_button(tr_key("UI_PLAY"), func() -> void: flow.play(self))
 	add_button(tr_key("UI_COOP"), func() -> void: open_child(CoopScreen.new_for(flow)))
 	add_button(tr_key("UI_PUBLIC_GAMES"), func() -> void: open_child(CoopScreen.new_for(flow, true)))

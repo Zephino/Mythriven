@@ -7,6 +7,7 @@ extends CanvasLayer
 
 var _panel: PanelContainer
 var _portrait: ColorRect
+var _face: TextureRect
 var _name: Label
 var _text: Label
 var _queue: Array[Dictionary] = []
@@ -35,6 +36,13 @@ func _ready() -> void:
 	_portrait = ColorRect.new()
 	_portrait.custom_minimum_size = Vector2.ONE * Data.cfg_float("banter.portrait_px")
 	row.add_child(_portrait)
+	# The speaker's face over their colour (owner request 10/31/2026).
+	_face = TextureRect.new()
+	_face.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_face.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_face.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_face.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	_portrait.add_child(_face)
 	var column := VBoxContainer.new()
 	row.add_child(column)
 	_name = Label.new()
@@ -83,10 +91,14 @@ func _next() -> void:
 	var god: Dictionary = GodRules.find(speaker)
 	var hero: Dictionary = HeroRules.find(speaker)
 	var who: Dictionary = god if not god.is_empty() else hero
+	var art: Dictionary = PixelArt.god(speaker) if not god.is_empty() else PixelArt.find(speaker)
 	if who.is_empty():
 		var boss: Dictionary = BossManager.find(speaker)
 		who = {"name_key": boss.get("name_key", ""), "placeholder_color": Data.cfg_string("bosses.banter_color")}
-	_portrait.color = Color.html(str(who.get("placeholder_color", "#ffffff")))
+		art = PixelArt.boss(str(boss.get("enemy", "")))
+	var color := Color.html(str(who.get("placeholder_color", "#ffffff")))
+	_face.texture = UiTheme.portrait(art, 1)
+	_portrait.color = color.darkened(0.6) if _face.texture != null else color
 	_name.text = tr(str(who.get("name_key", "")))
 	_text.text = tr(str(line.get("text_key", "")))
 	_panel.visible = true

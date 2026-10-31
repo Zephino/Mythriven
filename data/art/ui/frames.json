@@ -1,0 +1,120 @@
+{
+ "_doc": "Menu frames (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py: dark stone with a bronze trim, stretched by their 4 px edges (nine-slice) for every panel and button.",
+ "size": [
+  12,
+  12
+ ],
+ "margin": 4,
+ "palette": {
+  "o": "#140c08",
+  "s": "#2a2430",
+  "S": "#221c28",
+  "t": "#3a3242",
+  "g": "#c89a3c",
+  "G": "#8a6420",
+  "y": "#f0cc58",
+  "h": "#4a3e54",
+  "H": "#5a4c66",
+  "p": "#1a1420",
+  "w": "#fff0b0",
+  "d": "#55505a"
+ },
+ "frames": {
+  "panel": [
+   [
+    ".oooooooooo.",
+    "oyyyyyyyyyGo",
+    "oyooooooooGo",
+    "oyottttttoGo",
+    "oyossssssoGo",
+    "oyossssssoGo",
+    "oyossssssoGo",
+    "oyossssssoGo",
+    "oyossssssoGo",
+    "oyooooooooGo",
+    "oGGGGGGGGGGo",
+    ".oooooooooo."
+   ]
+  ],
+  "button": [
+   [
+    ".oooooooooo.",
+    "ogggggggggoo",
+    "ogoooooooooo",
+    "ogohhhhhhooo",
+    "ogottttttooo",
+    "ogottttttooo",
+    "ogottttttooo",
+    "ogottttttooo",
+    "ogottttttooo",
+    "ogoooooooooo",
+    "oooooooooooo",
+    ".oooooooooo."
+   ]
+  ],
+  "button_hover": [
+   [
+    ".oooooooooo.",
+    "oyyyyyyyyyGo",
+    "oyooooooooGo",
+    "oyoHHHHHHoGo",
+    "oyohhhhhhoGo",
+    "oyohhhhhhoGo",
+    "oyohhhhhhoGo",
+    "oyohhhhhhoGo",
+    "oyohhhhhhoGo",
+    "oyooooooooGo",
+    "oGGGGGGGGGGo",
+    ".oooooooooo."
+   ]
+  ],
+  "button_pressed": [
+   [
+    ".oooooooooo.",
+    "oooooooooogo",
+    "oooooooooogo",
+    "oooSSSSSSogo",
+    "oooppppppogo",
+    "oooppppppogo",
+    "oooppppppogo",
+    "oooppppppogo",
+    "oooppppppogo",
+    "oooooooooogo",
+    "oggggggggggo",
+    ".oooooooooo."
+   ]
+  ],
+  "button_focus": [
+   [
+    ".oooooooooo.",
+    "owwwwwwwwwgo",
+    "owoooooooogo",
+    "owoHHHHHHogo",
+    "owohhhhhhogo",
+    "owohhhhhhogo",
+    "owohhhhhhogo",
+    "owohhhhhhogo",
+    "owohhhhhhogo",
+    "owoooooooogo",
+    "oggggggggggo",
+    ".oooooooooo."
+   ]
+  ],
+  "button_disabled": [
+   [
+    ".oooooooooo.",
+    "odddddddddoo",
+    "odoooooooooo",
+    "odoSSSSSSooo",
+    "odoSSSSSSooo",
+    "odoSSSSSSooo",
+    "odoSSSSSSooo",
+    "odoSSSSSSooo",
+    "odoSSSSSSooo",
+    "odoooooooooo",
+    "oooooooooooo",
+    ".oooooooooo."
+   ]
+  ]
+ }
+}

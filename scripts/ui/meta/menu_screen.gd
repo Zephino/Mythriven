@@ -94,6 +94,21 @@ func set_title(text: String) -> void:
 	_title.text = text
 
 
+## A centred row of pictures (the Heroes on the title screen).
+func add_pictures(textures: Array[Texture2D]) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	for texture: Texture2D in textures:
+		var picture := TextureRect.new()
+		picture.texture = texture
+		picture.stretch_mode = TextureRect.STRETCH_KEEP
+		picture.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		row.add_child(picture)
+	_rows.add_child(row)
+	return row
+
+
 func add_line(text: String) -> Label:
 	var row := Label.new()
 	row.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED

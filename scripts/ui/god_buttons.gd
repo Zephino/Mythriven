@@ -67,7 +67,14 @@ func _process(_delta: float) -> void:
 		button.position = _slot_position(index, size)
 		if button.visible:
 			var god: Dictionary = gods.gods_of(player)[index]["god"]
-			button.text = tr(str(god.get("name_key", ""))).left(1)
+			# The god's face (owner request 10/31/2026), or their initial without art.
+			var god_id: String = str(god.get("id", ""))
+			if button.get_meta("god", "") != god_id:
+				button.set_meta("god", god_id)
+				button.icon = UiTheme.god_face(god_id, Data.cfg_int("ui.portrait_scale"))
+				button.expand_icon = button.icon != null
+				button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+				button.text = "" if button.icon != null else tr(str(god.get("name_key", ""))).left(1)
 	# The Resonance button exists only while it can be used, just above the god buttons.
 	_resonance_button.visible = player != null and resonance != null and resonance.ready_for(player)
 	if _resonance_button.visible:

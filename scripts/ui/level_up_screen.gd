@@ -94,6 +94,7 @@ func show_coop_cards(cards: Array, on_pick: Callable, seconds: int) -> void:
 		_card_buttons[i].visible = i < _offer.size()
 		if _card_buttons[i].visible:
 			_card_buttons[i].text = CardText.full(_offer[i])
+			_card_buttons[i].icon = UiTheme.card_icon(_offer[i])
 			shown.append(_card_buttons[i])
 	for extra: Control in [_reroll_button, _banish_button, _bank_button, _auto_collect.get_parent()]:
 		extra.visible = false
@@ -141,6 +142,7 @@ func _show_offer(player: Player) -> void:
 		button.visible = i < _offer.size()
 		if button.visible:
 			button.text = CardText.full(_offer[i])
+			button.icon = UiTheme.card_icon(_offer[i])
 			shown.append(button)
 	_reroll_button.visible = GameAuthority.run.reroll_tokens > 0
 	_reroll_button.text = tr("UI_REROLL") % GameAuthority.run.reroll_tokens

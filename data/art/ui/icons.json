@@ -1,0 +1,274 @@
+{
+ "_doc": "Passive icons (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py. crit: Critical strike (the Crit Chance card): a blade's point striking a bright spark. belt_of_strength: Belt of Strength: a broad leather belt with a bronze buckle. winged_sandals: Winged Sandals (the winged sandals Hermes lends Perseus): a sandal with a white wing at the heel. hourglass: Hourglass: sand running through, in a wooden frame. seers_eye: Seer's Eye: a wide eye with a bright blue iris. lodestone: Lodestone: a dark magnetic stone drawing in specks of gold. bronze_aegis: Bronze Aegis: a round bronze shield with a boss. ferrymans_coin: Ferryman's Coin (the obol paid to Charon): a silver coin with an owl's eyes struck on it. golden_apple: Golden Apple: a golden apple with a leaf. votive_bell: Votive Bell: a small bronze temple bell. mirrored_shield: Mirrored Shield (Perseus' polished shield): a round shield polished bright, with a gleam. tyrs_oath: Tyr's Oath (Tyr's hand pledged in Fenrir's jaws): an open right hand, raised.",
+ "size": [
+  16,
+  16
+ ],
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "w": "#ffffff",
+  "b": "#6a4422",
+  "B": "#4a2e16",
+  "g": "#c89a3c",
+  "G": "#8a6420",
+  "y": "#f0cc58",
+  "e": "#e8e0d0",
+  "E": "#b8b0a0",
+  "u": "#5a9ad8",
+  "U": "#2a5a9a",
+  "s": "#c8ccd4",
+  "S": "#8a8e96",
+  "r": "#e8c040",
+  "R": "#b08a20",
+  "l": "#4a8a30",
+  "c": "#6a6a78",
+  "C": "#44444e",
+  "m": "#a8d8ff",
+  "f": "#e2a676",
+  "F": "#b0724a",
+  "q": "#d8e8f0"
+ },
+ "frames": {
+  "crit": [
+   [
+    "............o...",
+    "...........oyo..",
+    "..........oyoyo.",
+    ".........oyowoyo",
+    "..........oyoyo.",
+    ".........oooyo..",
+    "........osSoo...",
+    ".......osSo.....",
+    "......osSo......",
+    ".....osSo.......",
+    "....osSo........",
+    "...osSo.........",
+    ".oosSo..........",
+    "obbSo...........",
+    "obbo............",
+    ".oo............."
+   ]
+  ],
+  "belt_of_strength": [
+   [
+    "................",
+    "................",
+    "................",
+    ".....oooooo.....",
+    "....oyyyyyyo....",
+    "oooooggggggooooo",
+    "FFFFFggBBggFFFFF",
+    "bbbbbggBBggbbbbb",
+    "bbbbbggBBggbbbbb",
+    "bbbbbggBBggbbbbb",
+    "BBBBBggBBggBBBBB",
+    "oooooggggggooooo",
+    "....oGGGGGGo....",
+    ".....oooooo.....",
+    "................",
+    "................"
+   ]
+  ],
+  "winged_sandals": [
+   [
+    "................",
+    "................",
+    ".oooooo.........",
+    "owwwwwwo........",
+    "oeeeeeeo........",
+    ".oEeeeo.........",
+    ".oeeeeo.........",
+    "..oEeooooooo....",
+    "..oeebbbbbbbo...",
+    "...oobooboobo...",
+    "...oobooboobooo.",
+    "..obbbbbbbbbbbbo",
+    "..obbbbbbbbbbbbo",
+    "..oBBBBBBBBBBBBo",
+    "...oooooooooooo.",
+    "................"
+   ]
+  ],
+  "hourglass": [
+   [
+    "...oooooooooo...",
+    "..obbbbbbbbbbo..",
+    "..obbbbbbbbbbo..",
+    "...oqqqqqqqqo...",
+    "...oqqqrrqqqo...",
+    "....oqqrrqqo....",
+    ".....oqqqqo.....",
+    "......oqro......",
+    "......orqo......",
+    ".....oqrrqo.....",
+    "....oqrrrrqo....",
+    "...oqrrrrrrqo...",
+    "...oqrrrrrrqo...",
+    "..obbbbbbbbbbo..",
+    "..obbbbbbbbbbo..",
+    "...oooooooooo..."
+   ]
+  ],
+  "seers_eye": [
+   [
+    "................",
+    "................",
+    "................",
+    "......ooooo.....",
+    "....ooeeeeeoo...",
+    "...oeeeeeeeeeo..",
+    "..oeeewUUUeeeeo.",
+    ".oeeeUukkuUeeeeo",
+    "oeeeeUukkuUeeeeo",
+    ".oeeeUukkuUeeeeo",
+    "..oeeeUUUUeeeeo.",
+    "...oeeeeeeeeeo..",
+    "....ooeeeeeoo...",
+    "......ooooo.....",
+    "................",
+    "................"
+   ]
+  ],
+  "lodestone": [
+   [
+    "........o.......",
+    ".o.....oyo......",
+    "oyo.....o.....o.",
+    ".o...........oyo",
+    "......oooo....o.",
+    ".....occcco.....",
+    "....oSSSccco....",
+    "...occcccccco...",
+    "..occcccccccco..",
+    "..occcccccccco..",
+    "...occcccccco...",
+    "....occccCCo....",
+    ".o...occcco.....",
+    "oyo...oooo....o.",
+    ".o...........oyo",
+    "..............o."
+   ]
+  ],
+  "bronze_aegis": [
+   [
+    ".....oooooo.....",
+    "....oGGGGGGo....",
+    "...oGGggggGGo...",
+    "..oGggggggggGo..",
+    ".oGggyGGGGgggGo.",
+    "oGGgyGggggGggGGo",
+    "oGggGggggggGggGo",
+    "oGggGggyyggGggGo",
+    "oGggGggyyggGggGo",
+    "oGggGggggggGggGo",
+    "oGGggGggggGggGGo",
+    ".oGgggGGGGgggGo.",
+    "..oGggggggggGo..",
+    "...oGGggggGGo...",
+    "....oGGGGGGo....",
+    ".....oooooo....."
+   ]
+  ],
+  "ferrymans_coin": [
+   [
+    "................",
+    ".....oooooo.....",
+    "...ooSSSSSSoo...",
+    "..oSSssssssSSo..",
+    "..oSswssssssSo..",
+    ".oSssssssssssSo.",
+    ".oSsskSssSkssSo.",
+    ".oSssSSssSSssSo.",
+    ".oSssssssssssSo.",
+    ".oSssssSSssssSo.",
+    ".oSssssSSssssSo.",
+    "..oSssssssssSo..",
+    "..oSSssssssSSo..",
+    "...ooSSSSSSoo...",
+    ".....oooooo.....",
+    "................"
+   ]
+  ],
+  "golden_apple": [
+   [
+    ".......ooooo....",
+    "......oBBlllo...",
+    "......oBBlllo...",
+    "......oBBooo....",
+    ".....orBBro.....",
+    "....orrrrrRo....",
+    "...orrrrrrRRo...",
+    "..orrwrrrrRRRo..",
+    "..orryrrrrRRRo..",
+    ".orrrrrrrrRRRRo.",
+    ".orrrrrrrrRRRRo.",
+    "..orrrrrrrRRRo..",
+    "..orrrrrrrRRRo..",
+    "...orrrrrrRRo...",
+    "....oRRRRRRo....",
+    ".....oRRRRo....."
+   ]
+  ],
+  "votive_bell": [
+   [
+    ".......oo.......",
+    "......oGGo......",
+    "......oGGoo.....",
+    ".....ogggggo....",
+    "....oygggggo....",
+    "....oygggggo....",
+    "...ogyggggggo...",
+    "...ogyggggggo...",
+    "..oggygggggggo..",
+    "..oggygggggggo..",
+    ".ogggyggggggggo.",
+    ".oggggggggggggo.",
+    "oGGGGGGGGGGGGGGo",
+    ".ooooooGGoooooo.",
+    "......oGGo......",
+    ".......oo......."
+   ]
+  ],
+  "mirrored_shield": [
+   [
+    ".....oooooo.....",
+    "....oGGGGGGo....",
+    "...oGGqqqqGGo...",
+    "..oGqqqqqqqqGo..",
+    ".oGqqqqqqqqqqGo.",
+    "oGGqqqqqwqqqqGGo",
+    "oGqqqqqwqqqqqqGo",
+    "oGqqqqwqqqmqqqGo",
+    "oGqqqwqqqmqqqqGo",
+    "oGqqwqqqmqqqqqGo",
+    "oGGqqqqmqqqqqGGo",
+    ".oGqqqmqqqqqqGo.",
+    "..oGqqqqqqqqGo..",
+    "...oGGqqqqGGo...",
+    "....oGGGGGGo....",
+    ".....oooooo....."
+   ]
+  ],
+  "tyrs_oath": [
+   [
+    "......oo........",
+    ".....ofFooo.....",
+    "...oooffofFo....",
+    "..ofFoffoffo....",
+    "..offoffoffo....",
+    "..offoffoffo....",
+    "..offoffoffooo..",
+    "..offoffoffoffo.",
+    "..offfffffffffo.",
+    "..offfffffffffo.",
+    "..offfffffffffo.",
+    "..offfffffffofo.",
+    "..oFFFFFFFFFoo..",
+    "..oFFFFFFFFFo...",
+    "...oFFFFFFFo....",
+    "...oFFFFFFFo...."
+   ]
+  ]
+ }
+}

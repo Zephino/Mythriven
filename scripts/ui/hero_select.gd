@@ -56,6 +56,9 @@ func _ready() -> void:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.custom_minimum_size = Vector2(touch * 4.0, touch * 3.0)
 		var id: String = str(hero["id"])
+		# Each Hero's portrait beside their name (owner request 10/31/2026).
+		button.icon = UiTheme.portrait(PixelArt.find(id), Data.cfg_int("ui.portrait_scale"))
+		button.add_theme_constant_override("icon_max_width", 0)
 		if HeroRules.is_unlocked(hero):
 			button.text = describe(hero) + "\n" + tr("UI_HERO_MASTERY") % Rewards.mastery(id)
 			button.pressed.connect(_on_pressed.bind(id))

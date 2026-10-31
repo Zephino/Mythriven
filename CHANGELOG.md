@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.25
+Date: 10/31/2026
+Time: 9:54 AM
+
+### Changes
+- **Every menu and screen has a frame**: panels and buttons are dark stone with a bronze trim, lighting up when you point at or select them, grey when unavailable. This covers the title, Hall of Legends, settings, level-up, chests, boons, the HUD boxes, and every other screen, because it's set once for the whole game.
+- **Level-up cards have icons**: the weapon's picture (spells show their flying picture), an icon for every passive (belt, winged sandals, hourglass, eye, lodestone, bronze shield, ferryman's coin, golden apple, bell, polished shield, Tyr's hand), stat cards use the matching passive's icon (crit has its own), gold shows a coin and healing shows ambrosia.
+- **Hero select shows each Hero's picture** beside their details. The **title screen** shows your unlocked Heroes standing in a row.
+- **God buttons show the god** instead of a letter, and the **banter bubble** shows who is talking instead of a coloured square.
+- New `tools/art/build_ui.py`, `scripts/ui/ui_theme.gd`; new settings `ui.frame_scale`, `ui.frame_padding_px`, `ui.icon_px`, `ui.portrait_scale`, `ui.title_hero_scale`, `ui.button_text_color`, `ui.button_hover_text_color`, `ui.button_disabled_text_color`. Rules in `docs/ART_RULES.md` (Menus).
+
+### Reason
+The owner chose menu and screen art next (item 3 of the to-do list).
+
 ## Version 00.02.24
 Date: 10/31/2026
 Time: 9:23 AM

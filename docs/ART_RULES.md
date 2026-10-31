@@ -104,6 +104,11 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 ## Points of interest
 - Ancient Ruins are a ring of the level's own ruin (columns, runestones, obelisks or standing stones); a Dragon's Hoard is a heap of gold round a gold-bound chest; a Monster's Lair has a dark den mouth with bones; the Wandering Trader has a stall with a striped awning.
 
+## Menus
+- Every panel and button is framed in dark stone with a bronze trim (`data/art/ui/frames.json`, built by `tools/art/build_ui.py`): 12 x 12 frames stretched by their 4 px edges, drawn at `ui.frame_scale`. Normal, hover, pressed, focus (a bright bronze outline over the button) and disabled (grey). `scripts/ui/ui_theme.gd` sets them on the default theme, so every screen uses them without its own styling; button text is cream (`ui.button_*_text_color`).
+- Icons (`data/art/ui/icons.json`): one per passive, from its name or source (Hermes' winged sandals, the obol paid to Charon, Perseus' polished shield, Tyr's hand), plus crit. Level-up cards show the weapon's picture (a spell's flying picture), the passive's icon, the icon of the passive that raises the same stat, a coin for gold and ambrosia for healing, all centred on a square at `ui.icon_px`.
+- Hero select shows each Hero's picture (`ui.portrait_scale`); the title screen shows the unlocked Heroes standing in a row (`ui.title_hero_scale`); the god buttons show their gods; the banter bubble shows the speaker over their colour.
+
 ## Statuses
 - Enemies show their statuses as small marks over their picture (`scripts/enemies/enemy_status_marks.gd`): flames (Burn), frost specks (Chill, more with more stacks), a block of ice (Frozen), sparks (Shock), drips (Soaked), rising bubbles (Poison, more with more stacks), a halo (Smite), a dark swirl (Hex), circling stars (Stun). Only enemies on screen, up to `enemies.status_marks_max`. The status colour tints the picture lightly (`enemies.art_status_tint`) so the marks and the art both show.
 

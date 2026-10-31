@@ -92,5 +92,6 @@ static func apply(tree: SceneTree) -> void:
 	# Text size: the default theme's font size, which every screen without its
 	# own size uses (screens built after the change pick it up).
 	ThemeDB.get_default_theme().default_font_size = roundi(Data.cfg_float("settings.base_font_px") * number("text_size_pct") / 100.0)
+	UiTheme.apply()
 	for layer: Node in tree.get_nodes_in_group(PLAYER_EFFECTS):
 		(layer as CanvasItem).modulate.a = number("effect_opacity_pct") / 100.0
