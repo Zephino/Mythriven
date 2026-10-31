@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.70
+Date: 10/31/2026
+Time: 1:08 AM
+
+### Changes
+- **Achilles' sprite**, from Homer's Iliad:
+  - golden hair (Iliad 1) showing below a bronze helmet with a crest of gold (Iliad 18, the armour Hephaestus forged);
+  - a bronze breastplate with chest and stomach lines;
+  - the great round shield on his far arm, with a dark rim, an inner ring and a gold boss, kept apart from his body by its own edge;
+  - a skirt of leather strips over a red chiton, tin greaves (Iliad 18), and sandals;
+  - built on the shared Hero body, with the same walk. He holds his Spear and Shield's spear.
+
+### Reason
+The owner approved Tomoe Gozen and asked to move on to the next Hero.
+
 ## Version 00.01.69
 Date: 10/31/2026
 Time: 1:05 AM
