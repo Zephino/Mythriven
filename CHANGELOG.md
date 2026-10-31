@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.78
+Date: 10/31/2026
+Time: 1:29 AM
+
+### Changes
+- **Odysseus' sprite**, from Homer's Odyssey and Greek art:
+  - the pilos, a pointed felt traveller's and sailor's cap, which is how Greek vase painters and sculptors mark Odysseus;
+  - a dark beard (Odyssey 16) and dark hair under the cap; Mediterranean skin;
+  - a purple tunic to the knees with a gold brooch at the shoulder, from the purple cloak and gold brooch he wore to Troy (Odyssey 19); a belt with a gold buckle, and sandals;
+  - built on the shared Hero body, with the same walk. He holds his Great Bow (the contest of the bow, Odyssey 21).
+
+### Reason
+The owner asked to go on to Odysseus.
+
 ## Version 00.01.77
 Date: 10/31/2026
 Time: 1:28 AM
