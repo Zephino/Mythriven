@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.45
+Date: 10/30/2026
+Time: 8:52 PM
+
+### Changes
+- **The "Mythriven is updating…" page no longer gets stuck.** It reloaded with a plain refresh, which a browser or GitHub's cache could answer with the same page again. It now reloads every 10 s at a fresh address, so it always gets the newest site, and it says to press Ctrl+F5 if it's still showing after a few minutes.
+
+### Reason
+The owner saw the updating page stay up even though the game had finished publishing.
+
 ## Version 00.01.44
 Date: 10/30/2026
 Time: 8:48 PM

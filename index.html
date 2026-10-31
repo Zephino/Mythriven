@@ -9,7 +9,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="refresh" content="15">
 <title>Mythriven — updating</title>
 <style>
 body{font-family:system-ui,sans-serif;background:#1b1622;color:#f2ead8;display:flex;min-height:100vh;align-items:center;
@@ -20,8 +19,12 @@ justify-content:center;margin:0;padding:16px;text-align:center}h1{font-size:1.6e
 <div>
 <h1>Mythriven is updating…</h1>
 <p>A new version is being put online. This page reloads by itself in a few seconds.</p>
+<p>Still here after a few minutes? Press Ctrl+F5 (or close the tab and open the link again).</p>
 <p><a href="https://github.com/Zephino/Mythriven">About the game</a></p>
 </div>
-<script>setTimeout(function () { location.reload(); }, 15000);</script>
+<script>
+// A new address each time, so neither the browser nor GitHub's cache can hand back this page again.
+setTimeout(function () { location.replace(location.pathname + "?r=" + Date.now()); }, 10000);
+</script>
 </body>
 </html>
