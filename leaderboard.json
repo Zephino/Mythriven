@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-10-31T18:05:19.563Z",
+	"updated": "2026-10-31T19:06:56.630Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -62,6 +62,55 @@
 			],
 			"version": "00.02.52",
 			"date": "2026-10-31T18:05:19.563Z"
+		},
+		{
+			"name": "Tiny",
+			"hero": "cu_chulainn",
+			"time_s": 2109,
+			"level": 27,
+			"kills": 43162,
+			"weapons": [
+				{
+					"id": "gae_bolg",
+					"level": 8
+				},
+				{
+					"id": "quake_hammer",
+					"level": 1
+				},
+				{
+					"id": "throwing_axe",
+					"level": 8
+				},
+				{
+					"id": "heros_blade",
+					"level": 1
+				},
+				{
+					"id": "spark",
+					"level": 8
+				},
+				{
+					"id": "inferno",
+					"level": 1
+				}
+			],
+			"passives": [
+				{
+					"id": "hourglass",
+					"level": 5
+				},
+				{
+					"id": "bronze_aegis",
+					"level": 5
+				},
+				{
+					"id": "belt_of_strength",
+					"level": 5
+				}
+			],
+			"version": "00.02.52",
+			"date": "2026-10-31T19:06:56.630Z"
 		},
 		{
 			"name": "Tiny",
