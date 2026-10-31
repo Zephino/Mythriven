@@ -509,6 +509,10 @@
               "hit_flash_color": "string",
               "placeholder_texture_px": "number",
               "status_tint_strength": "number",
+              "walk_frame_px": "number",
+              "art_hit_flash_tint": "number",
+              "art_wind_up_tint": "number",
+              "art_override_tint": "number",
               "level_scaling": {
                 "type": "object",
                 "fields": {

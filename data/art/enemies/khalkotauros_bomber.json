@@ -1,0 +1,128 @@
+{
+ "_doc": "Khalkotauros, a bronze bull (GAME_DESIGN.md: The Aegean Shore enemies; art 10/31/2026). From Apollonius of Rhodes, Argonautica 3.409-421 and 3.1278-1329: the bronze-footed bulls of Ae\u00ebtes that breathed fire. Built by tools/art/build_enemies_aegean.py.",
+ "size": [
+  27,
+  18
+ ],
+ "anchor": [
+  12,
+  16
+ ],
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "g": "#c08a3a",
+  "G": "#8a5e20",
+  "u": "#f0c860",
+  "w": "#efe6d2",
+  "r": "#c83a20",
+  "f": "#ff9030",
+  "F": "#ffe070"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...........................",
+    "................o....o.....",
+    "...............owo..owo....",
+    "................owoowo.....",
+    "..........o.....oogoo......",
+    "....oooooogooooogggggo.....",
+    ".ooouuuuuuuuuuuuggkggo...o.",
+    "oGGoggggggggggggggggggooofo",
+    "oGGggggggggggggggggggGGrfo.",
+    "oGGggggggggggggggggggGGoFo.",
+    ".ooggggggggggggggggoooo.o..",
+    "...oggggggggggggggo........",
+    "...oGgggggggggggggo........",
+    "...oGGoggogooGGoggo........",
+    "...oGGoggoo.oGGoggo........",
+    "...okkkkkko.okkkkkko.......",
+    "....oooooo...oooooo........",
+    "..........................."
+   ]
+  ],
+  "walk": [
+   [
+    "...........................",
+    "................o....o.....",
+    "...............owo..owo....",
+    "................owoowo.....",
+    "..........o.....oogoo......",
+    "....oooooogooooogggggo.....",
+    ".ooouuuuuuuuuuuuggkggo...o.",
+    "oGGoggggggggggggggggggooofo",
+    "oGGggggggggggggggggggGGroo.",
+    "oGGggggggggggggggggggGGoFo.",
+    ".ooggggggggggggggggoooo.o..",
+    "..oGgggggggggggggggo.......",
+    "..oGGgggggggggggoggo.......",
+    "..oGGooogggoGGoooggo.......",
+    "..oGGo.oggooGGo.oggo.......",
+    "..okkkookkkokkkookkko......",
+    "...ooo..ooo.ooo..ooo.......",
+    "..........................."
+   ],
+   [
+    "...........................",
+    "................o....o.....",
+    "...............owo..owo....",
+    "................owoowo.....",
+    "..........o.....oogoo......",
+    "....oooooogooooogggggo.....",
+    ".ooouuuuuuuuuuuuggkggo...o.",
+    "oGGoggggggggggggggggggooofo",
+    "oGGggggggggggggggggggGGrfo.",
+    "oGGggggggggggggggggggGGoFo.",
+    ".ooggggggggggggggggoooo.o..",
+    "...oggggggggggggggo........",
+    "...oGgggggggggggggo........",
+    "...oGGoggogooGGoggo........",
+    "...oGGoggoo.oGGoggo........",
+    "...okkkkkko.okkkkkko.......",
+    "....oooooo...oooooo........",
+    "..........................."
+   ],
+   [
+    "...........................",
+    "................o....o.....",
+    "...............owo..owo....",
+    "................owoowo.....",
+    "..........o.....oogoo......",
+    "....oooooogooooogggggo.....",
+    ".ooouuuuuuuuuuuuggkggo...o.",
+    "oGGoggggggggggggggggggooofo",
+    "oGGggggggggggggggggggGGroo.",
+    "oGGggggggggggggggggggGGoFo.",
+    ".ooggggggggggggggggoooo.o..",
+    "...ogggggggggggggoo........",
+    "....oggggggggggggo.........",
+    "....oGggoogoooGggo.........",
+    "....oGggo.o..oGggo.........",
+    "....okkkko...okkkko........",
+    ".....oooo.....oooo.........",
+    "..........................."
+   ],
+   [
+    "...........................",
+    "................o....o.....",
+    "...............owo..owo....",
+    "................owoowo.....",
+    "..........o.....oogoo......",
+    "....oooooogooooogggggo.....",
+    ".ooouuuuuuuuuuuuggkggo...o.",
+    "oGGoggggggggggggggggggooofo",
+    "oGGggggggggggggggggggGGrfo.",
+    "oGGggggggggggggggggggGGoFo.",
+    ".ooggggggggggggggggoooo.o..",
+    "...oggggggggggggggo........",
+    "...oGgggggggggggggo........",
+    "...oGGoggogooGGoggo........",
+    "...oGGoggoo.oGGoggo........",
+    "...okkkkkko.okkkkkko.......",
+    "....oooooo...oooooo........",
+    "..........................."
+   ]
+  ]
+ }
+}

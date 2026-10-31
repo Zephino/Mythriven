@@ -68,6 +68,12 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 - A boss who is also a Hero (Achilles, Scáthach) is their Hero art holding their signature weapon, drawn twice as big (`kit.build_hero_boss` in `tools/art/hero_kit.py` composes it), so players recognise them. Rebuild it after changing the Hero's art.
 - In the game the boss's art replaces its circle (BossController draws it above the horde, facing the way it moves, walking while it moves, flashing white when hit and tinted by statuses). A boss with art has no red marker ring (owner request 10/31/2026: the sprite stands out by itself); the arrow at the screen edge still points to it when it's off screen.
 
+## Enemies
+- One file per enemy type: `data/art/enemies/<enemy id>.json`, built per level by `tools/art/build_enemies_<level>.py` (`kit.build_boss` with `folder="enemies"`): a standing frame and 4 moving frames (legs stepping, wings beating, or a ghost bobbing). An enemy without a file keeps its circle.
+- Sized to their body: small swarms about 14 × 18, ordinary enemies about 14-26 wide, elites up to about 40 × 54. Feet at the bottom of the body; they face the way they move.
+- From the source in `data/enemies.json` (`myth_source`) and Greek, Norse, Egyptian or Irish art, written in the file's `_doc`.
+- Drawn hundreds at a time from one atlas (`scripts/art/enemy_sprites.gd`): hit flashes, statuses and wind-ups tint the picture (config `enemies.art_*_tint`).
+
 ## Gods
 - One file per god: `data/art/gods/<god id>.json`, built by `tools/art/build_god_<id>.py` (`kit.build_boss` with `folder="gods"`). A god without a file keeps their coloured dot or circle.
 - Boss-sized (about 48 × 62), from myth descriptions and museum-era art (never Marvel, God of War, Hades, Smite and the like: `GAME_DESIGN.md`: Gods).

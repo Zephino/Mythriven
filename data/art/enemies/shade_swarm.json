@@ -1,0 +1,124 @@
+{
+ "_doc": "Shade (GAME_DESIGN.md: The Aegean Shore enemies; art 10/31/2026). From Homer, Odyssey 11: the shades of the dead, thin and bodiless, that flit and gibber round Odysseus. A pale, wispy hooded figure with dark hollows for eyes, trailing off into mist instead of legs. Built by tools/art/build_enemies_aegean.py.",
+ "size": [
+  14,
+  18
+ ],
+ "anchor": [
+  7,
+  16
+ ],
+ "palette": {
+  "o": "#2a2a3a",
+  "k": "#141020",
+  "w": "#c8d4e0",
+  "W": "#8a98b0",
+  "m": "#a0b0c8"
+ },
+ "frames": {
+  "idle": [
+   [
+    "......ooo.....",
+    ".....owwwo....",
+    "....owwwwwo...",
+    "...owwwwwwwo..",
+    "...owwwkkwko..",
+    "..owwwwkkwkwo.",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwWWWo..",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWmmwmmommo.",
+    "..oommommommo.",
+    "...ommommommo.",
+    "...ommommommo.",
+    "....ooommooo..",
+    ".......oo....."
+   ]
+  ],
+  "walk": [
+   [
+    ".....owwwo....",
+    "....owwwwwo...",
+    "...owwwwwwwo..",
+    "...owwwkkwko..",
+    "..owwwwkkwkwo.",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwWWWo..",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWwmmommommo",
+    "..ooommommommo",
+    "....ommommommo",
+    "....ommommommo",
+    ".....ooommooo.",
+    "........oo....",
+    ".............."
+   ],
+   [
+    "....owwwwwo...",
+    "...owwwwwwwo..",
+    "...owwwkkwko..",
+    "..owwwwkkwkwo.",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwWWWo..",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWmmwmmommo.",
+    "..oommommommo.",
+    "...ommommommo.",
+    "...ommommommo.",
+    "....ooommooo..",
+    ".......oo.....",
+    "..............",
+    ".............."
+   ],
+   [
+    ".....owwwo....",
+    "....owwwwwo...",
+    "...owwwwwwwo..",
+    "...owwwkkwko..",
+    "..owwwwkkwkwo.",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwWWWo..",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWwmmommommo",
+    "..ooommommommo",
+    "....ommommommo",
+    "....ommommommo",
+    ".....ooommooo.",
+    "........oo....",
+    ".............."
+   ],
+   [
+    "......ooo.....",
+    ".....owwwo....",
+    "....owwwwwo...",
+    "...owwwwwwwo..",
+    "...owwwkkwko..",
+    "..owwwwkkwkwo.",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwwwwo..",
+    ".oWWwwwwWWWo..",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWwwwwwwwwo.",
+    ".oWWmmwmmommo.",
+    "..oommommommo.",
+    "...ommommommo.",
+    "...ommommommo.",
+    "....ooommooo..",
+    ".......oo....."
+   ]
+  ]
+ }
+}

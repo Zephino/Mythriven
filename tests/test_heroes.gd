@@ -281,6 +281,15 @@ func test_hero_pixel_art_files_are_well_formed() -> void:
 			assert_false(HeroRules.find(file.get_basename()).is_empty(), file + " is named after a Hero")
 		checked += 1
 	assert_gt(checked, 0)
+	var enemy_ids: Array = []
+	for enemy: Dictionary in Data.get_file(EnemyManager.ENEMIES_FILE):
+		enemy_ids.append(str(enemy["id"]))
+	for file: String in DirAccess.get_files_at(PixelArt.ART_DIR + "enemies"):
+		if file.ends_with(".json"):
+			var enemy_art: Dictionary = PixelArt.find("enemies/" + file.get_basename())
+			assert_false(enemy_art.is_empty(), "enemies/" + file + " loads")
+			assert_eq((enemy_art["frames"]["walk"] as Array).size(), 4, "enemies/" + file + " has 4 moving frames")
+			assert_true(enemy_ids.has(file.get_basename()), "enemies/" + file + " is named after an enemy")
 	for file: String in DirAccess.get_files_at(PixelArt.ART_DIR + "gods"):
 		if file.ends_with(".json"):
 			var god_data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PixelArt.ART_DIR + "gods/" + file))

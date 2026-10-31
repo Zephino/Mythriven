@@ -47,6 +47,13 @@ var _max_radius: float = 0.0
 var _separation_timer: float = 0.0
 var _status_timer: float = 0.0
 var _multimesh: MultiMesh
+## Enemies with pixel art (EnemySprites): their own MultiMesh over the same slots; the circle is hidden for them.
+var sprites := EnemySprites.new()
+var _sprite_mm: MultiMesh
+## Per slot: facing left (1), the last x it was at, and the distance walked (for walking frames).
+var _face_left := PackedByteArray()
+var _last_x := PackedFloat32Array()
+var _stride := PackedFloat32Array()
 # Per-type values cached from enemies.json so the per-frame loops stay fast.
 var _type_speed := PackedFloat32Array()
 var _type_color: Array[Color] = []
@@ -100,6 +107,16 @@ func setup() -> void:
 	drawer.multimesh = _multimesh
 	drawer.texture = PlaceholderArt.circle_texture(Data.cfg_int("enemies.placeholder_texture_px"))
 	add_child(drawer)
+	var ids: Array = []
+	for entry: Dictionary in types:
+		ids.append(str(entry["id"]))
+	sprites.build(ids)
+	var sprite_drawer: MultiMeshInstance2D = sprites.make_drawer(capacity)
+	_sprite_mm = sprite_drawer.multimesh
+	add_child(sprite_drawer)
+	_face_left.resize(capacity)
+	_last_x.resize(capacity)
+	_stride.resize(capacity)
 
 
 func active_count() -> int:
@@ -138,6 +155,9 @@ func spawn(type_id: String, at: Vector2) -> int:
 	flash_timer[slot] = 0.0
 	tint_override[slot] = Color(0, 0, 0, 0)
 	drawn_elsewhere[slot] = 0
+	_face_left[slot] = 0
+	_last_x[slot] = at.x
+	_stride[slot] = 0.0
 	statuses.clear(slot)
 	statuses.cc_limited[slot] = 1 if bool(data.get("elite", false)) else 0
 	elites.clear(slot)
@@ -183,6 +203,7 @@ func despawn(slot: int) -> void:
 	_active_count -= 1
 	_free[_active_count] = slot
 	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, Vector2.ZERO, 0.0, Vector2.ZERO))
+	sprites.hide(_sprite_mm, slot)
 	removed.emit(slot)
 
 
@@ -280,6 +301,30 @@ func _draw_instances(delta: float) -> void:
 	for i: int in capacity:
 		if active[i] == 0:
 			continue
+		var art: bool = sprites.has_art(kind[i]) and _type_drawn_elsewhere[kind[i]] == 0 and drawn_elsewhere[i] == 0
+		if art:
+			_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2.ZERO, 0.0, positions[i]))
+			var dx: float = positions[i].x - _last_x[i]
+			if absf(dx) > 0.05:
+				_face_left[i] = 1 if dx < 0.0 else 0
+			_stride[i] += absf(dx)
+			_last_x[i] = positions[i].x
+			# The tint's alpha is how strongly it shows over the picture.
+			var tint := Color(0, 0, 0, 0)
+			if tint_override[i].a > 0.0:
+				tint = Color(tint_override[i], Data.cfg_float("enemies.art_override_tint"))
+			var status: Color = statuses.tint(i)
+			if status.a > 0.0:
+				tint = Color(status, tint_strength)
+			var wind: Color = movement.override_color(self, i)
+			if wind.a > 0.0:
+				tint = Color(wind, Data.cfg_float("enemies.art_wind_up_tint"))
+			if flash_timer[i] > 0.0:
+				flash_timer[i] -= delta
+				tint = Color(flash_color, Data.cfg_float("enemies.art_hit_flash_tint"))
+			sprites.place(_sprite_mm, i, kind[i], positions[i], radius[i], _face_left[i] == 1, absf(dx) > 0.02, _stride[i], tint)
+			continue
+		sprites.hide(_sprite_mm, i)
 		var size: float = radius[i] * 2.0
 		_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2(size, size), 0.0, positions[i]))
 		var color: Color = tint_override[i] if tint_override[i].a > 0.0 else _type_color[kind[i]]

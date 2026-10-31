@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.15
+Date: 10/31/2026
+Time: 3:21 AM
+
+### Changes
+- **Enemies can have pixel art**, drawn hundreds at a time: every enemy type with a picture is packed into one atlas and drawn by one MultiMesh with a small shader, so it stays fast. They face the way they move, walk (or flap, or bob) as they move, flash white when hit, and take status and wind-up tints. Enemies without art keep their circle for now.
+- **The 12 Aegean Shore enemies are drawn**, each from its source:
+  - Shades of the dead (Odyssey 11): pale hooded ghosts with dark hollows for eyes, trailing into mist; the flyer reaches out; the encircler is a darker violet.
+  - Harpies (Argonautica 2) and the Siren (Odyssey 12; the Siren vase): birds with women's heads and talons; the Siren is pale-feathered, red-gold haired, with a lyre.
+  - A satyr (as Greek vases paint them: bearded, horse's ears and tail); the Spartoi (crested bronze helmet, shield and spear, rising out of the earth); a fire-breathing bronze bull of Aeëtes.
+  - Elites: the Minotaur (a man with a bull's head); a Cyclops (one round eye, a sheepskin, an olive-wood club); a Gorgon sister (serpent hair, tusk, bronze hand, golden wings, running).
+- New settings `enemies.walk_frame_px` and `enemies.art_*_tint`; `docs/ART_RULES.md` has an Enemies section; a test checks every enemy art file.
+
+### Reason
+The owner asked to start on the enemies (spells next).
+
 ## Version 00.02.14
 Date: 10/31/2026
 Time: 3:13 AM
