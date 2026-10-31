@@ -96,5 +96,6 @@ def draw(c, legs):
 
 
 if __name__ == "__main__":
-    kit.build_boss("tyche", draw, PALETTE, DOC, SIZE, ANCHOR, WALK, folder="gods")
+    kit.build_boss("tyche", draw, PALETTE, DOC, SIZE, ANCHOR, WALK, folder="gods",
+                  seated={"style": "greek", "hip": 40, "lap": "b", "shin": "b", "foot": "n", "keep": range(32, 38)})
     print("wrote data/art/gods/tyche.json")

@@ -103,5 +103,6 @@ def draw(c, legs):
 
 
 if __name__ == "__main__":
-    kit.build_boss("cernunnos", draw, PALETTE, DOC, SIZE, ANCHOR, WALK, folder="gods")
+    kit.build_boss("cernunnos", draw, PALETTE, DOC, SIZE, ANCHOR, WALK, folder="gods",
+                  seated={"style": "celtic", "hip": 44, "lap": "g", "shin": "t", "foot": "T"})
     print("wrote data/art/gods/cernunnos.json")

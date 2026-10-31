@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.08
+Date: 10/31/2026
+Time: 2:47 AM
+
+### Changes
+- **Every god has a throne, and sits on it at their shrine.** The throne stands in for the altar (the binding ring is unchanged). Gods still stand and move in their trials.
+  - Thrones in the style of each god's people: Greek marble with a gold-edged pediment (Tyche), a Norse carved wooden high seat with carved pillar tops (Thor), Celtic carved oak with bronze knotwork and a ring-head (Cernunnos); an Egyptian gilded throne with blue inlay and a lion's paw is ready for Sekhmet and Ra.
+  - The seated pose is made from each god's standing art (body lowered onto the seat, thighs along it, shins down), so later changes to a god carry over.
+- Replaces the gods walking round their altars (00.02.06). Settings `gods.altar_walk_*` were removed; new `gods.throne_feet_px`. A test checks every god has a seated frame.
+
+### Reason
+The owner asked for a throne for each god with the god sitting in it, then a completed sprite sheet.
+
 ## Version 00.02.07
 Date: 10/31/2026
 Time: 2:40 AM

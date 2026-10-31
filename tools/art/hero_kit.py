@@ -78,17 +78,99 @@ def build(hero_id, draw, palette, doc, out_dir=None, recolor=None):
     return art
 
 
-def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs, folder="bosses"):
+# Thrones for the gods (owner request 10/31/2026), in the style of each god's people. Their colours use the palette
+# letters 1-4 (light, shadow, trim, dark), added to the god's palette.
+THRONES = {
+    "greek": {"1": "#ece6d8", "2": "#b8b0a0", "3": "#d8b048", "4": "#8a8274"},      # marble with gold
+    "norse": {"1": "#8a5a32", "2": "#5e3c1e", "3": "#c8a048", "4": "#3e2612"},      # carved wood, a high seat
+    "celtic": {"1": "#7a6a4a", "2": "#54482e", "3": "#c8a848", "4": "#3a3020"},     # carved oak with bronze
+    "egyptian": {"1": "#e0b848", "2": "#a87e24", "3": "#3a6aa8", "4": "#6a4a14"},   # gilded, with blue inlay
+}
+
+
+def throne(c, style, back_x, front_x, seat_y, ground):
+    """The throne behind and under a seated god: a tall, broad back rising above their head, the seat, front legs;
+    details by style."""
+    top = max(seat_y - 42, 4)
+    bx0, bx1 = back_x - 10, back_x - 1
+    c.rect(bx0, top, bx1, ground, "1"); c.rect(bx0, top, bx0 + 1, ground, "2"); c.rect(bx1, top, bx1, seat_y, "2")
+    c.rect(bx0, seat_y, front_x + 3, seat_y + 3, "1"); c.row(seat_y + 3, bx0, front_x + 3, "2")
+    c.rect(front_x + 1, seat_y + 4, front_x + 3, ground, "1"); c.rect(front_x + 1, seat_y + 4, front_x + 1, ground, "2")
+    if style == "greek":
+        poly(c, [(bx0 - 1, top), (bx1 + 1, top), ((bx0 + bx1) / 2, top - 4)], "1")     # a pediment on top
+        c.row(top, bx0 - 1, bx1 + 1, "3"); c.row(seat_y + 1, bx0, front_x + 3, "3")
+        for y in range(top + 3, seat_y - 2, 6):
+            c.row(y, bx0 + 2, bx1 - 1, "2")                                      # panels
+        for y in range(seat_y + 6, ground, 4):
+            c.px(front_x + 2, y, "2")                                            # turned legs
+    elif style == "norse":
+        for x in (bx0, bx1 - 1):                                                 # high-seat pillars with carved tops
+            c.rect(x, top - 5, x + 1, top, "1"); c.px(x + 1, top - 6, "3"); c.px(x + 2, top - 5, "3")
+        for y in range(top + 3, seat_y, 5):
+            c.px(bx0 + 4, y, "4"); c.px(bx0 + 5, y + 1, "4"); c.px(bx0 + 6, y + 2, "4")   # carving
+        c.rect(front_x + 1, seat_y - 3, front_x + 3, seat_y - 1, "1"); c.px(front_x + 3, seat_y - 4, "3")
+    elif style == "celtic":
+        ellipse(c, (bx0 + bx1) / 2, top - 1, 4.5, 4.5, "1")                     # a carved ring-head
+        ellipse(c, (bx0 + bx1) / 2, top - 1, 2, 2, "2")
+        for y in range(top + 4, seat_y, 4):
+            c.px(bx0 + 3, y, "3"); c.px(bx0 + 5, y + 2, "3"); c.px(bx0 + 7, y, "3")   # knotwork in bronze
+    elif style == "egyptian":
+        for y in range(top + 2, seat_y, 3):
+            c.row(y, bx0 + 2, bx1 - 1, "3")                                      # blue inlay bands
+        c.row(top, bx0, bx1, "4")
+        c.rect(front_x + 1, ground - 3, front_x + 5, ground, "1"); c.px(front_x + 5, ground - 3, "4")   # a lion's paw
+
+
+def seated_frame(grid, size, anchor, seat):
+    """A seated pose made from the standing frame (`grid`, before outlining): the body above the hips lowered onto the
+    throne's seat, the thighs forward along it, the shins down to the ground. `seat` gives "hip" (the row where the
+    legs or skirt begin), "lap", "shin" and "foot" (palette letters), "style" (the throne), and optionally "keep" (a
+    range of columns copied whole and unmoved, like a staff resting on the ground)."""
+    w, h = size
+    ground = anchor[1]
+    hip = seat["hip"]
+    row = grid[hip - 1]
+    filled = [x for x in range(w) if row[x] != "."]
+    body = [x for x in filled if abs(x - anchor[0]) <= 8]
+    x0, x1 = (min(body), max(body)) if body else (anchor[0] - 6, anchor[0] + 6)
+    seat_y = ground - seat.get("height", 14)
+    drop = (seat_y - 4) - hip
+    c = Canvas(w, h)
+    keep = seat.get("keep", range(0))
+    throne(c, seat["style"], x0, x1, seat_y, ground)
+    for y in range(h):
+        for x in range(w):
+            if x in keep and grid[y][x] != ".":
+                c.px(x, y, grid[y][x])
+    for y in range(hip):
+        for x in range(w):
+            if grid[y][x] != "." and x not in keep:
+                c.px(x, y + drop, grid[y][x])
+    knee = x1 + 8
+    c.rect(x0, seat_y - 4, knee, seat_y - 1, seat["lap"])                    # thighs along the seat
+    c.rect(knee - 3, seat_y, knee, ground - 2, seat["shin"])                  # shins down to the ground
+    c.rect(knee - 3, ground - 1, knee + 2, ground, seat["foot"])
+    return c.outline()
+
+
+def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs, folder="bosses", seated=None):
     """A boss's art (bigger than a Hero, drawn on its own canvas): draw(canvas, legs) draws one frame for each entry
-    of walk_legs (the first is the standing pose). Writes data/art/<folder>/<boss_id>.json (gods use "gods")."""
-    def frame(legs):
+    of walk_legs (the first is the standing pose). Writes data/art/<folder>/<boss_id>.json (gods use "gods").
+    `seated` (gods): adds a "seated" frame on their throne (see seated_frame)."""
+    def raw(legs):
         c = Canvas(*size)
         draw(c, legs)
-        return c.outline()
+        return c
+
+    def frame(legs):
+        return raw(legs).outline()
     idle = frame(walk_legs[0])
     walk = [frame(legs) for legs in walk_legs[1:]]
-    art = {"_doc": doc, "size": list(size), "anchor": list(anchor), "palette": palette,
-           "frames": {"idle": [idle], "walk": walk}}
+    frames = {"idle": [idle], "walk": walk}
+    if seated:
+        palette = dict(palette, **THRONES[seated["style"]])
+        frames["seated"] = [seated_frame(raw(walk_legs[0]).g, size, anchor, seated)]
+    art = {"_doc": doc, "size": list(size), "anchor": list(anchor), "palette": palette, "frames": frames}
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", folder)
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, boss_id + ".json"), "w") as f:

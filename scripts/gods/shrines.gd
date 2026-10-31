@@ -169,36 +169,20 @@ func _draw() -> void:
 		var at: Vector2 = shrine["pos"]
 		var god: Dictionary = shrine["god"]
 		var color := Color.html(str(god.get("placeholder_color", "#ffffff")))
-		# The god walks slowly round their altar when they have art (owner request 10/31/2026; docs/ART_RULES.md:
-		# Gods): behind it on the far half of the circle, in front of it on the near half.
+		# The god sits on their throne, which stands in for the altar, when they have art (owner request
+		# 10/31/2026; docs/ART_RULES.md: Gods); else the altar's stones and a coloured dot.
 		var art: Dictionary = PixelArt.god(str(shrine.get("god_id", god.get("id", ""))))
-		var walk := {}
-		if not art.is_empty():
-			walk = _walk_round(at)
-			if not bool(walk["front"]):
-				PixelArt.draw_standing(self, art, walk["feet"], walk["left"], Color.WHITE, true, walk["stride"])
-		_draw_altar(at, god, color)
 		if art.is_empty():
+			_draw_altar(at, god, color)
 			draw_circle(at, 4.0, color)
-		elif bool(walk["front"]):
-			PixelArt.draw_standing(self, art, walk["feet"], walk["left"], Color.WHITE, true, walk["stride"])
+		else:
+			PixelArt.draw_standing(self, art, at + Vector2(0, Data.cfg_float("gods.throne_feet_px")), false, Color.WHITE,
+					false, 0.0, "seated")
 		var progress: float = float(shrine["progress"]) / maxf(Data.cfg_float("gods.peaceful_bind_s"), 0.01)
 		if progress > 0.0:
 			draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * progress, 32, color, 3.0)
 		else:
 			draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), 0.0, TAU, 32, Color(color, 0.4), 1.0)
-
-
-## Where a god walking round the altar at `at` is now: {"feet", "left" (facing), "front" (on the near half),
-## "stride"}. Each altar has its own starting point on the circle, so gods don't all walk in step.
-func _walk_round(at: Vector2) -> Dictionary:
-	var radius: float = Data.cfg_float("gods.altar_walk_radius_px")
-	var seconds: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
-	var angle: float = seconds * Data.cfg_float("gods.altar_walk_speed_px") / maxf(radius, 1.0) + fposmod(at.x * 0.13 + at.y * 0.07, TAU)
-	var squash: float = Data.cfg_float("gods.altar_walk_squash")
-	var feet: Vector2 = at + Vector2(cos(angle) * radius, sin(angle) * radius * squash)
-	# Walking anticlockwise on screen: moving left on the near half, right on the far half.
-	return {"feet": feet, "left": sin(angle) > 0.0, "front": sin(angle) > 0.0, "stride": angle * radius}
 
 
 ## The altar's stones, in the style of the god's people.
