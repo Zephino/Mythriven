@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.12
+Date: 10/31/2026
+Time: 3:06 AM
+
+### Changes
+- Wrote the owner's weapon rule into `GAME_DESIGN.md` (Weapons) and `docs/ART_RULES.md`: how a weapon attacks follows what it is. Spears and javelins are thrown and fly to enemies; bows stay in the Hero's hand and shoot arrows; swords, clubs and hammers are swung from the hand; axes, discs and sling-stones fly spinning. Every attack starts from the Hero. The game already works this way (00.02.11).
+
+### Reason
+The owner stated: "Arrows get shot. Swords get swung", so it's kept as a rule.
+
 ## Version 00.02.11
 Date: 10/31/2026
 Time: 3:03 AM
