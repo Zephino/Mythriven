@@ -8,14 +8,15 @@ choice open, Claude chose and says so. The owner can change any of it before or 
 1. **The Realm of the Ten Suns** (level 53), with the Hero **Hou Yi**.
 2. **The Crossroads** (level 54), the finale, with **the Unweaver**.
 
-## Level 53: the Realm of the Ten Suns (Chinese legend)
+## Level 53: the Realm of the Ten Suns (Chinese legend): **done and released 10/31/2026 (00.02.82)**
 *Sources: the Huainanzi (c. 139 BC: Yi shoots down nine of the ten suns); the Shanhaijing; Journey to the West
 (Baigujing, the White Bone Demon); Chinese New Year folklore (Nian). Chinese folk deities are Tier B, so the level has
 no local gods: shrines come from every pantheon. Sun Wukong stays out (Tier B).*
 
 - **Look (design):** scorched terraced hills, rivers, pagodas.
 - **Hazard (design):** extreme heat bands: bands of scorching heat cross the map; stand in shade (the shadow of trees,
-  pagodas and rocks) or be burned.
+  pagodas and rocks) or be burned. *(As built: the heat bands burn whoever stands in them; step out of the band to be
+  safe. Shade from trees was left out for now.)*
 - **Monsters (design):** bone demons, fox spirits, fire beasts.
 - **Bosses (design):**
   | Time | Boss | Mechanic |
@@ -23,6 +24,9 @@ no local gods: shrines come from every pantheon. Sun Wukong stays out (Tier B).*
   | 10:00 | **Nian** | Frightened by noise and red: Lightning and Fire hits stun it briefly |
   | 20:00 | **Baigujing**, the White Bone Demon | Takes three disguises in turn; striking the wrong one heals her |
   | 30:00 | **The Ten Suns** | Ten suns blaze overhead; shoot down nine, but if the last sun falls the world goes dark |
+
+  *(As built: the fight is won the moment the ninth sun falls, so the last sun always stays in the sky, as in the
+  legend; the "world goes dark" outcome can't happen.)*
 - **Hero (design): Hou Yi**, unlocked by defeating the Ten Suns. Great bow; Legend Trait "shoots down suns": bonus
   damage to flyers and bosses. Like the other bow Heroes, he shoots a fan of 2 weaker arrows (owner rule 00.02.50).
 - **Unlock (Claude's choice):** beat the Roc, Cloud-Cuckoo-Land's 30:00 boss, so the bonus levels follow Pack 4.

@@ -7,7 +7,8 @@
 # Run: python3 build_sprite_sheet.py from tools/art/ (needs Pillow).
 #
 # Also writes one sheet per pack, docs/art/sprite_sheet_pack2.png (and pack3, pack4), with only the pictures that pack
-# added (owner request 10/31/2026), so it's easy to see what's new. A picture belongs to the pack whose versions first
+# added (owner request 10/31/2026), so it's easy to see what's new; the bonus levels go on sprite_sheet_bonus.png
+# (from 00.02.82). A picture belongs to the pack whose versions first
 # added its art file (from git: Pack 2 = 00.02.53-00.02.69, Pack 3 = 00.02.70-00.02.75, Pack 4 = 00.02.77 on); the
 # passive icons, which share one file, go by the pack of the secret that unlocks them.
 import json, os, re, subprocess
@@ -144,7 +145,7 @@ def lay_out(title, tiles):
     return sheet
 
 
-PACKS = {2: ("00.02.53", "00.02.69"), 3: ("00.02.70", "00.02.75"), 4: ("00.02.77", "99.99.99")}
+PACKS = {2: ("00.02.53", "00.02.69"), 3: ("00.02.70", "00.02.75"), 4: ("00.02.77", "00.02.81"), 5: ("00.02.82", "99.99.99")}
 
 
 def first_version(path):
@@ -209,15 +210,17 @@ def pack_sheets():
         if not sheets:
             continue
         head = Image.new("RGB", (SHEET_W, 60), BG)
-        ImageDraw.Draw(head).text((PAD, 14), "Pack %d: new pictures" % pack, fill=HEAD, font=TITLE)
+        ImageDraw.Draw(head).text((PAD, 14), ("Pack %d: new pictures" % pack) if pack < 5 else "Bonus levels: new pictures",
+                                  fill=HEAD, font=TITLE)
         whole = Image.new("RGB", (SHEET_W, 60 + sum(s.height for s in sheets)), BG)
         whole.paste(head, (0, 0))
         y = 60
         for s in sheets:
             whole.paste(s, (0, y))
             y += s.height
-        whole.save(os.path.join(OUT, "sprite_sheet_pack%d.png" % pack))
-        print("wrote docs/art/sprite_sheet_pack%d.png (%dx%d)" % (pack, whole.width, whole.height))
+        name = ("sprite_sheet_pack%d.png" % pack) if pack < 5 else "sprite_sheet_bonus.png"
+        whole.save(os.path.join(OUT, name))
+        print("wrote docs/art/%s (%dx%d)" % (name, whole.width, whole.height))
 
 
 if __name__ == "__main__":

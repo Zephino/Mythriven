@@ -766,3 +766,13 @@ func test_benkei_hits_harder_when_surrounded_and_yoshitsune_leaps() -> void:
 	GameAuthority.damage_player(yoshi, 20.0, "test", Vector2(-30, 0))
 	assert_lt(yoshi.hp, hp, "two leaps, then he is hit")
 	GameAuthority.remove_player(yoshi)
+
+
+func test_hou_yi_shoots_the_strongest_flyer() -> void:
+	var yi: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "hou_yi")
+	var walker: int = _enemies.spawn("troll", Vector2(60, 0))
+	var flyer: int = _enemies.spawn("harpy_flyer", Vector2(-80, 0))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	assert_eq(yi.kit.pick(_enemies), flyer, "he aims at the flyer first")
+	assert_ne(walker, flyer)
+	GameAuthority.remove_player(yi)

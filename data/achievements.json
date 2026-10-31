@@ -844,5 +844,35 @@
       "id": "roc"
     },
     "persists": true
+  },
+  {
+    "id": "boss_nian",
+    "name_key": "ACH_BOSS_NIAN_NAME",
+    "desc_key": "ACH_BOSS_NIAN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "nian"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_baigujing",
+    "name_key": "ACH_BOSS_BAIGUJING_NAME",
+    "desc_key": "ACH_BOSS_BAIGUJING_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "baigujing"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_ten_suns",
+    "name_key": "ACH_BOSS_TEN_SUNS_NAME",
+    "desc_key": "ACH_BOSS_TEN_SUNS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ten_suns"
+    },
+    "persists": true
   }
 ]

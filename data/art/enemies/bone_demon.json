@@ -1,0 +1,133 @@
+{
+ "_doc": "A bone demon (Journey to the West: the White Bone Demon's kind): a small rattling skeleton spirit. Built by tools/art/build_bonus.py.",
+ "size": [
+  18,
+  20
+ ],
+ "anchor": [
+  9,
+  19
+ ],
+ "palette": {
+  "o": "#1a1418",
+  "k": "#100a10",
+  "w": "#ece6d8",
+  "W": "#b8b0a0"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".........o........",
+    ".......oowoo......",
+    "......owwwwwo.....",
+    "......owwwwwo.....",
+    ".....owwkwkwwo....",
+    "......owwwwwo.....",
+    "......owkkkwo.....",
+    "....ooooowooooo...",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "....ooooowooooo...",
+    "......owowowo.....",
+    "......owooowo.....",
+    "......owo.owo.....",
+    "......owo.owo.....",
+    "......owo.owo.....",
+    ".....owwoowwo....."
+   ]
+  ],
+  "walk": [
+   [
+    ".........o........",
+    ".......oowoo......",
+    "......owwwwwo.....",
+    "......owwwwwo.....",
+    ".....owwkwkwwo....",
+    "......owwwwwo.....",
+    "......owkkkwo.....",
+    "....ooooowooooo...",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "....ooooowooooo...",
+    ".......owwwo......",
+    ".......owowo......",
+    ".......owowo......",
+    ".......owowo......",
+    ".......owowo......",
+    "......owwwwo......"
+   ],
+   [
+    ".........o........",
+    ".......oowoo......",
+    "......owwwwwo.....",
+    "......owwwwwo.....",
+    ".....owwkwkwwo....",
+    "......owwwwwo.....",
+    "......owkkkwo.....",
+    "....ooooowooooo...",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "....ooooowooooo...",
+    "......owowowo.....",
+    "......owooowo.....",
+    "......owo.owo.....",
+    "......owo.owo.....",
+    "......owo.owo.....",
+    ".....owwoowwo....."
+   ],
+   [
+    ".........o........",
+    ".......oowoo......",
+    "......owwwwwo.....",
+    "......owwwwwo.....",
+    ".....owwkwkwwo....",
+    "......owwwwwo.....",
+    "......owkkkwo.....",
+    "....ooooowooooo...",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "....ooooowooooo...",
+    ".....owoowoowo....",
+    ".....owo.o.owo....",
+    ".....owo...owo....",
+    ".....owo...owo....",
+    ".....owo...owo....",
+    "....owwo..owwo...."
+   ],
+   [
+    ".........o........",
+    ".......oowoo......",
+    "......owwwwwo.....",
+    "......owwwwwo.....",
+    ".....owwkwkwwo....",
+    "......owwwwwo.....",
+    "......owkkkwo.....",
+    "....ooooowooooo...",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "...owwooowooowwo..",
+    "...owwWWWWWWWwwo..",
+    "....ooooowooooo...",
+    "......owowowo.....",
+    "......owooowo.....",
+    "......owo.owo.....",
+    "......owo.owo.....",
+    "......owo.owo.....",
+    ".....owwoowwo....."
+   ]
+  ]
+ }
+}

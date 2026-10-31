@@ -1957,5 +1957,129 @@
       "edge": "#b8a888",
       "stones": "#c09a6a"
     }
+  },
+  {
+    "_doc": "The Realm of the Ten Suns, bonus level 53 (docs/BONUS_LEVELS_PLAN.md; GAME_DESIGN.md Act IV). Scorched terraced hills, rivers, pagodas. Sources: the Huainanzi; the Shanhaijing; Journey to the West; New Year folklore. No local gods (Chinese folk deities are Tier B): shrines from every pantheon.",
+    "id": "the_realm_of_the_ten_suns",
+    "name_key": "LEVEL_TEN_SUNS_NAME",
+    "region": "chinese",
+    "act": 5,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_realm_of_the_ten_suns",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "reeds",
+          "max": -0.45,
+          "placeholder_color": "#5a6a3a",
+          "placeholder_dots": "#7a8a4a"
+        },
+        {
+          "id": "cracked",
+          "max": 0.1,
+          "placeholder_color": "#a8784a",
+          "placeholder_dots": "#c8501a"
+        },
+        {
+          "id": "dirt",
+          "max": 0.6,
+          "placeholder_color": "#8a6040",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "sand",
+          "max": 1.0,
+          "placeholder_color": "#c8a070",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "pagoda_ruin",
+      "bamboo_clump"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "pagoda_ruin": {
+        "shape": "rect",
+        "size_px": [
+          24,
+          34
+        ],
+        "placeholder_color": "#8a3a2a",
+        "weight": 1
+      },
+      "bamboo_clump": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          32
+        ],
+        "placeholder_color": "#6a9a4a",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "nian",
+      "20": "baigujing",
+      "30": "ten_suns"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "cloud_cuckoo_land",
+      "boss": "roc"
+    },
+    "waves": "waves_the_realm_of_the_ten_suns.json",
+    "hazard": {
+      "type": "strikes",
+      "name_key": "HAZARD_HEAT_BANDS_NAME",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.5,
+      "radius_px": 56,
+      "telegraph_s": 1.6,
+      "damage": 6,
+      "element": "fire",
+      "range_px": 240,
+      "color": "#f0a030",
+      "look": "heat",
+      "flood_s": 6,
+      "heat_dps": 8
+    },
+    "ground_patches": {
+      "kind": "river",
+      "count": 4,
+      "radius_px": [
+        26,
+        38
+      ],
+      "color": "#c8501a",
+      "speed_mult": 0.75,
+      "drain_hp_per_s": 2.0
+    },
+    "seal": "huiwen",
+    "tint": "#f4e0cc",
+    "flora": {
+      "density": 0.6,
+      "trees": {
+        "black_pine": 2,
+        "willow": 1,
+        "dead_tree": 2
+      }
+    },
+    "road": {
+      "color": "#a8885a",
+      "edge": "#7a6040",
+      "stones": "#c8a070"
+    }
   }
 ]

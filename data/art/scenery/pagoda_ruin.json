@@ -1,0 +1,81 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A ruined pagoda (the Realm of the Ten Suns): a scorched tower of stacked tiers with upturned eaves, the top tiers fallen.",
+ "size": [
+  25,
+  33
+ ],
+ "anchor": [
+  12,
+  32
+ ],
+ "palette": {
+  "a": "#2a2a2a",
+  "b": "#6c6c6c",
+  "c": "#66666c",
+  "d": "#606066",
+  "e": "#545a5a",
+  "f": "#120c06",
+  "g": "#2a1e18",
+  "h": "#241e12",
+  "i": "#241812",
+  "j": "#1e1812",
+  "k": "#783c30",
+  "l": "#72362a",
+  "m": "#3c1812",
+  "n": "#7e3c30",
+  "o": "#6c3024",
+  "p": "#963c30",
+  "q": "#8a3630",
+  "r": "#9c3c30",
+  "s": "#84362a",
+  "t": "#7e362a",
+  "u": "#481812",
+  "v": "#723024",
+  "w": "#7e302a",
+  "x": "#78302a",
+  "y": "#783c2a",
+  "z": "#663024",
+  "A": "#6c362a",
+  "B": "#602a24",
+  "C": "#5a2a1e"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....aaaa................",
+    "....abcdba...............",
+    "....accbda......a........",
+    "....adbdea.....aca.f.....",
+    "....adbccffffffffffgf....",
+    ".....fhhgggghiggihgf.....",
+    ".....fhghgjhhhhhhhgf.....",
+    "......ffkkkkkllkkff......",
+    ".......mkkkllknnkm.......",
+    ".......mlkkhhhkknm.......",
+    ".......mknkhhhknlm.......",
+    "...f...mknkhhhkkkm...f...",
+    "..fgffffkkkhhhnkkffffhf..",
+    "...fggjgnkohhhkkkjhghf...",
+    "...fihhgllnnnlknlhhhhf...",
+    "....ffpqprppstppqppff....",
+    ".....uvqqpspsspqswsu.....",
+    ".....uqspsxiihppsqqu.....",
+    ".....uqpqqqiiippqqqu.....",
+    ".....uqpqqqijisppppu.....",
+    ".f...usqxqqhjisqsspu...f.",
+    "fhffffpqqxqiihpqqspffffhf",
+    ".fiiiipsqqqqqxqqqqqihhif.",
+    ".fiihihiiijhiihiiiiijhif.",
+    "..ffllylzylllllyllllyff..",
+    "...mylAAlyAAzAlAylyAAm...",
+    "...mzllAllliiilAAllllm...",
+    "...mAlAzAzAiiilAAAlAzm...",
+    "...mllABAlzijiAzzAzlAm...",
+    "...mzAAlAlAiiilAzAzzAm...",
+    "...mzAAAlAAijjzlAzzACm...",
+    "...mlzzllAAAABlAAzAlAm...",
+    "....mmmmmmmmmmmmmmmmm...."
+   ]
+  ]
+ }
+}

@@ -889,5 +889,54 @@
       "type": "achievement",
       "achievement": "legends_survive_30"
     }
+  },
+  {
+    "id": "hou_yi",
+    "name_key": "HERO_HOU_YI_NAME",
+    "tradition_key": "TRADITION_CHINESE",
+    "role_key": "ROLE_SUN_SHOOTER",
+    "placeholder_color": "#b02a2a",
+    "patron_pantheon": "",
+    "care_tier": "A",
+    "lore_source": "The Huainanzi (c. 139 BC: Yi shoots down nine of the ten suns and slays the monsters plaguing the land)",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 110,
+      "move_speed": 100,
+      "armor": 2,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 8
+    },
+    "signature_weapon": "hou_yi_bow",
+    "expertise": [
+      "bow",
+      "spear"
+    ],
+    "trait": {
+      "id": "shoots_down_suns",
+      "name_key": "TRAIT_SHOOTS_DOWN_SUNS",
+      "desc_key": "TRAIT_SHOOTS_DOWN_SUNS_DESC",
+      "every_s": 6.0,
+      "damage": 60,
+      "boss_flyer_mult": 2.0,
+      "range_px": 420
+    },
+    "passive": {
+      "id": "divine_archer",
+      "name_key": "PASSIVE_DIVINE_ARCHER",
+      "desc_key": "PASSIVE_DIVINE_ARCHER_DESC",
+      "crit_pct": 5
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "defeat_boss",
+      "boss": "ten_suns"
+    }
   }
 ]

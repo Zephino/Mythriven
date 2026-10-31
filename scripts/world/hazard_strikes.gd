@@ -40,6 +40,8 @@ func _process(delta: float) -> void:
 	var any_marker: bool = false
 	if _look() == "bramble" or _look() == "flood":
 		_slow_in_patches()
+	elif _look() == "heat":
+		_scorch(delta)
 	for h: int in range(_hole_left.size() - 1, -1, -1):
 		_hole_left[h] -= delta
 		any_marker = true
@@ -101,7 +103,7 @@ func _strike(at: Vector2) -> void:
 		elif _look() == "bramble":
 			_hole_pos.append(at)
 			_hole_left.append(float(_data.get("bramble_s", 7.0)))
-		elif _look() == "flood":
+		elif _look() == "flood" or _look() == "heat":
 			_hole_pos.append(at)
 			_hole_left.append(float(_data.get("flood_s", 6.0)))
 		else:
@@ -119,7 +121,7 @@ const FLOOD_SHAPE := Vector2(2.2, 0.8)
 func in_patch(at: Vector2, h: int, pad: float = 0.0) -> bool:
 	var reach: float = float(_data.get("radius_px", 30.0)) + pad
 	var d: Vector2 = at - _hole_pos[h]
-	if _look() == "flood":
+	if _look() == "flood" or _look() == "heat":
 		d = Vector2(d.x / FLOOD_SHAPE.x, d.y / FLOOD_SHAPE.y)
 	return d.length() <= reach
 
@@ -152,6 +154,19 @@ func _slow_in_patches() -> void:
 					enemies.statuses.remove(slot, "burn")
 
 
+## Heat bands (the Realm of the Ten Suns): whoever stands in one is burned every moment.
+func _scorch(delta: float) -> void:
+	if paused:
+		return
+	for player: Player in GameAuthority.players:
+		if not player.alive:
+			continue
+		for h: int in _hole_pos.size():
+			if in_patch(player.position, h, player.body_radius):
+				GameAuthority.damage_player_over_time(player, float(_data.get("heat_dps", 8.0)) * delta)
+				break
+
+
 func _exit_tree() -> void:
 	for player: Player in GameAuthority.players:
 		if is_instance_valid(player) and _slowed.has(player.player_id):
@@ -171,6 +186,16 @@ func _draw() -> void:
 	# Open chasms: a dark pit with a glowing rim, closing up again.
 	for h: int in _hole_left.size():
 		var open: float = clampf(_hole_left[h] / CHASM_OPEN_S, 0.0, 1.0)
+		if _look() == "heat":
+			# A band of scorching heat: shimmering orange air over baked ground.
+			var hot: float = clampf(_hole_left[h] / 1.0, 0.0, 1.0)
+			draw_set_transform(_hole_pos[h], 0.0, FLOOD_SHAPE)
+			draw_circle(Vector2.ZERO, reach, Color(glow, 0.3 * hot))
+			for r: int in 3:
+				var ring: float = fmod(Time.get_ticks_msec() / 1000.0 * 0.7 + r / 3.0, 1.0)
+				draw_arc(Vector2.ZERO, reach * (0.3 + 0.6 * ring), 0.0, TAU, 24, Color(1.0, 0.9, 0.5, 0.4 * hot * (1.0 - ring)), 1.5)
+			draw_set_transform(Vector2.ZERO)
+			continue
 		if _look() == "flood":
 			# Flood water spreading across the plain in a long band, ripples on it, draining away at the end.
 			var wet: float = clampf(_hole_left[h] / 1.0, 0.0, 1.0)
@@ -211,8 +236,8 @@ func _draw() -> void:
 		var filled: float = clampf(1.0 - _marker_left[i] / full, 0.0, 1.0)
 		draw_arc(_marker_pos[i], reach, 0.0, TAU, 24, area_color, 1.5)
 		draw_circle(_marker_pos[i], reach * filled, Color(area_color, area_color.a * 0.4))
-		if _look() == "flood":
-			# The water rising: a widening band of wet ground.
+		if _look() == "flood" or _look() == "heat":
+			# The water rising (or the heat building): a widening band of wet ground.
 			draw_set_transform(_marker_pos[i], 0.0, FLOOD_SHAPE)
 			draw_circle(Vector2.ZERO, reach * filled, Color(glow, 0.3))
 			draw_set_transform(Vector2.ZERO)

@@ -893,3 +893,40 @@ func test_pack_4_boss_secrets() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
+func test_nian_fears_fire_and_baigujing_heals_when_disguised() -> void:
+	_start("the_realm_of_the_ten_suns")
+	var nian: NianBoss = _bosses.spawn_boss("nian", 0) as NianBoss
+	nian.on_element_hit("fire")
+	assert_gt(_enemies.statuses.stun[nian.slot], 0.0, "fire frightens it")
+	var demon: BaigujingBoss = _bosses.spawn_boss("baigujing", 1) as BaigujingBoss
+	demon.signature(0.1)
+	assert_eq(demon.art_id(), "baigujing_girl")
+	_enemies.hp[demon.slot] = 100.0
+	assert_eq(demon.modify_hit(40.0, _player, Vector2.ZERO), 0.0, "the wrong target")
+	assert_gt(_enemies.hp[demon.slot], 100.0, "heals her")
+	demon.signature(5.0)
+	assert_eq(demon.art_id(), "baigujing", "her true shape")
+	assert_almost_eq(demon.modify_hit(40.0, _player, Vector2.ZERO), 40.0, 0.01)
+
+
+func test_the_ten_suns_fall_at_nine_and_unlock_hou_yi() -> void:
+	_start("the_realm_of_the_ten_suns")
+	var suns: TenSunsBoss = _bosses.spawn_boss("ten_suns", 2) as TenSunsBoss
+	assert_eq(suns.suns_left(), 10)
+	_enemies.hp[suns.slot] = _enemies.max_hp[suns.slot] * 0.15
+	assert_eq(suns.suns_left(), 2)
+	assert_gt(suns.modify_hit(_enemies.max_hp[suns.slot] * 0.06, _player, Vector2.ZERO), _enemies.hp[suns.slot], "the ninth sun ends the fight")
+	assert_eq(str(suns.data.get("unlocks_hero", "")), "hou_yi")
+
+
+func test_heat_bands_burn() -> void:
+	_start("the_realm_of_the_ten_suns")
+	var heat := Hazard.create(_level("the_realm_of_the_ten_suns")["hazard"]) as HazardStrikes
+	_world.add_child(heat)
+	heat.begin(_level("the_realm_of_the_ten_suns")["hazard"])
+	heat._strike(_player.position + Vector2(80, 0))
+	var hp: float = _player.hp
+	heat._process(0.5)
+	assert_lt(_player.hp, hp, "standing in the heat burns")

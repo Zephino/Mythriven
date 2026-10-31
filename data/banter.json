@@ -1733,5 +1733,66 @@
     "text_key": "BANTER_HOOPOE_ODYSSEUS",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "hou_yi_binds",
+    "trigger": "hero_bind",
+    "speaker": "hou_yi",
+    "hero": "hou_yi",
+    "god": "",
+    "text_key": "BANTER_HOU_YI_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "nian_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "nian",
+    "hero": "",
+    "god": "nian",
+    "text_key": "BANTER_NIAN_ENTRANCE",
+    "lore_source": "New Year folklore (Nian comes at the year's end)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "baigujing_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "baigujing",
+    "hero": "",
+    "god": "baigujing",
+    "text_key": "BANTER_BAIGUJING_ENTRANCE",
+    "lore_source": "Journey to the West, chapter 27 (her disguises)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ten_suns_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ten_suns",
+    "hero": "",
+    "god": "ten_suns",
+    "text_key": "BANTER_TEN_SUNS_ENTRANCE",
+    "lore_source": "The Huainanzi (the ten suns rise together)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ten_suns_hou_yi",
+    "trigger": "boss_entrance",
+    "speaker": "ten_suns",
+    "hero": "hou_yi",
+    "god": "ten_suns",
+    "text_key": "BANTER_TEN_SUNS_HOU_YI",
+    "lore_source": "The Huainanzi (Yi shoots down nine suns)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ten_suns_ra",
+    "trigger": "boss_meets_god",
+    "speaker": "ten_suns",
+    "hero": "",
+    "god": "ten_suns",
+    "with_god": "ra",
+    "text_key": "BANTER_TEN_SUNS_RA",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

@@ -1998,3 +1998,47 @@ COSMETIC_MUSPELL_EMBER,Muspell ember
 COSMETIC_RIME_CROWN,Crown of rime
 COSMETIC_SEA_FOAM,Sea foam
 COSMETIC_RAINBOW,Rainbow
+PACK_5_NAME,Bonus level
+PACK_6_NAME,The finale
+TRADITION_CHINESE,Chinese legend
+LEVEL_TEN_SUNS_NAME,The Realm of the Ten Suns
+HAZARD_HEAT_BANDS_NAME,Bands of scorching heat cross the land!
+ENEMY_BONE_DEMON_NAME,Bone demon
+ENEMY_BONE_DEMON_MYTH,"In Journey to the West, the White Bone Demon is a spirit of white bones who tries to trick the pilgrims so she can eat the monk Tang Sanzang and live forever."
+ENEMY_FOX_SPIRIT_NAME,Fox spirit
+ENEMY_FOX_SPIRIT_MYTH,The ancient Classic of Mountains and Seas tells of a fox with nine tails in the hills of Qingqiu. In later tales fox spirits are clever shape-shifters with foxfire at their command.
+ENEMY_FIRE_BEAST_NAME,Fire beast
+ENEMY_FIRE_BEAST_MYTH,"When all ten suns rose together, the Huainanzi says, the crops burned and the plants withered, and monsters and fierce beasts came out to prey on the people."
+BOSS_NIAN_NAME,Nian
+BOSS_BAIGUJING_NAME,Baigujing
+BOSS_TEN_SUNS_NAME,The Ten Suns
+ENEMY_NIAN_NAME,Nian
+ENEMY_BAIGUJING_NAME,Baigujing
+ENEMY_TEN_SUNS_NAME,The Ten Suns
+ENEMY_NIAN_MYTH,"The beast of Chinese New Year folklore that came down at the turn of the year. It feared loud noise, fire and the colour red, which is why firecrackers are set off and red is hung on doors."
+ENEMY_BAIGUJING_MYTH,"The White Bone Demon of Journey to the West. Three times she came to the pilgrims in disguise, as a village girl, an old woman and an old man, and three times the Monkey King saw through her."
+ENEMY_TEN_SUNS_MYTH,"Once ten suns crossed the sky by turns, but in the time of the sage-king Yao they all rose together and scorched the earth. The archer Yi shot down nine, and in each that fell was a crow; one sun was left to light the world."
+BOSS_BAIGUJING_TRUE,Her true shape shows: strike now!
+BOSS_TEN_SUNS_RISE,"Ten suns blaze! Shoot down nine, and leave one in the sky."
+ROLE_SUN_SHOOTER,Divine archer
+HERO_HOU_YI_NAME,Hou Yi
+HERO_HOU_YI_LEGEND,"The great archer of ancient China. When ten suns rose together and burned the world, he shot down nine of them with his arrows, and he slew the monsters that plagued the land."
+WEAPON_HOU_YI_BOW_NAME,Hou Yi's bow
+WEAPON_HOU_YI_BOW_DESC,A fan of two long-range arrows that pierce.
+TRAIT_SHOOTS_DOWN_SUNS,Shoots down suns
+TRAIT_SHOOTS_DOWN_SUNS_DESC,Every 6 s he looses a great arrow at the strongest boss or flying monster in range (else the toughest monster): double damage against bosses and flyers.
+PASSIVE_DIVINE_ARCHER,Divine archer
+PASSIVE_DIVINE_ARCHER_DESC,+5% crit chance.
+HUD_SHOOTS_DOWN_SUNS,Great arrow in %d s
+ACH_BOSS_NIAN_NAME,Defeat Nian
+ACH_BOSS_NIAN_DESC,The 10:00 boss of the Realm of the Ten Suns.
+ACH_BOSS_BAIGUJING_NAME,Defeat Baigujing
+ACH_BOSS_BAIGUJING_DESC,The 20:00 boss of the Realm of the Ten Suns.
+ACH_BOSS_TEN_SUNS_NAME,Defeat the Ten Suns
+ACH_BOSS_TEN_SUNS_DESC,The 30:00 boss of the Realm of the Ten Suns.
+BANTER_HOU_YI_BINDS,"Lend me your strength, and my arrows will not miss."
+BANTER_NIAN_ENTRANCE,"The year turns, and I come down from the mountain."
+BANTER_BAIGUJING_ENTRANCE,"Only a poor traveller, nothing to fear. Come closer."
+BANTER_TEN_SUNS_ENTRANCE,"Ten of us, all at once. Let the world burn."
+BANTER_TEN_SUNS_HOU_YI,The archer again. Nine of us remember your arrows.
+BANTER_TEN_SUNS_RA,"One sun in the sky is enough, Ra; we are ten."

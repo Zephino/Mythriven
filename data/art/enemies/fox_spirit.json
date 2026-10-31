@@ -1,0 +1,125 @@
+{
+ "_doc": "A fox spirit (Chinese tales; the Shanhaijing's nine-tailed fox): a red fox with several tails, foxfire at their tips. Built by tools/art/build_bonus.py.",
+ "size": [
+  24,
+  18
+ ],
+ "anchor": [
+  11,
+  17
+ ],
+ "palette": {
+  "o": "#1a0a04",
+  "k": "#0a0402",
+  "r": "#d86a2a",
+  "R": "#a84a1a",
+  "w": "#f0ece0",
+  "b": "#60c0ff"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    ".o......................",
+    "obo.....................",
+    ".ooo.............o......",
+    "obrro...........oro.....",
+    ".oorro..........ooro....",
+    "obrro...oooooooorooo....",
+    ".oorrooorrrrrrrorrkroo..",
+    ".orroorrrrrrrrrrrrrrrro.",
+    "..orrrrrrrrrrrrrrrrrrro.",
+    "...orrrrrrrrrrrrrrwwwwko",
+    "....orrrrrrrrrrrrrooooo.",
+    "....orrrrRrrrrrrrRo.....",
+    "....oroorRrrrrrooRo.....",
+    "....oro.oRoooro.oRo.....",
+    "....oro.oRo.oro.oRo.....",
+    "....oro.oRo.oro.oRo.....",
+    ".....o...o...o...o......"
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    ".o......................",
+    "obo.....................",
+    ".ooo.............o......",
+    "obrro...........oro.....",
+    ".oorro..........ooro....",
+    "obrro...oooooooorooo....",
+    ".oorrooorrrrrrrorrkroo..",
+    ".orroorrrrrrrrrrrrrrrro.",
+    "..orrrrrrrrrrrrrrrrrrro.",
+    "...orrrrrrrrrrrrrrwwwwko",
+    "....orrrrrrrrrrrrrooooo.",
+    ".....orrRrrrrrrrroRo....",
+    ".....oroRrrrrrroooRo....",
+    ".....oroRoooroo..oRo....",
+    ".....oroRo.oro...oRo....",
+    ".....oroRo.oro...oRo....",
+    "......o.o...o.....o....."
+   ],
+   [
+    "........................",
+    ".o......................",
+    "obo.....................",
+    ".ooo.............o......",
+    "obrro...........oro.....",
+    ".oorro..........ooro....",
+    "obrro...oooooooorooo....",
+    ".oorrooorrrrrrrorrkroo..",
+    ".orroorrrrrrrrrrrrrrrro.",
+    "..orrrrrrrrrrrrrrrrrrro.",
+    "...orrrrrrrrrrrrrrwwwwko",
+    "....orrrrrrrrrrrrrooooo.",
+    "....orrrrRrrrrrrrRo.....",
+    "....oroorRrrrrrooRo.....",
+    "....oro.oRoooro.oRo.....",
+    "....oro.oRo.oro.oRo.....",
+    "....oro.oRo.oro.oRo.....",
+    ".....o...o...o...o......"
+   ],
+   [
+    "........................",
+    ".o......................",
+    "obo.....................",
+    ".ooo.............o......",
+    "obrro...........oro.....",
+    ".oorro..........ooro....",
+    "obrro...oooooooorooo....",
+    ".oorrooorrrrrrrorrkroo..",
+    ".orroorrrrrrrrrrrrrrrro.",
+    "..orrrrrrrrrrrrrrrrrrro.",
+    "...orrrrrrrrrrrrrrwwwwko",
+    "....orrrrrrrrrrrrrooooo.",
+    "...ororrrrRrrrrrRo......",
+    "...orooorrRrrrroRo......",
+    "...oro..ooRoooroRo......",
+    "...oro...oRo.oroRo......",
+    "...oro...oRo.oroRo......",
+    "....o.....o...o.o......."
+   ],
+   [
+    "........................",
+    ".o......................",
+    "obo.....................",
+    ".ooo.............o......",
+    "obrro...........oro.....",
+    ".oorro..........ooro....",
+    "obrro...oooooooorooo....",
+    ".oorrooorrrrrrrorrkroo..",
+    ".orroorrrrrrrrrrrrrrrro.",
+    "..orrrrrrrrrrrrrrrrrrro.",
+    "...orrrrrrrrrrrrrrwwwwko",
+    "....orrrrrrrrrrrrrooooo.",
+    "....orrrrRrrrrrrrRo.....",
+    "....oroorRrrrrrooRo.....",
+    "....oro.oRoooro.oRo.....",
+    "....oro.oRo.oro.oRo.....",
+    "....oro.oRo.oro.oRo.....",
+    ".....o...o...o...o......"
+   ]
+  ]
+ }
+}

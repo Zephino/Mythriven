@@ -362,6 +362,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | iris_at_the_walls | Iris at the Walls | The birds caught the swift messenger at their walls; be quicker than her errand. | Aristophanes, The Birds (Iris caught at the walls) | no |
 | sindbads_escape | Sindbad's Escape | Watch the shadows on the ground, and let every stone miss. | The Thousand and One Nights (Sindbad escapes the Rocs' boulders) | no |
 
+## Bonus levels
+
+### The Realm of the Ten Suns
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| hero | hou_yi | Hou Yi | The Huainanzi (c. 139 BC: Yi shoots down nine of the ten suns and slays the monsters plaguing the land) | no |
+| boss | nian | Nian | New Year folklore (Nian fears noise, fire and red) | no |
+| boss | baigujing | Baigujing | Journey to the West, chapter 27 (three disguises: a village girl, an old woman, an old man) | no |
+| boss | ten_suns | The Ten Suns | The Huainanzi (Yi shoots down nine of the ten suns); the Shanhaijing (a crow in each sun) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| hou_yi_binds | hero bind | hou_yi | Lend me your strength, and my arrows will not miss. | Original line written for Mythriven | no |
+| nian_entrance | boss entrance | nian | The year turns, and I come down from the mountain. | New Year folklore (Nian comes at the year's end) | no |
+| baigujing_entrance | boss entrance | baigujing | Only a poor traveller, nothing to fear. Come closer. | Journey to the West, chapter 27 (her disguises) | no |
+| ten_suns_entrance | boss entrance | ten_suns | Ten of us, all at once. Let the world burn. | The Huainanzi (the ten suns rise together) | no |
+| ten_suns_hou_yi | boss entrance (as hou_yi) | ten_suns | The archer again. Nine of us remember your arrows. | The Huainanzi (Yi shoots down nine suns) | no |
+| ten_suns_ra | boss meets god (with ra) | ten_suns | One sun in the sky is enough, Ra; we are ten. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

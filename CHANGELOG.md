@@ -2,6 +2,28 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.82
+Date: 10/31/2026
+Time: 6:42 PM
+
+### Changes
+- **The bonus level, the Realm of the Ten Suns, is built and open** (`docs/BONUS_LEVELS_PLAN.md`). Beat the Roc (Cloud-Cuckoo-Land's 30:00 boss) to unlock it; it has its own "Bonus level" heading in the level select and is as hard as Pack 4. From the Huainanzi, the Classic of Mountains and Seas, Journey to the West and New Year folklore. No local gods (Chinese folk gods are left out, as the design says): shrines bring gods from every pantheon.
+  - **The land:** scorched, cracked earth and sand, reed beds and pools of burning ground; black pines, willows and dead trees; ruined pagodas and bamboo; cranes and crows.
+  - **Heat bands** (the hazard): long bands of scorching heat spread across the land and burn whoever stands in them.
+  - **Monsters:** bone demon swarms, fox spirits throwing foxfire, and horned fire beasts.
+  - **Bosses:**
+    - **Nian** (10:00): the New Year beast fears noise, fire and red; a Fire or Lightning hit stuns it for a moment.
+    - **Baigujing, the White Bone Demon** (20:00): she takes three disguises in turn (a village girl, an old woman, an old man), and while disguised your blows heal her; strike when her true shape of bones shows.
+    - **The Ten Suns** (30:00): the suns scorch everyone, harder the more are left in the sky. Shoot down nine and the fight is won, with the last sun left shining, as in the legend.
+  - **New Hero: Hou Yi** (Divine archer; HP 110, Speed 100, Armor 2), unlocked by defeating the Ten Suns. His bow shoots a fan of two arrows, like the other bow Heroes. Legend Trait **Shoots down suns**: every 6 s a great arrow at the strongest boss or flyer in range, double damage to them. Passive **Divine archer**: +5% crit chance.
+  - Boss achievements, 6 banter lines (the Ten Suns remember Hou Yi), and the level's rows on the lore check.
+- The per-pack sprite sheets now have a fourth, `docs/art/sprite_sheet_bonus.png`, for the bonus levels.
+- Two small changes from the design, noted in the plan: the heat bands burn whoever is inside them (shade from trees is left out for now), and the Ten Suns fight ends when the ninth sun falls, so the last sun can never fall.
+- 4 new tests (331 tests pass).
+
+### Reason
+The owner said "build it". The Realm of the Ten Suns is the first of the two bonus levels.
+
 ## Version 00.02.81
 Date: 10/31/2026
 Time: 6:31 PM

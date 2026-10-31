@@ -1,0 +1,146 @@
+{
+ "_doc": "Critters of the_realm_of_the_ten_suns (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#c8a870",
+  "b": "#8a6a40",
+  "c": "#f0f0ec",
+  "d": "#24222a",
+  "e": "#c83030",
+  "f": "#3a3844",
+  "g": "#c83a2a",
+  "h": "#f8e0c8"
+ },
+ "frames": {
+  "desert_lizard": [
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "o..oboboo....."
+   ],
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "oobooooobo...."
+   ]
+  ],
+  "crane": [
+   [
+    ".......oo.",
+    "o..oooocko",
+    "doocccccce",
+    "odddddccoo",
+    ".occcccco.",
+    "..occcco..",
+    "...oeoeo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "doocccccko",
+    "odddddccce",
+    ".occccccoo",
+    "..occcco..",
+    "...oeoeo.."
+   ]
+  ],
+  "crane_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...occcccoce",
+    "...occdccooo",
+    "....odddo...",
+    "...odoodo..."
+   ],
+   [
+    "....o..o....",
+    "...odoodoo..",
+    "....odddokoo",
+    "...occdccoce",
+    "...occcccooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "crow": [
+   [
+    ".......oo.",
+    "o..oooodko",
+    "fooddddddd",
+    "offfffddoo",
+    ".oddddddo.",
+    "..oddddo..",
+    "...ododo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "foodddddko",
+    "offfffdddd",
+    ".oddddddoo",
+    "..oddddo..",
+    "...ododo.."
+   ]
+  ],
+  "crow_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...odddddodd",
+    "...oddfddooo",
+    "....offfo...",
+    "...ofoofo..."
+   ],
+   [
+    "....o..o....",
+    "...ofoofoo..",
+    "....offfokoo",
+    "...oddfddodd",
+    "...odddddooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "dragonfly": [
+   [
+    ".........",
+    "....h.h..",
+    "ggggggggk",
+    "....h.h..",
+    "........."
+   ],
+   [
+    "....h.h..",
+    ".........",
+    "ggggggggk",
+    ".........",
+    "....h.h.."
+   ]
+  ]
+ },
+ "critters": {
+  "desert_lizard": {
+   "kind": "ground"
+  },
+  "crane": {
+   "kind": "bird"
+  },
+  "crow": {
+   "kind": "bird"
+  },
+  "dragonfly": {
+   "kind": "insect"
+  }
+ }
+}

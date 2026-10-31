@@ -328,6 +328,12 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # The Realm of the Ten Suns: pines and willows by the rivers, and trees scorched dead by the ten suns.
+    "the_realm_of_the_ten_suns": {
+        "trees": {"black_pine": (umbrella_pine, 28, 34), "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30),
+                  "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("d", "D", "E", None)},
     # Cloud-Cuckoo-Land: the birds' city in the air; a few olive and cypress trees on the cloud-banks (The Birds is set
     # above Greece), flowering shrubs.
     "cloud_cuckoo_land": {

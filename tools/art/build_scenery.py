@@ -16,6 +16,7 @@ PALETTE = {
     "c": "#6a8a40", "C": "#4a6a28", "a": "#a8b860",                      # papyrus
     "i": "#9a9a94", "I": "#76766e", "j": "#b8b8b0", "l": "#5a7a3a",      # Irish stone, lichen
     "d": "#b08858", "D": "#8a6a40",                                    # sun-dried mud brick
+    "R": "#8a3a2a",                                                    # red lacquer
     "x": "#3a5a2a", "X": "#2a4420", "f": "#f0d030", "F2": "#c8a020",
 }
 
@@ -420,6 +421,19 @@ def nest_tower():
     return p
 
 
+def pagoda_ruin():
+    """A ruined pagoda (the Realm of the Ten Suns): a scorched tower of stacked tiers with upturned eaves, the top tiers
+    fallen."""
+    p = Pic(24, 34, (12, 33))
+    for k, (half, y0) in enumerate(((10, 24), (8, 15), (6, 7))):
+        p.rect(12 - half + 2, y0 + 2, 12 + half - 2, y0 + 9, "r" if k % 2 else "R")
+        p.rect(12 - half, y0, 12 + half, y0 + 1, "z")                                  # eaves
+        p.px(12 - half - 1, y0 - 1, "z"); p.px(12 + half + 1, y0 - 1, "z")             # upturned tips
+        p.rect(11, y0 + 4, 13, y0 + 8, "z")                                            # doorway / window
+    p.rect(5, 3, 8, 6, "G"); p.px(16, 5, "G")                                          # fallen top tiers
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -447,7 +461,7 @@ SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower)}
+                                   nest_tower, pagoda_ruin)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

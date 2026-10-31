@@ -4138,5 +4138,143 @@
     },
     "placeholder_color": "#e4e8ec",
     "persists": false
+  },
+  {
+    "id": "hou_yi_bow",
+    "name_key": "WEAPON_HOU_YI_BOW_NAME",
+    "desc_key": "WEAPON_HOU_YI_BOW_DESC",
+    "element": "physical",
+    "categories": [
+      "bow"
+    ],
+    "targeting": "targeted",
+    "pattern": "forward",
+    "signature_of": "hou_yi",
+    "in_level_up_pool": false,
+    "unlock": {
+      "type": "signature"
+    },
+    "levels": [
+      {
+        "damage": 12,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 2
+      },
+      {
+        "damage": 14,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 2
+      },
+      {
+        "damage": 16,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 3
+      },
+      {
+        "damage": 18,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 3
+      },
+      {
+        "damage": 21,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 3
+      },
+      {
+        "damage": 23,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 4
+      },
+      {
+        "damage": 25,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 4
+      },
+      {
+        "damage": 27,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 400,
+        "area": 1.0,
+        "knockback": 60,
+        "count": 2,
+        "spread_deg": 18,
+        "speed_px_s": 440,
+        "lifetime_s": 1.1,
+        "radius_px": 3,
+        "pierce": 4
+      }
+    ],
+    "persists": false,
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "placeholder_color": "#b02a2a",
+    "projectile_art": "arrow"
   }
 ]

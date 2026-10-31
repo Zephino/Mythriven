@@ -384,6 +384,12 @@ def yoshitsune_sword():
     return p
 
 
+def hou_yi_bow():
+    """Hou Yi's great bow (the Huainanzi: the bow with which Yi shot down nine suns): a long, strongly recurved red
+    lacquered bow with gilded tips."""
+    return bow(30, 6, "r", "R", tips="u", recurve=True)
+
+
 def arrow():
     """An arrow, for every bow: a steel point, a wooden shaft, feathered fletching."""
     p = Pic(5, 18, (2, 9))
@@ -422,7 +428,7 @@ WEAPONS = {
     "huntress_bow": (huntress_bow, 0.1), "bladed_discus": (bladed_discus, 0.0), "sling_of_lugh": (sling_of_lugh, -0.2),
     "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0), "giant_sword": (giant_sword, 0.1),
     "gilgamesh_axe": (gilgamesh_axe, 0.4), "rostam_mace": (rostam_mace, 0.4),
-    "naginata": (naginata, 0.15), "yoshitsune_sword": (yoshitsune_sword, 0.35),
+    "naginata": (naginata, 0.15), "hou_yi_bow": (hou_yi_bow, 0.1), "yoshitsune_sword": (yoshitsune_sword, 0.35),
 }
 
 if __name__ == "__main__":
