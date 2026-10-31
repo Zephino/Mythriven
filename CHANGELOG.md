@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.52
+Date: 10/30/2026
+Time: 9:48 PM
+
+### Changes
+- **F1 debug gold never reaches the account.** Gold from the debug menu's Give gold can still be spent in the run (Trader), but it's left out when the run's gold is banked. That covers the end of a run, quitting, and the "run cut short" checkpoint.
+  - Trader purchases use debug gold first, so real gold isn't lost by spending.
+  - In co-op, the host's debug gold is left out on every player's device too.
+- The changelog entry and status file for this version were added in a second commit (the first one went out without them).
+
+### Reason
+The owner asked that F1 menu gold not count towards account gold outside the game.
+
 ## Version 00.01.51
 Date: 10/30/2026
 Time: 9:29 PM
