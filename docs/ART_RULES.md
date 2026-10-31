@@ -47,11 +47,12 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 
 ## Weapons
 - A Hero **holds the weapon they use most** (owner request 10/31/2026): the highest level among their weapons that have a picture. On a tie, the one they got first, so every Hero starts holding their signature weapon. Spells (Ember, Frost, Spark, Breeze, Glimmer, Shade) aren't held, except where the myth gives the spell an object: Väinämöinen's Runo Song is shown as his kantele (Kalevala runos 40 and 44). An evolved weapon uses its base weapon's picture until it gets its own.
-- Weapons are their own pictures in `data/art/weapons/<weapon id>.json`, built by `tools/art/build_weapons.py` from shapes around the **grip** at (0, 0), then turned into their held pose (see below) and outlined.
+- Weapons are their own pictures in `data/art/weapons/<weapon id>.json`, built by `tools/art/build_weapons.py`: each drawn pixel by pixel, upright, with its **grip** marked, then tipped forward and outlined.
+- **Every weapon looks like itself** (owner request 10/31/2026): no shared pictures. Each has its own silhouette and colours from its source (the leaf-shaped bronze xiphos; Excalibur's ornate gold guard, jewelled pommel and shining edge; Gáe Bolg's barbs; Achilles' great ash spear with its bronze head; Scáthach's dark-shafted Irish spear with bronze socket rings; the javelin's throwing loop; the yew longbow, Atalanta's recurved bow, Odysseus' horn bow).
 - The Hero's art has no weapon, and marks its **hand**: the pixel in the front fist. The weapon stays **clear of the body**, with at least a 1-pixel gap from the clothing and legs (owner request 10/31/2026). The game draws the weapon behind the Hero with its grip on the hand, so the fingers wrap round it.
 - **Held ready, never dragged** (owner requests 10/31/2026): the weapon arm bends forward with the fist in front of the belly. Swords, clubs, hammers and axes are raised, blade or head up and tipped forward (about 1 pixel forward for every 2 up). Spears, javelins and bows stand upright, tipped forward about 1 in 8. A sling hangs from the hand. The handle passes through the fist. (Hanging weapons tilted at the side looked like he was dragging them.)
 - Shared weapon colours: wood `c`/`C`, blade `e`/`E`, bronze fittings `g`/`G`, leather `b`, iron heads `i`/`I`, bright gold `u` (Excalibur), bowstring and strings `w`.
-- Weapons that look alike share a picture (the swords, the spears, the bows), until a Hero's own weapon needs something special (Gáe Bolg's barbs, Excalibur's gold guard). A weapon must fit the Hero's culture: Tomoe Gozen's Sword and Bow is a curved Japanese tachi, not the Greek sword.
+- A weapon must fit the Hero's culture: Tomoe Gozen's Sword and Bow is a curved Japanese tachi, not the Greek sword.
 - **Armour reads as plates**: rows of plates with a lighter top edge, joined by dotted cord stitches (solid stripes read as a striped shirt).
 
 ## Frames

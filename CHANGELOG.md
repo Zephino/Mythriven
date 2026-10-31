@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.10
+Date: 10/31/2026
+Time: 2:57 AM
+
+### Changes
+- **All 16 weapon pictures redrawn with their own style** (no more shared pictures), each drawn pixel by pixel from its source:
+  - Swords: the Greek xiphos with a leaf-shaped bronze blade and disc pommel; **Excalibur** with a long blade, a dark fuller, a bright shining edge, a glint, an ornate gold cross-guard with curled ends and a jewel, a gold-wrapped grip and a jewelled pommel; Tomoe's tachi with a curved blade, a round tsuba and a wrapped grip.
+  - Spears: the light **javelin** with its leather throwing loop; **Achilles'** great spear of Pelian ash (Iliad 16) with a broad bronze head and butt-spike; the **Gáe Bolg** with a dark red shaft and rows of backward barbs; **Scáthach's** Irish spear with a long slender head, bronze socket rings and a dark shaft.
+  - Heracles' knotted olive-wood club, a war hammer with a beak-spike, a bearded throwing axe, a toothed bronze discus, Lugh's sling with its stone, a tall yew longbow, Atalanta's recurved bow with horn tips, Odysseus' great horn bow bound with gold, and Väinämöinen's kantele with its strings and tuning pegs.
+- Achilles and Scáthach the bosses hold their new spears. `docs/ART_RULES.md` updated.
+
+### Reason
+The owner wants more style in the weapons (Excalibur looked like the other sword, only bigger; the spears all looked the same), effects coming from the character, and spears thrown at enemies. This is the first step; the other two follow.
+
 ## Version 00.02.09
 Date: 10/31/2026
 Time: 2:50 AM

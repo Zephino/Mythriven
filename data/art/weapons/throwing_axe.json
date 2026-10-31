@@ -1,41 +1,65 @@
 {
- "_doc": "Held weapon (docs/ART_RULES.md: Weapons), built by tools/art/build_weapons.py. grip is the pixel held in the Hero's hand.",
+ "_doc": "Held weapon (docs/ART_RULES.md: Weapons), built by tools/art/build_weapons.py. grip is the pixel held in the Hero's hand. A bearded throwing axe: a short haft, an iron head whose blade sweeps down into a long 'beard'.",
  "size": [
-  9,
-  11
+  17,
+  22
  ],
  "grip": [
-  1,
-  8
+  3,
+  16
  ],
  "palette": {
   "o": "#24160e",
+  "k": "#140c08",
   "c": "#9a6232",
-  "C": "#553012",
-  "e": "#d8dce0",
-  "E": "#8a9098",
-  "g": "#c89a3c",
+  "C": "#5e3818",
+  "a": "#c8a070",
+  "e": "#e4e8ec",
+  "E": "#9aa2ac",
+  "s": "#ffffff",
+  "g": "#d0a048",
   "G": "#8a6420",
-  "b": "#5c3a1c",
-  "i": "#9aa0a8",
-  "I": "#5c6068",
-  "u": "#d8b048",
-  "w": "#efe6d2"
+  "u": "#f0cc58",
+  "U": "#b08a28",
+  "b": "#6a4422",
+  "B": "#3e2612",
+  "i": "#8a9098",
+  "I": "#4e545c",
+  "w": "#efe6d2",
+  "h": "#3a3440",
+  "H": "#5a4e6a",
+  "r": "#7a2a1c",
+  "R": "#4e1a10",
+  "j": "#3a7ac0",
+  "J": "#c83030",
+  "l": "#a8e0f0",
+  "x": "#c8b8a0"
  },
  "frames": {
   "idle": [
    [
-    "....oooo.",
-    "...ocIIIo",
-    "...ociieo",
-    "..ociieo.",
-    "..ociieo.",
-    ".ocoooo..",
-    ".oco.....",
-    "oco......",
-    "oco......",
-    "oco......",
-    ".o......."
+    ".............oo..",
+    "........oo.ooiio.",
+    ".......oIIoiiiieo",
+    "......oIICiiiiieo",
+    "......oIICiiiiieo",
+    "......ocCiiiiieo.",
+    "......ocCiiiiieo.",
+    "......ocCooIIieo.",
+    ".....ocCooIIieo..",
+    ".....ocCooIIieo..",
+    "....ocCo..oieo...",
+    "....ocCo..oieo...",
+    "....ocCo...oeo...",
+    "...ocCo.....o....",
+    "...ocCo..........",
+    "..obbo...........",
+    "..obbo...........",
+    "..obbo...........",
+    ".obbo............",
+    ".ocCo............",
+    "ocCo.............",
+    ".oo.............."
    ]
   ]
  }
