@@ -1,10 +1,13 @@
 class_name Unraveling
 extends Node2D
 ## The Unraveling (GAME_DESIGN.md: Run arc): it begins at 33:00, or as soon as
-## the 30:00 boss falls. A ring centred where the player stood shrinks by 10%
-## per minute while the world outside frays into threads; outside it, players
-## take damage that keeps rising. The run ends through a visible, fair threat
-## instead of inflated enemy HP.
+## the 30:00 boss falls. A ring centred where the player stood, with the world
+## outside fraying into threads. The ring is a wall: players can't leave it.
+## Every 30 s it closes in by a step (a short visible squeeze), with a
+## countdown at the top of the screen, until it closes onto the players and
+## the run ends (owner decision 10/31/2026: was a slow shrink with damage
+## outside). The run ends through a visible, fair threat instead of inflated
+## enemy HP. Numbers: config run_arc.unraveling_*.
 
 var active: bool = false
 var center := Vector2.ZERO
@@ -12,11 +15,23 @@ var start_radius: float = 0.0
 var started_s: float = 0.0
 
 var _tick: float = 0.0
+var _label: Label
 
 
 func _ready() -> void:
 	CoopMirror.attach(self, "unraveling")
 	z_index = 30
+	var layer := CanvasLayer.new()
+	layer.layer = 11
+	add_child(layer)
+	_label = Label.new()
+	_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_label.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	_label.offset_top = Data.cfg_float("ui.banner_offset_px") + Data.cfg_float("ui.banner_font_px") * 1.6
+	_label.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_label.visible = false
+	layer.add_child(_label)
 
 
 func begin() -> void:
@@ -33,12 +48,34 @@ func begin() -> void:
 		banner.show_text(tr("UNRAVELING_BEGINS"))
 
 
-## The ring's radius now: 10% smaller every minute.
+## The ring's radius after `steps` closes: each takes a share of the starting size.
+func _closed(steps: int) -> float:
+	return maxf(start_radius * (1.0 - Data.cfg_float("run_arc.unraveling_step_pct") * steps), 0.0)
+
+
+## The ring's radius now. Every step_s it closes by one step, squeezing in
+## over step_anim_s so everyone sees it coming.
 func radius() -> float:
 	if not active:
 		return INF
-	var minutes: float = (GameAuthority.run.elapsed_s - started_s) / 60.0
-	return start_radius * pow(1.0 - Data.cfg_float("run_arc.unraveling_shrink_pct_per_min"), minutes)
+	var since: float = GameAuthority.run.elapsed_s - started_s
+	var step_s: float = Data.cfg_float("run_arc.unraveling_step_s")
+	var steps: int = int(since / step_s)
+	if steps <= 0:
+		return start_radius
+	var squeeze: float = clampf((since - steps * step_s) / Data.cfg_float("run_arc.unraveling_step_anim_s"), 0.0, 1.0)
+	return lerpf(_closed(steps - 1), _closed(steps), squeeze)
+
+
+## Seconds until the ring next closes in.
+func next_close_s() -> float:
+	var step_s: float = Data.cfg_float("run_arc.unraveling_step_s")
+	return step_s - fmod(GameAuthority.run.elapsed_s - started_s, step_s)
+
+
+## True once the ring has closed all the way (the run is over).
+func closed() -> bool:
+	return active and radius() <= 0.0
 
 
 ## Damage per second outside the ring, rising with time.
@@ -58,7 +95,14 @@ func _process(delta: float) -> void:
 	if not active and run.arc_s() >= Data.cfg_float("run_arc.unraveling_latest_start_s"):
 		begin()
 	if not active:
+		_label.visible = false
 		return
+	_hold_inside()
+	if closed():
+		_close_on_players()
+		return
+	_label.visible = true
+	_label.text = tr("UNRAVELING_NEXT_CLOSE") % maxi(ceili(next_close_s()), 1)
 	_tick -= delta
 	if _tick <= 0.0:
 		_tick = Data.cfg_float("combat.contact_damage_interval_s")
@@ -68,6 +112,36 @@ func _process(delta: float) -> void:
 				if not player.alive:
 					player.cause_of_death = "unraveling"
 	queue_redraw()
+
+
+## The ring is a wall: a Hero who reaches it stays on the inside (each device
+## keeps its own Hero in, like a boss arena's edge).
+func _hold_inside() -> void:
+	var reach: float = radius()
+	for player: Player in GameAuthority.players:
+		if not (player.is_local or GameAuthority.decides()):
+			continue
+		var limit: float = maxf(reach - player.body_radius, 0.0)
+		var offset: Vector2 = player.position - center
+		if offset.length() > limit:
+			GameAuthority.place_player(player, center + offset.limit_length(limit))
+
+
+## The ring has closed onto the players: the run is over, even in the F1 god
+## mode (owner request 10/31/2026).
+func _close_on_players() -> void:
+	_label.visible = false
+	if not GameAuthority.decides():
+		return
+	for player: Player in GameAuthority.players:
+		if player.alive:
+			player.god_mode = false
+			GameAuthority.damage_player_over_time(player, player.max_hp * 100.0)
+			player.cause_of_death = "unraveling"
+	var run: RunState = GameAuthority.run
+	if run != null and not run.ended:
+		run.ended = true
+		GameAuthority.run_ended.emit(run)
 
 
 func _draw() -> void:

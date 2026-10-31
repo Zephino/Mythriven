@@ -138,17 +138,27 @@ func test_every_attack_pattern_is_telegraphed_before_it_hurts() -> void:
 		_shots.clear_all()
 
 
-func test_unraveling_ring_shrinks_ten_percent_a_minute_and_hurts_outside() -> void:
+func test_the_unraveling_ring_is_a_wall_that_closes_every_30_s_until_the_run_ends() -> void:
 	var ring := Unraveling.new()
 	_world.add_child(ring)
 	ring.begin()
 	var start: float = ring.radius()
-	GameAuthority.run.elapsed_s += 60.0
-	assert_almost_eq(ring.radius(), start * 0.9, 0.5)
 	_player.position = ring.center + Vector2(start * 2.0, 0.0)
-	var hp_before: float = _player.hp
-	ring._process(0.6)
-	assert_lt(_player.hp, hp_before)
+	ring._process(0.016)
+	assert_almost_eq(_player.position.distance_to(ring.center), start - _player.body_radius, 0.5, "the ring is a wall: the Hero is kept inside")
+	GameAuthority.run.elapsed_s += 29.0
+	assert_eq(ring.radius(), start, "nothing closes for 30 s")
+	assert_eq(ceili(ring.next_close_s()), 1, "the countdown says when")
+	GameAuthority.run.elapsed_s += 1.0 + Data.cfg_float("run_arc.unraveling_step_anim_s")
+	assert_almost_eq(ring.radius(), start * 0.9, 0.5, "then it closes in a step")
+	GameAuthority.run.elapsed_s += 9.0 * 30.0
+	assert_true(ring.closed(), "after ten steps it has closed")
+	_player.god_mode = true
+	watch_signals(GameAuthority)
+	ring._process(0.016)
+	assert_true(GameAuthority.run.ended, "the ring closing on the Hero ends the run, even in god mode")
+	assert_false(_player.alive, "god mode doesn't save the Hero from it")
+	assert_eq(_player.cause_of_death, "unraveling")
 
 
 func test_boons_change_the_run() -> void:

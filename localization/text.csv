@@ -503,7 +503,7 @@ PASSIVE_SHIELD_OF_ACHILLES,Shield of Achilles
 PASSIVE_SHIELD_OF_ACHILLES_DESC,+2 Armor.
 WEAPON_SPEAR_AND_SHIELD_NAME,Spear and Shield
 WEAPON_SPEAR_AND_SHIELD_DESC,A long thrust that knocks enemies back.
-UNRAVELING_BEGINS,The world unravels: stay inside the ring!
+UNRAVELING_BEGINS,The world unravels: the ring closes in every 30 seconds!
 UI_CHOOSE_BOON,Choose a Boon
 BOON_MANY_SHOTS_NAME,Many Shots
 BOON_MANY_SHOTS_DESC,+1 projectile on all weapons.
@@ -675,7 +675,7 @@ OMEN_SILENT_GODS_DESC,God meters charge 50% slower.
 TIP_MEDUSA,Move away from Medusa or sideways as her gaze fires; moving toward her gets you petrified.
 TIP_ACHILLES,Achilles takes little damage from the front. Circle behind him: hits on his back deal double.
 TIP_KRONOS,"Step out of Kronos' slow-time zones quickly, and watch for his bullets reversing along their paths."
-TIP_UNRAVELING,"In the Unraveling, stay inside the shrinking ring; outside it the damage grows every minute."
+TIP_UNRAVELING,"In the Unraveling the ring is a wall that closes in every 30 seconds. Use the time left to bank gold and finish strong."
 TIP_TRIAL,A god's trial can be left at any time: step out of the ring to give up safely.
 TIP_HAZARD,Hazards always show a ground marker first. Keep moving when the markers appear.
 TIP_WEAKNESS,%s are weak to %s. Try a weapon or god of that element.
@@ -1179,3 +1179,4 @@ UI_USERNAME_HINT,"Username (up to 12 letters, numbers, spaces, - or _)"
 UI_USERNAME_SAVE,Save username
 UI_PLAYING_AS,Playing as %s
 UI_SIGNED_IN_EMAIL,Signed in with Google (%s)
+UNRAVELING_NEXT_CLOSE,The ring closes in %d s

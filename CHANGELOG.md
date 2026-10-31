@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.55
+Date: 10/30/2026
+Time: 10:28 PM
+
+### Changes
+- **The Unraveling ring is now a wall that closes in.** When the Unraveling starts (after the 30:00 boss, or at 33:00):
+  - Heroes can't leave the ring (like a boss arena's edge).
+  - Every 30 s it closes in by a tenth of its starting size, in a short visible squeeze.
+  - "The ring closes in N s" counts down at the top of the screen.
+  - After ten steps it closes onto the players and the run ends, even with the F1 god mode on. The end screen says the Unraveling ended the run.
+  - In co-op each device keeps its own Hero inside, and the host ends the run for everyone.
+- Numbers to tune in config.json: run_arc.unraveling_step_s (30), unraveling_step_pct (0.1), unraveling_step_anim_s (3). The start banner and the death-recap tip describe the new rule.
+
+### Reason
+The owner wants players kept inside the circle, closing every 30 seconds until it closes onto them and the round ends, even in god mode.
+
 ## Version 00.01.54
 Date: 10/30/2026
 Time: 10:17 PM

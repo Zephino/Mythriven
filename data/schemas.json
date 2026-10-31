@@ -204,7 +204,9 @@
                 "items": "number"
               },
               "unraveling_latest_start_s": "number",
-              "unraveling_shrink_pct_per_min": "number",
+              "unraveling_step_s": "number",
+              "unraveling_step_pct": "number",
+              "unraveling_step_anim_s": "number",
               "milestone_gold": {
                 "type": "array",
                 "items": "number"

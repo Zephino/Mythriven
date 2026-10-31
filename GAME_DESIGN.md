@@ -347,11 +347,11 @@ A run is one Last Stand: pick a Hero, fight through four Ages of rising danger, 
 | Dusk | 0–10 min | Warm golden light | Shades, draugr, swarms; first elite at 5:00 | Boss 1 at 10:00 |
 | Night | 10–20 min | Blue moonlight, drifting embers | Ranged casters, armored brutes, elite modifiers | Boss 2 at 20:00 |
 | Deep Night | 20–30 min | Loose glowing threads drift at screen edges | Encirclers, splitting elites, world events more often | Boss 3 at 30:00 |
-| The Unraveling | 30:00+ | The world frays into void | The safe area shrinks every minute | Ends the run |
+| The Unraveling | 30:00+ | The world frays into void | A ring you can't leave closes in every 30 s | Ends the run |
 
 **Milestone rewards:** defeating each Age's boss grants a **Boon** (choose 1 of 3 rare run-wide effects, e.g. "+1 projectile on all weapons") plus a gold bonus (+50 / +100 / +200). Age transitions play a banner and change music. Color shifts use a `CanvasModulate` tween.
 
-**The Unraveling:** after 30:00, a ring centered on the player shrinks by 10% per minute while the world outside frays into threads. Outside it, players take rising damage. The run ends through a visible, fair threat instead of inflated enemy HP.
+**The Unraveling:** after 30:00, a ring centered on the player appears while the world outside frays into threads. The ring is a wall: players can't leave it. Every 30 s it closes in by a tenth of its starting size (a short, visible squeeze, with a countdown on screen), until it closes onto the players and the run ends, even in the debug god mode. The run ends through a visible, fair threat instead of inflated enemy HP. *(Changed 10/31/2026, owner decision: was a ring shrinking 10% a minute with rising damage outside it.)*
 
 **Records:** the HUD timer shows the player's personal best for this Hero as a marker; passing it plays a short flourish.
 
