@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.76
+Date: 10/31/2026
+Time: 1:27 AM
+
+### Changes
+- **Atalanta's quiver** is no longer drawn beside her. Her quiver is on her back, so from the side only the arrows show: two light wooden shafts with red feathers, sticking up behind her shoulder.
+
+### Reason
+The owner said the quiver looked like a rocket, and that you wouldn't really see a quiver from the front of a person, maybe just arrows above the shoulders.
+
 ## Version 00.01.75
 Date: 10/31/2026
 Time: 1:25 AM
