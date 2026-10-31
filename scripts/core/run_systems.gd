@@ -163,6 +163,9 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	world.add_child(ruins_dungeon)
 	world.origin_shifted.connect(ruins_dungeon.on_origin_shifted)
 	pois.ruins_dungeon = ruins_dungeon
+	if Flora.current != null:
+		Flora.current.shrines = shrines
+		Flora.current.pois = pois
 	shrines.banter = banter
 	god_choice = GodChoiceScreen.new()
 	god_choice.gods = gods

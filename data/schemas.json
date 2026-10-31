@@ -206,6 +206,27 @@
                 "items": "number"
               },
               "poi_edge_margin": "number",
+              "forest_frequency": "number",
+              "flora_cells_per_chunk": "number",
+              "flora_chunk_radius": "number",
+              "flora_index_pad_px": "number",
+              "flora_back_z": "number",
+              "flora_front_z": "number",
+              "tree_chance": "number",
+              "mound_chance": "number",
+              "boulder_chance": "number",
+              "bush_chance": "number",
+              "stone_chance": "number",
+              "pebbles_chance": "number",
+              "tree_size_weights": "object",
+              "stone_speed_mult": "number",
+              "rock_cluster_chance": "number",
+              "rock_cluster_max": "number",
+              "rock_cluster_px": "number",
+              "canopy_fade_alpha": "number",
+              "clear_start_px": "number",
+              "clear_shrine_px": "number",
+              "clear_margin_px": "number",
               "weather_particles": "number",
               "weather_particle_speed_px_s": "number",
               "trader_awning_color": "string"
@@ -536,6 +557,7 @@
               "auto_swarm_type": "string",
               "swarm_pack_chance": "number",
               "pack_spread_px": "number",
+              "spawn_side_tries": "number",
               "spawn_margin_px": "number",
               "recycle_check_s": "number",
               "recycle_ahead_spread_deg": "number",
@@ -1064,6 +1086,10 @@
             "decoration_art": {
               "type": "object"
             },
+            "flora": {
+              "type": "object",
+              "optional": true
+            },
             "local_gods": {
               "type": "array",
               "items": "string"
@@ -1128,6 +1154,10 @@
               "optional": true
             },
             "movement": "string",
+            "flies": {
+              "type": "bool",
+              "optional": true
+            },
             "hp": "number",
             "speed": "number",
             "contact_damage": "number",

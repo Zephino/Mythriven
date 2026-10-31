@@ -62,6 +62,7 @@ func reset(slot: int, code: int, behavior: Dictionary, rng: RandomNumberGenerato
 ## Moves every active enemy by one frame.
 func step(m: EnemyManager, delta: float) -> void:
 	var decay: float = exp(-Data.cfg_float("enemies.knockback_decay") * delta)
+	var flora: Flora = Flora.current
 	for i: int in m.capacity:
 		if m.active[i] == 0 or m.asleep[i] == 1:
 			continue
@@ -83,8 +84,13 @@ func step(m: EnemyManager, delta: float) -> void:
 				velocity = Vector2.ZERO
 			_:
 				velocity = _toward_player(m, i) * speed
-		m.positions[i] += velocity * delta + m.knockback[i] * delta
+		var moved: Vector2 = velocity * delta + m.knockback[i] * delta
 		m.knockback[i] *= decay
+		# Walking monsters slide round trees and boulders and slow on stones; flyers go over (docs/WORLD_PLAN.md: 1).
+		if flora != null and code != FLYER and code != STILL and not m.flies(i):
+			m.positions[i] = flora.move(m.positions[i], moved, m.radius[i])
+		else:
+			m.positions[i] += moved
 
 
 ## A winding-up caster glows and a lit bomber flashes; returns the colour to

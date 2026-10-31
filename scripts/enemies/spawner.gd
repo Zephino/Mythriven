@@ -64,7 +64,7 @@ func spawn_ring(type_id: String, count: int) -> void:
 		var player: Player = _random_player()
 		if player == null:
 			return
-		GameAuthority.spawn_enemy(type_id, player.position + _ring_offset(_rng().randf() * TAU))
+		GameAuthority.spawn_enemy(type_id, _ring_point(player.position, _rng().randf() * TAU))
 
 
 ## Spawns a tight pack (swarm) at one point of the ring.
@@ -72,7 +72,7 @@ func spawn_pack(type_id: String, count: int) -> void:
 	var player: Player = _random_player()
 	if player == null:
 		return
-	var center: Vector2 = player.position + _ring_offset(_rng().randf() * TAU)
+	var center: Vector2 = _ring_point(player.position, _rng().randf() * TAU)
 	var spread: float = Data.cfg_float("enemies.pack_spread_px")
 	for _i: int in count:
 		var jitter := Vector2(_rng().randf_range(-spread, spread), _rng().randf_range(-spread, spread))
@@ -85,7 +85,7 @@ func spawn_flyers(type_id: String, count: int) -> void:
 	if player == null:
 		return
 	var angle: float = _rng().randf() * TAU
-	var start: Vector2 = player.position + _ring_offset(angle)
+	var start: Vector2 = _ring_point(player.position, angle)
 	var heading: Vector2 = (player.position - start).normalized().rotated(_rng().randf_range(-0.3, 0.3))
 	var gap: float = Data.cfg_float("enemies.flyer_gap_px")
 	for k: int in count:
@@ -109,7 +109,7 @@ func spawn_elite(type_id: String, modifier_ids: PackedStringArray) -> int:
 	var player: Player = _random_player()
 	if player == null:
 		return -1
-	var slot: int = GameAuthority.spawn_enemy(type_id, player.position + _ring_offset(_rng().randf() * TAU))
+	var slot: int = GameAuthority.spawn_enemy(type_id, _ring_point(player.position, _rng().randf() * TAU))
 	if slot != -1:
 		enemies.elites.setup(slot, modifier_ids, enemies.max_hp[slot])
 	return slot
@@ -136,7 +136,7 @@ func recycle() -> void:
 			continue
 		var ahead: float = nearest.facing.angle() if nearest.velocity != Vector2.ZERO else _rng().randf() * TAU
 		var spread: float = deg_to_rad(Data.cfg_float("enemies.recycle_ahead_spread_deg"))
-		enemies.positions[i] = nearest.position + _ring_offset(ahead + _rng().randf_range(-spread, spread))
+		enemies.positions[i] = _ring_point(nearest.position, ahead + _rng().randf_range(-spread, spread))
 
 
 func _spawn_once(row: Dictionary) -> void:
@@ -183,6 +183,26 @@ func _placeholder_spawn() -> void:
 
 func _ring_offset(angle: float) -> Vector2:
 	return Vector2.from_angle(angle) * ring_radius()
+
+
+## A spot on the ring round `center`, near `angle`, that monsters can walk to the Hero from: the side most open
+## through the trees, so the woods are cover but not a hiding place (owner request 10/31/2026).
+func _ring_point(center: Vector2, angle: float) -> Vector2:
+	var flora: Flora = Flora.current
+	var best: Vector2 = center + _ring_offset(angle)
+	if flora == null:
+		return best
+	var fewest: int = flora.blockers_between(best, center)
+	var tries: int = Data.cfg_int("enemies.spawn_side_tries")
+	for k: int in range(1, tries):
+		if fewest == 0:
+			break
+		var spot: Vector2 = center + _ring_offset(angle + TAU * k / tries)
+		var blocked: int = flora.blockers_between(spot, center)
+		if blocked < fewest:
+			fewest = blocked
+			best = spot
+	return best
 
 
 func _random_player() -> Player:

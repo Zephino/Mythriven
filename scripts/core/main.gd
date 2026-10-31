@@ -48,6 +48,11 @@ func _build_world(joystick: TouchJoystick) -> void:
 	world.add_child(chunks)
 	chunks.setup(run.level_data, run.seed_value)
 	world.origin_shifted.connect(chunks.on_origin_shifted)
+	# Trees, rocks and bushes (docs/WORLD_PLAN.md: 1).
+	var flora := Flora.new()
+	world.add_child(flora)
+	flora.setup(run.level_data, run.seed_value)
+	world.origin_shifted.connect(flora.on_origin_shifted)
 
 	_enemies = EnemyManager.new()
 	world.add_child(_enemies)

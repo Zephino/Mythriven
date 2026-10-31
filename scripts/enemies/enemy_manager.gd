@@ -58,6 +58,7 @@ var _stride := PackedFloat32Array()
 var _type_speed := PackedFloat32Array()
 var _type_color: Array[Color] = []
 var _type_movement := PackedInt32Array()
+var _type_flies := PackedByteArray()
 ## Types drawn by their own node (a boss with art: BossController draws it), so the pooled circle is hidden.
 var _type_drawn_elsewhere := PackedByteArray()
 ## Slots drawn by another node for now (a god's avatar in a duel trial: GodTrial draws the god), 1 = hide the circle.
@@ -84,6 +85,8 @@ func setup() -> void:
 		_max_radius = maxf(_max_radius, float(entry["radius_px"]))
 		_type_speed.append(float(entry["speed"]))
 		_type_movement.append(EnemyMovement.code_of(str(entry.get("movement", "chaser"))))
+		# Ghosts, spirits and winged things (and bosses, which move by their own scripts) pass over trees and rocks.
+		_type_flies.append(1 if bool(entry.get("flies", false)) or bool(entry.get("boss", false)) else 0)
 		var element_id: String = str(entry.get("element", ""))
 		_type_color.append(Elements.color(element_id) if element_id != "" else Color.html(str(entry["placeholder_color"])))
 		_type_drawn_elsewhere.append(1 if bool(entry.get("boss", false)) and not PixelArt.boss(str(entry["id"])).is_empty() else 0)
@@ -225,6 +228,11 @@ func type_of(slot: int) -> Dictionary:
 
 func movement_code(slot: int) -> int:
 	return _type_movement[kind[slot]]
+
+
+## True for monsters that go over trees and rocks (enemies.json "flies", and bosses).
+func flies(slot: int) -> bool:
+	return _type_flies[kind[slot]] == 1
 
 
 ## Current move speed: type speed slowed by Chill/Freeze/stuns, raised by Hasted.

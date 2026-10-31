@@ -493,3 +493,33 @@ func test_passive_cards_without_a_stat_show_no_stat_line() -> void:
 		var text: String = CardText.full({"kind": LevelUpRules.PASSIVE_NEW, "id": id})
 		assert_false(text.contains("STAT_"), id + " card has no untranslated stat line")
 		assert_false(text.contains("+0%"), id + " card has no +0% line")
+
+
+func test_flora_blocks_slides_slows_and_keeps_clear() -> void:
+	var level: Dictionary = {}
+	for entry: Dictionary in Data.get_file("levels.json"):
+		if str(entry["id"]) == "the_misty_isles":
+			level = entry
+	var flora := Flora.new()
+	_parent.add_child(flora)
+	flora.setup(level, 12345)
+	flora.set_process(false)
+	assert_true(flora.has_art(), "the level has trees and rocks")
+	flora._load(Vector2i(3, 3))
+	flora._repack()
+	var tree: Dictionary = {}
+	for item: Dictionary in flora._chunks[Vector2i(3, 3)]:
+		if str(item["kind"]) == "tree" and not bool(item["hidden"]):
+			tree = item
+			break
+	assert_false(tree.is_empty(), "a forest chunk has trees")
+	var trunk: Vector2 = Vector2(tree["at"])
+	var moved: Vector2 = flora.move(trunk + Vector2(-20, 0), Vector2(20, 0), 6.0)
+	assert_true(moved.distance_to(trunk) >= float(tree["solid"]) + 5.9, "a Hero can't walk into a trunk")
+	flora.clear_zone("test", trunk, 30.0)
+	flora._repack()
+	assert_true(bool(tree["hidden"]), "a clear zone removes the tree")
+	assert_eq(flora.move(trunk + Vector2(-20, 0), Vector2(20, 0), 6.0), trunk, "and nothing blocks there")
+	flora.enabled = false
+	assert_eq(flora.move(Vector2.ZERO, Vector2(5, 0), 6.0), Vector2(5, 0), "nothing blocks in a dungeon")
+	flora.queue_free()

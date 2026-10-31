@@ -301,6 +301,11 @@ func _set_frozen(on: bool) -> void:
 	# Every device keeps the world's ground loaded where the party went in, so it's there when they come out.
 	for chunks: Node in get_tree().root.find_children("*", "ChunkManager", true, false):
 		chunks.process_mode = Node.PROCESS_MODE_DISABLED if on else Node.PROCESS_MODE_INHERIT
+	# The forest outside doesn't block anyone in the dungeon, and stays loaded for when they come out.
+	if Flora.current != null:
+		Flora.current.enabled = not on
+		Flora.current.process_mode = Node.PROCESS_MODE_DISABLED if on else Node.PROCESS_MODE_INHERIT
+		Flora.current.visible = not on
 	# Only the game that decides stops its systems; joining players' mirrored systems stay as CoopMirror set them.
 	if not GameAuthority.decides():
 		return

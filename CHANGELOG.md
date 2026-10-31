@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.32
+Date: 10/31/2026
+Time: 10:52 AM
+
+### Changes
+- **Forests, rocks and bushes** (World plan step 1, `docs/WORLD_PLAN.md`). Every level now has its own trees, bushes and stone, weathered like the rest of the world: olive, cypress, Aleppo pine and holm oak on the Aegean Shore; snowy spruce, Scots pine and birch in Midgard's Edge; date and doum palms, acacia and sycamore fig in the Two Lands; oak, ash, rowan, yew and hawthorn on the Misty Isles. Trees come in three sizes (two drawings each); there are three bushes per land.
+- **Rocks** in four styles (rounded, flat slab, tall jagged, split) and three sizes, often lying in **clusters** of mixed sizes, plus small stones and pebbles. **Sand dunes** in the desert and **snow drifts** in the north.
+- **Density:** a smooth map makes open fields, light woods and thick forest across the world (the desert is sparse, the north thick). Thick forest always leaves gaps to get through.
+- **Trees and big boulders block** the Hero and walking monsters, who slide round them; ghosts, harpies, spirits, fire sparks and bosses go over. Small stones, dunes and drifts slow you a little; bushes and pebbles you walk over. Weapons and shots pass through trees.
+- Trees in front of the Hero fade where they'd hide them; the rest are drawn behind, by depth.
+- **No hiding in the woods:** monsters spawn on the side that's open to the Heroes.
+- **Kept clear:** the start of the run, boss arenas, shrines and points of interest. Inside a dungeon the forest outside doesn't block anything.
+- The old olive tree, pine, reeds and gorse decorations were replaced by the new plants (the ruins, columns, runestones, obelisks and standing stones stay).
+- `GAME_DESIGN.md` (World) updated with a dated note (owner decision). New `tools/art/build_flora.py`, `scripts/world/flora.gd`; levels.json `flora` (density and tree weights); enemies.json `flies`; new `world.*` and `enemies.spawn_side_tries` settings. Rules in `docs/ART_RULES.md`.
+
+### Reason
+The owner approved the world plan: several kinds of trees, rocks and bushes in different sizes and densities, trees that block, bushes you walk over, rock clusters, dunes and snow drifts.
+
 ## Version 00.02.31
 Date: 10/31/2026
 Time: 10:43 AM

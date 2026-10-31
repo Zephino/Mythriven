@@ -39,7 +39,6 @@
       ]
     },
     "decorations": [
-      "olive_tree",
       "broken_column",
       "marble_ruin"
     ],
@@ -48,15 +47,6 @@
       8
     ],
     "decoration_art": {
-      "olive_tree": {
-        "shape": "circle",
-        "size_px": [
-          14,
-          14
-        ],
-        "placeholder_color": "#56683a",
-        "weight": 3
-      },
       "broken_column": {
         "shape": "rect",
         "size_px": [
@@ -105,7 +95,16 @@
       "range_px": 220,
       "color": "#ffe86a"
     },
-    "seal": "greek_meander"
+    "seal": "greek_meander",
+    "flora": {
+      "density": 1.0,
+      "trees": {
+        "olive": 3,
+        "cypress": 2,
+        "aleppo_pine": 2,
+        "holm_oak": 2
+      }
+    }
   },
   {
     "id": "midgards_edge",
@@ -146,7 +145,6 @@
       ]
     },
     "decorations": [
-      "pine_tree",
       "runestone",
       "longhouse_ruin"
     ],
@@ -155,15 +153,6 @@
       9
     ],
     "decoration_art": {
-      "pine_tree": {
-        "shape": "circle",
-        "size_px": [
-          16,
-          16
-        ],
-        "placeholder_color": "#2e4a32",
-        "weight": 4
-      },
       "runestone": {
         "shape": "rect",
         "size_px": [
@@ -222,7 +211,15 @@
       "color": "#bfe4f4",
       "grip_per_s": 2.0
     },
-    "seal": "norse_band"
+    "seal": "norse_band",
+    "flora": {
+      "density": 1.1,
+      "trees": {
+        "spruce": 4,
+        "scots_pine": 2,
+        "birch": 2
+      }
+    }
   },
   {
     "id": "the_two_lands",
@@ -264,8 +261,7 @@
     },
     "decorations": [
       "obelisk",
-      "tomb_entrance",
-      "nile_reeds"
+      "tomb_entrance"
     ],
     "decorations_per_chunk": [
       3,
@@ -289,15 +285,6 @@
         ],
         "placeholder_color": "#8a7a60",
         "weight": 1
-      },
-      "nile_reeds": {
-        "shape": "circle",
-        "size_px": [
-          10,
-          10
-        ],
-        "placeholder_color": "#6a8a40",
-        "weight": 3
       }
     },
     "local_gods": [
@@ -339,7 +326,16 @@
       "color": "#b89050",
       "speed_mult": 0.5
     },
-    "seal": "egyptian_scarab"
+    "seal": "egyptian_scarab",
+    "flora": {
+      "density": 0.45,
+      "trees": {
+        "date_palm": 3,
+        "doum_palm": 2,
+        "acacia": 2,
+        "sycamore_fig": 1
+      }
+    }
   },
   {
     "id": "the_misty_isles",
@@ -381,8 +377,7 @@
     },
     "decorations": [
       "standing_stone",
-      "stone_circle",
-      "gorse"
+      "stone_circle"
     ],
     "decorations_per_chunk": [
       3,
@@ -406,15 +401,6 @@
         ],
         "placeholder_color": "#9a9a94",
         "weight": 1
-      },
-      "gorse": {
-        "shape": "circle",
-        "size_px": [
-          10,
-          10
-        ],
-        "placeholder_color": "#c8b030",
-        "weight": 3
       }
     },
     "local_gods": [
@@ -458,6 +444,16 @@
       "teleport_cooldown_s": 4,
       "pair_distance_screens": 1.0
     },
-    "seal": "celtic_knot"
+    "seal": "celtic_knot",
+    "flora": {
+      "density": 1.0,
+      "trees": {
+        "oak": 3,
+        "ash": 2,
+        "rowan": 2,
+        "yew": 1,
+        "hawthorn": 2
+      }
+    }
   }
 ]

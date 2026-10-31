@@ -38,6 +38,7 @@
   },
   {
     "id": "shade_swarm",
+    "flies": true,
     "name_key": "ENEMY_SHADE_SWARM_NAME",
     "family": "shades",
     "tradition": "greek",
@@ -64,6 +65,7 @@
   },
   {
     "id": "shade_flyer",
+    "flies": true,
     "name_key": "ENEMY_SHADE_FLYER_NAME",
     "family": "shades",
     "tradition": "greek",
@@ -95,6 +97,7 @@
   },
   {
     "id": "shade_encircler",
+    "flies": true,
     "name_key": "ENEMY_SHADE_ENCIRCLER_NAME",
     "family": "shades",
     "tradition": "greek",
@@ -119,6 +122,7 @@
   },
   {
     "id": "harpy_swarm",
+    "flies": true,
     "name_key": "ENEMY_HARPY_SWARM_NAME",
     "family": "harpies",
     "tradition": "greek",
@@ -145,6 +149,7 @@
   },
   {
     "id": "harpy_flyer",
+    "flies": true,
     "name_key": "ENEMY_HARPY_FLYER_NAME",
     "family": "harpies",
     "tradition": "greek",
@@ -257,6 +262,7 @@
   },
   {
     "id": "muspel_spark_bomber",
+    "flies": true,
     "name_key": "ENEMY_MUSPEL_SPARK_BOMBER_NAME",
     "family": "muspel_sparks",
     "tradition": "norse",
@@ -595,6 +601,7 @@
   },
   {
     "id": "muspel_spark",
+    "flies": true,
     "name_key": "ENEMY_MUSPEL_SPARK_NAME",
     "family": "muspel_sparks",
     "tradition": "norse",
@@ -1002,6 +1009,7 @@
   },
   {
     "id": "sluagh",
+    "flies": true,
     "name_key": "ENEMY_SLUAGH_NAME",
     "family": "sluagh",
     "tradition": "celtic",
@@ -1028,6 +1036,7 @@
   },
   {
     "id": "sluagh_flyer",
+    "flies": true,
     "name_key": "ENEMY_SLUAGH_FLYER_NAME",
     "family": "sluagh",
     "tradition": "celtic",

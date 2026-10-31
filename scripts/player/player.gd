@@ -169,7 +169,12 @@ func step(direction: Vector2, delta: float) -> void:
 			* (kit.speed_mult() if kit != null else 1.0) * net_speed_mult
 	# On ice the Hero keeps sliding and only slowly turns toward where they steer.
 	velocity = wanted if ground_grip_per_s <= 0.0 else velocity.lerp(wanted, minf(ground_grip_per_s * delta, 1.0))
-	position += velocity * delta
+	# Trees and boulders stop the Hero (they slide round them); stones slow them a little (docs/WORLD_PLAN.md: 1).
+	var flora: Flora = Flora.current
+	if flora != null:
+		position = flora.move(position, velocity * delta, body_radius)
+	else:
+		position += velocity * delta
 	if direction != Vector2.ZERO and direction != facing:
 		facing = direction
 		queue_redraw()

@@ -1042,7 +1042,8 @@ Each regional level generates endlessly from chunks around the player, and a sec
 
 - **Chunks:** 32×32 tiles (16 px tiles = 512×512 px). Keep a 5×5 grid loaded around each player; unload the rest.
 - **Ground:** a `TileMapLayer` painted with `FastNoiseLite` so grass, dirt, stone, and flowers blend naturally.
-- **Decorations:** mixed-culture ruins (broken columns, runestones, obelisk fragments, standing stones, trees, bones) placed by an RNG seeded with `run_seed + chunk_x + chunk_y`. Visual only, no collision.
+- **Decorations:** mixed-culture ruins (broken columns, runestones, obelisk fragments, standing stones, bones) placed by an RNG seeded with `run_seed + chunk_x + chunk_y`. Visual only, no collision.
+- **Trees, rocks and bushes** *(owner decision 10/31/2026; full plan in `docs/WORLD_PLAN.md`)*: each level has its own real trees, bushes and stone, in three sizes, spread over a smooth density map (open fields, light woods, thick forest that always leaves a way through). **Trees and big boulders block** Heroes and walking monsters, who slide round them; flying monsters (ghosts, harpies, spirits, sparks) and bosses go over. Small stones, sand dunes and snow drifts slow you a little; bushes and pebbles are walked over. Rocks often lie in clusters of mixed sizes and styles. Monsters spawn on the side open to the Heroes, so the woods are cover, not a hiding place. Kept clear: the start, boss arenas, shrines and points of interest. Shots pass through trees. *(Changed: decorations were all visual only.)*
 - **Biomes:** each regional level has its own tileset and decoration set (see Regional levels).
 - **Camera:** smooth follow with slight look-ahead.
 - **Far distances:** past \~50,000 px from the origin, shift the world back toward 0,0.
