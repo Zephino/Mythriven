@@ -43,12 +43,24 @@ function json(body, status = 200) {
   });
 }
 
-/** The page the player sees in the browser at the end. */
-function page(title, text, status = 200) {
+/**
+ * The page the player sees in the browser at the end. It closes itself (the
+ * web game opened it, so the browser allows that) and has a Close button;
+ * when the browser won't close a tab the game didn't open (the PC and phone
+ * apps open the system browser), it says to switch back to the game instead.
+ */
+function page(title, text, status = 200, autoClose = true) {
+  const script = `<script>
+function closeTab(){window.close();setTimeout(function(){document.getElementById("hint").style.display="block"},300)}
+${autoClose ? "setTimeout(closeTab,1200);" : ""}
+</script>`;
   const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mythriven</title><style>body{font-family:system-ui,sans-serif;background:#1b1622;color:#f2ead8;display:flex;
-min-height:100vh;align-items:center;justify-content:center;margin:0;padding:16px;text-align:center}h1{font-size:1.6em}</style>
-</head><body><div><h1>${title}</h1><p>${text}</p></div></body></html>`;
+min-height:100vh;align-items:center;justify-content:center;margin:0;padding:16px;text-align:center}h1{font-size:1.6em}
+button{font-size:1.1em;padding:12px 32px;margin-top:8px;border-radius:8px;border:0;background:#e7c46a;color:#1b1622;cursor:pointer}
+#hint{display:none;margin-top:16px;opacity:.85}</style>${script}
+</head><body><div><h1>${title}</h1><p>${text}</p><button onclick="closeTab()">Close</button>
+<p id="hint">If this tab stays open, close it or switch back to Mythriven: you're all set there.</p></div></body></html>`;
   return new Response(html, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } });
 }
 
@@ -130,7 +142,7 @@ async function toGoogle(env, url) {
   const login = url.searchParams.get("login") || "";
   const ticket = isLoginId(login) ? await load(env, "login:" + login) : null;
   if (!ticket || ticket.state !== "waiting" || Date.now() - ticket.created > LOGIN_TTL_MS) {
-    return page("Sign-in expired", "Go back to Mythriven and press Sign in with Google again.", 400);
+    return page("Sign-in expired", "Go back to Mythriven and press Sign in with Google again.", 400, false);
   }
   const params = new URLSearchParams({
     client_id: env.GOOGLE_CLIENT_ID,
@@ -147,12 +159,12 @@ async function callback(env, url) {
   const login = url.searchParams.get("state") || "";
   const ticket = isLoginId(login) ? await load(env, "login:" + login) : null;
   if (!ticket || ticket.state !== "waiting" || Date.now() - ticket.created > LOGIN_TTL_MS) {
-    return page("Sign-in expired", "Go back to Mythriven and press Sign in with Google again.", 400);
+    return page("Sign-in expired", "Go back to Mythriven and press Sign in with Google again.", 400, false);
   }
   const code = url.searchParams.get("code");
   if (!code) {
     await store(env, "login:" + login, { ...ticket, state: "cancelled" }, ticket.created + LOGIN_TTL_MS);
-    return page("Sign-in cancelled", "You can close this tab and go back to Mythriven.");
+    return page("Sign-in cancelled", "Going back to Mythriven…");
   }
   const res = await fetch(GOOGLE_TOKEN, {
     method: "POST",
@@ -168,7 +180,7 @@ async function callback(env, url) {
   const claims = res.ok ? tokenClaims((await res.json()).id_token || "") : null;
   if (!claims || !claims.sub || claims.aud !== env.GOOGLE_CLIENT_ID || !GOOGLE_ISSUERS.includes(claims.iss)) {
     console.log("google sign-in failed:", res.status);
-    return page("Sign-in failed", "Something went wrong with Google. Go back to Mythriven and try again.", 502);
+    return page("Sign-in failed", "Something went wrong with Google. Go back to Mythriven and try again.", 502, false);
   }
   const accountName = "google:" + (await sha256("mythriven-account:" + claims.sub));
   let account = await load(env, accountName);
@@ -177,7 +189,7 @@ async function callback(env, url) {
     await store(env, accountName, account);
   }
   await store(env, "login:" + login, { state: "done", created: ticket.created, code: account.code }, ticket.created + LOGIN_TTL_MS);
-  return page("Signed in!", "You can close this tab and go back to Mythriven.");
+  return page("Signed in!", "Going back to Mythriven…");
 }
 
 async function poll(env, url) {

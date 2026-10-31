@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.41
+Date: 10/30/2026
+Time: 8:37 PM
+
+### Changes
+- **The "Signed in!" page closes itself** about a second after signing in, so the player lands back in the game. It also has a **Close** button. When a browser won't let the page close a tab (the PC and phone apps open the browser on their own), a line says to switch back to Mythriven. Checked in Chrome: a tab opened by the web game closes on its own.
+
+### Reason
+The owner asked for the sign-in window to close itself or have a close button.
+
 ## Version 00.01.40
 Date: 10/30/2026
 Time: 8:33 PM

@@ -67,6 +67,9 @@ async function signIn(env, sub, deviceCode = "") {
   assert.equal((await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env).then((r) => r.json())).state, "waiting");
   const back = await withGoogle(sub, () => worker.fetch(new Request(`${BASE}/auth/callback?code=abc&state=${start.login}`), env));
   assert.equal(back.status, 200);
+  const html = await back.text();
+  assert.ok(html.includes("setTimeout(closeTab"), "the page closes itself");
+  assert.ok(html.includes(">Close</button>"), "and has a Close button");
   const done = await (await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env)).json();
   assert.equal(done.state, "done");
   const again = await (await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env)).json();
