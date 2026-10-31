@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.06
+Date: 10/31/2026
+Time: 2:38 AM
+
+### Changes
+- **Gods walk slowly round their altar** (using their walking frames) instead of standing on it: behind the altar on the far side of the circle, in front of it on the near side. Each altar starts its god at a different point, so they don't walk in step. New settings `gods.altar_walk_radius_px`, `gods.altar_walk_speed_px` and `gods.altar_walk_squash`; `gods.shrine_art_feet_px` is no longer used and was removed.
+
+### Reason
+The owner suggested the gods should sit on a throne or walk around the altar the player walks to to unlock them.
+
 ## Version 00.02.05
 Date: 10/31/2026
 Time: 2:35 AM

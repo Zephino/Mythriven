@@ -72,10 +72,12 @@ static func god(god_id: String) -> Dictionary:
 
 ## Draws `art`'s standing frame on `canvas` with the middle of its feet at
 ## `feet` (in the canvas's own coordinates), mirrored when `face_left`.
-static func draw_standing(canvas: CanvasItem, art: Dictionary, feet: Vector2, face_left: bool, tint: Color = Color.WHITE) -> void:
+## `stride` (distance walked) picks a walking frame when `walking`.
+static func draw_standing(canvas: CanvasItem, art: Dictionary, feet: Vector2, face_left: bool, tint: Color = Color.WHITE,
+		walking: bool = false, stride: float = 0.0) -> void:
 	var anchor: Vector2 = art["anchor"]
 	canvas.draw_set_transform(feet, 0.0, Vector2(-1.0 if face_left else 1.0, 1.0))
-	canvas.draw_texture(frame(art, false, 0.0), -anchor, tint)
+	canvas.draw_texture(frame(art, walking, stride), -anchor, tint)
 	canvas.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 

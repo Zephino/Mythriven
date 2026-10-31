@@ -169,33 +169,56 @@ func _draw() -> void:
 		var at: Vector2 = shrine["pos"]
 		var god: Dictionary = shrine["god"]
 		var color := Color.html(str(god.get("placeholder_color", "#ffffff")))
-		var stone := Color.html(Data.cfg_string("gods.shrine_stone_color"))
-		match str(god.get("pantheon", "")):
-			"greek":
-				draw_rect(Rect2(at + Vector2(-14, -12), Vector2(28, 4)), stone)
-				for x: float in [-11.0, -4.0, 3.0, 10.0]:
-					draw_rect(Rect2(at + Vector2(x - 1.5, -8), Vector2(3, 14)), stone)
-				draw_rect(Rect2(at + Vector2(-15, 6), Vector2(30, 3)), stone)
-			"norse":
-				draw_rect(Rect2(at + Vector2(-5, -16), Vector2(10, 26)), stone)
-				draw_line(at + Vector2(-3, -10), at + Vector2(3, 4), color, 1.5)
-			"egyptian":
-				draw_colored_polygon(PackedVector2Array([at + Vector2(-5, 10), at + Vector2(5, 10), at + Vector2(3, -14),
-						at + Vector2(0, -19), at + Vector2(-3, -14)]), stone)
-			_:
-				for k: int in 7:
-					draw_circle(at + Vector2.from_angle(TAU * k / 7.0) * 14.0, 3.0, stone)
-		# The god stands in their shrine when they have art (docs/ART_RULES.md: Gods); else a coloured dot.
+		# The god walks slowly round their altar when they have art (owner request 10/31/2026; docs/ART_RULES.md:
+		# Gods): behind it on the far half of the circle, in front of it on the near half.
 		var art: Dictionary = PixelArt.god(str(shrine.get("god_id", god.get("id", ""))))
+		var walk := {}
+		if not art.is_empty():
+			walk = _walk_round(at)
+			if not bool(walk["front"]):
+				PixelArt.draw_standing(self, art, walk["feet"], walk["left"], Color.WHITE, true, walk["stride"])
+		_draw_altar(at, god, color)
 		if art.is_empty():
 			draw_circle(at, 4.0, color)
-		else:
-			PixelArt.draw_standing(self, art, at + Vector2(0, Data.cfg_float("gods.shrine_art_feet_px")), false)
+		elif bool(walk["front"]):
+			PixelArt.draw_standing(self, art, walk["feet"], walk["left"], Color.WHITE, true, walk["stride"])
 		var progress: float = float(shrine["progress"]) / maxf(Data.cfg_float("gods.peaceful_bind_s"), 0.01)
 		if progress > 0.0:
 			draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * progress, 32, color, 3.0)
 		else:
 			draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), 0.0, TAU, 32, Color(color, 0.4), 1.0)
+
+
+## Where a god walking round the altar at `at` is now: {"feet", "left" (facing), "front" (on the near half),
+## "stride"}. Each altar has its own starting point on the circle, so gods don't all walk in step.
+func _walk_round(at: Vector2) -> Dictionary:
+	var radius: float = Data.cfg_float("gods.altar_walk_radius_px")
+	var seconds: float = GameAuthority.run.elapsed_s if GameAuthority.run != null else 0.0
+	var angle: float = seconds * Data.cfg_float("gods.altar_walk_speed_px") / maxf(radius, 1.0) + fposmod(at.x * 0.13 + at.y * 0.07, TAU)
+	var squash: float = Data.cfg_float("gods.altar_walk_squash")
+	var feet: Vector2 = at + Vector2(cos(angle) * radius, sin(angle) * radius * squash)
+	# Walking anticlockwise on screen: moving left on the near half, right on the far half.
+	return {"feet": feet, "left": sin(angle) > 0.0, "front": sin(angle) > 0.0, "stride": angle * radius}
+
+
+## The altar's stones, in the style of the god's people.
+func _draw_altar(at: Vector2, god: Dictionary, color: Color) -> void:
+	var stone := Color.html(Data.cfg_string("gods.shrine_stone_color"))
+	match str(god.get("pantheon", "")):
+		"greek":
+			draw_rect(Rect2(at + Vector2(-14, -12), Vector2(28, 4)), stone)
+			for x: float in [-11.0, -4.0, 3.0, 10.0]:
+				draw_rect(Rect2(at + Vector2(x - 1.5, -8), Vector2(3, 14)), stone)
+			draw_rect(Rect2(at + Vector2(-15, 6), Vector2(30, 3)), stone)
+		"norse":
+			draw_rect(Rect2(at + Vector2(-5, -16), Vector2(10, 26)), stone)
+			draw_line(at + Vector2(-3, -10), at + Vector2(3, 4), color, 1.5)
+		"egyptian":
+			draw_colored_polygon(PackedVector2Array([at + Vector2(-5, 10), at + Vector2(5, 10), at + Vector2(3, -14),
+					at + Vector2(0, -19), at + Vector2(-3, -14)]), stone)
+		_:
+			for k: int in 7:
+				draw_circle(at + Vector2.from_angle(TAU * k / 7.0) * 14.0, 3.0, stone)
 
 
 ## Edge-of-screen arrows pointing at shrines that are off screen.
