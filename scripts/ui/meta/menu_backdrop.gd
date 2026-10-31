@@ -151,7 +151,15 @@ func _draw_heroes(offset: Vector2, zoom: float) -> void:
 	var last: Dictionary = PixelArt.find(_last_hero)
 	if not last.is_empty():
 		var spot := Vector2(float(_meta.get("last_hero_x", 410)), ground + 6.0)
-		_draw_figure(last, offset + spot * zoom, zoom * Data.cfg_float("ui.menu_last_hero_scale"), true, false, 0.0, 1.0)
+		var scale: float = zoom * Data.cfg_float("ui.menu_last_hero_scale")
+		var feet: Vector2 = offset + spot * zoom
+		# On narrow screens the backdrop is cropped at the sides: keep the Hero wholly on screen, and leave them out
+		# when there's no room for them beside the menu buttons (owner report 10/31/2026: half a Hero at the edge).
+		var half: float = (last["size"] as Vector2).x * 0.5 * scale
+		var margin: float = Data.cfg_float("ui.screen_margin_px")
+		feet.x = minf(feet.x, size.x - margin - half)
+		if feet.x - half >= size.x * 0.5 + Data.cfg_float("ui.menu_column_px") * 0.5:
+			_draw_figure(last, feet, scale, true, false, 0.0, 1.0)
 
 
 func _draw_figure(art: Dictionary, feet: Vector2, zoom: float, face_left: bool, walking: bool, stride: float, alpha: float) -> void:

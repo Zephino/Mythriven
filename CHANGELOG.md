@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.42
+Date: 10/31/2026
+Time: 12:01 PM
+
+### Changes
+- **No half a Hero at the edge of the title screen.** On narrow screens (phones) the backdrop is cropped at the sides, which could leave the last Hero played half off the right edge. They're now kept wholly on screen, and left out when there's no room for them beside the menu buttons.
+
+### Reason
+The owner saw part of a character at the edge of the main menu that shouldn't be there.
+
 ## Version 00.02.41
 Date: 10/31/2026
 Time: 11:56 AM
