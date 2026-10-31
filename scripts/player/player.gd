@@ -120,6 +120,7 @@ func refresh_stats() -> void:
 func _process(delta: float) -> void:
 	if swinging_s > 0.0:
 		swinging_s -= delta
+		queue_redraw()                                 # hide the held weapon now, and show it again after
 	if invulnerable_s > 0.0:
 		invulnerable_s = maxf(invulnerable_s - delta, 0.0)
 		queue_redraw()

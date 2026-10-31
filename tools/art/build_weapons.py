@@ -327,8 +327,8 @@ def sling_stone():
 # What each thrown weapon or shot flies as (data/art/projectiles/; weapons.json projectile_art), drawn upright and
 # not tipped, so the game can turn it to face its flight.
 PROJECTILES = {
-    "javelin": javelin, "throwing_axe": throwing_axe, "bladed_discus": bladed_discus, "gae_bolg": gae_bolg,
-    "spear_and_shield": spear_and_shield, "scathach_spear": scathach_spear, "arrow": arrow, "sling_stone": sling_stone,
+    "javelin": javelin, "throwing_axe": throwing_axe, "bladed_discus": bladed_discus, "arrow": arrow,
+    "sling_stone": sling_stone,
 }
 
 # (picture, lean). Held ready, not dragged (owner request 10/31/2026): swords, clubs, hammers and axes raised and

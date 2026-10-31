@@ -190,11 +190,26 @@ func test_cavalry_charge_momentum_charge_and_dodge() -> void:
 	assert_eq(int(player.kit.get("momentum")), 5, "standing still 1 s loses half")
 
 
-func test_gae_bolg_is_thrown_pierces_and_kills_burst_into_barbs() -> void:
-	# Spears are thrown (owner request 10/31/2026): the Gáe Bolg flies from Cú Chulainn's hand as a picture.
+func test_gae_bolg_thrust_hits_a_line_and_kills_burst_into_barbs() -> void:
+	# Spears jab; javelins are thrown (owner decision 10/31/2026).
 	var player: Player = _hero("cu_chulainn")
 	var spear: WeaponInstance = player.weapons[0] if not player.weapons.is_empty() else GameAuthority.give_weapon(player, "gae_bolg")
-	assert_eq(str(spear.data["pattern"]), "forward", "thrown, not thrust")
+	assert_eq(str(spear.data["pattern"]), "thrust", "spears jab")
+	assert_eq(str(GameAuthority.find_weapon("javelin")["pattern"]), "forward", "javelins are thrown")
+	var in_line: int = _spawn(Vector2(60, 0))
+	var off_line: int = _spawn(Vector2(30, 40))
+	var dies: int = _spawn(Vector2(20, 0), 1.0)
+	var bystander: int = _spawn(Vector2(20, 22))
+	var hp: Dictionary = {in_line: _enemies.hp[in_line], off_line: _enemies.hp[off_line], bystander: _enemies.hp[bystander]}
+	ThrustPattern.new().fire(spear, player, {"direction": Vector2.RIGHT}, _combat)
+	assert_lt(_enemies.hp[in_line], hp[in_line])
+	assert_eq(_enemies.hp[off_line], hp[off_line])
+	assert_eq(_enemies.active[dies], 0)
+	assert_lt(_enemies.hp[bystander], hp[bystander], "barbs from the kill")
+
+
+func test_thrown_weapons_and_shots_fly_as_pictures() -> void:
+	var player: Player = _hero("atalanta")
 	var projectiles := ProjectileManager.new()
 	projectiles.enemies = _enemies
 	projectiles.combat = _combat
@@ -202,19 +217,9 @@ func test_gae_bolg_is_thrown_pierces_and_kills_burst_into_barbs() -> void:
 	projectiles.setup()
 	projectiles.set_process(false)
 	_combat.projectiles = projectiles
-	var dies: int = _spawn(Vector2(30, 0), 1.0)
-	var behind: int = _spawn(Vector2(90, 0))
-	var bystander: int = _spawn(Vector2(30, 22))
-	var off_line: int = _spawn(Vector2(60, 70))
-	var hp: Dictionary = {behind: _enemies.hp[behind], bystander: _enemies.hp[bystander], off_line: _enemies.hp[off_line]}
-	ProjectilePattern.new(ProjectileManager.FLIGHT).fire(spear, player, {"direction": Vector2.RIGHT}, _combat)
-	assert_false(projectiles._art[0].is_empty(), "it flies as the spear's picture")
-	for k: int in 20:
-		projectiles._process(0.02)
-	assert_eq(_enemies.active[dies], 0, "the first enemy is killed")
-	assert_lt(_enemies.hp[behind], hp[behind], "it pierces on to the next")
-	assert_lt(_enemies.hp[bystander], hp[bystander], "barbs burst from the kill")
-	assert_eq(_enemies.hp[off_line], hp[off_line], "nothing off its line")
+	var javelin: WeaponInstance = GameAuthority.give_weapon(player, "javelin")
+	ProjectilePattern.new(ProjectileManager.FLIGHT).fire(javelin, player, {"direction": Vector2.RIGHT}, _combat)
+	assert_false(projectiles._art[0].is_empty(), "the javelin flies as its picture")
 	for weapon: Dictionary in Data.get_file("weapons.json"):
 		var picture: String = str(weapon.get("projectile_art", ""))
 		if picture != "":

@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.13
+Date: 10/31/2026
+Time: 3:09 AM
+
+### Changes
+- **Spears jab again; javelins are thrown.** The Gáe Bolg (and Thirty Barbs), Achilles' Spear and Shield and Scáthach's spear are back to a piercing thrust along a line with their old numbers (reach, width), and the Gáe Bolg's kills burst into barbs as before. The javelin (and Rain of Javelins) is still thrown and flies as its picture.
+- **You see the jab:** the spear's own picture shoots out from the Hero's hand toward the target and draws back (the held spear is hidden while it jabs).
+- The held weapon now hides and reappears on time during swings and jabs even when the Hero is standing still.
+- `GAME_DESIGN.md` (Gáe Bolg, and the weapon rule) and `docs/ART_RULES.md` updated; the unused flying-spear pictures were removed. Tests check spears jab, javelins are thrown, and every flying picture exists.
+
+### Reason
+The owner asked to put spears back to jab, and javelins to throwing.
+
 ## Version 00.02.12
 Date: 10/31/2026
 Time: 3:06 AM

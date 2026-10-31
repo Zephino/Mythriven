@@ -514,8 +514,8 @@ Heroes are legendary figures from Tier A traditions in your database, and each p
 
 ### Cú Chulainn (Irish)
 
-- **Gáe Bolg** (`targeted`, Physical): a thrown spear that flies at the target and pierces through several enemies; enemies it kills burst into barbs that hit those nearby. *(Changed 10/31/2026, owner decision: spears are thrown, so they fly to enemies; this also applies to Achilles' and Scáthach's spears. Was a piercing thrust along a line.)*
-- **How weapons attack follows what they are** (owner rule, 10/31/2026): spears and javelins are thrown and fly to enemies; bows stay in the Hero's hand and shoot arrows; swords, clubs and hammers are swung from the Hero's hand; axes and discs are thrown and spin. Every attack starts from the Hero.
+- **Gáe Bolg** (`targeted`, Physical): piercing spear thrust along a line; enemies killed burst into barbs that hit those nearby.
+- **How weapons attack follows what they are** (owner rule, 10/31/2026): spears jab and javelins are thrown and fly to enemies (owner decision, 10/31/2026: spears were thrown for a short while, then put back to jabbing); bows stay in the Hero's hand and shoot arrows; swords, clubs and hammers are swung from the Hero's hand; axes and discs are thrown and spin. Every attack starts from the Hero.
 - **Legend Trait: Salmon Leap** (his famous hero-feat). Every 8 s he automatically leaps 3 tiles in his movement direction (straight up if standing still), untargetable for 0.8 s, landing with a shockwave (radius 2 tiles, knockback). A shadow shows where he'll land.
 - **Passive: Battle Frenzy** (his warp-spasm): below 30% HP, +30% attack speed and +15% Area.
 - **Divine Link:** landing shockwaves apply the element of each bound god.
@@ -697,7 +697,7 @@ Infusions use **8 templates (Ra's and the Morrígan's are described in Gods)** a
 | Poseidon | Water | Hits Soak; +knockback splash | Tidal |
 | Tyche | Fortune | Kills have 10% chance to drop gold; +crit damage | Fortune's |
 
-Names build automatically (prefix + weapon name), with optional overrides for signature weapons. Examples: Gáe Bolg + Thor = **Thunder Gáe Bolg** (lightning chains from the thrown spear); Excalibur + Sekhmet = **Sunfire Excalibur**; Thirty Barbs + Skadi = **Winter Barbs**.
+Names build automatically (prefix + weapon name), with optional overrides for signature weapons. Examples: Gáe Bolg + Thor = **Thunder Gáe Bolg** (lightning chains along the thrust); Excalibur + Sekhmet = **Sunfire Excalibur**; Thirty Barbs + Skadi = **Winter Barbs**.
 
 ### 3. Union evolutions \[Post-launch\]
 

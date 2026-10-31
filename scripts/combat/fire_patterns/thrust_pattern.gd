@@ -1,6 +1,6 @@
 class_name ThrustPattern
 extends FirePattern
-## Piercing thrust along a line (Gáe Bolg): hits every enemy in a strip
+## Piercing thrust along a line (the spears: Gáe Bolg, Achilles', Scáthach's): hits every enemy in a strip
 ## range_px long and width_px wide toward the target. With "on_kill_barbs",
 ## each enemy it kills bursts into barbs that hit those nearby.
 
@@ -30,3 +30,8 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 			combat.effects.spawn_ring(at, barb_radius, combat.effect_color(weapon))
 	var spread: float = 2.0 * atan2(half_width, length)
 	combat.effects.spawn_arc(player.position, direction.angle(), length, spread, combat.effect_color(weapon))
+	# The spear itself jabs out from the Hero's hand (owner decision 10/31/2026: spears jab, javelins are thrown).
+	var art: Dictionary = PixelArt.weapon_art(weapon)
+	if not art.is_empty():
+		combat.effects.spawn_jab(player.hand_position(), direction.angle(), length * 0.15, art, direction.x < 0.0)
+		player.swinging_s = Data.cfg_float("effects.swing_s")

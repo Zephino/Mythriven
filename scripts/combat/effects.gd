@@ -10,6 +10,8 @@ const KIND_ARC := 0
 const KIND_RING := 1
 ## A weapon's picture sweeping through its swing from the Hero's hand (owner request 10/31/2026).
 const KIND_SWING := 2
+## A spear's picture jabbing out from the Hero's hand and drawing back (owner decision 10/31/2026: spears jab).
+const KIND_JAB := 3
 const ARC_SEGMENTS := 12
 const RING_SEGMENTS := 24
 
@@ -79,6 +81,17 @@ func spawn_swing(at: Vector2, angle: float, spread: float, art: Dictionary, face
 	_duration[i] = Data.cfg_float("effects.swing_s")
 
 
+## A spear jabbing from `at` (the Hero's hand) toward `angle`: its picture shoots forward `reach` pixels and draws
+## back. Each device draws its own.
+func spawn_jab(at: Vector2, angle: float, reach: float, art: Dictionary, face_left: bool) -> void:
+	if art.is_empty() or _capacity <= 0:
+		return
+	var i: int = _next
+	_spawn(KIND_JAB, at, angle, reach, 1.0 if face_left else 0.0, Color.WHITE)
+	_art[i] = art
+	_duration[i] = Data.cfg_float("effects.swing_s")
+
+
 ## Co-op (joining player): an effect the host shared.
 func spawn_from_host(effect_kind: int, at: Vector2, angle: float, size: float, spread: float, color: Color) -> void:
 	_spawn(effect_kind, at, angle, size, spread, color)
@@ -134,6 +147,8 @@ func _draw() -> void:
 		color.a *= 1.0 - t
 		if _kind[i] == KIND_SWING:
 			_draw_swing(i, t)
+		elif _kind[i] == KIND_JAB:
+			_draw_jab(i, t)
 		elif _kind[i] == KIND_ARC:
 			var points := PackedVector2Array([_pos[i]])
 			for s: int in ARC_SEGMENTS + 1:
@@ -156,4 +171,16 @@ func _draw_swing(i: int, t: float) -> void:
 	var swept: float = start + (-1.0 if left else 1.0) * _spread[i] * ease(t, 0.6)
 	draw_set_transform(_pos[i], swept + PI * 0.5, Vector2(-1.0 if left else 1.0, 1.0))
 	draw_texture(texture, -grip, Color(1, 1, 1, clampf((1.0 - t) * 3.0, 0.0, 1.0)))
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+## Out fast, back slower: the grip travels along the jab, the picture pointing the way it goes.
+func _draw_jab(i: int, t: float) -> void:
+	var art: Dictionary = _art[i]
+	var texture: ImageTexture = PixelArt.frame(art, false, 0.0)
+	var grip: Vector2 = art.get("grip", texture.get_size() * 0.5)
+	var out: float = ease(t / 0.35, 0.5) if t < 0.35 else 1.0 - ease((t - 0.35) / 0.65, 1.6)
+	var along: Vector2 = Vector2.from_angle(_angle[i]) * _radius[i] * out
+	draw_set_transform(_pos[i] + along, _angle[i] + PI * 0.5, Vector2(-1.0 if _spread[i] > 0.5 else 1.0, 1.0))
+	draw_texture(texture, -grip)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)

@@ -1,6 +1,6 @@
 [
   {
-    "_doc": "Weapons (GAME_DESIGN.md: Weapons). Each of the 8 levels lists its full stats: damage, cooldown (seconds between attacks), hit_interval (how soon the same enemy can be hit again; 0 = once per attack or per projectile), range_px (targeting range), area (multiplier), knockback (push speed px/s), plus pattern values (arc_deg; count, spread_deg, speed_px_s, lift_px_s, gravity_px_s2, return_after_s, lifetime_s, radius_px, pierce). in_level_up_pool: can be offered as a new weapon on level-up. ALL NUMBERS ARE PLACEHOLDERS until the Phase 7 fun tuning. Evolved weapons (evolved_from) are swapped in by a chest when the weapon is level 8 and its paired passive is owned (GAME_DESIGN.md: Standard evolutions); they have one level at about 2x level-8 damage. projectile_art (optional): the picture a thrown weapon or its shot flies as (data/art/projectiles/<name>.json; owner request 10/31/2026: spears, javelins, axes, discs, arrows and sling-stones fly as pictures), pointing along its flight, or spinning at projectile_spin_deg_s. Spears are thrown (owner request 10/31/2026): the Gáe Bolg, Achilles' spear and Scáthach's spear fly at enemies and pierce, and the Gáe Bolg's barbs burst from the enemies it kills.",
+    "_doc": "Weapons (GAME_DESIGN.md: Weapons). Each of the 8 levels lists its full stats: damage, cooldown (seconds between attacks), hit_interval (how soon the same enemy can be hit again; 0 = once per attack or per projectile), range_px (targeting range), area (multiplier), knockback (push speed px/s), plus pattern values (arc_deg; count, spread_deg, speed_px_s, lift_px_s, gravity_px_s2, return_after_s, lifetime_s, radius_px, pierce). in_level_up_pool: can be offered as a new weapon on level-up. ALL NUMBERS ARE PLACEHOLDERS until the Phase 7 fun tuning. Evolved weapons (evolved_from) are swapped in by a chest when the weapon is level 8 and its paired passive is owned (GAME_DESIGN.md: Standard evolutions); they have one level at about 2x level-8 damage. projectile_art (optional): the picture a thrown weapon or its shot flies as (data/art/projectiles/<name>.json; owner request 10/31/2026: spears, javelins, axes, discs, arrows and sling-stones fly as pictures), pointing along its flight, or spinning at projectile_spin_deg_s. Spears jab (thrust) and javelins are thrown (owner decision 10/31/2026).",
     "id": "great_club",
     "name_key": "WEAPON_GREAT_CLUB_NAME",
     "desc_key": "WEAPON_GREAT_CLUB_DESC",
@@ -1280,7 +1280,7 @@
       "spear"
     ],
     "targeting": "targeted",
-    "pattern": "forward",
+    "pattern": "thrust",
     "signature_of": "cu_chulainn",
     "on_kill_barbs": {
       "radius_px": 28,
@@ -1292,113 +1292,73 @@
         "damage": 14,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 200,
+        "range_px": 90,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 12
       },
       {
         "damage": 17,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 200,
+        "range_px": 90,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 12
       },
       {
         "damage": 17,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 12
       },
       {
         "damage": 21,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 12
       },
       {
         "damage": 21,
         "cooldown": 1.15,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 12
       },
       {
         "damage": 26,
         "cooldown": 1.15,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 12
       },
       {
         "damage": 26,
         "cooldown": 1.15,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 5
+        "width_px": 16
       },
       {
         "damage": 32,
         "cooldown": 1.0,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 5
+        "width_px": 16
       }
     ],
     "tier_names": [],
@@ -1413,8 +1373,7 @@
       "type": "signature"
     },
     "placeholder_color": "#e8d8b0",
-    "persists": false,
-    "projectile_art": "gae_bolg"
+    "persists": false
   },
   {
     "id": "spear_and_shield",
@@ -1425,7 +1384,7 @@
       "spear"
     ],
     "targeting": "targeted",
-    "pattern": "forward",
+    "pattern": "thrust",
     "signature_of": "achilles",
     "in_level_up_pool": false,
     "levels": [
@@ -1433,113 +1392,73 @@
         "damage": 14,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 200,
+        "range_px": 90,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 16
       },
       {
         "damage": 17,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 200,
+        "range_px": 90,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 16
       },
       {
         "damage": 17,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 16
       },
       {
         "damage": 21,
         "cooldown": 1.3,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 16
       },
       {
         "damage": 21,
         "cooldown": 1.15,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 16
       },
       {
         "damage": 26,
         "cooldown": 1.15,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 16
       },
       {
         "damage": 26,
         "cooldown": 1.15,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 5
+        "width_px": 20
       },
       {
         "damage": 32,
         "cooldown": 1.0,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 140,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 5
+        "width_px": 20
       }
     ],
     "tier_names": [],
@@ -1551,8 +1470,7 @@
       "type": "signature"
     },
     "placeholder_color": "#e8c878",
-    "persists": false,
-    "projectile_art": "spear_and_shield"
+    "persists": false
   },
   {
     "id": "runo_song",
@@ -2717,7 +2635,7 @@
       "spear"
     ],
     "targeting": "targeted",
-    "pattern": "forward",
+    "pattern": "thrust",
     "signature_of": "cu_chulainn",
     "on_kill_barbs": {
       "radius_px": 42.0,
@@ -2729,15 +2647,10 @@
         "damage": 64,
         "cooldown": 1.0,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.2,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 6
+        "width_px": 16
       }
     ],
     "tier_names": [],
@@ -2751,8 +2664,7 @@
     "placeholder_color": "#e8d8b0",
     "persists": false,
     "evolved_from": "gae_bolg",
-    "barbs_on_every_hit": true,
-    "projectile_art": "gae_bolg"
+    "barbs_on_every_hit": true
   },
   {
     "id": "song_of_creation",
@@ -3525,7 +3437,7 @@
       "spear"
     ],
     "targeting": "targeted",
-    "pattern": "forward",
+    "pattern": "thrust",
     "signature_of": "scathach",
     "in_level_up_pool": false,
     "tier_names": [],
@@ -3542,116 +3454,75 @@
         "damage": 13,
         "cooldown": 1.17,
         "hit_interval": 0,
-        "range_px": 200,
+        "range_px": 90,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 16
       },
       {
         "damage": 15,
         "cooldown": 1.17,
         "hit_interval": 0,
-        "range_px": 200,
+        "range_px": 90,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 16
       },
       {
         "damage": 15,
         "cooldown": 1.17,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 3
+        "width_px": 16
       },
       {
         "damage": 19,
         "cooldown": 1.17,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 16
       },
       {
         "damage": 19,
         "cooldown": 1.03,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 16
       },
       {
         "damage": 23,
         "cooldown": 1.03,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 4
+        "width_px": 16
       },
       {
         "damage": 23,
         "cooldown": 1.03,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 5
+        "width_px": 20
       },
       {
         "damage": 29,
         "cooldown": 0.9,
         "hit_interval": 0,
-        "range_px": 210,
+        "range_px": 105,
         "area": 1.0,
         "knockback": 90,
-        "count": 1,
-        "spread_deg": 0,
-        "speed_px_s": 340,
-        "lifetime_s": 0.8,
-        "radius_px": 6,
-        "pierce": 5
+        "width_px": 20
       }
     ],
-    "persists": false,
-    "projectile_art": "scathach_spear"
+    "persists": false
   }
 ]
