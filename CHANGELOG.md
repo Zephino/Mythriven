@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.73
+Date: 10/31/2026
+Time: 1:16 AM
+
+### Changes
+- **Heracles no longer wears the lion hood.** He now has short, curly dark hair (one solid mass with a curled top and shadow at the back), a clear forehead and eye, and his beard. The lion's paws at his throat went with it.
+- `docs/ART_RULES.md`: the example of an iconic feature is now Heracles' club and build and Achilles' helmet and shield; the lion pelt colours were removed from the palette table.
+
+### Reason
+The owner approved Achilles ("perfect") and asked to remove the hat on Heracles.
+
 ## Version 00.01.72
 Date: 10/31/2026
 Time: 1:14 AM

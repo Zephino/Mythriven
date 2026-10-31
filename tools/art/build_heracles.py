@@ -4,13 +4,13 @@
 import hero_kit as kit
 
 DOC = ("Heracles (GAME_DESIGN.md: Heroes; owner-approved art style, 10/31/2026). Built by tools/art/build_heracles.py "
-       "on the shared body in tools/art/hero_kit.py; rules in docs/ART_RULES.md. Iconography from Greek vase painting "
-       "and Pseudo-Apollodorus (Bibliotheca 2.5.1): the Nemean lion's skin worn as a hood (its head over his), its paws "
-       "knotted at the throat (no cloak behind him, owner request); a beard; a short chiton; sandals. His weapon is drawn "
+       "on the shared body in tools/art/hero_kit.py; rules in docs/ART_RULES.md. Iconography from Greek vase painting: "
+       "short curly hair and a beard; a short chiton; sandals. The Nemean lion's skin (Pseudo-Apollodorus, Bibliotheca 2.5.1) "
+       "was taken off at the owner's request (first the cloak, then the hood, 10/31/2026). His weapon is drawn "
        "separately (data/art/weapons/) at his hand.")
 
 PALETTE = {
-    "o": "#24160e", "l": "#d6a040", "L": "#a06a24", "m": "#6e4216", "w": "#f6efe0", "k": "#140c08",
+    "o": "#24160e", "k": "#140c08",
     "s": "#e2a676", "S": "#b0724a", "h": "#3e2414", "H": "#2a180c",
     "r": "#a83a2c", "R": "#7a2620", "b": "#5c3a1c", "y": "#d8b048",
 }
@@ -23,22 +23,18 @@ def sandals(c, x0):
 
 def draw(c, back_leg, front_leg):
     kit.far_arm(c)
-    # Lion head hood: ear, the lion's eye, brow and snout over his forehead, teeth at the tip
-    c.row(1, 10, 11, "m")
-    c.row(2, 9, 15, "l"); c.px(10, 2, "L")
-    c.row(3, 9, 16, "l")
-    c.row(4, 9, 17, "l"); c.px(15, 3, "k")
-    c.row(5, 9, 18, "L")
-    c.row(6, 9, 18, "L"); c.px(9, 5, "m"); c.px(9, 6, "m")
-    c.px(17, 7, "w"); c.px(18, 7, "w")
-    c.row(7, 10, 16, "L")
-    # Face in profile: eye, nose
-    c.rect(11, 8, 16, 10, "s"); c.rect(11, 8, 12, 10, "S")
-    c.px(15, 9, "k"); c.px(17, 9, "s")
+    # Short, curly dark hair (owner request 10/31/2026: no lion hood): one mass with a bumpy edge, shadow at the back
+    c.row(3, 11, 12, "h"); c.row(3, 14, 15, "h")
+    c.row(4, 10, 16, "h")
+    c.rect(9, 5, 16, 6, "h"); c.px(17, 6, "h"); c.rect(9, 7, 11, 10, "h")
+    c.rect(9, 5, 10, 10, "H"); c.px(8, 7, "H"); c.px(8, 8, "H"); c.row(6, 12, 15, "H")
+    # Face in profile: forehead, eye, nose, ear
+    c.rect(12, 7, 16, 10, "s")
+    c.px(15, 9, "k"); c.px(17, 9, "s"); c.px(12, 8, "S"); c.px(12, 9, "S")
     # Short beard
     c.rect(12, 11, 16, 12, "h"); c.px(12, 11, "H"); c.px(12, 12, "H"); c.px(16, 11, "s")
-    # Neck and the lion's paws knotted at the throat
-    c.row(13, 11, 16, "s"); c.px(12, 13, "l"); c.px(13, 13, "l"); c.px(14, 13, "L"); c.px(15, 13, "l")
+    # Neck
+    c.row(13, 11, 16, "s"); c.px(11, 13, "S")
     # Bare, muscled chest with chest and stomach lines
     c.rect(10, 14, 17, 19, "s"); c.rect(10, 14, 11, 19, "S")
     c.row(16, 12, 13, "S"); c.row(16, 15, 16, "S"); c.px(14, 17, "S"); c.px(14, 18, "S")

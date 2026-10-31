@@ -25,9 +25,9 @@
 - **Both arms show.** The far arm hangs on the far side in the skin's shadow colour (it's further away), with a dark edge between it and the chest.
 - **Every part has its own dark edge**, not just the outside of the figure: a dark line between the arm and the chest, a 1-pixel gap (filled by the outline) between the body and anything behind it (cloak) or held beside it (weapon). Parts must never run into each other.
 - **A face that reads at a glance:** one dark eye pixel with a row of skin above it (the forehead) and skin around it. Nothing white touches the eye (it reads as a giant eyeball). Facial hair sits below it and is no more than 2 rows.
-- **Cloaks and pelts read as fabric or fur**, never as a plank: they widen as they hang, have a ragged or folded edge, and show texture (lighter tufts or folds). Keep them only if they help: the owner had Heracles' lion-skin cloak removed, since a long strip behind a small figure muddies the silhouette.
+- **Cloaks and pelts read as fabric or fur**, never as a plank: they widen as they hang, have a ragged or folded edge, and show texture (lighter tufts or folds). Keep them only if they help: the owner had Heracles' lion-skin cloak removed, since a long strip behind a small figure muddies the silhouette, and later his lion hood too.
 - **The weapon must be visible** and stand apart from the body: a different colour and value, sticking out past the body (see Weapons).
-- **Each Hero's iconic feature first.** Pick the one or two things people know them by, and make them big: Heracles' lion-skin hood and club. Leave out anything that muddies the silhouette.
+- **Each Hero's iconic feature first.** Pick the one or two things people know them by, and make them big: Heracles' club and build, Achilles' crested helmet and great shield. Leave out anything that muddies the silhouette.
 - **Skin tone fits the Hero's people and region**, from sources where they say, else what's typical there, never a default. Each Hero's script sets its own `s` / `S` and notes why (Heracles: Mediterranean; Cú Chulainn: fair Irish; Väinämöinen: fair, weathered Finnic north). Check it next to the other Heroes.
 - **Only from sources.** Clothing, weapons and symbols come from the Hero's myth and from historical and museum sources (see `GAME_DESIGN.md`: Art, and `docs/LORE_CHECK.md`). No stereotypes and no modern pop-culture versions. Write the sources in the file's `_doc`.
 
@@ -41,7 +41,7 @@
 | `H` | Hair and beard shadow | #2a180c |
 | `r` / `R` | Main cloth, light / shadow | #a83a2c / #7a2620 (dark red chiton) |
 | `b` / `y` | Belt and sandals / metal buckle | #5c3a1c / #d8b048 |
-| `l` / `L` / `m` / `w` | Hero's own extras | lion pelt light / shadow / dark mane, white teeth |
+| other letters | Hero's own extras | (Heracles has none since his lion hood was removed) |
 
 Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek marble and bronze, Norse wood and iron, Egyptian sandstone and lapis, Celtic stone and green-gold).
 
