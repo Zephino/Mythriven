@@ -6,13 +6,14 @@ import hero_kit as kit
 DOC = ("Medusa, boss (GAME_DESIGN.md: The Aegean Shore bosses; art 10/31/2026). Built by tools/art/build_boss_medusa.py; "
        "rules in docs/ART_RULES.md. From Pseudo-Apollodorus, Bibliotheca 2.4.2: the Gorgons had heads twined about with "
        "the scales of serpents, great tusks like swine's, and hands of bronze (their wings of gold are left out at the "
-       "owner's request, 10/31/2026, as in Ovid's telling); and Ovid, Metamorphoses 4 (snakes for hair). Her body is a "
-       "woman's, as in the ancient sources and art; a snake's tail for legs is a modern invention. The short chiton is how archaic Greek vase paintings and temple reliefs show her. Bigger "
+       "owner's request, 10/31/2026, as in Ovid's telling); and Ovid, Metamorphoses 4 (snakes for hair). In the ancient "
+       "sources and art she has a woman's legs; she has a serpent's tail instead at the owner's request (10/31/2026), "
+       "the well-known modern image. The short chiton is how archaic Greek vase paintings and temple reliefs show her. Bigger "
        "than a Hero (a boss).")
 
 SIZE, ANCHOR = (46, 58), (24, 56)
-STANCE = (20, 26)
-WALK = [STANCE, (18, 28), STANCE, (22, 24), STANCE]
+# Her tail sways as she moves: the phase of each frame (standing, then 4 walking frames).
+WALK = [0.0, 1.0, 0.0, -1.0, 0.0]
 
 PALETTE = {
     "o": "#24160e", "k": "#140c08",
@@ -22,7 +23,7 @@ PALETTE = {
     "c": "#3e3452", "C": "#28203a",                 # dark chiton
     "y": "#d8b048",                                 # gold border
     "w": "#f4ecd8",                                 # tusks
-    "n": "#5c3a1c",                                 # sandals
+    "t": "#5a8a3a", "T": "#36581f", "v": "#d0c48a",  # serpent tail: scales, darker bands, pale belly
 }
 
 
@@ -64,9 +65,36 @@ def serpents(c):
         c.px(round(ex + math.cos(a)), round(ey + math.sin(a)), "k")
 
 
+def tail(c, sway):
+    """A serpent's tail in place of legs (owner request 10/31/2026, going against the sources on purpose: the ancient
+    Medusa has a woman's legs, the tail is the well-known modern image): thick under her chiton, curving down to the
+    ground and trailing behind her, tapering to a tip, with a pale belly and darker bands across its back. `sway`
+    moves the trailing part for the walking frames."""
+    path = [(25, 44, 5.0), (25, 48, 4.6), (23, 52, 4.0), (18, 54, 3.4), (12, 54 - sway, 2.8), (7, 52 - sway * 2, 2.0),
+            (3, 49 - sway * 2, 1.2)]
+    pts = []
+    for (ax, ay, ar), (bx, by, br) in zip(path, path[1:]):
+        for i in range(8):
+            t = i / 8
+            pts.append((ax + (bx - ax) * t, ay + (by - ay) * t, ar + (br - ar) * t))
+    pts.append(path[-1])
+    for x, y, r in pts:
+        for yy in range(int(y - r) - 1, int(y + r) + 2):
+            for xx in range(int(x - r) - 1, int(x + r) + 2):
+                if math.hypot(xx - x, yy - y) <= r:
+                    c.px(xx, yy, "t")
+    for x, y, r in pts:
+        c.px(round(x), round(y + r * 0.7), "v")              # the pale belly along the underside
+        if r > 1.5:
+            c.px(round(x), round(y + r * 0.7) - 1, "v")
+    for k, (x, y, r) in enumerate(pts):
+        if k % 5 == 0 and r > 1.5:
+            c.px(round(x), round(y - r * 0.5), "T"); c.px(round(x), round(y - r * 0.5) + 1, "T")   # bands
+
+
 def draw(c, legs):
-    back, front = legs
     d = DY
+    tail(c, legs)                                            # behind her chiton, which hangs over its top
     # Far arm, a bronze hand
     c.rect(18, 20 + d, 19, 30 + d, "S"); c.rect(18, 31 + d, 19, 32 + d, "B")
     serpents(c)
@@ -90,10 +118,6 @@ def draw(c, legs):
     c.rect(29, 20 + d, 31, 24 + d, "s"); c.rect(28, 21 + d, 28, 24 + d, "o")
     c.rect(31, 24 + d, 35, 25 + d, "s"); c.px(31, 25 + d, "S")
     c.rect(35, 22 + d, 37, 26 + d, "b"); c.px(38, 22 + d, "B"); c.px(38, 24 + d, "B"); c.px(38, 26 + d, "B"); c.px(35, 26 + d, "B")
-    # Legs and sandals
-    for x0 in (back, front):
-        c.rect(x0, 38 + d, x0 + 3, 47 + d, "s"); c.rect(x0, 38 + d, x0, 47 + d, "S")
-        c.row(44 + d, x0, x0 + 3, "n"); c.row(48 + d, x0, x0 + 4, "n")
 
 
 if __name__ == "__main__":

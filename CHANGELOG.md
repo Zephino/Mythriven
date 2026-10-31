@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.88
+Date: 10/31/2026
+Time: 1:53 AM
+
+### Changes
+- **Medusa has a serpent's tail instead of legs**: thick under her chiton, curving down to the ground and trailing behind her to a thin tip, with a pale belly and darker bands across its back. It sways as she moves (her walking frames).
+- This goes against the sources on purpose (the ancient Medusa has a woman's legs; the tail is the well-known modern image), at the owner's choice; noted in her art file and `docs/ART_RULES.md`.
+
+### Reason
+The owner would rather her feet area be snake-like.
+
 ## Version 00.01.87
 Date: 10/31/2026
 Time: 1:51 AM
