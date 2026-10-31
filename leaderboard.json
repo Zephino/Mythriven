@@ -1,7 +1,68 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-10-31T11:51:09.859Z",
+	"updated": "2026-10-31T12:37:29.873Z",
 	"entries": [
+		{
+			"name": "Tiny",
+			"hero": "cu_chulainn",
+			"time_s": 1228,
+			"level": 61,
+			"kills": 29844,
+			"weapons": [
+				{
+					"id": "gae_bolg",
+					"level": 8
+				},
+				{
+					"id": "oblivion",
+					"level": 1
+				},
+				{
+					"id": "bronze_sword",
+					"level": 2
+				},
+				{
+					"id": "spark",
+					"level": 4
+				},
+				{
+					"id": "war_hammer",
+					"level": 3
+				},
+				{
+					"id": "javelin",
+					"level": 1
+				}
+			],
+			"passives": [
+				{
+					"id": "belt_of_strength",
+					"level": 5
+				},
+				{
+					"id": "bronze_aegis",
+					"level": 5
+				},
+				{
+					"id": "mirrored_shield",
+					"level": 5
+				},
+				{
+					"id": "hourglass",
+					"level": 5
+				},
+				{
+					"id": "lodestone",
+					"level": 3
+				},
+				{
+					"id": "votive_bell",
+					"level": 4
+				}
+			],
+			"version": "00.02.23",
+			"date": "2026-10-31T12:37:29.873Z"
+		},
 		{
 			"name": "Tiny",
 			"hero": "heracles",
