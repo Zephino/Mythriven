@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.75
+Date: 10/31/2026
+Time: 1:25 AM
+
+### Changes
+- **Atalanta's sprite**, from Ovid's Metamorphoses (book 8, the Calydonian boar hunt) and Apollodorus' Library (3.9.2):
+  - plain dark hair gathered in a single knot at the back (Ovid);
+  - a belted huntress's chiton to the knees in deep teal (so she stands out on grass), fastened at the throat with a gold brooch (Ovid);
+  - an ivory quiver on her back with red-fletched arrows showing at the top, on a shoulder strap (Ovid);
+  - laced leather hunting boots; Mediterranean skin, like Heracles and Achilles;
+  - built on the shared Hero body, with the same walk. She holds her Huntress Bow.
+
+### Reason
+The owner asked to go on to Atalanta.
+
 ## Version 00.01.74
 Date: 10/31/2026
 Time: 1:18 AM
