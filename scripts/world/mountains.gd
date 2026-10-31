@@ -502,15 +502,23 @@ func _draw_roads() -> void:
 				continue
 			var n: int = local.size()
 			var fade_steps: float = 2.0 if n > 60 else 6.0     # the long trails to the start fade only at the very end
+			# Only the stretches on screen are drawn (owner report 10/31/2026: the long trails to the start were drawn
+			# whole every frame, tens of thousands of shapes, and dropped the frame rate).
+			var shown := PackedInt32Array()
 			for i: int in n - 1:
+				if view.intersects(Rect2(local[i], Vector2.ZERO).expand(local[i + 1]).grow(width)):
+					shown.append(i)
+			if shown.is_empty():
+				continue
+			for i: int in shown:
 				var fade: float = clampf(float(n - 1 - i) / fade_steps, 0.0, 1.0)    # the far end fades into the ground
-				_road_layer.draw_line(local[i], local[i + 1], Color(edge, 0.8 * fade), width + 4.0, true)
+				_road_layer.draw_line(local[i], local[i + 1], Color(edge, 0.8 * fade), width + 4.0)
 				_road_layer.draw_circle(local[i], (width + 4.0) * 0.5, Color(edge, 0.8 * fade))
-			for i: int in n - 1:
+			for i: int in shown:
 				var fade: float = clampf(float(n - 1 - i) / fade_steps, 0.0, 1.0)
-				_road_layer.draw_line(local[i], local[i + 1], Color(base, fade), width, true)
+				_road_layer.draw_line(local[i], local[i + 1], Color(base, fade), width)
 				_road_layer.draw_circle(local[i], width * 0.5, Color(base, fade))
-			for i: int in n - 1:
+			for i: int in shown:
 				var fade: float = clampf(float(n - 1 - i) / fade_steps, 0.0, 1.0)
 				var side: Vector2 = (local[i + 1] - local[i]).normalized().orthogonal()
 				for rut: float in [-0.22, 0.22]:

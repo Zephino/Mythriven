@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.76
+Date: 10/31/2026
+Time: 5:30 PM
+
+### Changes
+- **Fixed big frame-rate drops on every map (worst where the trails to the mountains are long, as on the Two Lands).** The long trails from the start of the run to the mountains (added in 00.02.64) were drawn whole every frame, even the parts far off screen: about 37,000 shapes and 4,000 draw calls each frame. Now only the stretches on screen are drawn, and they are drawn without the extra edge smoothing.
+  - Measured on the Two Lands: draw calls per frame fell from about 4,200 to about 190, and drawn shapes from about 39,500 to about 2,400.
+  - Frame time on the test machine (software graphics, so slower than a real device): the Two Lands 39 ms to 20 ms with 150 monsters; the Misty Isles 65 ms to 21 ms.
+  - The roads look the same.
+
+### Reason
+The owner passed on player reports of frame-rate drops on the Two Lands map.
+
 ## Version 00.02.75
 Date: 10/31/2026
 Time: 5:22 PM
