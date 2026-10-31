@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.44
+Date: 10/31/2026
+Time: 12:23 PM
+
+### Changes
+- **Menus, first pages in the new layout (mock-ups for the owner).**
+  - The Hall of Legends has three tabs in its top bar (Progress, Lore, Records) beside Begin a Last Stand. A second row picks the page, which opens inside the Hall. The Hall remembers the tab you were on, and the gold shows in the corner.
+  - Offerings shows each god as a card: picture, name and level, pantheon and role, what the next level gives, and a price button. Gods not met yet are a dark shape with "???".
+  - The Bestiary is a list with a detail panel: pictures and names on the left; the chosen creature's big picture, times defeated, weaknesses, and myth with its source on the right. It also counts how many have been found.
+- Shared building blocks for the rest of the menus: wider pages, tabs, item cards, list + detail. New `ui.menu_*` settings for their sizes and colours. Text in them follows the Text size setting.
+
+### Reason
+The owner liked how the menus look but wanted the information on them to look better. The owner chose list + detail for reading pages, three tabs for the Hall, item cards for shop pages, and mock-ups first.
+
 ## Version 00.02.43
 Date: 10/31/2026
 Time: 12:05 PM

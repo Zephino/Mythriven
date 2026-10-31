@@ -691,11 +691,15 @@ UI_HALL_OF_LEGENDS,Hall of Legends
 UI_QUIT_GAME,Quit
 UI_GOLD_BANKED,Gold: %d
 UI_BEGIN_LAST_STAND,Begin a Last Stand
+UI_HALL_PROGRESS,Progress
+UI_HALL_LORE,Lore
+UI_HALL_RECORDS,Records
 UI_OFFERINGS,Offerings
 UI_UNLOCKS,Unlocks
 UI_OMENS,Omens
 UI_OMENS_LOCKED,Omens (survive 10:00 to unlock)
 UI_BESTIARY,Bestiary
+UI_COMPENDIUM_SHORT,Pantheon
 UI_COMPENDIUM,Pantheon Compendium
 UI_HALL_OF_HEROES,Hall of Heroes
 UI_ACHIEVEMENTS,Achievements
@@ -736,8 +740,14 @@ OFFERING_ROW,%s · level %d · next: %s · %d gold
 OFFERING_ROW_MAX,%s · level %d (Ascended)
 OFFERING_NONE,Bind a god in a run to make offerings to it.
 OFFERING_MAXED,Ascended
+OFFERING_LEVEL,Level %d
+OFFERING_NEXT,Next level: %s
+OFFERING_COST,%d gold
 OMEN_ROW,%s: %s (gold +%d%%)
 BESTIARY_UNKNOWN,???
+BESTIARY_FOUND,%d / %d found
+BESTIARY_DEFEATED,Defeated: %d
+BESTIARY_NOT_MET,Not met yet. Defeat it in a run to learn about it.
 BESTIARY_ROW,%s · %d defeated
 BESTIARY_WEAKNESS,Weak to: %s · Resists: %s
 BESTIARY_WEAKNESS_LOCKED,Weakness revealed after %d defeated.
