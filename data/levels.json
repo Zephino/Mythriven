@@ -1472,5 +1472,125 @@
       "edge": "#6a5c44",
       "stones": "#a8a49a"
     }
+  },
+  {
+    "_doc": "Muspelheim, Pack 4 realm 1, the fire realm (docs/PACK_4_PLAN.md; GAME_DESIGN.md Fantasy realms). Sources: Snorri, Gylfaginning 4-5, 51; the Poetic Edda, Fjolsvinnsmal; Paracelsus (salamanders). A realm: no local gods, shrines draw from every pantheon.",
+    "id": "muspelheim",
+    "name_key": "LEVEL_MUSPELHEIM_NAME",
+    "region": "realm_fire",
+    "act": 4,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "muspelheim",
+      "noise_frequency": 0.034,
+      "variant_shade": 0.06,
+      "ground": [
+        {
+          "id": "ash",
+          "max": -0.3,
+          "placeholder_color": "#3a2e2a",
+          "placeholder_dots": "#5a4038"
+        },
+        {
+          "id": "cracked",
+          "max": 0.2,
+          "placeholder_color": "#4a3026",
+          "placeholder_dots": "#c8501a"
+        },
+        {
+          "id": "rock",
+          "max": 0.6,
+          "placeholder_color": "#3a3234",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dirt",
+          "max": 1.0,
+          "placeholder_color": "#5a3a28",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "smoking_vent",
+      "obsidian_spire"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "smoking_vent": {
+        "shape": "rect",
+        "size_px": [
+          18,
+          20
+        ],
+        "placeholder_color": "#3a2a26",
+        "weight": 2
+      },
+      "obsidian_spire": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          30
+        ],
+        "placeholder_color": "#1a1420",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "gifr_and_geri",
+      "20": "vidofnir",
+      "30": "sinmara"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "mazandaran",
+      "boss": "white_div"
+    },
+    "waves": "waves_muspelheim.json",
+    "hazard": {
+      "type": "strikes",
+      "name_key": "HAZARD_SPARKS_OF_MUSPELL_NAME",
+      "first_s": 120,
+      "interval_s": 90,
+      "duration_s": 16,
+      "strikes_per_s": 1.0,
+      "radius_px": 30,
+      "telegraph_s": 1.2,
+      "damage": 12,
+      "element": "fire",
+      "range_px": 220,
+      "color": "#f07a20",
+      "look": "rockslide"
+    },
+    "ground_patches": {
+      "kind": "river",
+      "count": 5,
+      "radius_px": [
+        26,
+        40
+      ],
+      "color": "#c8401a",
+      "speed_mult": 0.7,
+      "drain_hp_per_s": 3.0
+    },
+    "seal": "norse_band",
+    "tint": "#f0dcd0",
+    "flora": {
+      "density": 0.35,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#4a3a32",
+      "edge": "#2e2420",
+      "stones": "#c8501a"
+    }
   }
 ]

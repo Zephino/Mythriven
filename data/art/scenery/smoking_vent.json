@@ -1,0 +1,68 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A smoking vent (Muspelheim): a cracked mound of black rock glowing at its mouth, a wisp of smoke above.",
+ "size": [
+  19,
+  21
+ ],
+ "anchor": [
+  9,
+  20
+ ],
+ "palette": {
+  "a": "#484848",
+  "b": "#aeb4ba",
+  "c": "#a2a2a8",
+  "d": "#a8a8ae",
+  "e": "#969c9c",
+  "f": "#664e18",
+  "g": "#909096",
+  "h": "#2a2a2a",
+  "i": "#481812",
+  "j": "#e4ba4e",
+  "k": "#c6a242",
+  "l": "#5a5a60",
+  "m": "#963c30",
+  "n": "#8a3630",
+  "o": "#84362a",
+  "p": "#54545a",
+  "q": "#606066",
+  "r": "#78302a",
+  "s": "#7e7e7e",
+  "t": "#727272",
+  "u": "#84848a",
+  "v": "#787878",
+  "w": "#66666c",
+  "x": "#6c6c6c",
+  "y": "#4e5454",
+  "z": "#4e4e4e",
+  "A": "#3c3c3c",
+  "B": "#787e7e"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..........a........",
+    ".........aba.......",
+    "........aca........",
+    ".......ada.........",
+    ".......aca.........",
+    "........ada........",
+    ".........ada.......",
+    ".........aea.......",
+    "........fgf........",
+    "......hijjkih......",
+    ".....hlmnomnph.....",
+    "....hqlronnmllh....",
+    "....hstusssvsvh....",
+    "...hqlqlpqqllplh...",
+    "...hplqlqlppplph...",
+    "..hssvvwssvsussxh..",
+    ".hppqlplqpqllllllh.",
+    ".hpppplyyzlplaylph.",
+    "ABvvvvvvvvBvxvvBvvA",
+    "hyppappyplpappplyph",
+    ".hhhhhhhhhhhhhhhhh."
+   ]
+  ]
+ }
+}

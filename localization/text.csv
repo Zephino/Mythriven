@@ -1852,3 +1852,31 @@ COSMETIC_SAMPO_GLOW,Sampo glow
 COSMETIC_SIMURGH_PLUME,Simurgh plume
 COSMETIC_KOSCHEI_NEEDLE,Golden needle
 COSMETIC_GOJO_BRIDGE,Gojō Bridge
+PACK_4_NAME,Pack 4: The Elemental Planes
+LEVEL_MUSPELHEIM_NAME,Muspelheim
+HAZARD_SPARKS_OF_MUSPELL_NAME,Sparks of Muspell rain down!
+ENEMY_SALAMANDER_NAME,Salamander
+ENEMY_SALAMANDER_MYTH,"Paracelsus wrote in 1566 that each element has its own spirits: the salamanders live in fire as we live in air, small and burning, and cannot live outside it."
+ENEMY_SON_OF_MUSPELL_NAME,Son of Muspell
+ENEMY_SON_OF_MUSPELL_MYTH,"Muspell is the burning land of the south, so hot that none but those born there can bear it. At Ragnarok its sons ride out behind Surtr and the bridge Bifrost breaks beneath them."
+BOSS_GIFR_AND_GERI_NAME,Gífr and Geri
+BOSS_VIDOFNIR_NAME,Víðófnir
+BOSS_SINMARA_NAME,Sinmara
+ENEMY_GIFR_AND_GERI_NAME,Gífr and Geri
+ENEMY_VIDOFNIR_NAME,Víðófnir
+ENEMY_SINMARA_NAME,Sinmara
+ENEMY_GIFR_AND_GERI_MYTH,"In the poem Fjölsvinnsmál, two hounds guard the hall ringed with flame. They sleep by turns, one by night and one by day, so that no one can ever pass them unseen."
+ENEMY_VIDOFNIR_MYTH,"The shining cock who sits in the branches of the great tree, gleaming like gold. Fjölsvinnsmál says he can only be killed with the weapon Lævateinn."
+ENEMY_SINMARA_MYTH,"The giantess of the fire realm in Fjölsvinnsmál, who keeps the weapon Lævateinn locked away in an iron chest fastened with nine strong locks."
+BOSS_GIFR_GERI_SWAP,The hounds change their watch!
+BOSS_SINMARA_BLADE,Sinmara takes Lævateinn from its chest!
+ACH_BOSS_GIFR_AND_GERI_NAME,Defeat Gífr and Geri
+ACH_BOSS_GIFR_AND_GERI_DESC,The 10:00 boss of Muspelheim.
+ACH_BOSS_VIDOFNIR_NAME,Defeat Víðófnir
+ACH_BOSS_VIDOFNIR_DESC,The 20:00 boss of Muspelheim.
+ACH_BOSS_SINMARA_NAME,Defeat Sinmara
+ACH_BOSS_SINMARA_DESC,The 30:00 boss of Muspelheim.
+BANTER_GIFR_AND_GERI_ENTRANCE,One of us always watches. Always.
+BANTER_VIDOFNIR_ENTRANCE,"Look at me, and see nothing else."
+BANTER_SINMARA_ENTRANCE,"Nine locks on the chest, and every key is mine."
+BANTER_SINMARA_FREYJA,"Goddess, your gold will melt like everything else here."

@@ -322,6 +322,30 @@ def castle_wall_ruin():
     return p
 
 
+def smoking_vent():
+    """A smoking vent (Muspelheim): a cracked mound of black rock glowing at its mouth, a wisp of smoke above."""
+    p = Pic(18, 20, (9, 19))
+    for y in range(10, 20):
+        half = 3 + (y - 10) * 0.6
+        p.rect(round(9 - half), y, round(9 + half), y, "G" if y % 3 else "g")
+    p.rect(7, 10, 11, 11, "r"); p.rect(8, 9, 10, 9, "y")                              # the glowing mouth
+    for k in range(8):
+        p.px(9 + round(1.5 * math.sin(k)), 8 - k, "h")                                  # smoke
+    return p
+
+
+def obsidian_spire():
+    """An obsidian spire (Muspelheim): a tall shard of black volcanic glass with a sharp gleam."""
+    p = Pic(14, 30, (7, 29))
+    for y in range(2, 30):
+        half = (y - 2) * 5 // 28 + 1
+        p.rect(7 - half, y, 7 + half, y, "z")
+    for y in range(6, 26, 3):
+        p.px(6, y, "h")                                                                 # gleam
+    p.rect(3, 28, 11, 29, "G")
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -347,7 +371,7 @@ def lekythos():
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
-                                   castle_wall_ruin)}
+                                   castle_wall_ruin, smoking_vent, obsidian_spire)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

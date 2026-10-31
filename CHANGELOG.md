@@ -2,6 +2,27 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.77
+Date: 10/31/2026
+Time: 5:59 PM
+
+### Changes
+- **Pack 4 has begun: Muspelheim, the fire realm, is built and open** (`docs/PACK_4_PLAN.md`, approved). Beat the White Div (Mazandaran's 30:00 boss) to unlock it. A "Pack 4: The Elemental Planes" heading joins the level select.
+  - **Harder:** Pack 4 enemies have +60% HP, +35% spawns and +30% damage compared with Pack 1.
+  - **A realm:** no local gods; shrines bring gods from every pantheon.
+  - **The land:** ash, cracked glowing rock and dark stone; smoking vents and obsidian spires; a few burned trees; pools of lava that slow you and burn your health away.
+  - **Sparks of Muspell** (the hazard): burning stones rain from the sky.
+  - **Monsters:** salamanders (Paracelsus' fire spirits) in swarms, the fire-giant sons of Muspell, and the bursting sparks of Muspell.
+  - **Bosses** (from the poem Fjölsvinnsmál):
+    - **Gífr and Geri** (10:00): two hounds who keep watch by turns. One fights while the other sleeps nearby, and every few seconds they change over; only the hound awake can be hurt.
+    - **Víðófnir** (20:00): the golden cock flares so bright the screen goes white for a moment, scorching anyone close.
+    - **Sinmara** (30:00): the fire closes in on the arena, and in her last phase she takes Lævateinn from its chest of nine locks and hits harder.
+  - Boss achievements, 4 banter lines, and Muspelheim's rows on the lore check.
+- 3 new tests (320 tests pass).
+
+### Reason
+The owner approved the Pack 4 plan ("yes as suggested"). Muspelheim is its first realm.
+
 ## Version 00.02.76
 Date: 10/31/2026
 Time: 5:30 PM

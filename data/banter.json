@@ -1570,5 +1570,46 @@
     "text_key": "BANTER_THUNDER_ON_THE_WAVES_RESONANCE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "gifr_and_geri_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "gifr_and_geri",
+    "hero": "",
+    "god": "gifr_and_geri",
+    "text_key": "BANTER_GIFR_AND_GERI_ENTRANCE",
+    "lore_source": "Fjolsvinnsmal 13-18 (the hounds sleep by turns)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "vidofnir_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "vidofnir",
+    "hero": "",
+    "god": "vidofnir",
+    "text_key": "BANTER_VIDOFNIR_ENTRANCE",
+    "lore_source": "Fjolsvinnsmal 18-26 (the gleaming cock)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "sinmara_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "sinmara",
+    "hero": "",
+    "god": "sinmara",
+    "text_key": "BANTER_SINMARA_ENTRANCE",
+    "lore_source": "Fjolsvinnsmal 26-30 (Laevateinn in a chest with nine locks)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "sinmara_freyja",
+    "trigger": "boss_meets_god",
+    "speaker": "sinmara",
+    "hero": "",
+    "god": "sinmara",
+    "with_god": "freyja",
+    "text_key": "BANTER_SINMARA_FREYJA",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

@@ -328,6 +328,11 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # Muspelheim: almost nothing grows; dead, burned trees and a little scorched scrub on the ash.
+    "muspelheim": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("n", "N", "O", None)},
     # The Land of Legends: Japanese cedar (sugi), black pine and maple on the mountain paths; bamboo stands as scenery.
     "the_land_of_legends": {
         "trees": {"japanese_cedar": (spruce, 22, 42), "black_pine": (umbrella_pine, 28, 34),

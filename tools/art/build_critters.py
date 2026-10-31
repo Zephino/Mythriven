@@ -248,6 +248,11 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    "muspelheim": {
+        "ground": {"fire_lizard": (lizard, "#c8501a", "#7a2a10")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {},
+        "large": {}},
     "the_land_of_legends": {
         "ground": {"red_fox": (fox, "#c8642a", "#f0ece4"), "hare": (hare, "#8a6a48", "#e8e0d0")},
         "birds": {"crane": ("#f0f0ec", "#24222a", "#c83030", True), "sparrow": ("#8a6a4a", "#5a4430", "#c8a040", False)},

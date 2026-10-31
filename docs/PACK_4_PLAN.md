@@ -1,6 +1,8 @@
 # Pack 4 plan: the Elemental Planes
 
-Status: **draft for the owner** (10/31/2026). The owner asked to start Pack 4 once Pack 3 was done ("then start pack
+Status: **approved by the owner** (10/31/2026: "yes as suggested" to all five questions: Elemental Planes first; the drafted
+bosses, monsters and hazards; the unlocks and +60% / +35% / +30%; no new Heroes; St Guénolé kept out). Muspelheim built
+and released 10/31/2026 (00.02.77). The owner asked to start Pack 4 once Pack 3 was done ("then start pack
 4"). `docs/PACK_PLAN.md` (Phase 33) says the realms must be designed with the owner before any building: the design
 names only one boss per realm and no monsters or hazards. This is that design, drafted from the old public-domain texts
 only (never modern games, books or films), for the owner to approve, change or reject.
@@ -19,7 +21,7 @@ sylphs (air).
 
 ---
 
-## Realm 13: Muspelheim (fire)
+## Realm 13: Muspelheim (fire): **done and released 10/31/2026 (00.02.77)**
 *Sources: Snorri, Gylfaginning 4-5, 51 (Muspell, the burning south, guarded by Surtr); the Poetic Edda, Fjölsvinnsmál
 (Sinmara, the hall ringed by flame, its hounds and its golden cock); Paracelsus (salamanders).*
 

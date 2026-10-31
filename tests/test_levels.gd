@@ -752,3 +752,32 @@ func test_pack_3_boss_secrets() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
+func test_muspelheim_opens_from_the_white_div_and_is_pack_4() -> void:
+	var level: Dictionary = _level("muspelheim")
+	assert_eq(int(level["act"]), 4)
+	assert_eq(str(level["unlock"]["boss"]), "white_div")
+	assert_true((level["local_gods"] as Array).is_empty(), "a realm has no local gods")
+
+
+func test_gifr_and_geri_keep_watch_by_turns() -> void:
+	_start("muspelheim")
+	var hounds: GifrAndGeriBoss = _bosses.spawn_boss("gifr_and_geri", 0) as GifrAndGeriBoss
+	hounds.signature(0.1)
+	var awake: Vector2 = hounds.position_now()
+	var asleep: Vector2 = hounds.sleeper
+	hounds.signature(7.0)
+	assert_eq(hounds.position_now(), asleep, "the sleeper wakes")
+	assert_eq(hounds.sleeper, awake, "and the watcher lies down")
+
+
+func test_vidofnir_flares_and_sinmara_takes_up_laevateinn() -> void:
+	_start("muspelheim")
+	var cock: VidofnirBoss = _bosses.spawn_boss("vidofnir", 1) as VidofnirBoss
+	cock.signature(8.0)
+	assert_gt(cock.flare_s, 0.0, "he flares")
+	var sinmara: SinmaraBoss = _bosses.spawn_boss("sinmara", 2) as SinmaraBoss
+	var before: float = sinmara._damage_mult()
+	sinmara.phase_index = 2
+	assert_gt(sinmara._damage_mult(), before, "Laevateinn strikes harder")

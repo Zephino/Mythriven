@@ -287,6 +287,23 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | airmaidens_prayer_resonance | resonance line | Ukko, highest of gods, come and help me, as you did when I called before. | Kalevala 1 (Ilmatar calls on Ukko for help) | no |
 | thunder_on_the_waves_resonance | resonance line | Raise your waves, sea-lord, and I will set the storm on them. | Original line written for Mythriven | no |
 
+## Pack 4 (added as each realm is built)
+
+### Muspelheim
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| boss | gifr_and_geri | Gífr and Geri | Fjolsvinnsmal 13-18 (the two hounds who sleep by turns) | no |
+| boss | vidofnir | Víðófnir | Fjolsvinnsmal 18-26 (the shining cock on the tree) | no |
+| boss | sinmara | Sinmara | Fjolsvinnsmal 26-30 (Sinmara keeps Laevateinn in a chest with nine locks) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| gifr_and_geri_entrance | boss entrance | gifr_and_geri | One of us always watches. Always. | Fjolsvinnsmal 13-18 (the hounds sleep by turns) | no |
+| vidofnir_entrance | boss entrance | vidofnir | Look at me, and see nothing else. | Fjolsvinnsmal 18-26 (the gleaming cock) | no |
+| sinmara_entrance | boss entrance | sinmara | Nine locks on the chest, and every key is mine. | Fjolsvinnsmal 26-30 (Laevateinn in a chest with nine locks) | no |
+| sinmara_freyja | boss meets god (with freyja) | sinmara | Goddess, your gold will melt like everything else here. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

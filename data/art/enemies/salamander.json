@@ -1,0 +1,109 @@
+{
+ "_doc": "A salamander, the fire spirit of Paracelsus (Liber de Nymphis, 1566): a small lizard of living flame. Built by tools/art/build_realms.py.",
+ "size": [
+  22,
+  15
+ ],
+ "anchor": [
+  11,
+  14
+ ],
+ "palette": {
+  "o": "#2a0804",
+  "f": "#f07a20",
+  "F": "#c8401a",
+  "y": "#ffe060",
+  "w": "#ffffff"
+ },
+ "frames": {
+  "idle": [
+   [
+    "......................",
+    "......................",
+    "......................",
+    "......................",
+    "...o.....o.....o......",
+    "..oyo.o.oyo.o.oyoo....",
+    "...o.oyoooooyo.offooo.",
+    ".....ooofFffoo.offwffo",
+    "..ooofFffFffFfoofffffo",
+    ".ofFffFffFffFffFfffffo",
+    ".ofFffFfooooFffFffooo.",
+    ".ofFfFooFooFooFFfo....",
+    "..oooFooFooFooFoo.....",
+    "....oFooFooFooFo......",
+    ".....o..o..o..o......."
+   ]
+  ],
+  "walk": [
+   [
+    "......................",
+    "......................",
+    "......................",
+    "......................",
+    "...o.....o.....o......",
+    "..oyo.o.oyo.o.oyoo....",
+    "...o.oyo.oooyo.offooo.",
+    "..oo..ooooffFfooffwffo",
+    ".ofFoooffFffFffFfffffo",
+    ".ofFffFffFffFffFfffffo",
+    ".ofFffFffFoooofFffooo.",
+    "..ooffFFooFo..oFfo....",
+    "....ooFFooFo..oFo.....",
+    ".....oFFooFo..oFo.....",
+    "......oo..o....o......"
+   ],
+   [
+    "......................",
+    "......................",
+    "......................",
+    "......................",
+    "...o.....o.....o......",
+    "..oyo.o.oyo.o.oyoo....",
+    "...o.oyoooooyo.offooo.",
+    ".....ooofFffoo.offwffo",
+    "..ooofFffFffFfoofffffo",
+    ".ofFffFffFffFffFfffffo",
+    ".ofFffFfooooFffFffooo.",
+    ".ofFfFooFooFooFFfo....",
+    "..oooFooFooFooFoo.....",
+    "....oFooFooFooFo......",
+    ".....o..o..o..o......."
+   ],
+   [
+    "......................",
+    "......................",
+    "......................",
+    "......................",
+    "...o.....o.....o......",
+    "..oyo.o.oyo.o.oyoo....",
+    "...o.oyooo.oyo.offooo.",
+    "...oooFffFooo..offwffo",
+    "..oFffFffFffoooofffffo",
+    ".ofFffFffFffFffFfffffo",
+    ".ofFffooooffFffFffooo.",
+    ".ofoFo..oFooFFfFoo....",
+    "..ooFo..oFooFFoo......",
+    "...oFo..oFooFFo.......",
+    "....o....o..oo........"
+   ],
+   [
+    "......................",
+    "......................",
+    "......................",
+    "......................",
+    "...o.....o.....o......",
+    "..oyo.o.oyo.o.oyoo....",
+    "...o.oyoooooyo.offooo.",
+    ".....ooofFffoo.offwffo",
+    "..ooofFffFffFfoofffffo",
+    ".ofFffFffFffFffFfffffo",
+    ".ofFffFfooooFffFffooo.",
+    ".ofFfFooFooFooFFfo....",
+    "..oooFooFooFooFoo.....",
+    "....oFooFooFooFo......",
+    ".....o..o..o..o......."
+   ]
+  ]
+ }
+}

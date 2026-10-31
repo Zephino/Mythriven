@@ -3173,5 +3173,238 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Muspelheim bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "gifr_and_geri",
+    "name_key": "BOSS_GIFR_AND_GERI_NAME",
+    "tradition": "norse",
+    "lore_source": "Fjolsvinnsmal 13-18 (the two hounds who sleep by turns)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "gifr_and_geri",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "watch_by_turns",
+      "swap_every_s": 7.0,
+      "apart_px": 120
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Muspelheim bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "vidofnir",
+    "name_key": "BOSS_VIDOFNIR_NAME",
+    "tradition": "norse",
+    "lore_source": "Fjolsvinnsmal 18-26 (the shining cock on the tree)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "vidofnir",
+    "move_speed": 54,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "gleaming",
+      "flare_every_s": 8.0,
+      "flare_s": 1.6,
+      "flare_damage": 10
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Muspelheim bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "sinmara",
+    "name_key": "BOSS_SINMARA_NAME",
+    "tradition": "norse",
+    "lore_source": "Fjolsvinnsmal 26-30 (Sinmara keeps Laevateinn in a chest with nine locks)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "sinmara",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "ragnarok",
+      "burn_s": 140,
+      "min_fraction": 0.45,
+      "burn_damage": 8,
+      "blade_phase": 2,
+      "blade_damage_mult": 1.3
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "son_of_muspell"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "son_of_muspell"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

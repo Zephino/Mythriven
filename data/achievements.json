@@ -724,5 +724,35 @@
       "id": "shuten_doji"
     },
     "persists": true
+  },
+  {
+    "id": "boss_gifr_and_geri",
+    "name_key": "ACH_BOSS_GIFR_AND_GERI_NAME",
+    "desc_key": "ACH_BOSS_GIFR_AND_GERI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "gifr_and_geri"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_vidofnir",
+    "name_key": "ACH_BOSS_VIDOFNIR_NAME",
+    "desc_key": "ACH_BOSS_VIDOFNIR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "vidofnir"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_sinmara",
+    "name_key": "ACH_BOSS_SINMARA_NAME",
+    "desc_key": "ACH_BOSS_SINMARA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "sinmara"
+    },
+    "persists": true
   }
 ]

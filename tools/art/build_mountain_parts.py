@@ -14,6 +14,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "the_two_lands": ("#d8b47e", "#c49e68", "#d4b07a", "#b08c5c", "#86683e", None),
     "the_misty_isles": ("#6e8a52", "#5a7442", "#9a9a94", "#76766e", "#55554e", "#7a8a5a"),
     "jotunheim": ("#dfe6ee", "#c4ccd8", "#8a8c94", "#68696f", "#4a4b50", "#eef2f6"),
+    "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),
     "the_slavic_wilds": ("#5a8040", "#466a32", "#8a8a84", "#6a6a64", "#4c4c48", "#6a9048"),
     "mazandaran": ("#5e7a4a", "#4a6438", "#8a8680", "#6a6660", "#4c4a46", "#6a8a4a"),
