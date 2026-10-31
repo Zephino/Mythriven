@@ -101,3 +101,57 @@ func test_the_wild_hunt_rides_and_looses_its_hounds() -> void:
 	assert_ne(hunt.position_now(), at, "it rides")
 	assert_eq(hunt.rides, 1)
 	assert_eq(_enemies.active_count(), before + 3, "and looses three hounds")
+
+
+func test_karnstein_languor_wastes() -> void:
+	var level: Dictionary = _level("karnstein")
+	assert_eq(str(level["unlock"]["boss"]), "dahut")
+	assert_eq(str(level["hazard"]["player_status"]), "poison")
+
+
+func test_varney_rises_unless_the_moonlight_is_blocked() -> void:
+	_start("karnstein")
+	var varney: VarneyBoss = _bosses.spawn_boss("varney", 0) as VarneyBoss
+	_player.position = varney.position_now() + Vector2(300, 0)
+	var hp: float = _enemies.hp[varney.slot]
+	assert_almost_eq(varney.modify_hit(hp * 2.0, _player, Vector2.ZERO), hp - 1.0, 0.01, "the blow only lays him down")
+	assert_gt(varney.fallen_s, 0.0, "fallen in the moonlight")
+	varney.signature(5.0)
+	assert_true(varney.risen, "and he rises")
+	assert_true(varney.is_alive())
+	GameAuthority.end_scene()
+	_start("karnstein")
+	varney = _bosses.spawn_boss("varney", 0) as VarneyBoss
+	varney.fall()
+	_player.position = varney.position_now()
+	varney.signature(0.1)
+	assert_true(varney.finished, "a Hero blocks the light")
+	assert_false(varney.is_alive(), "he stays dead")
+
+
+func test_ruthven_drains_whoever_stays_close() -> void:
+	_start("karnstein")
+	var lord: RuthvenBoss = _bosses.spawn_boss("ruthven", 1) as RuthvenBoss
+	_player.position = lord.position_now() + Vector2(60, 0)
+	_enemies.hp[lord.slot] = _enemies.max_hp[lord.slot] * 0.5
+	var mine: float = _player.hp
+	var his: float = _enemies.hp[lord.slot]
+	lord.signature(7.0)
+	assert_eq(lord.victim, _player)
+	lord.signature(1.0)
+	assert_lt(_player.hp, mine, "drained")
+	assert_gt(_enemies.hp[lord.slot], his, "and he heals")
+	_player.position = lord.position_now() + Vector2(600, 0)
+	lord.signature(0.1)
+	assert_null(lord.victim, "stepping away breaks it")
+
+
+func test_carmilla_comes_out_of_the_mist_and_becomes_a_cat() -> void:
+	_start("karnstein")
+	var carmilla: CarmillaBoss = _bosses.spawn_boss("carmilla", 2) as CarmillaBoss
+	_player.position = carmilla.position_now() + Vector2(400, 0)
+	carmilla.appear_beside(_player)
+	assert_lt(carmilla.position_now().distance_to(_player.position), 60.0, "beside the Hero")
+	assert_true(_player.statuses.has("poison"), "her bite wastes")
+	carmilla._on_phase_started(2)
+	assert_eq(carmilla.art_id(), "carmilla_cat")

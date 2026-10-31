@@ -2098,3 +2098,32 @@ BANTER_WILD_HUNT_ENTRANCE,"Hear the horns? The Hunt is riding, and you are the q
 BANTER_EMPUSA_HECATE,Mistress Hecate! Your hound of the roads has found someone.
 PACK_7_NAME,Pack 5: Gothic Night
 BOSS_EMPUSA_SHIFTS,Empusa changes her shape!
+LEVEL_KARNSTEIN_NAME,Karnstein
+HAZARD_LANGUOR_NAME,A pale mist settles; you feel a strange languor...
+ENEMY_REVENANT_NAME,Revenant
+ENEMY_REVENANT_MYTH,"In 1746 the scholar-monk Augustin Calmet gathered the reports from Hungary, Moravia and Serbia of the dead who left their graves at night to trouble the living, and were found in their coffins fresh and ruddy."
+ENEMY_NIGHT_BAT_NAME,Night bat
+ENEMY_NIGHT_BAT_MYTH,"Small black bats that come out of the ruins at dusk. The vampire stories of the 1800s are full of them, flitting at the windows of the sleepers."
+ENEMY_NIGHT_BAT_FLYER_NAME,Night bat
+ENEMY_NIGHT_BAT_FLYER_MYTH,"Small black bats that come out of the ruins at dusk, sweeping across in long flights."
+BOSS_VARNEY_NAME,Varney
+ENEMY_VARNEY_NAME,Varney
+ENEMY_VARNEY_MYTH,"Sir Francis Varney, the vampire of a long penny serial. Tall and gaunt, his face white, his teeth like fangs. Again and again he is shot or struck down, and again and again the cold rays of the moon bring him back to life."
+BOSS_VARNEY_RISES,The moonlight raises Varney again!
+BOSS_RUTHVEN_NAME,Lord Ruthven
+ENEMY_RUTHVEN_NAME,Lord Ruthven
+ENEMY_RUTHVEN_MYTH,"A nobleman of London society with a dead grey eye and a deathly pale face. In Polidori's tale he travels with young Aubrey, dies in Greece, swears him to silence for a year and a day, and returns to prey on Aubrey's sister."
+BOSS_CARMILLA_NAME,Carmilla
+ENEMY_CARMILLA_NAME,Carmilla
+ENEMY_CARMILLA_MYTH,"Mircalla, Countess Karnstein, dead for more than a hundred years. As the lovely, languid guest Carmilla she visits Laura's Styrian castle; by night she comes as a sooty-black creature like a monstrous cat, and her victims slowly waste away."
+BOSS_CARMILLA_CAT,Carmilla becomes a monstrous black cat!
+ACH_BOSS_VARNEY_NAME,Defeat Varney
+ACH_BOSS_VARNEY_DESC,The 10:00 boss of Karnstein.
+ACH_BOSS_RUTHVEN_NAME,Defeat Lord Ruthven
+ACH_BOSS_RUTHVEN_DESC,The 20:00 boss of Karnstein.
+ACH_BOSS_CARMILLA_NAME,Defeat Carmilla
+ACH_BOSS_CARMILLA_DESC,The 30:00 boss of Karnstein.
+BANTER_VARNEY_ENTRANCE,Strike me down if you like. The moon is up.
+BANTER_RUTHVEN_ENTRANCE,Remember your oath: speak of me to no one.
+BANTER_CARMILLA_ENTRANCE,"Don't be afraid, darling. You will be mine, and I yours."
+BANTER_CARMILLA_PERSEPHONE,Queen of the dead? I have slept in my tomb a hundred years; it never kept me.

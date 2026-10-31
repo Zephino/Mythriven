@@ -1,0 +1,93 @@
+{
+ "_doc": "A bat of the night (Carmilla; Varney the Vampire): a small black bat, wings beating. Built by tools/art/build_gothic.py.",
+ "size": [
+  18,
+  12
+ ],
+ "anchor": [
+  9,
+  11
+ ],
+ "palette": {
+  "o": "#2a2028",
+  "k": "#1a141c",
+  "b": "#2e2430",
+  "r": "#e83a3a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........ooo.......",
+    ".......obbbo......",
+    ".......obbbo......",
+    "....o.obrbrbo.....",
+    "...okoobbbbbo..o..",
+    "....o.obbbbbo.oko.",
+    ".......obbbo...o..",
+    "........obo.......",
+    ".........o........"
+   ]
+  ],
+  "walk": [
+   [
+    "..................",
+    ".o..............o.",
+    "okoo..........ooko",
+    ".okko...ooo..okko.",
+    ".okkkooobbbookkko.",
+    "..okkkkobbbkkkko..",
+    "..okkkkbrbrbkkko..",
+    "...okoobbbbboko...",
+    "....o.obbbbboo....",
+    ".......obbbo......",
+    "........obo.......",
+    ".........o........"
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........ooo.......",
+    ".......obbbo......",
+    ".......obbbo......",
+    "....o.obrbrbo.....",
+    "...okoobbbbbo..o..",
+    "....o.obbbbbo.oko.",
+    ".......obbbo...o..",
+    "........obo.......",
+    ".........o........"
+   ],
+   [
+    "..................",
+    ".o..............o.",
+    "okoo..........ooko",
+    ".okko...ooo..okko.",
+    ".okkkooobbbookkko.",
+    "..okkkkobbbkkkko..",
+    "..okkkkbrbrbkkko..",
+    "...okoobbbbboko...",
+    "....o.obbbbboo....",
+    ".......obbbo......",
+    "........obo.......",
+    ".........o........"
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........ooo.......",
+    ".......obbbo......",
+    ".......obbbo......",
+    "....o.obrbrbo.....",
+    "...okoobbbbbo..o..",
+    "....o.obbbbbo.oko.",
+    ".......obbbo...o..",
+    "........obo.......",
+    ".........o........"
+   ]
+  ]
+ }
+}

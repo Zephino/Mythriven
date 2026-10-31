@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time").
 The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one boss idea; everything else below was
 chosen by Claude from old public-domain texts and folklore only (never modern games, books or films). The owner can
-change or veto any of it, before or after it is built. Erebus built and released 10/31/2026 (00.02.85).
+change or veto any of it, before or after it is built. Erebus built and released 10/31/2026 (00.02.85); Karnstein (00.02.86).
 
 Realms work like Pack 4's: endless map, a hazard, monster families, three bosses, **no local gods** (shrines draw gods
 from every pantheon).
@@ -40,7 +40,7 @@ stands in them, until they sink back (the bramble patches, drawn as graves).
 | 20:00 | **Eurynomos** | The daemon who eats the flesh of the dead (Pausanias). Every few seconds he devours the monsters near him and heals for each; fight him away from the crowd |
 | 30:00 | **The Wild Hunt** (the design's) | The black huntsmen on black horses with their hounds. Again and again the Hunt gallops straight across the arena at a Hero, leaving a trail of cold mist that slows, and looses its hounds each time it rides |
 
-## Realm 18: Karnstein (the vampires)
+## Realm 18: Karnstein (the vampires): **done and released 10/31/2026 (00.02.86)**
 *Sources: J. Sheridan Le Fanu, Carmilla (1872); John Polidori, The Vampyre (1819); James Malcolm Rymer and Thomas
 Peckett Prest, Varney the Vampire (1845-47); Augustin Calmet, Treatise on the Apparitions of Spirits and on Vampires
 (1746).*

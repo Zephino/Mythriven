@@ -423,6 +423,25 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | wild_hunt_entrance | boss entrance | wild_hunt | Hear the horns? The Hunt is riding, and you are the quarry. | The Anglo-Saxon Chronicle for 1127 (the horns heard all night) | no |
 | empusa_hecate | boss meets god (with hecate) | empusa | Mistress Hecate! Your hound of the roads has found someone. | Original line written for Mythriven (Empusa as Hecate's spectre) | no |
 
+### Karnstein
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | karnstein | Karnstein | Le Fanu, Carmilla (1872): the ruined castle and village of Karnstein in Styria | no |
+| enemy | revenant | Revenant | Augustin Calmet, Treatise on the Apparitions of Spirits and on Vampires (1746): the revenants | no |
+| enemy | night_bat | Night bat | Le Fanu, Carmilla (1872); Varney the Vampire (1845-47): bats of the night | no |
+| enemy | night_bat_flyer | Night bat | Le Fanu, Carmilla (1872); Varney the Vampire (1845-47): bats of the night | no |
+| boss | varney | Varney | Rymer and Prest, Varney the Vampire (1845-47): Sir Francis Varney, revived by the light of the moon | no |
+| boss | ruthven | Lord Ruthven | John Polidori, The Vampyre (1819): Lord Ruthven, the cold nobleman who feeds on the living | no |
+| boss | carmilla | Carmilla | J. Sheridan Le Fanu, Carmilla (1872): Mircalla, Countess Karnstein, and her shape of a monstrous black cat | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| varney_entrance | boss entrance | varney | Strike me down if you like. The moon is up. | Varney the Vampire (the moon revives him) | no |
+| ruthven_entrance | boss entrance | ruthven | Remember your oath: speak of me to no one. | Polidori, The Vampyre (Aubrey's oath) | no |
+| carmilla_entrance | boss entrance | carmilla | Don't be afraid, darling. You will be mine, and I yours. | Le Fanu, Carmilla, ch. 4 (her words to Laura) | no |
+| carmilla_persephone | boss meets god (with persephone) | carmilla | Queen of the dead? I have slept in my tomb a hundred years; it never kept me. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

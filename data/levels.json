@@ -2370,5 +2370,120 @@
       "edge": "#2e2c34",
       "stones": "#6a6672"
     }
+  },
+  {
+    "_doc": "Karnstein, Pack 5 realm 2, the vampire domain (docs/PACK_5_PLAN.md). Sources: Le Fanu, Carmilla (1872); Polidori, The Vampyre (1819); Rymer and Prest, Varney the Vampire (1845-47); Calmet (1746). A realm: no local gods.",
+    "id": "karnstein",
+    "name_key": "LEVEL_KARNSTEIN_NAME",
+    "region": "realm_vampire",
+    "act": 7,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "karnstein",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "dark_grass",
+          "max": -0.3,
+          "placeholder_color": "#2a3426",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "pine_floor",
+          "max": 0.15,
+          "placeholder_color": "#33302a",
+          "placeholder_dots": "#4a4436"
+        },
+        {
+          "id": "dirt",
+          "max": 0.6,
+          "placeholder_color": "#3a3430",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "stone",
+          "max": 1.0,
+          "placeholder_color": "#4a4850",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "stone_tomb",
+      "castle_ruin"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "stone_tomb": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          14
+        ],
+        "placeholder_color": "#6a6870",
+        "weight": 2
+      },
+      "castle_ruin": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          30
+        ],
+        "placeholder_color": "#5a5862",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "varney",
+      "20": "ruthven",
+      "30": "carmilla"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "ys",
+      "boss": "dahut"
+    },
+    "waves": "waves_karnstein.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 22,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.6,
+      "pulse": 0.08,
+      "pulse_hz": 0.15,
+      "veil_color": "#d8d4e4",
+      "particles": "mist",
+      "particle_color": "#f0eef8",
+      "fade_s": 2.5,
+      "player_status": "poison",
+      "status_every_s": 4.0,
+      "name_key": "HAZARD_LANGUOR_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#b8b4cc",
+    "flora": {
+      "density": 0.6,
+      "trees": {
+        "spruce": 2,
+        "oak": 2,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#5a544c",
+      "edge": "#3a3630",
+      "stones": "#7a746a"
+    }
   }
 ]

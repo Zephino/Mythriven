@@ -135,7 +135,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 2 | Deeper Myths | 5 The Underworld · 6 Jotunheim · 7 Avalon's Shadow · 8 Land Between the Rivers | **Approved and released 10/31/2026** (`docs/PACK_2_PLAN.md`) |
 | 3 | Distant Legends | 9 Pohjola · 10 Mazandaran · 11 The Slavic Wilds · 12 The Land of Legends | **Approved and released 10/31/2026** (`docs/PACK_3_PLAN.md`) |
 | 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | **Approved and released 10/31/2026** (`docs/PACK_4_PLAN.md`) |
-| 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | **Building** (`docs/PACK_5_PLAN.md`; Erebus released 10/31/2026) |
+| 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | **Building** (`docs/PACK_5_PLAN.md`; Erebus and Karnstein released 10/31/2026) |
 | 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | Later |
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | Later |
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | Later |
@@ -287,6 +287,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 | Wild Frontiers (new) | **The Sea King's Hall** | Merfolk palace beneath the waves | Andersen's *The Little Mermaid* (1837) | The Sea Witch (Andersen's, not Disney's) |
 
 *(10/31/2026: Pack 5, **Gothic Night**, is designed by Claude with the owner's trust (`docs/PACK_5_PLAN.md`): two more bosses per realm, the monsters and the hazards, from the old texts only. Realms after the finale (Packs 5-13) are as hard as Pack 4 and open from the previous pack's 30:00 bosses. **Erebus** is built and released (00.02.85): the grasping dead (graves open and hands slow and hurt); Keres, hounds of the Hunt, shades; Empusa (changes shape: an armoured bull, a fast dog, a woman who attacks more often), Eurynomos (devours the monsters near him to heal), the Wild Hunt (rides across the arena at a Hero, leaving cold mist, and looses its hounds); opened by beating Níðhöggr.)*
+
+*(10/31/2026: **Karnstein** is built and released (00.02.86), opened by beating Dahut: the languor (a pale mist that hides the view and Poisons every Hero while it lies thick); revenants, night bats, wolves; Varney (the first time he falls, the moonlight raises him again with 35% HP unless a Hero stands over him), Lord Ruthven (fastens on the nearest Hero and drains them to heal himself while they stay close), Carmilla (comes out of the mist beside a Hero and bites, Poison; becomes the monstrous black cat, faster, in her last phase).)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

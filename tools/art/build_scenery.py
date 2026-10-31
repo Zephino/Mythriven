@@ -468,12 +468,23 @@ def barrow_mound():
     return p
 
 
+def stone_tomb():
+    """A stone tomb in the ruined chapel's yard (Karnstein; Le Fanu, Carmilla: the tombs of the Karnsteins): a plain
+    stone chest-tomb, moss on its lid, cracked at one corner."""
+    p = Pic(26, 16, (13, 15))
+    p.rect(2, 6, 23, 15, "g"); p.rect(2, 6, 23, 7, "h"); p.rect(1, 4, 24, 6, "h"); p.rect(1, 4, 24, 4, "i")
+    p.rect(4, 9, 21, 13, "G")
+    for x in (3, 7, 12, 18): p.px(x, 4, "l"); p.px(x + 1, 5, "l")
+    p.px(22, 8, "k"); p.px(21, 9, "k"); p.px(22, 10, "k")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

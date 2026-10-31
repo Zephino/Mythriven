@@ -1866,5 +1866,46 @@
     "text_key": "BANTER_EMPUSA_HECATE",
     "lore_source": "Original line written for Mythriven (Empusa as Hecate's spectre)",
     "needs_owner_review": true
+  },
+  {
+    "id": "varney_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "varney",
+    "hero": "",
+    "god": "varney",
+    "text_key": "BANTER_VARNEY_ENTRANCE",
+    "lore_source": "Varney the Vampire (the moon revives him)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ruthven_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ruthven",
+    "hero": "",
+    "god": "ruthven",
+    "text_key": "BANTER_RUTHVEN_ENTRANCE",
+    "lore_source": "Polidori, The Vampyre (Aubrey's oath)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "carmilla_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "carmilla",
+    "hero": "",
+    "god": "carmilla",
+    "text_key": "BANTER_CARMILLA_ENTRANCE",
+    "lore_source": "Le Fanu, Carmilla, ch. 4 (her words to Laura)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "carmilla_persephone",
+    "trigger": "boss_meets_god",
+    "speaker": "carmilla",
+    "hero": "",
+    "god": "carmilla",
+    "with_god": "persephone",
+    "text_key": "BANTER_CARMILLA_PERSEPHONE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

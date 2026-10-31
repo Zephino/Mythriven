@@ -1,0 +1,64 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A stone tomb in the ruined chapel's yard (Karnstein; Le Fanu, Carmilla: the tombs of the Karnsteins): a plain stone chest-tomb, moss on its lid, cracked at one corner.",
+ "size": [
+  26,
+  14
+ ],
+ "anchor": [
+  13,
+  13
+ ],
+ "palette": {
+  "a": "#42423c",
+  "b": "#243618",
+  "c": "#84847e",
+  "d": "#90908a",
+  "e": "#5a723c",
+  "f": "#9c9c96",
+  "g": "#546c3c",
+  "h": "#a2a29c",
+  "i": "#484848",
+  "j": "#aeb4ba",
+  "k": "#a8a8ae",
+  "l": "#969c9c",
+  "m": "#909096",
+  "n": "#a2a2a8",
+  "o": "#607842",
+  "p": "#8a8a90",
+  "q": "#3c3c3c",
+  "r": "#84848a",
+  "s": "#727272",
+  "t": "#6c6c6c",
+  "u": "#7e7e7e",
+  "v": "#120c06",
+  "w": "#606066",
+  "x": "#5a5a60",
+  "y": "#666666",
+  "z": "#545454",
+  "A": "#787878",
+  "B": "#54545a",
+  "C": "#4e4e54",
+  "D": "#48484e",
+  "E": "#787e7e"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".aabaaabaaaabaaaaabaaaaaa.",
+    "acdefffgdhfhehhfhfgdddfhha",
+    "ijkkglmkgknknokkkkkenknmki",
+    "inlnknlllpknknlnlnnklknlki",
+    ".ilpnnnnnknknkkknnlpknlni.",
+    ".qrrsrstpuprsrpurppprrvuq.",
+    ".qrrwwwxyxxyywyywzxyxvruq.",
+    ".qAuBwBwBxxxxxCxBBBxBwvuq.",
+    ".qrrxxxxBBwBBBBCwxwBxxAtq.",
+    ".quuBCwwxwBwBBwxwCwxxwuuq.",
+    ".qAuDxBwBxxBBCxwwwxxBCuAq.",
+    ".qAEAssAEEsEAAEAAAAAsAEEq.",
+    ".qsEEAAAAAAAAEAAsAAssAAAq.",
+    "..qqqqqqqqqqqqqqqqqqqqqq.."
+   ]
+  ]
+ }
+}

@@ -19,6 +19,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "cloud_cuckoo_land": ("#eef2f8", "#d8e0ec", "#c09a6a", "#a07a4a", "#7a5a34", "#f8fafe"),
     "ys": ("#7a8484", "#5a6464", "#6a7a7a", "#4a5a5a", "#344444", "#3a8a7a"),
     "erebus": ("#3a3842", "#2e2c36", "#4e4a56", "#3a3644", "#24222a", None),
+    "karnstein": ("#4a4852", "#3e3c46", "#5e5a66", "#4a4652", "#2e2c34", None),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),

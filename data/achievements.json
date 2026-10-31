@@ -914,5 +914,35 @@
       "id": "wild_hunt"
     },
     "persists": true
+  },
+  {
+    "id": "boss_varney",
+    "name_key": "ACH_BOSS_VARNEY_NAME",
+    "desc_key": "ACH_BOSS_VARNEY_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "varney"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_ruthven",
+    "name_key": "ACH_BOSS_RUTHVEN_NAME",
+    "desc_key": "ACH_BOSS_RUTHVEN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ruthven"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_carmilla",
+    "name_key": "ACH_BOSS_CARMILLA_NAME",
+    "desc_key": "ACH_BOSS_CARMILLA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "carmilla"
+    },
+    "persists": true
   }
 ]

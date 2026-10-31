@@ -357,6 +357,11 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32), "black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40)},
         "bushes": {"asphodel": ("I", "i", "L", "h")},
         "rock": ("n", "N", "O", None)},
+    # Karnstein: the Styrian forest round the ruined castle (Carmilla): spruce and old oaks, a few dead trees; ferns.
+    "karnstein": {
+        "trees": {"spruce": (spruce, 22, 40), "oak": (lambda c, r, s: broadleaf(c, r, s), 30, 32), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"fern": ("fern",)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

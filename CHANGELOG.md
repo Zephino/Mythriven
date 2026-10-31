@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.86
+Date: 10/31/2026
+Time: 7:26 PM
+
+### Changes
+- **Karnstein, the vampire domain, is built and open** (Pack 5, `docs/PACK_5_PLAN.md`). It opens when you beat Dahut (Ys' 30:00 boss).
+  - **Hazard, the languor:** a pale mist settles over the ruined estate, hiding the view, and while it lies thick every Hero slowly wastes (Poison), as Carmilla's victims did.
+  - **Monsters:** revenants (the walking dead of Calmet's 1746 treatise), night bats (swarms and sweeping flights) and wolves.
+  - **10:00, Varney** (Varney the Vampire, 1845-47): the first time he is struck down he lies in the moonlight, and after 4 s rises again with a third of his health, unless a Hero stands over him and blocks the light; then he stays dead.
+  - **20:00, Lord Ruthven** (Polidori, The Vampyre, 1819): every 7 s he fastens on the nearest Hero and, while they stay close, drains their life and heals himself. Step away to break it.
+  - **30:00, Carmilla** (Le Fanu, 1872; the design's boss): every 6 s she fades into mist and appears beside a Hero, biting whoever is close (Poison). In her last phase she becomes the "monstrous cat", sooty black, and runs faster.
+  - A Styrian forest of spruce and old oak, with stone tombs and castle ruins, bats, owls and foxes.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (343 tests pass).
+
+### Reason
+Pack 5, realm 2 of 4 (owner: "program all 9 packs 1 at a time").
+
 ## Version 00.02.85
 Date: 10/31/2026
 Time: 7:20 PM
