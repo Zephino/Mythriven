@@ -43,3 +43,15 @@ func flare() -> void:
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
 		effects.spawn_ring(at, 90.0, Color(1.0, 0.9, 0.4), true)
+
+
+## Laevateinn secret: only Laevateinn can kill him (Fjolsvinnsmal 25-26); the final blow is Fire.
+var last_element: String = ""
+
+
+func on_element_hit(element: String) -> void:
+	last_element = element
+
+
+func secret_earned() -> String:
+	return "laevateinn" if last_element == "fire" else ""

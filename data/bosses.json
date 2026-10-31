@@ -3674,7 +3674,8 @@
       "gallop_s": 0.6,
       "foam_s": 5.0,
       "foam_radius_px": 22,
-      "foam_slow": 0.55
+      "foam_slow": 0.55,
+      "secret": "gradlons_escape"
     },
     "phases": [
       {

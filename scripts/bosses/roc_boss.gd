@@ -7,6 +7,12 @@ extends HraesvelgrBoss
 ## Falling boulders: {"pos": Vector2, "left": float}.
 var boulders: Array = []
 var _drop_in: float = 3.0
+## Sindbad's Escape secret: no boulder ever lands on the local Hero.
+var struck_local: bool = false
+
+
+func secret_earned() -> String:
+	return "sindbads_escape" if not struck_local else ""
 
 
 func signature(delta: float) -> void:
@@ -22,6 +28,8 @@ func signature(delta: float) -> void:
 		for player: Player in GameAuthority.players:
 			if player.alive and player.position.distance_to(at) <= reach:
 				GameAuthority.damage_player(player, float(_sig().get("boulder_damage", 18.0)), str(data.get("id", "")), at)
+				if player.is_local:
+					struck_local = true
 		var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 		if effects != null:
 			effects.spawn_ring(at, reach, Color(0.6, 0.5, 0.4), true)

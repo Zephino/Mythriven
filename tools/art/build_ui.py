@@ -340,11 +340,52 @@ def sake():
     return p
 
 
+def flame_blade():
+    """Laevateinn Shard (Fjolsvinnsmal): a shard of a blade of flame."""
+    p = icon()
+    for k in range(11):
+        p.px(3 + k, 13 - k, "r"); p.px(4 + k, 13 - k, "y")
+    p.rect(2, 13, 4, 14, "b")
+    return p
+
+
+def dew():
+    """Dew of the Ash (Gylfaginning 16): a drop of honeydew falling from a green ash leaf."""
+    p = icon()
+    p.rect(3, 2, 12, 4, "l"); p.rect(6, 1, 9, 5, "l")
+    for y in range(7, 15):
+        w = min(3, (y - 6) // 2 + 1) if y < 12 else 3 - (y - 12)
+        p.rect(7 - w, y, 8 + w, y, "y")
+    return p
+
+
+def golden_key():
+    """The Golden Key (the legend of Ys): the golden key of the sea gates."""
+    p = icon()
+    for y in range(2, 8):
+        for x in range(3, 9):
+            if 1.5 <= math.hypot(x - 5.5, y - 4.5) <= 2.8:
+                p.px(x, y, "r")
+    p.rect(7, 7, 8, 14, "r"); p.rect(9, 11, 11, 11, "r"); p.rect(9, 13, 10, 13, "r")
+    return p
+
+
+def roc_feather():
+    """Roc's Feather (the Thousand and One Nights): a huge brown feather."""
+    p = icon()
+    for k in range(12):
+        p.px(3 + k, 14 - k, "B")
+        for d in (1, 2, 3):
+            p.px(3 + k - d, 14 - k - d + 1, "b")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
          "pomegranate_seed": pomegranate, "whetstone_shard": whetstone, "green_girdle": girdle, "plant_of_youth": plant,
-         "elk_skis": skis, "white_div_blood": div_blood, "firebird_feather": feather, "oeyama_sake": sake}
+         "elk_skis": skis, "white_div_blood": div_blood, "firebird_feather": feather, "oeyama_sake": sake,
+         "laevateinn_shard": flame_blade, "yggdrasil_dew": dew, "golden_key": golden_key, "roc_feather": roc_feather}
 
 
 def outlined(p):

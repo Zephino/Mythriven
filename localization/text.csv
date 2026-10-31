@@ -1962,3 +1962,39 @@ BANTER_HOOPOE_ENTRANCE,"Come, all you birds! Here is one who walks on the ground
 BANTER_IRIS_ENTRANCE,"I carry the gods' word, and I do not stop for walls."
 BANTER_ROC_ENTRANCE,You broke the egg. Now look up.
 BANTER_HOOPOE_ODYSSEUS,"Another wanderer far from home. Stay, and be a bird with us."
+SECRET_PAST_THE_HOUNDS_NAME,Past the Hounds
+SECRET_PAST_THE_HOUNDS_DESC,Defeat Gífr and Geri before they change their watch a third time. An ember aura.
+SECRET_PAST_THE_HOUNDS_HINT,They sleep by turns so that none may pass; pass before the turns run out.
+SECRET_LAEVATEINN_NAME,Lævateinn
+SECRET_LAEVATEINN_DESC,Defeat Víðófnir with a Fire hit as the final blow. Adds the Lævateinn Shard passive.
+SECRET_LAEVATEINN_HINT,"Only one weapon can fell the gleaming cock, and it is made of fire."
+SECRET_GNIPAHELLIR_NAME,Gnipahellir
+SECRET_GNIPAHELLIR_DESC,Defeat Garmr before he bays a third time. A crown of rime aura.
+SECRET_GNIPAHELLIR_HINT,Silence the hound before the cave hears him thrice.
+SECRET_GNAWED_ROOT_NAME,The Gnawed Root
+SECRET_GNAWED_ROOT_DESC,Defeat Níðhöggr with a Holy hit as the final blow. Adds the Dew of the Ash passive.
+SECRET_GNAWED_ROOT_HINT,What gnaws in the dark at the roots of the world fears the light.
+SECRET_GRADLONS_ESCAPE_NAME,Gradlon's Escape
+SECRET_GRADLONS_ESCAPE_DESC,Defeat Morvarc'h without it ever hurting you. A sea-foam aura.
+SECRET_GRADLONS_ESCAPE_HINT,The old king rode out of the flood untouched; ride out of this one the same.
+SECRET_GOLDEN_KEY_NAME,The Golden Key
+SECRET_GOLDEN_KEY_DESC,Defeat Dahut with a Lightning hit as the final blow. Adds the Golden Key passive.
+SECRET_GOLDEN_KEY_HINT,The sea opened the city; let the storm close the story.
+SECRET_IRIS_AT_THE_WALLS_NAME,Iris at the Walls
+SECRET_IRIS_AT_THE_WALLS_DESC,Defeat Iris within 60 s of her coming. A rainbow aura.
+SECRET_IRIS_AT_THE_WALLS_HINT,The birds caught the swift messenger at their walls; be quicker than her errand.
+SECRET_SINDBADS_ESCAPE_NAME,Sindbad's Escape
+SECRET_SINDBADS_ESCAPE_DESC,Defeat the Roc without a single boulder landing on you. Adds the Roc's Feather passive.
+SECRET_SINDBADS_ESCAPE_HINT,"Watch the shadows on the ground, and let every stone miss."
+PASSIVE_LAEVATEINN_SHARD_NAME,Lævateinn Shard
+PASSIVE_LAEVATEINN_SHARD_DESC,+4% Might per level.
+PASSIVE_YGGDRASIL_DEW_NAME,Dew of the Ash
+PASSIVE_YGGDRASIL_DEW_DESC,+4% Max HP per level.
+PASSIVE_GOLDEN_KEY_NAME,The Golden Key
+PASSIVE_GOLDEN_KEY_DESC,+8% Pickup Radius per level.
+PASSIVE_ROC_FEATHER_NAME,Roc's Feather
+PASSIVE_ROC_FEATHER_DESC,God meters fill 5% faster per level.
+COSMETIC_MUSPELL_EMBER,Muspell ember
+COSMETIC_RIME_CROWN,Crown of rime
+COSMETIC_SEA_FOAM,Sea foam
+COSMETIC_RAINBOW,Rainbow

@@ -5,7 +5,12 @@
 # for gods, seated on their throne. Everything else shows the first frame of each picture.
 # The sheets are generated: change the art in tools/art/build_*.py (or the data/art files), then run this again.
 # Run: python3 build_sprite_sheet.py from tools/art/ (needs Pillow).
-import json, os
+#
+# Also writes one sheet per pack, docs/art/sprite_sheet_pack2.png (and pack3, pack4), with only the pictures that pack
+# added (owner request 10/31/2026), so it's easy to see what's new. A picture belongs to the pack whose versions first
+# added its art file (from git: Pack 2 = 00.02.53-00.02.69, Pack 3 = 00.02.70-00.02.75, Pack 4 = 00.02.77 on); the
+# passive icons, which share one file, go by the pack of the secret that unlocks them.
+import json, os, re, subprocess
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
@@ -139,6 +144,82 @@ def lay_out(title, tiles):
     return sheet
 
 
+PACKS = {2: ("00.02.53", "00.02.69"), 3: ("00.02.70", "00.02.75"), 4: ("00.02.77", "99.99.99")}
+
+
+def first_version(path):
+    """The version (XX.XX.XX) of the commit that first added `path`, or "" when git can't tell."""
+    try:
+        out = subprocess.run(["git", "log", "--diff-filter=A", "--format=%s", "--", path], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout.strip().splitlines()
+    except (OSError, subprocess.CalledProcessError):
+        return ""
+    found = re.search(r"v(\d\d\.\d\d\.\d\d)", out[-1]) if out else None
+    return found.group(1) if found else ""
+
+
+def pack_of_version(version):
+    for pack, (low, high) in PACKS.items():
+        if version and low <= version <= high:
+            return pack
+    return 0
+
+
+def icon_packs():
+    """Passive icon -> pack, by the secret that unlocks the passive."""
+    secrets = {s["id"]: s for s in json.load(open(os.path.join(ROOT, "data", "secrets.json"))) if isinstance(s, dict)}
+    by_secret = {}
+    for pack, ids in ((2, ["the_pomegranate", "the_whetstone", "the_green_girdle", "the_plant_of_youth"]),
+                      (3, ["the_ski_chase", "the_seventh_labour", "seared_necks", "poisoned_sake"]),
+                      (4, ["laevateinn", "the_gnawed_root", "the_golden_key", "sindbads_escape"])):
+        for sid in ids:
+            by_secret[sid] = pack
+    out = {}
+    for passive in json.load(open(os.path.join(ROOT, "data", "passives.json"))):
+        secret = str((passive.get("unlock") or {}).get("secret", ""))
+        if secret in by_secret and secret in secrets:
+            out[passive["id"]] = by_secret[secret]
+    return out
+
+
+def pack_sheets():
+    """One sheet per pack of the pictures it added."""
+    icons = icon_packs()
+    per_pack = {pack: [] for pack in PACKS}
+    for kind, folder, title, every in KINDS:
+        directory = os.path.join(ART, folder)
+        groups = {pack: [] for pack in PACKS}
+        for file in sorted(os.listdir(directory)):
+            if not file.endswith(".json"):
+                continue
+            path = os.path.join(directory, file)
+            if kind == "ui" and file == "icons.json":
+                for label, image in tiles_for(path, "", False):
+                    name = label.strip().replace("idle", "").strip()
+                    if name in icons:
+                        groups[icons[name]].append((name, image))
+                continue
+            pack = pack_of_version(first_version(os.path.relpath(path, ROOT)))
+            if pack:
+                groups[pack] += tiles_for(path, file[:-5], every)
+        for pack, tiles in groups.items():
+            if tiles:
+                per_pack[pack].append(lay_out(title, tiles))
+    for pack, sheets in per_pack.items():
+        if not sheets:
+            continue
+        head = Image.new("RGB", (SHEET_W, 60), BG)
+        ImageDraw.Draw(head).text((PAD, 14), "Pack %d: new pictures" % pack, fill=HEAD, font=TITLE)
+        whole = Image.new("RGB", (SHEET_W, 60 + sum(s.height for s in sheets)), BG)
+        whole.paste(head, (0, 0))
+        y = 60
+        for s in sheets:
+            whole.paste(s, (0, y))
+            y += s.height
+        whole.save(os.path.join(OUT, "sprite_sheet_pack%d.png" % pack))
+        print("wrote docs/art/sprite_sheet_pack%d.png (%dx%d)" % (pack, whole.width, whole.height))
+
+
 if __name__ == "__main__":
     os.makedirs(os.path.join(OUT, "sprites"), exist_ok=True)
     sheets = []
@@ -163,3 +244,4 @@ if __name__ == "__main__":
         y += s.height
     whole.save(os.path.join(OUT, "sprite_sheet.png"))
     print("wrote docs/art/sprite_sheet.png and %d sheets in docs/art/sprites/ (%d pictures, %dx%d)" % (len(sheets), total, whole.width, whole.height))
+    pack_sheets()

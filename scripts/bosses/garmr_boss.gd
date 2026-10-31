@@ -7,6 +7,11 @@ var _howl_in: float = 4.0
 var howls: int = 0
 
 
+## Gnipahellir secret: beat him before he bays a third time.
+func secret_earned() -> String:
+	return "gnipahellir" if howls < 3 else ""
+
+
 func _sig() -> Dictionary:
 	return data.get("signature", {})
 

@@ -13,6 +13,24 @@ var _drop_in: float = 0.0
 var _slowed: Dictionary = {}
 
 
+## Gradlon's Escape secret: the local Hero is never hurt by the horse (as the old king rode it out of the flood).
+var hurt_local: bool = false
+
+
+func _ready() -> void:
+	super._ready()
+	GameAuthority.player_damaged.connect(_on_player_damaged)
+
+
+func _on_player_damaged(player: Player, _amount: float, source_id: String) -> void:
+	if player.is_local and is_alive() and source_id.begins_with(str(data.get("id", ""))):
+		hurt_local = true
+
+
+func secret_earned() -> String:
+	return str((data.get("signature", {}) as Dictionary).get("secret", "")) if not hurt_local else ""
+
+
 func _sig() -> Dictionary:
 	return data.get("signature", {})
 

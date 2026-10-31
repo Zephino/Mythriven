@@ -716,7 +716,11 @@
       { "id": "sampo_glow", "name_key": "COSMETIC_SAMPO_GLOW", "color": "#f0e070" },
       { "id": "simurgh_plume", "name_key": "COSMETIC_SIMURGH_PLUME", "color": "#3aa08a" },
       { "id": "koschei_needle", "name_key": "COSMETIC_KOSCHEI_NEEDLE", "color": "#c8a040" },
-      { "id": "gojo_bridge", "name_key": "COSMETIC_GOJO_BRIDGE", "color": "#b03a2a" }
+      { "id": "gojo_bridge", "name_key": "COSMETIC_GOJO_BRIDGE", "color": "#b03a2a" },
+      { "id": "muspell_ember", "name_key": "COSMETIC_MUSPELL_EMBER", "color": "#f07a20" },
+      { "id": "rime_crown", "name_key": "COSMETIC_RIME_CROWN", "color": "#d8ecf8" },
+      { "id": "sea_foam", "name_key": "COSMETIC_SEA_FOAM", "color": "#8ac0d8" },
+      { "id": "rainbow", "name_key": "COSMETIC_RAINBOW", "color": "#c890f0" }
     ]
   },
 

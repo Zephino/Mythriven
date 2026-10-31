@@ -8,6 +8,12 @@ extends BossController
 ## Where the sleeping hound lies.
 var sleeper := Vector2.INF
 var _swap_in: float = 4.0
+## Times they have changed watch (Past the Hounds secret: beat them before the third change).
+var swaps: int = 0
+
+
+func secret_earned() -> String:
+	return "past_the_hounds" if swaps < 3 else ""
 
 
 func _sig() -> Dictionary:
@@ -27,6 +33,7 @@ func signature(delta: float) -> void:
 
 ## The watcher lies down where it stands; the sleeper wakes and takes up the watch.
 func swap() -> void:
+	swaps += 1
 	var was: Vector2 = position_now()
 	GameAuthority.enemies.positions[slot] = sleeper
 	sleeper = was

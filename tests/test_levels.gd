@@ -863,3 +863,33 @@ func test_the_roc_drops_boulders() -> void:
 	var hp: float = _player.hp
 	roc.signature(1.4)
 	assert_lt(_player.hp, hp, "and land")
+
+
+func test_pack_4_boss_secrets() -> void:
+	_start("muspelheim")
+	var hounds: GifrAndGeriBoss = _bosses.spawn_boss("gifr_and_geri", 0) as GifrAndGeriBoss
+	assert_eq(hounds.secret_earned(), "past_the_hounds")
+	hounds.swaps = 3
+	assert_eq(hounds.secret_earned(), "")
+	var cock: VidofnirBoss = _bosses.spawn_boss("vidofnir", 1) as VidofnirBoss
+	cock.on_element_hit("fire")
+	assert_eq(cock.secret_earned(), "laevateinn")
+	GameAuthority.end_scene()
+	_start("ys")
+	var horse: MorvarchBoss = _bosses.spawn_boss("morvarch", 0) as MorvarchBoss
+	assert_eq(horse.secret_earned(), "gradlons_escape")
+	GameAuthority.player_damaged.emit(_player, 5.0, "morvarch")
+	assert_eq(horse.secret_earned(), "", "it hurt you")
+	GameAuthority.end_scene()
+	_start("cloud_cuckoo_land")
+	var iris: IrisBoss = _bosses.spawn_boss("iris", 1) as IrisBoss
+	assert_eq(iris.secret_earned(), "iris_at_the_walls")
+	var roc: RocBoss = _bosses.spawn_boss("roc", 2) as RocBoss
+	assert_eq(roc.secret_earned(), "sindbads_escape")
+	for secret: String in ["past_the_hounds", "laevateinn", "gnipahellir", "the_gnawed_root", "gradlons_escape",
+			"the_golden_key", "iris_at_the_walls", "sindbads_escape"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)

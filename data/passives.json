@@ -217,5 +217,57 @@
       "secret": "poisoned_sake"
     },
     "persists": false
+  },
+  {
+    "id": "laevateinn_shard",
+    "name_key": "PASSIVE_LAEVATEINN_SHARD_NAME",
+    "desc_key": "PASSIVE_LAEVATEINN_SHARD_DESC",
+    "stat": "might",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "laevateinn"
+    },
+    "persists": false
+  },
+  {
+    "id": "yggdrasil_dew",
+    "name_key": "PASSIVE_YGGDRASIL_DEW_NAME",
+    "desc_key": "PASSIVE_YGGDRASIL_DEW_DESC",
+    "stat": "max_hp",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_gnawed_root"
+    },
+    "persists": false
+  },
+  {
+    "id": "golden_key",
+    "name_key": "PASSIVE_GOLDEN_KEY_NAME",
+    "desc_key": "PASSIVE_GOLDEN_KEY_DESC",
+    "stat": "pickup_radius",
+    "per_level": 0.08,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_golden_key"
+    },
+    "persists": false
+  },
+  {
+    "id": "roc_feather",
+    "name_key": "PASSIVE_ROC_FEATHER_NAME",
+    "desc_key": "PASSIVE_ROC_FEATHER_DESC",
+    "stat": "god_charge",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "sindbads_escape"
+    },
+    "persists": false
   }
 ]

@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.81
+Date: 10/31/2026
+Time: 6:31 PM
+
+### Changes
+- **Sprite sheets for each pack** (owner request): `docs/art/sprite_sheet_pack2.png`, `sprite_sheet_pack3.png` and `sprite_sheet_pack4.png` show only the pictures that pack added (Heroes, companions, monsters, bosses, gods, weapons, scenery, trees, animals, ground, mountains and the secret passives' icons), named underneath. `tools/art/build_sprite_sheet.py` makes them along with the full sheet.
+- **Eight secrets for Pack 4**, two per realm: Past the Hounds, Lævateinn, Gnipahellir, the Gnawed Root, Gradlon's Escape, the Golden Key, Iris at the Walls and Sindbad's Escape. Four give new passives (Lævateinn Shard, Dew of the Ash, the Golden Key, Roc's Feather, each with its own icon) and four give auras. Their hints are on the lore check. With these, Pack 4 is complete.
+- **docs/BONUS_LEVELS_PLAN.md**: the plan for the two bonus levels, the Realm of the Ten Suns (with Hou Yi) and then the Crossroads finale (with the Unweaver), from the design, with Claude's choices where it was open.
+- 1 new test (327 tests pass).
+
+### Reason
+The owner left the next steps to Claude ("i trust you") and asked for a sprite sheet per pack to see what is new in each.
+
 ## Version 00.02.80
 Date: 10/31/2026
 Time: 6:18 PM

@@ -349,6 +349,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | roc_entrance | boss entrance | roc | You broke the egg. Now look up. | The Thousand and One Nights (the Rocs avenge their egg) | no |
 | hoopoe_odysseus | boss entrance (as odysseus) | hoopoe | Another wanderer far from home. Stay, and be a bird with us. | Original line written for Mythriven | no |
 
+### Pack 4 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| past_the_hounds | Past the Hounds | They sleep by turns so that none may pass; pass before the turns run out. | Fjolsvinnsmal 13-18 (the hounds who sleep by turns) | no |
+| laevateinn | Lævateinn | Only one weapon can fell the gleaming cock, and it is made of fire. | Fjolsvinnsmal 25-26 (only Laevateinn can kill Vidofnir) | no |
+| gnipahellir | Gnipahellir | Silence the hound before the cave hears him thrice. | Voluspa 44 (Garm bays before Gnipahellir) | no |
+| the_gnawed_root | The Gnawed Root | What gnaws in the dark at the roots of the world fears the light. | Gylfaginning 16 (the dew that falls from the ash); Grimnismal 35 | no |
+| gradlons_escape | Gradlon's Escape | The old king rode out of the flood untouched; ride out of this one the same. | Albert Le Grand; Souvestre (Gradlon escapes the flood on Morvarc'h) | no |
+| the_golden_key | The Golden Key | The sea opened the city; let the storm close the story. | Albert Le Grand; the Barzaz Breiz (the golden key of the sea gates) | no |
+| iris_at_the_walls | Iris at the Walls | The birds caught the swift messenger at their walls; be quicker than her errand. | Aristophanes, The Birds (Iris caught at the walls) | no |
+| sindbads_escape | Sindbad's Escape | Watch the shadows on the ground, and let every stone miss. | The Thousand and One Nights (Sindbad escapes the Rocs' boulders) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.
