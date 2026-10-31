@@ -639,3 +639,12 @@ func test_you_go_in_by_the_doorway_not_over_the_building() -> void:
 	assert_lt((walk.call(Vector2(0, 20), Vector2.UP, 40) as Vector2).y, -6.0, "the doorway lets you in")
 	assert_lt((walk.call(Vector2(0, -70), Vector2.DOWN, 40) as Vector2).y, -38.0, "the back of the doorway is closed")
 	flora.queue_free()
+
+
+func test_every_achievement_unlock_names_a_real_achievement() -> void:
+	var ids: Array = AchievementRules.all().map(func(entry: Dictionary) -> String: return str(entry.get("id", "")))
+	for file: String in ["weapons.json", "heroes.json"]:
+		for entry: Variant in Data.get_file(file):
+			var unlock: Variant = (entry as Dictionary).get("unlock") if entry is Dictionary else null
+			if unlock is Dictionary and str(unlock.get("type", "")) == "achievement":
+				assert_true(ids.has(str(unlock.get("achievement", ""))), "%s: %s is an achievement" % [entry.get("id"), unlock.get("achievement")])

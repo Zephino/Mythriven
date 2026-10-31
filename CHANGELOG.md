@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.48
+Date: 10/31/2026
+Time: 12:45 PM
+
+### Changes
+- **Fixed the Bladed Discus's unlock text.** Unlocks showed "Earn the achievement “ACH_TRIGGER_4_RESONANCES_NAME”" because the weapon pointed to an achievement id that doesn't exist (`trigger_4_resonances`). It now points to the real one, `resonances_4`, and reads "Earn the achievement “Trigger 4 different Resonances”". The unlock itself always worked: that achievement's reward gives the weapon.
+- Unlocks and Hero select now look an achievement's name up from `achievements.json` instead of building its key.
+- A new test checks that every weapon and Hero unlocked by an achievement names a real one.
+
+### Reason
+The owner spotted the raw text on the Unlocks page and asked what it was.
+
 ## Version 00.02.47
 Date: 10/31/2026
 Time: 12:36 PM

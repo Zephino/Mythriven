@@ -407,7 +407,7 @@
     ],
     "unlock": {
       "type": "achievement",
-      "achievement": "trigger_4_resonances"
+      "achievement": "resonances_4"
     },
     "placeholder_color": "#e0c060",
     "persists": false,

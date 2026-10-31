@@ -237,8 +237,8 @@ static func unlock_text(hero: Dictionary) -> String:
 		"gold":
 			return TranslationServer.translate("UI_HERO_UNLOCK_GOLD") % int(unlock.get("cost", 0))
 		"achievement":
-			return TranslationServer.translate("UI_HERO_UNLOCK_ACHIEVEMENT") % TranslationServer.translate(
-					"ACH_%s_NAME" % str(unlock.get("achievement", "")).to_upper())
+			return TranslationServer.translate("UI_HERO_UNLOCK_ACHIEVEMENT") % AchievementRules.display_name(
+					str(unlock.get("achievement", "")))
 		"defeat_boss":
 			return TranslationServer.translate("UI_HERO_UNLOCK_BOSS")
 	return TranslationServer.translate("UI_HERO_UNLOCK_SECRET")

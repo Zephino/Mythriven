@@ -9,6 +9,14 @@ extends RefCounted
 const FILE := "achievements.json"
 
 
+## An achievement's name as shown to the player (its own name_key from achievements.json).
+static func display_name(achievement_id: String) -> String:
+	for entry: Dictionary in all():
+		if str(entry.get("id", "")) == achievement_id:
+			return TranslationServer.translate(str(entry.get("name_key", "")))
+	return achievement_id
+
+
 static func all() -> Array[Dictionary]:
 	var found: Array[Dictionary] = []
 	var listed: Variant = Data.get_file(FILE)

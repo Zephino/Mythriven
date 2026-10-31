@@ -52,8 +52,7 @@ func _item(picture: Texture2D, name: String, about: String, unlock: Dictionary, 
 			var cost: int = int(unlock.get("cost", 0))
 			add_card(picture, name, lines, "", tr_key("OFFERING_COST") % cost, _buy.bind(kind, id, cost), SaveGame.gold() >= cost)
 		"achievement":
-			var key: String = "ACH_%s_NAME" % str(unlock.get("achievement", "")).to_upper()
-			lines.append(tr_key("UNLOCK_HOW_ACHIEVEMENT") % tr_key(key))
+			lines.append(tr_key("UNLOCK_HOW_ACHIEVEMENT") % AchievementRules.display_name(str(unlock.get("achievement", ""))))
 			add_card(picture, name, lines, "", "", Callable(), true, true, true)
 		"defeat_boss":
 			lines.append(tr_key("UNLOCK_HOW_BOSS"))
