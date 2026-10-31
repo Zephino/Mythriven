@@ -9,8 +9,14 @@ Time: 2:38 AM
 ### Changes
 - **Gods walk slowly round their altar** (using their walking frames) instead of standing on it: behind the altar on the far side of the circle, in front of it on the near side. Each altar starts its god at a different point, so they don't walk in step. New settings `gods.altar_walk_radius_px`, `gods.altar_walk_speed_px` and `gods.altar_walk_squash`; `gods.shrine_art_feet_px` is no longer used and was removed.
 
+- **Thor's sprite**, from Snorri Sturluson's Prose Edda (his three treasures: the hammer Mjöllnir with its rather short handle, Megingjörð the belt of strength, and the iron gloves he needs to grip the hammer) and the sagas' red-bearded Thor:
+  - red hair to his shoulders, a full red beard, a heavy brow;
+  - a blue-grey wool tunic with a woven border, trousers with leg wraps, leather shoes (Viking Age dress);
+  - a wide leather belt of strength with gold fittings; an iron glove on the hand raising Mjöllnir, shaped like Viking Age Thor's-hammer pendants.
+  - Nothing from Marvel's Thor (no winged helmet, no red cape), as `GAME_DESIGN.md` requires.
+
 ### Reason
-The owner suggested the gods should sit on a throne or walk around the altar the player walks to to unlock them.
+The owner approved Cernunnos and asked for the next god, and suggested the gods should sit on a throne or walk around the altar the player walks to to unlock them.
 
 ## Version 00.02.05
 Date: 10/31/2026
