@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.80
+Date: 10/31/2026
+Time: 1:33 AM
+
+### Changes
+- **King Arthur's crown** now sits on top of his brown hair, with a band of hair between it and his face, so the gold stands out instead of running into his forehead. Brighter gold with a darker lower edge and a small jewel glint.
+
+### Reason
+The owner said King Arthur's crown blended into his head.
+
 ## Version 00.01.79
 Date: 10/31/2026
 Time: 1:31 AM
