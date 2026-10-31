@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.99
+Date: 10/31/2026
+Time: 2:22 AM
+
+### Changes
+- **Apep's sprite**, from the Book of Gates and the Amduat (the vast serpent of chaos who attacks the sun's boat each night) and the Book of Overthrowing Apep:
+  - a huge serpent, the biggest boss of the Two Lands (84 × 72): a coil along the ground curling back over itself (with a dark edge where it crosses), then his neck rearing up;
+  - purple-black scales darker than the night, with a sheen along his back, dark bands, and a pale belly;
+  - a heavy wedge-shaped head, jaws open with fangs, a red eye;
+  - his coils sway as he moves (4 frames).
+
+### Reason
+The owner approved Set's new head and asked for the next boss.
+
 ## Version 00.01.98
 Date: 10/31/2026
 Time: 2:20 AM
