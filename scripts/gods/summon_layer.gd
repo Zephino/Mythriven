@@ -13,6 +13,8 @@ extends Node2D
 ##   Earthshaker (Poseidon)          a tidal wave crosses the screen, then the ground quakes (Soak, stun)
 ##   Sun Barque (Ra)                 a blazing sun crosses the screen, Holy damage and Smite
 ##   Crow Storm (the Morrígan)       Hexes every enemy and marks the 5 strongest as fated (+100% damage taken)
+##   Three Ways (Hecate)             three crossroads portals open round the Hero and fling enemies away, Hexed
+##   Return of Spring (Persephone)   heals, and flowers bloom round the Hero that root the enemies in them
 
 const MAX_EFFECTS := 8
 
@@ -72,6 +74,21 @@ func run(god: Dictionary, player: Player) -> void:
 			effect["marked"] = strongest.slice(0, mini(int(s.get("fated_count", 5)), strongest.size()))
 		"earthshaker":
 			effect["quaked"] = false
+		"three_ways":
+			# The three ways meet at the Hero: a portal on each road, 120 degrees apart.
+			var portals := PackedVector2Array()
+			var start: float = GameAuthority.run.rng.combat.randf() * TAU
+			for k: int in 3:
+				portals.append(player.position + Vector2.from_angle(start + TAU * k / 3.0) * view.size.x * float(s.get("distance_screens", 0.18)))
+			effect["portals"] = portals
+		"return_of_spring":
+			GameAuthority.heal_player(player, player.max_hp * float(s.get("heal_pct", 50)) / 100.0)
+			var blooms := PackedVector2Array()
+			var rng: RandomNumberGenerator = GameAuthority.run.rng.combat
+			for k: int in int(s.get("blooms", 7)):
+				blooms.append(player.position + Vector2.from_angle(TAU * k / float(s.get("blooms", 7)) + rng.randf() * 0.4)
+						* rng.randf_range(40.0, float(s.get("spread_px", 150.0))) * area)
+			effect["blooms"] = blooms
 	if _effects.size() >= MAX_EFFECTS:
 		_effects.pop_front()
 	_effects.append(effect)
@@ -146,6 +163,23 @@ func _step(effect: Dictionary, player: Player, delta: float) -> void:
 					st.burn[int(slot)] = maxf(st.burn[int(slot)], float(s.get("burn_s", 4.0)) * player.stats.status_duration_mult())
 		"earthshaker":
 			_hit_band(effect, player, view, minf(k * 1.5, 1.0), view.size.x * 0.1 * area, float(s.get("wave_damage", 30.0)), "water", 1.0)
+		"three_ways":
+			for portal: Vector2 in effect["portals"]:
+				for slot: int in _enemies_near(portal, float(s.get("radius_px", 46.0)) * area):
+					var hit: Dictionary = effect["hit"]
+					if hit.has(slot) or _is_boss(slot):
+						continue
+					hit[slot] = true
+					var away: Vector2 = (GameAuthority.enemies.positions[slot] - player.position).normalized()
+					GameAuthority.damage_enemy(slot, float(s.get("damage", 30.0)) * float(effect["power"]), player,
+							away * float(s.get("fling_px", 900.0)), "dark", 1.0)
+					if GameAuthority.enemies.active[slot] != 0:
+						GameAuthority.enemies.statuses.apply(slot, "hex", player.stats.status_duration_mult())
+		"return_of_spring":
+			for bloom: Vector2 in effect["blooms"]:
+				for slot: int in _enemies_near(bloom, float(s.get("bloom_radius_px", 26.0)) * area * minf(k * 4.0, 1.0)):
+					if not _is_boss(slot):
+						GameAuthority.enemies.statuses.apply_stun(slot, 0.3)
 		"sun_barque":
 			var center := Vector2(lerpf(view.position.x, view.end.x, k), view.get_center().y + sin(k * PI) * -view.size.y * 0.2)
 			effect["at"] = center
@@ -261,6 +295,40 @@ func _draw() -> void:
 								Color(Elements.color("dark"), fade), 2.0)
 			"wheel_of_fortune":
 				_draw_wheel(player.position, 26.0 + 50.0 * k, t * 4.0, fade, color)
+			"three_ways":
+				var reach3: float = float((effect["s"] as Dictionary).get("radius_px", 46.0)) * player.stats.area_mult()
+				for portal: Vector2 in effect["portals"]:
+					draw_line(player.position, portal, Color(Elements.color("dark").lightened(0.3), 0.35 * fade), 2.0)
+					_draw_portal(portal, reach3 * minf(k * 5.0, 1.0), t, fade)
+			"return_of_spring":
+				var reach_b: float = float((effect["s"] as Dictionary).get("bloom_radius_px", 26.0)) * player.stats.area_mult()
+				draw_arc(player.position, 18.0 + 30.0 * k, 0.0, TAU, 24, Color(0.6, 0.95, 0.6, fade), 2.0)
+				for i: int in (effect["blooms"] as PackedVector2Array).size():
+					_draw_bloom(effect["blooms"][i], reach_b * minf(k * 4.0, 1.0), i, fade)
+
+
+## Hecate's crossroads portal: a dark swirl ringed by violet light, with her torch flames burning round it.
+func _draw_portal(at: Vector2, reach: float, t: float, fade: float) -> void:
+	var dark: Color = Elements.color("dark")
+	draw_circle(at, reach, Color(0.05, 0.02, 0.08, 0.6 * fade))
+	for ring: int in 3:
+		var spin: float = t * (3.0 + ring) + ring * 2.0
+		draw_arc(at, reach * (0.4 + 0.25 * ring), spin, spin + PI * 1.3, 16, Color(dark.lightened(0.4), 0.8 * fade), 2.0)
+	for k: int in 3:
+		var torch: Vector2 = at + Vector2.from_angle(TAU * k / 3.0 + t) * reach
+		draw_circle(torch, 3.0 + sin(t * 12.0 + k), Color(1.0, 0.7, 0.3, fade))
+		draw_circle(torch + Vector2(0, -2), 1.6, Color(1.0, 0.95, 0.7, fade))
+
+
+## Persephone's flowers: a ring of pink and white petals opening on the ground, a green heart in the middle.
+func _draw_bloom(at: Vector2, reach: float, seed: int, fade: float) -> void:
+	if reach <= 0.5:
+		return
+	draw_circle(at, reach, Color(0.35, 0.55, 0.3, 0.25 * fade))
+	for p: int in 7:
+		var petal: Vector2 = at + Vector2.from_angle(TAU * p / 7.0 + seed) * reach * 0.55
+		draw_circle(petal, reach * 0.28, Color(0.95, 0.7, 0.8, 0.85 * fade) if (p + seed) % 2 == 0 else Color(0.98, 0.95, 0.92, 0.85 * fade))
+	draw_circle(at, reach * 0.22, Color(0.95, 0.85, 0.35, fade))
 
 
 ## A summon picture at `at`, turned by `angle`, scaled; `moving` runs its walk frames by `stride`.

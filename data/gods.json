@@ -294,5 +294,81 @@
     },
     "placeholder_color": "#5a4a7a",
     "persists": false
+  },
+  {
+    "id": "hecate",
+    "name_key": "GOD_HECATE_NAME",
+    "role_key": "GOD_HECATE_ROLE",
+    "blessing_key": "GOD_HECATE_BLESSING",
+    "summon_key": "GOD_HECATE_SUMMON",
+    "pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Hesiod, Theogony 411-452; Homeric Hymn to Demeter 24-25, 52-61 (Hecate with her torch)",
+    "lore_verified": false,
+    "element": "dark",
+    "role": "control",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "kills",
+      "amount": 350
+    },
+    "blessing": {
+      "element_damage": {
+        "dark": 15
+      },
+      "hit_status": "hex"
+    },
+    "summon": {
+      "effect": "three_ways",
+      "duration_s": 3,
+      "distance_screens": 0.18,
+      "radius_px": 46,
+      "damage": 30,
+      "fling_px": 900
+    },
+    "placeholder_color": "#4a3060",
+    "persists": false
+  },
+  {
+    "id": "persephone",
+    "name_key": "GOD_PERSEPHONE_NAME",
+    "role_key": "GOD_PERSEPHONE_ROLE",
+    "blessing_key": "GOD_PERSEPHONE_BLESSING",
+    "summon_key": "GOD_PERSEPHONE_SUMMON",
+    "pantheon": "greek",
+    "care_tier": "A",
+    "lore_source": "Homeric Hymn to Demeter (the pomegranate seed; her return with the spring)",
+    "lore_verified": false,
+    "element": "earth",
+    "role": "sustain",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "trial_endurance",
+      "patterns": [
+        "ground_circles",
+        "radial_burst"
+      ]
+    },
+    "trigger": {
+      "type": "damage_taken",
+      "amount": 120
+    },
+    "blessing": {
+      "max_hp_pct": 10,
+      "regen_pct_per_s": 0.5
+    },
+    "summon": {
+      "effect": "return_of_spring",
+      "duration_s": 5,
+      "heal_pct": 50,
+      "blooms": 7,
+      "spread_px": 150,
+      "bloom_radius_px": 26
+    },
+    "placeholder_color": "#5a8a4a",
+    "persists": false
   }
 ]

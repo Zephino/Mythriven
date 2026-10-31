@@ -1320,3 +1320,13 @@ BOSS_THANATOS_HERACLES,"Thanatos marks you, Heracles. You wrestled Death once be
 BOSS_THANATOS_MARK_BROKEN,The mark of death breaks!
 BOSS_TYPHON_STORM,Typhon's storms whirl round!
 CAST_TYPHON_FIRE,The Fire of the Hundred Heads
+GOD_HECATE_NAME,Hecate
+GOD_HECATE_ROLE,Control
+GOD_HECATE_BLESSING,+15% Dark damage; your hits Hex enemies.
+GOD_HECATE_SUMMON,"Three Ways: three crossroads portals open round you and fling enemies away, Hexed."
+GOD_HECATE_MYTH,"A goddess of night, magic and the crossroads, honoured by Zeus above all others (Hesiod). In the Hymn to Demeter she hears Persephone cry out and comes with a torch to help Demeter search, and ever after she is Persephone's companion."
+GOD_PERSEPHONE_NAME,Persephone
+GOD_PERSEPHONE_ROLE,Sustain
+GOD_PERSEPHONE_BLESSING,+10% Max HP and a slow heal over time.
+GOD_PERSEPHONE_SUMMON,"Return of Spring: heals half your HP, and flowers bloom round you that root the enemies in them."
+GOD_PERSEPHONE_MYTH,"Demeter's daughter, carried off by Hades to be queen of the dead. Because she ate a pomegranate seed below, she spends part of every year in the underworld; when she returns, the earth blooms again and it is spring (Homeric Hymn to Demeter)."

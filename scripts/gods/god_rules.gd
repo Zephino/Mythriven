@@ -69,8 +69,15 @@ static func pick_for_shrine(level: Dictionary, taken: PackedStringArray, seconds
 	var pool: Dictionary = {}
 	var local_pool: Dictionary = {}
 	var locals: Array = level.get("local_gods", [])
+	# Gods whose home level is still being built (coming_soon) don't appear at shrines yet.
+	var unreleased: Array = []
+	for other: Dictionary in LevelRules.all():
+		if bool(other.get("coming_soon", false)):
+			unreleased.append_array(other.get("local_gods", []))
 	for god: Dictionary in all():
 		var god_id: String = str(god["id"])
+		if unreleased.has(god_id) and not locals.has(god_id):
+			continue
 		var rarity: String = str(god.get("rarity", "common"))
 		if taken.has(god_id) or (rarity == "rare" and seconds < Data.cfg_float("gods.rare_god_min_time_s")):
 			continue

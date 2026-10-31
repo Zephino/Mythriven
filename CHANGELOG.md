@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.56
+Date: 10/31/2026
+Time: 1:33 PM
+
+### Changes
+- **The Underworld's gods, Hecate and Persephone** (step 5 of `docs/PACK_2_PLAN.md`; the level is still "Coming soon").
+  - **Hecate** (Dark, Control, uncommon, peaceful shrine): a dark-robed goddess with two torches (Hymn to Demeter; Greek vases).
+    - Blessing: +15% Dark damage, and your hits Hex enemies. Meter: kills.
+    - Summon, **Three Ways:** three crossroads portals open round you, ringed with torch flames, and fling enemies away, Hexed.
+  - **Persephone** (Earth, Sustain, uncommon, Endurance trial): a crowned queen with a pomegranate and wheat (Hymn to Demeter; the Locri reliefs).
+    - Blessing: +10% Max HP and a slow heal. Meter: damage taken.
+    - Summon, **Return of Spring:** heals half your HP, and flowers bloom round you that root the enemies in them.
+  - Myths and sources in the Pantheon Compendium; both sit on the Greek shrine throne.
+- Gods from a level that's still "Coming soon" don't appear at shrines yet.
+- Art by `tools/art/build_gods_underworld.py`.
+
+### Reason
+Building Pack 2, approved by the owner: the Underworld, one part at a time.
+
 ## Version 00.02.55
 Date: 10/31/2026
 Time: 1:30 PM
