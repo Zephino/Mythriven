@@ -13,6 +13,12 @@ func _sig() -> Dictionary:
 	return data.get("signature", {})
 
 
+## A Thousand Swords secret: as Yoshitsune, defeat him again, as on the Gojo Bridge.
+func secret_earned() -> String:
+	var player: Player = GameAuthority.local_player()
+	return "a_thousand_swords" if player != null and str(player.hero.get("id", "")) == "yoshitsune" else ""
+
+
 func standing() -> bool:
 	return phase_index >= int(_sig().get("standing_phase", 2))
 

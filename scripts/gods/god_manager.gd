@@ -137,6 +137,10 @@ func summon(player: Player, index: int) -> bool:
 	slots[index]["meter"] = 0.0
 	if summons != null:
 		summons.run(god, player)
+	# The Air-Maiden's Prayer Harmony (Ukko + Ilmatar): every summon also wraps the Hero in a brief shell.
+	var shell: float = float(player.god_flags.get(ResonanceManager.HARMONY + "summon_shot_shield_s", 0.0))
+	if shell > 0.0:
+		player.shot_shield_s = maxf(player.shot_shield_s, shell)
 	_divine_link_on_summon(player)
 	summoned.emit(player, str(god["id"]))
 	if player.is_local:

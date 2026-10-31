@@ -8,6 +8,12 @@ extends BossController
 ## Per head: "hp" left (0 when off), "regrow" seconds until it grows back (-1 when on or seared), "seared".
 var heads: Array = []
 var _element: String = ""
+## True once any head has grown back (the Seared Necks secret: defeat him without one ever regrowing).
+var regrew: bool = false
+
+
+func secret_earned() -> String:
+	return "seared_necks" if not regrew else ""
 
 
 func _sig() -> Dictionary:
@@ -65,6 +71,7 @@ func signature(delta: float) -> void:
 		if float(head["regrow"]) <= 0.0:
 			head["regrow"] = -1.0
 			head["hp"] = float(_sig().get("head_hp", 420.0))
+			regrew = true
 			if is_alive():
 				var enemies: EnemyManager = GameAuthority.enemies
 				enemies.hp[slot] = minf(enemies.hp[slot] + float(_sig().get("regrow_heal", 150.0)), enemies.max_hp[slot])

@@ -50,7 +50,7 @@ func after_each() -> void:
 
 func test_the_launch_and_pack_2_resonances_pair_existing_gods() -> void:
 	var all: Array[Dictionary] = ResonanceManager.all()
-	assert_eq(all.size(), 9, "five at launch and four from Pack 2")
+	assert_eq(all.size(), 12, "five at launch, four from Pack 2, three from Pack 3")
 	for resonance: Dictionary in all:
 		for god_id: Variant in resonance["gods"]:
 			assert_false(GodRules.find(str(god_id)).is_empty(), "%s exists" % god_id)
@@ -168,3 +168,16 @@ func test_the_chosen_slain_and_thryms_wedding() -> void:
 	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
 	_layer.run_resonance(ResonanceManager.find_id("thryms_wedding"), _player)
 	assert_gt(_enemies.statuses.stun[near], 0.0, "the hammer stuns")
+
+
+func test_pack_3_resonances() -> void:
+	_gods.bind(_player, "ukko")
+	_gods.bind(_player, "ilmatar")
+	assert_gt(float(_player.god_flags.get(ResonanceManager.HARMONY + "summon_shot_shield_s", 0.0)), 0.0)
+	_layer.run_resonance(ResonanceManager.find_id("airmaidens_prayer"), _player)
+	assert_gt(_player.shot_shield_s, 0.0, "the World Egg's shell")
+	var slot: int = _enemies.spawn("troll", Vector2(40, 0))
+	_enemies.hp[slot] = 100000.0
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	_layer.run_resonance(ResonanceManager.find_id("thunder_and_earth"), _player)
+	assert_gt(_enemies.statuses.stun[slot], 0.0, "bound by the threads")

@@ -13,7 +13,16 @@ func _sig() -> Dictionary:
 	return data.get("signature", {})
 
 
+var last_element: String = ""
+
+
+## Poisoned Sake secret: the final blow is Water (Raiko's men laid him low with drugged sake).
+func secret_earned() -> String:
+	return "poisoned_sake" if last_element == "water" else ""
+
+
 func on_element_hit(element: String) -> void:
+	last_element = element
 	if element == "water" and bool(_sig().get("water_chill", true)) and is_alive():
 		GameAuthority.enemies.statuses.apply(slot, "chill", 1.0, false)
 

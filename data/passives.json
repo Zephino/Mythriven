@@ -165,5 +165,57 @@
       "secret": "the_plant_of_youth"
     },
     "persists": false
+  },
+  {
+    "id": "elk_skis",
+    "name_key": "PASSIVE_ELK_SKIS_NAME",
+    "desc_key": "PASSIVE_ELK_SKIS_DESC",
+    "stat": "move_speed",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_ski_chase"
+    },
+    "persists": false
+  },
+  {
+    "id": "white_div_blood",
+    "name_key": "PASSIVE_WHITE_DIV_BLOOD_NAME",
+    "desc_key": "PASSIVE_WHITE_DIV_BLOOD_DESC",
+    "stat": "area",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_seventh_labour"
+    },
+    "persists": false
+  },
+  {
+    "id": "firebird_feather",
+    "name_key": "PASSIVE_FIREBIRD_FEATHER_NAME",
+    "desc_key": "PASSIVE_FIREBIRD_FEATHER_DESC",
+    "stat": "luck",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "seared_necks"
+    },
+    "persists": false
+  },
+  {
+    "id": "oeyama_sake",
+    "name_key": "PASSIVE_OEYAMA_SAKE_NAME",
+    "desc_key": "PASSIVE_OEYAMA_SAKE_DESC",
+    "stat": "status_duration",
+    "per_level": 0.06,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "poisoned_sake"
+    },
+    "persists": false
   }
 ]

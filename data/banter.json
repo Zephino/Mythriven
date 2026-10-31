@@ -1540,5 +1540,35 @@
     "text_key": "BANTER_SHUTEN_DOJI_ENTRANCE",
     "lore_source": "The Oeyama tale (Shuten-doji's love of sake)",
     "needs_owner_review": true
+  },
+  {
+    "id": "thunder_and_earth_resonance",
+    "trigger": "resonance",
+    "speaker": "perun",
+    "hero": "",
+    "god": "thunder_and_earth",
+    "text_key": "BANTER_THUNDER_AND_EARTH_RESONANCE",
+    "lore_source": "A modern reconstruction pairs Perun of the sky with Mokosh of the earth (the Primary Chronicle names both); original line",
+    "needs_owner_review": true
+  },
+  {
+    "id": "airmaidens_prayer_resonance",
+    "trigger": "resonance",
+    "speaker": "ilmatar",
+    "hero": "",
+    "god": "airmaidens_prayer",
+    "text_key": "BANTER_AIRMAIDENS_PRAYER_RESONANCE",
+    "lore_source": "Kalevala 1 (Ilmatar calls on Ukko for help)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "thunder_on_the_waves_resonance",
+    "trigger": "resonance",
+    "speaker": "ukko",
+    "hero": "",
+    "god": "thunder_on_the_waves",
+    "text_key": "BANTER_THUNDER_ON_THE_WAVES_RESONANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

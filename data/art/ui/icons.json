@@ -1,5 +1,5 @@
 {
- "_doc": "Passive icons (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py. crit: Critical strike (the Crit Chance card): a blade's point striking a bright spark. belt_of_strength: Belt of Strength: a broad leather belt with a bronze buckle. winged_sandals: Winged Sandals (the winged sandals Hermes lends Perseus): a sandal with a white wing at the heel. hourglass: Hourglass: sand running through, in a wooden frame. seers_eye: Seer's Eye: a wide eye with a bright blue iris. lodestone: Lodestone: a dark magnetic stone drawing in specks of gold. bronze_aegis: Bronze Aegis: a round bronze shield with a boss. ferrymans_coin: Ferryman's Coin (the obol paid to Charon): a silver coin with an owl's eyes struck on it. golden_apple: Golden Apple: a golden apple with a leaf. votive_bell: Votive Bell: a small bronze temple bell. mirrored_shield: Mirrored Shield (Perseus' polished shield): a round shield polished bright, with a gleam. tyrs_oath: Tyr's Oath (Tyr's hand pledged in Fenrir's jaws): an open right hand, raised. pomegranate_seed: Pomegranate Seed (Persephone's pomegranate): a split pomegranate, its red seeds showing. whetstone_shard: Whetstone Shard (Hrungnir's whetstone, Skaldskaparmal 17): a grey shard of whetstone with a lightning spark. green_girdle: The Green Girdle (Sir Gawain and the Green Knight): a green silk girdle tied in a knot, gold at its ends. plant_of_youth: Plant of Youth (Epic of Gilgamesh, Tablet XI): a thorny sprig drawn up from the deep, with green leaves.",
+ "_doc": "Passive icons (docs/ART_RULES.md: Menus), built by tools/art/build_ui.py. crit: Critical strike (the Crit Chance card): a blade's point striking a bright spark. belt_of_strength: Belt of Strength: a broad leather belt with a bronze buckle. winged_sandals: Winged Sandals (the winged sandals Hermes lends Perseus): a sandal with a white wing at the heel. hourglass: Hourglass: sand running through, in a wooden frame. seers_eye: Seer's Eye: a wide eye with a bright blue iris. lodestone: Lodestone: a dark magnetic stone drawing in specks of gold. bronze_aegis: Bronze Aegis: a round bronze shield with a boss. ferrymans_coin: Ferryman's Coin (the obol paid to Charon): a silver coin with an owl's eyes struck on it. golden_apple: Golden Apple: a golden apple with a leaf. votive_bell: Votive Bell: a small bronze temple bell. mirrored_shield: Mirrored Shield (Perseus' polished shield): a round shield polished bright, with a gleam. tyrs_oath: Tyr's Oath (Tyr's hand pledged in Fenrir's jaws): an open right hand, raised. pomegranate_seed: Pomegranate Seed (Persephone's pomegranate): a split pomegranate, its red seeds showing. whetstone_shard: Whetstone Shard (Hrungnir's whetstone, Skaldskaparmal 17): a grey shard of whetstone with a lightning spark. green_girdle: The Green Girdle (Sir Gawain and the Green Knight): a green silk girdle tied in a knot, gold at its ends. plant_of_youth: Plant of Youth (Epic of Gilgamesh, Tablet XI): a thorny sprig drawn up from the deep, with green leaves. elk_skis: Elk-Hunter's Skis (Kalevala 13-14, Lemminkainen's chase): a pair of long wooden skis, tips curled up. white_div_blood: White Div's Blood (the Shahnameh, seventh labour): a pale drop that restored the blinded king's sight. firebird_feather: Firebird's Feather (the Russian tales): a feather that shines like fire. oeyama_sake: Oeyama Sake (the Oeyama tale): a red lacquered sake cup.",
  "size": [
   16,
   16
@@ -352,6 +352,86 @@
     "......ovvwo.....",
     "......ovvo......",
     "......ovvo......"
+   ]
+  ],
+  "elk_skis": [
+   [
+    "................",
+    "................",
+    "................",
+    "...............o",
+    "......ooo.....ob",
+    ".oooooeeeooooobo",
+    "oBBBBBeeeBBBBBo.",
+    "oBBBBBeeeBBBBBoo",
+    ".oooooeeeoooooob",
+    ".oooooeeeooooobo",
+    "obbbbbeeebbbbbo.",
+    "obbbbbeeebbbbbo.",
+    ".oooooeeeooooo..",
+    "......ooo.......",
+    "................",
+    "................"
+   ]
+  ],
+  "white_div_blood": [
+   [
+    "................",
+    ".......oo.......",
+    "......oqqo......",
+    "......oqqo......",
+    "......oqqo......",
+    ".....oqqqqo.....",
+    "....oqqqqqqo....",
+    "...oqqqqqqqqo...",
+    "..oqqqqqqqqqqo..",
+    ".oqqqqwqqqqqqqo.",
+    ".oqqqqwqqqqqqqo.",
+    "..oqqqqqqqqqqo..",
+    "...oqqqqqqqqo...",
+    "....oqqqqqqo....",
+    ".....oqqqqo.....",
+    "......oooo......"
+   ]
+  ],
+  "firebird_feather": [
+   [
+    "................",
+    "............o...",
+    "...........oroo.",
+    "..........oyorRo",
+    ".........oroyRo.",
+    "........oyorRo..",
+    ".......oroyRo...",
+    "......oyorRo....",
+    ".....oroyRo.....",
+    "....oyorRo......",
+    "...oroyRo.......",
+    "..oyorRo........",
+    ".oroyRo.........",
+    "oyorRo..........",
+    ".oyRo...........",
+    "..oo............"
+   ]
+  ],
+  "oeyama_sake": [
+   [
+    "................",
+    "................",
+    "................",
+    "................",
+    "................",
+    ".oooooooooooooo.",
+    "opyyyyyyyyyyyypo",
+    ".oppqqqqqqqqppo.",
+    "..oppppppppppo..",
+    "...oppppppppo...",
+    "....oppppppo....",
+    ".....oppppo.....",
+    ".....oPPPPo.....",
+    ".....oPPPPo.....",
+    "......oooo......",
+    "................"
    ]
   ]
  }

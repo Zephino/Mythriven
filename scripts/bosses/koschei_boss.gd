@@ -8,6 +8,13 @@ extends BossController
 var egg := Vector2.INF
 var mortal: bool = false
 var _spoken: bool = false
+var age: float = 0.0
+## When the egg broke (seconds after he came), -1 while whole (the Needle secret: within needle_s).
+var broken_at: float = -1.0
+
+
+func secret_earned() -> String:
+	return "the_needle" if broken_at >= 0.0 and broken_at <= float(_sig().get("needle_s", 45.0)) else ""
 
 
 func _sig() -> Dictionary:
@@ -28,9 +35,10 @@ func cap_lethal(amount: float) -> float:
 	return minf(amount, maxf(GameAuthority.enemies.hp[slot] - 1.0, 0.0))
 
 
-func signature(_delta: float) -> void:
+func signature(delta: float) -> void:
 	if not is_alive():
 		return
+	age += delta
 	if egg == Vector2.INF and not mortal:
 		var range_px: Array = _sig().get("egg_distance_px", [320, 460])
 		var rng: RandomNumberGenerator = GameAuthority.run.rng.combat
@@ -52,6 +60,7 @@ func signature(_delta: float) -> void:
 ## The needle snaps: Koschei can die.
 func break_egg() -> void:
 	mortal = true
+	broken_at = age
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null and egg != Vector2.INF:
 		effects.spawn_ring(egg, 40.0, Color(1.0, 0.85, 0.4), true)

@@ -12,6 +12,12 @@ func _sig() -> Dictionary:
 	return data.get("signature", {})
 
 
+## The Sampo secret: as Vainamoinen, defeat her (Kalevala 42-43: he took back the Sampo from Pohjola).
+func secret_earned() -> String:
+	var player: Player = GameAuthority.local_player()
+	return "the_sampo" if player != null and str(player.hero.get("id", "")) == "vainamoinen" else ""
+
+
 func is_eagle() -> bool:
 	return phase_index >= int(_sig().get("eagle_phase", 2))
 

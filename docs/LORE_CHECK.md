@@ -271,6 +271,22 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | benkei_tomoe_gozen | boss entrance (as tomoe_gozen) | benkei | Lady Tomoe; your lord and mine were cousins, and still they fought. | The Tale of the Heike (Kiso Yoshinaka and Yoshitsune, cousins of the Minamoto, at war in 1184) | no |
 | shuten_doji_entrance | boss entrance | shuten_doji | More sake! And then, more heroes! | The Oeyama tale (Shuten-doji's love of sake) | no |
 
+### Pack 3 secrets and Resonances (Oracle hints and lines are original drafts)
+
+| Id | Name | Hint or line | Source | OK? |
+| --- | --- | --- | --- | --- |
+| the_sampo | The Sampo | The old singer once sailed home with what the North would not give. | Kalevala 42-43 (Vainamoinen takes the Sampo back from Pohjola) | no |
+| the_ski_chase | The Ski Chase | No skier could catch it; be the first, and be quick. | Kalevala 13-14 (Lemminkainen chases the elk of Hiisi on skis) | no |
+| zals_feathers | Zal's Feathers | She gave her feathers to be burned in need; need her thrice. | Shahnameh (the Simurgh gives Zal her feathers to burn in need) | no |
+| the_seventh_labour | The Seventh Labour | Six labours lead to a cave; let the champion end the seventh. | Shahnameh, seventh labour (the White Div's blood restores Kay Kavus's sight) | no |
+| seared_necks | Seared Necks | A head cut off grows back; a head burned off does not. | The byliny (Zmey Gorynych's heads) | no |
+| the_needle | The Needle | His death is far away; run to it before he knows you've gone. | Afanasyev, "The Death of Koschei the Deathless" | no |
+| a_thousand_swords | A Thousand Swords | He wanted one more sword; let the boy from the bridge refuse him again. | The Gikeiki (Benkei's thousand swords; Yoshitsune beats him on the Gojo Bridge) | no |
+| poisoned_sake | Poisoned Sake | The oni king loved his drink; let the last thing he tastes be water. | The Oeyama tale (Raiko's men drug Shuten-doji with sake) | no |
+| thunder_and_earth_resonance | resonance line | Earth below, thunder above; Mokosh, bind them and I will strike. | A modern reconstruction pairs Perun of the sky with Mokosh of the earth (the Primary Chronicle names both); original line | no |
+| airmaidens_prayer_resonance | resonance line | Ukko, highest of gods, come and help me, as you did when I called before. | Kalevala 1 (Ilmatar calls on Ukko for help) | no |
+| thunder_on_the_waves_resonance | resonance line | Raise your waves, sea-lord, and I will set the storm on them. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

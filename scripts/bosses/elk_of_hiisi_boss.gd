@@ -8,6 +8,12 @@ extends BossController
 var sprint_s: float = 0.0
 var sprint_dir := Vector2.RIGHT
 var _sprint_in: float = 3.0
+## Seconds since it came (the Ski Chase secret: catch it within ski_chase_s).
+var age: float = 0.0
+
+
+func secret_earned() -> String:
+	return "the_ski_chase" if age <= float(_sig().get("ski_chase_s", 60.0)) else ""
 
 
 func _sig() -> Dictionary:
@@ -30,6 +36,7 @@ func modify_hit(amount: float, attacker: Player, push: Vector2) -> float:
 func signature(delta: float) -> void:
 	if not is_alive():
 		return
+	age += delta
 	_sprint_in -= delta
 	if _sprint_in <= 0.0 and sprint_s <= 0.0:
 		_sprint_in = float(_sig().get("sprint_every_s", 6.0))

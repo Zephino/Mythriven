@@ -718,3 +718,37 @@ func test_shuten_doji_lurches_and_water_slows_him() -> void:
 	assert_ne(shuten.position_now(), at, "he lurches")
 	shuten.on_element_hit("water")
 	assert_true(_enemies.statuses.has(shuten.slot, "chill"), "water slows him")
+
+
+func test_pack_3_boss_secrets() -> void:
+	_start("pohjola")
+	_as_hero("vainamoinen")
+	var louhi: LouhiBoss = _bosses.spawn_boss("louhi", 2) as LouhiBoss
+	assert_eq(louhi.secret_earned(), "the_sampo")
+	var elk: ElkOfHiisiBoss = _bosses.spawn_boss("elk_of_hiisi", 0) as ElkOfHiisiBoss
+	assert_eq(elk.secret_earned(), "the_ski_chase", "caught at once")
+	elk.age = 100.0
+	assert_eq(elk.secret_earned(), "")
+	GameAuthority.end_scene()
+	_start("the_slavic_wilds")
+	var zmey: ZmeyGorynychBoss = _bosses.spawn_boss("zmey_gorynych", 0) as ZmeyGorynychBoss
+	assert_eq(zmey.secret_earned(), "seared_necks")
+	zmey.on_element_hit("physical")
+	zmey.modify_hit(1000.0, _player, Vector2.ZERO)
+	zmey.signature(7.0)
+	assert_eq(zmey.secret_earned(), "", "a head grew back")
+	GameAuthority.end_scene()
+	_start("the_land_of_legends")
+	_as_hero("yoshitsune")
+	var benkei: BenkeiBoss = _bosses.spawn_boss("benkei", 1) as BenkeiBoss
+	assert_eq(benkei.secret_earned(), "a_thousand_swords")
+	var shuten: ShutenDojiBoss = _bosses.spawn_boss("shuten_doji", 2) as ShutenDojiBoss
+	shuten.on_element_hit("water")
+	assert_eq(shuten.secret_earned(), "poisoned_sake")
+	for secret: String in ["the_sampo", "the_ski_chase", "zals_feathers", "the_seventh_labour", "seared_necks", "the_needle",
+			"a_thousand_swords", "poisoned_sake"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)

@@ -711,7 +711,11 @@
       { "id": "golden_lyre", "name_key": "COSMETIC_GOLDEN_LYRE", "color": "#f0d070" },
       { "id": "bridal_veil", "name_key": "COSMETIC_BRIDAL_VEIL", "color": "#f4f0ea" },
       { "id": "camlann", "name_key": "COSMETIC_CAMLANN", "color": "#a8283a" },
-      { "id": "cedar_wreath", "name_key": "COSMETIC_CEDAR_WREATH", "color": "#4a8a4a" }
+      { "id": "cedar_wreath", "name_key": "COSMETIC_CEDAR_WREATH", "color": "#4a8a4a" },
+      { "id": "sampo_glow", "name_key": "COSMETIC_SAMPO_GLOW", "color": "#f0e070" },
+      { "id": "simurgh_plume", "name_key": "COSMETIC_SIMURGH_PLUME", "color": "#3aa08a" },
+      { "id": "koschei_needle", "name_key": "COSMETIC_KOSCHEI_NEEDLE", "color": "#c8a040" },
+      { "id": "gojo_bridge", "name_key": "COSMETIC_GOJO_BRIDGE", "color": "#b03a2a" }
     ]
   },
 

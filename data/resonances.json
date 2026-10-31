@@ -198,5 +198,66 @@
     },
     "color": "#ffe080",
     "best_against_key": "RESONANCE_THRYMS_WEDDING_BEST"
+  },
+  {
+    "id": "thunder_and_earth",
+    "name_key": "RESONANCE_THUNDER_AND_EARTH_NAME",
+    "desc_key": "RESONANCE_THUNDER_AND_EARTH_DESC",
+    "gods": [
+      "perun",
+      "mokosh"
+    ],
+    "harmony": {
+      "lightning_vs_bound_mult": 1.3
+    },
+    "summon": {
+      "effect": "thunder_and_earth",
+      "duration_s": 2,
+      "bind_s": 2.5,
+      "damage": 30
+    },
+    "color": "#c8b0f0",
+    "best_against_key": "RESONANCE_THUNDER_AND_EARTH_BEST"
+  },
+  {
+    "id": "airmaidens_prayer",
+    "name_key": "RESONANCE_AIRMAIDENS_PRAYER_NAME",
+    "desc_key": "RESONANCE_AIRMAIDENS_PRAYER_DESC",
+    "gods": [
+      "ukko",
+      "ilmatar"
+    ],
+    "harmony": {
+      "summon_shot_shield_s": 1.5
+    },
+    "summon": {
+      "effect": "airmaidens_prayer",
+      "duration_s": 3,
+      "shell_s": 5,
+      "strikes": 6,
+      "damage": 45
+    },
+    "color": "#c8e0f8",
+    "best_against_key": "RESONANCE_AIRMAIDENS_PRAYER_BEST"
+  },
+  {
+    "id": "thunder_on_the_waves",
+    "name_key": "RESONANCE_THUNDER_ON_THE_WAVES_NAME",
+    "desc_key": "RESONANCE_THUNDER_ON_THE_WAVES_DESC",
+    "gods": [
+      "ukko",
+      "poseidon"
+    ],
+    "harmony": {
+      "lightning_vs_soaked_mult": 1.3
+    },
+    "summon": {
+      "effect": "thunder_on_the_waves",
+      "duration_s": 2,
+      "strikes": 10,
+      "damage": 40
+    },
+    "color": "#80b0f0",
+    "best_against_key": "RESONANCE_THUNDER_ON_THE_WAVES_BEST"
   }
 ]

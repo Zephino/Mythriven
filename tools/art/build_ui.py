@@ -298,10 +298,53 @@ def plant():
     return p
 
 
+def skis():
+    """Elk-Hunter's Skis (Kalevala 13-14, Lemminkainen's chase): a pair of long wooden skis, tips curled up."""
+    p = icon()
+    for k, y in enumerate((6, 10)):
+        p.rect(1, y, 13, y + 1, "b" if k else "B"); p.px(14, y - 1, "b"); p.px(15, y - 2, "b")
+    p.rect(6, 5, 8, 12, "e")
+    return p
+
+
+def div_blood():
+    """White Div's Blood (the Shahnameh, seventh labour): a pale drop that restored the blinded king's sight."""
+    p = icon()
+    for y in range(2, 15):
+        w = 0 if y < 5 else min(5, (y - 4))
+        if y > 10:
+            w = max(0, 5 - (y - 10))
+        p.rect(7 - w, y, 8 + w, y, "q")
+    p.px(6, 9, "w"); p.px(6, 10, "w")
+    return p
+
+
+def feather():
+    """Firebird's Feather (the Russian tales): a feather that shines like fire."""
+    p = icon()
+    for k in range(12):
+        p.px(3 + k, 14 - k, "R")
+        for d in (1, 2):
+            p.px(3 + k - d, 14 - k - d + 1, "r" if k % 2 else "y")
+    return p
+
+
+def sake():
+    """Oeyama Sake (the Oeyama tale): a red lacquered sake cup."""
+    p = icon()
+    for y in range(6, 12):
+        w = 6 - (y - 6)
+        p.rect(7 - w, y, 8 + w, y, "p")
+    p.rect(2, 6, 13, 6, "y"); p.rect(4, 7, 11, 7, "q")
+    p.rect(6, 12, 9, 13, "P")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
-         "pomegranate_seed": pomegranate, "whetstone_shard": whetstone, "green_girdle": girdle, "plant_of_youth": plant}
+         "pomegranate_seed": pomegranate, "whetstone_shard": whetstone, "green_girdle": girdle, "plant_of_youth": plant,
+         "elk_skis": skis, "white_div_blood": div_blood, "firebird_feather": feather, "oeyama_sake": sake}
 
 
 def outlined(p):

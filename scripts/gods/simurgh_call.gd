@@ -10,6 +10,8 @@ extends Node2D
 var feathers: Dictionary = {}
 ## Seconds left of her flight across the screen, and where she flies over.
 var flight_s: float = 0.0
+## Times she has come this run (Zal's Feathers secret: 3).
+var calls: int = 0
 var _over := Vector2.ZERO
 
 
@@ -49,6 +51,9 @@ func _process(delta: float) -> void:
 ## Burns a feather: she heals the Hero fully and her wings blow away every enemy shot.
 func call_her(player: Player) -> void:
 	feathers[player.player_id] = count(player) - 1
+	calls += 1
+	if calls >= 3 and player.is_local:
+		Meta.note_secret("zals_feathers")
 	GameAuthority.heal_player(player, player.max_hp)
 	if GameAuthority.enemy_shots != null:
 		GameAuthority.enemy_shots.clear_all()

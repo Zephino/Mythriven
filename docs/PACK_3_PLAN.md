@@ -2,7 +2,7 @@
 
 Status: **approved by the owner** (10/31/2026: "yes, as suggested" to all five questions). Pohjola built and released
 10/31/2026 (00.02.70); Mazandaran (00.02.72); the Slavic Wilds (00.02.73); the Land of Legends (00.02.74). **All four Pack 3 levels
-and its three Heroes are built.** Still open: Pack 3 secrets and Resonances (to design with the owner). The owner asked to start Pack 3 once Pack 2 was finished ("When your done
+and its three Heroes are built.** Pack 3 secrets and three Resonances were added 10/31/2026 (00.02.75, owner: "yes add both"). **Pack 3 is complete.** The owner asked to start Pack 3 once Pack 2 was finished ("When your done
 start pack 3"). Like Pack 2, this plan comes first; building starts when the owner answers the questions at the end.
 
 Everything named here comes from `GAME_DESIGN.md` (Act III levels, Gods added with Acts II–III, Acts II–IV bosses,

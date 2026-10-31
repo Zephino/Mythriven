@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.75
+Date: 10/31/2026
+Time: 5:22 PM
+
+### Changes
+- **Three god pairings (Resonances) for Pack 3:**
+  - **Thunder and Earth** (Perun + Mokosh): Lightning hits deal 30% more to stunned and frozen monsters. Summon: threads bind every monster on screen, then lightning strikes each one.
+  - **The Air-Maiden's Prayer** (Ukko + Ilmatar; in Kalevala 1 Ilmatar calls on Ukko): every god summon also gives you a 1.5 s shell against shots. Summon: the World Egg's shell for 5 s while Ukko's strikes fall on the crowds.
+  - **Thunder on the Waves** (Ukko + Poseidon): Lightning hits deal 30% more to Soaked monsters. Summon: a surge Soaks the screen, then ten lightning strikes fall.
+- **Eight secrets for Pack 3**, two per level: the Sampo, the Ski Chase, Zal's Feathers, the Seventh Labour, Seared Necks, the Needle, A Thousand Swords and Poisoned Sake. Four give new passives (Elk-Hunter's Skis, White Div's Blood, Firebird's Feather, Ōeyama Sake, each with its own icon) and four give auras. With these, Pack 3 is complete.
+- Their Oracle hints and the pairing lines are on the lore check for the owner.
+- **docs/PACK_4_PLAN.md**: the drafted design for Pack 4, the Elemental Planes (Muspelheim, Niflheim, Ys, Cloud-Cuckoo-Land): the missing bosses, monsters and hazards from the old texts, with questions for the owner before building.
+- 2 new tests (317 tests pass).
+
+### Reason
+The owner approved the Pack 3 pairings and secrets ("yes add both") and asked to start Pack 4; its realms must be designed with the owner first (docs/PACK_PLAN.md, Phase 33).
+
 ## Version 00.02.74
 Date: 10/31/2026
 Time: 5:15 PM

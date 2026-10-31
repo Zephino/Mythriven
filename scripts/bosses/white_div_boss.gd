@@ -4,3 +4,9 @@ extends BullOfHeavenBoss
 ## target every few seconds and they stay for the fight (slowing and hurting), while his divs pour out and he hurls
 ## boulders (his patterns). Source: the Shahnameh, seventh labour (Rostam fights the White Div in his dark cave).
 ## The pits work as the Bull of Heaven's do (bull_of_heaven_boss.gd), from his own signature numbers.
+
+
+## The Seventh Labour secret: as Rostam, defeat him.
+func secret_earned() -> String:
+	var player: Player = GameAuthority.local_player()
+	return "the_seventh_labour" if player != null and str(player.hero.get("id", "")) == "rostam" else ""

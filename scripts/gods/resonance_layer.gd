@@ -12,6 +12,10 @@ extends SummonLayer
 ##   The Chosen Slain    weakened monsters on screen fall, and half of them rise to fight for the Hero
 ##   The Flood and Sun   a flood soaks and sweeps the screen, then sunlight strikes every Soaked monster
 ##   Thrym's Wedding     the hammer comes down in a ring round the Hero, stunning everything it hits
+## Pack 3 (owner approved 10/31/2026):
+##   Thunder and Earth   threads bind every monster on screen, then lightning strikes each one bound
+##   The Air-Maiden's Prayer  the World Egg's shell round every Hero, while Ukko's strikes fall on the crowds
+##   Thunder on the Waves     a surge Soaks the screen, then Ukko's strikes fall on the crowds
 
 var ground: GroundEffects
 
@@ -38,6 +42,23 @@ func run_resonance(resonance: Dictionary, player: Player) -> void:
 					ground.add(at, reach, float(s.get("duration_s", 10.0)), float(s.get("bloom_dps", 10.0)) * 0.5, "earth", player)
 		"eye_of_ra":
 			get_tree().call_group("bosses", "add_guard_fraction", float(s.get("guard_fill", 0.5)))
+		"thunder_and_earth":
+			for slot: int in _enemies_in(view):
+				if not _is_boss(slot):
+					GameAuthority.enemies.statuses.apply_stun(slot, float(s.get("bind_s", 2.5)) * duration_mult)
+				GameAuthority.damage_enemy(slot, float(s.get("damage", 30.0)), player, Vector2.ZERO, "lightning", 0.5)
+		"airmaidens_prayer":
+			run({"id": "", "placeholder_color": str(resonance.get("color", "#ffffff")),
+					"summon": {"effect": "world_egg", "duration_s": float(s.get("shell_s", 5.0))}}, player)
+			run({"id": "", "placeholder_color": str(resonance.get("color", "#ffffff")),
+					"summon": {"effect": "thunder_axe", "duration_s": 3.0, "strikes": int(s.get("strikes", 6)),
+							"strike_radius_px": 40.0, "damage": float(s.get("damage", 45.0))}}, player)
+		"thunder_on_the_waves":
+			for slot: int in _enemies_in(view):
+				_soak(slot, 6.0 * duration_mult)
+			run({"id": "", "placeholder_color": str(resonance.get("color", "#ffffff")),
+					"summon": {"effect": "thunder_axe", "duration_s": 3.0, "strikes": int(s.get("strikes", 10)),
+							"strike_radius_px": 44.0, "damage": float(s.get("damage", 40.0))}}, player)
 		"chosen_slain":
 			var rising: int = 0
 			for slot: int in _enemies_in(view):
@@ -203,6 +224,18 @@ func _draw() -> void:
 						draw_line(at + Vector2(0, 6), at + Vector2(0, -2), Color(0.45, 0.3, 0.18, fade), 2.0)
 						draw_circle(at + Vector2(0, -5), 5.0 + sin(t * 18.0 + at.x) * 1.0, Color(1.0, 0.6, 0.2, 0.85 * fade))
 						draw_circle(at + Vector2(0, -6), 2.5, Color(1.0, 0.95, 0.6, fade))
+			"res_thunder_and_earth":
+				draw_rect(view, Color(0.7, 0.75, 1.0, 0.12 * fade))
+				var shown: int = 0
+				for slot: int in _enemies_in(view):
+					var at: Vector2 = GameAuthority.enemies.positions[slot]
+					draw_line(at + Vector2(-4, -90) * fade, at, Color(Elements.color("lightning"), fade), 2.0)
+					shown += 1
+					if shown >= 30:
+						break
+			"res_thunder_on_the_waves":
+				draw_rect(view, Color(Elements.color("water"), 0.18 * fade))
+				_draw_rain(view, t, fade)
 			"res_chosen_slain":
 				# Ravens and pale light descending over the field.
 				draw_rect(view, Color(0.85, 0.8, 0.6, 0.12 * fade))

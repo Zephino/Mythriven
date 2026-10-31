@@ -1804,3 +1804,51 @@ BANTER_BENKEI_ENTRANCE,Nine hundred and ninety-nine swords. Yours makes a thousa
 BANTER_BENKEI_YOSHITSUNE,The boy from the bridge. This time I will not fall.
 BANTER_BENKEI_TOMOE_GOZEN,"Lady Tomoe; your lord and mine were cousins, and still they fought."
 BANTER_SHUTEN_DOJI_ENTRANCE,"More sake! And then, more heroes!"
+BANTER_THUNDER_AND_EARTH_RESONANCE,"Earth below, thunder above; Mokosh, bind them and I will strike."
+BANTER_AIRMAIDENS_PRAYER_RESONANCE,"Ukko, highest of gods, come and help me, as you did when I called before."
+BANTER_THUNDER_ON_THE_WAVES_RESONANCE,"Raise your waves, sea-lord, and I will set the storm on them."
+RESONANCE_THUNDER_AND_EARTH_NAME,Thunder and Earth
+RESONANCE_THUNDER_AND_EARTH_DESC,"Lightning hits deal 30% more to stunned and frozen monsters. Resonance: threads bind every monster on screen, then lightning strikes each one."
+RESONANCE_THUNDER_AND_EARTH_BEST,Crowds you can hold still
+RESONANCE_AIRMAIDENS_PRAYER_NAME,The Air-Maiden's Prayer
+RESONANCE_AIRMAIDENS_PRAYER_DESC,Every god summon also gives you a 1.5 s shell that stops enemy shots. Resonance: the World Egg's shell for 5 s while Ukko's strikes fall on the thickest crowds.
+RESONANCE_AIRMAIDENS_PRAYER_BEST,Enemy archers and casters
+RESONANCE_THUNDER_ON_THE_WAVES_NAME,Thunder on the Waves
+RESONANCE_THUNDER_ON_THE_WAVES_DESC,"Lightning hits deal 30% more to Soaked monsters. Resonance: a surge Soaks the whole screen, then ten lightning strikes fall on the crowds."
+RESONANCE_THUNDER_ON_THE_WAVES_BEST,Whole screens of monsters
+SECRET_SAMPO_NAME,The Sampo
+SECRET_SAMPO_DESC,"As Väinämöinen, defeat Louhi. A golden Sampo glow aura."
+SECRET_SAMPO_HINT,The old singer once sailed home with what the North would not give.
+SECRET_SKI_CHASE_NAME,The Ski Chase
+SECRET_SKI_CHASE_DESC,Defeat the Elk of Hiisi within 60 s of it appearing. Adds the Elk-Hunter's Skis passive.
+SECRET_SKI_CHASE_HINT,"No skier could catch it; be the first, and be quick."
+SECRET_ZALS_FEATHERS_NAME,Zal's Feathers
+SECRET_ZALS_FEATHERS_DESC,Call the Simurgh 3 times in one run. A Simurgh plume aura.
+SECRET_ZALS_FEATHERS_HINT,She gave her feathers to be burned in need; need her thrice.
+SECRET_SEVENTH_LABOUR_NAME,The Seventh Labour
+SECRET_SEVENTH_LABOUR_DESC,"As Rostam, defeat the White Div. Adds the White Div's Blood passive."
+SECRET_SEVENTH_LABOUR_HINT,Six labours lead to a cave; let the champion end the seventh.
+SECRET_SEARED_NECKS_NAME,Seared Necks
+SECRET_SEARED_NECKS_DESC,Defeat Zmey Gorynych without letting a single head grow back. Adds the Firebird's Feather passive.
+SECRET_SEARED_NECKS_HINT,A head cut off grows back; a head burned off does not.
+SECRET_NEEDLE_NAME,The Needle
+SECRET_NEEDLE_DESC,Break Koschei's egg within 45 s of his coming. A golden needle aura.
+SECRET_NEEDLE_HINT,His death is far away; run to it before he knows you've gone.
+SECRET_THOUSAND_SWORDS_NAME,A Thousand Swords
+SECRET_THOUSAND_SWORDS_DESC,"As Yoshitsune, defeat Benkei. A crimson Gojō Bridge aura."
+SECRET_THOUSAND_SWORDS_HINT,He wanted one more sword; let the boy from the bridge refuse him again.
+SECRET_POISONED_SAKE_NAME,Poisoned Sake
+SECRET_POISONED_SAKE_DESC,Defeat Shuten-dōji with a Water hit as the final blow. Adds the Ōeyama Sake passive.
+SECRET_POISONED_SAKE_HINT,The oni king loved his drink; let the last thing he tastes be water.
+PASSIVE_ELK_SKIS_NAME,Elk-Hunter's Skis
+PASSIVE_ELK_SKIS_DESC,+5% Move Speed per level.
+PASSIVE_WHITE_DIV_BLOOD_NAME,White Div's Blood
+PASSIVE_WHITE_DIV_BLOOD_DESC,+5% Area per level.
+PASSIVE_FIREBIRD_FEATHER_NAME,Firebird's Feather
+PASSIVE_FIREBIRD_FEATHER_DESC,+5% Luck per level.
+PASSIVE_OEYAMA_SAKE_NAME,Ōeyama Sake
+PASSIVE_OEYAMA_SAKE_DESC,+6% status duration per level.
+COSMETIC_SAMPO_GLOW,Sampo glow
+COSMETIC_SIMURGH_PLUME,Simurgh plume
+COSMETIC_KOSCHEI_NEEDLE,Golden needle
+COSMETIC_GOJO_BRIDGE,Gojō Bridge
