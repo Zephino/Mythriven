@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.58
+Date: 10/31/2026
+Time: 1:40 PM
+
+### Changes
+- **Quieter by default:** the default volume is now 70% (was 80%). Players who already changed their volume keep their own setting.
+- **A softer pickup sound.** The pickup blip used to climb more than two octaves (to about 3,000 Hz) during a quick run of pickups, which is what made it ear-piercing. Now it:
+  - starts lower (520 Hz, was 660);
+  - climbs at most one octave, more slowly (still on the same pleasant five-note scale);
+  - plays a little quieter (−16 dB, was −12).
+
+### Reason
+The owner said the pickup sound is ear-piercing and asked for the sound to be turned down 10% by default.
+
 ## Version 00.02.57
 Date: 10/31/2026
 Time: 1:39 PM

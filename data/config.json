@@ -392,10 +392,10 @@
     "ambrosia_pool": 32,
     "ambrosia_size_px": 11,
     "ambrosia_color": "#ff9ad5",
-    "sound_base_hz": 660,
+    "sound_base_hz": 520,
     "sound_length_s": 0.09,
-    "sound_volume_db": -12,
-    "scale_semitones": [0, 2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 26],
+    "sound_volume_db": -16,
+    "scale_semitones": [0, 0, 2, 2, 4, 4, 7, 7, 9, 9, 12, 12],
     "tier_sound_hz": 440,
     "tier_sound_length_s": 0.25,
     "gold_pool": 120,
@@ -703,7 +703,7 @@
   "settings": {
     "_doc": "Player settings (GAME_DESIGN.md: Accessibility settings; Onboarding). defaults are used until the player changes a setting on the Settings screen; choices lists the values each option steps through. shake_strength and flash_strength scale the screen shake and the enemy hit flash for off / low / full. shake_summon_px, shake_guard_break_px, and shake_s are the full-strength screen shake on a god summon and a Guard Break. base_font_px is the text size at 100%. onboarding_tips are the first-run tips, each shown once. All numbers are placeholders that need owner approval.",
     "defaults": {
-      "volume_pct": 80, "effect_opacity_pct": 100, "shake": "full", "flash": "full", "element_icons": false, "colorblind": false,
+      "volume_pct": 70, "effect_opacity_pct": 100, "shake": "full", "flash": "full", "element_icons": false, "colorblind": false,
       "auto_summon": false, "auto_collect": "off", "control_size_pct": 100, "joystick_side": "anywhere", "damage_numbers": true,
       "text_size_pct": 100, "banter": true, "tips": true
     },
