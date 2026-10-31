@@ -15,9 +15,10 @@ Time: 3:53 PM
 - A line from one of the two gods when each pairing is first discovered, added to the lore check.
 - With these, Pack 2 is complete.
 - 2 new tests (297 tests pass).
+- **docs/PACK_3_PLAN.md**: the Pack 3 plan (Pohjola, Mazandaran, the Slavic Wilds, the Land of Legends), with sources and the questions for the owner before building starts.
 
 ### Reason
-The owner approved the four proposed pairings ("Yes add them").
+The owner approved the four proposed pairings ("Yes add them") and asked to start Pack 3 next; as with Pack 2, its plan comes first.
 
 ## Version 00.02.68
 Date: 10/31/2026
