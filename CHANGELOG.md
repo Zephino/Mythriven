@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.43
+Date: 10/31/2026
+Time: 12:05 PM
+
+### Changes
+- **Take over a run on another device.** While you're playing a solo run (on a PC, say), opening the game on another device signed in to the same account (a phone) asks: "You have a game in progress on another device (Heracles, 12:30, Aegean Shore). Take it over?" Take it over, and the run carries on there with the whole build: level, time, Hero level and XP, weapons, passives, stats, gods and their meters, gold, tokens, ropes, the shrines and chests already used, and bosses already beaten. The fight that was on screen starts fresh. The first device steps aside to the title with a message ("Continued on another device") and banks nothing, so nothing is lost or paid out twice. "Not now" leaves it alone and doesn't ask again for that run.
+- **Still a roguelike: no saving for later.** The snapshot only goes with a run that's still being played. Leaving or closing a run ends it as before, and a run whose device stopped playing can't be taken over. Co-op games can't be taken over.
+- While playing, the game now tells the cloud it's still playing every 15 seconds (was 30), sending the run's snapshot with it (new setting `meta.play_beat_s`).
+- Cloud server (`leaderboard-api/src/cloud.js`): `/cloud/play` takes the snapshot with each beat and has two new actions, `peek` and `takeover`; the device that was taken over hears so on its next beat. New tests.
+- Bosses remember which ones were beaten, so a taken-over run doesn't bring them back.
+
+### Reason
+The owner asked for a way to take over a game in progress from another device (for example, from a PC to a phone), with the whole build carried over, the first device stepping aside, and the question asked when the game opens. The owner also said: it's a roguelike, so leaving a game ends it and there's no saving for later.
+
 ## Version 00.02.42
 Date: 10/31/2026
 Time: 12:01 PM

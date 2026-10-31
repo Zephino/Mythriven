@@ -838,7 +838,8 @@
             "type": "object",
             "fields": {
               "oracle_runs_per_hint": "number",
-              "checkpoint_s": "number"
+              "checkpoint_s": "number",
+              "play_beat_s": "number"
             }
           },
           "patterns": {

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import worker from "../src/index.js";
-import { SaveVault, hashCode, normalizeCode, validateSave, MIN_WRITE_GAP_MS, LEASE_MS } from "../src/cloud.js";
+import { SaveVault, hashCode, normalizeCode, validateSave, MIN_WRITE_GAP_MS, LEASE_MS, RUN_FRESH_MS } from "../src/cloud.js";
 
 /** A stand-in for Cloudflare's Durable Objects: one SaveVault per name. */
 function fakeVaults() {
@@ -97,11 +97,11 @@ test("without the Durable Object set up, cloud saves say so", async () => {
   assert.equal(res.status, 503);
 });
 
-function play(code, device, action) {
+function play(code, device, action, run) {
   return new Request("https://w.example/cloud/play", {
     method: "POST",
     headers: { Authorization: `Bearer ${code}` },
-    body: JSON.stringify({ device, action }),
+    body: JSON.stringify(run === undefined ? { device, action } : { device, action, run }),
   });
 }
 
@@ -134,4 +134,42 @@ test("play requests need a valid device and action", async () => {
   assert.equal((await worker.fetch(play(CODE, "x", "claim"), env)).status, 400);
   assert.equal((await worker.fetch(play(CODE, "pcdevice01", "steal"), env)).status, 400);
   assert.equal((await worker.fetch(play("bad", "pcdevice01", "claim"), env)).status, 401);
+});
+
+test("another device can take over a run that is still being played", async () => {
+  const env = { SAVE_VAULT: fakeVaults() };
+  const run = { hero: "heracles", level: "aegean_shore", elapsed_s: 750 };
+  assert.equal((await (await worker.fetch(play(CODE, "phonedev01", "peek"), env)).json()).run, null, "nothing to take over yet");
+  await worker.fetch(play(CODE, "pcdevice01", "claim"), env);
+  await worker.fetch(play(CODE, "pcdevice01", "beat", run), env);
+  assert.deepEqual((await (await worker.fetch(play(CODE, "phonedev01", "peek"), env)).json()).run, run, "the phone sees the PC's run");
+  const taken = await worker.fetch(play(CODE, "phonedev01", "takeover"), env);
+  assert.equal(taken.status, 200);
+  assert.deepEqual((await taken.json()).run, run, "the phone gets the run");
+  const told = await worker.fetch(play(CODE, "pcdevice01", "beat", run), env);
+  assert.equal(told.status, 409);
+  assert.equal((await told.json()).taken, true, "the PC hears its run was taken over");
+  assert.equal((await worker.fetch(play(CODE, "phonedev01", "beat"), env)).status, 200, "the phone plays on");
+  assert.equal((await (await worker.fetch(play(CODE, "pcdevice01", "beat"), env)).json()).taken, true, "still taken");
+});
+
+test("a run nobody is playing can't be taken over (no saving for later)", async () => {
+  const env = { SAVE_VAULT: fakeVaults() };
+  const run = { hero: "heracles" };
+  await worker.fetch(play(CODE, "pcdevice01", "claim"), env);
+  await worker.fetch(play(CODE, "pcdevice01", "beat", run), env);
+  await worker.fetch(play(CODE, "pcdevice01", "release"), env);
+  assert.equal((await (await worker.fetch(play(CODE, "phonedev01", "peek"), env)).json()).run, null, "left the run: it ended");
+  await worker.fetch(play(CODE, "pcdevice01", "claim"), env);
+  await worker.fetch(play(CODE, "pcdevice01", "beat", run), env);
+  const realNow = Date.now;
+  Date.now = () => realNow() + RUN_FRESH_MS + 1000;
+  try {
+    assert.equal((await (await worker.fetch(play(CODE, "phonedev01", "peek"), env)).json()).run, null, "stopped beating");
+    assert.equal((await worker.fetch(play(CODE, "phonedev01", "takeover"), env)).status, 409, "and can't be taken");
+  } finally {
+    Date.now = realNow;
+  }
+  await worker.fetch(play(CODE, "pcdevice01", "beat"), env);
+  assert.equal((await (await worker.fetch(play(CODE, "phonedev01", "peek"), env)).json()).run, null, "back on the title: no run");
 });

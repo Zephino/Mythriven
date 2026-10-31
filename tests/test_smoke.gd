@@ -110,3 +110,60 @@ func test_the_menus_open_every_page() -> void:
 	assert_eq(main.find_children("*", "HeroSelect", true, false).size(), 1, "level select leads to Hero select")
 	main.free()
 	await wait_frames(1)
+
+
+func test_a_run_taken_over_on_another_device_keeps_its_build() -> void:
+	GameAuthority.selected_hero_id = "heracles"
+	var main: Node = load("res://scenes/main.tscn").instantiate()
+	main.process_mode = Node.PROCESS_MODE_PAUSABLE
+	add_child(main)
+	await wait_frames(3)
+	var run: RunState = GameAuthority.run
+	var player: Player = GameAuthority.local_player()
+	player.god_mode = true
+	LevelUpRules.apply_effects(player, {"kind": LevelUpRules.PASSIVE_NEW, "id": "belt_of_strength"}, run)
+	GameAuthority.gods.bind(player, "thor")
+	run.elapsed_s = 700.0
+	run.level = 14
+	run.gold = 321.0
+	run.kills = 999
+	run.ropes = 2
+	run.poi_state["grove_x"] = "empty"
+	GameAuthority.bosses.defeated_indices.append(0)
+	player.hp = player.max_hp * 0.5
+	var bonus: Dictionary = player.stats.bonus.duplicate()
+	var weapons: int = player.weapons.size()
+	var seed_was: int = run.seed_value
+	# Through the cloud as JSON, like the real thing.
+	var snap: Dictionary = JSON.parse_string(JSON.stringify(RunSnapshot.capture()))
+	assert_true(RunSnapshot.usable(snap), "the snapshot can be rebuilt")
+	assert_string_contains(RunSnapshot.summary(snap), "11:40")
+	main.free()
+	await wait_frames(1)
+
+	RunSnapshot.prepare(snap)
+	main = load("res://scenes/main.tscn").instantiate()
+	main.process_mode = Node.PROCESS_MODE_PAUSABLE
+	add_child(main)
+	await wait_frames(3)
+	run = GameAuthority.run
+	player = GameAuthority.local_player()
+	assert_eq(run.seed_value, seed_was, "the same world")
+	assert_eq(str(player.hero["id"]), "heracles")
+	assert_almost_eq(run.elapsed_s, 700.0, 1.0, "the same time")
+	assert_eq(run.level, 14)
+	assert_eq(run.kills, 999)
+	assert_almost_eq(run.gold, 321.0, 0.01)
+	assert_eq(run.ropes, 2)
+	assert_eq(run.poi_state.get("grove_x", ""), "empty", "the world remembers what was used")
+	assert_eq(int(player.passives.get("belt_of_strength", 0)), 1, "passives carry over")
+	assert_eq(player.weapons.size(), weapons, "weapons carry over")
+	assert_eq(GameAuthority.gods.bound_ids(player), PackedStringArray(["thor"]), "gods carry over")
+	for stat: String in bonus:
+		assert_almost_eq(float(player.stats.bonus[stat]), float(bonus[stat]), 0.0001, "%s carries over (not doubled)" % stat)
+	assert_almost_eq(player.hp, player.max_hp * 0.5, 1.0, "HP carries over")
+	assert_true(GameAuthority.bosses.defeated_indices.has(0), "beaten bosses stay beaten")
+	assert_true(Meta.takeover.is_empty(), "used once")
+	main.free()
+	await wait_frames(1)
+

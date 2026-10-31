@@ -20,6 +20,10 @@ var swift: bool = false
 ## Which menu opens when the main scene loads without a run to start:
 ## "title", "hero_select", or "hall".
 var next_screen: String = "title"
+## A run being taken over from another device (RunSnapshot), until Main has rebuilt it.
+var takeover: Dictionary = {}
+## A message to show when the menus open next: [title key, text key] (e.g. this run went on on another device).
+var notice: Array = []
 var tracker: RunTracker = RunTracker.new()
 ## The last finished run's recap: {"lines", "tip"} (DeathRecap.build).
 var last_recap: Dictionary = {}
@@ -76,6 +80,9 @@ func _on_run_started(run: RunState) -> void:
 		# Co-op: the host's Omens and Swift Mode apply to everyone, and enemies scale with the players.
 		OmenRules.apply_to_run(run, Net.omens, Net.swift)
 		_apply_coop_scaling(run, Net.roster.size())
+	elif not takeover.is_empty():
+		# Taken over from another device: that run's Omens and Swift Mode, whatever this device has chosen.
+		OmenRules.apply_to_run(run, PackedStringArray(takeover.get("omens", [])), bool(takeover.get("swift", false)))
 	else:
 		OmenRules.apply_to_run(run, OmenRules.active(), swift and LevelRules.swift_unlocked(level))
 
@@ -222,6 +229,23 @@ func quit_run() -> void:
 		return
 	run.ended = true
 	_finish(run, true)
+
+
+## This run went on on another device (RunSnapshot): it ends here with nothing banked or counted (the other device
+## banks it when it ends), and the game goes back to the title with a message.
+func hand_over() -> void:
+	var run: RunState = GameAuthority.run
+	if run == null or _finished:
+		return
+	_finished = true
+	run.ended = true
+	SaveGame.data()["run_in_progress"] = {}
+	SaveGame.commit("run_in_progress")
+	notice = ["UI_RUN_TAKEN_OVER_TITLE", "UI_RUN_TAKEN_OVER"]
+	GameAuthority.selected_hero_id = ""
+	next_screen = "title"
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 
 func _finish(run: RunState, quit: bool) -> void:

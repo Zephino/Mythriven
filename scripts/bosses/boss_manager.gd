@@ -43,6 +43,8 @@ var arena_center := Vector2.ZERO
 var arena_radius: float = 0.0
 var _schedule: Array[Dictionary] = []
 var _defeated: int = 0
+## Which of the run's bosses (by index) were beaten, so a run taken over on another device skips them (RunSnapshot).
+var defeated_indices: Array[int] = []
 
 
 func _ready() -> void:
@@ -121,6 +123,17 @@ func on_boss_hit(slot: int, amount: float, element_mult: float, attacker: Player
 	return amount
 
 
+## A run taken over from another device (RunSnapshot): the bosses already beaten don't come again. One that was
+## being fought comes back at once and the fight starts fresh.
+func skip_beaten(beaten: Array) -> void:
+	for value: Variant in beaten:
+		var index: int = int(value)
+		if not defeated_indices.has(index):
+			defeated_indices.append(index)
+			_defeated += 1
+	_schedule.assign(_schedule.filter(func(entry: Dictionary) -> bool: return not defeated_indices.has(int(entry["index"]))))
+
+
 func _process(_delta: float) -> void:
 	var run: RunState = GameAuthority.run
 	if run == null or run.ended:
@@ -170,6 +183,7 @@ func _on_defeated(controller: BossController) -> void:
 		at = GameAuthority.enemies.positions[controller.slot]
 	var index: int = int(controller.get_meta("index", _defeated))
 	_defeated += 1
+	defeated_indices.append(index)
 	if active_count() == 0:
 		_set_arena(false)
 		if GameAuthority.enemy_shots != null:

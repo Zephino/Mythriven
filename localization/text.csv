@@ -1156,6 +1156,14 @@ UI_SIGNIN_POPUP_BLOCKED,"Your browser blocked the sign-in window. Allow pop-ups 
 UI_PLAY_CHECKING,Getting ready…
 UI_PLAY_ELSEWHERE_TITLE,Playing on another device
 UI_PLAY_ELSEWHERE,"Your account is already playing on another device. Finish or close the game there, then try again (a closed game lets go within about a minute and a half)."
+UI_TAKEOVER_TITLE,Game in progress
+UI_TAKEOVER_ASK,You have a game in progress on another device (%s). Take it over?
+UI_TAKEOVER_YES,Take it over
+UI_TAKEOVER_NO,Not now
+UI_TAKEOVER_CHECKING,Taking over your game…
+UI_TAKEOVER_GONE,"That game has ended, or the other device stopped playing it."
+UI_RUN_TAKEN_OVER_TITLE,Continued on another device
+UI_RUN_TAKEN_OVER,"Your run was taken over on another device and goes on there. Nothing was lost: its gold is banked when it ends there."
 UI_PLAY_TAKEN_ELSEWHERE,Your account started playing on another device.
 UI_ACCOUNT_PROGRESS,"On this account: %d gold banked · %d Heroes unlocked · %d achievements"
 UI_FULLSCREEN,Fullscreen: %s

@@ -3,12 +3,21 @@
  *
  *   GET /cloud/save   the player's saved progress ({ save, updated } or { save: null })
  *   PUT /cloud/save   store the player's (already merged) progress
- *   POST /cloud/play  {device, action: "claim" | "beat" | "release"}: the
- *                     one-device-at-a-time rule (owner decision 10/30/2026). A
+ *   POST /cloud/play  {device, action: "claim" | "beat" | "release" | "peek" | "takeover", run?}:
+ *                     the one-device-at-a-time rule (owner decision 10/30/2026). A
  *                     save can be played on one device at a time: claiming it
  *                     while another device holds it answers 409 {busy: true}.
- *                     The device sends "beat" every 30 s while playing; a
+ *                     The device sends "beat" every few seconds while playing; a
  *                     claim not renewed for LEASE_MS lapses (a closed game).
+ *                     Taking over a run (owner decisions 10/31/2026): a solo
+ *                     run's "beat" carries a snapshot of it (`run`). Another
+ *                     device can "peek" at it and "takeover": the claim moves
+ *                     to that device, which gets the snapshot, and the old
+ *                     device's next beat answers 409 {busy, taken}. It's a
+ *                     roguelike, so a run nobody is playing can't be taken
+ *                     over: the snapshot goes with the claim (released, or
+ *                     lapsed after LEASE_MS) and is only handed over while the
+ *                     other device is still beating (RUN_FRESH_MS).
  *
  * A player is known only by their private sync code, sent as
  * `Authorization: Bearer <code>`. The Worker never stores the code itself:
@@ -30,6 +39,10 @@ export const MAX_SAVE_BYTES = 256_000;
 export const MIN_WRITE_GAP_MS = 5_000;
 /** A device's claim to play lapses after this long without a "beat". */
 export const LEASE_MS = 90_000;
+/** A run snapshot older than this (the device stopped beating) can't be taken over. */
+export const RUN_FRESH_MS = 45_000;
+/** The largest /cloud/play request (a beat with its run snapshot). */
+export const MAX_PLAY_BYTES = 32_000;
 
 function corsHeaders() {
   return {
@@ -86,7 +99,7 @@ export async function handleCloud(request, env) {
   if (new URL(request.url).pathname === "/cloud/play") {
     if (request.method !== "POST") return json({ error: "method not allowed" }, 405);
     const text = await request.text();
-    if (text.length > 1000) return json({ error: "too large" }, 413);
+    if (text.length > MAX_PLAY_BYTES) return json({ error: "too large" }, 413);
     const stub = env.SAVE_VAULT.get(env.SAVE_VAULT.idFromName(await hashCode(code)));
     return stub.fetch("https://vault/play", { method: "POST", body: text });
   }
@@ -124,7 +137,7 @@ export class SaveVault {
     return json({ ok: true, updated: now });
   }
 
-  /** One device at a time: claim, keep ("beat"), or let go of the right to play. */
+  /** One device at a time: claim, keep ("beat"), let go of, peek at, or take over the right to play. */
   async play(text) {
     let body;
     try {
@@ -133,16 +146,26 @@ export class SaveVault {
       return json({ error: "invalid json" }, 400);
     }
     const device = typeof body.device === "string" && /^[A-Za-z0-9]{8,40}$/.test(body.device) ? body.device : "";
-    if (!device || !["claim", "beat", "release"].includes(body.action)) return json({ error: "invalid request" }, 400);
+    const actions = ["claim", "beat", "release", "peek", "takeover"];
+    if (!device || !actions.includes(body.action)) return json({ error: "invalid request" }, 400);
+    const run = body.run && typeof body.run === "object" && !Array.isArray(body.run) ? body.run : null;
     const now = Date.now();
     const lease = (await this.storage.get("lease")) ?? null;
     const heldByOther = lease && lease.device !== device && lease.until > now;
+    const liveRun = heldByOther && lease.run && now - (lease.beat ?? 0) <= RUN_FRESH_MS ? lease.run : null;
     if (body.action === "release") {
       if (lease && lease.device === device) await this.storage.delete("lease");
       return json({ ok: true });
     }
-    if (heldByOther) return json({ busy: true }, 409);
-    await this.storage.put("lease", { device, until: now + LEASE_MS });
+    if (body.action === "peek") return json({ run: liveRun });
+    if (body.action === "takeover") {
+      if (heldByOther && !liveRun) return json({ busy: true }, 409);
+      await this.storage.put("lease", { device, until: now + LEASE_MS, beat: now, run: null, from: heldByOther ? lease.device : "" });
+      return json({ ok: true, run: liveRun });
+    }
+    if (heldByOther) return json(lease.from === device ? { busy: true, taken: true } : { busy: true }, 409);
+    const kept = body.action === "beat" ? run : null;
+    await this.storage.put("lease", { device, until: now + LEASE_MS, beat: now, run: kept, from: lease && lease.device === device ? lease.from ?? "" : "" });
     return json({ ok: true });
   }
 }

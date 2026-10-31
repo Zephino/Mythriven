@@ -36,6 +36,8 @@ signal player_pushed(player: Player, offset: Vector2)
 ## Gods (Phase 11) and bosses (Phase 13): set by RunSystems; null between runs.
 var gods: GodManager = null
 var bosses: BossManager = null
+## The seed for the next run only (a run taken over from another device, RunSnapshot); 0 = none.
+var next_seed: int = 0
 
 const LEVELS_FILE := "levels.json"
 const WEAPONS_FILE := "weapons.json"
@@ -76,6 +78,9 @@ func start_run(level_id: String) -> RunState:
 	gods = null
 	bosses = null
 	var run_seed: int = Net.run_seed if Net.in_run() else Data.cfg_int("run.fixed_seed")
+	if next_seed != 0 and not Net.in_run():
+		run_seed = next_seed
+	next_seed = 0
 	if run_seed == 0:
 		var seeder := RandomNumberGenerator.new()
 		seeder.randomize()

@@ -9,6 +9,9 @@ extends Node
 
 signal start(hero_id: String)
 
+## Runs this device already said "Not now" to (by their seed), so it doesn't ask again this session.
+static var _declined: Array[int] = []
+
 
 func _ready() -> void:
 	if not Net.active():
@@ -28,7 +31,40 @@ func _ready() -> void:
 			title.open_child(HallScreen.new_for(self))
 		_:
 			add_child(TitleScreen.new_for(self))
+			if Meta.notice.is_empty():  # not straight after this device's run was taken over
+				_offer_takeover()
 	Meta.next_screen = "title"
+	if not Meta.notice.is_empty():
+		add_child(NoticeScreen.make(str(Meta.notice[0]), str(Meta.notice[1])))
+		Meta.notice = []
+
+
+## Taking over a run (owner decisions 10/31/2026): if this account is playing a solo run on another device right now,
+## ask whether to carry on with it here. Yes: the whole build carries over and the other device steps aside.
+func _offer_takeover() -> void:
+	if Net.active():
+		return
+	Meta.cloud.play_lock.peek(func(snap: Dictionary) -> void:
+		if snap.is_empty() or not is_inside_tree() or _declined.has(int(snap.get("seed", 0))):
+			return
+		var text: String = tr("UI_TAKEOVER_ASK") % RunSnapshot.summary(snap)
+		add_child(NoticeScreen.ask("UI_TAKEOVER_TITLE", text, [
+			["UI_TAKEOVER_YES", func() -> void: _take_over()],
+			["UI_TAKEOVER_NO", func() -> void: _declined.append(int(snap.get("seed", 0)))],
+		])))
+
+
+func _take_over() -> void:
+	var checking := NoticeScreen.make("UI_TAKEOVER_TITLE", "UI_TAKEOVER_CHECKING", false)
+	add_child(checking)
+	Meta.cloud.play_lock.take_over(func(snap: Dictionary) -> void:
+		checking.queue_free()
+		if snap.is_empty():
+			add_child(NoticeScreen.make("UI_TAKEOVER_TITLE", "UI_TAKEOVER_GONE"))
+			return
+		RunSnapshot.prepare(snap)
+		start.emit(GameAuthority.selected_hero_id)
+		queue_free())
 
 
 ## Play: choose a level, then a Hero.

@@ -162,6 +162,10 @@ func _build_world(joystick: TouchJoystick) -> void:
 	var systems := RunSystems.new()
 	add_child(systems)
 	systems.build(world, _enemies, spawner, _level_up, _death_screen, hud, _orbs)
+	# A run taken over from another device: put its build and progress back (RunSnapshot).
+	if not Meta.takeover.is_empty():
+		RunSnapshot.restore(Meta.takeover)
+		Meta.takeover = {}
 
 
 ## The local player (and, in co-op, everyone in the lobby with their Heroes,

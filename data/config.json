@@ -633,7 +633,7 @@
 
   "save": { "_doc": "Save file (GAME_DESIGN.md: Save file). profile_file is the Phase 10–14 file, copied into the save once. test_file is used whenever the automated tests run, so they never touch a real save. cloud_file keeps this device's private cloud-save code (never inside the save itself).", "save_version": 3, "cloud_sync_min_interval_s": 30, "cloud_file": "user://cloud.cfg", "file": "user://save.json", "test_file": "user://test_save.json", "profile_file": "user://profile.cfg" },
 
-  "meta": { "_doc": "The Oracle gives a hint every oracle_runs_per_hint runs. While playing, the run's gold and time are saved every checkpoint_s seconds so a crash counts as a quit.", "oracle_runs_per_hint": 5, "checkpoint_s": 10 },
+  "meta": { "_doc": "The Oracle gives a hint every oracle_runs_per_hint runs. While playing, the run's gold and time are saved every checkpoint_s seconds so a crash counts as a quit. While a run is played with cloud saves on, the device tells the cloud every play_beat_s seconds that it's still playing, with a snapshot another device can take the run over from.", "oracle_runs_per_hint": 5, "checkpoint_s": 10, "play_beat_s": 15 },
 
   "offerings": {
     "_doc": "Offerings: permanent god levels 1–10 (GAME_DESIGN.md: Offerings). costs[i] is the gold for level i+2. Blessing +10% at levels 2/4/6/8; meter +10% at 3 and 9; summon upgrade at 5 and Ascended form at 10 (each +25% summon strength: placeholder for the per-god upgrades); Harmony +50% at 7.",
