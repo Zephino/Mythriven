@@ -5,7 +5,9 @@ extends Node2D
 ## co-op, every standing player must be at the entrance together), and the run outside pauses: enemies, spawns,
 ## hazards, bosses and the clock all stop. Inside there are no monsters: corridors (sometimes a maze, sometimes wide
 ## halls with loops) lead to the god's throne room at the far end, built by ShrineLayout, where the god sits on their
-## throne or walks about. Standing at the altar binds a peaceful god; for a trial god it starts the trial outside.
+## throne or walks about. Monsters of the level spawn in the corridors (owner decision 10/31/2026) until someone
+## reaches the throne room; then the rest are banished and none come in with the god. Walls stop players and
+## monsters alike. The enemies left outside sleep where they are. Standing at the altar binds a peaceful god; for a trial god it starts the trial outside.
 ## Either way the party is warped back out to where they went in; walking back out of the entrance also leaves.
 
 signal entered
@@ -28,6 +30,11 @@ var _back: Dictionary = {}        # player_id -> where they stood outside
 var _last: Dictionary = {}        # player_id -> last position inside on walkable floor
 var _gather_s: float = 0.0
 var _bind_s: Dictionary = {}
+var _spawned: Array = []           # enemy slots spawned inside
+var _enemy_last: Dictionary = {}   # slot -> last position on floor
+var _spawn_in: float = 0.0
+var _safe: bool = false            # someone reached the throne room: no more monsters
+var _pool: Array = []
 
 
 func _ready() -> void:
@@ -177,7 +184,13 @@ func enter(at_shrine: Dictionary) -> void:
 	_origin = Vector2(shrine["pos"]) + Vector2(0, -Data.cfg_float("gods.dungeon_offset_px"))
 	active = true
 	_bind_s.clear()
+	_safe = false
+	_spawned.clear()
+	_enemy_last.clear()
+	_spawn_in = Data.cfg_float("gods.dungeon_first_spawn_s")
+	_pool = _enemy_pool()
 	_set_frozen(true)
+	_sleep_outside(true)
 	var start: Vector2 = _tile_center(_plan["start"])
 	var k: int = 0
 	for player: Player in GameAuthority.players:
@@ -200,6 +213,8 @@ func leave() -> void:
 			GameAuthority.place_player(player, _back[player.player_id])
 	_back.clear()
 	_last.clear()
+	_banish()
+	_sleep_outside(false)
 	_set_frozen(false)
 	_snap_camera()
 	left_dungeon.emit()
@@ -223,8 +238,98 @@ func _set_frozen(on: bool) -> void:
 			node.process_mode = Node.PROCESS_MODE_DISABLED if on else Node.PROCESS_MODE_INHERIT
 
 
+## The enemies outside sleep while the party is inside (and wake when they come out).
+func _sleep_outside(on: bool) -> void:
+	var enemies: EnemyManager = GameAuthority.enemies
+	if enemies == null or not GameAuthority.decides():
+		return
+	for i: int in enemies.capacity:
+		if enemies.active[i] != 0:
+			enemies.asleep[i] = 1 if on else 0
+
+
+## The level's ordinary monsters that walk or cast (no elites, bosses, flyers or bombers) to fill the corridors.
+func _enemy_pool() -> Array:
+	var enemies: EnemyManager = GameAuthority.enemies
+	var pool: Array = []
+	if enemies == null or GameAuthority.run == null:
+		return pool
+	var waves: String = JSON.stringify(Data.get_file(str(GameAuthority.run.level_data.get("waves", ""))))
+	for entry: Dictionary in enemies.types:
+		if bool(entry.get("elite", false)) or bool(entry.get("boss", false)):
+			continue
+		if not ["chaser", "swarm", "brute", "caster"].has(str(entry.get("movement", ""))):
+			continue
+		if waves.contains("\"" + str(entry["id"]) + "\""):
+			pool.append(str(entry["id"]))
+	return pool
+
+
+## Monsters arrive in the corridors a few tiles from the party, never in the throne room.
+func _spawn_inside(delta: float) -> void:
+	if _safe or _pool.is_empty():
+		return
+	_spawn_in -= delta
+	if _spawn_in > 0.0:
+		return
+	_spawn_in = Data.cfg_float("gods.dungeon_spawn_every_s")
+	_spawned = _spawned.filter(func(slot: int) -> bool: return GameAuthority.enemies.active[slot] != 0)
+	var room: Dictionary = _room_tiles()
+	var near: Array = []
+	var lo: float = Data.cfg_float("gods.dungeon_spawn_min_tiles") * TILE
+	var hi: float = Data.cfg_float("gods.dungeon_spawn_max_tiles") * TILE
+	for t: Vector2i in walkable:
+		if room.has(t):
+			continue
+		var at: Vector2 = _tile_center(t)
+		var closest: float = INF
+		for player: Player in GameAuthority.players:
+			closest = minf(closest, at.distance_to(player.position))
+		if closest >= lo and closest <= hi:
+			near.append(at)
+	var rng: RandomNumberGenerator = GameAuthority.run.rng.spawns
+	for k: int in Data.cfg_int("gods.dungeon_spawn_count"):
+		if near.is_empty() or _spawned.size() >= Data.cfg_int("gods.dungeon_max_enemies"):
+			return
+		var at: Vector2 = near[rng.randi_range(0, near.size() - 1)]
+		var slot: int = GameAuthority.spawn_enemy(str(_pool[rng.randi_range(0, _pool.size() - 1)]), at)
+		if slot != -1:
+			_spawned.append(slot)
+			_enemy_last[slot] = at
+
+
+## The throne room's floor tiles (where no monster may go).
+func _room_tiles() -> Dictionary:
+	var out := {}
+	var room: Dictionary = _plan["room"]
+	var cells: Vector2 = room["size"]
+	var origin: Vector2 = Vector2(_plan["room_origin"]) - Vector2(room["altar_cell"]) - Vector2(0.5, 0.5)
+	for cy: int in range(1, int(cells.y) - 1):
+		for cx: int in range(1, int(cells.x) - 1):
+			out[Vector2i(roundi(origin.x) + cx, roundi(origin.y) + cy)] = true
+	return out
+
+
+## The god's presence banishes the monsters still in the dungeon (and they go when the party leaves).
+func _banish() -> void:
+	var enemies: EnemyManager = GameAuthority.enemies
+	if enemies == null or not GameAuthority.decides():
+		_spawned.clear()
+		return
+	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
+	for slot: int in _spawned:
+		if enemies.active[slot] != 0:
+			if effects != null:
+				effects.spawn_ring(enemies.positions[slot], enemies.radius[slot] * 1.5, Color.WHITE, true)
+			enemies.remove_quietly(slot)
+	_spawned.clear()
+	_enemy_last.clear()
+
+
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	_origin -= shift_px
+	for slot: Variant in _enemy_last.keys():
+		_enemy_last[slot] = Vector2(_enemy_last[slot]) - shift_px
 	for id: Variant in _back.keys():
 		_back[id] = Vector2(_back[id]) - shift_px
 	for id: Variant in _last.keys():
@@ -241,6 +346,15 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	if not GameAuthority.decides():
 		return
+	_keep_enemies_inside()
+	if not _safe:
+		var room: Dictionary = _room_tiles()
+		for player: Player in GameAuthority.players:
+			if player.alive and room.has(_tile_of(player.position)):
+				_safe = true
+				_banish()
+				break
+	_spawn_inside(delta)
 	var altar: Vector2 = altar_position()
 	var reach: float = Data.cfg_float("gods.shrine_radius_px")
 	var kind: String = str((shrine["god"].get("shrine", {}) as Dictionary).get("type", "peaceful"))
@@ -289,6 +403,29 @@ func _keep_inside(player: Player) -> void:
 	else:
 		player.position = last
 	_last[player.player_id] = player.position
+
+
+## Monsters inside slide along the walls too, and never step into the throne room.
+func _keep_enemies_inside() -> void:
+	var enemies: EnemyManager = GameAuthority.enemies
+	var room: Dictionary = _room_tiles()
+	for slot: int in _spawned:
+		if enemies.active[slot] == 0:
+			continue
+		var at: Vector2 = enemies.positions[slot]
+		var last: Vector2 = _enemy_last.get(slot, at)
+		var ok := func(p: Vector2) -> bool:
+			var t: Vector2i = _tile_of(p)
+			return walkable.has(t) and not room.has(t)
+		if not ok.call(at):
+			if ok.call(Vector2(at.x, last.y)):
+				at = Vector2(at.x, last.y)
+			elif ok.call(Vector2(last.x, at.y)):
+				at = Vector2(last.x, at.y)
+			else:
+				at = last
+			enemies.positions[slot] = at
+		_enemy_last[slot] = at
 
 
 func altar_position() -> Vector2:

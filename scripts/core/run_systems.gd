@@ -149,8 +149,9 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	dungeon = ShrineDungeon.new()
 	dungeon.shrines = shrines
 	dungeon.trial = trial
-	dungeon.freeze.assign([enemies, spawner, shots, gold, chests, hazard, ground_patches, elite_bars, patterns, ground,
-			summons, shrines, trial, storm, pois, unraveling, bosses])
+	# Enemies keep moving (the ones outside sleep) so monsters can come at the party inside.
+	dungeon.freeze.assign([spawner, hazard, ground_patches, patterns, ground, summons, shrines, trial, storm, pois,
+			unraveling, bosses])
 	world.add_child(dungeon)
 	world.origin_shifted.connect(dungeon.on_origin_shifted)
 	shrines.dungeon = dungeon

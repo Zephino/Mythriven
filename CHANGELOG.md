@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.21
+Date: 10/31/2026
+Time: 3:51 AM
+
+### Changes
+- **Monsters spawn inside the shrine dungeons** until you reach the god: every 2.5 s, 3 of the level's ordinary monsters (no elites, bosses, flyers or bombers) appear in the corridors 5-12 tiles from the party, up to 18 at once. The walls stop them as they do you. As soon as someone steps into the god's throne room, the rest vanish and no more come.
+- **Nothing spawns outside while you're inside**, and the enemies already outside wait where they are (they sleep), then carry on when you come out. Enemy shots, pickups and XP keep working inside so you can fight and collect. The clock still stops while you're inside.
+- Monsters left in the dungeon when you leave are removed.
+- `GAME_DESIGN.md` (Finding gods) updated with a dated note (owner decision). New settings `gods.dungeon_first_spawn_s`, `gods.dungeon_spawn_every_s`, `gods.dungeon_spawn_count`, `gods.dungeon_max_enemies`, `gods.dungeon_spawn_min_tiles`, `gods.dungeon_spawn_max_tiles`.
+
+### Reason
+The owner said that while you're inside, enemies should stop spawning outside and spawn inside until you make it to the shrine with the god.
+
 ## Version 00.02.20
 Date: 10/31/2026
 Time: 3:48 AM

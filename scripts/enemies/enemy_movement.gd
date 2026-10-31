@@ -63,7 +63,7 @@ func reset(slot: int, code: int, behavior: Dictionary, rng: RandomNumberGenerato
 func step(m: EnemyManager, delta: float) -> void:
 	var decay: float = exp(-Data.cfg_float("enemies.knockback_decay") * delta)
 	for i: int in m.capacity:
-		if m.active[i] == 0:
+		if m.active[i] == 0 or m.asleep[i] == 1:
 			continue
 		var code: int = m.movement_code(i)
 		var speed: float = m.speed_of(i)
