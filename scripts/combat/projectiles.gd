@@ -10,7 +10,7 @@ const FLIGHT := 0
 const BOOMERANG := 1
 const ORBIT := 2
 ## Element pictures that spin as they fly (degrees/s); the rest point along their flight.
-const ELEMENT_SPIN_DEG_S := {"wind": 720.0, "holy": 240.0, "dark": 300.0, "earth": 540.0}
+const ELEMENT_SPIN_DEG_S := {"wind": 720.0, "holy": 240.0, "dark": 300.0, "earth": 540.0, "fortune": 360.0}
 
 var enemies: EnemyManager
 ## For the Gáe Bolg's barbs (a thrown spear's kills burst into barbs).

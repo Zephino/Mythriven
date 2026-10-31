@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.18
+Date: 10/31/2026
+Time: 3:33 AM
+
+### Changes
+- Fix: the fortune element (Tyche) had no spell picture, so one test failed in 00.02.17. Fortune shots now fly as a spinning gold coin. All tests pass again.
+
+### Reason
+Follow-up to the spell pictures the owner asked for.
+
 ## Version 00.02.17
 Date: 10/31/2026
 Time: 3:32 AM

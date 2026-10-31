@@ -119,7 +119,19 @@ def stone():
     return p
 
 
-SPELLS = {"fire": fireball, "ice": ice_shard, "lightning": bolt, "wind": gust, "holy": light, "dark": shadow,
+def coin():
+    """Fortune (Tyche): a spinning gold coin with a bright rim."""
+    p = Pic(9, 9, (4, 4))
+    for y in range(9):
+        for x in range(9):
+            d = math.hypot(x - 4, y - 4)
+            if d <= 3.8:
+                p.px(x, y, "u" if d > 2.8 else "H")
+    p.px(3, 3, "h"); p.px(4, 2, "h"); p.rect(4, 3, 4, 5, "u")
+    return p
+
+
+SPELLS = {"fortune": coin, "fire": fireball, "ice": ice_shard, "lightning": bolt, "wind": gust, "holy": light, "dark": shadow,
           "water": droplet, "earth": stone}
 
 if __name__ == "__main__":
