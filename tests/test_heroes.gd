@@ -721,3 +721,17 @@ func test_beowulf_seizes_and_hurls_a_monster() -> void:
 	sword.level = 8
 	assert_false(PixelArt.weapon_art(sword).is_empty(), "at level 8 he has the giant-made sword")
 	GameAuthority.remove_player(beowulf)
+
+
+func test_gilgamesh_is_two_thirds_divine_and_enkidu_fights_beside_him() -> void:
+	var gilgamesh: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "gilgamesh")
+	assert_almost_eq(gilgamesh.max_hp, 154.0, 0.5, "+10% Max HP")
+	assert_almost_eq(gilgamesh.stats.might(), 0.1, 0.001, "+10% Might")
+	var slot: int = _enemies.spawn("troll", Vector2(60, 0))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	var hp: float = _enemies.hp[slot]
+	for _i: int in 60:
+		gilgamesh.kit._process(0.05)
+	assert_lt(_enemies.hp[slot], hp, "Enkidu runs out and strikes it")
+	assert_lt(gilgamesh.kit.enkidu_pos.distance_to(_enemies.positions[slot]), 40.0)
+	GameAuthority.remove_player(gilgamesh)

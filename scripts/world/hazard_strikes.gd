@@ -38,8 +38,8 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 
 func _process(delta: float) -> void:
 	var any_marker: bool = false
-	if _look() == "bramble":
-		_slow_in_brambles()
+	if _look() == "bramble" or _look() == "flood":
+		_slow_in_patches()
 	for h: int in range(_hole_left.size() - 1, -1, -1):
 		_hole_left[h] -= delta
 		any_marker = true
@@ -101,22 +101,62 @@ func _strike(at: Vector2) -> void:
 		elif _look() == "bramble":
 			_hole_pos.append(at)
 			_hole_left.append(float(_data.get("bramble_s", 7.0)))
+		elif _look() == "flood":
+			_hole_pos.append(at)
+			_hole_left.append(float(_data.get("flood_s", 6.0)))
 		else:
 			# The bolt itself, from the sky (owner request 10/31/2026).
 			effects.spawn_bolt(at, Color.html(str(_data.get("color", "#ffffff"))), true, true)
 
 
-## Brambles slow every Hero standing in them (and let go when they wither or the hazard pauses).
-func _slow_in_brambles() -> void:
-	var reach: float = float(_data.get("radius_px", 30.0))
+## Heroes slowed by this hazard right now (player id -> true), so it lets go only of those it holds.
+var _slowed: Dictionary = {}
+## A flood band's shape: wide along the ground, narrow across.
+const FLOOD_SHAPE := Vector2(2.2, 0.8)
+
+
+## True when `at` is inside lingering patch `h` (a bramble thicket, or a flood band).
+func in_patch(at: Vector2, h: int, pad: float = 0.0) -> bool:
+	var reach: float = float(_data.get("radius_px", 30.0)) + pad
+	var d: Vector2 = at - _hole_pos[h]
+	if _look() == "flood":
+		d = Vector2(d.x / FLOOD_SHAPE.x, d.y / FLOOD_SHAPE.y)
+	return d.length() <= reach
+
+
+## Brambles and floods slow every Hero standing in them (and let go when they wither or the hazard pauses). Flood
+## water also puts out burning on Heroes and monsters (docs/PACK_2_PLAN.md: floods).
+func _slow_in_patches() -> void:
+	var slow: float = float(_data.get("flood_slow" if _look() == "flood" else "bramble_slow", 0.4))
 	for player: Player in GameAuthority.players:
 		var caught: bool = false
 		if not paused:
 			for h: int in _hole_pos.size():
-				if player.position.distance_to(_hole_pos[h]) <= reach + player.body_radius:
+				if in_patch(player.position, h, player.body_radius):
 					caught = true
 					break
-		player.slow_zone_mult = float(_data.get("bramble_slow", 0.4)) if caught else 1.0
+		if caught:
+			player.slow_zone_mult = slow
+			_slowed[player.player_id] = true
+			if _look() == "flood":
+				player.statuses.timers.erase("burn")
+		elif _slowed.has(player.player_id):
+			player.slow_zone_mult = 1.0
+			_slowed.erase(player.player_id)
+	var enemies: EnemyManager = GameAuthority.enemies
+	if _look() == "flood" and enemies != null and Engine.get_process_frames() % 10 == 0:
+		var reach: float = float(_data.get("radius_px", 30.0)) * FLOOD_SHAPE.x
+		for h: int in _hole_pos.size():
+			for slot: int in enemies.query(_hole_pos[h], reach):
+				if enemies.statuses.burn[slot] > 0.0 and in_patch(enemies.positions[slot], h):
+					enemies.statuses.remove(slot, "burn")
+
+
+func _exit_tree() -> void:
+	for player: Player in GameAuthority.players:
+		if is_instance_valid(player) and _slowed.has(player.player_id):
+			player.slow_zone_mult = 1.0
+	_slowed.clear()
 
 
 func _look() -> String:
@@ -131,6 +171,17 @@ func _draw() -> void:
 	# Open chasms: a dark pit with a glowing rim, closing up again.
 	for h: int in _hole_left.size():
 		var open: float = clampf(_hole_left[h] / CHASM_OPEN_S, 0.0, 1.0)
+		if _look() == "flood":
+			# Flood water spreading across the plain in a long band, ripples on it, draining away at the end.
+			var wet: float = clampf(_hole_left[h] / 1.0, 0.0, 1.0)
+			draw_set_transform(_hole_pos[h], 0.0, FLOOD_SHAPE)
+			draw_circle(Vector2.ZERO, reach, Color(glow.darkened(0.25), 0.55 * wet))
+			draw_circle(Vector2.ZERO, reach * 0.8, Color(glow, 0.45 * wet))
+			for r: int in 3:
+				var ring: float = fmod(Time.get_ticks_msec() / 1000.0 * 0.4 + r / 3.0, 1.0)
+				draw_arc(Vector2.ZERO, reach * (0.3 + 0.6 * ring), 0.0, TAU, 24, Color(0.85, 0.95, 1.0, 0.35 * wet * (1.0 - ring)), 1.0)
+			draw_set_transform(Vector2.ZERO)
+			continue
 		if _look() == "bramble":
 			# A thicket of thorny brambles, withering away at the end.
 			var life: float = clampf(_hole_left[h] / 1.0, 0.0, 1.0)
@@ -160,6 +211,12 @@ func _draw() -> void:
 		var filled: float = clampf(1.0 - _marker_left[i] / full, 0.0, 1.0)
 		draw_arc(_marker_pos[i], reach, 0.0, TAU, 24, area_color, 1.5)
 		draw_circle(_marker_pos[i], reach * filled, Color(area_color, area_color.a * 0.4))
+		if _look() == "flood":
+			# The water rising: a widening band of wet ground.
+			draw_set_transform(_marker_pos[i], 0.0, FLOOD_SHAPE)
+			draw_circle(Vector2.ZERO, reach * filled, Color(glow, 0.3))
+			draw_set_transform(Vector2.ZERO)
+			continue
 		if _look() == "bramble":
 			# Thorny shoots creep out across the ground before the thicket springs up.
 			for k: int in 6:

@@ -3750,5 +3750,102 @@
       }
     ],
     "persists": false
+  },
+  {
+    "id": "gilgamesh_axe",
+    "name_key": "WEAPON_GILGAMESH_AXE_NAME",
+    "desc_key": "WEAPON_GILGAMESH_AXE_DESC",
+    "element": "physical",
+    "categories": [
+      "blade"
+    ],
+    "targeting": "melee",
+    "pattern": "arc",
+    "signature_of": "gilgamesh",
+    "in_level_up_pool": false,
+    "levels": [
+      {
+        "damage": 13,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.0,
+        "arc_deg": 130,
+        "knockback": 130
+      },
+      {
+        "damage": 15,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 42,
+        "area": 1.0,
+        "arc_deg": 130,
+        "knockback": 130
+      },
+      {
+        "damage": 17,
+        "cooldown": 1.05,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.0,
+        "arc_deg": 130,
+        "knockback": 130
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.05,
+        "hit_interval": 0,
+        "range_px": 44,
+        "area": 1.1,
+        "arc_deg": 140,
+        "knockback": 130
+      },
+      {
+        "damage": 22,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 46,
+        "area": 1.1,
+        "arc_deg": 140,
+        "knockback": 130
+      },
+      {
+        "damage": 25,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 46,
+        "area": 1.1,
+        "arc_deg": 150,
+        "knockback": 130
+      },
+      {
+        "damage": 28,
+        "cooldown": 0.95,
+        "hit_interval": 0,
+        "range_px": 48,
+        "area": 1.2,
+        "arc_deg": 150,
+        "knockback": 130
+      },
+      {
+        "damage": 34,
+        "cooldown": 0.9,
+        "hit_interval": 0,
+        "range_px": 50,
+        "area": 1.25,
+        "arc_deg": 160,
+        "knockback": 130
+      }
+    ],
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "unlock": {
+      "type": "signature"
+    },
+    "placeholder_color": "#d0a048",
+    "persists": false
   }
 ]

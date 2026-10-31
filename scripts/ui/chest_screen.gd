@@ -183,7 +183,7 @@ func _draw_seal() -> void:
 
 ## The seal in the level's pantheon style (decorative patterns, never writing):
 ## a Greek meander ring, a Norse interlaced band, an Egyptian scarab clasp, or a
-## Celtic knot of interlaced loops.
+## Celtic knot of interlaced loops, or the eight-pointed star of Shamash (Mesopotamian seals and boundary stones).
 func _draw_seal_pattern(style: String, center: Vector2, radius: float, spin: float, color: Color) -> void:
 	var steps: int = Data.cfg_int("chests.meander_steps")
 	var points := PackedVector2Array()
@@ -203,6 +203,14 @@ func _draw_seal_pattern(style: String, center: Vector2, radius: float, spin: flo
 			for side: float in [-1.0, 1.0]:
 				_seal.draw_arc(center + Vector2(side * radius * 0.35, 0).rotated(spin), radius * 0.55, PI * 0.5 - side * PI * 0.5 - 0.9,
 						PI * 0.5 - side * PI * 0.5 + 0.9, 12, color, 2.0)
+		"mesopotamian_star":
+			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
+			for k: int in 8:
+				var a: float = spin + TAU * k / 8.0
+				points = PackedVector2Array([center + Vector2.from_angle(a - 0.18) * radius * 0.28,
+						center + Vector2.from_angle(a) * radius * 0.85, center + Vector2.from_angle(a + 0.18) * radius * 0.28])
+				_seal.draw_polyline(points, color, 2.0)
+			_seal.draw_arc(center, radius * 0.22, 0.0, TAU, 24, color, 2.0)
 		"celtic_knot":
 			for k: int in 4:
 				var a: float = spin + TAU * k / 4.0

@@ -1,0 +1,124 @@
+{
+ "_doc": "A wild boar (docs/WORLD_PLAN.md: 2): a wild animal that runs from you and can be hurt; built by tools/art/build_critters.py.",
+ "size": [
+  26,
+  18
+ ],
+ "anchor": [
+  13,
+  17
+ ],
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "c": "#4a3a30",
+  "b": "#6a5646",
+  "d": "#1e1610"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..........................",
+    "...................o......",
+    "..................ocoo....",
+    "..................ookcoo..",
+    ".................occcccdo.",
+    "..........ooo....occccco..",
+    "......oooocccoooocccooo...",
+    "..o.ooccccccccccccco......",
+    ".odoccccccccccccccco......",
+    "..ooccccccccccccccco......",
+    "...ocbbbbbbbbbbbbcco......",
+    "....ocbcbbbbbbcbcoo.......",
+    "....ococoocccococo........",
+    "....ococo.oooococo........",
+    "....ocooco...occo.........",
+    "....ocooco...occo.........",
+    "....odoodo...oddo.........",
+    "....odoodo...oddo........."
+   ]
+  ],
+  "walk": [
+   [
+    "..........................",
+    "...................o......",
+    "..................ocoo....",
+    "..................ookcoo..",
+    ".................occcccdo.",
+    "..........ooo....occccco..",
+    "......oooocccoooocccooo...",
+    "..o.ooccccccccccccco......",
+    ".odoccccccccccccccco......",
+    "..ooccccccccccccccco......",
+    "...ocbbbbbbbbbbbbcco......",
+    "....ocbcbbbbbbcbcoo.......",
+    "....ococoocccococo........",
+    "....ococo.oooococo........",
+    "....ocooco...occo.........",
+    "....ocooco...occo.........",
+    "....odoodo...oddo.........",
+    "....odoodo...oddo........."
+   ],
+   [
+    "..........................",
+    "...................o......",
+    "..................ocoo....",
+    "..................ookcoo..",
+    ".................occcccdo.",
+    "..........ooo....occccco..",
+    "......oooocccoooocccooo...",
+    "..o.ooccccccccccccco......",
+    ".odoccccccccccccccco......",
+    "..ooccccccccccccccco......",
+    "...ocbbbbbbbbbbbbcco......",
+    "....ocbcbbbbbbcbcoo.......",
+    "....ococoocccococo........",
+    "....ococo.oooococo........",
+    ".....occo...ocooco........",
+    ".....occo...ocooco........",
+    ".....oddo...odoodo........",
+    ".....oddo...odoodo........"
+   ],
+   [
+    "..........................",
+    "...................o......",
+    "..................ocoo....",
+    "..................ookcoo..",
+    ".................occcccdo.",
+    "..........ooo....occccco..",
+    "......oooocccoooocccooo...",
+    "..o.ooccccccccccccco......",
+    ".odoccccccccccccccco......",
+    "..ooccccccccccccccco......",
+    "...ocbbbbbbbbbbbbcco......",
+    "....ocbcbbbbbbcbcoo.......",
+    "....ococoocccococo........",
+    "....ococo.oooococo........",
+    "....occo.....ocooco.......",
+    "....occo.....ocooco.......",
+    "....oddo.....odoodo.......",
+    "....oddo.....odoodo......."
+   ],
+   [
+    "..........................",
+    "...................o......",
+    "..................ocoo....",
+    "..................ookcoo..",
+    ".................occcccdo.",
+    "..........ooo....occccco..",
+    "......oooocccoooocccooo...",
+    "..o.ooccccccccccccco......",
+    ".odoccccccccccccccco......",
+    "..ooccccccccccccccco......",
+    "...ocbbbbbbbbbbbbcco......",
+    "....ocbcbbbbbbcbcoo.......",
+    "....ococoocccococo........",
+    "....ococo.oooococo........",
+    "...ocooco.....occo........",
+    "...ocooco.....occo........",
+    "...odoodo.....oddo........",
+    "...odoodo.....oddo........"
+   ]
+  ]
+ }
+}

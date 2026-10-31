@@ -852,5 +852,131 @@
       "edge": "#5a4c34",
       "stones": "#9a9a94"
     }
+  },
+  {
+    "_doc": "The Land Between the Rivers, Pack 2 level 4 (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Mud-brick ziggurats, the Cedar Forest, flood plains with reeds and date palms. Sources: the Epic of Gilgamesh (Standard Babylonian version); Enuma Elish.",
+    "id": "the_land_between_the_rivers",
+    "name_key": "LEVEL_LAND_BETWEEN_RIVERS_NAME",
+    "region": "mesopotamian",
+    "act": 2,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_land_between_the_rivers",
+      "noise_frequency": 0.03,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "reeds",
+          "max": -0.45,
+          "placeholder_color": "#5a6a3a",
+          "placeholder_dots": "#7a8a4a"
+        },
+        {
+          "id": "dirt",
+          "max": 0.0,
+          "placeholder_color": "#8a7450",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cracked",
+          "max": 0.55,
+          "placeholder_color": "#b0946a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "sand",
+          "max": 1.0,
+          "placeholder_color": "#d0b484",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "ziggurat_ruin",
+      "boundary_stone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "ziggurat_ruin": {
+        "shape": "rect",
+        "size_px": [
+          36,
+          24
+        ],
+        "placeholder_color": "#b08858",
+        "weight": 1
+      },
+      "boundary_stone": {
+        "shape": "rect",
+        "size_px": [
+          12,
+          20
+        ],
+        "placeholder_color": "#8a8c90",
+        "weight": 2
+      }
+    },
+    "local_gods": [
+      "enki",
+      "shamash"
+    ],
+    "local_shrine_chance": 0.5,
+    "bosses": {
+      "10": "humbaba",
+      "20": "bull_of_heaven",
+      "30": "tiamat"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_two_lands",
+      "boss": "apep"
+    },
+    "waves": "waves_the_land_between_the_rivers.json",
+    "hazard": {
+      "type": "strikes",
+      "name_key": "HAZARD_FLOOD_NAME",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.45,
+      "radius_px": 56,
+      "telegraph_s": 1.6,
+      "damage": 6,
+      "element": "water",
+      "range_px": 240,
+      "color": "#3a7ab0",
+      "look": "flood",
+      "flood_s": 6,
+      "flood_slow": 0.55
+    },
+    "ground_patches": {
+      "kind": "slow",
+      "count": 5,
+      "radius_px": [
+        24,
+        38
+      ],
+      "color": "#4a5a34",
+      "speed_mult": 0.65
+    },
+    "seal": "mesopotamian_star",
+    "tint": "#f2e8d6",
+    "flora": {
+      "density": 0.9,
+      "trees": {
+        "cedar": 2,
+        "date_palm": 3,
+        "euphrates_poplar": 2
+      }
+    },
+    "road": {
+      "color": "#a88a5e",
+      "edge": "#7a6240",
+      "stones": "#b08858"
+    }
   }
 ]

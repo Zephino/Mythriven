@@ -328,6 +328,13 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # The Land Between the Rivers: the cedars of the Cedar Forest (Gilgamesh, Tablet V), date palms and Euphrates
+    # poplars by the water, tamarisk (Gilgamesh and the Huluppu tree); reed beds of the marshes.
+    "the_land_between_the_rivers": {
+        "trees": {"cedar": (umbrella_pine, 30, 38), "date_palm": (palm, 26, 38),
+                  "euphrates_poplar": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 22, 34)},
+        "bushes": {"tamarisk": ("V", "v", "w", "r"), "reeds": ("papyrus",)},
+        "rock": ("d", "D", "E", None), "mound": ("j", "J", "D", True)},
     "the_underworld": {
         "trees": {"black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40),
                   "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30),

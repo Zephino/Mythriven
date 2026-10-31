@@ -15,6 +15,7 @@ PALETTE = {
     "e": "#d8c4a0", "E": "#b8a07a", "F": "#9a8460", "y": "#f0c040", "z": "#2a1e14",   # sandstone, gold, dark doorway
     "c": "#6a8a40", "C": "#4a6a28", "a": "#a8b860",                      # papyrus
     "i": "#9a9a94", "I": "#76766e", "j": "#b8b8b0", "l": "#5a7a3a",      # Irish stone, lichen
+    "d": "#b08858", "D": "#8a6a40",                                    # sun-dried mud brick
     "x": "#3a5a2a", "X": "#2a4420", "f": "#f0d030", "F2": "#c8a020",
 }
 
@@ -218,6 +219,37 @@ def castle_ruin():
     return p
 
 
+def ziggurat_ruin():
+    """A ruined ziggurat (the Land Between the Rivers): stepped terraces of sun-dried mud brick, worn and slumped,
+    with the stair climbing the front, as at Ur."""
+    p = Pic(36, 24, (18, 23))
+    for k, (x0, x1, y0) in enumerate(((0, 35, 14), (5, 30, 7), (10, 25, 1))):
+        for y in range(y0, 24 if k == 0 else y0 + 7):
+            for x in range(x0 + (1 if y == y0 else 0), x1 + 1 - (1 if y == y0 else 0)):
+                p.px(x, y, "d" if (x // 3 + y // 2) % 2 else "D")
+        p.rect(x0, y0, x1, y0, "e")
+    for y in range(4, 24):
+        p.rect(16, y, 19, y, "E" if y % 2 else "F")                # the front stair
+    p.rect(30, 3, 33, 6, "D"); p.px(2, 12, "D"); p.px(34, 10, "D")  # fallen brick
+    return p
+
+
+def boundary_stone():
+    """A boundary stone, kudurru (Kassite Babylonia): a rounded dark stone carved with the emblems of the gods in
+    rows, the star, the moon and the sun disc at the top (emblems only, never writing)."""
+    p = Pic(12, 20, (6, 19))
+    for y in range(2, 20):
+        half = 4 if y > 4 else 2 + (y - 1)
+        p.rect(6 - half, y, 6 + half - 1, y, "g" if y % 5 else "G")
+    p.rect(2, 2, 9, 2, "h"); p.rect(4, 1, 7, 1, "h")
+    p.px(3, 4, "y"); p.px(6, 4, "y"); p.px(8, 4, "y")              # star, crescent, sun disc
+    p.px(5, 3, "y"); p.px(7, 5, "y")
+    for y in (8, 13):
+        p.rect(3, y, 8, y, "G")                                     # bands of carved emblems
+        p.px(4, y + 2, "h"); p.px(7, y + 2, "h")
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -241,7 +273,8 @@ def lekythos():
 
 
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
-                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin)}
+                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
+                                   ziggurat_ruin, boundary_stone)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

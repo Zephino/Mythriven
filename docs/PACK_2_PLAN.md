@@ -4,6 +4,7 @@ Status: **approved by the owner** (10/31/2026): "plan looks great"; the Hero unl
 monsters replaced with sourced ones (below; the owner was happy for Claude to name them); Pack 2 harder than Pack 1, the
 numbers left to Claude's judgement (enemy HP +20%, spawns +15%, damage +10% at the same minute, all settings). Built one
 level at a time in this order: the Underworld, Jotunheim, Avalon's Shadow, the Land Between the Rivers.
+**Pack 2's levels are complete** (10/31/2026, 00.02.66): all four levels and all three Heroes are built and released, with a boss achievement for each new boss. Still open from "Also in Pack 2": new Resonance pairs and Banter lines (designs to talk through with the owner).
 
 Owner decisions so far (10/31/2026): Pack 1 is working and fun, so Pack 2 starts; one level at a time; each level
 unlocks from its "sister" Pack 1 level; three new Heroes (Orpheus, Gilgamesh, Beowulf); this plan first.
@@ -134,7 +135,7 @@ Blessings and trigger numbers are designed when the level is built, in line with
 
 ---
 
-## Level 8: The Land Between the Rivers (Mesopotamian)
+## Level 8: The Land Between the Rivers (Mesopotamian): **done and released 10/31/2026 (00.02.66)**
 
 **Look:** ziggurats of mud brick, the Cedar Forest, flood plains with reeds and date palms.
 *Sources: the Epic of Gilgamesh (Standard Babylonian version); Enuma Elish.*

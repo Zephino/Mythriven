@@ -1,0 +1,171 @@
+{
+ "_doc": "Critters of the_land_between_the_rivers (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#c8a870",
+  "b": "#8a6a40",
+  "c": "#6a8a3a",
+  "d": "#c8c08a",
+  "e": "#a8acb4",
+  "f": "#6a6e78",
+  "g": "#d8b040",
+  "h": "#f0f0ec",
+  "i": "#24222a",
+  "j": "#3a7ab0",
+  "m": "#c8e8f8"
+ },
+ "frames": {
+  "desert_lizard": [
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "o..oboboo....."
+   ],
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "oobooooobo...."
+   ]
+  ],
+  "frog": [
+   [
+    ".........",
+    ".....oo..",
+    "..ooocko.",
+    ".occccco.",
+    "occccccco",
+    "occdddco."
+   ],
+   [
+    ".....oo..",
+    "..ooocko.",
+    ".occccco.",
+    "occccccco",
+    "ooddddco.",
+    "ccooooo..",
+    "cco......"
+   ]
+  ],
+  "grey_heron": [
+   [
+    ".......oo.",
+    "o..ooooeko",
+    "fooeeeeeeg",
+    "offfffeeoo",
+    ".oeeeeeeo.",
+    "..oeeeeo..",
+    "...ogogo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "fooeeeeeko",
+    "offfffeeeg",
+    ".oeeeeeeoo",
+    "..oeeeeo..",
+    "...ogogo.."
+   ]
+  ],
+  "grey_heron_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...oeeeeeoeg",
+    "...oeefeeooo",
+    "....offfo...",
+    "...ofoofo..."
+   ],
+   [
+    "....o..o....",
+    "...ofoofoo..",
+    "....offfokoo",
+    "...oeefeeoeg",
+    "...oeeeeeooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "sacred_ibis": [
+   [
+    ".......oo.",
+    "o..oooohko",
+    "ioohhhhhhi",
+    "oiiiiihhoo",
+    ".ohhhhhho.",
+    "..ohhhho..",
+    "...oioio.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "ioohhhhhko",
+    "oiiiiihhhi",
+    ".ohhhhhhoo",
+    "..ohhhho..",
+    "...oioio.."
+   ]
+  ],
+  "sacred_ibis_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...ohhhhhohi",
+    "...ohhihhooo",
+    "....oiiio...",
+    "...oiooio..."
+   ],
+   [
+    "....o..o....",
+    "...oiooioo..",
+    "....oiiiokoo",
+    "...ohhihhohi",
+    "...ohhhhhooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "dragonfly": [
+   [
+    ".........",
+    "....m.m..",
+    "jjjjjjjjk",
+    "....m.m..",
+    "........."
+   ],
+   [
+    "....m.m..",
+    ".........",
+    "jjjjjjjjk",
+    ".........",
+    "....m.m.."
+   ]
+  ]
+ },
+ "critters": {
+  "desert_lizard": {
+   "kind": "ground"
+  },
+  "frog": {
+   "kind": "ground"
+  },
+  "grey_heron": {
+   "kind": "bird"
+  },
+  "sacred_ibis": {
+   "kind": "bird"
+  },
+  "dragonfly": {
+   "kind": "insect"
+  }
+ }
+}

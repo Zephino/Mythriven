@@ -2,6 +2,32 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.66
+Date: 10/31/2026
+Time: 2:44 PM
+
+### Changes
+- **Pack 2, the Land Between the Rivers, is built and open** (`docs/PACK_2_PLAN.md`). Beat Apep (the Two Lands' 30:00 boss) to unlock it. With it, all four Pack 2 levels and all three new Heroes are in the game.
+  - **The land:** flood plains of reeds and dry, cracked earth; date palms, Euphrates poplars and cedars; ruined mud-brick ziggurats and carved boundary stones (kudurru); herons, ibises, onagers and wild boar.
+  - **Floods** (the hazard): the water rises in long bands across the plain. Wading through slows you and puts out burning (on monsters too).
+  - **Monsters:** scorpion-men with bows (Gilgamesh IX), lion-headed ugallu, whirling raging storms (umu dabrutu) and river serpents (all among Tiamat's brood in the Enuma Elish).
+  - **Bosses:**
+    - **Humbaba** (10:00): seven radiances (golden rings) take every hit until they are stripped one by one. Wind strips them twice as fast; a Guard Break or Shamash's summon tears one away (Gilgamesh II-V). He has words for Gilgamesh.
+    - **The Bull of Heaven** (20:00): every few seconds his snort cracks pits open round you. They stay for the whole fight, hurting and slowing anyone standing in them (Gilgamesh VI).
+    - **Tiamat** (30:00, an original design, never the five-headed dragon of modern games): she brings forth her brood of monsters, and waves of the salt sea roll across the arena, pushing and hurting you (Enuma Elish).
+  - **Gods** (both found at peaceful shrines):
+    - **Enki** (Water): summon **Waters of the Abzu** heals every Hero 30% and Soaks every monster on screen.
+    - **Shamash** (Holy): summon **Thirteen Winds** pins every monster on screen for 4 s and strikes them, and tears away one of Humbaba's radiances.
+  - **New Hero: Gilgamesh** (King-warrior; HP 140, Speed 90, Armor 2), drawn from the epic and the ancient reliefs, never from Fate/Grand Order. Signature weapon: the **great axe**. Legend Trait **Enkidu**: his friend fights beside him, running out to strike the nearest monster and everything round it; monsters can't harm him. Passive **Two-thirds divine**: +10% Max HP and Might. Unlock: defeat Humbaba.
+- A "Defeat ..." achievement for each of the twelve Pack 2 bosses, like Pack 1's.
+- New throne style for Mesopotamian gods, a stepped mud-brick shrine altar, and the eight-pointed star of Shamash on the chest seal.
+- Fixes for Avalon's Shadow: the Welsh gods' pantheon now reads "Welsh" (it showed a raw text key), and its Ancient Ruins use standing stones.
+- Brambles and floods now only release a slow they caused themselves, so they never cancel a boss's slowing zone.
+- 5 new tests (292 tests pass).
+
+### Reason
+The owner asked to finish Pack 2 ("okay lets finnish the pack"). This is its fourth and last level, built from the approved plan. Still open from the plan: new Resonance pairs and Banter lines, to talk through with the owner first.
+
 ## Version 00.02.65
 Date: 10/31/2026
 Time: 2:28 PM

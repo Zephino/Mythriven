@@ -85,6 +85,7 @@ THRONES = {
     "norse": {"1": "#8a5a32", "2": "#5e3c1e", "3": "#c8a048", "4": "#3e2612"},      # carved wood, a high seat
     "celtic": {"1": "#7a6a4a", "2": "#54482e", "3": "#c8a848", "4": "#3a3020"},     # carved oak with bronze
     "egyptian": {"1": "#e0b848", "2": "#a87e24", "3": "#3a6aa8", "4": "#6a4a14"},   # gilded, with blue inlay
+    "mesopotamian": {"1": "#9a7048", "2": "#6a4a2a", "3": "#d8b048", "4": "#2a3a6a"},   # a temple-front block, lapis
 }
 
 
@@ -119,6 +120,14 @@ def throne(c, style, back_x, front_x, seat_y, ground):
             c.row(y, bx0 + 2, bx1 - 1, "3")                                      # blue inlay bands
         c.row(top, bx0, bx1, "4")
         c.rect(front_x + 1, ground - 3, front_x + 5, ground, "1"); c.px(front_x + 5, ground - 3, "4")   # a lion's paw
+    elif style == "mesopotamian":
+        # A block seat carved like a temple front with recessed niches (as on the Shamash tablet), on a low dais.
+        for x in range(bx0 + 2, bx1 - 1, 3):
+            c.rect(x, top + 3, x, seat_y - 2, "2")
+        c.row(top, bx0, bx1, "3"); c.row(top + 1, bx0, bx1, "4")
+        for x in range(back_x - 8, front_x + 3, 3):
+            c.rect(x, seat_y + 5, x, ground - 1, "2")
+        c.rect(bx0 - 2, ground - 1, front_x + 6, ground, "4")
 
 
 def throne_frame(grid, size, anchor, seat):

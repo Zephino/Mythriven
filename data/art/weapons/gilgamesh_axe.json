@@ -1,0 +1,76 @@
+{
+ "_doc": "Held weapon (docs/ART_RULES.md: Weapons), built by tools/art/build_weapons.py. grip is the pixel held in the Hero's hand. Gilgamesh's great axe (Epic of Gilgamesh, Tablets II-III: the axes cast for him and Enkidu, three talents each): a long wooden haft bound with leather, a crescent-bladed bronze head with a socket, as on the old Mesopotamian bronze axes.",
+ "size": [
+  23,
+  32
+ ],
+ "grip": [
+  3,
+  26
+ ],
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "c": "#9a6232",
+  "C": "#5e3818",
+  "a": "#c8a070",
+  "e": "#e4e8ec",
+  "E": "#9aa2ac",
+  "s": "#ffffff",
+  "g": "#d0a048",
+  "G": "#8a6420",
+  "u": "#f0cc58",
+  "U": "#b08a28",
+  "b": "#6a4422",
+  "B": "#3e2612",
+  "i": "#8a9098",
+  "I": "#4e545c",
+  "w": "#efe6d2",
+  "h": "#3a3440",
+  "H": "#5a4e6a",
+  "r": "#7a2a1c",
+  "R": "#4e1a10",
+  "j": "#3a7ac0",
+  "J": "#c83030",
+  "l": "#a8e0f0",
+  "x": "#c8b8a0"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..................ooo..",
+    ".................ogguo.",
+    "...............oogggguo",
+    "...........ooooggggguo.",
+    "..........oGgggggggguo.",
+    ".........oGgggggggguo..",
+    ".........oGgggGGggguo..",
+    ".........oGgggGGggguo..",
+    "........oGgggggggguo...",
+    "........oGgggggggguo...",
+    "........ocCoggggguo....",
+    "........ocCoogggguo....",
+    "........ocCo.ogguo.....",
+    ".......ocCo...ooo......",
+    ".......ocCo............",
+    "......ocCo.............",
+    "......ocCo.............",
+    "......ocCo.............",
+    ".....ocCo..............",
+    ".....ocCo..............",
+    "....ocCo...............",
+    "....ocCo...............",
+    "....ocCo...............",
+    "...obbo................",
+    "...obbo................",
+    "..obbo.................",
+    "..obbo.................",
+    "..obbo.................",
+    ".obbo..................",
+    ".ocCo..................",
+    "ocCo...................",
+    ".oo...................."
+   ]
+  ]
+ }
+}

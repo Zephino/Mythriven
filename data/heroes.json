@@ -689,5 +689,57 @@
       "type": "achievement",
       "achievement": "jotunheim_giant_slayer"
     }
+  },
+  {
+    "id": "gilgamesh",
+    "name_key": "HERO_GILGAMESH_NAME",
+    "tradition_key": "TRADITION_MESOPOTAMIAN",
+    "role_key": "ROLE_KING_WARRIOR",
+    "placeholder_color": "#e6dcc4",
+    "patron_pantheon": "mesopotamian",
+    "care_tier": "A",
+    "lore_source": "Epic of Gilgamesh (Standard Babylonian): Tablet I (two-thirds god, one-third man; Enkidu made from clay), Tablets II-V (the axes; Humbaba), Tablet VI (the Bull of Heaven)",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 140,
+      "move_speed": 90,
+      "armor": 2,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "gilgamesh_axe",
+    "expertise": [
+      "blade",
+      "blunt"
+    ],
+    "trait": {
+      "id": "enkidu",
+      "name_key": "TRAIT_ENKIDU",
+      "desc_key": "TRAIT_ENKIDU_DESC",
+      "leash_px": 170,
+      "speed_px_s": 125,
+      "strike_every_s": 0.8,
+      "strike_reach_px": 20,
+      "strike_damage": 14,
+      "strike_radius_px": 26
+    },
+    "passive": {
+      "id": "two_thirds_divine",
+      "name_key": "PASSIVE_TWO_THIRDS_DIVINE",
+      "desc_key": "PASSIVE_TWO_THIRDS_DIVINE_DESC",
+      "max_hp_pct": 10,
+      "might_pct": 10
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "defeat_boss",
+      "boss": "humbaba"
+    }
   }
 ]

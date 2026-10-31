@@ -517,5 +517,74 @@
     },
     "placeholder_color": "#7a7a80",
     "persists": false
+  },
+  {
+    "id": "enki",
+    "name_key": "GOD_ENKI_NAME",
+    "role_key": "GOD_ENKI_ROLE",
+    "blessing_key": "GOD_ENKI_BLESSING",
+    "summon_key": "GOD_ENKI_SUMMON",
+    "pantheon": "mesopotamian",
+    "care_tier": "A",
+    "lore_source": "The Adda seal (streams flowing from his shoulders); Atrahasis and Gilgamesh XI (he warns of the Flood); Enki and the World Order",
+    "lore_verified": false,
+    "element": "water",
+    "role": "sustain",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 50
+    },
+    "blessing": {
+      "regen_pct_per_s": 0.5,
+      "element_damage": {
+        "water": 10
+      }
+    },
+    "summon": {
+      "effect": "waters_of_abzu",
+      "duration_s": 4,
+      "heal_pct": 30
+    },
+    "placeholder_color": "#5aa0e0",
+    "persists": false
+  },
+  {
+    "id": "shamash",
+    "name_key": "GOD_SHAMASH_NAME",
+    "role_key": "GOD_SHAMASH_ROLE",
+    "blessing_key": "GOD_SHAMASH_BLESSING",
+    "summon_key": "GOD_SHAMASH_SUMMON",
+    "pantheon": "mesopotamian",
+    "care_tier": "A",
+    "lore_source": "Epic of Gilgamesh, Tablet V (he raises thirteen winds against Humbaba); the Shamash tablet",
+    "lore_verified": false,
+    "element": "holy",
+    "role": "control",
+    "rarity": "uncommon",
+    "shrine": {
+      "type": "peaceful"
+    },
+    "trigger": {
+      "type": "every_s",
+      "amount": 50
+    },
+    "blessing": {
+      "element_damage": {
+        "holy": 15
+      },
+      "crit_pct": 5
+    },
+    "summon": {
+      "effect": "thirteen_winds",
+      "duration_s": 4,
+      "pin_s": 4,
+      "damage": 20
+    },
+    "placeholder_color": "#f0c040",
+    "persists": false
   }
 ]

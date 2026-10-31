@@ -333,6 +333,21 @@ def giant_sword():
     return p
 
 
+def gilgamesh_axe():
+    """Gilgamesh's great axe (Epic of Gilgamesh, Tablets II-III: the axes cast for him and Enkidu, three talents each):
+    a long wooden haft bound with leather, a crescent-bladed bronze head with a socket, as on the old Mesopotamian
+    bronze axes."""
+    p = Pic(14, 30, (5, 25))
+    p.col(5, 4, 29, "c"); p.col(6, 4, 29, "C")
+    p.rect(5, 22, 6, 27, "b")                                      # leather binding at the grip
+    p.rect(4, 3, 7, 8, "g"); p.rect(4, 3, 4, 8, "G")               # the socket
+    for i, (y0, y1) in enumerate([(2, 9), (1, 10), (0, 11), (0, 11), (1, 10)]):
+        p.col(8 + i, y0, y1, "g")
+    p.col(13, 1, 10, "u"); p.px(12, 0, "u"); p.px(12, 11, "u")     # the bright crescent edge
+    p.rect(8, 5, 9, 6, "G")
+    return p
+
+
 def arrow():
     """An arrow, for every bow: a steel point, a wooden shaft, feathered fletching."""
     p = Pic(5, 18, (2, 9))
@@ -370,6 +385,7 @@ WEAPONS = {
     "scathach_spear": (scathach_spear, 0.12), "longbow": (longbow, 0.1), "great_bow": (great_bow, 0.1),
     "huntress_bow": (huntress_bow, 0.1), "bladed_discus": (bladed_discus, 0.0), "sling_of_lugh": (sling_of_lugh, -0.2),
     "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0), "giant_sword": (giant_sword, 0.1),
+    "gilgamesh_axe": (gilgamesh_axe, 0.4),
 }
 
 if __name__ == "__main__":

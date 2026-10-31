@@ -19,6 +19,9 @@ extends Node2D
 ##                                   mark them (they take more damage)
 ##   Birds of Rhiannon (Rhiannon)    their song puts every monster on screen to sleep (bosses only slowed)
 ##   Hounds of Annwn (Arawn)         white, red-eared hounds run out and hunt monsters for the Hero, then are gone
+##   Waters of the Abzu (Enki)       fresh water floods the screen: heals every Hero, Soaks every monster
+##   Thirteen Winds (Shamash)        winds from every side pin every monster on screen and strike them; tear away
+##                                   one of Humbaba's radiances
 ##   Falcon Cloak (Freyja)           the Hero flies, unharmed, for a moment; monsters slain meanwhile rise to fight for them
 
 const MAX_EFFECTS := 8
@@ -93,6 +96,23 @@ func run(god: Dictionary, player: Player) -> void:
 					GameAuthority.enemies.statuses.apply(slot, "chill", 1.0, false)
 				else:
 					GameAuthority.enemies.statuses.apply_stun(slot, float(s.get("sleep_s", 3.0)) * player.stats.status_duration_mult())
+		"waters_of_abzu":
+			for each: Player in GameAuthority.players:
+				if each.alive:
+					GameAuthority.heal_player(each, each.max_hp * float(s.get("heal_pct", 30)) / 100.0)
+					each.statuses.timers.erase("burn")
+			for slot: int in _enemies_in(view):
+				GameAuthority.enemies.statuses.apply(slot, "soaked", player.stats.status_duration_mult(), false)
+		"thirteen_winds":
+			for slot: int in _enemies_in(view):
+				GameAuthority.damage_enemy(slot, float(s.get("damage", 20.0)) * float(effect["power"]), player, Vector2.ZERO, "wind", 0.0)
+				if _is_boss(slot):
+					GameAuthority.enemies.statuses.apply(slot, "chill", 1.0, false)
+				elif GameAuthority.enemies.active[slot] != 0:
+					GameAuthority.enemies.statuses.apply_stun(slot, float(s.get("pin_s", 4.0)) * player.stats.status_duration_mult())
+			for boss: Node in get_tree().get_nodes_in_group(BossController.GROUP):
+				if boss is HumbabaBoss:
+					(boss as HumbabaBoss).strip_radiance()
 		"hounds_of_annwn":
 			var hounds: Array = []
 			for k: int in int(s.get("hounds", 5)):
@@ -374,6 +394,18 @@ func _draw() -> void:
 						var mark: Vector2 = GameAuthority.enemies.positions[int(slot)] + Vector2(0, -GameAuthority.enemies.radius[int(slot)] - 8.0)
 						draw_circle(mark, 2.5, Color(0.1, 0.1, 0.12, fade))
 						draw_line(mark + Vector2(-4, -1), mark + Vector2(4, -1), Color(0.1, 0.1, 0.12, fade), 1.5)
+			"waters_of_abzu":
+				draw_rect(view, Color(0.25, 0.55, 0.85, 0.22 * fade))
+				for r: int in 9:
+					var at: Vector2 = Vector2(lerpf(view.position.x, view.end.x, fmod(r * 0.37, 1.0)), lerpf(view.position.y, view.end.y, fmod(r * 0.61, 1.0)))
+					draw_arc(at, 10.0 + 40.0 * k, 0.0, TAU, 20, Color(0.85, 0.95, 1.0, 0.6 * fade), 1.5)
+			"thirteen_winds":
+				var mid: Vector2 = view.get_center()
+				for w: int in 13:
+					var from: Vector2 = mid + Vector2.from_angle(TAU * w / 13.0) * view.size.length() * 0.5
+					var to: Vector2 = from.lerp(mid, clampf(k * 1.4, 0.0, 1.0))
+					draw_line(from, to, Color(1.0, 0.92, 0.6, 0.7 * fade), 2.0)
+					draw_line(from.lerp(to, 0.5) + Vector2(0, 4), to + Vector2(0, 4), Color(1, 1, 1, 0.4 * fade), 1.0)
 			"birds_of_rhiannon":
 				for b: int in 7:
 					var fly: Vector2 = Vector2(lerpf(view.position.x, view.end.x, fmod(k + b * 0.14, 1.0)),

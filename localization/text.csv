@@ -1421,3 +1421,72 @@ GOD_ARAWN_ROLE,Summoner
 GOD_ARAWN_BLESSING,+15% Dark damage and +5% Max HP.
 GOD_ARAWN_SUMMON,"Hounds of Annwn: five white, red-eared hounds run out and hunt monsters for you for 7 s."
 GOD_ARAWN_MYTH,"King of Annwn, the Otherworld, first met hunting with his hounds, shining white with red ears. He and Pwyll traded places and faces for a year, and Pwyll fought his enemy for him."
+PANTHEON_WELSH,Welsh
+PANTHEON_MESOPOTAMIAN,Mesopotamian
+LEVEL_LAND_BETWEEN_RIVERS_NAME,The Land Between the Rivers
+HAZARD_FLOOD_NAME,The rivers flood!
+ENEMY_SCORPION_MAN_NAME,Scorpion-man
+ENEMY_SCORPION_MAN_MYTH,"Scorpion-people guard the gate of Mount Mashu, where the sun goes in and out; their terror is awesome and their glance is death. They let Gilgamesh pass on his search for Utnapishtim. Tiamat made scorpion-men among her eleven monsters."
+ENEMY_UGALLU_NAME,Ugallu
+ENEMY_UGALLU_MYTH,"The 'big weather-beast', a lion-headed demon with a man's body and bird's feet. Tiamat made the ugallu among her eleven monsters; later the Assyrians carved them at their doors to keep evil out."
+ENEMY_RAGING_STORM_NAME,Raging storm
+ENEMY_RAGING_STORM_MYTH,"The umu dabrutu, 'raging storms', are among the eleven monsters Tiamat made to fight the gods in the Enuma Elish: whirling storm-beasts that tear across the land."
+ENEMY_RIVER_SERPENT_NAME,River serpent
+ENEMY_RIVER_SERPENT_MYTH,"In the Enuma Elish, Tiamat gives birth to monster serpents, sharp of tooth, their bodies filled with venom instead of blood."
+ENEMY_ONAGER_NAME,Onager
+ENEMY_WILD_BOAR_NAME,Wild boar
+BOSS_HUMBABA_NAME,Humbaba
+BOSS_BULL_OF_HEAVEN_NAME,The Bull of Heaven
+BOSS_TIAMAT_NAME,Tiamat
+ENEMY_HUMBABA_NAME,Humbaba
+ENEMY_BULL_OF_HEAVEN_NAME,The Bull of Heaven
+ENEMY_TIAMAT_NAME,Tiamat
+ENEMY_HUMBABA_MYTH,"The guardian Enlil set over the Cedar Forest, whose roar is the flood and whose breath is death, wrapped in seven radiances of terror. Gilgamesh and Enkidu went to the forest to fight him, and Shamash sent thirteen winds to hold him fast."
+ENEMY_BULL_OF_HEAVEN_MYTH,"When Gilgamesh spurned Ishtar, she made her father Anu give her the Bull of Heaven. At its snort the earth split open and men fell into the pits, until Enkidu seized it by the horns and Gilgamesh struck it down."
+ENEMY_TIAMAT_MYTH,"The salt sea, mother of all. In the Enuma Elish she makes eleven monsters, storm-demons, scorpion-men and serpents, to fight the young gods, until Marduk splits her in two and makes heaven and earth from her body."
+BOSS_HUMBABA_BARE,Humbaba's radiances are gone!
+BOSS_HUMBABA_GILGAMESH,"Humbaba: ""Gilgamesh! Who let you into my cedars?"""
+GOD_ENKI_NAME,Enki
+GOD_ENKI_ROLE,Sustain
+GOD_ENKI_BLESSING,"+0.5% Max HP regenerated per second and +10% Water damage."
+GOD_ENKI_SUMMON,"Waters of the Abzu: fresh water floods the screen, healing every Hero 30% of their Max HP and Soaking every monster."
+GOD_ENKI_MYTH,"Lord of the Abzu, the sweet waters under the earth, and the wisest of the gods. On the old seals streams with fish flow from his shoulders. When the gods sent the Flood, he warned Utnapishtim to build a boat."
+GOD_SHAMASH_NAME,Shamash
+GOD_SHAMASH_ROLE,Control
+GOD_SHAMASH_BLESSING,"+15% Holy damage and +5% crit chance."
+GOD_SHAMASH_SUMMON,"Thirteen Winds: winds from every side pin every monster on screen for 4 s and strike them (bosses are only slowed). Tears away one of Humbaba's radiances."
+GOD_SHAMASH_MYTH,"The sun, who sees all and judges all. He watched over Gilgamesh on the road to the Cedar Forest, and when Humbaba fought them he raised thirteen great winds against him, so that he could not move forward or back."
+TRADITION_MESOPOTAMIAN,Mesopotamian (Epic of Gilgamesh)
+ROLE_KING_WARRIOR,King-warrior
+HERO_GILGAMESH_NAME,Gilgamesh
+HERO_GILGAMESH_LEGEND,"King of Uruk, two-thirds god and one-third man. The gods made the wild man Enkidu to match him, and the two became friends; together they killed Humbaba in the Cedar Forest and the Bull of Heaven. When Enkidu died, Gilgamesh went to the ends of the earth to find the secret of life."
+WEAPON_GILGAMESH_AXE_NAME,Great axe
+WEAPON_GILGAMESH_AXE_DESC,"Wide sweeping blows with the axe cast for him before the Cedar Forest."
+TRAIT_ENKIDU,Enkidu
+TRAIT_ENKIDU_DESC,"His friend Enkidu fights beside him: he runs at the nearest monster, strikes it and everything round it, and comes back to his side. Monsters can't harm him; his blows grow with Might and level."
+PASSIVE_TWO_THIRDS_DIVINE,Two-thirds divine
+PASSIVE_TWO_THIRDS_DIVINE_DESC,+10% Max HP and +10% Might.
+ACH_BOSS_CERBERUS_NAME,Defeat Cerberus
+ACH_BOSS_CERBERUS_DESC,The 10:00 boss of the Underworld.
+ACH_BOSS_THANATOS_NAME,Defeat Thanatos
+ACH_BOSS_THANATOS_DESC,The 20:00 boss of the Underworld.
+ACH_BOSS_TYPHON_NAME,Defeat Typhon
+ACH_BOSS_TYPHON_DESC,The 30:00 boss of the Underworld.
+ACH_BOSS_HRUNGNIR_NAME,Defeat Hrungnir
+ACH_BOSS_HRUNGNIR_DESC,The 10:00 boss of Jotunheim.
+ACH_BOSS_THRYM_NAME,Defeat Thrym
+ACH_BOSS_THRYM_DESC,The 20:00 boss of Jotunheim.
+ACH_BOSS_YMIR_NAME,Defeat Ymir
+ACH_BOSS_YMIR_DESC,The 30:00 boss of Jotunheim.
+ACH_BOSS_GREEN_KNIGHT_NAME,Defeat the Green Knight
+ACH_BOSS_GREEN_KNIGHT_DESC,The 10:00 boss of Avalon's Shadow.
+ACH_BOSS_MORDRED_NAME,Defeat Mordred
+ACH_BOSS_MORDRED_DESC,The 20:00 boss of Avalon's Shadow.
+ACH_BOSS_TWRCH_TRWYTH_NAME,Defeat Twrch Trwyth
+ACH_BOSS_TWRCH_TRWYTH_DESC,The 30:00 boss of Avalon's Shadow.
+ACH_BOSS_HUMBABA_NAME,Defeat Humbaba
+ACH_BOSS_HUMBABA_DESC,The 10:00 boss of the Land Between the Rivers.
+ACH_BOSS_BULL_OF_HEAVEN_NAME,Defeat the Bull of Heaven
+ACH_BOSS_BULL_OF_HEAVEN_DESC,The 20:00 boss of the Land Between the Rivers.
+ACH_BOSS_TIAMAT_NAME,Defeat Tiamat
+ACH_BOSS_TIAMAT_DESC,The 30:00 boss of the Land Between the Rivers.

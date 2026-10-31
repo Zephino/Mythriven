@@ -1969,5 +1969,251 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Land Between the Rivers bosses (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Pack 2: about 20% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "humbaba",
+    "name_key": "BOSS_HUMBABA_NAME",
+    "tradition": "mesopotamian",
+    "lore_source": "Epic of Gilgamesh, Tablets II-V (the seven radiances; Shamash's thirteen winds hold him)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "humbaba",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 540,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "seven_radiances",
+      "radiances": 7,
+      "radiance_hp": 120,
+      "wind_mult": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Land Between the Rivers bosses (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Pack 2: about 20% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "bull_of_heaven",
+    "name_key": "BOSS_BULL_OF_HEAVEN_NAME",
+    "tradition": "mesopotamian",
+    "lore_source": "Epic of Gilgamesh, Tablet VI (its snorts open pits in the earth)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "bull_of_heaven",
+    "move_speed": 54,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 840,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "snorting_pits",
+      "every_s": 5.0,
+      "pits": 3,
+      "pit_radius_px": 26,
+      "pit_damage": 8,
+      "pit_s": 30,
+      "max_pits": 12,
+      "pit_slow": 0.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Land Between the Rivers bosses (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Pack 2: about 20% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "tiamat",
+    "name_key": "BOSS_TIAMAT_NAME",
+    "tradition": "mesopotamian",
+    "lore_source": "Enuma Elish, Tablets I-V (her eleven monsters; the salt waters)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "tiamat",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1320,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "brood_and_waves",
+      "brood_every_s": 9.0,
+      "brood": [
+        "ugallu",
+        "scorpion_man",
+        "raging_storm",
+        "river_serpent"
+      ],
+      "brood_count": 5,
+      "wave_every_s": 7.0,
+      "wave_width_px": 60,
+      "wave_speed_px_s": 140,
+      "wave_damage": 10,
+      "wave_push_px_s": 120
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "river_serpent"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "river_serpent"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

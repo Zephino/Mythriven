@@ -286,6 +286,11 @@ func _draw_altar(at: Vector2, god: Dictionary, color: Color) -> void:
 		"norse":
 			draw_rect(Rect2(at + Vector2(-5, -16), Vector2(10, 26)), stone)
 			draw_line(at + Vector2(-3, -10), at + Vector2(3, 4), color, 1.5)
+		"mesopotamian":
+			# A stepped mud-brick altar, like a little ziggurat.
+			for k: int in 3:
+				draw_rect(Rect2(at + Vector2(-14 + k * 4, 4 - k * 7), Vector2(28 - k * 8, 7)), stone.darkened(0.1 * k))
+			draw_line(at + Vector2(0, -16), at + Vector2(0, -18), color, 2.0)
 		"egyptian":
 			draw_colored_polygon(PackedVector2Array([at + Vector2(-5, 10), at + Vector2(5, 10), at + Vector2(3, -14),
 					at + Vector2(0, -19), at + Vector2(-3, -14)]), stone)

@@ -16,6 +16,7 @@ const KITS: Dictionary = {
 	"trainer": "res://scripts/player/hero_traits/trainer.gd",
 	"charming_song": "res://scripts/player/hero_traits/charming_song.gd",
 	"grip": "res://scripts/player/hero_traits/grip.gd",
+	"enkidu": "res://scripts/player/hero_traits/enkidu.gd",
 }
 
 var player: Player

@@ -398,3 +398,63 @@ func test_brambles_spring_up_and_slow_the_hero() -> void:
 	_player.position = Vector2(2000, 0)
 	brambles._process(0.016)
 	assert_eq(_player.slow_zone_mult, 1.0)
+
+
+func test_humbabas_radiances_must_be_stripped_first_and_wind_strips_faster() -> void:
+	_start("the_land_between_the_rivers")
+	var humbaba: HumbabaBoss = _bosses.spawn_boss("humbaba", 0) as HumbabaBoss
+	assert_not_null(humbaba)
+	assert_eq(humbaba.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "the radiance takes the blow")
+	assert_eq(humbaba.radiances, 7)
+	humbaba.on_element_hit("wind")
+	humbaba.modify_hit(40.0, _player, Vector2.ZERO)
+	assert_eq(humbaba.radiances, 6, "Wind tears it away twice as fast")
+	humbaba.guard_break()
+	assert_eq(humbaba.radiances, 5, "a Guard Break strips one too")
+	for _i: int in 5:
+		humbaba.strip_radiance()
+	assert_almost_eq(humbaba.modify_hit(50.0, _player, Vector2.ZERO), 50.0, 0.01, "bare at last")
+
+
+func test_the_bull_of_heaven_opens_pits_that_stay_and_slow() -> void:
+	_start("the_land_between_the_rivers")
+	var bull: BullOfHeavenBoss = _bosses.spawn_boss("bull_of_heaven", 1) as BullOfHeavenBoss
+	bull.target = _player
+	bull.signature(5.0)
+	assert_eq(bull.pits.size(), 3, "his snort opens pits")
+	_player.position = bull.pits[0]["pos"]
+	bull.signature(0.1)
+	assert_lt(_player.slow_zone_mult, 1.0, "standing in a pit slows")
+	_player.position = Vector2(5000, 0)
+	bull.signature(0.1)
+	assert_eq(_player.slow_zone_mult, 1.0)
+	bull.signature(10.0)
+	assert_gt(bull.pits.size(), 0, "the pits stay")
+
+
+func test_tiamat_brings_forth_her_brood_and_her_waves_push() -> void:
+	_start("the_land_between_the_rivers")
+	var tiamat: TiamatBoss = _bosses.spawn_boss("tiamat", 2) as TiamatBoss
+	var before: int = _enemies.active_count()
+	tiamat.signature(4.0)
+	assert_gt(_enemies.active_count(), before, "her brood")
+	assert_eq(tiamat.waves.size(), 1, "a wave rises")
+	var wave: Dictionary = tiamat.waves[0]
+	_player.position = tiamat.wave_front(wave) - Vector2(wave["dir"]) * 10.0
+	var at: Vector2 = _player.position
+	var hp: float = _player.hp
+	tiamat._roll(0.05)
+	assert_ne(_player.position, at, "the wave pushes")
+	assert_lt(_player.hp, hp, "and hurts")
+
+
+func test_floods_slow_and_put_out_fire() -> void:
+	_start("the_land_between_the_rivers")
+	var flood := Hazard.create(_level("the_land_between_the_rivers")["hazard"]) as HazardStrikes
+	_world.add_child(flood)
+	flood.begin(_level("the_land_between_the_rivers")["hazard"])
+	_player.statuses.timers["burn"] = 3.0
+	flood._strike(_player.position + Vector2(80, 0))
+	flood._process(0.016)
+	assert_lt(_player.slow_zone_mult, 1.0, "wading in the long flood band")
+	assert_false(_player.statuses.has("burn"), "the water puts the fire out")

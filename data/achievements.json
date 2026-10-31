@@ -469,5 +469,125 @@
       "id": "balor"
     },
     "persists": true
+  },
+  {
+    "id": "boss_cerberus",
+    "name_key": "ACH_BOSS_CERBERUS_NAME",
+    "desc_key": "ACH_BOSS_CERBERUS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "cerberus"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_thanatos",
+    "name_key": "ACH_BOSS_THANATOS_NAME",
+    "desc_key": "ACH_BOSS_THANATOS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "thanatos"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_typhon",
+    "name_key": "ACH_BOSS_TYPHON_NAME",
+    "desc_key": "ACH_BOSS_TYPHON_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "typhon"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_hrungnir",
+    "name_key": "ACH_BOSS_HRUNGNIR_NAME",
+    "desc_key": "ACH_BOSS_HRUNGNIR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "hrungnir"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_thrym",
+    "name_key": "ACH_BOSS_THRYM_NAME",
+    "desc_key": "ACH_BOSS_THRYM_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "thrym"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_ymir",
+    "name_key": "ACH_BOSS_YMIR_NAME",
+    "desc_key": "ACH_BOSS_YMIR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ymir"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_green_knight",
+    "name_key": "ACH_BOSS_GREEN_KNIGHT_NAME",
+    "desc_key": "ACH_BOSS_GREEN_KNIGHT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "green_knight"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_mordred",
+    "name_key": "ACH_BOSS_MORDRED_NAME",
+    "desc_key": "ACH_BOSS_MORDRED_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "mordred"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_twrch_trwyth",
+    "name_key": "ACH_BOSS_TWRCH_TRWYTH_NAME",
+    "desc_key": "ACH_BOSS_TWRCH_TRWYTH_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "twrch_trwyth"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_humbaba",
+    "name_key": "ACH_BOSS_HUMBABA_NAME",
+    "desc_key": "ACH_BOSS_HUMBABA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "humbaba"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_bull_of_heaven",
+    "name_key": "ACH_BOSS_BULL_OF_HEAVEN_NAME",
+    "desc_key": "ACH_BOSS_BULL_OF_HEAVEN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "bull_of_heaven"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_tiamat",
+    "name_key": "ACH_BOSS_TIAMAT_NAME",
+    "desc_key": "ACH_BOSS_TIAMAT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "tiamat"
+    },
+    "persists": true
   }
 ]

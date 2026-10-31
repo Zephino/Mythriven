@@ -132,7 +132,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | Pack | Name | Levels | Status |
 | --- | --- | --- | --- |
 | 1 | Legends of the West | 1 The Aegean Shore · 2 Midgard's Edge · 3 The Two Lands · 4 The Misty Isles | **Build now** (Aegean Shore first as the vertical slice) |
-| 2 | Deeper Myths | 5 The Underworld · 6 Jotunheim · 7 Avalon's Shadow · 8 Land Between the Rivers | **Approved 10/31/2026; building** (`docs/PACK_2_PLAN.md`) |
+| 2 | Deeper Myths | 5 The Underworld · 6 Jotunheim · 7 Avalon's Shadow · 8 Land Between the Rivers | **Approved and released 10/31/2026** (`docs/PACK_2_PLAN.md`) |
 | 3 | Distant Legends | 9 Pohjola · 10 Mazandaran · 11 The Slavic Wilds · 12 The Land of Legends | Later |
 | 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | Later |
 | 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | Later |
@@ -151,6 +151,8 @@ All the world's myths are threads in one great tapestry, and something is pullin
 *(10/31/2026: **the Underworld is built and released** (versions 00.02.53–00.02.59): its look, rivers of the dead and collapsing chasms, Furies-kin, skeletal hoplites and Stymphalian birds, Cerberus, Thanatos and Typhon, Hecate and Persephone, and Orpheus (Legend Trait: Charming Song; passive: Outsinging the Sirens; no Divine Link, like the other post-launch Heroes; unlocked by surviving 20:00 in the Underworld). Jotunheim is next.)*
 
 *(10/31/2026: **Jotunheim** (00.02.60–00.02.63) and **Avalon's Shadow** (00.02.65) are built and released. In Avalon's Shadow the enchanted brambles slow Heroes caught in them rather than walling off paths, so the hazard can't trap a Hero in a corner; Arawn's Hounds of Annwn hunt for 7 s. The Land Between the Rivers and Gilgamesh are next.)*
+
+*(10/31/2026: **the Land Between the Rivers** (00.02.66) is built and released, so **all four Pack 2 levels and its three Heroes are complete** (new Resonance pairs and Banter lines are still to be designed with the owner). Floods spread as long bands of water that slow Heroes and put out burning. Humbaba's seven radiances must be stripped before he takes harm (Wind ×2; a Guard Break or Shamash's Thirteen Winds strips one); the Bull of Heaven's pits stay open for the fight; Tiamat (an original design) brings forth her brood and rolls waves across the arena. Gilgamesh: King-warrior, HP 140, Speed 90, Armor 2; signature weapon the great axe; Legend Trait Enkidu (his companion runs out and strikes, and can't be harmed); passive Two-thirds divine (+10% Max HP and Might); unlocked by defeating Humbaba. Shamash's role is Control in the game data.)*
 
 Pack names are working labels. The Act tables below are the same levels: Act I = Pack 1, Act II = Pack 2, Act III = Pack 3, Act IV = the extras. Fantasy realm packs still need two more bosses designed per level, from the same public-domain lore, before they're built.
 

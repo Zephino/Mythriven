@@ -248,6 +248,14 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    # The Land Between the Rivers: herons and ibises in the reed marshes; onagers (the wild asses of the Assyrian hunt
+    # reliefs) and wild boar in the thickets.
+    "the_land_between_the_rivers": {
+        "ground": {"desert_lizard": (lizard, "#c8a870", "#8a6a40"), "frog": (frog, "#6a8a3a", "#c8c08a")},
+        "birds": {"grey_heron": ("#a8acb4", "#6a6e78", "#d8b040", True), "sacred_ibis": ("#f0f0ec", "#24222a", "#24222a", True)},
+        "insects": {"dragonfly": (dragonfly, "#3a7ab0", "#c8e8f8")},
+        "large": {"onager": ("#b0906a", "#e8dcc4", "#4a3a2a", None, 28, 24),
+                  "wild_boar": ("#4a3a30", "#6a5646", "#1e1610", None, 26, 18)}},
     # Pack 2 (docs/PACK_2_PLAN.md). Bats (the souls gibber like bats, Odyssey 24.6–9); the owl (Ascalaphus, turned into
     # one below the earth, Ovid, Metamorphoses 5.539–550); the black cattle of Hades (Apollodorus, Library 2.5.10).
     "the_underworld": {
