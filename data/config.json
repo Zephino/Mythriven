@@ -407,6 +407,11 @@
     "max_name_length": 12,
     "request_timeout_s": 15,
     "rows_shown": 100,
+    "column_px": [40, 40, 0, 136, 72, 52, 76],
+    "weapons_from_px": 640,
+    "medal_colors": ["#e8c872", "#c9d1d9", "#c88a52"],
+    "portrait_px": 32,
+    "weapon_icon_px": 20,
     "profile_file": "user://profile.cfg",
     "local_file": "user://leaderboard_local.json",
     "local_max_entries": 100

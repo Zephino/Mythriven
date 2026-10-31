@@ -497,6 +497,11 @@
               "max_name_length": "number",
               "request_timeout_s": "number",
               "rows_shown": "number",
+              "column_px": { "type": "array", "items": "number" },
+              "weapons_from_px": "number",
+              "medal_colors": { "type": "array", "items": "string" },
+              "portrait_px": "number",
+              "weapon_icon_px": "number",
               "profile_file": "string",
               "local_file": "string",
               "local_max_entries": "number"

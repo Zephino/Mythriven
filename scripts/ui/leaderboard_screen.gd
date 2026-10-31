@@ -1,124 +1,223 @@
 class_name LeaderboardScreen
-extends CanvasLayer
+extends MenuScreen
 ## The shared leaderboard (owner request): the best runs from every player
 ## (or, until online scores are set up, the best runs on this device),
 ## each with their Hero, time survived, level, kills, weapons, and upgrades.
-## Opens from Hero select and the death screen. Keyboard, gamepad, and touch
-## all work; Close is focused first and Esc / B also closes it.
+## Opens from the title, the Hall of Legends, Hero select and the death screen.
+##
+## Laid out as a ranked table (owner request 10/31/2026: "look more professional"), in the menus' frame over the
+## painted backdrop: a header row, then one row per run with its rank (the top three in gold, silver and bronze), the
+## Hero's portrait, the player's name and Hero, the weapons' icons, and time, level and kills in their own columns.
+## The player's own runs are lit. Tapping a row opens its whole build underneath. Keyboard, gamepad and touch all
+## work; Esc / B closes it.
 
-signal closed
+## Column widths, from config leaderboard.column_px: rank, portrait, name, weapons, time, level, kills.
+enum Col { RANK, PORTRAIT, NAME, WEAPONS, TIME, LEVEL, KILLS }
 
 var _client: LeaderboardClient
-var _status: Label
-var _rows: VBoxContainer
-var _refresh: Button
-var _close: Button
-var _scroll: ScrollContainer
+## null while loading; then the entries (or an error).
+var _entries: Variant = null
+var _error: String = ""
+## The row whose build is open (-1 = none).
+var _open_row: int = -1
 
 
 func _ready() -> void:
-	layer = 80
-	process_mode = Node.PROCESS_MODE_ALWAYS
 	_client = LeaderboardClient.new()
 	add_child(_client)
 	_client.board_loaded.connect(_on_board_loaded)
-	_build()
+	super._ready()
 	_load()
 
 
-## _input, not _unhandled_input: runs before focus moves, so the list can scroll.
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		get_viewport().set_input_as_handled()
-		_on_close()
-	elif _scroll.has_focus() and (event.is_action_pressed("ui_down") or event.is_action_pressed("ui_up")):
-		# The D-pad / arrow keys scroll the list; up at the top goes back to the buttons.
-		var step: int = int(Data.cfg_float("ui.min_touch_target_px"))
-		if event.is_action_pressed("ui_up") and _scroll.scroll_vertical == 0:
-			_close.grab_focus()
-		else:
-			_scroll.scroll_vertical += step if event.is_action_pressed("ui_down") else -step
-		get_viewport().set_input_as_handled()
+func page_width() -> float:
+	return Data.cfg_float("ui.menu_wide_px")
 
 
 func _load() -> void:
-	_status.text = tr("UI_LB_LOADING")
-	_status.visible = true
-	for row: Node in _rows.get_children():
-		row.queue_free()
+	_entries = null
+	_error = ""
+	_open_row = -1
+	refresh()
 	_client.fetch()
 
 
 func _on_board_loaded(entries: Array[Dictionary], error: String) -> void:
-	if error != "":
-		_status.text = tr("UI_LB_LOAD_FAILED") % error
+	_entries = entries
+	_error = error
+	refresh()
+
+
+func build() -> void:
+	set_title(tr_key("UI_LEADERBOARD_LOCAL") if LeaderboardClient.is_local() else tr_key("UI_LEADERBOARD"))
+	# Refresh in the title bar, beside Back.
+	_top_slot.visible = true
+	_top_slot.size_flags_horizontal = Control.SIZE_SHRINK_END
+	var again := Button.new()
+	again.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	again.text = tr_key("UI_LB_REFRESH")
+	again.custom_minimum_size = Vector2(Data.cfg_float("ui.min_touch_target_px") * 2.0, Data.cfg_float("ui.min_touch_target_px"))
+	again.disabled = _entries == null
+	again.pressed.connect(_load)
+	_top_slot.add_child(again)
+	_buttons.append(again)
+	if LeaderboardClient.is_local():
+		add_note(tr_key("UI_LB_LOCAL_NOTE"))
+	if _entries == null:
+		add_note(tr_key("UI_LB_LOADING"))
 		return
-	_status.visible = entries.is_empty()
-	_status.text = tr("UI_LB_EMPTY")
-	var shown: int = mini(entries.size(), Data.cfg_int("leaderboard.rows_shown"))
-	for i: int in shown:
-		var row := Label.new()
-		row.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-		row.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.text = LeaderboardEntry.describe(i + 1, entries[i])
-		_rows.add_child(row)
-		if i < shown - 1:
-			_rows.add_child(HSeparator.new())
+	if _error != "":
+		add_note(tr_key("UI_LB_LOAD_FAILED") % _error)
+		return
+	var entries: Array = _entries
+	if entries.is_empty():
+		add_note(tr_key("UI_LB_EMPTY"))
+		return
+	var wide: bool = _column.custom_minimum_size.x >= Data.cfg_float("leaderboard.weapons_from_px")
+	_rows.add_child(_header(wide))
+	var mine: String = LeaderboardEntry.load_name().to_lower()
+	for i: int in mini(entries.size(), Data.cfg_int("leaderboard.rows_shown")):
+		var entry: Dictionary = entries[i]
+		_rows.add_child(_row(i, entry, wide, mine != "" and str(entry.get("name", "")).to_lower() == mine))
 
 
-func _on_close() -> void:
-	closed.emit()
-	queue_free()
+## The column names over the table.
+func _header(wide: bool) -> Control:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	var texts: Array = ["UI_LB_COL_RANK", "", "UI_LB_COL_PLAYER", "UI_LB_COL_WEAPONS", "UI_LB_COL_TIME", "UI_LB_COL_LEVEL", "UI_LB_COL_KILLS"]
+	for col: int in texts.size():
+		if col == Col.WEAPONS and not wide:
+			continue
+		var label := small(tr_key(str(texts[col])) if str(texts[col]) != "" else "")
+		label.size_flags_horizontal = Control.SIZE_FILL
+		_size_cell(label, col)
+		label.horizontal_alignment = _align(col)
+		row.add_child(label)
+	var holder := MarginContainer.new()
+	holder.add_theme_constant_override("margin_left", 7)
+	holder.add_theme_constant_override("margin_right", 7)
+	holder.add_child(row)
+	return holder
 
 
-func _build() -> void:
-	var touch: float = Data.cfg_float("ui.min_touch_target_px")
-	var margin_px: float = Data.cfg_float("ui.screen_margin_px")
-	var root := Control.new()
-	root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(root)
-	var background := ColorRect.new()
-	background.color = Color.html(Data.cfg_string("heroes.select_background"))
-	background.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.add_child(background)
-	# Contents stay clear of phone notches; the background fills the whole screen.
-	var safe := SafeAreaBox.new()
-	root.add_child(safe)
+## One run: rank, portrait, name and Hero, weapons, time, level, kills; its build underneath when opened.
+func _row(index: int, entry: Dictionary, wide: bool, mine: bool) -> Control:
+	var card := PanelContainer.new()
+	card.focus_mode = Control.FOCUS_ALL
+	card.mouse_filter = Control.MOUSE_FILTER_STOP
+	var normal: StyleBoxFlat = _row_style(index, mine, false)
+	var lit: StyleBoxFlat = _row_style(index, mine, true)
+	card.add_theme_stylebox_override("panel", normal)
+	card.focus_entered.connect(func() -> void: card.add_theme_stylebox_override("panel", lit))
+	card.focus_exited.connect(func() -> void: card.add_theme_stylebox_override("panel", normal))
+	card.gui_input.connect(func(event: InputEvent) -> void:
+		var tapped: bool = event is InputEventMouseButton and (event as InputEventMouseButton).pressed \
+				and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT
+		if tapped or event.is_action_pressed("ui_accept"):
+			card.accept_event()
+			_open_row = -1 if _open_row == index else index
+			refresh())
+	_buttons.append(card)
 	var box := VBoxContainer.new()
-	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, int(margin_px))
-	safe.add_child(box)
-	var top := HBoxContainer.new()
-	box.add_child(top)
-	var title := Label.new()
-	title.text = "UI_LEADERBOARD_LOCAL" if LeaderboardClient.is_local() else "UI_LEADERBOARD"
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	top.add_child(title)
-	_refresh = Button.new()
-	_refresh.text = "UI_LB_REFRESH"
-	_refresh.custom_minimum_size = Vector2(touch * 2.0, touch)
-	_refresh.pressed.connect(_load)
-	top.add_child(_refresh)
-	_close = Button.new()
-	_close.text = "UI_LB_CLOSE"
-	_close.custom_minimum_size = _refresh.custom_minimum_size
-	_close.pressed.connect(_on_close)
-	top.add_child(_close)
-	_refresh.focus_neighbor_right = _refresh.get_path_to(_close)
-	_close.focus_neighbor_left = _close.get_path_to(_refresh)
-	_status = Label.new()
-	_status.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	box.add_child(_status)
-	_scroll = ScrollContainer.new()
-	var scroll: ScrollContainer = _scroll
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	scroll.focus_mode = Control.FOCUS_ALL
-	box.add_child(scroll)
-	_rows = VBoxContainer.new()
-	_rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(_rows)
-	_close.focus_neighbor_bottom = _close.get_path_to(scroll)
-	_refresh.focus_neighbor_bottom = _refresh.get_path_to(scroll)
-	_close.grab_focus()
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	card.add_child(box)
+	var line := HBoxContainer.new()
+	line.add_theme_constant_override("separation", 6)
+	line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	box.add_child(line)
+	# Rank: the top three in gold, silver and bronze.
+	var rank := heading("%d" % (index + 1))
+	rank.autowrap_mode = TextServer.AUTOWRAP_OFF
+	rank.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var medals: Array = Data.cfg("leaderboard.medal_colors")
+	rank.add_theme_color_override("font_color", Color.html(str(medals[index])) if index < medals.size()
+			else Color.html(Data.cfg_string("ui.menu_small_color")))
+	_size_cell(rank, Col.RANK)
+	line.add_child(rank)
+	var hero: Dictionary = HeroRules.find(str(entry.get("hero", "")))
+	var portrait: Texture2D = UiTheme.portrait(PixelArt.find(str(entry.get("hero", ""))), 2)
+	var face := picture_box(portrait, Data.cfg_float("leaderboard.portrait_px")) if portrait != null else Control.new()
+	_size_cell(face, Col.PORTRAIT)
+	line.add_child(face)
+	var who := VBoxContainer.new()
+	who.add_theme_constant_override("separation", -2)
+	who.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var name_label := Label.new()
+	name_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	name_label.text = str(entry.get("name", ""))
+	name_label.clip_text = true
+	if mine:
+		name_label.add_theme_color_override("font_color", Color.html(Data.cfg_string("ui.menu_heading_color")))
+	who.add_child(name_label)
+	var hero_label := small(tr_key(str(hero.get("name_key", ""))) if not hero.is_empty() else str(entry.get("hero", "")))
+	hero_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+	hero_label.clip_text = true
+	who.add_child(hero_label)
+	line.add_child(who)
+	if wide:
+		var icons := HBoxContainer.new()
+		icons.add_theme_constant_override("separation", 1)
+		_size_cell(icons, Col.WEAPONS)
+		for weapon: Variant in (entry.get("weapons", []) as Array).slice(0, 6):
+			if weapon is Dictionary:
+				var data: Dictionary = LeaderboardEntry._weapon_data(str(weapon.get("id", "")))
+				var icon: Texture2D = UiTheme.weapon_icon(data) if not data.is_empty() else null
+				if icon != null:
+					icons.add_child(picture_box(icon, Data.cfg_float("leaderboard.weapon_icon_px")))
+		line.add_child(icons)
+	for pair: Array in [[Col.TIME, TextFormat.run_time(float(entry.get("time_s", 0)))], [Col.LEVEL, str(int(entry.get("level", 0)))],
+			[Col.KILLS, TextFormat.whole(float(entry.get("kills", 0)))]]:
+		var cell := Label.new()
+		cell.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+		cell.text = str(pair[1])
+		cell.horizontal_alignment = _align(int(pair[0]))
+		if int(pair[0]) == Col.TIME:
+			cell.add_theme_color_override("font_color", Color.html(Data.cfg_string("ui.menu_heading_color")))
+		_size_cell(cell, int(pair[0]))
+		line.add_child(cell)
+	# The whole build, when the row is opened.
+	if _open_row == index:
+		box.add_child(HSeparator.new())
+		for text: String in LeaderboardEntry.describe(index + 1, entry).split("\n").slice(1):
+			var detail := small(text)
+			detail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			box.add_child(detail)
+		var version: String = str(entry.get("version", ""))
+		if version != "":
+			box.add_child(small(tr_key("UI_LB_PLAYED_ON") % version))
+	return card
+
+
+func _size_cell(control: Control, col: int) -> void:
+	var widths: Array = Data.cfg("leaderboard.column_px")
+	var width: float = float(widths[col])
+	if width > 0.0:
+		control.custom_minimum_size.x = width
+	else:
+		control.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+
+func _align(col: int) -> HorizontalAlignment:
+	if col == Col.RANK:
+		return HORIZONTAL_ALIGNMENT_CENTER
+	return HORIZONTAL_ALIGNMENT_RIGHT if col >= Col.TIME else HORIZONTAL_ALIGNMENT_LEFT
+
+
+## A row's box: soft, with a coloured edge for the top three, gold for the player's own runs, brighter when chosen.
+func _row_style(index: int, mine: bool, lit: bool) -> StyleBoxFlat:
+	var style := card_style()
+	var medals: Array = Data.cfg("leaderboard.medal_colors")
+	var gold := Color.html(Data.cfg_string("ui.menu_heading_color"))
+	if index < medals.size():
+		style.border_color = Color.html(str(medals[index]))
+		style.border_width_left = 3
+	if mine:
+		style.bg_color = Color(gold.r, gold.g, gold.b, 0.14)
+	if lit:
+		style.bg_color = style.bg_color.lightened(0.15)
+		style.border_color = gold
+		style.set_border_width_all(2)
+	style.content_margin_top = 3
+	style.content_margin_bottom = 3
+	return style
