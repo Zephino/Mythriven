@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.87
+Date: 10/31/2026
+Time: 1:51 AM
+
+### Changes
+- **Medusa has no wings now**, as in Ovid's telling. She keeps her serpent hair, tusk, bronze hands, dark chiton, and her legs: the ancient sources and art give her a woman's body; a snake's tail in place of legs is a modern invention (the 1981 film and later games), which `GAME_DESIGN.md` asks us not to copy.
+
+### Reason
+The owner asked: "wasn't Medusa a snake herself? no wings too."
+
 ## Version 00.01.86
 Date: 10/31/2026
 Time: 1:50 AM

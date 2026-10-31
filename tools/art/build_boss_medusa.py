@@ -5,8 +5,9 @@ import hero_kit as kit
 
 DOC = ("Medusa, boss (GAME_DESIGN.md: The Aegean Shore bosses; art 10/31/2026). Built by tools/art/build_boss_medusa.py; "
        "rules in docs/ART_RULES.md. From Pseudo-Apollodorus, Bibliotheca 2.4.2: the Gorgons had heads twined about with "
-       "the scales of serpents, great tusks like swine's, hands of bronze, and wings of gold; and Ovid, Metamorphoses 4 "
-       "(snakes for hair). The short chiton is how archaic Greek vase paintings and temple reliefs show her. Bigger "
+       "the scales of serpents, great tusks like swine's, and hands of bronze (their wings of gold are left out at the "
+       "owner's request, 10/31/2026, as in Ovid's telling); and Ovid, Metamorphoses 4 (snakes for hair). Her body is a "
+       "woman's, as in the ancient sources and art; a snake's tail for legs is a modern invention. The short chiton is how archaic Greek vase paintings and temple reliefs show her. Bigger "
        "than a Hero (a boss).")
 
 SIZE, ANCHOR = (46, 58), (24, 56)
@@ -17,7 +18,6 @@ PALETTE = {
     "o": "#24160e", "k": "#140c08",
     "s": "#d8c4a4", "S": "#a88e72",                 # pallid skin
     "g": "#6aa04a", "G": "#3e6a2a",                 # serpents
-    "u": "#e8c050", "U": "#a88028",                 # golden wings
     "b": "#c08a3a", "B": "#7a5020",                 # bronze hands
     "c": "#3e3452", "C": "#28203a",                 # dark chiton
     "y": "#d8b048",                                 # gold border
@@ -38,24 +38,6 @@ def capsule(c, a, b, r, col, cond=None):
 
 
 DY = 6   # everything sits 6 pixels down, leaving room above for her serpents
-
-
-def wings(c):
-    """A golden wing behind her, raised from the shoulder (owner 10/31/2026: the first, a fan of rods, didn't read as
-    a wing): an arched top edge, a band of small covert feathers, then long flight feathers hanging down in a row,
-    each with its own shadow line and a ragged tip."""
-    sx, sy = 19, 22 + DY
-    for x in range(3, sx + 1):
-        k = (sx - x) / (sx - 3)
-        top = round(sy - 20 * math.sin(math.pi / 2 * k))
-        bottom = round(top + 5 + 9 * k + (2 if x % 3 == 0 else 0))
-        for y in range(top, bottom + 1):
-            c.px(x, y, "u")
-        c.px(x, top + 3, "U")                                   # the edge of the covert feathers
-        if x % 3 == 1:
-            for y in range(top + 4, bottom + 1):
-                c.px(x, y, "U")                                 # a line between flight feathers
-        c.px(x, bottom, "U")
 
 
 def serpents(c):
@@ -85,7 +67,6 @@ def serpents(c):
 def draw(c, legs):
     back, front = legs
     d = DY
-    wings(c)
     # Far arm, a bronze hand
     c.rect(18, 20 + d, 19, 30 + d, "S"); c.rect(18, 31 + d, 19, 32 + d, "B")
     serpents(c)
