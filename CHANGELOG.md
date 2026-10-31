@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.61
+Date: 10/31/2026
+Time: 12:04 AM
+
+### Changes
+- **Heracles has his left arm.** The far arm hangs at his left side in the skin's shadow colour (it's further away), with a fist and its own dark edge against his chest. New rule in `docs/ART_RULES.md`: both arms show.
+
+### Reason
+The owner asked for a left arm where the cloak used to be.
+
 ## Version 00.01.60
 Date: 10/30/2026
 Time: 11:05 PM

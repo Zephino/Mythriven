@@ -21,6 +21,7 @@
 - **Two shades per material**: a light colour and a shadow colour (light from the top-left). No gradients and no stray single pixels.
 - **Clothing in strong, darker colours** (here a dark red chiton) so it never reads as underwear. Folds are vertical lines in the shadow colour.
 - **Muscles as short lines**, not dots: a chest line and a stomach line in the skin shadow. Dots read as spots.
+- **Both arms show.** The far arm hangs on the far side in the skin's shadow colour (it's further away), with a dark edge between it and the chest.
 - **Every part has its own dark edge**, not just the outside of the figure: a dark line between the arm and the chest, a 1-pixel gap (filled by the outline) between the body and anything behind it (cloak) or held beside it (weapon). Parts must never run into each other.
 - **A face that reads at a glance:** one dark eye pixel with a row of skin above it (the forehead) and skin around it. Nothing white touches the eye (it reads as a giant eyeball). Facial hair sits below it and is no more than 2 rows.
 - **Cloaks and pelts read as fabric or fur**, never as a plank: they widen as they hang, have a ragged or folded edge, and show texture (lighter tufts or folds). Keep them only if they help: the owner had Heracles' lion-skin cloak removed, since a long strip behind a small figure muddies the silhouette.

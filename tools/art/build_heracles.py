@@ -21,6 +21,10 @@ def draw(back_leg, front_leg):
 def _draw(back_leg, front_leg):
     # No cloak hanging behind (owner request 10/31/2026): the lion skin shows as
     # the hood and the paws knotted at his throat.
+    # Far (left) arm hanging at his side, in the skin's shadow colour since it's
+    # further away; a 1-pixel gap from the chest becomes a dark edge.
+    rect(7, 14, 8, 20, "S"); px(8, 14, "s"); px(8, 15, "s")   # shoulder catches a little light
+    rect(7, 21, 8, 21, "s")                                      # fist
     # Lion head hood
     row(1, 10, 11, "m")                       # ear
     row(2, 9, 15, "l"); px(10, 2, "L")
