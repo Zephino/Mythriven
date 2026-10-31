@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.01
+Date: 10/31/2026
+Time: 2:25 AM
+
+### Changes
+- **Scáthach the boss now has a sprite**: her Hero sprite holding her spear, drawn twice as big, like Achilles the boss.
+- **Ferdiad's sprite**, from the Táin Bó Cúailnge (Book of Leinster), arming himself for the combat at the ford against Cú Chulainn:
+  - a rounded bronze helmet set with gems, a gold crest along its ridge; young and beardless, brown hair, fair skin;
+  - a red silk tunic with gold edging, an apron of brown leather, and over it an apron of iron plates to the knee;
+  - a great round bronze shield with rows of gold bosses on his far arm, with its own dark edge;
+  - a curved sword raised in his hand; 4 walking frames.
+- The art tools build bosses who are also Heroes with one shared helper (`kit.build_hero_boss`).
+
+### Reason
+The owner asked what's next after Apep and Set's fixed arm.
+
 ## Version 00.02.00
 Date: 10/31/2026
 Time: 2:23 AM

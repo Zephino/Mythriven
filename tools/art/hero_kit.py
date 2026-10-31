@@ -118,3 +118,60 @@ def poly(c, pts, col):
                 j = i
             if inside:
                 c.px(x, y, col)
+
+
+# --- Bosses who are also Heroes (Achilles, Scáthach): their Hero art holding their weapon, drawn bigger -----------
+
+def compose(hero, weapon):
+    """The Hero's frames with the weapon behind them at the hand (as the game draws a Hero), on one canvas, with the
+    weapon's colours given letters the Hero's palette doesn't use. Returns (frames, palette, anchor)."""
+    palette = dict(hero["palette"])
+    spare = iter(c for c in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" if c not in palette)
+    remap = {}
+    for letter, colour in weapon["palette"].items():
+        same = next((k for k, v in palette.items() if v == colour), None)
+        remap[letter] = same or next(spare)
+        palette[remap[letter]] = colour
+    wx = hero["hand"][0] - weapon["grip"][0]
+    wy = hero["hand"][1] - weapon["grip"][1]
+    ww, wh = weapon["size"]
+    hw, hh = hero["size"]
+    x0, y0 = min(0, wx), min(0, wy)
+    x1, y1 = max(hw, wx + ww), max(hh, wy + wh)
+    w_rows = weapon["frames"]["idle"][0]
+
+    def one(rows):
+        g = [["."] * (x1 - x0) for _ in range(y1 - y0)]
+        for y, row in enumerate(w_rows):
+            for x, ch in enumerate(row):
+                if ch != ".":
+                    g[wy + y - y0][wx + x - x0] = remap[ch]
+        for y, row in enumerate(rows):
+            for x, ch in enumerate(row):
+                if ch != ".":
+                    g[y - y0][x - x0] = ch
+        return ["".join(r) for r in g]
+
+    frames = {name: [one(rows) for rows in hero["frames"][name]] for name in hero["frames"]}
+    return frames, palette, [hero["anchor"][0] - x0, hero["anchor"][1] - y0], [x1 - x0, y1 - y0]
+
+
+def scale(rows, k):
+    return ["".join(ch * k for ch in row) for row in rows for _ in range(k)]
+
+
+
+def build_hero_boss(hero_id, weapon_id, doc, scale_by=2):
+    """Writes data/art/bosses/<hero_id>.json: the Hero's art (data/art/<hero_id>.json) holding the weapon
+    (data/art/weapons/<weapon_id>.json), `scale_by` times as big, so players recognise the Hero they're fighting."""
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art")
+    hero = json.load(open(os.path.join(root, hero_id + ".json")))
+    weapon = json.load(open(os.path.join(root, "weapons", weapon_id + ".json")))
+    frames, palette, anchor, size = compose(hero, weapon)
+    art = {"_doc": doc, "size": [size[0] * scale_by, size[1] * scale_by],
+           "anchor": [anchor[0] * scale_by + scale_by // 2, anchor[1] * scale_by + scale_by // 2], "palette": palette,
+           "frames": {name: [scale(rows, scale_by) for rows in list_] for name, list_ in frames.items()}}
+    os.makedirs(os.path.join(root, "bosses"), exist_ok=True)
+    with open(os.path.join(root, "bosses", hero_id + ".json"), "w") as f:
+        json.dump(art, f, indent=1)
+    return art
