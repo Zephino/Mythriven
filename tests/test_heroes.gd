@@ -208,6 +208,22 @@ func test_gae_bolg_thrust_hits_a_line_and_kills_burst_into_barbs() -> void:
 	assert_lt(_enemies.hp[bystander], hp[bystander], "barbs from the kill")
 
 
+func test_hammers_smash_the_ground_in_front() -> void:
+	# Hammers smash the ground (owner rule 10/31/2026): everything round the spot it lands is hit.
+	var player: Player = _hero("heracles")
+	var hammer: WeaponInstance = GameAuthority.give_weapon(player, "war_hammer")
+	assert_eq(str(hammer.data["pattern"]), "smash")
+	var reach: float = hammer.stat("range_px") * player.stats.area_mult() * hammer.stat("area", 1.0)
+	var on_spot: int = _spawn(Vector2(reach, 0))
+	var beside_spot: int = _spawn(Vector2(reach, 18))
+	var behind: int = _spawn(Vector2(-40, 0))
+	var hp: Dictionary = {on_spot: _enemies.hp[on_spot], beside_spot: _enemies.hp[beside_spot], behind: _enemies.hp[behind]}
+	SmashPattern.new().fire(hammer, player, {"direction": Vector2.RIGHT}, _combat)
+	assert_lt(_enemies.hp[on_spot], hp[on_spot], "the spot it lands on")
+	assert_lt(_enemies.hp[beside_spot], hp[beside_spot], "and all round it")
+	assert_eq(_enemies.hp[behind], hp[behind], "not behind the Hero")
+
+
 func test_thrown_weapons_and_shots_fly_as_pictures() -> void:
 	var player: Player = _hero("atalanta")
 	var projectiles := ProjectileManager.new()

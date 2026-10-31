@@ -1258,6 +1258,10 @@
                   "melee_range_px": {
                     "type": "number",
                     "optional": true
+                  },
+                  "smash_radius_px": {
+                    "type": "number",
+                    "optional": true
                   }
                 }
               }

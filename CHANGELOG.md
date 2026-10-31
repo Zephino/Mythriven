@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.14
+Date: 10/31/2026
+Time: 3:13 AM
+
+### Changes
+- **Hammers smash the ground.** The War Hammer (and Quake Hammer) no longer swings in an arc: it comes down from overhead onto a spot in front of the Hero and hits everything around that spot, knocking it outward, with a shockwave ring that appears as the hammer lands. The Quake Hammer adds its wider quake ring on every smash. New pattern `smash` with the level value `smash_radius_px`.
+- Effect rings can be held back a moment (`spawn_ring` delay), so a hammer's shockwave waits for the hammer to land.
+- `GAME_DESIGN.md` and `docs/ART_RULES.md`: the weapon rule now says spears jab, javelins are thrown, bows shoot arrows, swords and clubs swing, hammers smash the ground. A new test checks a hammer hits the spot it lands on and all round it, but not behind the Hero.
+
+### Reason
+The owner said: "Spears jab. Javelins are thrown. Hammers smash ground."
+
 ## Version 00.02.13
 Date: 10/31/2026
 Time: 3:09 AM

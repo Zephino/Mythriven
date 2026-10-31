@@ -21,6 +21,7 @@ func _ready() -> void:
 	register_pattern("orbit", OrbitPattern.new())
 	register_pattern("aura", AuraPattern.new())
 	register_pattern("thrust", ThrustPattern.new())
+	register_pattern("smash", SmashPattern.new())
 	register_pattern("switch", SwitchPattern.new())
 
 

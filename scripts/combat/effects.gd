@@ -63,9 +63,12 @@ func spawn_arc(at: Vector2, angle: float, arc_radius: float, spread: float, colo
 		shared.emit(KIND_ARC, at, angle, arc_radius, spread, color)
 
 
-## An expanding ring (quakes, bursts).
-func spawn_ring(at: Vector2, ring_radius: float, color: Color, share: bool = false) -> void:
+## An expanding ring (quakes, bursts). `delay_s` holds it back (a hammer's shockwave waits for the hammer to land).
+func spawn_ring(at: Vector2, ring_radius: float, color: Color, share: bool = false, delay_s: float = 0.0) -> void:
+	var i: int = _next
 	_spawn(KIND_RING, at, 0.0, ring_radius, 0.0, color)
+	if _capacity > 0:
+		_age[i] = -delay_s
 	if share:
 		shared.emit(KIND_RING, at, 0.0, ring_radius, 0.0, color)
 
@@ -141,6 +144,8 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	for i: int in _capacity:
 		if _active[i] == 0:
+			continue
+		if _age[i] < 0.0:
 			continue
 		var t: float = clampf(_age[i] / _duration[i], 0.0, 1.0)
 		var color: Color = _color[i]

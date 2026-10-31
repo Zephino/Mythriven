@@ -515,7 +515,7 @@ Heroes are legendary figures from Tier A traditions in your database, and each p
 ### Cú Chulainn (Irish)
 
 - **Gáe Bolg** (`targeted`, Physical): piercing spear thrust along a line; enemies killed burst into barbs that hit those nearby.
-- **How weapons attack follows what they are** (owner rule, 10/31/2026): spears jab and javelins are thrown and fly to enemies (owner decision, 10/31/2026: spears were thrown for a short while, then put back to jabbing); bows stay in the Hero's hand and shoot arrows; swords, clubs and hammers are swung from the Hero's hand; axes and discs are thrown and spin. Every attack starts from the Hero.
+- **How weapons attack follows what they are** (owner rule, 10/31/2026): spears jab and javelins are thrown and fly to enemies (owner decision, 10/31/2026: spears were thrown for a short while, then put back to jabbing); bows stay in the Hero's hand and shoot arrows; swords and clubs are swung from the Hero's hand; hammers come down from overhead and smash the ground in front of the Hero, hitting everything around the spot with a shockwave; axes and discs are thrown and spin. Every attack starts from the Hero.
 - **Legend Trait: Salmon Leap** (his famous hero-feat). Every 8 s he automatically leaps 3 tiles in his movement direction (straight up if standing still), untargetable for 0.8 s, landing with a shockwave (radius 2 tiles, knockback). A shadow shows where he'll land.
 - **Passive: Battle Frenzy** (his warp-spasm): below 30% HP, +30% attack speed and +15% Area.
 - **Divine Link:** landing shockwaves apply the element of each bound god.

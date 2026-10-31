@@ -1,6 +1,6 @@
 [
   {
-    "_doc": "Weapons (GAME_DESIGN.md: Weapons). Each of the 8 levels lists its full stats: damage, cooldown (seconds between attacks), hit_interval (how soon the same enemy can be hit again; 0 = once per attack or per projectile), range_px (targeting range), area (multiplier), knockback (push speed px/s), plus pattern values (arc_deg; count, spread_deg, speed_px_s, lift_px_s, gravity_px_s2, return_after_s, lifetime_s, radius_px, pierce). in_level_up_pool: can be offered as a new weapon on level-up. ALL NUMBERS ARE PLACEHOLDERS until the Phase 7 fun tuning. Evolved weapons (evolved_from) are swapped in by a chest when the weapon is level 8 and its paired passive is owned (GAME_DESIGN.md: Standard evolutions); they have one level at about 2x level-8 damage. projectile_art (optional): the picture a thrown weapon or its shot flies as (data/art/projectiles/<name>.json; owner request 10/31/2026: spears, javelins, axes, discs, arrows and sling-stones fly as pictures), pointing along its flight, or spinning at projectile_spin_deg_s. Spears jab (thrust) and javelins are thrown (owner decision 10/31/2026).",
+    "_doc": "Weapons (GAME_DESIGN.md: Weapons). Each of the 8 levels lists its full stats: damage, cooldown (seconds between attacks), hit_interval (how soon the same enemy can be hit again; 0 = once per attack or per projectile), range_px (targeting range), area (multiplier), knockback (push speed px/s), plus pattern values (arc_deg; count, spread_deg, speed_px_s, lift_px_s, gravity_px_s2, return_after_s, lifetime_s, radius_px, pierce). in_level_up_pool: can be offered as a new weapon on level-up. ALL NUMBERS ARE PLACEHOLDERS until the Phase 7 fun tuning. Evolved weapons (evolved_from) are swapped in by a chest when the weapon is level 8 and its paired passive is owned (GAME_DESIGN.md: Standard evolutions); they have one level at about 2x level-8 damage. projectile_art (optional): the picture a thrown weapon or its shot flies as (data/art/projectiles/<name>.json; owner request 10/31/2026: spears, javelins, axes, discs, arrows and sling-stones fly as pictures), pointing along its flight, or spinning at projectile_spin_deg_s. Spears jab (thrust) and javelins are thrown (owner decision 10/31/2026). Hammers smash the ground (owner rule 10/31/2026; pattern smash): range_px is how far in front the hammer lands, smash_radius_px the circle it hits there.",
     "id": "great_club",
     "name_key": "WEAPON_GREAT_CLUB_NAME",
     "desc_key": "WEAPON_GREAT_CLUB_DESC",
@@ -2171,80 +2171,80 @@
       "blunt"
     ],
     "targeting": "melee",
-    "pattern": "arc",
+    "pattern": "smash",
     "in_level_up_pool": true,
     "levels": [
       {
         "damage": 16,
         "cooldown": 1.6,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.0,
-        "arc_deg": 100,
-        "knockback": 320
+        "knockback": 320,
+        "smash_radius_px": 26
       },
       {
         "damage": 19,
         "cooldown": 1.6,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.0,
-        "arc_deg": 100,
-        "knockback": 320
+        "knockback": 320,
+        "smash_radius_px": 26
       },
       {
         "damage": 19,
         "cooldown": 1.6,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.0,
-        "arc_deg": 100,
-        "knockback": 380
+        "knockback": 380,
+        "smash_radius_px": 26
       },
       {
         "damage": 23,
         "cooldown": 1.6,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.0,
-        "arc_deg": 100,
-        "knockback": 380
+        "knockback": 380,
+        "smash_radius_px": 26
       },
       {
         "damage": 23,
         "cooldown": 1.6,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.15,
-        "arc_deg": 100,
-        "knockback": 380
+        "knockback": 380,
+        "smash_radius_px": 26
       },
       {
         "damage": 28,
         "cooldown": 1.6,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.15,
-        "arc_deg": 100,
-        "knockback": 380
+        "knockback": 380,
+        "smash_radius_px": 26
       },
       {
         "damage": 28,
         "cooldown": 1.4,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.15,
-        "arc_deg": 100,
-        "knockback": 380
+        "knockback": 380,
+        "smash_radius_px": 26
       },
       {
         "damage": 35,
         "cooldown": 1.4,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.15,
-        "arc_deg": 100,
-        "knockback": 450
+        "knockback": 450,
+        "smash_radius_px": 26
       }
     ],
     "tier_names": [],
@@ -2881,17 +2881,17 @@
       "blunt"
     ],
     "targeting": "melee",
-    "pattern": "arc",
+    "pattern": "smash",
     "in_level_up_pool": false,
     "levels": [
       {
         "damage": 70,
         "cooldown": 1.4,
         "hit_interval": 0,
-        "range_px": 40,
+        "range_px": 30,
         "area": 1.38,
-        "arc_deg": 100,
-        "knockback": 450
+        "knockback": 450,
+        "smash_radius_px": 26
       }
     ],
     "tier_names": [],
