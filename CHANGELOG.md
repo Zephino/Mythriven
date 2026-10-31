@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.00
+Date: 10/31/2026
+Time: 2:23 AM
+
+### Changes
+- **Set's arm redrawn**: his upper arm now hangs clear of his chest with its own dark edge (the gold armband on it), the forearm reaches forward, and a small hand wraps round the was-sceptre, with the staff showing above and below it. Before, the arm ran into his chest and ended in a block of a fist.
+
+### Reason
+The owner asked why Set's body (asked as "Ammit") meshed with his arm, with a weird arm or hand holding the staff.
+
 ## Version 00.01.99
 Date: 10/31/2026
 Time: 2:22 AM

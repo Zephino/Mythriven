@@ -66,12 +66,14 @@ def draw(c, legs):
         for x in range(x0 + 1, x1, 2):
             c.px(x, y, "W")
     poly(c, [(22, 35), (26, 35), (27, 44), (23, 44)], "u"); c.rect(23, 36, 23, 43, "U")
-    # Near arm, holding the was-sceptre upright
-    c.rect(25, 21, 27, 27, "s"); c.rect(24, 22, 24, 27, "o")
-    c.rect(27, 27, 31, 28, "s"); c.px(27, 28, "S")
-    sceptre(c, 33)
-    c.rect(31, 25, 34, 29, "s"); c.row(27, 31, 34, "S")          # fist round the staff
-    c.row(24, 26, 27, "u")                                       # an armband
+    # Near arm (owner 10/31/2026: the first ran into his chest and ended in a block of a fist): the upper arm
+    # hanging clear of his body with its own dark edge, the forearm forward, a small fist round the staff
+    c.rect(26, 23, 26, 29, "o")
+    c.rect(27, 21, 29, 29, "s"); c.px(27, 21, "S"); c.rect(27, 22, 27, 29, "S")
+    c.row(24, 27, 29, "u")                                       # an armband
+    c.rect(29, 28, 33, 30, "s"); c.row(30, 29, 33, "S")
+    sceptre(c, 34)
+    c.rect(33, 27, 36, 30, "s"); c.row(30, 33, 36, "S"); c.px(36, 27, "S")   # fingers round the staff
     # Legs and sandals
     for x0 in (back, front):
         c.rect(x0, 45, x0 + 3, 54, "s"); c.rect(x0, 45, x0, 54, "S")
