@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.54
+Date: 10/30/2026
+Time: 10:17 PM
+
+### Changes
+- **W A S D work in every menu and pop-up** (level-up cards, chests, god choices, Boons, Trader, pause menu, title menus), moving between buttons like the arrow keys. **Space** (or Enter) presses the selected button. Arrow keys and gamepad still work, and text boxes still take the letters as typing. The in-run HUD buttons never take keyboard focus, so walking with WASD can't press them. Checked in the game: S and W moved through the pause menu, and Space pressed Resume.
+
+### Reason
+The owner asked to move around pop-up menus with WASD and select with the space bar on PC.
+
 ## Version 00.01.53
 Date: 10/30/2026
 Time: 10:15 PM

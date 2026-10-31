@@ -19,6 +19,7 @@ var _level_up: LevelUpScreen
 
 
 func _ready() -> void:
+	MenuKeys.install()
 	var hero_id: String = GameAuthority.selected_hero_id
 	if hero_id != "" and not HeroRules.find(hero_id).is_empty():
 		_start()

@@ -222,3 +222,26 @@ func test_the_mouse_moves_the_hero_like_a_finger() -> void:
 	fake.device = InputEvent.DEVICE_ID_EMULATION
 	stick._unhandled_input(fake)
 	assert_false(stick.is_active(), "a phone's pretend mouse click is ignored (the touch itself drives it)")
+
+
+func test_wasd_moves_between_menu_buttons_and_space_presses() -> void:
+	MenuKeys.install()
+	MenuKeys.install()
+	var w := InputEventKey.new()
+	w.physical_keycode = KEY_W
+	w.pressed = true
+	assert_true(w.is_action("ui_up"), "W moves up in menus")
+	var d := InputEventKey.new()
+	d.physical_keycode = KEY_D
+	assert_true(d.is_action("ui_right"), "D moves right")
+	var space := InputEventKey.new()
+	space.physical_keycode = KEY_SPACE
+	assert_true(space.is_action("ui_accept"), "Space presses the selected button")
+	var up := InputEventKey.new()
+	up.keycode = KEY_UP
+	assert_true(up.is_action("ui_up"), "the arrow keys still work")
+	var count: int = 0
+	for event: InputEvent in InputMap.action_get_events("ui_up"):
+		if event is InputEventKey and (event as InputEventKey).physical_keycode == KEY_W:
+			count += 1
+	assert_eq(count, 1, "added once, however many times the game starts a scene")
