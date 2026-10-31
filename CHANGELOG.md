@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.83
+Date: 10/31/2026
+Time: 1:40 AM
+
+### Changes
+- **Odysseus' hat redrawn**: his pilos is now a snug, rounded, egg-shaped felt cap with no brim, in dark red-brown felt, the way Greek vase paintings show it. The old one was wider with a brim, in khaki.
+
+### Reason
+The owner said Odysseus' hat made him look like an elephant safari hunter.
+
 ## Version 00.01.82
 Date: 10/31/2026
 Time: 1:38 AM
