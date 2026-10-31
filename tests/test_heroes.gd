@@ -597,3 +597,30 @@ func test_menu_backdrop_never_repeats_and_has_its_style() -> void:
 		last = MenuBackdrop.scene()
 		assert_true(frames.has(MenuBackdrop.style() + "_button"), "%s has its matching buttons" % last)
 	assert_false(PixelArt.find("menu/logo").is_empty(), "the logo")
+
+
+func test_you_go_in_by_the_doorway_not_over_the_building() -> void:
+	var site: Dictionary = {"pos": Vector2(100, 100)}
+	assert_true(ShrineDungeon.in_doorway(Vector2(100, 92), site), "standing in the shrine's doorway")
+	assert_false(ShrineDungeon.in_doorway(Vector2(132, 92), site), "not on its wall beside the door")
+	assert_false(ShrineDungeon.in_doorway(Vector2(100, 130), site), "not out in front of it")
+	var level: Dictionary = {}
+	for entry: Dictionary in Data.get_file("levels.json"):
+		if str(entry["id"]) == "aegean_shore":
+			level = entry
+	var flora := Flora.new()
+	_parent.add_child(flora)
+	flora.setup(level, 1)
+	flora.set_process(false)
+	flora._structures = Flora.blockers("shrine", Vector2(0, 0))
+	flora._repack()
+	# A Hero walks a step at a time (about 1.5 px a frame).
+	var walk := func(from: Vector2, way: Vector2, frames: int) -> Vector2:
+		var at: Vector2 = from
+		for k: int in frames:
+			at = flora.move(at, way * 1.5, 7.0)
+		return at
+	assert_gt((walk.call(Vector2(32, 20), Vector2.UP, 40) as Vector2).y, -2.0, "the wall beside the door stops you")
+	assert_lt((walk.call(Vector2(0, 20), Vector2.UP, 40) as Vector2).y, -6.0, "the doorway lets you in")
+	assert_lt((walk.call(Vector2(0, -70), Vector2.DOWN, 40) as Vector2).y, -38.0, "the back of the doorway is closed")
+	flora.queue_free()

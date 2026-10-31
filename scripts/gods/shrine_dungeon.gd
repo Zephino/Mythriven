@@ -166,7 +166,7 @@ func gather(at_shrine: Dictionary, delta: float) -> bool:
 	if standing.is_empty():
 		return false
 	for player: Player in standing:
-		if player.position.distance_to(at_shrine["pos"]) > Data.cfg_float("gods.shrine_radius_px") + player.body_radius:
+		if not in_doorway(player.position, at_shrine):
 			# Only the entrance being gathered at resets; another one on screen leaves it alone.
 			if Vector2(at_shrine["pos"]) == _gather_at:
 				_gather_s = 0.0
@@ -183,6 +183,15 @@ func gather(at_shrine: Dictionary, delta: float) -> bool:
 	_walk_through(true, func(player: Player) -> Vector2:
 		return Vector2(at_shrine["pos"]) + Vector2(0.0, -Data.cfg_float("gods.door_depth_px")) - player.position)
 	return true
+
+
+## True when `at` is in the entrance's doorway (owner request 10/31/2026: you go in by walking into the door, not by
+## standing on the building): within its half width either side, from its threshold to a little in front of it.
+## A site's "door" is [half width, how deep, how far in front]; shrines use gods.shrine_door.
+static func in_doorway(at: Vector2, site: Dictionary) -> bool:
+	var door: Array = site.get("door", Data.cfg("gods.shrine_door"))
+	var offset: Vector2 = at - Vector2(site["pos"])
+	return absf(offset.x) <= float(door[0]) and offset.y >= -float(door[1]) and offset.y <= float(door[2])
 
 
 ## Walks the Heroes through a door for gods.door_walk_s: `into` fades them into the dark (and goes in at the end),

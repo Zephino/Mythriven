@@ -42,7 +42,7 @@ func tick_entrance(poi: Dictionary, at: Vector2, delta: float) -> void:
 
 ## The site a ruin's dungeon is built for: the same maze for everyone, from the ruin's place in the world.
 func _site(poi: Dictionary, at: Vector2) -> Dictionary:
-	return {"pos": at, "seed": hash(str(poi["key"])), "key": str(poi["key"]), "god": {}}
+	return {"pos": at, "seed": hash(str(poi["key"])), "key": str(poi["key"]), "god": {}, "door": Data.cfg("gods.arch_door")}
 
 
 func enter(site: Dictionary) -> void:

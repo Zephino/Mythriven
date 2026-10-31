@@ -379,6 +379,15 @@ func cave_door(m: Dictionary) -> Vector2:
 	return tile_center(Vector2i(m["cave"])) + Vector2(0.0, TILE * 0.5)
 
 
+## Every loaded cave's mouth (local px), for the solid rock round it.
+func cave_doors() -> Array:
+	var out: Array = []
+	for m: Dictionary in _mountains.values():
+		if not m.is_empty():
+			out.append(cave_door(m))
+	return out
+
+
 func _cave_entrances(delta: float) -> void:
 	if cave == null:
 		return

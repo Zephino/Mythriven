@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.38
+Date: 10/31/2026
+Time: 11:42 AM
+
+### Changes
+- **You go in by walking into the door**, not by standing on the building. Every entrance is now solid except its doorway: a shrine's front wall and columns (with the back of the doorway closed), the Ancient Ruins' stone arch, and a mountain cave's mouth block Heroes and walking monsters, like trees do. Going in only starts when you stand in the doorway itself (gods.shrine_door and gods.arch_door say how wide and deep the doorways are); standing beside it, on top of it, or behind it doesn't count.
+
+### Reason
+The owner said players have to walk in the door, not over the structure, to go through doors.
+
 ## Version 00.02.37
 Date: 10/31/2026
 Time: 11:32 AM

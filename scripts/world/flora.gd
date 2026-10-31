@@ -38,6 +38,9 @@ var _solid_cells: Dictionary = {}
 var _slow_cells: Dictionary = {}
 var _packed_dirty: bool = true
 var _stone_mult: float = 1.0
+## Solid parts of buildings with doors (shrine walls, the ruins' arch, cave mouths): [absolute centre, radius], so
+## the only way in is through the doorway (owner request 10/31/2026).
+var _structures: Array = []
 ## What each layer draws this frame (worked out once per frame).
 var _back_list: Array = []
 var _front_list: Array = []
@@ -131,6 +134,44 @@ func _gather_zones() -> void:
 	if zones.hash() != _zones.hash():
 		_zones = zones
 		_refresh_hidden()
+	_gather_structures()
+
+
+## The solid parts of every entrance nearby: a shrine's front wall and columns (with a closed back behind its door),
+## the ruins' stone arch, a cave's mouth. Each leaves only its doorway open, from the front.
+func _gather_structures() -> void:
+	var list: Array = []
+	if shrines != null:
+		for shrine: Dictionary in shrines.shrines:
+			if shrines.has_dungeon(shrine):
+				list.append_array(blockers("shrine", _absolute(shrine["pos"])))
+	if pois != null and RuinsDungeon.has_art():
+		for poi: Dictionary in pois.nearby:
+			if str(poi["id"]) == "ancient_ruins":
+				list.append_array(blockers("arch", Vector2(poi["pos"])))
+	if Mountains.current != null:
+		for door: Vector2 in Mountains.current.cave_doors():
+			list.append_array(blockers("arch", _absolute(door)))
+	if list.hash() != _structures.hash():
+		_structures = list
+		_packed_dirty = true
+
+
+## The solid circles of one kind of entrance whose door is at `door` (absolute px).
+static func blockers(kind: String, door: Vector2) -> Array:
+	var out: Array = []
+	if kind == "shrine":
+		for x: float in [16.0, 32.0, 48.0, 64.0]:
+			out.append([door + Vector2(x, -16.0), 9.0])
+			out.append([door + Vector2(-x, -16.0), 9.0])
+		out.append([door + Vector2(0.0, -30.0), 9.0])
+	else:
+		for side: float in [-1.0, 1.0]:
+			out.append([door + Vector2(side * 16.0, 0.0), 7.0])
+			out.append([door + Vector2(side * 16.0, -14.0), 7.0])
+			out.append([door + Vector2(side * 9.0, -24.0), 7.0])
+		out.append([door + Vector2(0.0, -26.0), 9.0])
+	return out
 
 
 func _refresh_hidden() -> void:
@@ -213,6 +254,15 @@ func _repack() -> void:
 			_solid_cells[cell] = solid
 		if not slow.is_empty():
 			_slow_cells[cell] = slow
+	for block: Array in _structures:
+		var at: Vector2 = block[0]
+		var pad: float = float(block[1]) + Data.cfg_float("world.flora_index_pad_px")
+		for gy: int in range(floori((at.y - pad) / CELL), floori((at.y + pad) / CELL) + 1):
+			for gx: int in range(floori((at.x - pad) / CELL), floori((at.x + pad) / CELL) + 1):
+				var cell := Vector2i(gx, gy)
+				var solid: PackedFloat32Array = _solid_cells.get(cell, PackedFloat32Array())
+				solid.append_array([at.x, at.y, float(block[1])])
+				_solid_cells[cell] = solid
 
 
 ## How fast a walker moves here: slower on stones.

@@ -431,6 +431,8 @@
     "shrine_stone_color": "#e8e2d0",
     "throne_feet_px": 12,
     "temple_walk_speed_px": 16,
+    "shrine_door": [8, 18, 3],
+    "arch_door": [7, 12, 5],
     "door_walk_s": 0.6,
     "door_depth_px": 10,
     "door_step_px": 28,
