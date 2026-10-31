@@ -201,7 +201,12 @@ func _draw_art(art: Dictionary) -> void:
 		tint = Color.html(Data.cfg_string("bosses.petrified_color"))
 	var left: bool = facing.x < 0.0
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(-1.0 if left else 1.0, 1.0))
-	draw_texture(texture, Vector2(-anchor.x, body_radius - anchor.y), tint)
+	var top_left := Vector2(-anchor.x, body_radius - anchor.y)
+	# The weapon they use most, in their hand (behind the fist, so the fingers wrap round it).
+	var held: Dictionary = PixelArt.held_weapon(weapons) if art.has("hand") else {}
+	if not held.is_empty():
+		draw_texture(PixelArt.frame(held, false, 0.0), top_left + art["hand"] - held["grip"], tint)
+	draw_texture(texture, top_left, tint)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 

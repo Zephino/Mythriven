@@ -5,6 +5,9 @@ extends RefCounted
 ## and the palette says which colour each letter is ('.' is see-through).
 ## Made into textures once and kept. Drawn with nearest-neighbour filtering at
 ## 1 art pixel = 1 game pixel, so they stay crisp at the camera's zoom.
+## Heroes hold the weapon they use most (owner request 10/31/2026): weapons are
+## separate pictures (data/art/weapons/<weapon id>.json) with a grip point,
+## drawn at the Hero's hand.
 
 const ART_DIR := "res://data/art/"
 
@@ -39,7 +42,29 @@ static func build(data: Variant) -> Dictionary:
 		frames[name] = list
 	var size: Array = data.get("size", [16, 16])
 	var anchor: Array = data.get("anchor", [size[0] / 2, size[1] - 1])
-	return {"size": Vector2(size[0], size[1]), "anchor": Vector2(anchor[0], anchor[1]), "frames": frames}
+	var art: Dictionary = {"size": Vector2(size[0], size[1]), "anchor": Vector2(anchor[0], anchor[1]), "frames": frames}
+	for point: String in ["hand", "grip"]:
+		if data.get(point) is Array:
+			art[point] = Vector2(data[point][0], data[point][1])
+	return art
+
+
+## The picture of the weapon the Hero uses most, to draw in their hand: the
+## highest level among their weapons that have one (on a tie, the one they got
+## first, so a Hero starts with their signature weapon). Spells have no
+## picture; an evolved weapon uses its base weapon's until it has its own.
+## {} when none has a picture.
+static func held_weapon(weapons: Array) -> Dictionary:
+	var best: Dictionary = {}
+	var best_level: int = -1
+	for weapon: WeaponInstance in weapons:
+		var art: Dictionary = find("weapons/" + weapon.id())
+		if art.is_empty():
+			art = find("weapons/" + str(weapon.data.get("evolved_from", "")))
+		if not art.is_empty() and weapon.level > best_level:
+			best = art
+			best_level = weapon.level
+	return best
 
 
 static func _texture(rows: Array, palette: Dictionary) -> ImageTexture:

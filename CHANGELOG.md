@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.62
+Date: 10/31/2026
+Time: 12:09 AM
+
+### Changes
+- **Heroes hold the weapon they use most.** The weapon in a Hero's hand is their highest-level weapon that has a picture. On a tie it's the one they got first, so Heracles starts with his club. Level a sword above the club and he's holding the sword.
+  - Spells aren't held. Evolved weapons use their base weapon's picture for now.
+  - In co-op, every player's Hero shows their own weapon.
+- **15 held-weapon pictures** in `data/art/weapons/`, built by `tools/art/build_weapons.py`: club, Greek sword (also for Sword and Bow), Excalibur (longer, gold guard), war hammer, throwing axe, javelin, spear (Spear and Shield, Scáthach's spear), Gáe Bolg (barbed), bows (longbow, great bow, huntress bow), bladed discus, sling.
+- Heracles' art no longer includes the club; it marks his hand, and the weapon is drawn behind his fist so his fingers wrap round it.
+- `docs/ART_RULES.md`: a Weapons section. Tests check every weapon picture and the "used most" choice.
+
+### Reason
+The owner chose option 2: show whichever weapon the Hero uses most, instead of always the club.
+
 ## Version 00.01.61
 Date: 10/31/2026
 Time: 12:04 AM

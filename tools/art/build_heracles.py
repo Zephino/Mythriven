@@ -1,6 +1,6 @@
 # Builds data/art/heracles.json from shapes (docs/ART_RULES.md). Run:
 #   python3 tools/art/build_heracles.py /tmp/heracles_frames.json
-# then copy its "palette" and "all" (as "frames") into data/art/heracles.json.
+# then copy its "palette", "hand", and "all" (as "frames") into data/art/heracles.json.
 import json, sys
 W, H = 24, 34
 g = []
@@ -59,14 +59,9 @@ def _draw(back_leg, front_leg):
         rect(x0, 26, x0 + 2, 31, "s"); px(x0, 26, "S"); px(x0, 27, "S")
         row(28, x0, x0 + 2, "b"); px(x0 + 1, 29, "b")
         row(31, x0, x0 + 3, "b")
-    # Club: a thin handle showing below the hand, widening into a heavy rounded
-    # head that rests by his feet; knots are dark marks on the wood.
-    for y, x0, x1 in [(18,21,21),(19,21,21),(20,21,21),(21,21,21),(22,21,22),(23,21,22),(24,21,23),(25,21,23),
-                      (26,21,24),(27,21,24),(28,21,24),(29,21,24),(30,22,23)]:
-        row(y, x0, x1, "c")
-        if x1 > x0: px(x1, y, "C")
-    rect(20, 20, 20, 20, "s")                                   # fingers round the handle
-    for (x, y) in [(22,25),(23,28),(22,29)]: px(x, y, "C")     # knots
+    # His weapon is drawn separately (data/art/weapons/, tools/art/build_weapons.py)
+    # and placed at his hand ("hand" in the art file); fingers wrap round it.
+    rect(20, 20, 20, 20, "s")
 
 # Dark outline around everything
 def outline():
@@ -87,4 +82,4 @@ palette = {
  "s": "#e2a676", "S": "#b0724a", "h": "#3e2414", "H": "#2a180c",
  "r": "#a83a2c", "R": "#7a2620", "b": "#5c3a1c", "y": "#d8b048", "c": "#9a6232", "C": "#553012"
 }
-json.dump({"palette": palette, "frames": [idle] + frames["walk"], "all": frames}, open(sys.argv[1], "w"), indent=1)
+json.dump({"palette": palette, "frames": [idle] + frames["walk"], "all": frames, "hand": [20, 20]}, open(sys.argv[1], "w"), indent=1)

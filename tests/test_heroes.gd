@@ -222,13 +222,12 @@ func test_runo_song_cycles_fire_ice_lightning() -> void:
 
 
 func test_hero_pixel_art_files_are_well_formed() -> void:
-	var dir := DirAccess.open(PixelArt.ART_DIR)
-	assert_not_null(dir, "data/art exists")
 	var checked: int = 0
-	for file: String in dir.get_files():
+	for file: String in DirAccess.get_files_at(PixelArt.ART_DIR) + DirAccess.get_files_at(PixelArt.ART_DIR + "weapons").duplicate():
 		if not file.ends_with(".json"):
 			continue
-		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PixelArt.ART_DIR + file))
+		var is_weapon: bool = not FileAccess.file_exists(PixelArt.ART_DIR + file)
+		var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PixelArt.ART_DIR + ("weapons/" if is_weapon else "") + file))
 		assert_true(data is Dictionary, file + " is JSON")
 		var size: Array = data["size"]
 		for frame_name: String in (data["frames"] as Dictionary):
@@ -238,10 +237,27 @@ func test_hero_pixel_art_files_are_well_formed() -> void:
 					assert_eq(str(row).length(), int(size[0]), "%s %s: every row is %d pixels" % [file, frame_name, size[0]])
 					for letter: String in str(row):
 						assert_true(letter == "." or (data["palette"] as Dictionary).has(letter), "%s: '%s' is in the palette" % [file, letter])
-		assert_false(HeroRules.find(file.get_basename()).is_empty(), file + " is named after a Hero")
+		if is_weapon:
+			assert_true(data.get("grip") is Array, file + " marks its grip")
+			assert_false(GameAuthority.find_weapon(file.get_basename()).is_empty(), file + " is named after a weapon")
+		else:
+			assert_false(HeroRules.find(file.get_basename()).is_empty(), file + " is named after a Hero")
 		checked += 1
 	assert_gt(checked, 0)
 	var art: Dictionary = PixelArt.find("heracles")
 	assert_false(art.is_empty(), "Heracles has art")
 	assert_eq((art["frames"]["walk"] as Array).size(), 4, "a four-frame walk")
 	assert_true(PixelArt.find("no_such_hero").is_empty(), "Heroes without art keep the placeholder")
+
+
+func test_a_hero_holds_the_weapon_they_use_most() -> void:
+	var player: Player = _hero("heracles")
+	var club: WeaponInstance = player.weapons[0] if not player.weapons.is_empty() else GameAuthority.give_weapon(player, "great_club")
+	assert_eq(PixelArt.held_weapon(player.weapons), PixelArt.find("weapons/great_club"), "starts with his club")
+	var sword: WeaponInstance = GameAuthority.give_weapon(player, "bronze_sword")
+	assert_eq(PixelArt.held_weapon(player.weapons), PixelArt.find("weapons/great_club"), "a tie keeps the first weapon")
+	sword.level = club.level + 1
+	assert_eq(PixelArt.held_weapon(player.weapons), PixelArt.find("weapons/bronze_sword"), "the higher-level weapon is held")
+	var ember: WeaponInstance = GameAuthority.give_weapon(player, "ember")
+	ember.level = 8
+	assert_eq(PixelArt.held_weapon(player.weapons), PixelArt.find("weapons/bronze_sword"), "spells aren't held")

@@ -25,7 +25,7 @@
 - **Every part has its own dark edge**, not just the outside of the figure: a dark line between the arm and the chest, a 1-pixel gap (filled by the outline) between the body and anything behind it (cloak) or held beside it (weapon). Parts must never run into each other.
 - **A face that reads at a glance:** one dark eye pixel with a row of skin above it (the forehead) and skin around it. Nothing white touches the eye (it reads as a giant eyeball). Facial hair sits below it and is no more than 2 rows.
 - **Cloaks and pelts read as fabric or fur**, never as a plank: they widen as they hang, have a ragged or folded edge, and show texture (lighter tufts or folds). Keep them only if they help: the owner had Heracles' lion-skin cloak removed, since a long strip behind a small figure muddies the silhouette.
-- **The signature weapon must be visible** and stand apart from the body and cloak: a different colour and value (lighter or darker), sticking out past the body.
+- **The weapon must be visible** and stand apart from the body: a different colour and value, sticking out past the body (see Weapons).
 - **Each Hero's iconic feature first.** Pick the one or two things people know them by, and make them big: Heracles' lion-skin hood and club. Leave out anything that muddies the silhouette.
 - **Only from sources.** Clothing, weapons and symbols come from the Hero's myth and from historical and museum sources (see `GAME_DESIGN.md`: Art, and `docs/LORE_CHECK.md`). No stereotypes and no modern pop-culture versions. Write the sources in the file's `_doc`.
 
@@ -39,10 +39,16 @@
 | `H` | Hair and beard shadow | #2a180c |
 | `r` / `R` | Main cloth, light / shadow | #a83a2c / #7a2620 (dark red chiton) |
 | `b` / `y` | Belt and sandals / metal buckle | #5c3a1c / #d8b048 |
-| `c` / `C` | Signature weapon, light / shadow | #9a6232 / #553012 (club: handle in the hand, heavy rounded head by the feet, knots as dark marks) |
 | `l` / `L` / `m` / `w` | Hero's own extras | lion pelt light / shadow / dark mane, white teeth |
 
 Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek marble and bronze, Norse wood and iron, Egyptian sandstone and lapis, Celtic stone and green-gold).
+
+## Weapons
+- A Hero **holds the weapon they use most** (owner request 10/31/2026): the highest level among their weapons that have a picture. On a tie, the one they got first, so every Hero starts holding their signature weapon. Spells (Ember, Frost, Spark, Breeze, Glimmer, Shade, the Runo Song) aren't held. An evolved weapon uses its base weapon's picture until it gets its own.
+- Weapons are their own pictures in `data/art/weapons/<weapon id>.json`, built by `tools/art/build_weapons.py` from shapes around the **grip** at (0, 0), drawn as held hanging at the side (blades and club heads down; spears, javelins and bows upright), then outlined.
+- The Hero's art has no weapon, and marks its **hand**: the pixel in the front fist. The game draws the weapon behind the Hero with its grip on the hand, so the fingers wrap round it.
+- Shared weapon colours: wood `c`/`C`, blade `e`/`E`, bronze fittings `g`/`G`, leather `b`, iron heads `i`/`I`, bright gold `u` (Excalibur), bowstring `w`.
+- Weapons that look alike share a picture (the swords, the spears, the bows), until a Hero's own weapon needs something special (Gáe Bolg's barbs, Excalibur's gold guard).
 
 ## Frames
 - `idle`: 1 frame.
