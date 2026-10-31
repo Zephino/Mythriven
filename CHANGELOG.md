@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.69
+Date: 10/31/2026
+Time: 1:05 AM
+
+### Changes
+- **Tomoe Gozen's sprite**, from The Tale of the Heike (Book 9: beautiful, fair-skinned, long-haired, a strong archer and swordswoman):
+  - long black hair tied high with a red cord, falling to her waist;
+  - Heike-era armour of dark lacquered plates stitched with red cord, with square laced shoulder guards and a plated skirt in three panels;
+  - white hakama, iron shin guards, and sandals;
+  - built on the shared Hero body, with the same walk.
+- **A Japanese tachi** for her Sword and Bow (curved blade, round guard, wrapped grip), replacing the Greek sword it used before.
+- `docs/ART_RULES.md`: weapons fit the Hero's culture, and armour reads as stitched plates, not stripes.
+
+### Reason
+The owner asked to move on to Tomoe Gozen.
+
 ## Version 00.01.68
 Date: 10/31/2026
 Time: 1:02 AM

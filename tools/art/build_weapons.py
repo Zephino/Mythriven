@@ -63,6 +63,12 @@ BOW = [R(2, -11, 2, -9, "c"), R(3, -8, 3, -3, "c"), R(3, -2, 3, 2, "b"), R(3, 3,
 DISCUS = [R(1, -1, 4, 2, "g"), R(2, -2, 3, 3, "g"), R(4, -1, 4, 2, "e"), R(2, 3, 3, 3, "e"), R(3, 0, 3, 1, "G")]
 SLING = [R(0, -1, 0, 5, "b"), R(1, 6, 1, 7, "b"), R(0, 8, 1, 8, "b"), R(-1, 7, -1, 7, "b"), R(0, 7, 0, 7, "I")]
 
+# A Japanese tachi for Tomoe Gozen's Sword and Bow: wrapped grip, round guard
+# (tsuba), and a slightly curved single-edged blade.
+TACHI = [R(0, -3, 0, -3, "g"), R(0, -2, 0, 0, "b"), R(-1, 1, 1, 1, "g")] + \
+        [R(round((y - 2) ** 2 / 45), y, round((y - 2) ** 2 / 45), y, "e") for y in range(2, 13)] + \
+        [R(round((y - 2) ** 2 / 45) + 1, y, round((y - 2) ** 2 / 45) + 1, y, "E") for y in range(2, 11)]
+
 # Väinämöinen's kantele, the picture for his Runo Song (a song, not a weapon):
 # a small wooden box zither held by its narrow end, strings along its face.
 KANTELE = [R(0, -1, 1, 0, "c"),                                            # narrow end in the hand
@@ -75,7 +81,7 @@ KANTELE = [R(0, -1, 1, 0, "c"),                                            # nar
 # forward; spears, javelins and bows stand upright, tipped forward a little;
 # the sling hangs from the hand.
 WEAPONS = {
-    "great_club": (CLUB, -0.45, True), "bronze_sword": (XIPHOS, -0.45, True), "sword_and_bow": (XIPHOS, -0.45, True),
+    "great_club": (CLUB, -0.45, True), "bronze_sword": (XIPHOS, -0.45, True), "sword_and_bow": (TACHI, -0.45, True),
     "excalibur": (EXCALIBUR, -0.45, True), "war_hammer": (HAMMER, -0.45, True), "throwing_axe": (AXE, -0.45, True),
     "javelin": (JAVELIN, -0.12, False), "spear_and_shield": (SPEAR, -0.12, False), "gae_bolg": (GAE_BOLG, -0.12, False),
     "scathach_spear": (SPEAR, -0.12, False), "longbow": (BOW, -0.1, False), "great_bow": (BOW, -0.1, False),
