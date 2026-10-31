@@ -128,3 +128,14 @@ test("the privacy policy page is served for Google's sign-in screen", async () =
   assert.ok(text.includes("Privacy policy"));
   assert.ok(text.includes("never asks Google for your name, email"));
 });
+
+test("the web version may call sign-in (the browser's OPTIONS check is answered fully)", async () => {
+  const res = await worker.fetch(new Request(BASE + "/auth/start", { method: "OPTIONS" }), ENV());
+  assert.equal(res.status, 204);
+  assert.equal(res.headers.get("Access-Control-Allow-Origin"), "*");
+  assert.ok(res.headers.get("Access-Control-Allow-Methods").includes("POST"));
+  assert.ok(res.headers.get("Access-Control-Allow-Headers").includes("Content-Type"));
+  const play = await worker.fetch(new Request(BASE + "/cloud/play", { method: "OPTIONS" }), { SAVE_VAULT: {} });
+  assert.ok(play.headers.get("Access-Control-Allow-Methods").includes("POST"), "and the one-device check");
+  assert.ok(play.headers.get("Access-Control-Allow-Headers").includes("Authorization"));
+});

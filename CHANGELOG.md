@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.40
+Date: 10/30/2026
+Time: 8:33 PM
+
+### Changes
+- **Fixed: "Couldn't reach the sign-in service" on the web version.** Before the game's sign-in request, the browser asks the Worker for permission, and the Worker's answer was missing the details browsers need, so the browser blocked the request. The Worker now answers it fully. Checked in Chrome against a local copy of the Worker: the sign-in start and the one-device check both get through.
+
+### Reason
+The owner's first sign-in test on the web link showed "Couldn't reach the sign-in service".
+
 ## Version 00.01.39
 Date: 10/30/2026
 Time: 8:28 PM

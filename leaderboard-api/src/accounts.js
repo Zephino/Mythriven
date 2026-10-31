@@ -28,16 +28,18 @@ const GOOGLE_AUTH = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_TOKEN = "https://oauth2.googleapis.com/token";
 const GOOGLE_ISSUERS = ["https://accounts.google.com", "accounts.google.com"];
 
+/** Lets the web version of the game call these (browsers ask first, with OPTIONS). */
+const CORS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Accept",
+  "Access-Control-Max-Age": "86400",
+};
+
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, Accept",
-      "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "no-store",
-    },
+    headers: { ...CORS, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
   });
 }
 
@@ -93,7 +95,7 @@ async function store(env, name, value, expires = 0) {
 
 /** Routes /auth/*. */
 export async function handleAuth(request, env) {
-  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { "Access-Control-Allow-Origin": "*" } });
+  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
   if (!env.ACCOUNTS || !env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET) {
     return json({ error: "sign-in is not set up" }, 503);
   }
