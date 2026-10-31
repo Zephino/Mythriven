@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.49
+Date: 10/30/2026
+Time: 9:18 PM
+
+### Changes
+- "Playing as (username)" on the title screen only shows while signed in with Google. Signed in without a username, it says "Signed in with Google."; not signed in, nothing.
+
+### Reason
+The owner asked for "Playing as" to show only when signed in to a Google account.
+
 ## Version 00.01.48
 Date: 10/30/2026
 Time: 9:15 PM

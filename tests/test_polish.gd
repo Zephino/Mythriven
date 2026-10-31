@@ -175,3 +175,26 @@ func test_settings_have_fullscreen_and_the_web_apps_install_and_update() -> void
 	assert_eq(AppActions.install_state(), "unavailable", "nothing to install outside a browser")
 	SaveGame.use_test_file("")
 	DirAccess.remove_absolute("user://test_app_actions.json")
+
+
+func test_playing_as_shows_only_when_signed_in_with_google() -> void:
+	SaveGame.use_test_file("user://test_playing_as.json")
+	SaveGame.set_player_name("Zeph")
+	var lines := func() -> String:
+		var title: TitleScreen = TitleScreen.new_for(null)
+		add_child(title)
+		var text: String = ""
+		for label: Label in title.find_children("*", "Label", true, false):
+			text += label.text + "\n"
+		title.free()
+		return text
+	assert_false(lines.call().contains("Zeph"), "not signed in: no username on the title")
+	CloudSync.set_code("ABCDEFGHJK23")
+	CloudSync.set_account("google", "zeph@example.com")
+	if OnlineConfig.cloud_url() != "":
+		assert_true(lines.call().contains("Zeph"), "signed in: Playing as Zeph")
+	CloudSync.set_account("")
+	CloudSync.set_code("")
+	DirAccess.remove_absolute(CloudSync.file_path())
+	SaveGame.use_test_file("")
+	DirAccess.remove_absolute("user://test_playing_as.json")
