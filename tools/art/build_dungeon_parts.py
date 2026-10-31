@@ -171,6 +171,11 @@ if __name__ == "__main__":
         "debris": [debris(k) for k in range(6)],
         "entrance": [part(44, 40, entrance)],
     }
+    # The arch's front stones alone (its opening and steps left out), drawn over the Heroes as they walk through.
+    front = []
+    for y, row in enumerate(frames["entrance"][0]):
+        front.append("".join("." if 13 <= x <= 30 and y >= 15 else ch for x, ch in enumerate(row)))
+    frames["entrance_front"] = [front]
     data = {"_doc": "Dungeon parts for the Ancient Ruins (owner request 10/31/2026): an old crumbling ruin underground, "
                     "built by tools/art/build_dungeon_parts.py. Cracked and mossy flagstones, broken dark stone walls, a "
                     "snapped pillar, a stone dais for the treasure, a wall torch, rubble, bones, a broken urn, cobwebs, "

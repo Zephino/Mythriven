@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.28
+Date: 10/31/2026
+Time: 10:12 AM
+
+### Changes
+- **Walking through dungeon doors**: when the party goes in, each Hero walks up into the doorway and fades into the dark. On the ruins' stairway they also go down the steps, sinking out of sight under the stone arch (the arch's front is drawn over them, so they pass under it). Inside, they come up the entry steps out of the darkness. Leaving, they climb up out of the doorway and step away into the world.
+- Fixed: coming out of a dungeon, the ground was grey for a moment. The world's ground now stays loaded where you went in.
+- New settings `gods.door_walk_s`, `gods.door_depth_px`, `gods.door_step_px`, `gods.door_front_z`, `gods.door_sink_fraction`; the ruins parts gain `entrance_front`.
+
+### Reason
+The owner wanted the Heroes to look like they walk through the door instead of just standing behind the structure.
+
 ## Version 00.02.27
 Date: 10/31/2026
 Time: 10:02 AM

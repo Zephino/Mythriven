@@ -55,6 +55,16 @@ var projectile_speed_mult: float = 1.0
 var palette_color := Color(0, 0, 0, 0)
 ## Seconds left of a weapon swing: the held weapon is hidden while its picture sweeps (EffectLayer.spawn_swing).
 var swinging_s: float = 0.0
+## A short walk the game takes the Hero on (through a dungeon's door; owner request 10/31/2026): the way and how long.
+var auto_walk := Vector2.ZERO
+var auto_walk_s: float = 0.0
+## How visible the Hero is (fading into a doorway's darkness, or out of it).
+var door_fade: float = 1.0:
+	set(value):
+		door_fade = value
+		queue_redraw()
+## How far the Hero has gone down a stairway (0–1): their picture sinks, its lower part hidden below the steps.
+var door_sink: float = 0.0
 ## Distance walked, for the walking frames of the Hero's pixel art.
 var _stride: float = 0.0
 var _last_drawn_at := Vector2.ZERO
@@ -131,7 +141,10 @@ func _process(delta: float) -> void:
 		var dot: float = statuses.tick(delta)
 		if dot > 0.0:
 			GameAuthority.damage_player_over_time(self, dot)
-	if kit != null and kit.controls_movement():
+	if auto_walk_s > 0.0:
+		auto_walk_s -= delta
+		step(auto_walk, delta)
+	elif kit != null and kit.controls_movement():
 		pass
 	elif input != null and (alive or shade):
 		step(input.get_move_vector(), delta)
@@ -189,7 +202,7 @@ func _draw() -> void:
 		draw_arc(Vector2.ZERO, size_px * 0.9, 0.0, TAU, 20, Color.html(Data.cfg_string("gods.invulnerable_color")), 2.0)
 	if downed:
 		_draw_downed(size_px)
-	elif not shade:
+	elif not shade and door_fade >= 1.0:
 		_draw_hp_bar()
 
 
@@ -218,11 +231,20 @@ func _draw_art(art: Dictionary) -> void:
 		tint = Color(Color.html(Data.cfg_string("coop.shade_color")), 0.55)
 	if rooted_s > 0.0:
 		tint = Color.html(Data.cfg_string("bosses.petrified_color"))
+	tint.a *= door_fade
 	var left: bool = facing.x < 0.0
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(-1.0 if left else 1.0, 1.0))
 	var top_left := Vector2(-anchor.x, body_radius - anchor.y - (kit.lift_px() if kit != null else 0.0))
 	# The weapon they use most, in their hand (behind the fist, so the fingers wrap round it).
 	var held: Dictionary = PixelArt.held_weapon(weapons) if art.has("hand") and swinging_s <= 0.0 else {}
+	if door_sink > 0.0:
+		# Going down steps: the picture moves down and only the part above the ground line shows.
+		var size: Vector2 = texture.get_size()
+		var drop: float = roundf(size.y * door_sink * Data.cfg_float("gods.door_sink_fraction"))
+		draw_texture_rect_region(texture, Rect2(top_left + Vector2(0.0, drop), size - Vector2(0.0, drop)),
+				Rect2(Vector2.ZERO, size - Vector2(0.0, drop)), tint)
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		return
 	if not held.is_empty():
 		draw_texture(PixelArt.frame(held, false, 0.0), top_left + art["hand"] - held["grip"], tint)
 	draw_texture(texture, top_left, tint)

@@ -30,6 +30,9 @@ var _back: Dictionary = {}        # player_id -> where they stood outside
 var _last: Dictionary = {}        # player_id -> last position inside on walkable floor
 var _gather_s: float = 0.0
 var _gather_at := Vector2.INF     # the entrance the party is gathering at
+var _door_s: float = 0.0          # seconds left of walking through a door
+var _door_into: bool = false      # into the doorway's dark (then in), or out of it
+var _door_site: Dictionary = {}
 var _bind_s: Dictionary = {}
 var _spawned: Array = []           # enemy slots spawned inside
 var _enemy_last: Dictionary = {}   # slot -> last position on floor
@@ -154,7 +157,7 @@ static func _farthest_top(open: Dictionary, start: Vector2i, w: int, h: int) -> 
 
 ## Called each frame by Shrines while a shrine waits: the party gathers at its entrance. Returns true on going in.
 func gather(at_shrine: Dictionary, delta: float) -> bool:
-	if active:
+	if active or _door_s > 0.0:
 		return false
 	var standing: Array = []
 	for player: Player in GameAuthority.players:
@@ -175,8 +178,58 @@ func gather(at_shrine: Dictionary, delta: float) -> bool:
 	if _gather_s < Data.cfg_float("gods.dungeon_gather_s"):
 		return false
 	_gather_s = 0.0
-	enter(at_shrine)
+	# The party walks up into the doorway and fades into its dark, then they're inside (owner request 10/31/2026).
+	_door_site = at_shrine
+	_walk_through(true, func(player: Player) -> Vector2:
+		return Vector2(at_shrine["pos"]) + Vector2(0.0, -Data.cfg_float("gods.door_depth_px")) - player.position)
 	return true
+
+
+## Walks the Heroes through a door for gods.door_walk_s: `into` fades them into the dark (and goes in at the end),
+## otherwise they fade in as they come out. `way` gives each Hero the walk to make (they stop at its end). Each device
+## walks its own Hero; every Hero fades.
+func _walk_through(into: bool, way: Callable) -> void:
+	_door_into = into
+	_door_s = Data.cfg_float("gods.door_walk_s")
+	for player: Player in GameAuthority.players:
+		player.door_fade = 1.0 if into else 0.0
+		if player.is_local and player.alive:
+			var walk: Vector2 = way.call(player)
+			player.auto_walk = walk.normalized()
+			player.auto_walk_s = minf(_door_s, walk.length() / maxf(player.move_speed, 1.0))
+
+
+## True when the way in is a stairway down (the Heroes sink and rise on it); a shrine's is a level doorway.
+func _stairs() -> bool:
+	return false
+
+
+## The entrance the Heroes are walking through right now in the world (Vector2.INF when nobody is).
+func door_spot() -> Vector2:
+	if _door_s <= 0.0 or active:
+		return Vector2.INF
+	return Vector2((_door_site if _door_into else shrine).get("pos", Vector2.INF))
+
+
+func _tick_door(delta: float) -> void:
+	if _door_s <= 0.0:
+		return
+	_door_s -= delta
+	var k: float = clampf(1.0 - _door_s / maxf(Data.cfg_float("gods.door_walk_s"), 0.01), 0.0, 1.0)
+	# Down the steps going in, up them coming out (stairways only: the ruins).
+	var sinks: bool = _stairs()
+	for player: Player in GameAuthority.players:
+		player.door_fade = 1.0 - k if _door_into else k
+		# Coming out, they're up the steps in the first half of the walk, then step away.
+		player.door_sink = (k if _door_into else maxf(1.0 - 2.0 * k, 0.0)) if sinks else 0.0
+	if _door_s > 0.0:
+		return
+	for player: Player in GameAuthority.players:
+		player.door_fade = 1.0
+		player.door_sink = 0.0
+		player.auto_walk_s = 0.0
+	if _door_into and not active:
+		enter(_door_site)
 
 
 ## How far the party is through gathering at the entrance at `at` (0 at any other entrance).
@@ -209,6 +262,8 @@ func enter(at_shrine: Dictionary) -> void:
 		_last[player.player_id] = start
 		k += 1
 	_snap_camera()
+	# Up the steps from the dark at the way in.
+	_walk_through(false, func(_player: Player) -> Vector2: return Vector2.UP * Data.cfg_float("gods.door_step_px"))
 	entered.emit()
 	queue_redraw()
 
@@ -217,15 +272,21 @@ func leave() -> void:
 	if not active:
 		return
 	active = false
+	# Everyone comes back out of the doorway, side by side.
+	var door: Vector2 = Vector2(shrine["pos"]) + Vector2(0.0, -Data.cfg_float("gods.door_depth_px"))
+	var k: int = 0
 	for player: Player in GameAuthority.players:
 		if GameAuthority.decides() and _back.has(player.player_id):
-			GameAuthority.place_player(player, _back[player.player_id])
+			GameAuthority.place_player(player, door + Vector2(k * 10.0 - 5.0, 0.0))
+		k += 1
 	_back.clear()
 	_last.clear()
 	_banish()
 	_sleep_outside(false)
 	_set_frozen(false)
 	_snap_camera()
+	# Out of the doorway's dark, stepping down into the world.
+	_walk_through(false, func(_player: Player) -> Vector2: return Vector2.DOWN * Data.cfg_float("gods.door_step_px"))
 	left_dungeon.emit()
 	queue_redraw()
 
@@ -237,6 +298,9 @@ func _snap_camera() -> void:
 
 
 func _set_frozen(on: bool) -> void:
+	# Every device keeps the world's ground loaded where the party went in, so it's there when they come out.
+	for chunks: Node in get_tree().root.find_children("*", "ChunkManager", true, false):
+		chunks.process_mode = Node.PROCESS_MODE_DISABLED if on else Node.PROCESS_MODE_INHERIT
 	# Only the game that decides stops its systems; joining players' mirrored systems stay as CoopMirror set them.
 	if not GameAuthority.decides():
 		return
@@ -348,6 +412,7 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 # --- Inside --------------------------------------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
+	_tick_door(delta)
 	if not active:
 		return
 	for player: Player in GameAuthority.players:

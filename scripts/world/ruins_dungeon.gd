@@ -11,6 +11,17 @@ const PARTS := "dungeon/ruins"
 
 var pois: PoiManager
 var _opened: bool = false
+## The arch's front stones, drawn over the Heroes while they walk through it (so they pass under it, into the dark).
+var _front: Node2D
+
+
+func _ready() -> void:
+	super._ready()
+	_front = Node2D.new()
+	_front.z_as_relative = false
+	_front.z_index = Data.cfg_int("gods.door_front_z")
+	_front.draw.connect(_draw_front)
+	add_child(_front)
 
 
 ## True when the ruins can be a dungeon (their parts have art).
@@ -41,6 +52,10 @@ func enter(site: Dictionary) -> void:
 
 func _parts_id() -> String:
 	return PARTS
+
+
+func _stairs() -> bool:
+	return true
 
 
 ## The treasure: touching the chest opens it, warps the party out, and offers the ruins' gift.
@@ -75,6 +90,19 @@ func draw_entrance(canvas: CanvasItem, at: Vector2, done: bool, _color: Color) -
 	if not done and not active and gather_progress(at) > 0.0:
 		canvas.draw_arc(at, Data.cfg_float("gods.shrine_radius_px"), -PI * 0.5, -PI * 0.5 + TAU * gather_progress(at), 40,
 				Color.WHITE, 3.0)
+
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	_front.queue_redraw()
+
+
+func _draw_front() -> void:
+	var at: Vector2 = door_spot()
+	if at == Vector2.INF or not RuinsDungeon.has_art():
+		return
+	var texture: ImageTexture = (PixelArt.find(PARTS)["frames"]["entrance_front"] as Array)[0]
+	_front.draw_texture(texture, at - Vector2(texture.get_width() * 0.5, texture.get_height() * 0.75))
 
 
 # --- Co-op: joining players go in and out with the host (carried by PoiManager's mirror) --------------------------
