@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.67
+Date: 10/31/2026
+Time: 1:00 AM
+
+### Changes
+- **Väinämöinen's sprite**, from the Kalevala ("old and steadfast Väinämöinen", the eternal singer):
+  - an old man with long white hair down his back, a long white beard over his chest, and bushy white brows;
+  - a dark blue-grey wool coat to the knees with a red woven belt picked out in gold, and leather boots;
+  - built on the shared Hero body, with the same walk.
+- **His kantele** (the harp-like instrument he makes in Kalevala runos 40 and 44) is the picture for his Runo Song, so he carries it until another weapon outlevels it: a wedge-shaped wooden box with strings.
+- `docs/ART_RULES.md`: spells aren't held, except where the myth gives the spell an object (his kantele).
+
+### Reason
+The owner liked Cú Chulainn and asked to move on to the next Hero.
+
 ## Version 00.01.66
 Date: 10/31/2026
 Time: 12:54 AM
