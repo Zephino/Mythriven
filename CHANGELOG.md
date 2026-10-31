@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.64
+Date: 10/31/2026
+Time: 12:22 AM
+
+### Changes
+- **Weapons are held more naturally.** Instead of hanging stiffly straight, each weapon tilts the way a real fighter holds it, and the handle visibly passes through the fist:
+  - clubs, swords, hammers, axes and slings swing forward from the wrist;
+  - spears, javelins and bows tip forward.
+  The lean is set per weapon in `tools/art/build_weapons.py`; the rule is in `docs/ART_RULES.md`.
+
+### Reason
+The owner asked for weapons to look like they're held more realistically.
+
 ## Version 00.01.63
 Date: 10/31/2026
 Time: 12:14 AM

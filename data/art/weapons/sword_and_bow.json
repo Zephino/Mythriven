@@ -1,7 +1,7 @@
 {
  "_doc": "Held weapon (docs/ART_RULES.md: Weapons), built by tools/art/build_weapons.py. grip is the pixel held in the Hero's hand.",
  "size": [
-  5,
+  7,
   14
  ],
  "grip": [
@@ -25,20 +25,20 @@
  "frames": {
   "idle": [
    [
-    "..o..",
-    ".ogo.",
-    ".obo.",
-    ".obo.",
-    "ogggo",
-    ".oeEo",
-    ".oeEo",
-    ".oeEo",
-    ".oeEo",
-    ".oeEo",
-    ".oeEo",
-    ".oeo.",
-    ".oeo.",
-    "..o.."
+    ".o.....",
+    "ogo....",
+    ".obo...",
+    ".obo...",
+    "ogggo..",
+    ".ooeEo.",
+    "..oeEo.",
+    "..oeEo.",
+    "...oeEo",
+    "...oeEo",
+    "...oeEo",
+    "...oeo.",
+    "....oeo",
+    ".....o."
    ]
   ]
  }
