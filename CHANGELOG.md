@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.79
+Date: 10/31/2026
+Time: 1:31 AM
+
+### Changes
+- **Scáthach's sprite**, from Tochmarc Emire (The Wooing of Emer, where she trains Cú Chulainn at Dún Scáith, the fortress of shadows) and Aided Óenfir Aífe:
+  - the tales don't describe her looks, so her clothes follow the early Irish dress in the same tales (as Cú Chulainn's): a léine (tunic) to the knees in madder brown, a dark shadow-coloured brat (mantle) over her shoulders held by a silver brooch, a belt, and shoes;
+  - long black hair falling down her back; fair skin;
+  - not based on any modern version (GAME_DESIGN.md avoids the Fate/Grand Order designs);
+  - built on the shared Hero body, with the same walk. She holds her spear.
+- All nine Pack 1 Heroes now have sprites.
+
+### Reason
+The owner asked to go on to the next Hero.
+
 ## Version 00.01.78
 Date: 10/31/2026
 Time: 1:29 AM
