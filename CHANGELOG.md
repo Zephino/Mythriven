@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.29
+Date: 10/31/2026
+Time: 10:23 AM
+
+### Changes
+- **Shrines look less cartoony**: all four shrine sets (Greek marble, Norse timber, Egyptian sandstone, Celtic dry-stone) are weathered. The black outlines are now soft dark edges in each part's own colour, the stone and wood have a fine grain, light falls from above (brighter tops, darker feet), there are chips and stains, and the colours are a little less bright. Fire is unchanged.
+- The doorway has depth (a little light at the threshold, darker inside, shadowed sides) instead of a flat black box; the wall casts a soft shadow on the paving; the paving's front corners are worn away and its outer stones fade into the ground.
+- The menu redesign agreed so far is written down in `docs/DECISIONS.md` (not built yet; still being talked through).
+
+### Reason
+The owner asked for the shrine to look less cartoony, and gave their choices for the menu design.
+
 ## Version 00.02.28
 Date: 10/31/2026
 Time: 10:12 AM

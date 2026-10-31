@@ -225,15 +225,32 @@ func _draw_entrance(at: Vector2, shrine: Dictionary, parts: Dictionary, color: C
 	var frames: Dictionary = parts["frames"]
 	var tile: float = ShrineLayout.TILE
 	var floor_frames: Array = frames["floor"]
+	# The paving breaks up at its edges into the ground round it (worn away, not a neat rectangle).
 	for y: int in range(-1, 2):
 		for x: int in range(-3, 4):
-			draw_texture(floor_frames[absi(x + y) % floor_frames.size()], at + Vector2(x - 0.5, y - 0.5) * tile)
+			var edge: bool = absi(x) == 3 or y == 1
+			if absi(x) == 3 and y == 1:
+				continue
+			draw_texture(floor_frames[absi(x + y) % floor_frames.size()], at + Vector2(x - 0.5, y - 0.5) * tile,
+					Color(1, 1, 1, 0.8 if edge else 1.0))
 	var wall: ImageTexture = (frames["wall"] as Array)[0]
 	for x: int in range(-4, 5):
 		if x != 0:
 			draw_texture(wall, at + Vector2(x * tile - wall.get_width() * 0.5, -tile * 0.5 - wall.get_height()))
-	draw_rect(Rect2(at + Vector2(-tile * 0.5, -tile * 0.5 - wall.get_height() + 4.0), Vector2(tile, wall.get_height() - 4.0)),
-			Color.html(Data.cfg_string("gods.dungeon_dark_color")))
+	# A soft shadow the wall casts on the floor in front of it.
+	draw_rect(Rect2(at + Vector2(-4.5 * tile, -tile * 0.5), Vector2(9.0 * tile, 5.0)), Color(0, 0, 0, 0.22))
+	draw_rect(Rect2(at + Vector2(-4.5 * tile, -tile * 0.5 + 5.0), Vector2(9.0 * tile, 3.0)), Color(0, 0, 0, 0.1))
+	# The doorway: dark, with a little light reaching in at the threshold, so it has depth (not a flat black box).
+	var dark := Color.html(Data.cfg_string("gods.dungeon_dark_color"))
+	var door := Rect2(at + Vector2(-tile * 0.5, -tile * 0.5 - wall.get_height() + 4.0), Vector2(tile, wall.get_height() - 4.0))
+	draw_rect(door, dark)
+	var bands: int = 6
+	for k: int in bands:
+		var band_h: float = door.size.y * 0.45 / bands
+		draw_rect(Rect2(door.position + Vector2(0.0, door.size.y - band_h * (k + 1)), Vector2(door.size.x, band_h)),
+				Color(0.55, 0.45, 0.35, 0.05 * (bands - k)))
+	draw_rect(Rect2(door.position, Vector2(2.0, door.size.y)), Color(0, 0, 0, 0.35))
+	draw_rect(Rect2(door.position + Vector2(door.size.x - 2.0, 0.0), Vector2(2.0, door.size.y)), Color(0, 0, 0, 0.35))
 	for side: float in [-1.0, 1.0]:
 		var column: ImageTexture = (frames["column"] as Array)[0]
 		draw_texture(column, at + Vector2(side * tile - column.get_width() * 0.5, -tile * 0.5 - column.get_height() + 6.0))

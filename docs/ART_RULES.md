@@ -1,6 +1,7 @@
 # Art rules: Hero sprites
 
 **Status: approved** by the owner on 10/31/2026, after Heracles (the first Hero; his first version looked like "someone in a diaper": short, big-headed, in a short white tunic). These are the rules for every Hero. Change them only with the owner's OK, and redraw the Heroes already made if they change.
+- Shrine parts are weathered after they're drawn (owner request 10/31/2026: less cartoony; `weather()` in `tools/art/build_shrine_parts.py`): soft dark edges in each part's own colour instead of black outlines, a fine grain, light from above in bands, chips and stains, slightly muted colours; fire is left as drawn. The entrance's doorway has depth and the wall casts a soft shadow; the paving's front corners are worn away.
 
 ## Format
 - One file per Hero: `data/art/<hero id>.json`. The game finds it by the Hero's id; a Hero without a file keeps the coloured-square placeholder.
