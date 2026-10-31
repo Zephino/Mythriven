@@ -6,7 +6,7 @@ extends Node2D
 
 ## Absolute chunk coordinate (doesn't change when the world origin shifts).
 var coord: Vector2i = Vector2i.ZERO
-## Each decoration: {"position": Vector2, "art": Dictionary}. Visual only, no collision.
+## Each decoration: {"position": Vector2, "art": Dictionary, "id": String}. Visual only, no collision.
 var decorations: Array[Dictionary] = []
 
 var _layer: TileMapLayer
@@ -58,12 +58,18 @@ func build_rows(manager: ChunkManager, max_rows: int) -> int:
 	return count
 
 
+## Each decoration's picture (data/art/scenery/<id>.json; owner request 10/31/2026) standing on the bottom of its
+## spot, or its placeholder shape without one.
 func _draw_decorations() -> void:
 	for decoration: Dictionary in decorations:
 		var art: Dictionary = decoration["art"]
 		var pos: Vector2 = decoration["position"]
 		var size_list: Array = art.get("size_px", [8, 8])
 		var size := Vector2(float(size_list[0]), float(size_list[1]))
+		var picture: Dictionary = PixelArt.find("scenery/" + str(decoration.get("id", "")))
+		if not picture.is_empty():
+			PixelArt.draw_standing(_decor_canvas, picture, pos + Vector2(0.0, size.y * 0.5), false)
+			continue
 		var color := Color.html(str(art.get("placeholder_color", "#ff00ff")))
 		if art.get("shape", "rect") == "circle":
 			_decor_canvas.draw_circle(pos, size.x * 0.5, color)

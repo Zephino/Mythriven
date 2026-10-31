@@ -108,8 +108,12 @@ func spawn_jab(at: Vector2, angle: float, reach: float, art: Dictionary, face_le
 
 ## A lightning bolt from the sky down onto `at` (owner request 10/31/2026: spells look like what they are).
 ## `big`: an evolved spell's (Tempest): a thicker bolt with forks (spread 1).
-func spawn_bolt(at: Vector2, color: Color, big: bool = false) -> void:
-	_spawn(KIND_BOLT, at, randf() * TAU, Data.cfg_float("effects.bolt_height_px"), 1.0 if big else 0.0, color)
+## `share`: also show it on the joining players' screens in co-op (a level's thunderstorm).
+func spawn_bolt(at: Vector2, color: Color, big: bool = false, share: bool = false) -> void:
+	var angle: float = randf() * TAU
+	_spawn(KIND_BOLT, at, angle, Data.cfg_float("effects.bolt_height_px"), 1.0 if big else 0.0, color)
+	if share:
+		shared.emit(KIND_BOLT, at, angle, Data.cfg_float("effects.bolt_height_px"), 1.0 if big else 0.0, color)
 
 
 ## Dark wisps swirling round `at` out to `aura_radius` (Shade).

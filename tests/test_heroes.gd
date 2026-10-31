@@ -441,3 +441,14 @@ func test_pickup_and_summon_pictures_load() -> void:
 	for name: String in ["stag", "hammer", "crow", "sun_barque"]:
 		assert_false(PixelArt.find("summons/" + name).is_empty(), "summon picture " + name)
 	assert_true(PixelArt.pickup_scale(PixelArt.pickup_texture("xp_gem"), 9.0).y < 0.0, "pickups are drawn upright")
+
+
+func test_every_level_has_ground_tiles_and_scenery() -> void:
+	for level: Dictionary in Data.get_file("levels.json"):
+		var tiles: Dictionary = level.get("tileset", {})
+		var ground: Dictionary = PixelArt.find("ground/" + str(tiles.get("id", "")))
+		assert_false(ground.is_empty(), "%s has ground tiles" % level["id"])
+		for entry: Dictionary in tiles.get("ground", []):
+			assert_eq((ground["frames"].get(str(entry["id"]), []) as Array).size(), 2, "%s: two %s tiles" % [level["id"], entry["id"]])
+		for id: Variant in level.get("decorations", []):
+			assert_false(PixelArt.find("scenery/" + str(id)).is_empty(), "%s has a picture" % id)

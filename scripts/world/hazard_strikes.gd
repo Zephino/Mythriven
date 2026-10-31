@@ -81,6 +81,8 @@ func _strike(at: Vector2) -> void:
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
 		effects.spawn_ring(at, reach, Color.html(str(_data.get("color", "#ffffff"))), true)
+		# The bolt itself, from the sky (owner request 10/31/2026).
+		effects.spawn_bolt(at, Color.html(str(_data.get("color", "#ffffff"))), true, true)
 
 
 func _draw() -> void:
@@ -93,6 +95,10 @@ func _draw() -> void:
 		var filled: float = clampf(1.0 - _marker_left[i] / full, 0.0, 1.0)
 		draw_arc(_marker_pos[i], reach, 0.0, TAU, 24, area_color, 1.5)
 		draw_circle(_marker_pos[i], reach * filled, Color(area_color, area_color.a * 0.4))
+		# Sparks crackle on the spot as the strike builds.
+		if int(filled * 12.0) % 2 == 0:
+			var spark: Vector2 = _marker_pos[i] + Vector2.from_angle(filled * 17.0 + i) * reach * 0.5
+			draw_line(spark, spark + Vector2(3, -5), Color.html(str(_data.get("color", "#ffffff"))), 1.0)
 
 
 func net_capture() -> Variant:

@@ -111,9 +111,10 @@ func decoration_layout(chunk_coord: Vector2i) -> Array[Dictionary]:
 		return result
 	var count: int = rng.randi_range(int(count_range[0]), int(count_range[1]))
 	for _i: int in count:
-		var art: Dictionary = art_table.get(_pick_weighted(rng, ids, art_table), {})
+		var id: String = _pick_weighted(rng, ids, art_table)
+		var art: Dictionary = art_table.get(id, {})
 		var pos := Vector2(rng.randf() * chunk_px, rng.randf() * chunk_px)
-		result.append({"position": pos, "art": art})
+		result.append({"position": pos, "art": art, "id": id})
 	return result
 
 

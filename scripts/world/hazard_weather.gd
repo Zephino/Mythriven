@@ -5,7 +5,8 @@ extends Hazard
 ## lighter, enemies) in a direction that turns every few seconds, and a veil
 ## closes in around the screen's edges so only a circle around the Hero stays
 ## clear. Data: push_px_s, enemy_push_px_s, wind_turn_s, vision_screens (radius
-## of the clear circle in screen heights; 0 = no veil), veil_color, fade_s.
+## of the clear circle in screen heights; 0 = no veil), veil_color, fade_s, particles ("snow", "sand" or "mist"
+## blowing across the screen; "" for none) and particle_color.
 
 var wind := Vector2.RIGHT
 
@@ -13,6 +14,10 @@ var _turn_left: float = 0.0
 var _strength: float = 0.0
 var _layer: CanvasLayer
 var _veil: ColorRect
+## Snowflakes, sand or mist blowing across the screen (owner request 10/31/2026), drawn in screen space.
+var _flakes: Node2D
+var _flake_pos := PackedVector2Array()
+var _flake_seed := PackedFloat32Array()
 
 
 func _ready() -> void:
@@ -39,6 +44,9 @@ void fragment() {
 	_veil.material = material
 	_veil.visible = false
 	_layer.add_child(_veil)
+	_flakes = Node2D.new()
+	_flakes.draw.connect(_draw_flakes)
+	_layer.add_child(_flakes)
 	CoopMirror.attach(self, "weather")
 	# Co-op (joining player): keep running to blow this device's own Hero with the host's wind.
 	process_mode = Node.PROCESS_MODE_INHERIT
@@ -78,6 +86,7 @@ func _process(delta: float) -> void:
 
 
 func _update_veil() -> void:
+	_move_flakes(get_process_delta_time())
 	var vision: float = float(_data.get("vision_screens", 0.0))
 	_veil.visible = _strength > 0.0 and vision > 0.0
 	if not _veil.visible:
@@ -108,3 +117,44 @@ func net_apply(state: Variant) -> void:
 	super.net_apply(state[0])
 	_strength = float(state[1])
 	wind = state[2]
+
+
+## Moves the weather's particles with the wind, wrapping round the screen; how many show grows with its strength.
+func _move_flakes(delta: float) -> void:
+	var view: Vector2 = get_viewport().get_visible_rect().size
+	var count: int = Data.cfg_int("world.weather_particles")
+	if _flake_pos.size() != count:
+		_flake_pos.resize(count)
+		_flake_seed.resize(count)
+		for i: int in count:
+			_flake_pos[i] = Vector2(randf() * view.x, randf() * view.y)
+			_flake_seed[i] = randf()
+	_flakes.visible = _strength > 0.0 and str(_data.get("particles", "")) != ""
+	if not _flakes.visible:
+		return
+	var speed: float = Data.cfg_float("world.weather_particle_speed_px_s")
+	var kind: String = str(_data.get("particles", ""))
+	for i: int in count:
+		var drift: Vector2 = wind * speed * (0.6 + _flake_seed[i])
+		if kind == "snow":
+			drift += Vector2(sin(Time.get_ticks_msec() * 0.002 + i) * 10.0, 25.0)
+		elif kind == "mist":
+			drift *= 0.25
+		var p: Vector2 = _flake_pos[i] + drift * delta
+		_flake_pos[i] = Vector2(fposmod(p.x, view.x), fposmod(p.y, view.y))
+	_flakes.queue_redraw()
+
+
+func _draw_flakes() -> void:
+	var shown: int = int(_flake_pos.size() * _strength)
+	var color := Color.html(str(_data.get("particle_color", "#ffffff")))
+	match str(_data.get("particles", "")):
+		"snow":
+			for i: int in shown:
+				_flakes.draw_circle(_flake_pos[i], 1.0 + _flake_seed[i] * 1.5, Color(color, 0.85))
+		"sand":
+			for i: int in shown:
+				_flakes.draw_line(_flake_pos[i], _flake_pos[i] + wind * (4.0 + _flake_seed[i] * 8.0), Color(color, 0.7), 1.0)
+		"mist":
+			for i: int in shown / 6:
+				_flakes.draw_circle(_flake_pos[i], 18.0 + _flake_seed[i] * 26.0, Color(color, 0.07))

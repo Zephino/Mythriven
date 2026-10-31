@@ -1,0 +1,206 @@
+# Scenery (docs/ART_RULES.md: Scenery): the decorations scattered over each level's ground (levels.json
+# "decorations"). Visual only, no collision. Run: python3 build_scenery.py from tools/art/.
+# Writes data/art/scenery/<decoration id>.json, drawn with the middle of its base on the decoration's spot.
+import json, math, os, random
+from build_weapons import Pic, finish
+
+PALETTE = {
+    "o": "#24160e", "k": "#140c08",
+    "m": "#ece7da", "M": "#c8c0ae", "n": "#a8a090",                      # marble
+    "t": "#6a5034", "T": "#4a3622", "v": "#8a9a6a", "V": "#5a6a40", "w": "#b0bc90",   # olive
+    "p": "#2e4a32", "P": "#1e3222", "q": "#466a48", "s": "#eef2f6",      # pine, snow
+    "g": "#8a8c90", "G": "#64666a", "h": "#a8aab0", "r": "#a83a2c",      # grey stone, red paint
+    "b": "#6a5440", "B": "#4a3a2a", "u": "#5a7a3a",                      # timber, turf
+    "e": "#d8c4a0", "E": "#b8a07a", "F": "#9a8460", "y": "#f0c040", "z": "#2a1e14",   # sandstone, gold, dark doorway
+    "c": "#6a8a40", "C": "#4a6a28", "a": "#a8b860",                      # papyrus
+    "i": "#9a9a94", "I": "#76766e", "j": "#b8b8b0", "l": "#5a7a3a",      # Irish stone, lichen
+    "x": "#3a5a2a", "X": "#2a4420", "f": "#f0d030", "F2": "#c8a020",
+}
+
+
+def blob(p, cx, cy, rx, ry, col, rnd=None, rough=0.0):
+    for y in range(p.h):
+        for x in range(p.w):
+            d = math.hypot((x - cx) / rx, (y - cy) / ry)
+            if d <= 1.0 + (rnd.uniform(-rough, rough) if rnd else 0):
+                p.px(x, y, col)
+
+
+def olive_tree():
+    """An olive tree: a gnarled, twisting trunk under a broad crown of silver-green leaves."""
+    rnd = random.Random(1)
+    p = Pic(24, 26, (12, 25))
+    for y in range(14, 26):
+        x = 11 + round(math.sin(y * 0.6) * 1.5)
+        p.rect(x, y, x + 2, y, "t"); p.px(x, y, "T")
+    p.rect(9, 24, 15, 25, "T"); p.px(14, 16, "t"); p.px(15, 15, "t")
+    blob(p, 12, 8, 11, 7, "V", rnd, 0.15)
+    blob(p, 11, 7, 9, 5.5, "v", rnd, 0.2)
+    for _ in range(14):
+        p.px(rnd.randrange(4, 20), rnd.randrange(2, 12), "w")
+    return p
+
+
+def broken_column():
+    """A broken marble column: fluted shaft, snapped at the top, on its base."""
+    p = Pic(12, 26, (6, 25))
+    p.rect(1, 23, 10, 25, "M"); p.rect(0, 25, 11, 25, "n")
+    for y in range(4, 23):
+        p.rect(2, y, 9, y, "m")
+        for x in (3, 5, 7):
+            p.px(x, y, "M")
+        p.px(9, y, "n")
+    for x, top in ((2, 5), (3, 3), (4, 4), (5, 2), (6, 4), (7, 3), (8, 6), (9, 5)):
+        for y in range(4, top):
+            p.px(x, y, ".")
+        for y in range(top, 4):
+            p.px(x, y, "m")
+    return p
+
+
+def marble_ruin():
+    """Marble ruins: a fallen column drum and squared blocks lying in the grass."""
+    p = Pic(30, 14, (15, 13))
+    p.rect(1, 6, 10, 13, "m"); p.rect(1, 6, 10, 6, "M"); p.rect(10, 6, 10, 13, "n")
+    p.rect(12, 9, 19, 13, "M"); p.rect(12, 9, 19, 9, "m"); p.rect(19, 9, 19, 13, "n")
+    blob(p, 25, 9.5, 4.5, 4, "m")                              # column drum, end on
+    for r in (2.5, 1.2):
+        for a in range(0, 360, 20):
+            p.px(round(25 + math.cos(math.radians(a)) * r), round(9.5 + math.sin(math.radians(a)) * r), "M")
+    p.px(4, 9, "n"); p.px(7, 11, "n"); p.px(15, 11, "n")
+    return p
+
+
+def pine_tree():
+    """A tall pine: tiers of dark needles, snow lying on their tops, on a short trunk."""
+    p = Pic(20, 32, (10, 31))
+    p.rect(9, 27, 11, 31, "T")
+    for tier, (top, bottom, half) in enumerate(((1, 10, 4), (7, 18, 7), (14, 27, 9))):
+        for y in range(top, bottom + 1):
+            w = round(half * (y - top) / (bottom - top)) + 1
+            p.rect(10 - w, y, 10 + w - 1, y, "p" if y < bottom - 1 else "P")
+            p.px(10 - w, y, "P")
+        for x in range(10 - half // 2, 10 + half // 2):
+            p.px(x, top + 2 + abs(x - 10) // 2, "s")
+    p.px(10, 0, "q")
+    return p
+
+
+def runestone():
+    """A runestone: an upright slab with a carved serpent band painted red (as Viking-age runestones were painted)."""
+    p = Pic(12, 22, (6, 21))
+    for y in range(1, 22):
+        w = 4 if y > 3 else [2, 3, 4][y - 1]
+        p.rect(6 - w, y, 5 + w, y, "g")
+    p.rect(9, 3, 9, 21, "G"); p.rect(2, 4, 2, 18, "h")
+    for y in range(4, 19):                                     # carved band down the face
+        p.px(4 if y % 6 < 3 else 7, y, "r")
+    p.rect(4, 4, 7, 4, "r"); p.rect(4, 18, 7, 18, "r")
+    p.rect(1, 21, 10, 21, "G")
+    return p
+
+
+def longhouse_ruin():
+    """A ruined longhouse: a low turf-covered wall and broken timber posts."""
+    p = Pic(34, 18, (17, 17))
+    p.rect(1, 11, 32, 17, "b"); p.rect(1, 11, 32, 12, "u"); p.rect(1, 17, 32, 17, "B")
+    for x in range(3, 32, 4):
+        p.px(x, 14, "B")
+    for x, top in ((5, 3), (14, 6), (24, 2), (30, 7)):
+        p.rect(x, top, x + 1, 11, "b"); p.px(x + 1, top, "B")
+    p.rect(5, 3, 14, 3, "B")                                   # a beam still resting on two posts
+    p.px(20, 10, "u"); p.px(21, 10, "u")
+    return p
+
+
+def obelisk():
+    """An obelisk: a tall tapering sandstone shaft, its pyramidion capped with gold, carved marks down its face."""
+    p = Pic(10, 32, (5, 31))
+    for y in range(4, 30):
+        w = 2 + round((y - 4) / 12)
+        p.rect(5 - w, y, 4 + w, y, "e"); p.px(4 + w, y, "E")
+    for y in range(0, 4):
+        p.rect(5 - (y // 2 + 1), y, 4 + (y // 2 + 1), y, "y")
+    for y in range(7, 27, 3):
+        p.px(4, y, "F"); p.px(5, y + 1, "F")
+    p.rect(1, 30, 8, 31, "E")
+    return p
+
+
+def tomb_entrance():
+    """A rock-cut tomb entrance: a dark doorway with a lintel, cut into a rough sandstone cliff face."""
+    rnd = random.Random(3)
+    p = Pic(28, 20, (14, 19))
+    top = 3
+    for x in range(28):
+        top = max(1, min(6, top + rnd.choice((-1, 0, 0, 1))))
+        p.rect(x, top, x, 19, "e")
+        p.px(x, top, "E")
+    for y in (9, 14):
+        for x in range(0, 28, 5):
+            p.px(x + (y % 3), y, "F")
+    p.rect(9, 6, 18, 8, "E"); p.rect(9, 6, 18, 6, "e")                  # lintel
+    p.rect(10, 9, 17, 19, "z"); p.rect(10, 9, 10, 19, "F"); p.rect(17, 9, 17, 19, "F")
+    return p
+
+
+def nile_reeds():
+    """Papyrus by the Nile: a clump of tall stems topped with feathery heads."""
+    p = Pic(16, 18, (8, 17))
+    for k, (x, top) in enumerate(((3, 5), (6, 2), (8, 4), (10, 1), (13, 6))):
+        for y in range(top + 2, 18):
+            p.px(x + (1 if y < top + 5 and k % 2 else 0), y, "c" if y < 15 else "C")
+        p.rect(x - 1, top, x + 1, top + 1, "a"); p.px(x, top - 1, "a")
+    p.rect(2, 16, 13, 17, "C")
+    return p
+
+
+def standing_stone():
+    """A standing stone: a tall weathered menhir with lichen on it."""
+    p = Pic(10, 22, (5, 21))
+    for y in range(1, 22):
+        w = 2 + min(y, 6) // 2
+        p.rect(5 - w, y, 4 + w, y, "i")
+        p.px(4 + w, y, "I")
+    p.px(3, 7, "l"); p.px(4, 8, "l"); p.px(6, 14, "l"); p.px(2, 15, "j"); p.px(2, 10, "j")
+    p.rect(1, 21, 8, 21, "I")
+    return p
+
+
+def stone_circle():
+    """A stone circle: a ring of small standing stones seen from the side, the far ones smaller."""
+    p = Pic(36, 22, (18, 21))
+    for k in range(9):
+        ang = math.tau * (k + 0.5) / 9
+        x = round(18 + math.cos(ang) * 15); y = round(13 + math.sin(ang) * 6)
+        h = 6 if math.sin(ang) > 0 else 4
+        p.rect(x, y - h, x + 1, y, "i"); p.px(x + 1, y - h + 1, "I"); p.px(x, y, "I")
+    return p
+
+
+def gorse():
+    """Gorse: a spiny dark-green bush covered in yellow flowers."""
+    rnd = random.Random(7)
+    p = Pic(16, 12, (8, 11))
+    blob(p, 8, 7, 7.5, 4.5, "X", rnd, 0.15)
+    blob(p, 8, 6, 6, 3.5, "x", rnd, 0.2)
+    for _ in range(12):
+        p.px(rnd.randrange(2, 14), rnd.randrange(2, 10), "f")
+    return p
+
+
+SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
+                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse)}
+
+if __name__ == "__main__":
+    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")
+    os.makedirs(out_dir, exist_ok=True)
+    palette = {k: v for k, v in PALETTE.items() if len(k) == 1}
+    for name, make in SCENERY.items():
+        art = finish(make(), 0.0)
+        data = {"_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py. "
+                        + " ".join(make.__doc__.split()), "size": art["size"], "anchor": [art["grip"][0], art["size"][1] - 1],
+                "palette": palette, "frames": {"idle": [art["rows"]]}}
+        with open(os.path.join(out_dir, name + ".json"), "w") as f:
+            json.dump(data, f, indent=1)
+    print("wrote", len(SCENERY), "scenery pictures")

@@ -113,14 +113,57 @@ func _spot(player: Player, view: Vector2, rng: RandomNumberGenerator, near: bool
 func _draw() -> void:
 	var color := Color.html(str(_data.get("color", "#ffffff")))
 	var faded: bool = GameAuthority.run != null and GameAuthority.run.boss_arena_active
+	var t: float = Time.get_ticks_msec() * 0.001
 	for patch: Dictionary in patches:
 		var radius: float = float(patch["radius"])
-		if kind() == "teleport":
-			draw_arc(patch["pos"], radius, 0.0, TAU, 24, Color(color, 0.4 if faded else 0.9), 3.0)
-			for k: int in 8:
-				draw_circle(Vector2(patch["pos"]) + Vector2.from_angle(TAU * k / 8.0) * radius, 2.5, Color(color, 0.5 if faded else 1.0))
-		else:
-			draw_circle(patch["pos"], radius, Color(color, 0.35 if faded else 0.7))
+		var at: Vector2 = patch["pos"]
+		var alpha: float = 0.5 if faded else 1.0
+		match kind():
+			"teleport":
+				_fairy_ring(at, radius, color, alpha, t)
+			"slide":
+				_frozen_pond(at, radius, color, alpha)
+			"slow":
+				_quicksand(at, radius, color, alpha, t)
+			_:
+				draw_circle(at, radius, Color(color, 0.7 * alpha))
+
+
+## A frozen pond (owner request 10/31/2026): pale ice, a darker rim, white streaks of shine and a crack.
+func _frozen_pond(at: Vector2, radius: float, color: Color, alpha: float) -> void:
+	draw_set_transform(at, 0.0, Vector2(1.0, 0.7))
+	draw_circle(Vector2.ZERO, radius, Color(color.darkened(0.25), 0.8 * alpha))
+	draw_circle(Vector2.ZERO, radius - 2.0, Color(color, 0.8 * alpha))
+	draw_line(Vector2(-radius * 0.5, -radius * 0.3), Vector2(-radius * 0.1, -radius * 0.55), Color(1, 1, 1, 0.8 * alpha), 2.0)
+	draw_line(Vector2(radius * 0.1, -radius * 0.2), Vector2(radius * 0.35, -radius * 0.35), Color(1, 1, 1, 0.6 * alpha), 1.5)
+	draw_polyline(PackedVector2Array([Vector2(-radius * 0.2, radius * 0.2), Vector2(0, radius * 0.35),
+			Vector2(radius * 0.3, radius * 0.3), Vector2(radius * 0.45, radius * 0.5)]), Color(color.darkened(0.4), 0.7 * alpha), 1.0)
+	draw_set_transform(Vector2.ZERO)
+
+
+## Quicksand: wet sand slowly turning round a sinking middle.
+func _quicksand(at: Vector2, radius: float, color: Color, alpha: float, t: float) -> void:
+	draw_set_transform(at, 0.0, Vector2(1.0, 0.7))
+	draw_circle(Vector2.ZERO, radius, Color(color, 0.75 * alpha))
+	for ring: int in 3:
+		var r: float = radius * (0.3 + 0.22 * ring)
+		var spin: float = t * (0.6 - ring * 0.15) + ring
+		draw_arc(Vector2.ZERO, r, spin, spin + PI * 1.2, 16, Color(color.darkened(0.3), 0.8 * alpha), 1.5)
+	draw_circle(Vector2.ZERO, radius * 0.15, Color(color.darkened(0.45), 0.9 * alpha))
+	draw_set_transform(Vector2.ZERO)
+
+
+## A fairy ring: a ring of little mushrooms on darker grass, with motes of light rising in it.
+func _fairy_ring(at: Vector2, radius: float, color: Color, alpha: float, t: float) -> void:
+	draw_arc(at, radius, 0.0, TAU, 24, Color(0.2, 0.3, 0.15, 0.45 * alpha), 4.0)
+	for k: int in 10:
+		var spot: Vector2 = at + Vector2.from_angle(TAU * k / 10.0) * Vector2(radius, radius * 0.75)
+		draw_line(spot, spot + Vector2(0, -3), Color(0.93, 0.9, 0.8, alpha), 1.5)
+		draw_circle(spot + Vector2(0, -3.5), 2.2, Color(0.8, 0.6, 0.45, alpha))
+	for m: int in 4:
+		var rise: float = fmod(t * 0.5 + m * 0.25, 1.0)
+		var mote: Vector2 = at + Vector2(sin(m * 2.1 + t) * radius * 0.5, radius * 0.3 - rise * radius)
+		draw_circle(mote, 1.5, Color(color, (1.0 - rise) * alpha))
 
 
 # --- Co-op (CoopMirror) ------------------------------------------------------------------

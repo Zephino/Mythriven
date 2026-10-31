@@ -226,6 +226,14 @@ func _view() -> Vector2:
 	return get_viewport().get_visible_rect().size / maxf(Data.cfg_float("camera.zoom"), 0.01)
 
 
+## The ruin each region's Ancient Ruins are built from (its own scenery picture).
+const RUINS := {"greek": "broken_column", "norse": "runestone", "egyptian": "obelisk", "irish": "standing_stone"}
+
+
+func _region() -> String:
+	return str(GameAuthority.run.level_data.get("region", "")) if GameAuthority.run != null else ""
+
+
 func _draw() -> void:
 	for poi: Dictionary in nearby:
 		var at: Vector2 = to_local_px(poi["pos"])
@@ -241,20 +249,59 @@ func _draw() -> void:
 				var k: float = float(poi.get("progress", 0.0)) / float(data.get("hold_s", 10.0))
 				if k > 0.0 and not done:
 					draw_arc(at, reach - 4.0, -PI * 0.5, -PI * 0.5 + TAU * minf(k, 1.0), 40, Color.WHITE, 4.0)
+				# A ring of the level's own standing ruins (owner request 10/31/2026): columns, runestones, obelisks or
+				# standing stones.
+				var ruin: Dictionary = PixelArt.find("scenery/" + str(RUINS.get(_region(), "broken_column")))
 				for c: int in 6:
-					draw_rect(Rect2(at + Vector2.from_angle(TAU * c / 6.0) * reach * 0.6 - Vector2(3, 8), Vector2(6, 16)), color)
+					var spot: Vector2 = at + Vector2.from_angle(TAU * c / 6.0 - PI * 0.5) * reach * 0.6
+					if ruin.is_empty():
+						draw_rect(Rect2(spot - Vector2(3, 8), Vector2(6, 16)), color)
+					else:
+						PixelArt.draw_standing(self, ruin, spot + Vector2(0, 8), false, Color(1, 1, 1, color.a))
 			"dragons_hoard":
 				draw_arc(at, reach, 0.0, TAU, 48, Color(color, 0.5), 1.5)
 				var k: float = float(poi.get("kills", 0)) / float(data.get("kills", 50))
-				draw_arc(at, 16.0, -PI * 0.5, -PI * 0.5 + TAU * minf(k, 1.0), 24, color, 4.0)
-				draw_rect(Rect2(at - Vector2(9, 6), Vector2(18, 12)), color)
+				draw_arc(at, 22.0, -PI * 0.5, -PI * 0.5 + TAU * minf(k, 1.0), 24, color, 4.0)
+				# A heap of gold round a gold-bound chest.
+				var coin: Dictionary = PixelArt.find("pickups/gold_coin")
+				var chest: Dictionary = PixelArt.find("pickups/chest_big")
+				if coin.is_empty() or chest.is_empty():
+					draw_rect(Rect2(at - Vector2(9, 6), Vector2(18, 12)), color)
+				else:
+					var coin_tint := Color(Color.html(Data.cfg_string("pickups.gold_color")), color.a)
+					for c: int in 14:
+						var spot: Vector2 = at + Vector2(((c * 7) % 13 - 6) * 1.8, 6.0 - float(c % 4) * 2.5 + absf(float((c * 7) % 13 - 6)) * 0.4)
+						draw_texture(PixelArt.frame(coin, false, 0.0), spot - Vector2(4, 4), coin_tint)
+					PixelArt.draw_standing(self, chest, at + Vector2(0, 2), false, Color(1, 1, 1, color.a))
 			"monsters_lair":
 				for c: int in 12:
 					if c % 4 != 0:
 						var a: float = TAU * c / 12.0
 						draw_line(at + Vector2.from_angle(a) * reach, at + Vector2.from_angle(a + TAU / 14.0) * reach, color, 4.0)
+				# A dark den mouth with bones strewn before it.
+				draw_set_transform(at, 0.0, Vector2(1.0, 0.6))
+				draw_circle(Vector2.ZERO, 16.0, Color(0.25, 0.2, 0.16, color.a))
+				draw_circle(Vector2(0, 2), 11.0, Color(0.05, 0.03, 0.02, color.a))
+				draw_set_transform(Vector2.ZERO)
+				var bone := Color(0.92, 0.88, 0.78, color.a)
+				for c: int in 5:
+					var spot: Vector2 = at + Vector2(-20.0 + c * 10.0, 16.0 + (c % 2) * 5.0)
+					var dir: Vector2 = Vector2.from_angle(c * 1.3)
+					draw_line(spot - dir * 3.0, spot + dir * 3.0, bone, 1.5)
+					draw_circle(spot - dir * 3.0, 1.2, bone)
+					draw_circle(spot + dir * 3.0, 1.2, bone)
 			"wandering_trader":
-				draw_rect(Rect2(at - Vector2(12, 8), Vector2(24, 16)), color)
-				draw_rect(Rect2(at - Vector2(14, 12), Vector2(28, 4)), Color.html(Data.cfg_string("world.trader_awning_color")))
+				# A market stall: a counter with goods, under a striped awning on two posts.
+				var awning := Color.html(Data.cfg_string("world.trader_awning_color"))
+				var wood := Color(0.42, 0.29, 0.17, color.a)
+				draw_line(at + Vector2(-13, -12), at + Vector2(-13, 8), wood, 2.0)
+				draw_line(at + Vector2(13, -12), at + Vector2(13, 8), wood, 2.0)
+				draw_rect(Rect2(at - Vector2(12, 2), Vector2(24, 10)), color)
+				draw_rect(Rect2(at - Vector2(12, 2), Vector2(24, 2)), wood)
+				for s: int in 4:
+					draw_rect(Rect2(at + Vector2(-15 + s * 7.5, -16), Vector2(7.5, 5)), Color(awning if s % 2 == 0 else Color.WHITE, color.a))
+				draw_circle(at + Vector2(-6, -4), 2.5, Color(0.85, 0.3, 0.2, color.a))
+				draw_circle(at + Vector2(0, -4), 2.5, Color(0.95, 0.8, 0.3, color.a))
+				draw_rect(Rect2(at + Vector2(4, -7), Vector2(5, 5)), Color(0.5, 0.65, 0.85, color.a))
 			_:
 				draw_arc(at, 12.0, 0.0, TAU, 20, color, 2.0)

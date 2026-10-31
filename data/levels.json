@@ -208,6 +208,8 @@
       "wind_turn_s": 7,
       "vision_screens": 0.45,
       "veil_color": "#e8eef8",
+      "particles": "snow",
+      "particle_color": "#ffffff",
       "fade_s": 2.0
     },
     "ground_patches": {
@@ -323,6 +325,8 @@
       "wind_turn_s": 6,
       "vision_screens": 0.4,
       "veil_color": "#d8b878",
+      "particles": "sand",
+      "particle_color": "#e8cc90",
       "fade_s": 2.0
     },
     "ground_patches": {
@@ -439,6 +443,8 @@
       "wind_turn_s": 8,
       "vision_screens": 0.5,
       "veil_color": "#c8d0c8",
+      "particles": "mist",
+      "particle_color": "#e8ece8",
       "fade_s": 3.0
     },
     "ground_patches": {

@@ -1,8 +1,8 @@
 class_name LevelArt
 extends RefCounted
-## Builds placeholder art for a level from levels.json: a TileSet with one
-## coloured 16 px tile per ground type (two shades each, so movement is easy
-## to see), and the decoration list. Real pixel art replaces this in Phase 19.
+## Builds a level's ground from levels.json: a TileSet with one 16 px tile per
+## ground type, two variants each (the pixel-art tiles in data/art/ground/,
+## or plain coloured tiles for a level without them), and the decoration list.
 
 const SOURCE_ID := 0
 const VARIANTS := 2
@@ -13,12 +13,21 @@ static func build_tileset(tileset_data: Dictionary, tile_px: int) -> TileSet:
 	var grounds: Array = tileset_data.get("ground", [])
 	var shade: float = float(tileset_data.get("variant_shade", 0.0))
 	var image := Image.create_empty(tile_px * VARIANTS * maxi(grounds.size(), 1), tile_px, false, Image.FORMAT_RGBA8)
+	# The level's ground tiles (data/art/ground/<tileset id>.json; owner request 10/31/2026), where drawn at this size.
+	var art: Dictionary = PixelArt.find("ground/" + str(tileset_data.get("id", "")))
 	for i: int in grounds.size():
 		var ground: Dictionary = grounds[i]
 		var base := Color.html(str(ground.get("placeholder_color", "#ff00ff")))
 		var dots: String = str(ground.get("placeholder_dots", ""))
+		var pictures: Array = (art.get("frames", {}) as Dictionary).get(str(ground.get("id", "")), [])
 		for variant: int in VARIANTS:
 			var origin := Vector2i((i * VARIANTS + variant) * tile_px, 0)
+			if variant < pictures.size():
+				var picture: Image = (pictures[variant] as ImageTexture).get_image()
+				if picture.get_size() == Vector2i(tile_px, tile_px):
+					picture.convert(Image.FORMAT_RGBA8)
+					image.blit_rect(picture, Rect2i(Vector2i.ZERO, picture.get_size()), origin)
+					continue
 			image.fill_rect(Rect2i(origin, Vector2i(tile_px, tile_px)), base.darkened(shade * variant))
 			if dots != "":
 				_draw_dots(image, origin, tile_px, Color.html(dots), variant)

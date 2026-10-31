@@ -1,0 +1,82 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py. An olive tree: a gnarled, twisting trunk under a broad crown of silver-green leaves.",
+ "size": [
+  25,
+  27
+ ],
+ "anchor": [
+  12,
+  26
+ ],
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "m": "#ece7da",
+  "M": "#c8c0ae",
+  "n": "#a8a090",
+  "t": "#6a5034",
+  "T": "#4a3622",
+  "v": "#8a9a6a",
+  "V": "#5a6a40",
+  "w": "#b0bc90",
+  "p": "#2e4a32",
+  "P": "#1e3222",
+  "q": "#466a48",
+  "s": "#eef2f6",
+  "g": "#8a8c90",
+  "G": "#64666a",
+  "h": "#a8aab0",
+  "r": "#a83a2c",
+  "b": "#6a5440",
+  "B": "#4a3a2a",
+  "u": "#5a7a3a",
+  "e": "#d8c4a0",
+  "E": "#b8a07a",
+  "F": "#9a8460",
+  "y": "#f0c040",
+  "z": "#2a1e14",
+  "c": "#6a8a40",
+  "C": "#4a6a28",
+  "a": "#a8b860",
+  "i": "#9a9a94",
+  "I": "#76766e",
+  "j": "#b8b8b0",
+  "l": "#5a7a3a",
+  "x": "#3a5a2a",
+  "X": "#2a4420",
+  "f": "#f0d030"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...........oooo.oo.......",
+    ".....o.oooovvVVoVVoo.....",
+    "....oVoVvvVwvVVVVVoVoo...",
+    "..ooovvvvvvvvvvvvvvoVVo..",
+    ".ovvoVvvvwvvvvvvvVvVVVVo.",
+    "oVVvvvwvvvvvvvvvvvvvvVo..",
+    "oVVvvvvvvvvvvvvvvvvvVVo..",
+    "ovvvvvvvvvvvvvvvvvvvvVVo.",
+    "oVvVvwvvvvwvvvvvvvvvVVVVo",
+    "oVVvvvvwvvvvvvvvwvvvvVoVo",
+    "oVoVwwwvvvwvvvvvvvvvVVoo.",
+    ".ooovvvwvvvvvvvvwvVVVVo..",
+    ".oVoovVVvVvvvvvVvVVVVo...",
+    "..o.oVVVVvVVVvvVVVVVo....",
+    ".....ooVVVVVVtVVVVVVo....",
+    ".......oVoooTtVtoooo.....",
+    "........o.oTttto.........",
+    ".........oTttoo..........",
+    ".........oTtto...........",
+    ".........oTtto...........",
+    ".........oTtto...........",
+    "..........oTtto..........",
+    "...........oTtto.........",
+    ".........oooTtto.........",
+    "........oTTTTTTTo........",
+    "........oTTTTTTTo........",
+    ".........ooooooo........."
+   ]
+  ]
+ }
+}

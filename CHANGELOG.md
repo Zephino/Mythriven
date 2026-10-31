@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.24
+Date: 10/31/2026
+Time: 9:23 AM
+
+### Changes
+- **Ground tiles**: every level's ground is now textured pixel art instead of flat colour: paving stones, rock with cracks, earth with pebbles, grass blades, flowers, pine needles, snow drifts with glints, sand and dune ripples, Nile reeds, bog pools and heather. Each type has two versions so it doesn't look like a grid. Made by `tools/art/build_ground.py` from each level's existing colours.
+- **Scenery pictures** for all 12 decorations: olive trees, broken columns and marble ruins (Aegean Shore); snowy pines, red-painted runestones and longhouse ruins (Midgard's Edge); obelisks, rock-cut tombs and papyrus (The Two Lands); standing stones, stone circles and gorse (The Misty Isles). Made by `tools/art/build_scenery.py`.
+- **Hazards**: the Aegean thunderstorm crackles on its warning spots, then a lightning bolt comes down (also on co-op partners' screens). The blizzard blows snow, the sandstorm blows streaks of sand, and the mist drifts in banks.
+- **Ground patches** look like what they are: frozen ponds, quicksand slowly turning, and fairy rings of little mushrooms with rising lights. Gods' ground effects show as thorns or flames.
+- **Points of interest**: Ancient Ruins are a ring of the level's own ruins, the Dragon's Hoard is a heap of gold round a gold chest, the Monster's Lair has a dark den with bones, and the Wandering Trader has a market stall with a striped awning.
+- New settings `world.weather_particles`, `world.weather_particle_speed_px_s`; levels.json hazards gain `particles` and `particle_color`. Rules in `docs/ART_RULES.md` (Ground, Scenery, Hazards and ground patches, Points of interest).
+
+### Reason
+The owner asked to finish the effects: hazards, ground and scenery were the ones left.
+
 ## Version 00.02.23
 Date: 10/31/2026
 Time: 4:18 AM

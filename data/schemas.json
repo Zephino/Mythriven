@@ -198,6 +198,8 @@
                 "items": "number"
               },
               "poi_edge_margin": "number",
+              "weather_particles": "number",
+              "weather_particle_speed_px_s": "number",
               "trader_awning_color": "string"
             }
           },

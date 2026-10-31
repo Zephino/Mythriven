@@ -47,6 +47,29 @@ func _process(delta: float) -> void:
 	queue_redraw()
 
 
+## Earth patches are thorns: a dark tangle with spikes. Fire patches burn: a glow with flames flickering up.
+## (owner request 10/31/2026)
 func _draw() -> void:
+	var t: float = Time.get_ticks_msec() * 0.001
 	for patch: Dictionary in _patches:
-		draw_circle(patch["at"], float(patch["radius"]), Color(patch["color"], 0.3))
+		var at: Vector2 = patch["at"]
+		var r: float = float(patch["radius"])
+		var color: Color = patch["color"]
+		var fade: float = clampf(float(patch["left"]), 0.0, 1.0)
+		draw_circle(at, r, Color(color, 0.25 * fade))
+		match str(patch["element"]):
+			"earth":
+				for k: int in 8:
+					var d: Vector2 = Vector2.from_angle(TAU * k / 8.0 + k)
+					var base: Vector2 = at + d * r * (0.3 + 0.08 * (k % 3))
+					draw_line(base, base + d.rotated(0.6) * r * 0.5, Color(0.3, 0.38, 0.18, fade), 2.0)
+					draw_line(base + d.rotated(0.6) * r * 0.3, base + d.rotated(0.6) * r * 0.3 + d.orthogonal() * 3.0,
+							Color(0.75, 0.7, 0.5, fade), 1.0)
+			"fire":
+				for k: int in 6:
+					var spot: Vector2 = at + Vector2.from_angle(TAU * k / 6.0) * r * 0.5
+					var tall: float = 5.0 + 3.0 * sin(t * 9.0 + k * 1.9)
+					draw_colored_polygon(PackedVector2Array([spot + Vector2(-3, 0), spot + Vector2(3, 0), spot + Vector2(0, -tall)]),
+							Color(1.0, 0.6, 0.2, 0.85 * fade))
+			_:
+				draw_arc(at, r, 0.0, TAU, 20, Color(color, 0.6 * fade), 1.5)

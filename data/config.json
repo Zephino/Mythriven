@@ -172,6 +172,8 @@
     "coop_tether_screens": 1.5,
     "start_ruins_offset_px": [140, 40],
     "poi_edge_margin": 0.15,
+    "weather_particles": 160,
+    "weather_particle_speed_px_s": 140,
     "trader_awning_color": "#c04040"
   },
 
