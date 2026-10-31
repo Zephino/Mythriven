@@ -1,7 +1,68 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-10-29T19:56:16.930Z",
+	"updated": "2026-10-31T11:51:09.859Z",
 	"entries": [
+		{
+			"name": "Tiny",
+			"hero": "heracles",
+			"time_s": 790,
+			"level": 25,
+			"kills": 6960,
+			"weapons": [
+				{
+					"id": "great_club",
+					"level": 4
+				},
+				{
+					"id": "longbow",
+					"level": 3
+				},
+				{
+					"id": "bronze_sword",
+					"level": 5
+				},
+				{
+					"id": "ember",
+					"level": 2
+				},
+				{
+					"id": "spark",
+					"level": 1
+				},
+				{
+					"id": "frost",
+					"level": 1
+				}
+			],
+			"passives": [
+				{
+					"id": "belt_of_strength",
+					"level": 1
+				},
+				{
+					"id": "hourglass",
+					"level": 2
+				},
+				{
+					"id": "seers_eye",
+					"level": 5
+				},
+				{
+					"id": "lodestone",
+					"level": 3
+				},
+				{
+					"id": "bronze_aegis",
+					"level": 2
+				},
+				{
+					"id": "votive_bell",
+					"level": 1
+				}
+			],
+			"version": "00.02.23",
+			"date": "2026-10-31T11:51:09.859Z"
+		},
 		{
 			"name": "RDS",
 			"hero": "cu_chulainn",
