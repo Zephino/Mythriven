@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.97
+Date: 10/31/2026
+Time: 2:19 AM
+
+### Changes
+- **Set's sprite**, as Egyptian temple reliefs and papyri show him (for example at Karnak and Abydos), lord of the desert and storms (The Contendings of Horus and Set; Plutarch, On Isis and Osiris):
+  - a man's body with the head of the "Set animal": tall flat-topped ears, a long curved snout, a yellow eye, reddish colouring (Plutarch);
+  - a striped wig falling to his shoulders, a broad collar of blue, gold and red beads, a gold armband;
+  - red-brown skin, as Egyptian painting shows men; a pleated linen kilt to the knee with a gold belt and front panel; sandals;
+  - the was-sceptre in his hand: a gold staff topped with the Set animal's head and forked at the foot; 4 walking frames.
+
+### Reason
+The owner approved Ammit and asked for the next boss.
+
 ## Version 00.01.96
 Date: 10/31/2026
 Time: 2:17 AM
