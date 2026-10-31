@@ -1716,5 +1716,127 @@
       "edge": "#9aa0aa",
       "stones": "#8a8c90"
     }
+  },
+  {
+    "_doc": "Ys, Pack 4 realm 3, the drowned city (docs/PACK_4_PLAN.md). Sources: Albert Le Grand (1636); La Villemarque, Barzaz Breiz (1839); Souvestre, Le Foyer breton (1844); Sebillot (the mari-morgans); Le Braz, La Legende de la mort (1893); Paracelsus (undines). St Guenole is not used (owner decision). A realm: no local gods.",
+    "id": "ys",
+    "name_key": "LEVEL_YS_NAME",
+    "region": "realm_water",
+    "act": 4,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "ys",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "reeds",
+          "max": -0.4,
+          "placeholder_color": "#3a5a5a",
+          "placeholder_dots": "#5a7a6a"
+        },
+        {
+          "id": "sand",
+          "max": 0.05,
+          "placeholder_color": "#b8b08a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "stone",
+          "max": 0.6,
+          "placeholder_color": "#7a8484",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "bog",
+          "max": 1.0,
+          "placeholder_color": "#3a4a48",
+          "placeholder_dots": "#2a3a38"
+        }
+      ]
+    },
+    "decorations": [
+      "drowned_arch",
+      "sea_gate"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "drowned_arch": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          26
+        ],
+        "placeholder_color": "#6a7a7a",
+        "weight": 2
+      },
+      "sea_gate": {
+        "shape": "rect",
+        "size_px": [
+          32,
+          28
+        ],
+        "placeholder_color": "#5a5a5a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "morvarch",
+      "20": "ankou",
+      "30": "dahut"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_slavic_wilds",
+      "boss": "koschei"
+    },
+    "waves": "waves_ys.json",
+    "hazard": {
+      "type": "strikes",
+      "name_key": "HAZARD_TIDE_NAME",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.55,
+      "radius_px": 56,
+      "telegraph_s": 1.6,
+      "damage": 6,
+      "element": "water",
+      "range_px": 240,
+      "color": "#3a8ab0",
+      "look": "flood",
+      "flood_s": 6,
+      "flood_slow": 0.55
+    },
+    "ground_patches": {
+      "kind": "slow",
+      "count": 6,
+      "radius_px": [
+        26,
+        40
+      ],
+      "color": "#2a5a6a",
+      "speed_mult": 0.6
+    },
+    "seal": "celtic_knot",
+    "tint": "#dce6e8",
+    "flora": {
+      "density": 0.4,
+      "trees": {
+        "willow": 1,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#8a8a80",
+      "edge": "#5a5a54",
+      "stones": "#a8a89e"
+    }
   }
 ]

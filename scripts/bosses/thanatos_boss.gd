@@ -48,7 +48,7 @@ func signature(delta: float) -> void:
 		_say("BOSS_THANATOS_MARK_BROKEN")
 		_clear_mark()
 	elif mark_left <= 0.0:
-		GameAuthority.damage_player(player, player.max_hp * float(_sig().get("hit_max_hp_fraction", 0.5)), "thanatos_mark",
+		GameAuthority.damage_player(player, player.max_hp * float(_sig().get("hit_max_hp_fraction", 0.5)), str(data.get("id", "")) + "_mark",
 				position_now())
 		_clear_mark()
 

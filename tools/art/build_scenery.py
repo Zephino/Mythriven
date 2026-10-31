@@ -370,6 +370,32 @@ def frozen_root():
     return p
 
 
+def drowned_arch():
+    """A drowned arch of Ys: a broken stone archway of the sunken city, green with weed, a barnacled keystone."""
+    p = Pic(30, 26, (15, 25))
+    for x0 in (2, 22):
+        p.rect(x0, 8, x0 + 5, 25, "i"); p.rect(x0, 8, x0, 25, "I")
+    for k in range(10):
+        a = math.pi * k / 9
+        p.rect(round(15 - 10 * math.cos(a)) - 1, round(10 - 7 * math.sin(a)), round(15 - 10 * math.cos(a)) + 1,
+               round(10 - 7 * math.sin(a)) + 1, "i")
+    for y in range(12, 25, 3):
+        p.px(3 + (y % 2), y, "l"); p.px(26 - (y % 2), y, "l")                        # weed
+    p.rect(14, 2, 16, 4, "j")
+    return p
+
+
+def sea_gate():
+    """A sea gate of Ys: the great wooden gates in the dyke, bound with iron, standing open to the sea."""
+    p = Pic(32, 28, (16, 27))
+    p.rect(0, 4, 5, 27, "i"); p.rect(26, 4, 31, 27, "i"); p.rect(0, 2, 31, 5, "I")
+    p.rect(6, 6, 11, 26, "b"); p.rect(20, 6, 25, 26, "b")                            # the gates swung open
+    for y in (10, 18):
+        p.rect(6, y, 11, y, "G"); p.rect(20, y, 25, y, "G")
+    p.rect(12, 20, 19, 27, "j")
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -396,7 +422,7 @@ SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
-                                   frozen_root)}
+                                   frozen_root, drowned_arch, sea_gate)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

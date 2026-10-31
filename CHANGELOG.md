@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.79
+Date: 10/31/2026
+Time: 6:11 PM
+
+### Changes
+- **Pack 4, Ys, the drowned city, is built and open** (`docs/PACK_4_PLAN.md`). Beat Koschei (the Slavic Wilds' 30:00 boss) to unlock it. From Breton legend (Albert Le Grand, the Barzaz Breiz, Souvestre, Sébillot, Le Braz) and Paracelsus; St Guénolé is left out, as you chose.
+  - **The land:** the sunken city's stone streets, sand, reed beds and bog; drowned arches and the great sea gates standing open; gulls and crabs.
+  - **The tide** (the hazard): the sea comes in through the gates in long bands that slow you and put out fire.
+  - **Monsters:** undines (water spirits who cast from afar), mari-morgans (golden-haired sea-fairies) in swarms, and the drowned of Ys.
+  - **Bosses:**
+    - **Morvarc'h** (10:00): King Gradlon's sea-horse gallops straight across the field, trampling, and leaves a wake of foam that slows.
+    - **The Ankou** (20:00): when his cart's axle creaks, a Hero is marked for death; strike him hard enough before it runs out, or it lands.
+    - **Dahut** (30:00): she opened the sea gates; waves roll across the arena and the sea's creatures come with them, and in her last phase she becomes a mari-morgan.
+  - Boss achievements, 4 banter lines (Dahut has words for Poseidon), and Ys' rows on the lore check.
+- 2 new tests (324 tests pass).
+
+### Reason
+The owner said "build it". Ys is Pack 4's third realm.
+
 ## Version 00.02.78
 Date: 10/31/2026
 Time: 6:06 PM

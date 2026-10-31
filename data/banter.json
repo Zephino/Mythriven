@@ -1652,5 +1652,46 @@
     "text_key": "BANTER_NIDHOGGR_ODIN",
     "lore_source": "Grimnismal 35 (the ash suffers more than men know)",
     "needs_owner_review": true
+  },
+  {
+    "id": "morvarch_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "morvarch",
+    "hero": "",
+    "god": "morvarch",
+    "text_key": "BANTER_MORVARCH_ENTRANCE",
+    "lore_source": "Le Grand; Souvestre (Morvarc'h gallops over the waves)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ankou_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ankou",
+    "hero": "",
+    "god": "ankou",
+    "text_key": "BANTER_ANKOU_ENTRANCE",
+    "lore_source": "Le Braz, La Legende de la mort (the Ankou's cart)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "dahut_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "dahut",
+    "hero": "",
+    "god": "dahut",
+    "text_key": "BANTER_DAHUT_ENTRANCE",
+    "lore_source": "Le Grand; the Barzaz Breiz (Dahut opens the sea gates)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "dahut_poseidon",
+    "trigger": "boss_meets_god",
+    "speaker": "dahut",
+    "hero": "",
+    "god": "dahut",
+    "with_god": "poseidon",
+    "text_key": "BANTER_DAHUT_POSEIDON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

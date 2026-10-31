@@ -3647,5 +3647,258 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Ys bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "morvarch",
+    "name_key": "BOSS_MORVARCH_NAME",
+    "tradition": "breton",
+    "lore_source": "Albert Le Grand; Souvestre (Gradlon's sea-horse gallops over the waves)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "morvarch",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "over_the_waves",
+      "gallop_every_s": 4.0,
+      "gallop_px": 280,
+      "gallop_s": 0.6,
+      "foam_s": 5.0,
+      "foam_radius_px": 22,
+      "foam_slow": 0.55
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ys bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "ankou",
+    "name_key": "BOSS_ANKOU_NAME",
+    "tradition": "breton",
+    "lore_source": "Anatole Le Braz, La Legende de la mort (the Ankou and his creaking cart)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "ankou",
+    "move_speed": 56,
+    "keep_distance_px": 110,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 965,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_axle_creaks",
+      "first_s": 6,
+      "every_s": 16,
+      "countdown_s": 10,
+      "cancel_hp_fraction": 0.06,
+      "hit_max_hp_fraction": 0.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 30,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 280,
+            "width_px": 30,
+            "damage": 14
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "drowned_of_ys"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 300,
+            "width_px": 32,
+            "damage": 15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ys bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "dahut",
+    "name_key": "BOSS_DAHUT_NAME",
+    "tradition": "breton",
+    "lore_source": "Albert Le Grand; the Barzaz Breiz (Dahut opens the sea gates; she becomes a mari-morgan)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "dahut",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1517,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "sea_gates",
+      "brood_every_s": 9.0,
+      "brood": [
+        "mari_morgan",
+        "undine",
+        "drowned_of_ys"
+      ],
+      "brood_count": 5,
+      "wave_every_s": 7.0,
+      "wave_width_px": 60,
+      "wave_speed_px_s": 140,
+      "wave_damage": 10,
+      "wave_push_px_s": 120,
+      "morgan_phase": 2
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "mari_morgan"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "mari_morgan"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

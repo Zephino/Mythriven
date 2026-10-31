@@ -172,6 +172,8 @@ All the world's myths are threads in one great tapestry, and something is pullin
 
 *(10/31/2026: **Niflheim** is built and released (00.02.78): freezing fog (a white veil that chills every Hero out in it); serpents of Hvergelmir, rime wraiths, draugr and frost thursar; Hræsvelgr (his wingbeats raise a gale that shoves Heroes away), Garmr (his baying hurts those close and calls the dead), Níðhöggr (burrows among the roots, untouchable, and bursts up beneath you, leaving pits).)*
 
+*(10/31/2026: **Ys** is built and released (00.02.79): the tide comes in through the open gates in flood bands; undines, mari-morgans and the drowned of Ys; Morvarc'h (gallops across in straight runs, trampling, and leaves a wake of foam that slows), the Ankou (marks a Hero when his axle creaks, as Thanatos' mark), Dahut (the sea rolls in across the arena in waves and the sea's creatures come, as Tiamat's; in her last phase she becomes a mari-morgan). St Guénolé is not used.)*
+
 Pack names are working labels. The Act tables below are the same levels: Act I = Pack 1, Act II = Pack 2, Act III = Pack 3, Act IV = the extras. Fantasy realm packs still need two more bosses designed per level, from the same public-domain lore, before they're built.
 
 The game has **14 regional levels plus a finale**, grouped into Acts that match Packs 1–3 plus the extras in the Pack roadmap. Each level is an endless procedural map with the same 30-minute run arc, but its own look, music, environmental hazard, enemy families, local gods, and three bosses from that region's myths. Any Hero can play any level. All regions are Tier A (see Cultural care and IP).

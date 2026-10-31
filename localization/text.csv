@@ -1906,3 +1906,31 @@ BANTER_HRAESVELGR_ENTRANCE,Every wind in the world comes from my wings.
 BANTER_GARMR_ENTRANCE,Hear me bay; the fetter is wearing thin.
 BANTER_NIDHOGGR_ENTRANCE,I gnaw the roots of the world. You are a smaller meal.
 BANTER_NIDHOGGR_ODIN,"All-Father, your tree is rotting from below, and I am why."
+LEVEL_YS_NAME,Ys
+HAZARD_TIDE_NAME,The sea comes in through the gates!
+ENEMY_UNDINE_NAME,Undine
+ENEMY_UNDINE_MYTH,"Paracelsus wrote that the undines are the spirits of water, living in it as we live in air, and that they look most like human beings of all the elemental folk."
+ENEMY_MARI_MORGAN_NAME,Mari-morgan
+ENEMY_MARI_MORGAN_MYTH,"The sea-fairies of Breton folklore, with long golden hair, who sing on the rocks and draw sailors down to their shining palaces beneath the waves."
+ENEMY_DROWNED_OF_YS_NAME,Drowned of Ys
+ENEMY_DROWNED_OF_YS_MYTH,"When the sea gates were opened, the great city of Ys was drowned in a night. Breton songs say its bells can still be heard ringing under the sea off the bay of Douarnenez."
+BOSS_MORVARCH_NAME,Morvarc'h
+BOSS_ANKOU_NAME,The Ankou
+BOSS_DAHUT_NAME,Dahut
+ENEMY_MORVARCH_NAME,Morvarc'h
+ENEMY_ANKOU_NAME,The Ankou
+ENEMY_DAHUT_NAME,Dahut
+ENEMY_MORVARCH_MYTH,"King Gradlon's black horse, whose name means ""sea-horse"". It could gallop over the waves, and on it the old king escaped as the sea swallowed Ys."
+ENEMY_ANKOU_MYTH,"The servant of death in Breton tradition: a tall, gaunt figure with a wide hat and a scythe whose blade turns outward. Whoever hears the creaking axle of his cart at night knows someone will die."
+ENEMY_DAHUT_MYTH,"King Gradlon's daughter. She stole the golden key of the sea gates from her sleeping father and opened them, and the sea drowned the city of Ys. The tales say she lives on beneath the waves as a mari-morgan."
+BOSS_DAHUT_MORGAN,Dahut takes the shape of a mari-morgan!
+ACH_BOSS_MORVARCH_NAME,Defeat Morvarc'h
+ACH_BOSS_MORVARCH_DESC,The 10:00 boss of Ys.
+ACH_BOSS_ANKOU_NAME,Defeat the Ankou
+ACH_BOSS_ANKOU_DESC,The 20:00 boss of Ys.
+ACH_BOSS_DAHUT_NAME,Defeat Dahut
+ACH_BOSS_DAHUT_DESC,The 30:00 boss of Ys.
+BANTER_MORVARCH_ENTRANCE,"The sea is a road, and I run on it."
+BANTER_ANKOU_ENTRANCE,Do you hear the axle creak? It creaks for you.
+BANTER_DAHUT_ENTRANCE,"The key was so small, and the sea so big. Let it in."
+BANTER_DAHUT_POSEIDON,"Lord of the sea, my city is already yours."

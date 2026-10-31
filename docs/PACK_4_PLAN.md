@@ -2,7 +2,7 @@
 
 Status: **approved by the owner** (10/31/2026: "yes as suggested" to all five questions: Elemental Planes first; the drafted
 bosses, monsters and hazards; the unlocks and +60% / +35% / +30%; no new Heroes; St Guénolé kept out). Muspelheim built
-and released 10/31/2026 (00.02.77); Niflheim (00.02.78). The owner asked to start Pack 4 once Pack 3 was done ("then start pack
+and released 10/31/2026 (00.02.77); Niflheim (00.02.78); Ys (00.02.79). The owner asked to start Pack 4 once Pack 3 was done ("then start pack
 4"). `docs/PACK_PLAN.md` (Phase 33) says the realms must be designed with the owner before any building: the design
 names only one boss per realm and no monsters or hazards. This is that design, drafted from the old public-domain texts
 only (never modern games, books or films), for the owner to approve, change or reject.
@@ -59,7 +59,7 @@ Vafþrúðnismál 37 (Hræsvelgr).*
 | 20:00 | **Garmr** | The hound that howls before Gnipahellir; each howl calls more of the dead | Völuspá 44 |
 | 30:00 | **Níðhöggr** (the design's) | The dragon gnawing the world-tree's roots; burrows under and bursts up, roots break the ground | Grímnismál 32-35; Völuspá 39 |
 
-## Realm 15: Ys (water)
+## Realm 15: Ys (water): **done and released 10/31/2026 (00.02.79)**
 *Sources: Albert Le Grand, Life of St Guénolé (1636); La Villemarqué, Barzaz Breiz, "The Submersion of the City of Ys"
 (1839); Émile Souvestre, Le Foyer breton (1844); Paul Sébillot on the Breton mari-morgans (1880s); Paracelsus
 (undines). **Care:** St Guénolé (a Christian saint) is not used as a character.*

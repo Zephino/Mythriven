@@ -319,6 +319,21 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | nidhoggr_entrance | boss entrance | nidhoggr | I gnaw the roots of the world. You are a smaller meal. | Grimnismal 35 (Nidhoggr gnaws the roots) | no |
 | nidhoggr_odin | boss meets god (with odin) | nidhoggr | All-Father, your tree is rotting from below, and I am why. | Grimnismal 35 (the ash suffers more than men know) | no |
 
+### Ys
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| boss | morvarch | Morvarc'h | Albert Le Grand; Souvestre (Gradlon's sea-horse gallops over the waves) | no |
+| boss | ankou | The Ankou | Anatole Le Braz, La Legende de la mort (the Ankou and his creaking cart) | no |
+| boss | dahut | Dahut | Albert Le Grand; the Barzaz Breiz (Dahut opens the sea gates; she becomes a mari-morgan) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| morvarch_entrance | boss entrance | morvarch | The sea is a road, and I run on it. | Le Grand; Souvestre (Morvarc'h gallops over the waves) | no |
+| ankou_entrance | boss entrance | ankou | Do you hear the axle creak? It creaks for you. | Le Braz, La Legende de la mort (the Ankou's cart) | no |
+| dahut_entrance | boss entrance | dahut | The key was so small, and the sea so big. Let it in. | Le Grand; the Barzaz Breiz (Dahut opens the sea gates) | no |
+| dahut_poseidon | boss meets god (with poseidon) | dahut | Lord of the sea, my city is already yours. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

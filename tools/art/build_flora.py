@@ -328,6 +328,11 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # Ys: the drowned shore; a few willows and dead trees, reeds and sea-weed.
+    "ys": {
+        "trees": {"willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"reeds": ("papyrus",)},
+        "rock": ("g", "G", "H", "l")},
     # Niflheim: a frozen waste; dead trees and a few snow-laden spruce.
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},

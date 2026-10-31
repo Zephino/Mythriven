@@ -199,6 +199,114 @@ NID_PAL = {"o": "#08080c", "d": "#2a2a3a", "D": "#1a1a26", "w": "#3a2a3a", "r": 
            "y": "#c8f040"}
 
 
+# --- Ys (Le Grand 1636; Barzaz Breiz 1839; Souvestre 1844; Sebillot; Le Braz 1893; Paracelsus) ------------------------
+
+def undine(c, f):
+    """An undine, the water spirit of Paracelsus (1566): a woman of water, blue-green and flowing."""
+    sway = [0, 1, 0, -1, 0][f]
+    poly(c, [(7, 9), (13, 9), (16 + sway, 24), (4 + sway, 24)], "w")
+    for y in range(12, 24, 3):
+        c.row(y, 6 + sway * (y > 18), 14 + sway * (y > 18), "W")
+    c.rect(7, 2, 13, 8, "s"); c.px(11, 5, "k")
+    c.rect(5, 1, 7, 16, "h"); c.rect(7, 0, 13, 2, "h")
+
+
+UNDINE_PAL = {"o": "#08202a", "k": "#04101a", "w": "#4aa0b8", "W": "#7ac8d8", "s": "#c8e8f0", "h": "#2a7a8a"}
+
+
+def mari_morgan(c, f):
+    """A mari-morgan (Breton folklore, gathered by Paul Sebillot): a sea-fairy with long golden hair who sings and
+    draws sailors down to her palaces under the waves."""
+    s = STEP[f]
+    poly(c, [(7, 9), (13, 9), (14, 20), (6, 20)], "g")
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 20, x + 1 + d, 24, "s")
+    c.rect(7, 2, 13, 8, "s"); c.px(11, 5, "k"); c.row(7, 10, 12, "r")
+    c.rect(5, 1, 7, 18, "h"); c.rect(13, 1, 14, 14, "h"); c.rect(7, 0, 13, 2, "h")
+    c.px(15, 10, "p"); c.px(16, 9, "p")                                                  # a pearl comb
+
+
+MORGAN_PAL = {"o": "#0a1a20", "k": "#060a0e", "g": "#3a8a7a", "s": "#e8d8c8", "h": "#e0c050", "r": "#c84050",
+              "p": "#f0f0f0"}
+
+
+def drowned(c, f):
+    """One of the drowned of Ys (the Barzaz Breiz: the city drowned when the sea gates were opened): a pale, sodden
+    townsman draped in weed, slow and heavy."""
+    s = STEP[f]
+    for x, d in ((7, -s), (12, s)):
+        c.rect(x + d, 19, x + 2 + d, 25, "b")
+    c.rect(6, 9, 15, 19, "c"); c.rect(6, 9, 7, 19, "C")
+    c.rect(7, 2, 14, 8, "p"); c.px(12, 5, "k"); c.px(9, 5, "k")
+    for x in range(6, 16, 3):
+        c.rect(x, 10, x, 16, "w")                                                        # weed hanging off him
+    c.rect(16, 10, 17, 15, "p")
+
+
+DROWNED_PAL = {"o": "#0a1418", "k": "#06080a", "b": "#2a3a40", "c": "#4a5a62", "C": "#34444c", "p": "#b8c8c8",
+               "w": "#3a6a3a"}
+
+
+def morvarch(c, step):
+    """Morvarc'h (Albert Le Grand; Souvestre): King Gradlon's black sea-horse, who could gallop over the waves; on it
+    the king escaped the drowning of Ys. A great dark horse, its mane and tail foaming like surf."""
+    from build_avalon import horse
+    ellipse(c, 30, 46, 26, 4, "f")                                                       # the surf under its hooves
+    horse(c, 8, 26, "h", "H", step, length=36)
+    for k in range(8):
+        c.px(41 + k, 18 - k // 2, "w"); c.px(42 + k, 19 - k // 2, "f")                    # foaming mane
+    for k in range(6):
+        c.px(5 - k // 2, 28 + k * 2, "w")
+
+
+MORVARCH_PAL = {"o": "#06080e", "k": "#020306", "h": "#1a2030", "H": "#10141e", "w": "#e8f4f8", "f": "#8ac0d8"}
+
+
+def ankou(c, step):
+    """The Ankou (Anatole Le Braz, La Legende de la mort, 1893): the Breton figure of death, a tall gaunt figure in a
+    long coat and wide hat, with a scythe whose blade is turned outward; the axle of his cart creaks in the night."""
+    c.rect(4, 44, 22, 50, "b"); c.rect(4, 44, 22, 45, "B")                              # his cart behind him
+    ellipse(c, 8, 52, 4, 4, "B"); ellipse(c, 18, 52, 4, 4, "B")
+    for k, d in enumerate((-step, step)):
+        c.rect(24 + k * 5 + d, 46, 25 + k * 5 + d, 54, "k")
+    poly(c, [(22, 18), (34, 18), (36, 46), (20, 46)], "c")
+    c.rect(24, 8, 32, 17, "s"); c.px(26, 12, "k"); c.px(30, 12, "k"); c.rect(27, 14, 29, 15, "k")   # skull face
+    c.rect(20, 5, 36, 8, "c")                                                            # wide hat
+    for k in range(34):
+        c.px(38, 48 - k, "b")                                                            # the scythe's long snath
+    poly(c, [(38, 14), (46, 18), (48, 24), (40, 18)], "i")                               # blade turned outward
+
+
+ANKOU_PAL = {"o": "#08080a", "k": "#040406", "c": "#1e1e24", "s": "#d8d4c8", "b": "#4a3a2a", "B": "#2e2418",
+             "i": "#c8ccd4"}
+
+
+def dahut(morgan):
+    """Dahut (Albert Le Grand; the Barzaz Breiz): King Gradlon's daughter, who stole the key of the sea gates from her
+    sleeping father and opened them, and the sea drowned Ys. Breton tradition says she lives on as a mari-morgan."""
+    def draw(c, step):
+        if morgan:
+            for y in range(36, 56):
+                c.rect(16 + (y - 36) // 3 + step, y, 26 - (y - 36) // 4 + step, y, "t" if y % 3 else "T")  # sea-weed train
+        else:
+            for k, d in enumerate((-step, step)):
+                c.rect(16 + k * 5 + d, 50, 18 + k * 5 + d, 54, "k")
+            poly(c, [(14, 20), (28, 20), (32, 52), (10, 52)], "r")
+            c.row(30, 12, 30, "u"); c.row(44, 11, 31, "u")
+        if morgan:
+            poly(c, [(14, 20), (28, 20), (30, 38), (12, 38)], "t")
+        c.rect(16, 8, 25, 18, "s"); c.px(22, 12, "k"); c.px(19, 12, "k")
+        c.rect(15, 4, 26, 8, "h"); c.rect(13, 7, 16, 34, "h"); c.rect(26, 7, 28, 26, "h")   # long golden hair
+        c.row(3, 17, 24, "u"); c.px(18, 2, "u"); c.px(23, 2, "u")                          # a princess's circlet
+        c.rect(28, 24, 30, 30, "s")
+        c.rect(31, 26, 34, 27, "u"); c.px(35, 25, "u"); c.px(35, 28, "u")                  # the golden key
+    return draw
+
+
+DAHUT_PAL = {"o": "#0c0a10", "k": "#060408", "r": "#2a3a7a", "u": "#e0c050", "s": "#ecd4c0", "h": "#e0c050",
+             "t": "#2a7a6a", "T": "#1a5a4a"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_realms.py."
@@ -217,4 +325,12 @@ if __name__ == "__main__":
     kit.build_boss("hraesvelgr", hraesvelgr, HRAES_PAL, doc(hraesvelgr.__doc__), (80, 56), (40, 54), [0, 1, 0, -1, 0])
     kit.build_boss("garmr", garmr, GARMR_PAL, doc(garmr.__doc__), (58, 42), (28, 40), [0, 1, 0, -1, 0])
     kit.build_boss("nidhoggr", nidhoggr, NID_PAL, doc(nidhoggr.__doc__), (74, 52), (36, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("undine", undine, UNDINE_PAL, doc(undine.__doc__), (20, 26), (10, 25), walk, folder="enemies")
+    kit.build_boss("mari_morgan", mari_morgan, MORGAN_PAL, doc(mari_morgan.__doc__), (20, 26), (10, 25), walk, folder="enemies")
+    kit.build_boss("drowned_of_ys", drowned, DROWNED_PAL, doc(drowned.__doc__), (20, 26), (10, 25), walk, folder="enemies")
+    kit.build_boss("morvarch", morvarch, MORVARCH_PAL, doc(morvarch.__doc__), (60, 52), (28, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("ankou", ankou, ANKOU_PAL, doc(ankou.__doc__), (52, 58), (28, 56), [0, 1, 0, -1, 0])
+    kit.build_boss("dahut", dahut(False), DAHUT_PAL, doc(dahut.__doc__), (40, 58), (20, 56), [0, 1, 0, -1, 0])
+    kit.build_boss("dahut_morgan", dahut(True), DAHUT_PAL, doc(dahut.__doc__ + " Here, as the mari-morgan."), (40, 58),
+                   (20, 56), [0, 1, 0, -1, 0])
     print("wrote the Elemental Planes' art")

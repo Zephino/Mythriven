@@ -1,0 +1,70 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A drowned arch of Ys: a broken stone archway of the sunken city, green with weed, a barnacled keystone.",
+ "size": [
+  28,
+  26
+ ],
+ "anchor": [
+  14,
+  25
+ ],
+ "palette": {
+  "a": "#4e4e48",
+  "b": "#42423c",
+  "c": "#b4b4ae",
+  "d": "#c0c0ba",
+  "e": "#9c9c96",
+  "f": "#8a8a84",
+  "g": "#aeaea8",
+  "h": "#a2a29c",
+  "i": "#90908a",
+  "j": "#303030",
+  "k": "#969696",
+  "l": "#72726c",
+  "m": "#84847e",
+  "n": "#727266",
+  "o": "#666660",
+  "p": "#7e7e78",
+  "q": "#6c6c66",
+  "r": "#4e6c36",
+  "s": "#546c3c",
+  "t": "#787872",
+  "u": "#485a30",
+  "v": "#4e6636",
+  "w": "#60605a",
+  "x": "#54544e",
+  "y": "#486030"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".............aaa............",
+    "...........bbcddbb..........",
+    "........bbbefdcgeebbb.......",
+    ".......behhehccchheeeb......",
+    ".....bbbehebbaaabbhhebbb....",
+    "....biffbbb.......bbbfffb...",
+    ".jbbbifib...........bkkfbbb.",
+    "jlfmfkkb............jnkiiiib",
+    "jnikffib............joiffkfb",
+    "jnkkkfib............jniifkib",
+    "jofffikb............jnipifib",
+    "jqrfiffb............jqiiisib",
+    "jliiifib............jnfkikfb",
+    "jqfiitib............jofffffb",
+    "jqfufffb............jqftrffb",
+    "jqfiifib............jqiffiib",
+    "jofitifb............jomftffb",
+    "jqrifffb............jqifmrfb",
+    "jqmmffib............jqlmmifb",
+    "joffiffb............jqfmifib",
+    "jqfvffmb............jqifvffb",
+    "jolpplfb............jompmfpb",
+    "jwmfmlmb............jxmmfpmb",
+    "jwyffmpb............jopffvfb",
+    "jwmfqpqb............jwffpmpb",
+    ".jbbbbb..............jbbbbb."
+   ]
+  ]
+ }
+}

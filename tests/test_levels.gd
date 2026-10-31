@@ -809,3 +809,31 @@ func test_garmr_bays_up_the_dead_and_nidhoggr_burrows() -> void:
 	dragon.target = _player
 	dragon.signature(8.5)
 	assert_gt(dragon.under_s, 0.0, "he burrows down among the roots")
+
+
+func test_morvarch_gallops_and_leaves_foam_that_slows() -> void:
+	_start("ys")
+	var horse: MorvarchBoss = _bosses.spawn_boss("morvarch", 0) as MorvarchBoss
+	horse.target = _player
+	var at: Vector2 = horse.position_now()
+	horse.signature(2.6)
+	horse.signature(0.3)
+	assert_ne(horse.position_now(), at, "it gallops")
+	assert_gt(horse.foam.size(), 0, "and leaves foam")
+	_player.position = horse.foam[0]["pos"]
+	horse.signature(0.05)
+	assert_lt(_player.slow_zone_mult, 1.0, "the foam slows")
+
+
+func test_the_ankou_marks_and_dahut_becomes_a_mari_morgan() -> void:
+	_start("ys")
+	var ankou: AnkouBoss = _bosses.spawn_boss("ankou", 1) as AnkouBoss
+	ankou.target = _player
+	ankou.signature(7.0)
+	assert_ne(ankou.marked, -1, "the axle creaks for someone")
+	var dahut: DahutBoss = _bosses.spawn_boss("dahut", 2) as DahutBoss
+	assert_eq(dahut.art_id(), "dahut")
+	dahut.phase_index = 2
+	assert_eq(dahut.art_id(), "dahut_morgan")
+	dahut.signature(4.0)
+	assert_eq(dahut.waves.size(), 1, "the sea comes in")

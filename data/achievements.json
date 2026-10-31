@@ -784,5 +784,35 @@
       "id": "nidhoggr"
     },
     "persists": true
+  },
+  {
+    "id": "boss_morvarch",
+    "name_key": "ACH_BOSS_MORVARCH_NAME",
+    "desc_key": "ACH_BOSS_MORVARCH_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "morvarch"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_ankou",
+    "name_key": "ACH_BOSS_ANKOU_NAME",
+    "desc_key": "ACH_BOSS_ANKOU_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ankou"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_dahut",
+    "name_key": "ACH_BOSS_DAHUT_NAME",
+    "desc_key": "ACH_BOSS_DAHUT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "dahut"
+    },
+    "persists": true
   }
 ]
