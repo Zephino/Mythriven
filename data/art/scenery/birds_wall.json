@@ -1,0 +1,63 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A wall of the birds' city (Aristophanes, The Birds: the great wall of Cloud-Cuckoo-Land, built of baked brick by the birds themselves): a stretch of brick wall with a crenellated top.",
+ "size": [
+  36,
+  21
+ ],
+ "anchor": [
+  18,
+  20
+ ],
+ "palette": {
+  "a": "#483c24",
+  "b": "#a88a60",
+  "c": "#b49066",
+  "d": "#a27e5a",
+  "e": "#3c2a18",
+  "f": "#967854",
+  "g": "#907254",
+  "h": "#7e6642",
+  "i": "#665436",
+  "j": "#a88460",
+  "k": "#78603c",
+  "l": "#846648",
+  "m": "#8a6c4e",
+  "n": "#6c5436",
+  "o": "#725a3c",
+  "p": "#90724e",
+  "q": "#7e6648",
+  "r": "#604e36",
+  "s": "#786042",
+  "t": "#7e6042",
+  "u": "#604e30",
+  "v": "#664e36",
+  "w": "#5a4830"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".aaaa..aaaa..aaaa..aaaa..aaaa..aaaa.",
+    "abccbaacbbbaadbccaabbdbaabdbbaacbcda",
+    "abdddaacbbbaadbbcaacbcbaabdbbaabbcca",
+    "acdbbeebbcfeebbbcaabbccaabbdbeecbbga",
+    "afdhihhdjjdhklkmdljlkhkddfjklhlfddda",
+    "ajfkhllffldhikndfdflhklgfddholkdddda",
+    "elhhhddfdhhkldfmdhhhkddfjhkhnffdfhhe",
+    "ehkhhffdmkkhhmfdfllhldddlkklhddddhhe",
+    "ehhhhdjfjkkhhffjfkhkkddjdhhhkjjdfhle",
+    "ajdknkkdfjdhnhldfjmhhhkfddfhhhhjddja",
+    "apqkhkkdfpfkokofpqpoioopfddkoohfdpfa",
+    "affokkhfpfdkohkffpfkkkkfdffkkkrddfda",
+    "ekkhhdmfpkokhpfpdokhkpppfkokhfdfmkoe",
+    "ekrhofdffohkhdpffkkkkffpfhhhkqpffkke",
+    "ekokkffdfkkokfldfkkkhdfffhhkkffppohe",
+    "aplookhdffphhokffpfkookffffkkkhfdpfa",
+    "apfkkkodfffokokpfddkookffpfnkhkqdffa",
+    "asmokkomppfkooolpflnooopfpfnooopfppa",
+    "enooktppfoookpmfmoooofppfonnkppfmkoe",
+    "ekoukfmlpoouvpmpfuknkpppmonoofmmmwoe",
+    ".eeeeaaaaeeeeaaaaeeeeaaaaeeeeaaaaee."
+   ]
+  ]
+ }
+}

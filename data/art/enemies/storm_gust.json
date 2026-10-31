@@ -1,0 +1,122 @@
+{
+ "_doc": "A storm gust of the sky between earth and heaven (The Birds): a whirling knot of wind and cloud. Built by tools/art/build_realms.py.",
+ "size": [
+  18,
+  18
+ ],
+ "anchor": [
+  9,
+  17
+ ],
+ "palette": {
+  "o": "#4a5a7a",
+  "w": "#f0f4ff",
+  "W": "#b8c8e0"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........o.o.......",
+    ".....o.owoWo.o....",
+    "....oWo.o.o.owo...",
+    "..oowowoWowoWoWoo.",
+    ".oWooWoWwoWwowoowo",
+    "..oowoWwo.oWwoWoo.",
+    ".owoWowo...oWowoWo",
+    "..oowoWwo.oWwoWoo.",
+    ".oWooWooWowoowoowo",
+    "..oowoowWowoWoWoo.",
+    "....ooWoo.o.owo...",
+    "......oowoWo.o....",
+    "........o.o.......",
+    "..................",
+    ".................."
+   ]
+  ],
+  "walk": [
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........o.o.......",
+    ".....o.owoWo.o....",
+    "....oWo.o.o.owo...",
+    "..oowowoWowoWoWoo.",
+    ".oWooWoWwoWwowoowo",
+    "..oowoWwo.oWwoWoo.",
+    ".owoWowo...oWowoWo",
+    "..oowoWwo.oWwoWoo.",
+    ".oWooWoowoWoowoowo",
+    "..oowoowWowWooWoo.",
+    "....ooWoo.ooowo...",
+    "......oowoWo.o....",
+    "........o.o.......",
+    "..................",
+    ".................."
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........o.o.......",
+    ".....o.owoWo.o....",
+    "....oWo.o.o.owo...",
+    "..oowowoWowoWoWoo.",
+    ".oWooWoWwoWwowoowo",
+    "..oowoWwo.oWwoWoo.",
+    ".owoWowo...oWowoWo",
+    "..oowoWwo.oWwoWoo.",
+    ".oWooWooWoWoowoowo",
+    "..oowoowWowWooWoo.",
+    "....ooWoo.oowoo...",
+    "......oowoWoo.....",
+    "........o.o.......",
+    "..................",
+    ".................."
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........o.o.......",
+    ".....o.owoWo.o....",
+    "....oWo.o.o.owo...",
+    "..oowowoWowoWoWoo.",
+    ".oWooWoWwoWwowoowo",
+    "..oowoWwo.oWwoWoo.",
+    ".owoWowo...oWowoWo",
+    "..oowoWwo.oWwoWoo.",
+    ".oWooWooWoWoowoowo",
+    "..oowoowWowWooWoo.",
+    "....ooWoo.oowoo...",
+    "......oowoWoo.....",
+    "........o.o.......",
+    "..................",
+    ".................."
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "........o.o.......",
+    ".....o.owoWo.o....",
+    "....oWo.o.o.owo...",
+    "..oowowoWowoWoWoo.",
+    ".oWooWoWwoWwowoowo",
+    "..oowoWwo.oWwoWoo.",
+    ".owoWowo...oWowoWo",
+    "..oowoWwo.oWwoWoo.",
+    ".oWooWooWoWoowoowo",
+    "..oowoowWowWooWoo.",
+    "....ooWoo.oowoo...",
+    "......oowoWoo.....",
+    "........o.o.......",
+    "..................",
+    ".................."
+   ]
+  ]
+ }
+}

@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.80
+Date: 10/31/2026
+Time: 6:18 PM
+
+### Changes
+- **Pack 4, Cloud-Cuckoo-Land, the sky realm, is built and open** (`docs/PACK_4_PLAN.md`). Beat Shuten-dōji (the Land of Legends' 30:00 boss) to unlock it. With it, all four Pack 4 realms are in the game. From Aristophanes' The Birds, the Thousand and One Nights and Paracelsus.
+  - **The land:** banks of cloud, flowering meadows and the birds' baked-brick city: its walls and nest towers; olive and cypress; sparrows, swallows and jays.
+  - **High winds** (the hazard): strong winds push Heroes and monsters about, turning often.
+  - **Monsters:** sylphs (air spirits who cast from afar), flocks of the birds' army, and whirling storm gusts.
+  - **Bosses:**
+    - **The Hoopoe** (10:00): the king of the birds calls, and a flock closes in on you from every side.
+    - **Iris** (20:00): the messenger of the gods darts across in straight flights, leaving a rainbow trail that slows.
+    - **The Roc** (30:00): its wingbeats shove you away, and it drops great boulders: watch for their shadows growing.
+  - Boss achievements, 4 banter lines (the Hoopoe has words for Odysseus), and the realm's rows on the lore check.
+- A dropped boulder can no longer land in the same moment it falls.
+- 2 new tests (326 tests pass).
+
+### Reason
+The owner said "build it". Cloud-Cuckoo-Land is Pack 4's fourth and last realm.
+
 ## Version 00.02.79
 Date: 10/31/2026
 Time: 6:11 PM

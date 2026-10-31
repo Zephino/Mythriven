@@ -837,3 +837,29 @@ func test_the_ankou_marks_and_dahut_becomes_a_mari_morgan() -> void:
 	assert_eq(dahut.art_id(), "dahut_morgan")
 	dahut.signature(4.0)
 	assert_eq(dahut.waves.size(), 1, "the sea comes in")
+
+
+func test_the_hoopoe_calls_and_iris_darts() -> void:
+	_start("cloud_cuckoo_land")
+	var hoopoe: HoopoeBoss = _bosses.spawn_boss("hoopoe", 0) as HoopoeBoss
+	hoopoe.target = _player
+	var before: int = _enemies.active_count()
+	hoopoe.signature(6.0)
+	assert_gt(_enemies.active_count(), before + 4, "a flock comes")
+	var iris: IrisBoss = _bosses.spawn_boss("iris", 1) as IrisBoss
+	iris.target = _player
+	iris.signature(3.6)
+	iris.signature(0.2)
+	assert_gt(iris.foam.size(), 0, "a rainbow trail")
+
+
+func test_the_roc_drops_boulders() -> void:
+	_start("cloud_cuckoo_land")
+	var roc: RocBoss = _bosses.spawn_boss("roc", 2) as RocBoss
+	roc.target = _player
+	roc.signature(3.1)
+	assert_eq(roc.boulders.size(), 3, "three boulders fall")
+	roc.boulders[0]["pos"] = _player.position
+	var hp: float = _player.hp
+	roc.signature(1.4)
+	assert_lt(_player.hp, hp, "and land")

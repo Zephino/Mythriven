@@ -248,6 +248,12 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    "cloud_cuckoo_land": {
+        "ground": {},
+        "birds": {"sparrow": ("#8a6a4a", "#5a4430", "#c8a040", False), "swallow": ("#24283a", "#e8e0d0", "#c84030", True),
+                  "jay": ("#c8a888", "#3a6ab0", "#24222a", False)},
+        "insects": {"butterfly": (butterfly, "#f0d860", "#3a3020")},
+        "large": {}},
     "ys": {
         "ground": {"crab": (lizard, "#c8502a", "#7a2a10")},
         "birds": {"gull": ("#e8ecec", "#9aa4ac", "#e0b030", True)},

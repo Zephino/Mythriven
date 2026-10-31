@@ -21,7 +21,7 @@ func signature(delta: float) -> void:
 		gust_s = float(_sig().get("gust_s", 1.2))
 		for player: Player in GameAuthority.players:
 			if player.alive:
-				GameAuthority.damage_player(player, float(_sig().get("gust_damage", 6.0)), "hraesvelgr", position_now())
+				GameAuthority.damage_player(player, float(_sig().get("gust_damage", 6.0)), str(data.get("id", "")), position_now())
 	if gust_s > 0.0:
 		gust_s -= delta
 		var at: Vector2 = position_now()

@@ -334,6 +334,21 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | dahut_entrance | boss entrance | dahut | The key was so small, and the sea so big. Let it in. | Le Grand; the Barzaz Breiz (Dahut opens the sea gates) | no |
 | dahut_poseidon | boss meets god (with poseidon) | dahut | Lord of the sea, my city is already yours. | Original line written for Mythriven | no |
 
+### Cloud-Cuckoo-Land
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| boss | hoopoe | The Hoopoe | Aristophanes, The Birds (Tereus the hoopoe, king of the birds, calls them together) | no |
+| boss | iris | Iris | Aristophanes, The Birds (Iris, the gods' messenger, flies into the birds' sky) | no |
+| boss | roc | The Roc | The Thousand and One Nights (the Roc, the bird so vast it hid the sun) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| hoopoe_entrance | boss entrance | hoopoe | Come, all you birds! Here is one who walks on the ground. | Aristophanes, The Birds (the Hoopoe's call to the birds) | no |
+| iris_entrance | boss entrance | iris | I carry the gods' word, and I do not stop for walls. | Aristophanes, The Birds (Iris at the walls) | no |
+| roc_entrance | boss entrance | roc | You broke the egg. Now look up. | The Thousand and One Nights (the Rocs avenge their egg) | no |
+| hoopoe_odysseus | boss entrance (as odysseus) | hoopoe | Another wanderer far from home. Stay, and be a bird with us. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

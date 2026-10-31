@@ -69,5 +69,5 @@ func _draw() -> void:
 	var reach: float = float(_sig().get("foam_radius_px", 22.0))
 	for f: Dictionary in foam:
 		var fade: float = clampf(float(f["left"]) / 1.5, 0.0, 1.0)
-		draw_circle(Vector2(f["pos"]) - global_position, reach, Color(0.85, 0.95, 1.0, 0.35 * fade))
+		draw_circle(Vector2(f["pos"]) - global_position, reach, Color(Color.html(str(_sig().get("foam_color", "#d8f2ff"))), 0.35 * fade))
 	super._draw()

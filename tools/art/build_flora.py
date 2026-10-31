@@ -328,6 +328,12 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # Cloud-Cuckoo-Land: the birds' city in the air; a few olive and cypress trees on the cloud-banks (The Birds is set
+    # above Greece), flowering shrubs.
+    "cloud_cuckoo_land": {
+        "trees": {"olive": (olive, 26, 30), "cypress": (cypress, 12, 38)},
+        "bushes": {"myrtle": ("V", "v", "w", "h")},
+        "rock": ("a", "A", "B", None)},
     # Ys: the drowned shore; a few willows and dead trees, reeds and sea-weed.
     "ys": {
         "trees": {"willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30), "dead_tree": (dead_tree, 24, 32)},

@@ -307,6 +307,107 @@ DAHUT_PAL = {"o": "#0c0a10", "k": "#060408", "r": "#2a3a7a", "u": "#e0c050", "s"
              "t": "#2a7a6a", "T": "#1a5a4a"}
 
 
+# --- Cloud-Cuckoo-Land (Aristophanes, The Birds, 414 BC; the Thousand and One Nights; Paracelsus) ---------------------
+
+def sylph(c, f):
+    """A sylph, the air spirit of Paracelsus (1566): a slight, pale figure of the air with gauzy wings."""
+    flap = [0, -1, -2, -1, 0][f]
+    poly(c, [(6, 9), (1, 3 + flap), (8, 7)], "w"); poly(c, [(12, 9), (17, 3 + flap), (10, 7)], "w")
+    poly(c, [(7, 8), (11, 8), (12, 18), (6, 18)], "b")
+    c.rect(7, 2, 11, 7, "s"); c.px(10, 4, "k"); c.rect(6, 1, 12, 2, "h")
+    c.px(8, 19, "b"); c.px(10, 20, "b")
+
+
+SYLPH_PAL = {"o": "#2a3a5a", "k": "#1a2a4a", "w": "#e0f0ff", "b": "#a8c8f0", "s": "#f0f4f8", "h": "#f0e8b0"}
+
+
+def bird_flock(c, f):
+    """The birds' army (Aristophanes, The Birds: the chorus of birds, owls, jays and crows among them): a small dark
+    bird darting in a flock."""
+    flap = [0, -2, -3, -2, 0][f]
+    ellipse(c, 8, 7, 3.5, 2.5, "b")
+    poly(c, [(7, 6), (2, 2 + flap), (9, 6)], "B"); poly(c, [(9, 6), (14, 2 + flap), (8, 6)], "B")
+    c.px(11, 6, "k"); c.px(12, 7, "y")
+    c.rect(3, 7, 4, 8, "B")
+
+
+FLOCK_PAL = {"o": "#10101a", "k": "#000000", "b": "#3a3a4a", "B": "#24242e", "y": "#e0b040"}
+
+
+def storm_gust(c, f):
+    """A storm gust of the sky between earth and heaven (The Birds): a whirling knot of wind and cloud."""
+    turn = f * 2
+    for k in range(3):
+        r = 7 - k * 2
+        for a in range(0, 360, 20):
+            x = 9 + round(r * math.cos(math.radians(a + turn * 20 + k * 40)))
+            y = 9 + round(r * 0.7 * math.sin(math.radians(a + turn * 20 + k * 40)))
+            c.px(x, y, "w" if (a // 20 + k) % 2 else "W")
+
+
+GUST_PAL = {"o": "#4a5a7a", "w": "#f0f4ff", "W": "#b8c8e0"}
+
+
+def hoopoe(c, step):
+    """The Hoopoe (The Birds: Tereus, once a king, turned into a hoopoe, who rules the birds): a great hoopoe with its
+    crown of black-tipped crest feathers raised, barred wings, a long curved bill."""
+    ellipse(c, 24, 28, 12, 9, "b")
+    for k in range(5):
+        c.rect(14 + k * 4, 26, 15 + k * 4, 34, "k" if k % 2 else "w")                    # barred wings
+    ellipse(c, 34, 16, 6, 5, "b")
+    for k in range(7):                                                                   # the crest
+        c.rect(28 + k * 2, 4 + abs(3 - k), 29 + k * 2, 11, "b")
+        c.px(28 + k * 2, 3 + abs(3 - k), "k")
+    for k in range(10):
+        c.px(39 + k, 17 + k // 4, "B")                                                   # long curved bill
+    c.px(36, 15, "k")
+    for k, d in enumerate((-step, step)):
+        c.rect(20 + k * 8 + d, 36, 21 + k * 8 + d, 44, "B")
+    poly(c, [(12, 26), (2, 22), (4, 30)], "k")
+
+
+HOOPOE_PAL = {"o": "#1a0e06", "k": "#141010", "b": "#d89a5a", "B": "#6a4a2a", "w": "#f0ece0"}
+
+
+def iris(c, step):
+    """Iris (The Birds: the gods' messenger, caught as she flies through the birds' sky), messenger of the gods, on
+    golden wings, with a rainbow streaming behind her."""
+    for k, colour in enumerate(("r", "y", "g", "b", "v")):
+        for x in range(0, 16):
+            c.px(x, 30 + k + round(2 * math.sin(x / 3.0)), colour)                       # the rainbow behind her
+    poly(c, [(20, 22), (8, 8 + step), (18, 24)], "u"); poly(c, [(28, 22), (40, 8 - step), (30, 24)], "u")   # wings
+    poly(c, [(19, 20), (29, 20), (32, 50), (16, 50)], "w")
+    c.rect(20, 8, 28, 18, "s"); c.px(26, 12, "k")
+    c.rect(18, 5, 29, 9, "h"); c.rect(17, 8, 19, 22, "h")
+    c.rect(29, 22, 31, 28, "s")
+    for k in range(14):
+        c.px(32, 30 - k, "u")                                                            # a herald's staff
+    c.rect(31, 15, 33, 16, "u")
+
+
+IRIS_PAL = {"o": "#1a1420", "k": "#0a0610", "w": "#f0ecf4", "s": "#f0d8c0", "h": "#3a2a1a", "u": "#e8c040",
+            "r": "#e04040", "y": "#f0d040", "g": "#40c060", "b": "#4080e0", "v": "#8a50d0"}
+
+
+def roc(c, step):
+    """The Roc (the Thousand and One Nights, the voyages of Sindbad): a bird so vast that it hid the sun and fed its
+    young on elephants. Dark brown, with a hooked golden beak and talons."""
+    ellipse(c, 42, 34, 12, 16, "b")
+    for side in (-1, 1):
+        pts = [(42, 26), (42 + side * 40, 10 + step * side), (42 + side * 36, 28), (42 + side * 40, 38), (42, 40)]
+        poly(c, pts, "B" if side < 0 else "b")
+        for k in range(7):
+            c.rect(42 + side * (12 + k * 4), 32 + k, 42 + side * (12 + k * 4), 36 + k, "B" if side > 0 else "b")
+    ellipse(c, 42, 16, 7, 6, "b")
+    poly(c, [(44, 16), (52, 20), (46, 23)], "u"); c.px(44, 14, "k")
+    for k in range(4):
+        c.rect(36 + k * 4, 50, 36 + k * 4, 56, "u")
+        c.px(37 + k * 4, 56, "u")
+
+
+ROC_PAL = {"o": "#120a04", "k": "#060402", "b": "#6a4a2a", "B": "#4a3018", "u": "#e0b040"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_realms.py."
@@ -333,4 +434,10 @@ if __name__ == "__main__":
     kit.build_boss("dahut", dahut(False), DAHUT_PAL, doc(dahut.__doc__), (40, 58), (20, 56), [0, 1, 0, -1, 0])
     kit.build_boss("dahut_morgan", dahut(True), DAHUT_PAL, doc(dahut.__doc__ + " Here, as the mari-morgan."), (40, 58),
                    (20, 56), [0, 1, 0, -1, 0])
+    kit.build_boss("sylph", sylph, SYLPH_PAL, doc(sylph.__doc__), (18, 22), (9, 21), walk, folder="enemies")
+    kit.build_boss("bird_flock", bird_flock, FLOCK_PAL, doc(bird_flock.__doc__), (16, 12), (8, 11), walk, folder="enemies")
+    kit.build_boss("storm_gust", storm_gust, GUST_PAL, doc(storm_gust.__doc__), (18, 18), (9, 17), walk, folder="enemies")
+    kit.build_boss("hoopoe", hoopoe, HOOPOE_PAL, doc(hoopoe.__doc__), (52, 46), (24, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("iris", iris, IRIS_PAL, doc(iris.__doc__), (44, 54), (24, 52), [0, 1, 0, -1, 0])
+    kit.build_boss("roc", roc, ROC_PAL, doc(roc.__doc__), (86, 60), (42, 58), [0, 1, 0, -1, 0])
     print("wrote the Elemental Planes' art")

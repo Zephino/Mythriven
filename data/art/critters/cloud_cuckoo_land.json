@@ -1,0 +1,171 @@
+{
+ "_doc": "Critters of cloud_cuckoo_land (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#8a6a4a",
+  "b": "#5a4430",
+  "c": "#c8a040",
+  "d": "#24283a",
+  "e": "#e8e0d0",
+  "f": "#c84030",
+  "g": "#c8a888",
+  "h": "#3a6ab0",
+  "i": "#24222a",
+  "j": "#f0d860",
+  "m": "#3a3020"
+ },
+ "frames": {
+  "sparrow": [
+   [
+    ".....oo.",
+    "o.oooako",
+    "boaaaaac",
+    "obbbbaao",
+    ".oaaaao.",
+    "..ococo."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "boaaaako",
+    "obbbbaac",
+    ".oaaaaoo",
+    "..ococo."
+   ]
+  ],
+  "sparrow_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oaaaaaac",
+    "..oaabaaoo",
+    "...obbbo..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...obbbkoo",
+    "..oaabaaac",
+    "..oaaaaaoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "swallow": [
+   [
+    ".......oo.",
+    "o..oooodko",
+    "eooddddddf",
+    "oeeeeeddoo",
+    ".oddddddo.",
+    "..oddddo..",
+    "...ofofo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "eoodddddko",
+    "oeeeeedddf",
+    ".oddddddoo",
+    "..oddddo..",
+    "...ofofo.."
+   ]
+  ],
+  "swallow_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...odddddodf",
+    "...oddeddooo",
+    "....oeeeo...",
+    "...oeooeo..."
+   ],
+   [
+    "....o..o....",
+    "...oeooeoo..",
+    "....oeeeokoo",
+    "...oddeddodf",
+    "...odddddooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "jay": [
+   [
+    ".....oo.",
+    "o.ooogko",
+    "hogggggi",
+    "ohhhhggo",
+    ".oggggo.",
+    "..oioio."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "hoggggko",
+    "ohhhhggi",
+    ".oggggoo",
+    "..oioio."
+   ]
+  ],
+  "jay_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oggggggi",
+    "..ogghggoo",
+    "...ohhho..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ohhhkoo",
+    "..ogghgggi",
+    "..ogggggoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".jjkjj.",
+    ".jjkjj.",
+    "..mkm..",
+    "...k...",
+    "......."
+   ],
+   [
+    "jjj.jjj",
+    "jjjkjjj",
+    "jjjkjjj",
+    ".mmkmm.",
+    ".mmkmm.",
+    "......."
+   ]
+  ]
+ },
+ "critters": {
+  "sparrow": {
+   "kind": "bird"
+  },
+  "swallow": {
+   "kind": "bird"
+  },
+  "jay": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  }
+ }
+}

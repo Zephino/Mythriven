@@ -1838,5 +1838,124 @@
       "edge": "#5a5a54",
       "stones": "#a8a89e"
     }
+  },
+  {
+    "_doc": "Cloud-Cuckoo-Land, Pack 4 realm 4, the sky realm (docs/PACK_4_PLAN.md). Sources: Aristophanes, The Birds (414 BC); the Thousand and One Nights (the Roc); Paracelsus (sylphs). Only the old texts. A realm: no local gods.",
+    "id": "cloud_cuckoo_land",
+    "name_key": "LEVEL_CLOUD_CUCKOO_LAND_NAME",
+    "region": "realm_air",
+    "act": 4,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "cloud_cuckoo_land",
+      "noise_frequency": 0.03,
+      "variant_shade": 0.04,
+      "ground": [
+        {
+          "id": "snow",
+          "max": -0.2,
+          "placeholder_color": "#eef2f8",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "packed_snow",
+          "max": 0.3,
+          "placeholder_color": "#dce4f0",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "flowers",
+          "max": 0.65,
+          "placeholder_color": "#9ac07a",
+          "placeholder_dots": "#f0e070"
+        },
+        {
+          "id": "stone",
+          "max": 1.0,
+          "placeholder_color": "#c09a6a",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "birds_wall",
+      "nest_tower"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "birds_wall": {
+        "shape": "rect",
+        "size_px": [
+          34,
+          20
+        ],
+        "placeholder_color": "#b8865a",
+        "weight": 2
+      },
+      "nest_tower": {
+        "shape": "rect",
+        "size_px": [
+          18,
+          32
+        ],
+        "placeholder_color": "#a8784a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "hoopoe",
+      "20": "iris",
+      "30": "roc"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_land_of_legends",
+      "boss": "shuten_doji"
+    },
+    "waves": "waves_cloud_cuckoo_land.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_HIGH_WINDS_NAME",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 20,
+      "push_px_s": 70,
+      "enemy_push_px_s": 30,
+      "wind_turn_s": 5,
+      "vision_screens": 0,
+      "particles": "mist",
+      "particle_color": "#ffffff",
+      "fade_s": 1.5
+    },
+    "ground_patches": {
+      "kind": "slide",
+      "count": 5,
+      "radius_px": [
+        28,
+        44
+      ],
+      "color": "#f4f8ff",
+      "grip_per_s": 2.0
+    },
+    "seal": "greek_meander",
+    "tint": "#eef0f6",
+    "flora": {
+      "density": 0.4,
+      "trees": {
+        "olive": 1,
+        "cypress": 1
+      }
+    },
+    "road": {
+      "color": "#d8c8a8",
+      "edge": "#b8a888",
+      "stones": "#c09a6a"
+    }
   }
 ]

@@ -1693,5 +1693,45 @@
     "text_key": "BANTER_DAHUT_POSEIDON",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "hoopoe_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "hoopoe",
+    "hero": "",
+    "god": "hoopoe",
+    "text_key": "BANTER_HOOPOE_ENTRANCE",
+    "lore_source": "Aristophanes, The Birds (the Hoopoe's call to the birds)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "iris_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "iris",
+    "hero": "",
+    "god": "iris",
+    "text_key": "BANTER_IRIS_ENTRANCE",
+    "lore_source": "Aristophanes, The Birds (Iris at the walls)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "roc_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "roc",
+    "hero": "",
+    "god": "roc",
+    "text_key": "BANTER_ROC_ENTRANCE",
+    "lore_source": "The Thousand and One Nights (the Rocs avenge their egg)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hoopoe_odysseus",
+    "trigger": "boss_entrance",
+    "speaker": "hoopoe",
+    "hero": "odysseus",
+    "god": "hoopoe",
+    "text_key": "BANTER_HOOPOE_ODYSSEUS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

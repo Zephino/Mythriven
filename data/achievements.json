@@ -814,5 +814,35 @@
       "id": "dahut"
     },
     "persists": true
+  },
+  {
+    "id": "boss_hoopoe",
+    "name_key": "ACH_BOSS_HOOPOE_NAME",
+    "desc_key": "ACH_BOSS_HOOPOE_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "hoopoe"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_iris",
+    "name_key": "ACH_BOSS_IRIS_NAME",
+    "desc_key": "ACH_BOSS_IRIS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "iris"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_roc",
+    "name_key": "ACH_BOSS_ROC_NAME",
+    "desc_key": "ACH_BOSS_ROC_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "roc"
+    },
+    "persists": true
   }
 ]

@@ -1,0 +1,82 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A nest tower of the birds' city (The Birds): a slim brick tower with a great nest of twigs on top.",
+ "size": [
+  20,
+  30
+ ],
+ "anchor": [
+  10,
+  29
+ ],
+ "palette": {
+  "a": "#664e18",
+  "b": "#c6a242",
+  "c": "#e4ba4e",
+  "d": "#2a2418",
+  "e": "#ba9c42",
+  "f": "#f0c654",
+  "g": "#664e36",
+  "h": "#d8b448",
+  "i": "#5a4230",
+  "j": "#1e180c",
+  "k": "#6c543c",
+  "l": "#483624",
+  "m": "#5a4830",
+  "n": "#423024",
+  "o": "#604e36",
+  "p": "#423624",
+  "q": "#362a1e",
+  "r": "#7e6642",
+  "s": "#a88460",
+  "t": "#967854",
+  "u": "#a27e5a",
+  "v": "#3c2a18",
+  "w": "#846648",
+  "x": "#483c24",
+  "y": "#78603c",
+  "z": "#665436",
+  "A": "#6c5436",
+  "B": "#907254",
+  "C": "#725a3c",
+  "D": "#90724e",
+  "E": "#8a6c4e",
+  "F": "#604e30",
+  "G": "#7e6042"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".......aaaaaa.......",
+    "......abccccca......",
+    ".d..d.aecccffd..d...",
+    "dgddgdafhfchhiddgd..",
+    ".jkdjkdjkdjkdjgdjgd.",
+    "jljmnjopjgnjmnjgljod",
+    ".jpjjljjljjpjjqjjpj.",
+    "..jljjprsptunsjpjjnj",
+    "...j.vwrutsuuuxj..j.",
+    ".....vrryywwrux.....",
+    ".....vyytsuuutx.....",
+    ".....vwrutststx.....",
+    ".....vzrrArwrux.....",
+    ".....vrrsuuBtsx.....",
+    ".....vyyuusuusx.....",
+    ".....vyryyyrCwx.....",
+    ".....vyyDuwtDDx.....",
+    ".....vyytututux.....",
+    ".....vrrCyyCCtx.....",
+    ".....vyrtutDtDx.....",
+    ".....vyCtDtwwux.....",
+    ".....vryyrzyCtx.....",
+    ".....vyytuttDDx.....",
+    ".....vyrtDuDutx.....",
+    ".....vrrCryCrDx.....",
+    ".....vCCEDtEDEx.....",
+    ".....vCCEDDEDtx.....",
+    ".....vCCyAyFADx.....",
+    ".....vCCDGDEDDx.....",
+    "......vvxxxxxx......"
+   ]
+  ]
+ }
+}

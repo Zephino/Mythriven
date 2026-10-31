@@ -3900,5 +3900,253 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Cloud-Cuckoo-Land bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "hoopoe",
+    "name_key": "BOSS_HOOPOE_NAME",
+    "tradition": "greek",
+    "lore_source": "Aristophanes, The Birds (Tereus the hoopoe, king of the birds, calls them together)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "hoopoe",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "call_of_the_birds",
+      "call_every_s": 6.0,
+      "flock": 8,
+      "add": "bird_flock"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Cloud-Cuckoo-Land bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "iris",
+    "name_key": "BOSS_IRIS_NAME",
+    "tradition": "greek",
+    "lore_source": "Aristophanes, The Birds (Iris, the gods' messenger, flies into the birds' sky)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "iris",
+    "move_speed": 56,
+    "keep_distance_px": 110,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 965,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "over_the_waves",
+      "gallop_every_s": 3.5,
+      "gallop_px": 320,
+      "gallop_s": 0.5,
+      "foam_s": 4.0,
+      "foam_radius_px": 20,
+      "foam_slow": 0.6,
+      "foam_color": "#f0c0f0"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 30,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 280,
+            "width_px": 30,
+            "damage": 14
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "storm_gust"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 300,
+            "width_px": 32,
+            "damage": 15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Cloud-Cuckoo-Land bosses (docs/PACK_4_PLAN.md). Pack 4: about 60% tougher than Pack 1's at the same time. Numbers are placeholders.",
+    "id": "roc",
+    "name_key": "BOSS_ROC_NAME",
+    "tradition": "arabian",
+    "lore_source": "The Thousand and One Nights (the Roc, the bird so vast it hid the sun)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "roc",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1517,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "wingbeats",
+      "gust_every_s": 6.0,
+      "gust_s": 1.2,
+      "gust_px_s": 240,
+      "gust_damage": 8,
+      "boulder_every_s": 5.0,
+      "boulders": 3,
+      "boulder_radius_px": 34,
+      "boulder_damage": 18,
+      "boulder_fall_s": 1.3
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "bird_flock"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "bird_flock"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

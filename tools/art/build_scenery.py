@@ -396,6 +396,30 @@ def sea_gate():
     return p
 
 
+def birds_wall():
+    """A wall of the birds' city (Aristophanes, The Birds: the great wall of Cloud-Cuckoo-Land, built of baked brick by
+    the birds themselves): a stretch of brick wall with a crenellated top."""
+    p = Pic(34, 20, (17, 19))
+    for y in range(4, 20):
+        for x in range(34):
+            p.px(x, y, "d" if ((x + (y // 3) % 2 * 2) // 4 + y // 3) % 2 else "D")
+    for x in range(0, 34, 6):
+        p.rect(x, 1, x + 3, 3, "d")
+    return p
+
+
+def nest_tower():
+    """A nest tower of the birds' city (The Birds): a slim brick tower with a great nest of twigs on top."""
+    p = Pic(18, 32, (9, 31))
+    p.rect(5, 10, 12, 31, "d"); p.rect(5, 10, 6, 31, "D")
+    for y in range(12, 31, 3):
+        p.rect(7, y, 11, y, "D")
+    for k in range(18):
+        p.px(k, 7 + (k % 3) - 1, "t"); p.px(k, 8 + (k * 7 % 3), "T")                   # the nest
+    p.rect(6, 4, 11, 6, "y")                                                          # eggs
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -422,7 +446,8 @@ SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
-                                   frozen_root, drowned_arch, sea_gate)}
+                                   frozen_root, drowned_arch, sea_gate, birds_wall,
+                                   nest_tower)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

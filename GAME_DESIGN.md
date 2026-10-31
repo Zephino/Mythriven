@@ -134,7 +134,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 1 | Legends of the West | 1 The Aegean Shore · 2 Midgard's Edge · 3 The Two Lands · 4 The Misty Isles | **Build now** (Aegean Shore first as the vertical slice) |
 | 2 | Deeper Myths | 5 The Underworld · 6 Jotunheim · 7 Avalon's Shadow · 8 Land Between the Rivers | **Approved and released 10/31/2026** (`docs/PACK_2_PLAN.md`) |
 | 3 | Distant Legends | 9 Pohjola · 10 Mazandaran · 11 The Slavic Wilds · 12 The Land of Legends | **Approved and released 10/31/2026** (`docs/PACK_3_PLAN.md`) |
-| 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | **Approved 10/31/2026; building** (`docs/PACK_4_PLAN.md`) |
+| 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | **Approved and released 10/31/2026** (`docs/PACK_4_PLAN.md`) |
 | 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | Later |
 | 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | Later |
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | Later |
@@ -173,6 +173,8 @@ All the world's myths are threads in one great tapestry, and something is pullin
 *(10/31/2026: **Niflheim** is built and released (00.02.78): freezing fog (a white veil that chills every Hero out in it); serpents of Hvergelmir, rime wraiths, draugr and frost thursar; Hræsvelgr (his wingbeats raise a gale that shoves Heroes away), Garmr (his baying hurts those close and calls the dead), Níðhöggr (burrows among the roots, untouchable, and bursts up beneath you, leaving pits).)*
 
 *(10/31/2026: **Ys** is built and released (00.02.79): the tide comes in through the open gates in flood bands; undines, mari-morgans and the drowned of Ys; Morvarc'h (gallops across in straight runs, trampling, and leaves a wake of foam that slows), the Ankou (marks a Hero when his axle creaks, as Thanatos' mark), Dahut (the sea rolls in across the arena in waves and the sea's creatures come, as Tiamat's; in her last phase she becomes a mari-morgan). St Guénolé is not used.)*
+
+*(10/31/2026: **Cloud-Cuckoo-Land** is built and released (00.02.80), so **all four Pack 4 realms are built**: high winds push Heroes and monsters; sylphs, the birds' army, storm gusts; the Hoopoe (calls flocks of birds round his target), Iris (darts across in straight flights, leaving a rainbow that slows), the Roc (wingbeats that shove Heroes away, and boulders that fall where their shadows grow).)*
 
 Pack names are working labels. The Act tables below are the same levels: Act I = Pack 1, Act II = Pack 2, Act III = Pack 3, Act IV = the extras. Fantasy realm packs still need two more bosses designed per level, from the same public-domain lore, before they're built.
 

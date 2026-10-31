@@ -2,7 +2,7 @@
 
 Status: **approved by the owner** (10/31/2026: "yes as suggested" to all five questions: Elemental Planes first; the drafted
 bosses, monsters and hazards; the unlocks and +60% / +35% / +30%; no new Heroes; St Guénolé kept out). Muspelheim built
-and released 10/31/2026 (00.02.77); Niflheim (00.02.78); Ys (00.02.79). The owner asked to start Pack 4 once Pack 3 was done ("then start pack
+and released 10/31/2026 (00.02.77); Niflheim (00.02.78); Ys (00.02.79); Cloud-Cuckoo-Land (00.02.80). **All four realms are built.** The owner asked to start Pack 4 once Pack 3 was done ("then start pack
 4"). `docs/PACK_PLAN.md` (Phase 33) says the realms must be designed with the owner before any building: the design
 names only one boss per realm and no monsters or hazards. This is that design, drafted from the old public-domain texts
 only (never modern games, books or films), for the owner to approve, change or reject.
@@ -79,7 +79,7 @@ the game).
 | 20:00 | **The Ankou** | The Breton figure of death with his creaking cart; whoever hears the axle is marked | Anatole Le Braz, La Légende de la mort (1893) |
 | 30:00 | **Dahut** (the design's) | The princess who stole the key and opened the sea gates; she opens gates round the arena, and becomes a mari-morgan in her last phase | Le Grand; Barzaz Breiz |
 
-## Realm 16: Cloud-Cuckoo-Land (air)
+## Realm 16: Cloud-Cuckoo-Land (air): **done and released 10/31/2026 (00.02.80)**
 *Sources: Aristophanes, The Birds (414 BC; the birds' city in the air); the One Thousand and One Nights (the Roc);
 Paracelsus (sylphs). Only the old texts, never later versions.*
 

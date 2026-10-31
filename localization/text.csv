@@ -1934,3 +1934,31 @@ BANTER_MORVARCH_ENTRANCE,"The sea is a road, and I run on it."
 BANTER_ANKOU_ENTRANCE,Do you hear the axle creak? It creaks for you.
 BANTER_DAHUT_ENTRANCE,"The key was so small, and the sea so big. Let it in."
 BANTER_DAHUT_POSEIDON,"Lord of the sea, my city is already yours."
+LEVEL_CLOUD_CUCKOO_LAND_NAME,Cloud-Cuckoo-Land
+HAZARD_HIGH_WINDS_NAME,High winds sweep the sky!
+ENEMY_SYLPH_NAME,Sylph
+ENEMY_SYLPH_MYTH,"Paracelsus wrote that the sylphs are the spirits of the air, swifter and lighter than men, living in the air as we live on the earth."
+ENEMY_BIRD_FLOCK_NAME,The birds' army
+ENEMY_BIRD_FLOCK_MYTH,"In Aristophanes' comedy The Birds, the birds of every kind, owls, jays, crows and many more, gather to build a city in the sky and cut the gods off from mankind."
+ENEMY_STORM_GUST_NAME,Storm gust
+ENEMY_STORM_GUST_MYTH,"Cloud-Cuckoo-Land was built in the air between earth and heaven, where the smoke of men's offerings had to pass on its way up to the gods."
+BOSS_HOOPOE_NAME,The Hoopoe
+BOSS_IRIS_NAME,Iris
+BOSS_ROC_NAME,The Roc
+ENEMY_HOOPOE_NAME,The Hoopoe
+ENEMY_IRIS_NAME,Iris
+ENEMY_ROC_NAME,The Roc
+ENEMY_HOOPOE_MYTH,"Once King Tereus of Thrace, turned into a hoopoe, he is king of the birds in Aristophanes' comedy. He calls the birds together to hear the plan for their city in the clouds."
+ENEMY_IRIS_MYTH,"The swift messenger of the gods, on golden wings. In The Birds she flies straight into the birds' new city on an errand from Zeus and is caught at the walls."
+ENEMY_ROC_MYTH,"The giant bird of the Thousand and One Nights, so vast it hid the sun and fed its young on elephants. When Sindbad's shipmates broke its egg, the Rocs dropped boulders on their ship."
+BOSS_HOOPOE_CALLS,The Hoopoe calls the birds!
+ACH_BOSS_HOOPOE_NAME,Defeat the Hoopoe
+ACH_BOSS_HOOPOE_DESC,The 10:00 boss of Cloud-Cuckoo-Land.
+ACH_BOSS_IRIS_NAME,Defeat Iris
+ACH_BOSS_IRIS_DESC,The 20:00 boss of Cloud-Cuckoo-Land.
+ACH_BOSS_ROC_NAME,Defeat the Roc
+ACH_BOSS_ROC_DESC,The 30:00 boss of Cloud-Cuckoo-Land.
+BANTER_HOOPOE_ENTRANCE,"Come, all you birds! Here is one who walks on the ground."
+BANTER_IRIS_ENTRANCE,"I carry the gods' word, and I do not stop for walls."
+BANTER_ROC_ENTRANCE,You broke the egg. Now look up.
+BANTER_HOOPOE_ODYSSEUS,"Another wanderer far from home. Stay, and be a bird with us."

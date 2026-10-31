@@ -1,0 +1,94 @@
+{
+ "_doc": "The birds' army (Aristophanes, The Birds: the chorus of birds, owls, jays and crows among them): a small dark bird darting in a flock. Built by tools/art/build_realms.py.",
+ "size": [
+  16,
+  12
+ ],
+ "anchor": [
+  8,
+  11
+ ],
+ "palette": {
+  "o": "#10101a",
+  "k": "#000000",
+  "b": "#3a3a4a",
+  "B": "#24242e",
+  "y": "#e0b040"
+ },
+ "frames": {
+  "idle": [
+   [
+    "................",
+    "................",
+    "....o...........",
+    "...oBo....o.....",
+    "....oBooooBo....",
+    ".....oBBbBbo....",
+    "...oobbbbbbko...",
+    "..oBBbbbbbbbyo..",
+    "..oBBbbbbbbbo...",
+    "...ooobbbbbo....",
+    "......ooooo.....",
+    "................"
+   ]
+  ],
+  "walk": [
+   [
+    ".oBo........oBo.",
+    "..oBo......oBo..",
+    "...oBo....oBo...",
+    "....oBo..oBo....",
+    ".....oBooBo.....",
+    ".....obBBbbo....",
+    "...oobbbbbbko...",
+    "..oBBbbbbbbbyo..",
+    "..oBBbbbbbbbo...",
+    "...ooobbbbbo....",
+    "......ooooo.....",
+    "................"
+   ],
+   [
+    "................",
+    "....o...........",
+    "...oBo....o.....",
+    "....oBo..oBo....",
+    ".....oBooBo.....",
+    ".....obBBbbo....",
+    "...oobbbbbbko...",
+    "..oBBbbbbbbbyo..",
+    "..oBBbbbbbbbo...",
+    "...ooobbbbbo....",
+    "......ooooo.....",
+    "................"
+   ],
+   [
+    ".oBo........oBo.",
+    "..oBo......oBo..",
+    "...oBo....oBo...",
+    "....oBo..oBo....",
+    ".....oBooBo.....",
+    ".....obBBbbo....",
+    "...oobbbbbbko...",
+    "..oBBbbbbbbbyo..",
+    "..oBBbbbbbbbo...",
+    "...ooobbbbbo....",
+    "......ooooo.....",
+    "................"
+   ],
+   [
+    "................",
+    "................",
+    "....o...........",
+    "...oBo....o.....",
+    "....oBooooBo....",
+    ".....oBBbBbo....",
+    "...oobbbbbbko...",
+    "..oBBbbbbbbbyo..",
+    "..oBBbbbbbbbo...",
+    "...ooobbbbbo....",
+    "......ooooo.....",
+    "................"
+   ]
+  ]
+ }
+}
