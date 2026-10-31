@@ -67,6 +67,16 @@ static func note_boss(level_id: String, boss_id: String, index: int) -> PackedSt
 				levels[str(other["id"])] = opened
 				if not bool(other.get("coming_soon", false)):
 					lines.append(TranslationServer.translate("UNLOCK_LEVEL") % TranslationServer.translate(str(other.get("name_key", ""))))
+		# The Crossroads (GAME_DESIGN.md): opens once the 30:00 boss has fallen in enough levels.
+		var finals: int = final_bosses_beaten()
+		for other: Dictionary in all():
+			var unlock: Dictionary = other.get("unlock", {})
+			if str(unlock.get("type", "")) == "boss_count" and finals >= int(unlock.get("count", 8)) \
+					and not bool(progress(str(other["id"])).get("unlocked", false)):
+				var opened: Dictionary = progress(str(other["id"])).duplicate()
+				opened["unlocked"] = true
+				levels[str(other["id"])] = opened
+				lines.append(TranslationServer.translate("UNLOCK_LEVEL") % TranslationServer.translate(str(other.get("name_key", ""))))
 	if index == 1:
 		for other: Dictionary in _act_of(level_id):
 			# Only the Act's levels that open together (Pack 1); later packs open from their sister levels.
@@ -79,6 +89,15 @@ static func note_boss(level_id: String, boss_id: String, index: int) -> PackedSt
 				lines.append(TranslationServer.translate("UNLOCK_LEVEL") % TranslationServer.translate(str(other.get("name_key", ""))))
 	SaveGame.commit("levels")
 	return lines
+
+
+## How many levels have had their 30:00 boss defeated (Swift Mode opens with it).
+static func final_bosses_beaten() -> int:
+	var count: int = 0
+	for level: Dictionary in all():
+		if bool(progress(str(level.get("id", ""))).get("swift", false)):
+			count += 1
+	return count
 
 
 ## The other levels in the same Act as `level_id`.

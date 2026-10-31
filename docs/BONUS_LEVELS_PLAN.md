@@ -32,7 +32,7 @@ no local gods: shrines come from every pantheon. Sun Wukong stays out (Tier B).*
 - **Unlock (Claude's choice):** beat the Roc, Cloud-Cuckoo-Land's 30:00 boss, so the bonus levels follow Pack 4.
 - **Difficulty (Claude's choice):** as Pack 4 (+60% HP, +35% spawns, +30% damage).
 
-## Level 54: the Crossroads (the finale)
+## Level 54: the Crossroads (the finale): **done and released 10/31/2026 (00.02.83)**
 *The Crossroads, the Unweaving and the Unweaver are the game's own invented names, already in the design.*
 
 - **Look (design):** every region's terrain blended and fraying: Greek columns beside Norse runestones, obelisks and
@@ -47,3 +47,9 @@ no local gods: shrines come from every pantheon. Sun Wukong stays out (Tier B).*
 
 ## Afterwards (as with the packs)
 Boss achievements, two secrets each, banter, lore check rows, and a refreshed sprite sheet.
+
+*(As built, 00.02.83: the hazard takes the next of twelve levels' hazards each time it comes; the wave table mixes
+monsters from every land and changes every couple of minutes; fairy-ring style portals carry Heroes across the
+blended land; the 10:00 and 20:00 bosses are drawn from the other levels when the run starts; the Unweaver takes one
+stolen boss's attacks for each of its phases (from bosses you have beaten, else any) and unweaves both god meters of
+every Hero every 15 s.)*

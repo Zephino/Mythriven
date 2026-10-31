@@ -57,6 +57,8 @@ func build() -> void:
 ## boss of their sister level ("Locked: defeat Kronos on the Aegean Shore").
 func _how_to_unlock(level: Dictionary) -> String:
 	var unlock: Dictionary = level.get("unlock", {})
+	if str(unlock.get("type", "")) == "boss_count":
+		return tr_key("UNLOCK_CROSSROADS_HOW") % [int(unlock.get("count", 8)), LevelRules.final_bosses_beaten()]
 	if str(unlock.get("type", "")) != "boss":
 		return tr_key("LEVEL_LOCKED_HOW")
 	var sister: Dictionary = GameAuthority.find_level(str(unlock.get("level", "")))

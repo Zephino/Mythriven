@@ -171,7 +171,7 @@ if __name__ == "__main__":
     os.makedirs(out_dir, exist_ok=True)
     for level in levels:
         tiles = level["tileset"]
-        letters = iter("ABCEFGHIJKLMNOPQRSTUVWXZ")
+        letters = iter("ABCEFGHIJKLMNOPQRSTUVWXZabcdefghijklmnopqrstuvwxyz")
         palette, frames = {}, {}
         for ground in tiles["ground"]:
             base = ground["placeholder_color"]; accent = ground.get("placeholder_dots") or shade(base, 1.3)

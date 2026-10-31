@@ -874,5 +874,15 @@
       "id": "ten_suns"
     },
     "persists": true
+  },
+  {
+    "id": "boss_unweaver",
+    "name_key": "ACH_BOSS_UNWEAVER_NAME",
+    "desc_key": "ACH_BOSS_UNWEAVER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "unweaver"
+    },
+    "persists": true
   }
 ]

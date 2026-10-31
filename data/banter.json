@@ -1794,5 +1794,36 @@
     "text_key": "BANTER_TEN_SUNS_RA",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "unweaver_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "unweaver",
+    "hero": "",
+    "god": "unweaver",
+    "text_key": "BANTER_UNWEAVER_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "unweaver_heracles",
+    "trigger": "boss_entrance",
+    "speaker": "unweaver",
+    "hero": "heracles",
+    "god": "unweaver",
+    "text_key": "BANTER_UNWEAVER_HERACLES",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "unweaver_apep",
+    "trigger": "boss_meets_god",
+    "speaker": "unweaver",
+    "hero": "",
+    "god": "unweaver",
+    "with_god": "ra",
+    "text_key": "BANTER_UNWEAVER_APEP",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.83
+Date: 10/31/2026
+Time: 6:55 PM
+
+### Changes
+- **The finale, the Crossroads, is built and open** (`docs/BONUS_LEVELS_PLAN.md`). It opens once you have beaten the 30:00 boss in 8 levels; until then its card in the level select says how many you have so far. It has its own "The finale" heading and is the hardest level (+80% enemy HP, +45% spawns, +40% damage compared with Pack 1).
+  - **The land:** every region's ground, scenery and trees blended together (grass, sand, snow, stone and ash; columns, runestones, obelisks, standing stones, ziggurats and pagodas; olive, spruce, palm, oak, cedar and pine), with shimmering portals that carry you across it.
+  - **The hazard rotates:** each time it comes it is the next land's hazard in turn (storms, blizzards, sandstorms, mist, rivers of the dead, rockslides, brambles, floods, the polar night, wandering lights, freezing fog, heat bands).
+  - **Monsters:** from every land, the mix changing every couple of minutes. Shrines bring gods from every pantheon.
+  - **Bosses:** at 10:00 and 20:00, a boss from another level, chosen when the run starts. At 30:00, **the Unweaver**, the game's own original final boss: a hooded shape of frayed threads that fights with attacks stolen from bosses you have beaten (one stolen boss for each of its phases), and every 15 s unravels both of every Hero's god meters to nothing.
+  - A "Defeat the Unweaver" achievement, 3 banter lines, and the level's rows on the lore check.
+- New game rules behind it: a level that opens after a number of 30:00 bosses, a "random" boss slot, and a hazard that rotates through other levels' hazards.
+- The ground-tile builder has more palette letters, so a level can have five ground types.
+- 2 new tests (333 tests pass).
+
+### Reason
+The owner asked for the finale next, then all nine remaining packs one at a time ("program all 9 packs 1 at a time").
+
 ## Version 00.02.82
 Date: 10/31/2026
 Time: 6:42 PM

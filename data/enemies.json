@@ -3690,5 +3690,28 @@
     "myth_source": "The Huainanzi; the Shanhaijing",
     "boss": true,
     "priority_target": true
+  },
+  {
+    "id": "unweaver",
+    "name_key": "ENEMY_UNWEAVER_NAME",
+    "family": "bosses",
+    "tradition": "crossroads",
+    "movement": "still",
+    "hp": 13500,
+    "speed": 40,
+    "contact_damage": 11,
+    "armor": 2,
+    "radius_px": 22,
+    "element": "dark",
+    "xp": 150,
+    "gold_chance": 0.0,
+    "knockback_resist": 1.0,
+    "placeholder_color": "#b8c4d0",
+    "persists": false,
+    "weak": "holy",
+    "resist": "dark",
+    "myth_source": "The game's own original being (GAME_DESIGN.md: the Crossroads finale)",
+    "boss": true,
+    "priority_target": true
   }
 ]

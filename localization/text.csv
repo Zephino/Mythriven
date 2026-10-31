@@ -2042,3 +2042,14 @@ BANTER_BAIGUJING_ENTRANCE,"Only a poor traveller, nothing to fear. Come closer."
 BANTER_TEN_SUNS_ENTRANCE,"Ten of us, all at once. Let the world burn."
 BANTER_TEN_SUNS_HOU_YI,The archer again. Nine of us remember your arrows.
 BANTER_TEN_SUNS_RA,"One sun in the sky is enough, Ra; we are ten."
+LEVEL_CROSSROADS_NAME,The Crossroads
+BOSS_UNWEAVER_NAME,The Unweaver
+ENEMY_UNWEAVER_NAME,The Unweaver
+ENEMY_UNWEAVER_MYTH,"The chaos at the heart of the Unweaving: where the myths fray, it pulls their threads apart. It fights with what it has stolen from the monsters you have beaten, and it unravels the gods themselves."
+BOSS_UNWEAVER_UNWEAVES,The Unweaver unravels your gods!
+ACH_BOSS_UNWEAVER_NAME,Defeat the Unweaver
+ACH_BOSS_UNWEAVER_DESC,"The 30:00 boss of the Crossroads, the finale."
+UNLOCK_CROSSROADS_HOW,Defeat the 30:00 boss in %d levels (%d so far).
+BANTER_UNWEAVER_ENTRANCE,Every story ends. I am how.
+BANTER_UNWEAVER_HERACLES,"Twelve labours, and still one more. I will unpick them all."
+BANTER_UNWEAVER_APEP,Little sun. The serpent only swallowed you; I will unweave you.

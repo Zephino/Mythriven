@@ -248,6 +248,12 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    "the_crossroads": {
+        "ground": {"hare": (hare, "#8a6a48", "#e8e0d0"), "desert_lizard": (lizard, "#c8a870", "#8a6a40")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True), "sacred_ibis": ("#f0f0ec", "#24222a", "#24222a", True),
+                  "gull": ("#e8ecec", "#9aa4ac", "#e0b030", True)},
+        "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a")},
+        "large": {}},
     "the_realm_of_the_ten_suns": {
         "ground": {"desert_lizard": (lizard, "#c8a870", "#8a6a40")},
         "birds": {"crane": ("#f0f0ec", "#24222a", "#c83030", True), "crow": ("#24222a", "#3a3844", "#24222a", True)},

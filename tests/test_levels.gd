@@ -59,6 +59,8 @@ func test_every_level_has_waves_bosses_and_a_hazard_that_all_exist() -> void:
 			for group: Dictionary in row.get("groups", []):
 				assert_false(DeathRecap._enemy(str(group["type"])).is_empty(), "%s: %s exists" % [id, group["type"]])
 		for boss_id: Variant in (level.get("bosses", {}) as Dictionary).values():
+			if str(boss_id) == "random":
+				continue    # the Crossroads: a boss from another level, chosen when the run starts
 			assert_false(BossManager.find(str(boss_id)).is_empty(), "%s: boss %s" % [id, boss_id])
 			assert_true(BossManager.SCRIPTS.has(str(boss_id)), "%s has a signature script" % boss_id)
 		assert_false((level.get("hazard", {}) as Dictionary).is_empty(), "%s has a hazard" % id)
@@ -930,3 +932,31 @@ func test_heat_bands_burn() -> void:
 	var hp: float = _player.hp
 	heat._process(0.5)
 	assert_lt(_player.hp, hp, "standing in the heat burns")
+
+
+func test_the_crossroads_opens_after_eight_final_bosses() -> void:
+	SaveGame.use_test_file(TEST_SAVE)
+	var crossroads: Dictionary = _level("the_crossroads")
+	assert_false(LevelRules.is_unlocked(crossroads))
+	var levels: Array = ["aegean_shore", "midgards_edge", "the_two_lands", "the_misty_isles", "the_underworld", "jotunheim",
+			"avalons_shadow", "pohjola"]
+	for k: int in levels.size():
+		LevelRules.note_boss(str(levels[k]), "x", 2)
+	assert_true(LevelRules.is_unlocked(crossroads), "eight 30:00 bosses open the finale")
+
+
+func test_crossroads_random_bosses_rotating_hazard_and_the_unweaver() -> void:
+	_start("the_crossroads")
+	assert_ne(BossManager.random_boss(10, "the_crossroads"), "", "a boss from another land")
+	var hazard := Hazard.create(_level("the_crossroads")["hazard"]) as HazardRotating
+	_world.add_child(hazard)
+	hazard.begin(_level("the_crossroads")["hazard"])
+	var first: Hazard = hazard.current
+	assert_not_null(first)
+	hazard.begin(_level("the_crossroads")["hazard"])
+	assert_ne(hazard.current, first, "the next land's hazard")
+	var unweaver: UnweaverBoss = _bosses.spawn_boss("unweaver", 2) as UnweaverBoss
+	unweaver.signature(0.1)
+	assert_eq(unweaver.stolen.size(), (unweaver.data["phases"] as Array).size(), "an attack stolen for every phase")
+	unweaver.signature(9.0)
+	assert_gt(unweaver.unweavings, 0, "it unweaves the gods")

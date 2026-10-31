@@ -63,6 +63,7 @@ const SCRIPTS: Dictionary = {
 	"nian": "res://scripts/bosses/nian_boss.gd",
 	"baigujing": "res://scripts/bosses/baigujing_boss.gd",
 	"ten_suns": "res://scripts/bosses/ten_suns_boss.gd",
+	"unweaver": "res://scripts/bosses/unweaver_boss.gd",
 	"thrym": "res://scripts/bosses/thrym_boss.gd",
 	"ymir": "res://scripts/bosses/ymir_boss.gd",
 	"thanatos": "res://scripts/bosses/thanatos_boss.gd",
@@ -96,7 +97,25 @@ func _ready() -> void:
 	var keys: Array = bosses.keys()
 	keys.sort_custom(func(a: Variant, b: Variant) -> bool: return int(a) < int(b))
 	for i: int in keys.size():
-		_schedule.append({"time_s": float(times[mini(i, times.size() - 1)]), "id": str(bosses[keys[i]]), "index": i})
+		var id: String = str(bosses[keys[i]])
+		# The Crossroads: "random" brings a boss from any other level's same slot (GAME_DESIGN.md: remixed).
+		if id == "random":
+			id = random_boss(int(keys[i]), str(level.get("id", "")))
+		_schedule.append({"time_s": float(times[mini(i, times.size() - 1)]), "id": id, "index": i})
+
+
+## A boss from another level for the `minute` slot (10 or 20), chosen with the run's random numbers.
+static func random_boss(minute: int, level_id: String) -> String:
+	var pool: Array = []
+	for level: Variant in Data.get_file("levels.json"):
+		if level is Dictionary and str(level.get("id", "")) != level_id and not bool(level.get("coming_soon", false)):
+			var id: String = str((level.get("bosses", {}) as Dictionary).get(str(minute), ""))
+			if id != "" and id != "random" and not find(id).is_empty():
+				pool.append(id)
+	if pool.is_empty():
+		return ""
+	var rng: RandomNumberGenerator = GameAuthority.run.rng.world if GameAuthority.run != null else RandomNumberGenerator.new()
+	return str(pool[rng.randi() % pool.size()])
 
 
 static func find(boss_id: String) -> Dictionary:

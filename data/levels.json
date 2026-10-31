@@ -2081,5 +2081,181 @@
       "edge": "#7a6040",
       "stones": "#c8a070"
     }
+  },
+  {
+    "_doc": "The Crossroads, the finale, level 54 (docs/BONUS_LEVELS_PLAN.md; GAME_DESIGN.md: The Crossroads, Act IV). Every region's land blended and fraying; the hazard rotates through all of them; all families; shrines from all pantheons; random 10:00 and 20:00 bosses; the Unweaver at 30:00. The Crossroads and the Unweaver are the game's own invented names (in the design).",
+    "id": "the_crossroads",
+    "name_key": "LEVEL_CROSSROADS_NAME",
+    "region": "crossroads",
+    "act": 6,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_crossroads",
+      "noise_frequency": 0.045,
+      "variant_shade": 0.06,
+      "ground": [
+        {
+          "id": "grass",
+          "max": -0.45,
+          "placeholder_color": "#56803e",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "sand",
+          "max": -0.1,
+          "placeholder_color": "#d0b484",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "snow",
+          "max": 0.2,
+          "placeholder_color": "#dce4ec",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "stone",
+          "max": 0.55,
+          "placeholder_color": "#9a968e",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "ash",
+          "max": 1.0,
+          "placeholder_color": "#4a3e44",
+          "placeholder_dots": "#7a4a8a"
+        }
+      ]
+    },
+    "decorations": [
+      "broken_column",
+      "runestone",
+      "obelisk",
+      "standing_stone",
+      "ziggurat_ruin",
+      "pagoda_ruin"
+    ],
+    "decorations_per_chunk": [
+      3,
+      6
+    ],
+    "decoration_art": {
+      "broken_column": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          24
+        ],
+        "placeholder_color": "#9a968e",
+        "weight": 1
+      },
+      "runestone": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          24
+        ],
+        "placeholder_color": "#9a968e",
+        "weight": 1
+      },
+      "obelisk": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          24
+        ],
+        "placeholder_color": "#9a968e",
+        "weight": 1
+      },
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          24
+        ],
+        "placeholder_color": "#9a968e",
+        "weight": 1
+      },
+      "ziggurat_ruin": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          24
+        ],
+        "placeholder_color": "#9a968e",
+        "weight": 1
+      },
+      "pagoda_ruin": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          24
+        ],
+        "placeholder_color": "#9a968e",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "random",
+      "20": "random",
+      "30": "unweaver"
+    },
+    "unlock": {
+      "type": "boss_count",
+      "count": 8
+    },
+    "waves": "waves_the_crossroads.json",
+    "hazard": {
+      "type": "rotating",
+      "name_key": "",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 20,
+      "from_levels": [
+        "aegean_shore",
+        "midgards_edge",
+        "the_two_lands",
+        "the_misty_isles",
+        "the_underworld",
+        "jotunheim",
+        "avalons_shadow",
+        "the_land_between_the_rivers",
+        "pohjola",
+        "the_slavic_wilds",
+        "niflheim",
+        "the_realm_of_the_ten_suns"
+      ]
+    },
+    "ground_patches": {
+      "kind": "teleport",
+      "count": 6,
+      "radius_px": [
+        22,
+        30
+      ],
+      "color": "#8a4ad0",
+      "teleport_cooldown_s": 4,
+      "pair_distance_screens": 1.0
+    },
+    "seal": "celtic_knot",
+    "tint": "#ece6f0",
+    "flora": {
+      "density": 0.9,
+      "trees": {
+        "olive": 1,
+        "spruce": 1,
+        "date_palm": 1,
+        "oak": 1,
+        "cedar": 1,
+        "black_pine": 1
+      }
+    },
+    "road": {
+      "color": "#9a8a7a",
+      "edge": "#6a5a4a",
+      "stones": "#8a4ad0"
+    }
   }
 ]

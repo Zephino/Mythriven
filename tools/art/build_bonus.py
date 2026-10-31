@@ -153,6 +153,29 @@ def hou_yi(c, back_leg, front_leg):
     kit.legs(c, back_leg, front_leg, lambda c, x0: (c.rect(x0, 26, x0 + 2, 30, "a"), c.row(31, x0, x0 + 3, "n")))
 
 
+def unweaver(c, step):
+    """The Unweaver (the game's own original being; GAME_DESIGN.md: the Crossroads finale): the chaos at the heart of
+    the Unweaving, a tall hooded shape made of the frayed threads of every myth, coming apart at the hem, a void for a
+    face."""
+    colours = ["r", "y", "g", "b", "v", "w"]
+    for x in range(10, 44):
+        top = 14 + abs(x - 27) // 2
+        length = 50 + ((x * 7) % 9) - step * (x % 2)
+        for y in range(top, min(length, 70)):
+            c.px(x, y, colours[(x + y // 6) % len(colours)] if (x + y) % 3 else "k")
+    for x in range(8, 46, 3):                                                         # threads trailing loose below
+        for y in range(56, 72):
+            if (x * 3 + y) % 5 == 0:
+                c.px(x + (y % 2), y, colours[x % len(colours)])
+    ellipse(c, 27, 12, 9, 10, "k")                                                    # the hood
+    ellipse(c, 27, 14, 5, 6, "o")                                                     # the void of its face
+    c.px(25, 13, "e"); c.px(29, 13, "e")
+
+
+UNWEAVER_PAL = {"o": "#02020a", "k": "#141020", "r": "#c83a3a", "y": "#e0b040", "g": "#3a9a5a", "b": "#3a6ad0",
+                "v": "#8a4ad0", "w": "#e8e4f0", "e": "#f0f0ff"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_bonus.py."
@@ -167,4 +190,5 @@ if __name__ == "__main__":
                        (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("ten_suns", ten_suns, SUNS_PAL, doc(ten_suns.__doc__), (72, 60), (36, 58), [0, 1, 0, -1, 0])
     kit.build("hou_yi", hou_yi, HOU_YI_PAL, HOU_YI_DOC, recolor=["r", "R"])
-    print("wrote the Realm of the Ten Suns' art")
+    kit.build_boss("unweaver", unweaver, UNWEAVER_PAL, doc(unweaver.__doc__), (54, 74), (27, 72), [0, 1, 0, -1, 0])
+    print("wrote the bonus levels' art")

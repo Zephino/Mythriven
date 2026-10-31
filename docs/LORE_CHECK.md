@@ -382,6 +382,18 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | ten_suns_hou_yi | boss entrance (as hou_yi) | ten_suns | The archer again. Nine of us remember your arrows. | The Huainanzi (Yi shoots down nine suns) | no |
 | ten_suns_ra | boss meets god (with ra) | ten_suns | One sun in the sky is enough, Ra; we are ten. | Original line written for Mythriven | no |
 
+### The Crossroads
+
+| Kind | Id | Name | Source | Verified |
+| --- | --- | --- | --- | --- |
+| boss | unweaver | The Unweaver | Original, the game's own (no culture to check; the design names it) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| unweaver_entrance | boss entrance | unweaver | Every story ends. I am how. | Original line written for Mythriven | no |
+| unweaver_heracles | boss entrance (as heracles) | unweaver | Twelve labours, and still one more. I will unpick them all. | Original line written for Mythriven | no |
+| unweaver_apep | boss meets god (with ra) | unweaver | Little sun. The serpent only swallowed you; I will unweave you. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

@@ -1,0 +1,447 @@
+{
+  "_doc": "The Crossroads wave table (docs/BONUS_LEVELS_PLAN.md; GAME_DESIGN.md: all families). Every few minutes the mix changes to monsters from other lands. ALL NUMBERS ARE PLACEHOLDERS until tuned.",
+  "level": "the_crossroads",
+  "rows": [
+    {
+      "from_min": 0,
+      "spawns_per_s": 1.6,
+      "singles": {
+        "satyr_skirmisher": 2,
+        "redcap": 2
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 36,
+          "size": 4
+        }
+      ]
+    },
+    {
+      "from_min": 2,
+      "spawns_per_s": 2.0,
+      "singles": {
+        "draugr": 2,
+        "oni": 2
+      },
+      "packs": [
+        {
+          "type": "hvergelmir_serpent",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "sluagh_flyer",
+          "kind": "flyer",
+          "every_s": 36,
+          "size": 4
+        }
+      ]
+    },
+    {
+      "from_min": 4,
+      "spawns_per_s": 2.3,
+      "singles": {
+        "scarab_swarm": 2,
+        "black_knight": 2
+      },
+      "packs": [
+        {
+          "type": "river_serpent",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "erinys_flyer",
+          "kind": "flyer",
+          "every_s": 36,
+          "size": 4
+        }
+      ]
+    },
+    {
+      "from_min": 6,
+      "spawns_per_s": 2.55,
+      "singles": {
+        "redcap": 2,
+        "skeletal_hoplite": 2
+      },
+      "packs": [
+        {
+          "type": "earth_spider",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "rime_wraith",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 8,
+      "spawns_per_s": 2.75,
+      "singles": {
+        "skeletal_hoplite": 2,
+        "salamander": 2
+      },
+      "packs": [
+        {
+          "type": "bird_flock",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "storm_gust",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 10,
+      "spawns_per_s": 2.88,
+      "singles": {
+        "pohjola_wolf": 2,
+        "satyr_skirmisher": 2
+      },
+      "packs": [
+        {
+          "type": "mari_morgan",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "tengu",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 12,
+      "spawns_per_s": 3.24,
+      "singles": {
+        "div": 2,
+        "pohjola_wolf": 2
+      },
+      "packs": [
+        {
+          "type": "snake_field_viper",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "firebird_kin",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 14,
+      "spawns_per_s": 3.6,
+      "singles": {
+        "grey_wolf": 2,
+        "drowned_of_ys": 2
+      },
+      "packs": [
+        {
+          "type": "scarab_swarm",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "will_o_wisp",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 16,
+      "spawns_per_s": 3.96,
+      "singles": {
+        "oni": 2,
+        "draugr": 2
+      },
+      "packs": [
+        {
+          "type": "hvergelmir_serpent",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 18,
+      "spawns_per_s": 4.32,
+      "singles": {
+        "salamander": 2,
+        "div": 2
+      },
+      "packs": [
+        {
+          "type": "river_serpent",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "sluagh_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 20,
+      "spawns_per_s": 4.56,
+      "singles": {
+        "drowned_of_ys": 2,
+        "bone_demon": 2
+      },
+      "packs": [
+        {
+          "type": "earth_spider",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "erinys_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "mari_morgan",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 16
+        }
+      ]
+    },
+    {
+      "from_min": 23,
+      "spawns_per_s": 5.04,
+      "singles": {
+        "bone_demon": 2,
+        "scarab_swarm": 2
+      },
+      "packs": [
+        {
+          "type": "bird_flock",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "rime_wraith",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "snake_field_viper",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 16
+        }
+      ]
+    },
+    {
+      "from_min": 26,
+      "spawns_per_s": 5.52,
+      "singles": {
+        "ugallu": 2,
+        "grey_wolf": 2
+      },
+      "packs": [
+        {
+          "type": "mari_morgan",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "storm_gust",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "scarab_swarm",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 16
+        }
+      ]
+    },
+    {
+      "from_min": 28,
+      "spawns_per_s": 6.0,
+      "singles": {
+        "black_knight": 2,
+        "ugallu": 2
+      },
+      "packs": [
+        {
+          "type": "snake_field_viper",
+          "chance": 0.07,
+          "size": [
+            5,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "tengu",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "hvergelmir_serpent",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 16
+        }
+      ]
+    }
+  ],
+  "elites": {
+    "types": [
+      "troll_elite",
+      "minotaur",
+      "cyclops"
+    ],
+    "times_s": [
+      300,
+      900,
+      1500
+    ],
+    "random_interval_s": [
+      150,
+      240
+    ],
+    "random_after_s": 300,
+    "_doc": "Elites are shared across levels."
+  },
+  "boss_fodder": [
+    "snake_field_viper",
+    "pohjola_wolf"
+  ],
+  "events": [
+    {
+      "id": "chaos_surge",
+      "at_s": 420
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 780
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1080
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1380
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1560
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1680
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1760
+    }
+  ],
+  "_events_doc": "World events (GAME_DESIGN.md: World events): Chaos Surge (60 s, double spawns and XP) and Divine Storm (45 s, god meters charge twice as fast while telegraphed lightning strikes random spots). More often in Deep Night. Events skip while a boss arena is up."
+}

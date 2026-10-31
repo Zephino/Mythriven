@@ -328,6 +328,12 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # The Crossroads: every land's trees side by side, fraying together.
+    "the_crossroads": {
+        "trees": {"olive": (olive, 26, 30), "spruce": (spruce, 22, 40), "date_palm": (palm, 26, 38), "oak": (broadleaf, 30, 34),
+                  "cedar": (umbrella_pine, 30, 38), "black_pine": (umbrella_pine, 28, 34)},
+        "bushes": {"myrtle": ("V", "v", "w", "h"), "juniper": ("P", "p", "q", None), "papyrus": ("papyrus",), "fern": ("fern",)},
+        "rock": ("g", "G", "H", "l")},
     # The Realm of the Ten Suns: pines and willows by the rivers, and trees scorched dead by the ten suns.
     "the_realm_of_the_ten_suns": {
         "trees": {"black_pine": (umbrella_pine, 28, 34), "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30),

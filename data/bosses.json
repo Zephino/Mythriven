@@ -4385,5 +4385,82 @@
       }
     ],
     "unlocks_hero": "hou_yi"
+  },
+  {
+    "_doc": "The Crossroads' final boss (GAME_DESIGN.md: the Unweaver, an original chaos being). Its phases take other bosses' attacks when it comes. Numbers are placeholders.",
+    "id": "unweaver",
+    "name_key": "BOSS_UNWEAVER_NAME",
+    "tradition": "crossroads",
+    "lore_source": "Original (the game's own; GAME_DESIGN.md: invented names)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "unweaver",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 2130,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "unweaving",
+      "unweave_every_s": 15.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "son_of_muspell"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "son_of_muspell"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]
