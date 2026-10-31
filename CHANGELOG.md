@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.85
+Date: 10/31/2026
+Time: 7:20 PM
+
+### Changes
+- **Pack 5, Gothic Night, is planned** (`docs/PACK_5_PLAN.md`): four realms (Erebus, Karnstein, Ossory, the Brocken), each with three bosses, three monster families and a hazard, all from old public-domain texts and folklore. Claude made the choices with the owner's trust; any of them can be changed.
+- **Erebus, the realm of the restless dead, is built and open.** It opens when you beat Níðhöggr (Niflheim's 30:00 boss) and sits under a new "Pack 5: Gothic Night" heading. Realms after the finale are as hard as Pack 4 (+60% enemy HP, +35% spawns, +30% damage), so the Crossroads stays the hardest level.
+  - **Hazard, the grasping dead:** graves open in the dark ground and hands reach up out of them; standing in one slows you and hurts a little every moment until it sinks back.
+  - **Monsters:** Keres (dark-winged death spirits, Hesiod), hounds of the Wild Hunt (the Anglo-Saxon Chronicle, 1127), shades and skeletal hoplites.
+  - **10:00, Empusa** (Aristophanes, The Frogs): changes shape every 6 s. As a bull she takes half damage, as a dog she runs fast, as a woman she attacks more often.
+  - **20:00, Eurynomos** (Pausanias): every 5 s he devours the monsters close to him and heals for each one, so fight him away from the crowd.
+  - **30:00, the Wild Hunt** (the design's boss): again and again it gallops across the arena at a Hero, leaving a trail of cold mist that slows, and looses three hounds each time it rides.
+  - Dark ground with asphodel, grave stones, barrow mounds, dead trees and black poplars, bats, owls, moths and toads.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- The sprite sheet tool makes a Pack 5 sheet (`docs/art/sprite_sheet_pack5.png`), and now counts pictures that are not committed yet as part of the version being built.
+- New tests in a new file for the realms (339 tests pass).
+
+### Reason
+The owner asked to build all nine remaining packs, one at a time ("program all 9 packs 1 at a time").
+
 ## Version 00.02.84
 Date: 10/31/2026
 Time: 7:03 PM

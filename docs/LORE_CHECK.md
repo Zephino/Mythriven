@@ -403,6 +403,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_last_thread | The Last Thread | Cut the last thread before it pulls the rest loose. | Original, the game's own (the Unweaver) | no |
 | nothing_to_steal | Nothing to Steal | What is spent can't be stolen: call your gods before the threads come. | Original, the game's own (the Unweaver) | no |
 
+## Pack 5: Gothic Night
+
+### Erebus
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | erebus | Erebus | Hesiod, Theogony 123 (Erebus, the darkness); the Anglo-Saxon Chronicle 1127 (the Wild Hunt) | no |
+| enemy | ker | Ker | Hesiod, Theogony 211-217; the Shield of Heracles 248-257 (the Keres, dark death spirits of battle) | no |
+| enemy | hunt_hound | Hound of the Hunt | The Anglo-Saxon Chronicle for 1127 (the hunt's black, wide-eyed hounds) | no |
+| boss | empusa | Empusa | Aristophanes, The Frogs 285-295 (the shape-shifting spectre on the road through the underworld) | no |
+| boss | eurynomos | Eurynomos | Pausanias, Description of Greece 10.28.7 (the daemon in Polygnotus' painting who eats the flesh of the dead) | no |
+| boss | wild_hunt | The Wild Hunt | The Anglo-Saxon Chronicle for 1127 (black huntsmen on black horses, with black hounds); Orderic Vitalis, Ecclesiastical History 8.17 (Hellequin's household, 1091) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| empusa_entrance | boss entrance | empusa | Bull or dog or woman? Look again; I've changed. | Aristophanes, The Frogs 285-295 (her shapes) | no |
+| eurynomos_entrance | boss entrance | eurynomos | Fresh dead. I'll leave you the bones. | Pausanias 10.28.7 (he leaves only the bones) | no |
+| wild_hunt_entrance | boss entrance | wild_hunt | Hear the horns? The Hunt is riding, and you are the quarry. | The Anglo-Saxon Chronicle for 1127 (the horns heard all night) | no |
+| empusa_hecate | boss meets god (with hecate) | empusa | Mistress Hecate! Your hound of the roads has found someone. | Original line written for Mythriven (Empusa as Hecate's spectre) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

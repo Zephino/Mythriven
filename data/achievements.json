@@ -884,5 +884,35 @@
       "id": "unweaver"
     },
     "persists": true
+  },
+  {
+    "id": "boss_empusa",
+    "name_key": "ACH_BOSS_EMPUSA_NAME",
+    "desc_key": "ACH_BOSS_EMPUSA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "empusa"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_eurynomos",
+    "name_key": "ACH_BOSS_EURYNOMOS_NAME",
+    "desc_key": "ACH_BOSS_EURYNOMOS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "eurynomos"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_wild_hunt",
+    "name_key": "ACH_BOSS_WILD_HUNT_NAME",
+    "desc_key": "ACH_BOSS_WILD_HUNT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "wild_hunt"
+    },
+    "persists": true
   }
 ]

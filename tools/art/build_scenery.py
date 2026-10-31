@@ -456,12 +456,24 @@ def lekythos():
     return p
 
 
+def barrow_mound():
+    """A barrow (Erebus; the old grave mounds the Wild Hunt rides over in the folklore Grimm gathered): a low grassy
+    burial mound with a dark stone doorway."""
+    p = Pic(34, 18, (17, 17))
+    for y in range(4, 18):
+        half = int(16 * math.sqrt(max(0.0, 1 - ((17 - y) / 14.0 - 1) ** 2))) if y < 17 else 16
+        half = min(16, int(16 * (y - 3) / 10)) if y < 13 else 16
+        p.rect(17 - half, y, 16 + half, y, "u" if y < 8 else "x")
+    p.rect(14, 11, 19, 17, "g"); p.rect(15, 12, 18, 17, "z")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin)}
+                                   nest_tower, pagoda_ruin, barrow_mound)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

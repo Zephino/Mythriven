@@ -1,0 +1,58 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A barrow (Erebus; the old grave mounds the Wild Hunt rides over in the folklore Grimm gathered): a low grassy burial mound with a dark stone doorway.",
+ "size": [
+  34,
+  16
+ ],
+ "anchor": [
+  17,
+  15
+ ],
+ "palette": {
+  "a": "#243618",
+  "b": "#5a723c",
+  "c": "#546c3c",
+  "d": "#607842",
+  "e": "#4e6c36",
+  "f": "#485a30",
+  "g": "#182412",
+  "h": "#36542a",
+  "i": "#364e2a",
+  "j": "#3c542a",
+  "k": "#304224",
+  "l": "#304824",
+  "m": "#84848a",
+  "n": "#7e7e7e",
+  "o": "#787878",
+  "p": "#241e12",
+  "q": "#1e1812",
+  "r": "#241812",
+  "s": "#727272",
+  "t": "#2a3c1e",
+  "u": "#2a4224",
+  "v": "#3c3c3c",
+  "w": "#120c06"
+ },
+ "frames": {
+  "idle": [
+   [
+    "................aa................",
+    "..............aabcaa..............",
+    ".............acddbdba.............",
+    "...........aaecccbbfcaa...........",
+    ".........ggecbbbcccbcbcgg.........",
+    "........ghiijhihiihhiihhhg........",
+    "......ggjkhhjhihhiihiiihjhgg......",
+    ".....gjjhjihjhjhhhhjjjijhjhjg.....",
+    "...ggliiiiiiiimnmomoiilliliiigg...",
+    ".ggiliiiliillinpqrrmililiiiiiiigg.",
+    "gilliiiiiiiliinrpppniiiiiilliiiiig",
+    "giiiiiiiikiilinrprroiliiiiiiiiikig",
+    "giiiilikiiiliimrqrrniiiiiiiiilkiig",
+    "gilllililllilisrrrqslllillllitlllg",
+    "gillillllllllloqrrqouilllllllllltg",
+    ".gggggggggggggvwwwwvggggggggggggg."
+   ]
+  ]
+ }
+}

@@ -1825,5 +1825,46 @@
     "text_key": "BANTER_UNWEAVER_APEP",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "empusa_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "empusa",
+    "hero": "",
+    "god": "empusa",
+    "text_key": "BANTER_EMPUSA_ENTRANCE",
+    "lore_source": "Aristophanes, The Frogs 285-295 (her shapes)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "eurynomos_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "eurynomos",
+    "hero": "",
+    "god": "eurynomos",
+    "text_key": "BANTER_EURYNOMOS_ENTRANCE",
+    "lore_source": "Pausanias 10.28.7 (he leaves only the bones)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "wild_hunt_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "wild_hunt",
+    "hero": "",
+    "god": "wild_hunt",
+    "text_key": "BANTER_WILD_HUNT_ENTRANCE",
+    "lore_source": "The Anglo-Saxon Chronicle for 1127 (the horns heard all night)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "empusa_hecate",
+    "trigger": "boss_meets_god",
+    "speaker": "empusa",
+    "hero": "",
+    "god": "empusa",
+    "with_god": "hecate",
+    "text_key": "BANTER_EMPUSA_HECATE",
+    "lore_source": "Original line written for Mythriven (Empusa as Hecate's spectre)",
+    "needs_owner_review": true
   }
 ]

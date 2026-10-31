@@ -352,6 +352,11 @@ LEVELS = {
         "bushes": {"reeds": ("papyrus",)},
         "rock": ("g", "G", "H", "l")},
     # Niflheim: a frozen waste; dead trees and a few snow-laden spruce.
+    # Erebus: the dark under the earth; dead trees and black poplars (Odyssey 10.510), asphodel among the graves.
+    "erebus": {
+        "trees": {"dead_tree": (dead_tree, 24, 32), "black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40)},
+        "bushes": {"asphodel": ("I", "i", "L", "h")},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

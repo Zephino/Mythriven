@@ -1,0 +1,113 @@
+{
+ "_doc": "A hound of the Wild Hunt (the Anglo-Saxon Chronicle for 1127: \"the hounds were all black and wide-eyed and ugly\"): a lean black hound with burning eyes. Built by tools/art/build_gothic.py.",
+ "size": [
+  24,
+  16
+ ],
+ "anchor": [
+  11,
+  15
+ ],
+ "palette": {
+  "o": "#2a2830",
+  "k": "#141218",
+  "K": "#0a080c",
+  "y": "#f0c040"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    ".................o......",
+    "................oko.....",
+    "................oko.....",
+    "...........o...okooo....",
+    "......oooookooookkyyoo..",
+    ".....okkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkkkkko.",
+    "KKKKKkkkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkoooo..",
+    "....oKkkkKkkkKkkkKo.....",
+    "....oKoooKokoKoooKo.....",
+    "....oKo.oKoooKo.oKo.....",
+    "....oKo.oKo.oKo.oKo.....",
+    "....oKo.oKo.oKo.oKo....."
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    ".................o......",
+    "................oko.....",
+    "................oko.....",
+    "...........o...okooo....",
+    "......oooookooookkyyoo..",
+    ".....okkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkkkkko.",
+    "KKKKKkkkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkoooo..",
+    ".....oKkKkkkKkkkkoKo....",
+    ".....oKoKookKoooooKo....",
+    ".....oKoKo.oKo...oKo....",
+    ".....oKoKo.oKo...oKo....",
+    ".....oKoKo.oKo...oKo...."
+   ],
+   [
+    "........................",
+    "........................",
+    ".................o......",
+    "................oko.....",
+    "................oko.....",
+    "...........o...okooo....",
+    "......oooookooookkyyoo..",
+    ".....okkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkkkkko.",
+    "KKKKKkkkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkoooo..",
+    "....oKkkkKkkkKkkkKo.....",
+    "....oKoooKokoKoooKo.....",
+    "....oKo.oKoooKo.oKo.....",
+    "....oKo.oKo.oKo.oKo.....",
+    "....oKo.oKo.oKo.oKo....."
+   ],
+   [
+    "........................",
+    "........................",
+    ".................o......",
+    "................oko.....",
+    "................oko.....",
+    "...........o...okooo....",
+    "......oooookooookkyyoo..",
+    ".....okkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkkkkko.",
+    "KKKKKkkkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkoooo..",
+    "...oKokkkkKkkkKkKo......",
+    "...oKoooooKkooKoKo......",
+    "...oKo...oKo.oKoKo......",
+    "...oKo...oKo.oKoKo......",
+    "...oKo...oKo.oKoKo......"
+   ],
+   [
+    "........................",
+    "........................",
+    ".................o......",
+    "................oko.....",
+    "................oko.....",
+    "...........o...okooo....",
+    "......oooookooookkyyoo..",
+    ".....okkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkkkkko.",
+    "KKKKKkkkkkkkkkkkkkkkkko.",
+    "oooookkkkkkkkkkkkkoooo..",
+    "....oKkkkKkkkKkkkKo.....",
+    "....oKoooKokoKoooKo.....",
+    "....oKo.oKoooKo.oKo.....",
+    "....oKo.oKo.oKo.oKo.....",
+    "....oKo.oKo.oKo.oKo....."
+   ]
+  ]
+ }
+}

@@ -2071,3 +2071,30 @@ PASSIVE_LOOSE_THREAD_NAME,Loose Thread
 PASSIVE_LOOSE_THREAD_DESC,Weapon cooldowns 3% shorter per level.
 COSMETIC_RED_LANTERN,Red Lantern
 COSMETIC_MANY_THREADS,Many-coloured Thread
+LEVEL_EREBUS_NAME,Erebus
+HAZARD_GRASPING_DEAD_NAME,The graves are opening!
+ENEMY_KER_NAME,Ker
+ENEMY_KER_MYTH,"The Keres were the dark spirits of violent death. On the battlefield, the Shield of Heracles says, they fought over the fallen, dark, with gnashing teeth and blood-stained cloaks."
+ENEMY_HUNT_HOUND_NAME,Hound of the Hunt
+ENEMY_HUNT_HOUND_MYTH,"In 1127, the Anglo-Saxon Chronicle says, many men saw and heard huntsmen in the woods by night; the huntsmen were black and loathsome, and their hounds were all black and wide-eyed and ugly."
+BOSS_EMPUSA_NAME,Empusa
+ENEMY_EMPUSA_NAME,Empusa
+ENEMY_EMPUSA_MYTH,"A spectre of Hecate's who haunts lonely roads. In The Frogs she appears on the way to the underworld: now a bull, now a mule, now a lovely woman, now a dog, her face aflame and one leg of bronze."
+BOSS_EURYNOMOS_NAME,Eurynomos
+ENEMY_EURYNOMOS_NAME,Eurynomos
+ENEMY_EURYNOMOS_MYTH,"A daemon of the underworld, painted by Polygnotus at Delphi. He eats the flesh of the dead and leaves only their bones; his colour is blue-black, like the flies that settle on meat, he shows his teeth, and he sits on a vulture's skin."
+BOSS_WILD_HUNT_NAME,The Wild Hunt
+ENEMY_WILD_HUNT_NAME,The Wild Hunt
+ENEMY_WILD_HUNT_MYTH,"A host of the dead that rides through the night sky. In 1127 men at Peterborough saw it: big black huntsmen on black horses and black goats, with black, wide-eyed hounds, and heard their horns all night long."
+ACH_BOSS_EMPUSA_NAME,Defeat Empusa
+ACH_BOSS_EMPUSA_DESC,The 10:00 boss of Erebus.
+ACH_BOSS_EURYNOMOS_NAME,Defeat Eurynomos
+ACH_BOSS_EURYNOMOS_DESC,The 20:00 boss of Erebus.
+ACH_BOSS_WILD_HUNT_NAME,Defeat The Wild Hunt
+ACH_BOSS_WILD_HUNT_DESC,The 30:00 boss of Erebus.
+BANTER_EMPUSA_ENTRANCE,Bull or dog or woman? Look again; I've changed.
+BANTER_EURYNOMOS_ENTRANCE,Fresh dead. I'll leave you the bones.
+BANTER_WILD_HUNT_ENTRANCE,"Hear the horns? The Hunt is riding, and you are the quarry."
+BANTER_EMPUSA_HECATE,Mistress Hecate! Your hound of the roads has found someone.
+PACK_7_NAME,Pack 5: Gothic Night
+BOSS_EMPUSA_SHIFTS,Empusa changes her shape!

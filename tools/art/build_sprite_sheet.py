@@ -6,10 +6,9 @@
 # The sheets are generated: change the art in tools/art/build_*.py (or the data/art files), then run this again.
 # Run: python3 build_sprite_sheet.py from tools/art/ (needs Pillow).
 #
-# Also writes one sheet per pack, docs/art/sprite_sheet_pack2.png (and pack3, pack4), with only the pictures that pack
-# added (owner request 10/31/2026), so it's easy to see what's new; the bonus levels go on sprite_sheet_bonus.png
-# (from 00.02.82). A picture belongs to the pack whose versions first
-# added its art file (from git: Pack 2 = 00.02.53-00.02.69, Pack 3 = 00.02.70-00.02.75, Pack 4 = 00.02.77 on); the
+# Also writes one sheet per pack, docs/art/sprite_sheet_pack2.png (and pack3, pack4, pack5), with only the pictures that
+# pack added (owner request 10/31/2026), so it's easy to see what's new; the bonus levels go on sprite_sheet_bonus.png.
+# A picture belongs to the pack whose versions first added its art file (from git; the version ranges are in PACKS); the
 # passive icons, which share one file, go by the pack of the secret that unlocks them.
 import json, os, re, subprocess
 from PIL import Image, ImageDraw, ImageFont
@@ -145,7 +144,10 @@ def lay_out(title, tiles):
     return sheet
 
 
-PACKS = {2: ("00.02.53", "00.02.69"), 3: ("00.02.70", "00.02.75"), 4: ("00.02.77", "00.02.81"), 5: ("00.02.82", "99.99.99")}
+# Sheet name -> (first version, last version, heading).
+PACKS = {"pack2": ("00.02.53", "00.02.69", "Pack 2"), "pack3": ("00.02.70", "00.02.75", "Pack 3"),
+         "pack4": ("00.02.77", "00.02.81", "Pack 4"), "bonus": ("00.02.82", "00.02.84", "Bonus levels"),
+         "pack5": ("00.02.85", "99.99.99", "Pack 5")}
 
 
 def first_version(path):
@@ -155,25 +157,28 @@ def first_version(path):
                              capture_output=True, text=True, check=True).stdout.strip().splitlines()
     except (OSError, subprocess.CalledProcessError):
         return ""
-    found = re.search(r"v(\d\d\.\d\d\.\d\d)", out[-1]) if out else None
+    if not out:
+        # Not committed yet: it is being added in the version being built now.
+        return open(os.path.join(ROOT, "VERSION")).read().strip()
+    found = re.search(r"v(\d\d\.\d\d\.\d\d)", out[-1])
     return found.group(1) if found else ""
 
 
 def pack_of_version(version):
-    for pack, (low, high) in PACKS.items():
+    for pack, (low, high, _title) in PACKS.items():
         if version and low <= version <= high:
             return pack
-    return 0
+    return ""
 
 
 def icon_packs():
     """Passive icon -> pack, by the secret that unlocks the passive."""
     secrets = {s["id"]: s for s in json.load(open(os.path.join(ROOT, "data", "secrets.json"))) if isinstance(s, dict)}
     by_secret = {}
-    for pack, ids in ((2, ["the_pomegranate", "the_whetstone", "the_green_girdle", "the_plant_of_youth"]),
-                      (3, ["the_ski_chase", "the_seventh_labour", "seared_necks", "poisoned_sake"]),
-                      (4, ["laevateinn", "the_gnawed_root", "the_golden_key", "sindbads_escape"]),
-                      (5, ["the_nine_crows", "the_last_thread"])):
+    for pack, ids in (("pack2", ["the_pomegranate", "the_whetstone", "the_green_girdle", "the_plant_of_youth"]),
+                      ("pack3", ["the_ski_chase", "the_seventh_labour", "seared_necks", "poisoned_sake"]),
+                      ("pack4", ["laevateinn", "the_gnawed_root", "the_golden_key", "sindbads_escape"]),
+                      ("bonus", ["the_nine_crows", "the_last_thread"])):
         for sid in ids:
             by_secret[sid] = pack
     out = {}
@@ -211,15 +216,14 @@ def pack_sheets():
         if not sheets:
             continue
         head = Image.new("RGB", (SHEET_W, 60), BG)
-        ImageDraw.Draw(head).text((PAD, 14), ("Pack %d: new pictures" % pack) if pack < 5 else "Bonus levels: new pictures",
-                                  fill=HEAD, font=TITLE)
+        ImageDraw.Draw(head).text((PAD, 14), "%s: new pictures" % PACKS[pack][2], fill=HEAD, font=TITLE)
         whole = Image.new("RGB", (SHEET_W, 60 + sum(s.height for s in sheets)), BG)
         whole.paste(head, (0, 0))
         y = 60
         for s in sheets:
             whole.paste(s, (0, y))
             y += s.height
-        name = ("sprite_sheet_pack%d.png" % pack) if pack < 5 else "sprite_sheet_bonus.png"
+        name = "sprite_sheet_%s.png" % pack
         whole.save(os.path.join(OUT, name))
         print("wrote docs/art/%s (%dx%d)" % (name, whole.width, whole.height))
 

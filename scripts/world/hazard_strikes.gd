@@ -7,7 +7,9 @@ extends Hazard
 ## player and enemy inside it. Settings come from the level's "hazard" data.
 ## Markers are a small fixed pool. Data: strikes_per_s, radius_px,
 ## telegraph_s, damage, element, range_px, color, look ("" = bolts from the sky; "chasm" = the Underworld's
-## collapsing chasms: cracks glow and spread, then the ground drops away into a dark pit that closes again).
+## collapsing chasms: cracks glow and spread, then the ground drops away into a dark pit that closes again; "grave" =
+## Erebus' grasping dead: a grave opens and hands reach up, slowing and hurting (grave_dps) whoever stands in it until
+## it sinks back after bramble_s).
 
 const MAX_MARKERS := 16
 ## How long a chasm stays open after it collapses (look "chasm").
@@ -38,9 +40,9 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 
 func _process(delta: float) -> void:
 	var any_marker: bool = false
-	if _look() == "bramble" or _look() == "flood":
+	if _look() == "bramble" or _look() == "flood" or _look() == "grave":
 		_slow_in_patches()
-	elif _look() == "heat":
+	if _look() == "heat" or _look() == "grave":
 		_scorch(delta)
 	for h: int in range(_hole_left.size() - 1, -1, -1):
 		_hole_left[h] -= delta
@@ -100,7 +102,7 @@ func _strike(at: Vector2) -> void:
 		if _look() == "chasm" or _look() == "rockslide":
 			_hole_pos.append(at)
 			_hole_left.append(CHASM_OPEN_S)
-		elif _look() == "bramble":
+		elif _look() == "bramble" or _look() == "grave":
 			_hole_pos.append(at)
 			_hole_left.append(float(_data.get("bramble_s", 7.0)))
 		elif _look() == "flood" or _look() == "heat":
@@ -154,7 +156,7 @@ func _slow_in_patches() -> void:
 					enemies.statuses.remove(slot, "burn")
 
 
-## Heat bands (the Realm of the Ten Suns): whoever stands in one is burned every moment.
+## Heat bands (the Realm of the Ten Suns) and open graves (Erebus): whoever stands in one is hurt every moment.
 func _scorch(delta: float) -> void:
 	if paused:
 		return
@@ -163,7 +165,7 @@ func _scorch(delta: float) -> void:
 			continue
 		for h: int in _hole_pos.size():
 			if in_patch(player.position, h, player.body_radius):
-				GameAuthority.damage_player_over_time(player, float(_data.get("heat_dps", 8.0)) * delta)
+				GameAuthority.damage_player_over_time(player, float(_data.get("grave_dps" if _look() == "grave" else "heat_dps", 8.0)) * delta)
 				break
 
 
@@ -218,6 +220,21 @@ func _draw() -> void:
 				if b % 3 == 0:
 					draw_circle(at_b + Vector2(2, -2), 1.2, Color(0.95, 0.9, 0.95, life))
 			continue
+		if _look() == "grave":
+			# An open grave in the dark ground, pale hands reaching up out of it, sinking back at the end.
+			var life_g: float = clampf(_hole_left[h] / 1.0, 0.0, 1.0)
+			draw_set_transform(_hole_pos[h], 0.0, Vector2(1.0, 0.6))
+			draw_circle(Vector2.ZERO, reach, Color(glow, 0.25 * life_g))
+			draw_circle(Vector2.ZERO, reach * 0.8, Color(0.05, 0.04, 0.07, 0.8 * life_g))
+			draw_set_transform(Vector2.ZERO)
+			for k: int in 6:
+				var base: Vector2 = _hole_pos[h] + Vector2.from_angle(k * 2.1 + h) * reach * (0.15 + 0.1 * k) * Vector2(1.0, 0.6)
+				var reach_up: float = (6.0 + 2.0 * sin(Time.get_ticks_msec() * 0.006 + k)) * life_g
+				var tip: Vector2 = base + Vector2(0, -reach_up)
+				draw_line(base, tip, Color(0.78, 0.8, 0.74, life_g), 2.0)
+				for f: int in 3:
+					draw_line(tip, tip + Vector2(f - 1, -2.5), Color(0.78, 0.8, 0.74, life_g), 1.0)
+			continue
 		if _look() == "rockslide":
 			# The boulder that came down, and the rubble round it, settling into the snow.
 			for r: int in 5:
@@ -240,6 +257,12 @@ func _draw() -> void:
 			# The water rising (or the heat building): a widening band of wet ground.
 			draw_set_transform(_marker_pos[i], 0.0, FLOOD_SHAPE)
 			draw_circle(Vector2.ZERO, reach * filled, Color(glow, 0.3))
+			draw_set_transform(Vector2.ZERO)
+			continue
+		if _look() == "grave":
+			# The earth cracks open in a ring before the grave yawns.
+			draw_set_transform(_marker_pos[i], 0.0, Vector2(1.0, 0.6))
+			draw_circle(Vector2.ZERO, reach * filled, Color(0.05, 0.04, 0.07, 0.5))
 			draw_set_transform(Vector2.ZERO)
 			continue
 		if _look() == "bramble":

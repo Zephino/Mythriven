@@ -2257,5 +2257,118 @@
       "edge": "#6a5a4a",
       "stones": "#8a4ad0"
     }
+  },
+  {
+    "_doc": "Erebus, Pack 5 realm 1, the realm of the restless dead (docs/PACK_5_PLAN.md). Sources: Hesiod, Theogony 123, 211-217; Aristophanes, The Frogs 285-295; Pausanias 10.28.7; the Anglo-Saxon Chronicle for 1127; Orderic Vitalis 8.17. A realm: no local gods.",
+    "id": "erebus",
+    "name_key": "LEVEL_EREBUS_NAME",
+    "region": "realm_dead",
+    "act": 7,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "erebus",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "cracked",
+          "max": -0.45,
+          "placeholder_color": "#24222c",
+          "placeholder_dots": "#5a4a6a"
+        },
+        {
+          "id": "asphodel",
+          "max": 0.1,
+          "placeholder_color": "#34383a",
+          "placeholder_dots": "#8a8c84"
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.6,
+          "placeholder_color": "#2c3430",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#2a2830",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "grave_stele",
+      "barrow_mound"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "grave_stele": {
+        "shape": "rect",
+        "size_px": [
+          8,
+          18
+        ],
+        "placeholder_color": "#9a96a0",
+        "weight": 2
+      },
+      "barrow_mound": {
+        "shape": "rect",
+        "size_px": [
+          34,
+          16
+        ],
+        "placeholder_color": "#3a4a2a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "empusa",
+      "20": "eurynomos",
+      "30": "wild_hunt"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "niflheim",
+      "boss": "nidhoggr"
+    },
+    "waves": "waves_erebus.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 18,
+      "strikes_per_s": 0.8,
+      "radius_px": 34,
+      "telegraph_s": 1.2,
+      "damage": 8,
+      "element": "dark",
+      "range_px": 230,
+      "color": "#7a8a9a",
+      "look": "grave",
+      "bramble_s": 6.0,
+      "bramble_slow": 0.5,
+      "grave_dps": 4.0,
+      "name_key": "HAZARD_GRASPING_DEAD_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#a8a4c4",
+    "flora": {
+      "density": 0.5,
+      "trees": {
+        "dead_tree": 3,
+        "black_poplar": 2
+      }
+    },
+    "road": {
+      "color": "#4a4650",
+      "edge": "#2e2c34",
+      "stones": "#6a6672"
+    }
   }
 ]
