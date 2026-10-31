@@ -43,7 +43,9 @@ static func full(card: Dictionary) -> String:
 		LevelUpRules.PASSIVE_NEW, LevelUpRules.PASSIVE_UP:
 			var passive: Dictionary = LevelUpRules.passive_data(id)
 			lines.append(_tr(str(passive.get("desc_key", ""))))
-			lines.append(stat_change(str(passive.get("stat", "")), float(passive.get("per_level", 0.0))))
+			# Passives with their own effect (Mirrored Shield, Tyr's Oath) raise no stat: no stat line.
+			if str(passive.get("stat", "none")) not in ["", "none"]:
+				lines.append(stat_change(str(passive.get("stat", "")), float(passive.get("per_level", 0.0))))
 		LevelUpRules.STAT:
 			lines.append(stat_change(id, float(card["amount"])))
 		LevelUpRules.GOLD:

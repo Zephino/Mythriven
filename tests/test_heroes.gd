@@ -486,3 +486,10 @@ func test_ruins_dungeon_has_its_own_parts_and_reachable_vault() -> void:
 					seen[t + d] = true
 					queue.append(t + d)
 		assert_true(seen.has(goal), "the vault is reachable (seed %d)" % seed_value)
+
+
+func test_passive_cards_without_a_stat_show_no_stat_line() -> void:
+	for id: String in ["mirrored_shield", "tyrs_oath"]:
+		var text: String = CardText.full({"kind": LevelUpRules.PASSIVE_NEW, "id": id})
+		assert_false(text.contains("STAT_"), id + " card has no untranslated stat line")
+		assert_false(text.contains("+0%"), id + " card has no +0% line")

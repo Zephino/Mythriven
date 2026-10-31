@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.31
+Date: 10/31/2026
+Time: 10:43 AM
+
+### Changes
+- Fixed: the Mirrored Shield and Tyr's Oath level-up cards showed a stray "STAT_NONE +0%" line. Passives that raise no stat now show no stat line.
+
+### Reason
+The owner was sent a screenshot of the Mirrored Shield card showing "STAT_NONE +0%".
+
 ## Version 00.02.30
 Date: 10/31/2026
 Time: 10:30 AM
