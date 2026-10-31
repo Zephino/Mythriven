@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.71
+Date: 10/31/2026
+Time: 4:08 PM
+
+### Changes
+- **A full sprite sheet of every picture in the game**, including all of Pack 2 and Pohjola: `docs/art/sprite_sheet.png` (everything on one tall sheet, 1,430 pictures at 3x, each named underneath), plus one sheet per kind in `docs/art/sprites/`: Heroes, companions, enemies, bosses, gods (standing, walking, seated and their thrones), god summons, weapons, projectiles, pickups, scenery, trees and bushes, critters, ground tiles, mountain parts, shrine and dungeon parts, menu frames and icons, and menu backdrops. Characters show every frame (standing and the four walking frames).
+- New tool `tools/art/build_sprite_sheet.py` makes the sheets again from `data/art/` after any art changes.
+
+### Reason
+The owner asked for a full, up-to-date sprite sheet with everything on it, including the new art, to fix sprites later.
+
 ## Version 00.02.70
 Date: 10/31/2026
 Time: 4:05 PM
