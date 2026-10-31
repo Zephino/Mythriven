@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.44
+Date: 10/30/2026
+Time: 8:48 PM
+
+### Changes
+- **Settings → Fullscreen** (on/off), in the browser and on PC. Phone apps are always full screen.
+- **Settings → Install app** (web version). The web build is now installable as an app (progressive web app): it opens full screen from the home screen or desktop.
+  - Chrome and Edge, on PC and Android: the button opens the browser's "Install Mythriven?" box.
+  - iPhone and iPad: the button explains Share → Add to Home Screen.
+  - Other browsers: it points to the browser's menu.
+  - When already installed, it says "Installed as an app".
+- **Settings → Update app** (web version): forgets the saved copy of the game and reloads, so the newest version is always one tap away. Progress is safe, because it's saved separately. Not available during a run or co-op game.
+- The installable build doesn't add the extra browser isolation rules (the game doesn't need them, and they could block the Google sign-in window). Checked in Chrome: the page is installable, and Update app clears the saved copy and reloads the game.
+
+### Reason
+The owner asked for Fullscreen, Install app, and Update app settings, for the mobile apps and to force the newest version.
+
 ## Version 00.01.43
 Date: 10/30/2026
 Time: 8:43 PM

@@ -4,13 +4,17 @@ extends MenuScreen
 ## row shows a setting and its value; pressing it steps to the next value.
 ## Saved at once. Opened from the title screen and the pause menu, so a
 ## change made mid-run takes effect when the screen closes (or at once, for
-## volume, text size, and effect opacity).
+## volume, text size, and effect opacity). Below them: Fullscreen, and for the
+## web version Install app and Update app (AppActions).
 
 ## The rows, in order. Each is a key in config settings.defaults.
 const ROWS: PackedStringArray = [
 	"volume_pct", "text_size_pct", "effect_opacity_pct", "shake", "flash", "damage_numbers", "element_icons",
 	"colorblind", "auto_summon", "auto_collect", "control_size_pct", "joystick_side", "banter", "tips",
 ]
+
+## A note under the app buttons (how to install on this device, updating…).
+var _app_message: String = ""
 
 
 func build() -> void:
@@ -19,6 +23,47 @@ func build() -> void:
 		add_button(tr_key("UI_SETTING_" + key.to_upper()) % value_text(key), _on_row.bind(key))
 	add_button(tr_key("UI_SETTING_RESET_TIPS"), _on_reset_tips, not Onboarding.seen().is_empty())
 	add_button(tr_key("UI_CLOUD_SAVE"), func() -> void: open_child(CloudSaveScreen.new()))
+	_build_app()
+
+
+func _build_app() -> void:
+	if AppActions.can_fullscreen():
+		add_button(tr_key("UI_FULLSCREEN") % tr_key("UI_SETTING_ON" if AppActions.is_fullscreen() else "UI_SETTING_OFF"), _on_fullscreen)
+	if AppActions.is_web():
+		var installed: bool = AppActions.install_state() == "installed"
+		add_button(tr_key("UI_INSTALLED_APP" if installed else "UI_INSTALL_APP"), _on_install, not installed)
+		var playing: bool = Net.active() or (GameAuthority.run != null and not GameAuthority.run.ended)
+		add_button(tr_key("UI_UPDATE_APP"), _on_update, not playing)
+		if playing:
+			add_line(tr_key("UI_UPDATE_IN_RUN"))
+	if _app_message != "":
+		add_line(tr_key(_app_message))
+
+
+func _on_fullscreen() -> void:
+	AppActions.toggle_fullscreen()
+	# The browser switches a moment later.
+	await get_tree().create_timer(0.4).timeout
+	refresh()
+
+
+func _on_install() -> void:
+	match AppActions.install_state():
+		"ready":
+			_app_message = ""
+			AppActions.install()
+		"ios":
+			_app_message = "UI_INSTALL_IOS"
+		_:
+			_app_message = "UI_INSTALL_UNAVAILABLE"
+	refresh()
+
+
+func _on_update() -> void:
+	_app_message = "UI_UPDATING"
+	refresh()
+	Meta.cloud.play_lock.release()
+	AppActions.update_now()
 
 
 ## How a setting's current value reads on its row.

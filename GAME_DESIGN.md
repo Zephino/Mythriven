@@ -1332,7 +1332,7 @@ Placeholder shapes and no sound until the game is fun; then original 16-bit-styl
 | Pause | Resume, build summary, Codex, Settings, Quit run |
 | Results | Time, kills, level, gods, Resonances, Labors, milestones, gold banked, new unlocks |
 | Offerings | Every god ever bound, its level, next unlock, gold cost |
-| Settings | Accessibility (below), volume, controls |
+| Settings | Accessibility (below), volume, controls; Fullscreen; on the web version Install app and Update app *(added 10/31/2026, owner request)* |
 
 **Art:** original 16-bit-style pixel art, 16×16 or 32×32 sprites, nearest-neighbor filtering, integer scaling. Placeholders first (circles for enemies colored by element, squares for Heroes). Each pantheon gets its own palette and architecture (e.g. Greek marble and bronze, Norse wood and iron, Egyptian sandstone and lapis, Celtic stone and green-gold). Gods need large distinctive sprites and portraits. Research period clothing, weapons, and symbols from historical and museum sources for each Hero and god, and avoid stereotypes.
 

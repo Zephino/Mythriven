@@ -162,3 +162,16 @@ func test_text_boxes_work_as_usual_outside_phone_browsers() -> void:
 	var box: LineEdit = add_child_autofree(LineEdit.new())
 	WebTextInput.attach(box)
 	assert_eq(box.gui_input.get_connections().size(), 0)
+
+
+func test_settings_have_fullscreen_and_the_web_apps_install_and_update() -> void:
+	SaveGame.use_test_file("user://test_app_actions.json")
+	var screen: SettingsScreen = add_child_autofree(SettingsScreen.new())
+	var labels: Array[String] = []
+	for button: Button in screen.find_children("*", "Button", true, false):
+		labels.append(button.text)
+	assert_true(labels.any(func(t: String) -> bool: return t.begins_with(tr("UI_FULLSCREEN").split(":")[0])), "Fullscreen on PC and the web")
+	assert_eq(labels.has(tr("UI_UPDATE_APP")), AppActions.is_web(), "Install and Update are for the web version")
+	assert_eq(AppActions.install_state(), "unavailable", "nothing to install outside a browser")
+	SaveGame.use_test_file("")
+	DirAccess.remove_absolute("user://test_app_actions.json")

@@ -1160,3 +1160,11 @@ UI_PLAY_TAKEN_ELSEWHERE,Your account started playing on another device.
 UI_SIGNED_IN_AS,Signed in as %s
 UI_ACCOUNT_PROGRESS,"On this account: %d gold banked · %d Heroes unlocked · %d achievements"
 UI_ACCOUNT_SHOW_INFO,Show my Google name (sign in again)
+UI_FULLSCREEN,Fullscreen: %s
+UI_INSTALL_APP,Install app
+UI_INSTALLED_APP,Installed as an app
+UI_INSTALL_IOS,"On iPhone or iPad: tap the Share button in Safari, then Add to Home Screen."
+UI_INSTALL_UNAVAILABLE,"Your browser can't install from this button. Open the browser's menu and choose Install app (or Add to Home screen). If it's already installed, open it from your home screen or desktop."
+UI_UPDATE_APP,Update app
+UI_UPDATE_IN_RUN,Finish or leave the run to update.
+UI_UPDATING,Getting the newest version…
