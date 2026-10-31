@@ -471,6 +471,7 @@
               "invulnerable_color": "string",
               "shrine_stone_color": "string",
               "throne_feet_px": "number",
+              "temple_walk_speed_px": "number",
               "arrow_px": "number",
               "trial_first_attack_s": "number",
               "trial_attack_every_s": "number",

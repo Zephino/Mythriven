@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.19
+Date: 10/31/2026
+Time: 3:38 AM
+
+### Changes
+- **Shrines are built at random from building parts.** Each god's shrine is now a small temple of their people, laid out differently every time round the altar you walk to:
+  - Parts for four peoples (`data/art/shrines/`, built by `tools/art/build_shrine_parts.py`): a Greek marble temple (slab floors, walls with a gold band, Doric columns, a marble altar, an amphora); a Norse timber hall (plank floors, plank walls with a turf cap, carved posts, a stone hörgr altar, a painted shield); an Egyptian sandstone temple (painted walls, papyrus columns, an altar with a lotus offering, a small gilded obelisk); a Celtic drystone enclosure (grass and flagstones, spiral-carved standing stones, a slab altar, a cauldron). Each has fire bowls.
+  - The layout (`scripts/gods/shrine_layout.gd`): 7, 9 or 11 cells wide and 5-7 deep; walls on three sides; an entrance in the front wall (1 or 3 wide, sometimes off-centre) flanked by columns; the throne at the back with columns beside it in the bigger ones; the altar in the middle between two fire bowls; 1-3 decorations against the walls.
+  - **The god either sits on their throne or walks about inside the shrine**, on a loop that never leaves its walls (the empty throne then stands at the back). Each god's art gained an empty-throne frame for this.
+  - Drawn back to front, so the god walks in front of the back wall and behind the front wall. Co-op players all see the same shrine (it is built from a seed the host shares).
+- The walls are pictures only: they don't block players or enemies.
+- New setting `gods.temple_walk_speed_px`; `docs/ART_RULES.md` explains the parts and the layout; a new test checks shrines vary in size, the same seed builds the same shrine, some gods sit and some walk, and a walking god never leaves the shrine.
+
+### Reason
+The owner asked for castle or shrine parts to build a random castle or shrine round the altar, with the god either sitting on the throne or walking around inside it, confined to that area.
+
 ## Version 00.02.18
 Date: 10/31/2026
 Time: 3:33 AM

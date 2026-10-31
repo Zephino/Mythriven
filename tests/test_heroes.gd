@@ -224,6 +224,33 @@ func test_hammers_smash_the_ground_in_front() -> void:
 	assert_eq(_enemies.hp[behind], hp[behind], "not behind the Hero")
 
 
+func test_shrines_are_built_at_random_and_the_god_stays_inside() -> void:
+	# Owner request 10/31/2026: shrines built from parts round the altar; the god sits or walks, confined inside.
+	for pantheon: String in ["greek", "norse", "egyptian", "celtic"]:
+		assert_false(PixelArt.find("shrines/" + pantheon).is_empty(), pantheon + " shrine parts")
+	var a: Dictionary = ShrineLayout.make(1234, "greek")
+	assert_eq(ShrineLayout.make(1234, "greek"), a, "the same seed builds the same shrine (co-op)")
+	var sizes := {}
+	var sits := {}
+	for seed_value: int in 40:
+		var layout: Dictionary = ShrineLayout.make(seed_value, "norse")
+		sizes[layout["size"]] = true
+		sits[bool(layout["sits"])] = true
+		var half: Vector2 = Vector2(layout["size"]) * ShrineLayout.TILE * 0.5
+		for k: int in 60:
+			var feet: Vector2 = ShrineLayout.walker(layout, k * 0.7, 16.0)["feet"]
+			assert_true(absf(feet.x) < half.x + ShrineLayout.TILE and absf(feet.y) < half.y * 2.0 + ShrineLayout.TILE,
+					"the walking god stays inside the shrine")
+		var altars: int = 0
+		for item: Dictionary in layout["objects"]:
+			if str(item["part"]) == "altar":
+				altars += 1
+				assert_eq(Vector2(item["at"]).x, 0.0, "the altar is at the shrine's position")
+		assert_eq(altars, 1)
+	assert_gt(sizes.size(), 3, "shrines come in different sizes")
+	assert_eq(sits.size(), 2, "some gods sit, some walk")
+
+
 func test_thrown_weapons_and_shots_fly_as_pictures() -> void:
 	var player: Player = _hero("atalanta")
 	var projectiles := ProjectileManager.new()

@@ -121,6 +121,17 @@ def throne(c, style, back_x, front_x, seat_y, ground):
         c.rect(front_x + 1, ground - 3, front_x + 5, ground, "1"); c.px(front_x + 5, ground - 3, "4")   # a lion's paw
 
 
+def throne_frame(grid, size, anchor, seat):
+    """The god's throne on its own (when the god is up and walking round their shrine), placed as in seated_frame."""
+    w, h = size
+    row = grid[seat["hip"] - 1]
+    body = [x for x in range(w) if row[x] != "." and abs(x - anchor[0]) <= 8]
+    x0, x1 = (min(body), max(body)) if body else (anchor[0] - 6, anchor[0] + 6)
+    c = Canvas(w, h)
+    throne(c, seat["style"], x0, x1, anchor[1] - seat.get("height", 14), anchor[1])
+    return c.outline()
+
+
 def seated_frame(grid, size, anchor, seat):
     """A seated pose made from the standing frame (`grid`, before outlining): the body above the hips lowered onto the
     throne's seat, the thighs forward along it, the shins down to the ground. `seat` gives "hip" (the row where the
@@ -170,6 +181,7 @@ def build_boss(boss_id, draw, palette, doc, size, anchor, walk_legs, folder="bos
     if seated:
         palette = dict(palette, **THRONES[seated["style"]])
         frames["seated"] = [seated_frame(raw(walk_legs[0]).g, size, anchor, seated)]
+        frames["throne"] = [throne_frame(raw(walk_legs[0]).g, size, anchor, seated)]
     art = {"_doc": doc, "size": list(size), "anchor": list(anchor), "palette": palette, "frames": frames}
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", folder)
     os.makedirs(out_dir, exist_ok=True)

@@ -348,6 +348,7 @@
     "invulnerable_color": "#9be89b",
     "shrine_stone_color": "#e8e2d0",
     "throne_feet_px": 12,
+    "temple_walk_speed_px": 16,
     "arrow_px": 14,
     "trial_first_attack_s": 1.5,
     "trial_attack_every_s": 2.4,
