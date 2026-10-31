@@ -1070,7 +1070,7 @@ ENEMY_KHALKOTAUROS_BOMBER_MYTH,"The Khalkotauroi, King Aeëtes' bulls with hoove
 UI_SETTING_VALUE_ANYWHERE,Whole screen
 UI_CLOUD_SAVE,Account and cloud save
 UI_CLOUD_NOT_SET_UP,Cloud saves aren't set up for this version of the game yet.
-UI_CLOUD_ABOUT,"Keep your progress on PC and phone. Sign in with Google on each device, and your progress follows you. Your Google name and email are only shown here, on your own device."
+UI_CLOUD_ABOUT,"Keep your progress on PC and phone. Sign in with Google on each device, and your progress follows you. Other players only ever see your username, never your real name."
 UI_CLOUD_TURN_ON,Turn on cloud save
 UI_CLOUD_LINK_HELP,Already using cloud save on another device? Type its code here:
 UI_CLOUD_CODE_PLACEHOLDER,XXXX-XXXX-XXXX
@@ -1157,9 +1157,7 @@ UI_PLAY_CHECKING,Getting ready…
 UI_PLAY_ELSEWHERE_TITLE,Playing on another device
 UI_PLAY_ELSEWHERE,"Your account is already playing on another device. Finish or close the game there, then try again (a closed game lets go within about a minute and a half)."
 UI_PLAY_TAKEN_ELSEWHERE,Your account started playing on another device.
-UI_SIGNED_IN_AS,Signed in as %s
 UI_ACCOUNT_PROGRESS,"On this account: %d gold banked · %d Heroes unlocked · %d achievements"
-UI_ACCOUNT_SHOW_INFO,Show my Google name (sign in again)
 UI_FULLSCREEN,Fullscreen: %s
 UI_INSTALL_APP,Install app
 UI_INSTALLED_APP,Installed as an app
@@ -1175,3 +1173,9 @@ UI_ONLINE_FRIENDS,"Friends can join with this code, even now."
 UI_ONLINE_PUBLIC,"On the Public Games list: anyone can join, even now."
 UI_MAKE_PUBLIC,Make public
 UI_MAKE_PRIVATE,Make friends-only (code)
+UI_USERNAME,Username: %s
+UI_USERNAME_NONE,"No username yet: pick one. Other players see it (co-op, leaderboard), never your real name."
+UI_USERNAME_HINT,"Username (up to 12 letters, numbers, spaces, - or _)"
+UI_USERNAME_SAVE,Save username
+UI_PLAYING_AS,Playing as %s
+UI_SIGNED_IN_EMAIL,Signed in with Google (%s)

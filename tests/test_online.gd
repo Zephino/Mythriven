@@ -104,11 +104,10 @@ func test_this_device_keeps_its_own_id_and_account_alongside_the_code() -> void:
 func test_signing_in_links_this_device_to_the_accounts_save() -> void:
 	SaveGame.add_to("heroes_unlocked", "atalanta")
 	var sync: CloudSync = add_child_autofree(CloudSync.new())
-	sync.sign_in.finish("ABCD-EFGH-JK23", "Bot Coder", "bot@example.com")
+	sync.sign_in.finish("ABCD-EFGH-JK23", "bot@example.com")
 	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "the account's save")
 	assert_eq(CloudSync.account(), "google")
-	assert_eq(CloudSync.account_name(), "Bot Coder", "who is signed in, kept on this device")
-	assert_eq(CloudSync.account_email(), "bot@example.com")
+	assert_eq(CloudSync.account_email(), "bot@example.com", "which Google account, kept on this device")
 	assert_false(JSON.stringify(SaveGame.data()).contains("bot@example.com"), "never inside the save that goes to the cloud")
 	assert_eq(sync.sign_in.state, "done")
 	sync.sign_in.finish("not a code")
@@ -116,7 +115,7 @@ func test_signing_in_links_this_device_to_the_accounts_save() -> void:
 	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "a bad reply changes nothing")
 	sync.turn_off()
 	assert_eq(CloudSync.account(), "", "signing out forgets the account on this device")
-	assert_eq(CloudSync.account_name() + CloudSync.account_email(), "", "and its name and email")
+	assert_eq(CloudSync.account_email(), "", "and its email")
 
 
 func test_without_cloud_saves_play_is_always_allowed_here() -> void:
@@ -134,3 +133,16 @@ func test_losing_the_save_to_another_device_ends_the_run_here() -> void:
 	assert_true(GameAuthority.run.ended, "the run ends with a message")
 	assert_signal_emitted(GameAuthority, "run_ended")
 	GameAuthority.end_scene()
+
+
+func test_the_username_and_settings_follow_the_device_that_changed_them_last() -> void:
+	SaveGame.set_player_name("Zeph")
+	var here: Dictionary = SaveGame.data().duplicate(true)
+	var other: Dictionary = SaveGame.migrate({"profile": {"name": "OldName"}, "settings": {"volume_pct": 10},
+		"last_modified": {"profile": 1, "settings": 1, "gold": 99999999999}})
+	var merged: Dictionary = SaveGame.merge(here, other)
+	assert_eq(str(merged["profile"]["name"]), "Zeph", "this device renamed later, so its username wins")
+	other["last_modified"]["settings"] = 99999999999
+	merged = SaveGame.merge(here, other)
+	assert_eq(int(merged["settings"]["volume_pct"]), 10, "the other device changed settings later, so its settings win")
+	assert_eq(LeaderboardEntry.load_name(), "Zeph", "the leaderboard name is the username")

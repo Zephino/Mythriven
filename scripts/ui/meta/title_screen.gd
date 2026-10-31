@@ -29,9 +29,10 @@ func build() -> void:
 		add_button(tr_key("UI_KEEP_PLAYING"), _on_keep_playing)
 		return
 	# Who is signed in, at the top so it's always seen.
-	if CloudSync.account() != "" and CloudSync.is_on():
-		var who: String = CloudSync.account_name() if CloudSync.account_name() != "" else CloudSync.account_email()
-		add_line(tr_key("UI_SIGNED_IN_AS") % who if who != "" else tr_key("UI_SIGNED_IN_GOOGLE"))
+	if SaveGame.player_name() != "":
+		add_line(tr_key("UI_PLAYING_AS") % SaveGame.player_name())
+	elif CloudSync.account() != "" and CloudSync.is_on():
+		add_line(tr_key("UI_SIGNED_IN_GOOGLE"))
 	add_button(tr_key("UI_PLAY"), func() -> void: flow.play(self))
 	add_button(tr_key("UI_COOP"), func() -> void: open_child(CoopScreen.new_for(flow)))
 	add_button(tr_key("UI_PUBLIC_GAMES"), func() -> void: open_child(CoopScreen.new_for(flow, true)))

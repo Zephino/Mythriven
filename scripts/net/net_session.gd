@@ -87,7 +87,7 @@ func everyone_ready() -> bool:
 func host_game(hero_id: String, is_public: bool = false) -> void:
 	_open()
 	public_game = is_public
-	roster = {LobbyService.HOST_ID: {"hero": hero_id, "here": true}}
+	roster = {LobbyService.HOST_ID: {"hero": hero_id, "here": true, "name": SaveGame.player_name()}}
 	level_id = Meta.selected_level()
 	lobby.host(is_public)
 
@@ -243,7 +243,7 @@ func _on_opened(id: int, lobby_code: String, _peers: PackedInt32Array) -> void:
 	if is_host():
 		tell_public_list()
 	else:
-		send(LobbyService.HOST_ID, [NetMsg.HELLO, version(), _pending_hero])
+		send(LobbyService.HOST_ID, [NetMsg.HELLO, version(), _pending_hero, SaveGame.player_name()])
 	changed.emit()
 
 

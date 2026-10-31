@@ -46,8 +46,11 @@ static func build(run: RunState, player: Player, player_name: String) -> Diction
 	}
 
 
-## The name typed last time, so players don't retype it every run.
+## The player's username (Settings → Account), or the name typed last time on
+## this device before usernames existed, so players don't retype it every run.
 static func load_name() -> String:
+	if SaveGame.player_name() != "":
+		return clean_name(SaveGame.player_name())
 	var file := ConfigFile.new()
 	if file.load(Data.cfg_string("leaderboard.profile_file")) != OK:
 		return ""
@@ -55,6 +58,8 @@ static func load_name() -> String:
 
 
 static func save_name(player_name: String) -> void:
+	if SaveGame.player_name() == "":
+		SaveGame.set_player_name(clean_name(player_name))
 	var file := ConfigFile.new()
 	var path: String = Data.cfg_string("leaderboard.profile_file")
 	file.load(path)

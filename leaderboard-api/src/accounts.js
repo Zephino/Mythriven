@@ -9,10 +9,12 @@
  *   GET  /auth/callback          Google sends the browser back here
  *   GET  /auth/poll?login=…      the game asks until it gets {state: "done", code}
  *
- * An account is Google's id for the player, kept only as a hash. The player's
- * Google name and email (scopes "openid email profile") are only passed on to
- * their own device, so the game can show who is signed in; the Worker doesn't
- * keep them (they sit in the sign-in ticket until the game picks it up). Each account owns one cloud
+ * An account is Google's id for the player, kept only as a hash. Google's
+ * email (scopes "openid email") is only passed on to the player's own device,
+ * so Settings can show which Google account is signed in; the Worker doesn't
+ * keep it (it sits in the sign-in ticket until the game picks it up). The
+ * player's real name is never asked for: players choose a username in the
+ * game instead (owner request 10/31/2026). Each account owns one cloud
  * save (a sync code, see cloud.js); signing in on a device links that device
  * to it. A device that already had cloud saves brings its save to a new account.
  *
@@ -150,7 +152,7 @@ async function toGoogle(env, url) {
     client_id: env.GOOGLE_CLIENT_ID,
     redirect_uri: `${url.origin}/auth/callback`,
     response_type: "code",
-    scope: "openid email profile",
+    scope: "openid email",
     state: login,
     prompt: "select_account",
   });
@@ -190,9 +192,8 @@ async function callback(env, url) {
     account = { code: ticket.device_code || newSyncCode(), created: Date.now() };
     await store(env, accountName, account);
   }
-  const name = typeof claims.name === "string" ? claims.name.slice(0, 60) : "";
   const email = typeof claims.email === "string" ? claims.email.slice(0, 120) : "";
-  await store(env, "login:" + login, { state: "done", created: ticket.created, code: account.code, name, email }, ticket.created + LOGIN_TTL_MS);
+  await store(env, "login:" + login, { state: "done", created: ticket.created, code: account.code, email }, ticket.created + LOGIN_TTL_MS);
   return page("Signed in!", "Going back to Mythriven…");
 }
 
@@ -204,7 +205,7 @@ async function poll(env, url) {
   if (ticket.state !== "done") return json({ state: ticket.state });
   // Handed over once, then forgotten.
   await vault(env, "login:" + login).fetch("https://account/delete", { method: "POST" });
-  return json({ state: "done", code: ticket.code, name: ticket.name || "", email: ticket.email || "" });
+  return json({ state: "done", code: ticket.code, email: ticket.email || "" });
 }
 
 /** One account, or one sign-in in progress: a small stored value. */

@@ -84,6 +84,7 @@ static func migrate(save: Dictionary) -> Dictionary:
 	var empty: Dictionary = {
 		"device_id": "", "sync_counter": 0, "last_modified": {}, "gold": 0, "gods": {}, "bestiary": {}, "codex": {},
 		"records": {}, "mastery": {}, "settings": {}, "levels": {}, "stats": {}, "oracle": {}, "run_in_progress": {},
+		"profile": {},
 	}
 	for list: String in UNION_LISTS:
 		empty[list] = []
@@ -197,6 +198,17 @@ static func set_setting(key: String, value: Variant) -> void:
 	commit("settings")
 
 
+## The username the player chose (shown instead of their real name; owner
+## request 10/31/2026). Kept in the save, so it follows them through cloud saves.
+static func player_name() -> String:
+	return str((data()["profile"] as Dictionary).get("name", ""))
+
+
+static func set_player_name(new_name: String) -> void:
+	data()["profile"]["name"] = new_name
+	commit("profile")
+
+
 static func stat(key: String) -> float:
 	return float((data()["stats"] as Dictionary).get(key, 0.0))
 
@@ -220,16 +232,24 @@ static func merge(a: Dictionary, b: Dictionary) -> Dictionary:
 				out[section].append(item)
 	for section: String in ["codex", "gods", "bestiary", "records", "mastery", "levels", "stats", "oracle"]:
 		out[section] = _merge_higher(out[section], other[section])
-	var newer: bool = _last_played(other) > _last_played(out)
-	if newer:
+	if _last_played(other) > _last_played(out):
 		out["gold"] = other["gold"]
-		out["settings"] = other["settings"]
+	# Settings and the username come from whichever device changed them last.
+	for section: String in ["settings", "profile"]:
+		if _changed_at(other, section) > _changed_at(out, section):
+			out[section] = other[section]
 	# Each section's time becomes the later of the two, so a third device compares fairly.
 	var stamps: Dictionary = out["last_modified"]
 	for section: Variant in other["last_modified"]:
 		stamps[section] = maxi(int(stamps.get(section, 0)), int(other["last_modified"][section]))
 	out["sync_counter"] = maxi(int(out["sync_counter"]), int(other["sync_counter"])) + 1
 	return out
+
+
+## When `section` last changed on that save (its own time, else the save's latest).
+static func _changed_at(save: Dictionary, section: String) -> int:
+	var stamp: int = int((save.get("last_modified", {}) as Dictionary).get(section, 0))
+	return stamp if stamp > 0 else _last_played(save)
 
 
 static func _last_played(save: Dictionary) -> int:

@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.47
+Date: 10/30/2026
+Time: 9:10 PM
+
+### Changes
+- **Usernames instead of real names.** Settings → Account and cloud save now starts with a **Username** box (up to 12 letters, numbers, spaces, - or _).
+  - The username is saved with your progress, so it follows you to every device through cloud saves.
+  - The title screen says "Playing as (username)".
+  - The username is your leaderboard name, and other players see it in co-op lobbies (e.g. "Player 2 · Zeph").
+- **The real name is never fetched.** Sign-in now asks Google only for the account id and email, never the name. The email is only shown to you, on your own device ("Signed in with Google (you@gmail.com)"). A Google name saved on a device by version 00.01.42 is deleted. The privacy page says so.
+- **Settings sync better.** Settings were already in the cloud save. Now the device that changed them last wins (not just the device played last), and settings from the cloud take effect at once after a sync.
+- Fixed a menu bug: a page whose first item is a text box crashed when picking where keyboard focus starts.
+
+### Reason
+The owner doesn't want their real name shown, asked for a username saved through cloud saves, and asked for settings to be saved in the cloud too.
+
 ## Version 00.01.46
 Date: 10/30/2026
 Time: 9:07 PM

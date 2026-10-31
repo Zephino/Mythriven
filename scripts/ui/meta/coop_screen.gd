@@ -97,6 +97,9 @@ func _build_lobby() -> void:
 		var hero_id: String = str(Net.roster[id].get("hero", ""))
 		var hero_name: String = tr_key(str(HeroRules.find(hero_id).get("name_key", ""))) if hero_id != "" else tr_key("UI_COOP_CHOOSING")
 		var who: String = tr_key("UI_COOP_HOST_TAG") if id == LobbyService.HOST_ID else tr_key("UI_COOP_PLAYER_TAG") % id
+		var username: String = str(Net.roster[id].get("name", ""))
+		if username != "":
+			who += " · " + username
 		var away: String = "" if bool(Net.roster[id].get("here", true)) else " " + tr_key("UI_COOP_STILL_AT_RESULTS")
 		add_line(("▶ " if id == Net.my_id else "• ") + who + ": " + hero_name + away)
 	add_line(tr_key("UI_COOP_PICK_HERO"))

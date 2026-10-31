@@ -167,8 +167,9 @@ func _link_focus() -> void:
 	for i: int in count:
 		_buttons[i].focus_neighbor_top = _buttons[i].get_path_to(_buttons[(i - 1 + count) % count])
 		_buttons[i].focus_neighbor_bottom = _buttons[i].get_path_to(_buttons[(i + 1) % count])
+	# Start on the first enabled button (not a text box, which would pop up the keyboard).
 	for button: Control in _buttons:
-		if button != _back and not (button as Button).disabled:
+		if button != _back and button is Button and not (button as Button).disabled:
 			focus_later(button)
 			return
 	if count > 0:

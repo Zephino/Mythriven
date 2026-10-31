@@ -54,6 +54,8 @@ func _ready() -> void:
 	play_lock = PlayLock.new()
 	add_child(play_lock)
 	state = "synced" if is_on() else "off"
+	# Version 00.01.42 kept the Google name here; the owner chose usernames instead.
+	_set_value("name", "")
 	if is_on():
 		request_sync(true)
 
@@ -111,18 +113,13 @@ static func set_code(new_code: String) -> void:
 	_set_value("code", new_code)
 
 
-## `name` / `email`: who is signed in, shown in Settings (kept only on this device).
-static func set_account(provider: String, name: String = "", email: String = "") -> void:
+## `email`: which Google account is signed in, shown in Settings (kept only on this device).
+static func set_account(provider: String, email: String = "") -> void:
 	_set_value("account", provider)
-	_set_value("name", name.left(60) if provider != "" else "")
 	_set_value("email", email.left(120) if provider != "" else "")
 
 
-## The signed-in player's Google name and email ("" if unknown).
-static func account_name() -> String:
-	return _value("name")
-
-
+## The signed-in Google account's email ("" if unknown).
 static func account_email() -> String:
 	return _value("email")
 
@@ -267,6 +264,10 @@ func apply_cloud(cloud: Dictionary, linking: bool = false) -> void:
 	if linking:
 		merged["gold"] = int(cloud.get("gold", merged["gold"]))
 	SaveGame.replace(merged)
+	# Settings may have come from the other device: use them now.
+	Settings.clear_cache()
+	if is_inside_tree():
+		Settings.apply(get_tree())
 	if SaveGame.gold() != gold_before:
 		notice = TranslationServer.translate("UI_CLOUD_GOLD_NOTICE") % SaveGame.gold()
 

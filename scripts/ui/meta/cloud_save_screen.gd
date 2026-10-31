@@ -7,6 +7,7 @@ extends MenuScreen
 ## taken from the other device's newer save). One device plays at a time.
 
 var _code_box: LineEdit
+var _name_box: LineEdit
 var _error: String = ""
 
 
@@ -22,6 +23,7 @@ func build() -> void:
 	if OnlineConfig.cloud_url() == "":
 		add_line(tr_key("UI_CLOUD_NOT_SET_UP"))
 		return
+	_build_username()
 	if CloudSync.account() != "" and CloudSync.is_on():
 		_build_account()
 	else:
@@ -51,23 +53,30 @@ func build() -> void:
 	add_button(tr_key("UI_SIGN_OUT" if CloudSync.account() != "" else "UI_CLOUD_TURN_OFF"), _on_turn_off)
 
 
-## Who is signed in, and what this account holds.
+## The Google account signed in, and what this account holds.
 func _build_account() -> void:
-	var name: String = CloudSync.account_name()
 	var email: String = CloudSync.account_email()
-	if name != "" or email != "":
-		add_line(tr_key("UI_SIGNED_IN_AS") % (name if name != "" else email))
-		if name != "" and email != "":
-			add_line(email)
-	else:
-		add_line(tr_key("UI_SIGNED_IN_GOOGLE"))
-		var sign_in: AccountSignIn = Meta.cloud.sign_in
-		if sign_in.state == "starting" or sign_in.state == "waiting":
-			add_line(tr_key("UI_SIGNIN_WAITING"))
-		else:
-			add_button(tr_key("UI_ACCOUNT_SHOW_INFO"), sign_in.start, AccountSignIn.available())
+	add_line(tr_key("UI_SIGNED_IN_EMAIL") % email if email != "" else tr_key("UI_SIGNED_IN_GOOGLE"))
 	add_line(tr_key("UI_ACCOUNT_PROGRESS") % [SaveGame.gold(), SaveGame.list("heroes_unlocked").size(),
 		SaveGame.list("achievements").size()])
+
+
+## The username other players see (never the real name). Saved with progress.
+func _build_username() -> void:
+	var current: String = SaveGame.player_name()
+	add_line(tr_key("UI_USERNAME") % current if current != "" else tr_key("UI_USERNAME_NONE"))
+	_name_box = add_input(tr_key("UI_USERNAME_HINT"), Data.cfg_int("leaderboard.max_name_length"), tr_key("UI_USERNAME_HINT"))
+	_name_box.text = current
+	_name_box.text_submitted.connect(func(_t: String) -> void: _on_save_name())
+	add_button(tr_key("UI_USERNAME_SAVE"), _on_save_name)
+
+
+func _on_save_name() -> void:
+	var cleaned: String = LeaderboardEntry.clean_name(_name_box.text if _name_box != null else "")
+	if cleaned == "":
+		return
+	SaveGame.set_player_name(cleaned)
+	refresh()
 
 
 ## Sign in with Google: opens the browser, then waits for the player there.

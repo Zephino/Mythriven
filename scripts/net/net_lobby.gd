@@ -52,7 +52,8 @@ static func host_message(net: Node, from: int, msg: Array) -> void:
 				return
 			var in_progress: bool = net.in_run() and GameAuthority.run != null and not GameAuthority.run.ended
 			# Someone arriving while the host is on the results screen waits in the lobby.
-			net.roster[from] = {"hero": net.valid_hero(str(msg[2])), "here": not in_progress}
+			var name: String = LeaderboardEntry.clean_name(str(msg[3])) if msg.size() >= 4 else ""
+			net.roster[from] = {"hero": net.valid_hero(str(msg[2])), "here": not in_progress, "name": name}
 			if in_progress and net.roster[from]["hero"] != "":
 				net.send(from, [NetMsg.LATE_START, net.run_seed, net.level_id, net.swift, Array(net.omens), net.roster])
 				net.late_joined.emit(from)

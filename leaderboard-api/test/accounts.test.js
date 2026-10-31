@@ -62,7 +62,7 @@ async function signIn(env, sub, deviceCode = "") {
   const toGoogle = await worker.fetch(new Request(start.url), env);
   assert.equal(toGoogle.status, 302);
   const google = new URL(toGoogle.headers.get("Location"));
-  assert.equal(google.searchParams.get("scope"), "openid email profile", "the name and email, to show in the game");
+  assert.equal(google.searchParams.get("scope"), "openid email", "never the real name (players pick a username)");
   assert.equal(google.searchParams.get("state"), start.login);
   assert.equal((await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env).then((r) => r.json())).state, "waiting");
   const back = await withGoogle(sub, () => worker.fetch(new Request(`${BASE}/auth/callback?code=abc&state=${start.login}`), env));
@@ -72,8 +72,8 @@ async function signIn(env, sub, deviceCode = "") {
   assert.ok(html.includes(">Close</button>"), "and has a Close button");
   const done = await (await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env)).json();
   assert.equal(done.state, "done");
-  assert.equal(done.name, "Bot Coder", "the name goes to the player's own device");
-  assert.equal(done.email, sub + "@gmail.com");
+  assert.equal(done.name, undefined, "no real name, even if Google sent one");
+  assert.equal(done.email, sub + "@gmail.com", "the email goes to the player's own device");
   const again = await (await worker.fetch(new Request(`${BASE}/auth/poll?login=${start.login}`), env)).json();
   assert.equal(again.state, "expired", "the code is handed over only once");
   return done.code;
@@ -135,7 +135,7 @@ test("the privacy policy page is served for Google's sign-in screen", async () =
   assert.equal(res.status, 200);
   const text = await res.text();
   assert.ok(text.includes("Privacy policy"));
-  assert.ok(text.includes("the server doesn't keep them"));
+  assert.ok(text.includes("never asks Google for your real name"));
 });
 
 test("the web version may call sign-in (the browser's OPTIONS check is answered fully)", async () => {

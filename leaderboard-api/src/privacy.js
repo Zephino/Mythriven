@@ -8,7 +8,8 @@ const CONTACT = "thebotcoder@gmail.com";
 
 const SECTIONS = [
   ["What Mythriven keeps", [
-    "<b>Sign in with Google:</b> Google's account id for you, stored scrambled (hashed). Your Google name and email are passed straight to your own device so the game can show which account you're signed in with; the server doesn't keep them.",
+    "<b>Sign in with Google:</b> Google's account id for you, stored scrambled (hashed). Your Google email is passed straight to your own device so the game can show which account you're signed in with; the server doesn't keep it. Mythriven never asks Google for your real name.",
+    "<b>Username:</b> the name you choose in the game, saved with your progress and shown to other players (co-op, leaderboard).",
     "<b>Cloud save:</b> your game progress (unlocks, gold, records, settings), stored under your account or your private sync code, so it can follow you between devices.",
     "<b>One device at a time:</b> a random id for the device currently playing your save, kept for about 90 seconds after it stops.",
     "<b>Leaderboard:</b> the name you type (up to 12 characters) and your run's score, shown publicly. Co-op runs aren't sent.",

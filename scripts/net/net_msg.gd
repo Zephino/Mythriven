@@ -4,7 +4,7 @@ extends RefCounted
 ## these, sent as bytes with var_to_bytes (no objects, so nothing can run code).
 
 # Lobby
-## Client → host: [HELLO, version, hero_id]
+## Client → host: [HELLO, version, hero_id, username]
 const HELLO := 1
 ## Host → all: [ROSTER, {id: {"hero": id}}, level_id, swift]
 const ROSTER := 2
