@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.65
+Date: 10/31/2026
+Time: 12:49 AM
+
+### Changes
+- **Weapons held ready instead of dragged.** Heracles' weapon arm bends forward with his fist in front of his belly:
+  - clubs, swords, hammers and axes are raised, blade or head up and tipped forward, ready to strike;
+  - spears, javelins and bows stand upright, tipped forward a little;
+  - the sling hangs from his hand.
+- The 00.01.64 tilt (weapons hanging at his side) looked like he was dragging them. Rules updated in `docs/ART_RULES.md`.
+
+### Reason
+The owner said the weapons all looked like he was dragging them.
+
 ## Version 00.01.64
 Date: 10/31/2026
 Time: 12:22 AM

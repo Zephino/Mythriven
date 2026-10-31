@@ -17,16 +17,19 @@ PALETTE = {
 }
 
 
-def build(shapes, lean=0.0):
+def build(shapes, lean=0.0, raised=False):
     """shapes: list of (x0, y0, x1, y1, letter) rectangles relative to the grip.
     lean tilts the weapon so it isn't stiffly upright: each pixel moves sideways
     by lean pixels per pixel below the grip (positive: a hanging blade or club
-    head swings forward; negative: an upright spear or bow tips forward)."""
+    head swings forward; negative: an upright spear or bow tips forward).
+    raised turns a weapon drawn hanging (blade or head down) the other way up,
+    held ready: blade or head up."""
     pts = {}
     for x0, y0, x1, y1, c in shapes:
         for y in range(y0, y1 + 1):
             for x in range(x0, x1 + 1):
-                pts[(x + round(y * lean), y)] = c
+                yy = -y if raised else y
+                pts[(x + round(yy * lean), yy)] = c
     xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
     left, top = min(xs) - 1, min(ys) - 1
     w, h = max(xs) - left + 2, max(ys) - top + 2
@@ -60,19 +63,22 @@ BOW = [R(2, -11, 2, -9, "c"), R(3, -8, 3, -3, "c"), R(3, -2, 3, 2, "b"), R(3, 3,
 DISCUS = [R(1, -1, 4, 2, "g"), R(2, -2, 3, 3, "g"), R(4, -1, 4, 2, "e"), R(2, 3, 3, 3, "e"), R(3, 0, 3, 1, "G")]
 SLING = [R(0, -1, 0, 5, "b"), R(1, 6, 1, 7, "b"), R(0, 8, 1, 8, "b"), R(-1, 7, -1, 7, "b"), R(0, 7, 0, 7, "I")]
 
-# (shapes, lean): hanging weapons swing forward from the wrist; upright ones tip forward.
+# (shapes, lean, raised). Held ready, not dragged (owner request 10/31/2026):
+# swords, clubs, hammers and axes are raised, blade or head up and tipped
+# forward; spears, javelins and bows stand upright, tipped forward a little;
+# the sling hangs from the hand.
 WEAPONS = {
-    "great_club": (CLUB, 0.34), "bronze_sword": (XIPHOS, 0.3), "sword_and_bow": (XIPHOS, 0.3),
-    "excalibur": (EXCALIBUR, 0.28), "war_hammer": (HAMMER, 0.3), "throwing_axe": (AXE, 0.3),
-    "javelin": (JAVELIN, -0.12), "spear_and_shield": (SPEAR, -0.12), "gae_bolg": (GAE_BOLG, -0.12),
-    "scathach_spear": (SPEAR, -0.12), "longbow": (BOW, -0.1), "great_bow": (BOW, -0.1), "huntress_bow": (BOW, -0.1),
-    "bladed_discus": (DISCUS, 0.0), "sling_of_lugh": (SLING, 0.2),
+    "great_club": (CLUB, -0.45, True), "bronze_sword": (XIPHOS, -0.45, True), "sword_and_bow": (XIPHOS, -0.45, True),
+    "excalibur": (EXCALIBUR, -0.45, True), "war_hammer": (HAMMER, -0.45, True), "throwing_axe": (AXE, -0.45, True),
+    "javelin": (JAVELIN, -0.12, False), "spear_and_shield": (SPEAR, -0.12, False), "gae_bolg": (GAE_BOLG, -0.12, False),
+    "scathach_spear": (SPEAR, -0.12, False), "longbow": (BOW, -0.1, False), "great_bow": (BOW, -0.1, False),
+    "huntress_bow": (BOW, -0.1, False), "bladed_discus": (DISCUS, 0.0, False), "sling_of_lugh": (SLING, 0.2, False),
 }
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(__file__), "..", "..", "data", "art", "weapons")
-    for weapon_id, (shapes, lean) in WEAPONS.items():
-        art = build(shapes, lean)
+    for weapon_id, (shapes, lean, raised) in WEAPONS.items():
+        art = build(shapes, lean, raised)
         data = {"_doc": "Held weapon (docs/ART_RULES.md: Weapons), built by tools/art/build_weapons.py. grip is the pixel held in the Hero's hand.",
                 "size": art["size"], "grip": art["grip"], "palette": PALETTE, "frames": {"idle": [art["rows"]]}}
         with open(os.path.join(out_dir, weapon_id + ".json"), "w") as f:
