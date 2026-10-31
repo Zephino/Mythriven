@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-10-31T17:14:20.967Z",
+	"updated": "2026-10-31T17:40:46.995Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -62,6 +62,67 @@
 			],
 			"version": "00.02.23",
 			"date": "2026-10-31T12:37:29.873Z"
+		},
+		{
+			"name": "DanK",
+			"hero": "heracles",
+			"time_s": 1218,
+			"level": 24,
+			"kills": 10528,
+			"weapons": [
+				{
+					"id": "great_club",
+					"level": 4
+				},
+				{
+					"id": "spark",
+					"level": 8
+				},
+				{
+					"id": "ember",
+					"level": 3
+				},
+				{
+					"id": "bronze_sword",
+					"level": 3
+				},
+				{
+					"id": "frost",
+					"level": 2
+				},
+				{
+					"id": "throwing_axe",
+					"level": 1
+				}
+			],
+			"passives": [
+				{
+					"id": "lodestone",
+					"level": 3
+				},
+				{
+					"id": "seers_eye",
+					"level": 4
+				},
+				{
+					"id": "winged_sandals",
+					"level": 2
+				},
+				{
+					"id": "votive_bell",
+					"level": 2
+				},
+				{
+					"id": "hourglass",
+					"level": 2
+				},
+				{
+					"id": "bronze_aegis",
+					"level": 1
+				}
+			],
+			"version": "00.02.51",
+			"date": "2026-10-31T17:40:46.995Z"
 		},
 		{
 			"name": "Tiny",
