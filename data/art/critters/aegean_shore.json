@@ -1,0 +1,220 @@
+{
+ "_doc": "Critters of aegean_shore (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#9a7650",
+  "b": "#e8e0d0",
+  "c": "#7a8a4a",
+  "d": "#4a5a2a",
+  "e": "#8a6a3a",
+  "f": "#b0905a",
+  "g": "#8a6a4a",
+  "h": "#5a4430",
+  "i": "#c8a040",
+  "j": "#e8ecec",
+  "m": "#9aa4ac",
+  "n": "#e0b030",
+  "p": "#f0d860",
+  "q": "#3a3020",
+  "r": "#6a6a3a"
+ },
+ "frames": {
+  "hare": [
+   [
+    ".......oaao.",
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    "..oaaaaao...",
+    "..oaaoaao..."
+   ],
+   [
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    ".oaaaaaoo...",
+    ".oaaoooaao..",
+    "..oo..oaao.."
+   ]
+  ],
+  "wall_lizard": [
+   [
+    "...oooooo.ooo.",
+    ".ooccccdcockco",
+    "occccdccccccco",
+    "dooccccccoooo.",
+    "o..ododoo....."
+   ],
+   [
+    "...oooooo.ooo.",
+    ".ooccccdcockco",
+    "occccdccccccco",
+    "dooccccccoooo.",
+    "oodooooodo...."
+   ]
+  ],
+  "tortoise": [
+   [
+    "...oooooo...",
+    "..oeeeeeeo..",
+    ".oeefeeeeeoo",
+    "oeeeeefeeefk",
+    ".oeeeeeeeeff",
+    ".offeeeffooo",
+    ".offoooffo.."
+   ],
+   [
+    "...oooooo...",
+    "..oeeeeeeo..",
+    ".oeefeeeeeoo",
+    "oeeeeefeeeek",
+    ".oeeeeeeeeff",
+    ".offeeeffoff",
+    ".offoooffooo"
+   ]
+  ],
+  "sparrow": [
+   [
+    ".....oo.",
+    "o.ooogko",
+    "hogggggi",
+    "ohhhhggo",
+    ".oggggo.",
+    "..oioio."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "hoggggko",
+    "ohhhhggi",
+    ".oggggoo",
+    "..oioio."
+   ]
+  ],
+  "sparrow_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oggggggi",
+    "..ogghggoo",
+    "...ohhho..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ohhhkoo",
+    "..ogghgggi",
+    "..ogggggoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "gull": [
+   [
+    ".......oo.",
+    "o..oooojko",
+    "moojjjjjjn",
+    "ommmmmjjoo",
+    ".ojjjjjjo.",
+    "..ojjjjo..",
+    "...onono.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "moojjjjjko",
+    "ommmmmjjjn",
+    ".ojjjjjjoo",
+    "..ojjjjo..",
+    "...onono.."
+   ]
+  ],
+  "gull_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...ojjjjjojn",
+    "...ojjmjjooo",
+    "....ommmo...",
+    "...omoomo..."
+   ],
+   [
+    "....o..o....",
+    "...omoomoo..",
+    "....ommmokoo",
+    "...ojjmjjojn",
+    "...ojjjjjooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "swallowtail": [
+   [
+    ".......",
+    ".ppkpp.",
+    ".ppkpp.",
+    "..qkq..",
+    "...k...",
+    "......."
+   ],
+   [
+    "ppp.ppp",
+    "pppkppp",
+    "pppkppp",
+    ".qqkqq.",
+    ".qqkqq.",
+    "......."
+   ]
+  ],
+  "cicada": [
+   [
+    "......",
+    "rrrrrk",
+    "rrrrr.",
+    ".WWW.."
+   ],
+   [
+    ".WWW..",
+    "rrrrrk",
+    "rrrrr.",
+    "......"
+   ]
+  ]
+ },
+ "critters": {
+  "hare": {
+   "kind": "ground"
+  },
+  "wall_lizard": {
+   "kind": "ground"
+  },
+  "tortoise": {
+   "kind": "ground"
+  },
+  "sparrow": {
+   "kind": "bird"
+  },
+  "gull": {
+   "kind": "bird"
+  },
+  "swallowtail": {
+   "kind": "insect"
+  },
+  "cicada": {
+   "kind": "insect"
+  }
+ }
+}

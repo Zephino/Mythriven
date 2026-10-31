@@ -224,6 +224,15 @@
               "rock_cluster_max": "number",
               "rock_cluster_px": "number",
               "canopy_fade_alpha": "number",
+              "critters_max": "number",
+              "critters_z": "number",
+              "critter_spawn_s": "number",
+              "critter_scare_px": "number",
+              "critter_walk_speed": "number",
+              "critter_flee_speed": "number",
+              "critter_fly_speed": "number",
+              "large_animals_max": "number",
+              "large_animal_spawn_s": "number",
               "clear_start_px": "number",
               "clear_shrine_px": "number",
               "clear_margin_px": "number",
@@ -1218,6 +1227,14 @@
             },
             "hidden_in_bestiary": {
               "type": "bool",
+              "optional": true
+            },
+            "animal": {
+              "type": "bool",
+              "optional": true
+            },
+            "heal_chance": {
+              "type": "number",
               "optional": true
             }
           }

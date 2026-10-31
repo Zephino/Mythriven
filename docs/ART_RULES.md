@@ -118,6 +118,9 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 - Per level in `data/art/flora/<level id>.json`, built by `tools/art/build_flora.py` and weathered: the land's real trees (Aegean: olive, cypress, Aleppo pine, holm oak; Midgard: spruce with snow, Scots pine, birch; Two Lands: date palm, doum palm, acacia, sycamore fig; Misty Isles: oak, ash, rowan, yew, hawthorn), each in small, medium and large and two drawings of each; three bushes each; rocks in four styles (rounded, flat slab, tall jagged, split) in three sizes, stones and pebbles; sand dunes (Two Lands) and snow drifts (Midgard). "items" gives each picture's kind and its solid base (trunks only, never the canopy) or slowing radius.
 - Drawn by `scripts/world/flora.gd`: low things behind everything; trees and boulders behind or in front of the local Hero by depth, and fading (`world.canopy_fade_alpha`) where they'd hide a Hero.
 
+## Wildlife
+- Small animals, birds and insects per land in `data/art/critters/<level id>.json` (two frames each; birds also fly), large animals in `data/art/enemies/<id>.json` (a standing frame and four walking frames), all built by `tools/art/build_critters.py` from the real animals of each land.
+
 ## Statuses
 - Enemies show their statuses as small marks over their picture (`scripts/enemies/enemy_status_marks.gd`): flames (Burn), frost specks (Chill, more with more stacks), a block of ice (Frozen), sparks (Shock), drips (Soaked), rising bubbles (Poison, more with more stacks), a halo (Smite), a dark swirl (Hex), circling stars (Stun). Only enemies on screen, up to `enemies.status_marks_max`. The status colour tints the picture lightly (`enemies.art_status_tint`) so the marks and the art both show.
 

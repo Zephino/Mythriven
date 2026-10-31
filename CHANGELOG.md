@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.33
+Date: 10/31/2026
+Time: 10:57 AM
+
+### Changes
+- **Wildlife** (World plan step 2). Each land has its own real animals wandering about, only for looks: they can't be hurt, do nothing, and scatter or fly off when you come near.
+  - Aegean Shore: hares, wall lizards, tortoises, sparrows, gulls, swallowtail butterflies, cicadas.
+  - Midgard's Edge: red squirrels, mountain hares, red foxes, ravens, ptarmigan.
+  - The Two Lands: jerboas, desert lizards, sacred ibises, sparrows, butterflies, dragonflies.
+  - The Misty Isles: hedgehogs, hares, frogs, wrens, robins, butterflies, and fireflies at night.
+- At most 12 are out at once (`world.critters_max`), appearing just off screen and leaving when far away, so they don't slow the game. None during boss fights or in dungeons.
+- **Large animals** can be hurt: wild goats and roe deer (Aegean), reindeer and elk (Midgard), gazelles and Nubian ibex (Two Lands), red deer (Misty Isles). They wander, run from you, never hurt anyone, give little XP (0.5) and drop healing far more often (40%). At most 2 at a time. They don't appear in the Bestiary.
+- New `tools/art/build_critters.py`, `scripts/world/critters.gd`; a "flee" movement for animals; enemies.json `animal` and `heal_chance`; new `world.critter*` and `world.large_animal*` settings.
+
+### Reason
+The owner asked for woodland critters that can't be killed and are only for looks, capped on screen so they don't lag, and larger animals that can be hurt, drop healing more and give less XP.
+
 ## Version 00.02.32
 Date: 10/31/2026
 Time: 10:52 AM

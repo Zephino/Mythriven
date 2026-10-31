@@ -1,0 +1,196 @@
+{
+ "_doc": "Critters of the_two_lands (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#d4b080",
+  "b": "#c8a870",
+  "c": "#8a6a40",
+  "d": "#f0f0ec",
+  "e": "#24222a",
+  "f": "#a88a5a",
+  "g": "#6a5434",
+  "h": "#c8a040",
+  "i": "#f0a040",
+  "j": "#3a2a1a",
+  "m": "#3a7ab0",
+  "n": "#c8e8f8"
+ },
+ "frames": {
+  "jerboa": [
+   [
+    "......o...",
+    ".....oao..",
+    ".....oao..",
+    "....ooako.",
+    "o..oaaaao.",
+    "kooaaaaao.",
+    "aaaaaaao..",
+    "oooooao...",
+    "....oao..."
+   ],
+   [
+    ".....oao..",
+    "....ooako.",
+    "o..oaaaao.",
+    "kooaaaaao.",
+    "aaaaaaao..",
+    "oooooao...",
+    "....oao...",
+    ".....o....",
+    ".........."
+   ]
+  ],
+  "desert_lizard": [
+   [
+    "...oooooo.ooo.",
+    ".oobbbbcbobkbo",
+    "obbbbcbbbbbbbo",
+    "coobbbbbboooo.",
+    "o..ococoo....."
+   ],
+   [
+    "...oooooo.ooo.",
+    ".oobbbbcbobkbo",
+    "obbbbcbbbbbbbo",
+    "coobbbbbboooo.",
+    "oocoooooco...."
+   ]
+  ],
+  "sacred_ibis": [
+   [
+    ".......oo.",
+    "o..oooodko",
+    "eoodddddde",
+    "oeeeeeddoo",
+    ".oddddddo.",
+    "..oddddo..",
+    "...oeoeo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "eoodddddko",
+    "oeeeeeddde",
+    ".oddddddoo",
+    "..oddddo..",
+    "...oeoeo.."
+   ]
+  ],
+  "sacred_ibis_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...odddddode",
+    "...oddeddooo",
+    "....oeeeo...",
+    "...oeooeo..."
+   ],
+   [
+    "....o..o....",
+    "...oeooeoo..",
+    "....oeeeokoo",
+    "...oddeddode",
+    "...odddddooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "sparrow": [
+   [
+    ".....oo.",
+    "o.ooofko",
+    "gofffffh",
+    "oggggffo",
+    ".offffo.",
+    "..ohoho."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "goffffko",
+    "oggggffh",
+    ".offffoo",
+    "..ohoho."
+   ]
+  ],
+  "sparrow_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..offffffh",
+    "..offgffoo",
+    "...ogggo..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ogggkoo",
+    "..offgfffh",
+    "..offfffoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".iikii.",
+    ".iikii.",
+    "..jkj..",
+    "...k...",
+    "......."
+   ],
+   [
+    "iii.iii",
+    "iiikiii",
+    "iiikiii",
+    ".jjkjj.",
+    ".jjkjj.",
+    "......."
+   ]
+  ],
+  "dragonfly": [
+   [
+    ".........",
+    "....n.n..",
+    "mmmmmmmmk",
+    "....n.n..",
+    "........."
+   ],
+   [
+    "....n.n..",
+    ".........",
+    "mmmmmmmmk",
+    ".........",
+    "....n.n.."
+   ]
+  ]
+ },
+ "critters": {
+  "jerboa": {
+   "kind": "ground"
+  },
+  "desert_lizard": {
+   "kind": "ground"
+  },
+  "sacred_ibis": {
+   "kind": "bird"
+  },
+  "sparrow": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  },
+  "dragonfly": {
+   "kind": "insect"
+  }
+ }
+}

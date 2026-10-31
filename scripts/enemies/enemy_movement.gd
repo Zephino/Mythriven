@@ -7,6 +7,7 @@ extends RefCounted
 ##   caster: stops at range and fires a slow projectile after a 0.5 s glow
 ##   bomber: runs at the player and explodes after a 1 s flashing fuse
 ##   still:  doesn't move by itself (bosses move through their own scripts)
+##   flee:   a wild animal: wanders, and runs from a Hero who comes near (docs/WORLD_PLAN.md: 2)
 ## Settings for flyers, casters, and bombers are in each enemy's "behavior".
 
 const CHASER := 0
@@ -14,9 +15,10 @@ const FLYER := 1
 const CASTER := 2
 const BOMBER := 3
 const STILL := 4
+const FLEE := 5
 const CODES: Dictionary = {
 	"chaser": CHASER, "swarm": CHASER, "brute": CHASER, "encircler": CHASER,
-	"flyer": FLYER, "caster": CASTER, "bomber": BOMBER, "still": STILL,
+	"flyer": FLYER, "caster": CASTER, "bomber": BOMBER, "still": STILL, "flee": FLEE,
 }
 ## Caster/bomber state: 0 = moving, 1 = winding up (glow or fuse).
 const WINDING := 1
@@ -82,6 +84,8 @@ func step(m: EnemyManager, delta: float) -> void:
 					continue
 			STILL:
 				velocity = Vector2.ZERO
+			FLEE:
+				velocity = _flee(m, i, speed, delta)
 			_:
 				velocity = _toward_player(m, i) * speed
 		var moved: Vector2 = velocity * delta + m.knockback[i] * delta
@@ -180,3 +184,21 @@ func _explode(m: EnemyManager, i: int, behavior: Dictionary) -> void:
 	if effects != null:
 		effects.spawn_ring(at, blast, Elements.color(str(m.type_of(i).get("element", "fire"))), true)
 	GameAuthority.kill_enemy(i, null)
+
+
+## A wild animal wanders slowly, turning now and then, and runs from the nearest Hero who comes within flee_px.
+func _flee(m: EnemyManager, i: int, speed: float, delta: float) -> Vector2:
+	var behavior: Dictionary = m.type_of(i).get("behavior", {})
+	var target: Player = m.nearest_player(m.positions[i])
+	if target != null:
+		var away: Vector2 = m.positions[i] - target.position
+		if away.length() < float(behavior.get("flee_px", 120.0)):
+			dir[i] = away.normalized() if away.length_squared() > 1.0 else Vector2.RIGHT
+			return dir[i] * speed
+	timer[i] -= delta
+	if timer[i] <= 0.0:
+		timer[i] = float(behavior.get("wander_turn_s", 2.5)) * GameAuthority.run.rng.combat.randf_range(0.6, 1.4)
+		dir[i] = Vector2.from_angle(GameAuthority.run.rng.combat.randf() * TAU) \
+				if GameAuthority.run.rng.combat.randf() < 0.7 else Vector2.ZERO
+	return dir[i] * speed * 0.35
+

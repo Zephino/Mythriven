@@ -53,6 +53,11 @@ func _build_world(joystick: TouchJoystick) -> void:
 	world.add_child(flora)
 	flora.setup(run.level_data, run.seed_value)
 	world.origin_shifted.connect(flora.on_origin_shifted)
+	# Wildlife (docs/WORLD_PLAN.md: 2).
+	var critters := Critters.new()
+	world.add_child(critters)
+	critters.setup(run.level_data)
+	world.origin_shifted.connect(critters.on_origin_shifted)
 
 	_enemies = EnemyManager.new()
 	world.add_child(_enemies)

@@ -55,9 +55,11 @@ func drop(at: Vector2) -> void:
 	_multimesh.set_instance_color(slot, Color.html(Data.cfg_string("pickups.ambrosia_color")))
 
 
-## Each kill has a small chance to drop Ambrosia (rolled on the run's loot generator).
-func on_enemy_killed(_slot: int, _enemy_type: Dictionary, at: Vector2, _killer: Player) -> void:
-	if GameAuthority.run != null and not Net.is_client() and GameAuthority.run.rng.loot.randf() < Data.cfg_float("pickups.ambrosia_drop_chance"):
+## Each kill has a small chance to drop Ambrosia (rolled on the run's loot generator); wild animals a much better one
+## (their "heal_chance").
+func on_enemy_killed(_slot: int, enemy_type: Dictionary, at: Vector2, _killer: Player) -> void:
+	var chance: float = float(enemy_type.get("heal_chance", Data.cfg_float("pickups.ambrosia_drop_chance")))
+	if GameAuthority.run != null and not Net.is_client() and GameAuthority.run.rng.loot.randf() < chance:
 		drop(at)
 
 
