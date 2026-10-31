@@ -36,9 +36,19 @@ func setup(level: Dictionary) -> void:
 			(_by_kind[kind] as Array).append(name)
 	# The level's own large animals: those of its people's land.
 	var tradition: String = {"greek": "greek", "norse": "norse", "egyptian": "egyptian", "irish": "irish"}.get(str(level.get("region", "")), "")
+	# An animal that names its levels (the Underworld's black cattle) lives only there; the rest by their land.
+	var level_id: String = str(level.get("id", ""))
+	var own: PackedStringArray = []
+	var by_land: PackedStringArray = []
 	for entry: Variant in Data.get_file("enemies.json"):
-		if entry is Dictionary and bool(entry.get("animal", false)) and str(entry.get("tradition", "")) == tradition:
-			_animals.append(str(entry["id"]))
+		if not (entry is Dictionary and bool(entry.get("animal", false))):
+			continue
+		if entry.has("levels"):
+			if (entry["levels"] as Array).has(level_id):
+				own.append(str(entry["id"]))
+		elif str(entry.get("tradition", "")) == tradition:
+			by_land.append(str(entry["id"]))
+	_animals = own if not own.is_empty() else by_land
 
 
 func count() -> int:

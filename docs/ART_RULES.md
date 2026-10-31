@@ -151,3 +151,13 @@ Each pantheon later gets its own palette family (`GAME_DESIGN.md`: Art: Greek ma
 ## Mastery colours
 - Hero select → Color picks one of the colours mastery unlocks (config `heroes.mastery_palettes`: mastery 2–5 unlock colours 1–4; owner request 10/31/2026). It recolours the **Hero's clothes only**: each art file lists those palette letters under `recolor` (set in its build script), and they take the colour's hue and saturation while keeping their own brightness, so light cloth and its shadow stay apart. Skin, hair, metal and weapons keep their colours.
 - A new Hero's script must pass `recolor=[...]` to `kit.build` with the letters of their main clothing.
+
+## Pack 2: the Underworld (docs/PACK_2_PLAN.md)
+- Ground: grey-green asphodel meadow (few pale flower spikes), ash, dark rock, and cracked rock with dim ember seams;
+  built by `tools/art/build_ground.py` from the level's colours.
+- Light: the whole level is tinted a cool grey-violet (`levels.json` "tint", on top of each Age's colour).
+- Trees and plants: black poplar, willow (Persephone's grove, Odyssey 10), cypress, dead trees; asphodel and
+  pomegranate bushes; dark basalt rocks. Scenery: Greek grave steles and white-ground lekythoi.
+- Critters: grey lizards, bats, owls, moths; the black cattle of Hades are the large animal.
+- Rivers of the dead: long black pools with pale shades drifting along them. Chasms: glowing cracks spread, then a dark
+  pit opens and closes.

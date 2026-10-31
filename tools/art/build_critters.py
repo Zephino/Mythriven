@@ -235,6 +235,13 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    # Pack 2 (docs/PACK_2_PLAN.md). Bats (the souls gibber like bats, Odyssey 24.6–9); the owl (Ascalaphus, turned into
+    # one below the earth, Ovid, Metamorphoses 5.539–550); the black cattle of Hades (Apollodorus, Library 2.5.10).
+    "the_underworld": {
+        "ground": {"grey_lizard": (lizard, "#7a7680", "#4a4650")},
+        "birds": {"bat": ("#3a3440", "#24202a", "#24202a", True), "owl": ("#8a7a68", "#5a4a3a", "#d8b040", False)},
+        "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650")},
+        "large": {"black_cattle": ("#2a2628", "#4a4446", "#141012", "curved", 30, 24)}},
 }
 
 

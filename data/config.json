@@ -535,6 +535,10 @@
       "difficulty_every_levels": 10,
       "hp_step": 0.5,
       "damage_step": 0.25
+    },
+    "pack_difficulty": {
+      "_doc": "Each pack is harder than the last (owner decision 10/31/2026, docs/PACK_2_PLAN.md): a level's act (pack) multiplies enemy HP and contact damage, and the run's spawn rate. Packs not listed are x1.",
+      "2": { "hp_mult": 1.2, "spawn_mult": 1.15, "damage_mult": 1.1 }
     }
   },
 

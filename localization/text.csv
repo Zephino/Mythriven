@@ -1285,3 +1285,10 @@ UI_LB_COL_KILLS,Kills
 UI_LB_PLAYED_ON,Played on version %s
 UI_REROLL_FREE,Reroll (free: %d)
 UI_REROLL_BUY,Reroll: %d gold
+PACK_1_NAME,Pack 1: Legends of the West
+PACK_2_NAME,Pack 2: Deeper Myths
+LEVEL_THE_UNDERWORLD_NAME,The Underworld
+LEVEL_COMING_SOON,Coming soon: being built now.
+LEVEL_LOCKED_BOSS,Locked: defeat %s on %s
+HAZARD_CHASMS_NAME,The chasms open
+ENEMY_BLACK_CATTLE_NAME,Black cattle of Hades

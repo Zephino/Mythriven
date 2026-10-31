@@ -130,7 +130,29 @@ def heather(t, rnd):
         t.px(x, y, "a"); t.px(x, y - 1, "y")
 
 
-STYLES = {"stone": cobbles, "dirt": dirt, "grass": grass, "flowers": lambda t, r: grass(t, r, True), "rock": rock,
+def asphodel(t, rnd):
+    """Asphodel meadow (the Underworld, Odyssey 11): dull grey-green grass with small pale flower spikes."""
+    speckle(t, rnd, 14, "dl")
+    for _ in range(2):
+        x, y = rnd.randrange(N), rnd.randrange(1, N)
+        t.px(x, y, "a"); t.px(x, y - 1, "y")
+
+
+def ash(t, rnd):
+    """Ash and cinders: grey earth with dark flecks and a few pale embers gone cold."""
+    speckle(t, rnd, 20, "dD")
+    speckle(t, rnd, 3, "l")
+
+
+def cracked(t, rnd):
+    """Cracked dark rock above Tartarus: rough stone split by a glowing seam."""
+    rock(t, rnd)
+    x, y = rnd.randrange(N), rnd.randrange(N)
+    for _ in range(rnd.randrange(4, 9)):
+        t.px(x, y, "a"); y += 1; x += rnd.choice((-1, 0, 1))
+
+
+STYLES = {"stone": cobbles, "asphodel": asphodel, "ash": ash, "cracked": cracked, "dirt": dirt, "grass": grass, "flowers": lambda t, r: grass(t, r, True), "rock": rock,
           "pine_floor": needles, "packed_snow": lambda t, r: snow(t, r, True), "snow": snow, "sand": sand,
           "dune": lambda t, r: sand(t, r, True), "reeds": reeds, "bog": bog, "dark_grass": grass, "heather": heather}
 

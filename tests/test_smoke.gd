@@ -54,7 +54,7 @@ func test_a_run_plays_through_every_age() -> void:
 
 func test_every_level_plays_through_its_bosses() -> void:
 	for level: Dictionary in LevelRules.all():
-		if str(level["id"]) == "aegean_shore":
+		if str(level["id"]) == "aegean_shore" or bool(level.get("coming_soon", false)):
 			continue
 		SaveGame.data()["levels"][str(level["id"])] = {"unlocked": true}
 		Meta.level_id = str(level["id"])

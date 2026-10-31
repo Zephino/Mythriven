@@ -1,0 +1,70 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little.",
+ "size": [
+  12,
+  26
+ ],
+ "anchor": [
+  6,
+  25
+ ],
+ "palette": {
+  "a": "#66605a",
+  "b": "#eae4d8",
+  "c": "#f6f0e4",
+  "d": "#ded8d2",
+  "e": "#544e48",
+  "f": "#d2d2c6",
+  "g": "#bab4a8",
+  "h": "#c6c0ae",
+  "i": "#b4ae9c",
+  "j": "#a89c90",
+  "k": "#48423c",
+  "l": "#9c968a",
+  "m": "#969084",
+  "n": "#7e7e72",
+  "o": "#c0bab4",
+  "p": "#ded8cc",
+  "q": "#908a7e",
+  "r": "#d2ccc6",
+  "s": "#c6c6ba",
+  "t": "#a8a296",
+  "u": "#babaae",
+  "v": "#8a8a7e",
+  "w": "#a8a8a2",
+  "x": "#847e78",
+  "y": "#a29c90"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....a......",
+    "....aba.....",
+    "...acada....",
+    "..abacaba...",
+    ".abacababa..",
+    ".adeeeeeefa.",
+    ".eghgihghie.",
+    ".eiffddddjk.",
+    ".egbbdbbdjk.",
+    ".ehdddbbflk.",
+    ".ehddfdfbmk.",
+    ".egfjlmnolk.",
+    ".eidjmlmblk.",
+    ".eipmmqlrqk.",
+    ".eirmmmlrmk.",
+    ".egsqqllrmk.",
+    ".eirmmmmrmk.",
+    ".eipmllmsmk.",
+    ".eisrrssslk.",
+    ".etppppppqk.",
+    ".eirprrrrlk.",
+    ".etrusuusvk.",
+    ".eqwssrrsxk.",
+    ".kysrsrrumk.",
+    "kmxvmmxvxvmk",
+    ".kkkkkkkkkk."
+   ]
+  ]
+ }
+}

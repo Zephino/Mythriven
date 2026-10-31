@@ -1,0 +1,62 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A white-ground lekythos (the Underworld): the tall oil flask the Greeks set on graves, with a dark band.",
+ "size": [
+  9,
+  20
+ ],
+ "anchor": [
+  4,
+  19
+ ],
+ "palette": {
+  "a": "#544e48",
+  "b": "#c6c0ae",
+  "c": "#d2c6ba",
+  "d": "#bab4a8",
+  "e": "#ded8d2",
+  "f": "#eae4d8",
+  "g": "#f6f0e4",
+  "h": "#66605a",
+  "i": "#d2d2c6",
+  "j": "#c0bab4",
+  "k": "#b4ae9c",
+  "l": "#120c06",
+  "m": "#c6c6ba",
+  "n": "#241e12",
+  "o": "#2a1e18",
+  "p": "#b4b4a8",
+  "q": "#d2ccc6",
+  "r": "#ded8cc",
+  "s": "#241812",
+  "t": "#babaae",
+  "u": "#a8a296",
+  "v": "#aea89c",
+  "w": "#a29c90"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..aaaaa..",
+    ".abcdbba.",
+    "..aefga..",
+    "..hgfga..",
+    "..hfefda.",
+    "..hfijaka",
+    ".heiefeba",
+    ".lefimil.",
+    "lnnonnonl",
+    "heifpefeh",
+    "hqmmpqqrh",
+    "hmrrrmrrh",
+    "hmmqmmrrh",
+    "hrqqqqqmh",
+    "hqmrqmqqh",
+    "lssnsnssl",
+    ".lmtmmql.",
+    ".auvwuwa.",
+    ".awvwuva.",
+    "..aaaaa.."
+   ]
+  ]
+ }
+}

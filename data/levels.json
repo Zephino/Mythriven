@@ -455,5 +455,127 @@
         "hawthorn": 2
       }
     }
+  },
+  {
+    "_doc": "The Underworld, Pack 2 level 1 (docs/PACK_2_PLAN.md; GAME_DESIGN.md Act II). Asphodel meadows, the black rivers of the dead, chasms down to Tartarus. Sources: Homer, Odyssey 10-11; Hesiod, Theogony 720-819. coming_soon hides it from play until every part is built.",
+    "id": "the_underworld",
+    "name_key": "LEVEL_THE_UNDERWORLD_NAME",
+    "region": "greek",
+    "act": 2,
+    "order": 1,
+    "care_tier": "A",
+    "coming_soon": true,
+    "tileset": {
+      "id": "the_underworld",
+      "noise_frequency": 0.03,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "cracked",
+          "max": -0.5,
+          "placeholder_color": "#3a3640",
+          "placeholder_dots": "#8a4a30"
+        },
+        {
+          "id": "ash",
+          "max": -0.1,
+          "placeholder_color": "#5a5658",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "asphodel",
+          "max": 0.55,
+          "placeholder_color": "#535a4e",
+          "placeholder_dots": "#a8a494"
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#4a4650",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "grave_stele",
+      "lekythos"
+    ],
+    "decorations_per_chunk": [
+      2,
+      6
+    ],
+    "decoration_art": {
+      "grave_stele": {
+        "shape": "rect",
+        "size_px": [
+          8,
+          18
+        ],
+        "placeholder_color": "#c8c0ae",
+        "weight": 2
+      },
+      "lekythos": {
+        "shape": "rect",
+        "size_px": [
+          6,
+          12
+        ],
+        "placeholder_color": "#ece7da",
+        "weight": 1
+      }
+    },
+    "local_gods": [
+      "hecate",
+      "persephone"
+    ],
+    "local_shrine_chance": 0.5,
+    "bosses": {
+      "10": "cerberus",
+      "20": "thanatos",
+      "30": "typhon"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "aegean_shore",
+      "boss": "kronos"
+    },
+    "waves": "waves_the_underworld.json",
+    "hazard": {
+      "type": "strikes",
+      "name_key": "HAZARD_CHASMS_NAME",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 14,
+      "strikes_per_s": 0.9,
+      "radius_px": 38,
+      "telegraph_s": 1.4,
+      "damage": 16,
+      "element": "dark",
+      "range_px": 230,
+      "color": "#c8603a",
+      "look": "chasm"
+    },
+    "ground_patches": {
+      "kind": "river",
+      "count": 5,
+      "radius_px": [
+        26,
+        38
+      ],
+      "color": "#1e2430",
+      "speed_mult": 0.6,
+      "drain_hp_per_s": 2.0
+    },
+    "seal": "greek_meander",
+    "flora": {
+      "density": 0.8,
+      "trees": {
+        "black_poplar": 3,
+        "willow": 2,
+        "cypress": 2,
+        "dead_tree": 3
+      }
+    },
+    "tint": "#c4bed4"
   }
 ]

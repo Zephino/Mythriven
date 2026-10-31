@@ -665,6 +665,9 @@
                   "damage_step": "number"
                 }
               },
+              "pack_difficulty": {
+                "type": "object"
+              },
               "telegraph_color": "string",
               "shot_color": "string",
               "shot_outline_color": "string",
@@ -1211,6 +1214,14 @@
               "type": "int",
               "optional": true
             },
+            "coming_soon": {
+              "type": "bool",
+              "optional": true
+            },
+            "tint": {
+              "type": "string",
+              "optional": true
+            },
             "ground_patches": {
               "type": "object",
               "optional": true,
@@ -1309,6 +1320,11 @@
             },
             "heal_chance": {
               "type": "number",
+              "optional": true
+            },
+            "levels": {
+              "type": "array",
+              "items": "string",
               "optional": true
             }
           }
@@ -2323,6 +2339,86 @@
       }
     },
     "waves_the_misty_isles.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "level": "string",
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "from_min": "number",
+                "spawns_per_s": "number",
+                "singles": {
+                  "type": "object"
+                },
+                "packs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "chance": "number",
+                      "size": {
+                        "type": "array",
+                        "items": "int"
+                      }
+                    }
+                  }
+                },
+                "groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "kind": "string",
+                      "every_s": "number",
+                      "size": "int"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "elites": {
+            "type": "object",
+            "fields": {
+              "types": {
+                "type": "array",
+                "items": "string"
+              },
+              "times_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_interval_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_after_s": "number"
+            }
+          },
+          "boss_fodder": {
+            "type": "array",
+            "items": "string"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "id": "string",
+                "at_s": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "waves_the_underworld.json": {
       "gated": false,
       "schema": {
         "type": "object",

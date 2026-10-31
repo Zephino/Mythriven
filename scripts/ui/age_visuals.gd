@@ -35,6 +35,9 @@ func _on_age_changed(age_id: String) -> void:
 	_age = age_id
 	var colors: Dictionary = Data.cfg("run_arc.age_colors")
 	var target := Color.html(str(colors.get(age_id, "#ffffff")))
+	# A level can have its own light on top of the Age's (the Underworld's gloom, levels.json "tint").
+	if GameAuthority.run != null and GameAuthority.run.level_data.has("tint"):
+		target *= Color.html(str(GameAuthority.run.level_data["tint"]))
 	if world_tint != null:
 		if first:
 			world_tint.color = target

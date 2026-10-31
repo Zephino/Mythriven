@@ -1,0 +1,146 @@
+{
+ "_doc": "Critters of the_underworld (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#7a7680",
+  "b": "#4a4650",
+  "c": "#3a3440",
+  "d": "#24202a",
+  "e": "#8a7a68",
+  "f": "#5a4a3a",
+  "g": "#d8b040",
+  "h": "#c8c4b8"
+ },
+ "frames": {
+  "grey_lizard": [
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "o..oboboo....."
+   ],
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "oobooooobo...."
+   ]
+  ],
+  "bat": [
+   [
+    ".......oo.",
+    "o..oooocko",
+    "dooccccccd",
+    "odddddccoo",
+    ".occcccco.",
+    "..occcco..",
+    "...ododo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "doocccccko",
+    "odddddcccd",
+    ".occccccoo",
+    "..occcco..",
+    "...ododo.."
+   ]
+  ],
+  "bat_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...occcccocd",
+    "...occdccooo",
+    "....odddo...",
+    "...odoodo..."
+   ],
+   [
+    "....o..o....",
+    "...odoodoo..",
+    "....odddokoo",
+    "...occdccocd",
+    "...occcccooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "owl": [
+   [
+    ".....oo.",
+    "o.oooeko",
+    "foeeeeeg",
+    "offffeeo",
+    ".oeeeeo.",
+    "..ogogo."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "foeeeeko",
+    "offffeeg",
+    ".oeeeeoo",
+    "..ogogo."
+   ]
+  ],
+  "owl_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oeeeeeeg",
+    "..oeefeeoo",
+    "...offfo..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...offfkoo",
+    "..oeefeeeg",
+    "..oeeeeeoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "moth": [
+   [
+    ".......",
+    ".hhkhh.",
+    ".hhkhh.",
+    "..bkb..",
+    "...k...",
+    "......."
+   ],
+   [
+    "hhh.hhh",
+    "hhhkhhh",
+    "hhhkhhh",
+    ".bbkbb.",
+    ".bbkbb.",
+    "......."
+   ]
+  ]
+ },
+ "critters": {
+  "grey_lizard": {
+   "kind": "ground"
+  },
+  "bat": {
+   "kind": "bird"
+  },
+  "owl": {
+   "kind": "bird"
+  },
+  "moth": {
+   "kind": "insect"
+  }
+ }
+}

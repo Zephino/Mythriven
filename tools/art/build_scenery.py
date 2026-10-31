@@ -190,8 +190,30 @@ def gorse():
     return p
 
 
+def grave_stele():
+    """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
+    p = Pic(12, 26, (6, 25))
+    p.rect(2, 8, 9, 25, "M"); p.rect(3, 8, 8, 24, "m"); p.rect(9, 8, 9, 25, "n")
+    for x, y in ((5, 2), (4, 3), (6, 3), (3, 4), (5, 4), (7, 4), (2, 5), (4, 5), (6, 5), (8, 5), (2, 6), (9, 6)):
+        p.px(x, y, "m")
+    p.rect(2, 7, 9, 7, "M")
+    p.rect(4, 12, 7, 18, "n")                                   # the carved panel, worn smooth
+    p.rect(1, 25, 10, 25, "n")
+    return p
+
+
+def lekythos():
+    """A white-ground lekythos (the Underworld): the tall oil flask the Greeks set on graves, with a dark band."""
+    p = Pic(10, 20, (5, 19))
+    blob(p, 5, 12, 3.6, 6.5, "m")
+    p.rect(4, 3, 6, 6, "m"); p.rect(3, 2, 7, 2, "M"); p.px(7, 5, "M"); p.px(8, 6, "M"); p.px(8, 7, "M")
+    p.rect(2, 9, 8, 9, "z"); p.rect(2, 16, 8, 16, "z")
+    p.rect(3, 18, 7, 19, "M")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
-                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse)}
+                                   tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

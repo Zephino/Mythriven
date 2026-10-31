@@ -85,6 +85,8 @@ func _on_run_started(run: RunState) -> void:
 		OmenRules.apply_to_run(run, PackedStringArray(takeover.get("omens", [])), bool(takeover.get("swift", false)))
 	else:
 		OmenRules.apply_to_run(run, OmenRules.active(), swift and LevelRules.swift_unlocked(level))
+	# Later packs are harder (enemies.pack_difficulty); HP and damage are applied by LevelScaling.
+	run.spawn_mult *= LevelScaling.pack("spawn_mult", run.level_data)
 
 
 ## Co-op scaling (GAME_DESIGN.md: Fairness rules / Scaling): +60% enemy HP and

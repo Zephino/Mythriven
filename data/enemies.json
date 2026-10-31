@@ -1367,5 +1367,34 @@
       "flee_px": 120,
       "wander_turn_s": 2.5
     }
+  },
+  {
+    "id": "black_cattle",
+    "name_key": "ENEMY_BLACK_CATTLE_NAME",
+    "family": "wild_animals",
+    "tradition": "greek",
+    "levels": [
+      "the_underworld"
+    ],
+    "myth_source": "Apollodorus, Library 2.5.10 (the cattle of Hades, herded by Menoetes)",
+    "movement": "flee",
+    "animal": true,
+    "hidden_in_bestiary": true,
+    "hp": 44,
+    "speed": 52,
+    "contact_damage": 0,
+    "armor": 0,
+    "radius_px": 9,
+    "element": "physical",
+    "xp": 0.5,
+    "gold_chance": 0.0,
+    "heal_chance": 0.4,
+    "knockback_resist": 0.4,
+    "placeholder_color": "#2a2628",
+    "persists": false,
+    "behavior": {
+      "flee_px": 110,
+      "wander_turn_s": 3.0
+    }
   }
 ]

@@ -6,6 +6,9 @@ extends RefCounted
 ## played in any order; beating its 30:00
 ## boss unlocks Swift Mode for that level. Progress is in the save's "levels"
 ## section: level id -> {"unlocked", "bosses" (ids defeated), "swift"}.
+## Pack 2 on (owner decision 10/31/2026, docs/PACK_2_PLAN.md): a level whose unlock is {"type": "boss", "level": id}
+## opens when that level's 30:00 boss is beaten (its "sister" level). A level marked coming_soon can't be played
+## yet (it's still being built), though beating its sister boss already records it as unlocked.
 
 
 ## Levels in Act and play order.
@@ -26,6 +29,8 @@ static func progress(level_id: String) -> Dictionary:
 
 
 static func is_unlocked(level: Dictionary) -> bool:
+	if bool(level.get("coming_soon", false)):
+		return false
 	return (int(level.get("act", 1)) == 1 and int(level.get("order", 1)) == 1) or bool(progress(str(level.get("id", ""))).get("unlocked", false))
 
 
@@ -52,8 +57,21 @@ static func note_boss(level_id: String, boss_id: String, index: int) -> PackedSt
 		entry["swift"] = true
 		lines.append(TranslationServer.translate("UNLOCK_SWIFT"))
 	levels[level_id] = entry
+	if index == 2:
+		for other: Dictionary in all():
+			var unlock: Dictionary = other.get("unlock", {})
+			if str(unlock.get("type", "")) == "boss" and str(unlock.get("level", "")) == level_id \
+					and not bool(progress(str(other["id"])).get("unlocked", false)):
+				var opened: Dictionary = progress(str(other["id"])).duplicate()
+				opened["unlocked"] = true
+				levels[str(other["id"])] = opened
+				if not bool(other.get("coming_soon", false)):
+					lines.append(TranslationServer.translate("UNLOCK_LEVEL") % TranslationServer.translate(str(other.get("name_key", ""))))
 	if index == 1:
 		for other: Dictionary in _act_of(level_id):
+			# Only the Act's levels that open together (Pack 1); later packs open from their sister levels.
+			if str((other.get("unlock", {}) as Dictionary).get("type", "")) != "act_progress":
+				continue
 			if not is_unlocked(other):
 				var other_entry: Dictionary = progress(str(other["id"])).duplicate()
 				other_entry["unlocked"] = true

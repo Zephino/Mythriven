@@ -2,6 +2,29 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.53
+Date: 10/31/2026
+Time: 1:20 PM
+
+### Changes
+- **Pack 2, the Underworld: the level and its hazards** (steps 1–2 of `docs/PACK_2_PLAN.md`). It's marked **"Coming soon"** in level select until its monsters, bosses, gods and Orpheus are built, so nobody plays a half-made level.
+  - **Level select** now has a heading for each pack: "Pack 1: Legends of the West", "Pack 2: Deeper Myths".
+  - **Unlocks:** beating Kronos (the Aegean Shore's 30:00 boss) opens the Underworld, and it says so: "Locked: defeat Kronos on the Aegean Shore". Pack 1's old rule (the 20:00 boss opens the rest of the pack) now applies to Pack 1 only.
+  - **Pack 2 is harder:** enemy HP +20%, spawns +15%, enemy damage +10% (setting `enemies.pack_difficulty`).
+  - **The look:**
+    - Ground: a grey asphodel meadow, ash, dark rock, and cracked rock with ember seams.
+    - A gloomy grey-violet light over everything (new level setting "tint").
+    - Trees and plants: black poplars, willows, cypress and dead trees; asphodel and pomegranate bushes; basalt rocks.
+    - Scenery: Greek grave steles and lekythoi.
+    - Animals: bats, owls, grey lizards, moths, and the black cattle of Hades. Large animals can now belong to particular levels.
+  - **Hazards:**
+    - **Rivers of the dead:** long black pools that slow you and slowly drain HP (never below 1).
+    - **The chasms open:** cracks glow and spread, then the ground collapses into a dark pit that closes again.
+- Tests for the unlocks, "coming soon" and the Pack 2 difficulty. Art rules for the Underworld.
+
+### Reason
+Building Pack 2, approved by the owner: the Underworld first, one part at a time.
+
 ## Version 00.02.52
 Date: 10/31/2026
 Time: 1:11 PM

@@ -46,6 +46,9 @@ func _level(level_id: String) -> Dictionary:
 func test_every_level_has_waves_bosses_and_a_hazard_that_all_exist() -> void:
 	for level: Dictionary in LevelRules.all():
 		var id: String = str(level["id"])
+		# A level still being built (coming_soon) is checked fully once it's released.
+		if bool(level.get("coming_soon", false)):
+			continue
 		var table: Dictionary = RunArc.wave_table(level)
 		assert_false(table.is_empty(), "%s has a wave table" % id)
 		for row: Dictionary in table.get("rows", []):
@@ -61,6 +64,22 @@ func test_every_level_has_waves_bosses_and_a_hazard_that_all_exist() -> void:
 		assert_false((level.get("hazard", {}) as Dictionary).is_empty(), "%s has a hazard" % id)
 		for god_id: Variant in level.get("local_gods", []):
 			assert_false(GodRules.find(str(god_id)).is_empty(), "%s: local god %s" % [id, god_id])
+
+
+func test_pack_2_levels_open_from_their_sister_and_only_when_released() -> void:
+	SaveGame.use_test_file(TEST_SAVE)
+	var underworld: Dictionary = _level("the_underworld").duplicate(true)
+	assert_false(LevelRules.is_unlocked(underworld), "locked at first")
+	LevelRules.note_boss("aegean_shore", "achilles", 1)
+	assert_false(bool(LevelRules.progress("the_underworld").get("unlocked", false)), "Pack 1's 20:00 boss doesn't open Pack 2")
+	LevelRules.note_boss("aegean_shore", "kronos", 2)
+	assert_true(bool(LevelRules.progress("the_underworld").get("unlocked", false)), "Kronos opens the Underworld")
+	underworld["coming_soon"] = true
+	assert_false(LevelRules.is_unlocked(underworld), "but not while it's still being built")
+	underworld.erase("coming_soon")
+	assert_true(LevelRules.is_unlocked(underworld))
+	assert_almost_eq(LevelScaling.pack("hp_mult", underworld), 1.2, 0.001, "Pack 2 enemies are tougher")
+	assert_almost_eq(LevelScaling.pack("hp_mult", _level("aegean_shore")), 1.0, 0.001)
 
 
 func test_beating_the_aegean_20_00_boss_opens_the_rest_of_act_one() -> void:

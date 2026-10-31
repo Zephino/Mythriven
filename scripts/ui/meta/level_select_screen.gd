@@ -23,7 +23,12 @@ func page_width() -> float:
 ## button, and Swift Mode beside it once unlocked. Locked levels are greyed, saying how to open them.
 func build() -> void:
 	set_title(tr_key("UI_LEVEL_SELECT"))
+	var pack: int = 0
 	for level: Dictionary in LevelRules.all():
+		# A heading for each pack (Pack 1: Legends of the West, Pack 2: Deeper Myths...).
+		if int(level.get("act", 1)) != pack:
+			pack = int(level.get("act", 1))
+			add_section(tr_key("PACK_%d_NAME" % pack))
 		var id: String = str(level.get("id", ""))
 		var name: String = tr_key(str(level.get("name_key", id)))
 		var gods: PackedStringArray = []
@@ -33,8 +38,11 @@ func build() -> void:
 		var first_god: String = str((level.get("local_gods", [""]) as Array).front()) if not (level.get("local_gods", []) as Array).is_empty() else ""
 		var face: Texture2D = UiTheme.god_face(first_god, 1) if first_god != "" else null
 		var unmet: bool = first_god == "" or not GodLevels.bound_ever(first_god)
+		if bool(level.get("coming_soon", false)):
+			add_card(face, name, [tr_key("LEVEL_COMING_SOON")], "", "", Callable(), true, true, true)
+			continue
 		if not LevelRules.is_unlocked(level):
-			add_card(face, name, [tr_key("LEVEL_LOCKED_HOW")], "", "", Callable(), true, true, true)
+			add_card(face, name, [_how_to_unlock(level)], "", "", Callable(), true, true, true)
 			continue
 		var swift: bool = bool(_swift.get(id, false))
 		var card: PanelContainer = add_card(face, name, [
@@ -43,6 +51,17 @@ func build() -> void:
 		], tr_key("UI_SWIFT_MODE") if swift else "", tr_key("LEVEL_PLAY"), flow.choose_level.bind(id, swift), true, false, unmet)
 		if LevelRules.swift_unlocked(id):
 			add_card_button(card, tr_key("LEVEL_SWIFT_ON") if swift else tr_key("LEVEL_SWIFT_OFF"), _toggle_swift.bind(id))
+
+
+## How a locked level opens: Pack 1 by beating the Aegean Shore's 20:00 boss; later packs by beating the 30:00
+## boss of their sister level ("Locked: defeat Kronos on the Aegean Shore").
+func _how_to_unlock(level: Dictionary) -> String:
+	var unlock: Dictionary = level.get("unlock", {})
+	if str(unlock.get("type", "")) != "boss":
+		return tr_key("LEVEL_LOCKED_HOW")
+	var sister: Dictionary = GameAuthority.find_level(str(unlock.get("level", "")))
+	var boss: Dictionary = BossManager.find(str(unlock.get("boss", "")))
+	return tr_key("LEVEL_LOCKED_BOSS") % [tr_key(str(boss.get("name_key", unlock.get("boss", "")))), tr_key(str(sister.get("name_key", "")))]
 
 
 ## The best time on a level with any Hero ("—" when never played).

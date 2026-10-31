@@ -135,6 +135,23 @@ def acacia(c, rnd, s):
     leafy(c, rnd, cx, h * 0.24, w * 0.5, h * 0.12, "V", "v", "w", 6)          # a flat-topped crown
 
 
+def dead_tree(c, rnd, s):
+    """A dead tree: a bare grey trunk forking into crooked leafless branches."""
+    w, h = c.w, c.h; cx = w // 2
+    t = max(2, int(3 * s))
+    trunk(c, cx - t // 2, int(h * 0.35), h - 1, t, "A", "B")
+    roots(c, cx, h - 1, t + 2, "B")
+    for side in (-1, 1):
+        for k in range(2):
+            x, y = cx + side, int(h * (0.38 + 0.12 * k))
+            for _ in range(int(h * 0.3)):
+                c.px(x, y, "A" if rnd.random() < 0.7 else "B")
+                x += side if rnd.random() < 0.7 else 0
+                y -= 1 if rnd.random() < 0.8 else 0
+                if not (0 <= x < w and 0 <= y < h):
+                    break
+
+
 def bush(c, rnd, dark, mid, light, flower=None):
     w, h = c.w, c.h
     leafy(c, rnd, w / 2, h * 0.58, w * 0.46, h * 0.4, dark, mid, light, 5)
@@ -268,6 +285,10 @@ PALETTE = {
     "l": "#7a8a5a",                                                    # lichen, moss
     "j": "#f0d8a4", "J": "#e2c48c",                                   # dune sand, lit and plain
     "z": "#dfe6ee", "Z": "#b8c4d4",                                   # snow drift, plain and lee shadow
+    "x": "#3c4438", "X": "#2a3028", "C": "#56604c",                   # black poplar (the Underworld)
+    "i": "#7a8a6a", "I": "#5a6a4e", "L": "#98a888",                   # willow
+    "n": "#5e5a64", "N": "#44404a", "O": "#2e2c34",                   # basalt
+    "c": "#b02a3a",                                                    # pomegranates
 }
 
 # Each level: trees {kind: (draw, medium width, medium height)}, bushes {kind: (draw args)}, its rock colours.
@@ -293,6 +314,14 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"gorse": ("P", "p", "q", "f"), "heather": ("r", "r", "R", "R"), "bramble": ("M", "P", "m", "B")},
         "rock": ("g", "G", "H", "l")},
+    # Pack 2 (docs/PACK_2_PLAN.md). Black poplars and willows grow in Persephone's grove (Odyssey 10.509–510); cypress,
+    # the tree of mourning; dead trees. Asphodel (Odyssey 11) and the pomegranate (Homeric Hymn to Demeter).
+    "the_underworld": {
+        "trees": {"black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40),
+                  "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30),
+                  "cypress": (cypress, 12, 38), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"asphodel": ("I", "i", "L", "h"), "pomegranate": ("P", "p", "q", "c")},
+        "rock": ("n", "N", "O", None)},
 }
 
 
@@ -348,7 +377,7 @@ def build_level(level_id, spec):
             name = "mound_%s" % size
             frames[name] = [["".join(r) for r in c.g]]
             items[name] = {"kind": "mound", "size": size, "slow_r": round(26 * s)}
-    pal, frames = weather(PALETTE, frames, level_id, keep={"s", "f", "u", "h", "R", "k"})
+    pal, frames = weather(PALETTE, frames, level_id, keep={"s", "f", "u", "h", "R", "k", "c"})
     return pal, frames, items
 
 

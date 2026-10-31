@@ -12,12 +12,21 @@ static func spawn_mult(level: int) -> float:
 
 ## Enemy HP multiplier: +hp_step for every full `difficulty_every_levels`.
 static func hp_mult(level: int) -> float:
-	return 1.0 + _steps(level, "difficulty_every_levels") * Data.cfg_float("enemies.level_scaling.hp_step")
+	return (1.0 + _steps(level, "difficulty_every_levels") * Data.cfg_float("enemies.level_scaling.hp_step")) * pack("hp_mult")
 
 
 ## Enemy contact damage multiplier: +damage_step for every full `difficulty_every_levels`.
 static func damage_mult(level: int) -> float:
-	return 1.0 + _steps(level, "difficulty_every_levels") * Data.cfg_float("enemies.level_scaling.damage_step")
+	return (1.0 + _steps(level, "difficulty_every_levels") * Data.cfg_float("enemies.level_scaling.damage_step")) * pack("damage_mult")
+
+
+## The current level's pack makes enemies tougher (owner decision 10/31/2026: Pack 2 is harder than Pack 1):
+## config enemies.pack_difficulty.<act>.<key>, x1 when the pack isn't listed.
+static func pack(key: String, level_data: Dictionary = {}) -> float:
+	var data: Dictionary = level_data if not level_data.is_empty() else (GameAuthority.run.level_data if GameAuthority.run != null else {})
+	var packs: Variant = Data.cfg("enemies.pack_difficulty")
+	var entry: Variant = (packs as Dictionary).get(str(int(data.get("act", 1))), {}) if packs is Dictionary else {}
+	return float((entry as Dictionary).get(key, 1.0)) if entry is Dictionary else 1.0
 
 
 static func current_level() -> int:

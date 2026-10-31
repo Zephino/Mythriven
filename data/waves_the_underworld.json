@@ -1,0 +1,625 @@
+{
+  "_doc": "The Underworld wave table (docs/PACK_2_PLAN.md). STARTER COPY of the Aegean Shore table until the Underworld monster families are built (step 3); the level is coming_soon until then.",
+  "level": "the_underworld",
+  "rows": [
+    {
+      "from_min": 0,
+      "spawns_per_s": 1.6,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.08,
+          "size": [
+            6,
+            12
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 40,
+          "size": 4
+        }
+      ]
+    },
+    {
+      "from_min": 2,
+      "spawns_per_s": 2.0,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.07,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.04,
+          "size": [
+            6,
+            10
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 4,
+      "spawns_per_s": 2.3,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        }
+      ]
+    },
+    {
+      "from_min": 6,
+      "spawns_per_s": 2.55,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 8,
+      "spawns_per_s": 2.75,
+      "singles": {
+        "satyr_skirmisher": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 10,
+      "spawns_per_s": 2.88,
+      "singles": {
+        "satyr_skirmisher": 6,
+        "siren_caster": 1,
+        "spartoi_brute": 1
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 12,
+      "spawns_per_s": 3.24,
+      "singles": {
+        "satyr_skirmisher": 6,
+        "siren_caster": 1,
+        "spartoi_brute": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 14,
+      "spawns_per_s": 3.6,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "spartoi_brute": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 16,
+      "spawns_per_s": 3.96,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "spartoi_brute": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 18,
+      "spawns_per_s": 4.32,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "spartoi_brute": 3
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        }
+      ]
+    },
+    {
+      "from_min": 20,
+      "spawns_per_s": 4.56,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "spartoi_brute": 2,
+        "khalkotauros_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 23,
+      "spawns_per_s": 5.04,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "spartoi_brute": 3,
+        "khalkotauros_bomber": 2
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 26,
+      "spawns_per_s": 5.52,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 1,
+        "spartoi_brute": 3,
+        "khalkotauros_bomber": 3
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    },
+    {
+      "from_min": 28,
+      "spawns_per_s": 6.0,
+      "singles": {
+        "satyr_skirmisher": 5,
+        "siren_caster": 2,
+        "spartoi_brute": 3,
+        "khalkotauros_bomber": 3
+      },
+      "packs": [
+        {
+          "type": "shade_swarm",
+          "chance": 0.06,
+          "size": [
+            8,
+            16
+          ]
+        },
+        {
+          "type": "harpy_swarm",
+          "chance": 0.05,
+          "size": [
+            8,
+            14
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "type": "shade_flyer",
+          "kind": "flyer",
+          "every_s": 28,
+          "size": 6
+        },
+        {
+          "type": "harpy_flyer",
+          "kind": "flyer",
+          "every_s": 34,
+          "size": 5
+        },
+        {
+          "type": "shade_encircler",
+          "kind": "encircle",
+          "every_s": 45,
+          "size": 18
+        }
+      ]
+    }
+  ],
+  "elites": {
+    "types": [
+      "minotaur",
+      "gorgon_kin",
+      "cyclops"
+    ],
+    "times_s": [
+      300,
+      900,
+      1500
+    ],
+    "random_interval_s": [
+      150,
+      240
+    ],
+    "random_after_s": 300,
+    "_doc": "Elite types are picked from those whose ages include the current Age."
+  },
+  "boss_fodder": [
+    "shade_swarm",
+    "satyr_skirmisher"
+  ],
+  "events": [
+    {
+      "id": "chaos_surge",
+      "at_s": 420
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 780
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1080
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1380
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1560
+    },
+    {
+      "id": "divine_storm",
+      "at_s": 1680
+    },
+    {
+      "id": "chaos_surge",
+      "at_s": 1760
+    }
+  ],
+  "_events_doc": "World events (GAME_DESIGN.md: World events): Chaos Surge (60 s, double spawns and XP) and Divine Storm (45 s, god meters charge twice as fast while telegraphed lightning strikes random spots). More often in Deep Night. Events skip while a boss arena is up."
+}
