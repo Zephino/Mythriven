@@ -13,7 +13,7 @@ PALETTE = {
     "o": "#24160e", "k": "#140c08",
     "s": "#e2a676", "S": "#b0724a",                 # Mediterranean skin, as the other Greek Heroes
     "h": "#3a2414", "H": "#22140a",                 # dark hair and beard
-    "p": "#7a3e2a", "P": "#52281a", "q": "#9a5a40",  # dark red-brown felt pilos cap, light on its tip
+    "p": "#b03428", "P": "#7a221a", "q": "#d05040",  # red felt pilos cap, light on its top
     "r": "#6a2c5a", "R": "#4a1c3e",                 # purple tunic
     "y": "#d8b048",                                 # gold brooch and buckle
     "b": "#5c3a1c",                                 # belt and sandals
@@ -27,11 +27,11 @@ def sandals(c, x0):
 
 def draw(c, back_leg, front_leg):
     kit.far_arm(c)
-    # The pilos: a snug, rounded, egg-shaped felt cap with no brim (owner request 10/31/2026: the first, wider one
-    # with a brim looked like a safari helmet), in dark red-brown felt
-    c.row(1, 12, 13, "p"); c.row(2, 11, 14, "p"); c.row(3, 10, 15, "p")
-    c.row(4, 10, 15, "p"); c.row(5, 10, 16, "p"); c.row(6, 10, 16, "P")
-    c.rect(10, 3, 10, 5, "P"); c.px(11, 2, "P"); c.px(13, 2, "q"); c.px(14, 3, "q")
+    # The pilos: a small, snug, rounded red felt cap with no brim, sitting on top of his dark hair (owner requests
+    # 10/31/2026: the first, wider one with a brim looked like a safari helmet; then smaller and red)
+    c.row(3, 12, 13, "p"); c.row(4, 11, 14, "p"); c.row(5, 10, 15, "p")
+    c.px(10, 5, "P"); c.px(11, 4, "P"); c.px(13, 3, "q"); c.px(14, 4, "q")
+    c.row(6, 10, 16, "h"); c.px(10, 6, "H"); c.px(16, 5, "h")
     # Dark hair under the cap at the back
     c.rect(9, 7, 11, 10, "h"); c.rect(9, 7, 9, 10, "H")
     # Face: forehead, eye, nose
