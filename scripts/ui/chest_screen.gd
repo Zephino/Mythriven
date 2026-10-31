@@ -203,6 +203,13 @@ func _draw_seal_pattern(style: String, center: Vector2, radius: float, spin: flo
 			for side: float in [-1.0, 1.0]:
 				_seal.draw_arc(center + Vector2(side * radius * 0.35, 0).rotated(spin), radius * 0.55, PI * 0.5 - side * PI * 0.5 - 0.9,
 						PI * 0.5 - side * PI * 0.5 + 0.9, 12, color, 2.0)
+		"persian_rosette":
+			# A twelve-petalled rosette, as carved on the old stone palaces of Iran.
+			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
+			for k: int in 12:
+				var a: float = spin + TAU * k / 12.0
+				_seal.draw_arc(center + Vector2.from_angle(a) * radius * 0.5, radius * 0.22, 0.0, TAU, 12, color, 2.0)
+			_seal.draw_arc(center, radius * 0.2, 0.0, TAU, 24, color, 2.0)
 		"mesopotamian_star":
 			_seal.draw_arc(center, radius, 0.0, TAU, 48, color, 2.0)
 			for k: int in 8:

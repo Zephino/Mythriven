@@ -40,7 +40,7 @@ func signature(delta: float) -> void:
 			player.slow_zone_mult = float(_sig().get("pit_slow", 0.5))
 			_slowed[player.player_id] = true
 			if hurting and player.alive:
-				GameAuthority.damage_player(player, float(_sig().get("pit_damage", 8.0)), "boss_bull_of_heaven")
+				GameAuthority.damage_player(player, float(_sig().get("pit_damage", 8.0)), str(data.get("id", "")))
 		elif _slowed.has(player.player_id):
 			player.slow_zone_mult = 1.0
 			_slowed.erase(player.player_id)

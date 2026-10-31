@@ -348,6 +348,19 @@ def gilgamesh_axe():
     return p
 
 
+def rostam_mace():
+    """Rostam's ox-headed mace (the gorz-e gavsar of the Shahnameh, the mace made in the shape of an ox's head): a
+    heavy iron head shaped like an ox's head with horns, on a stout shaft."""
+    p = Pic(12, 28, (5, 24))
+    p.col(5, 9, 27, "c"); p.col(6, 9, 27, "C")
+    p.rect(5, 21, 6, 26, "b")
+    p.rect(2, 2, 9, 9, "i"); p.rect(2, 2, 3, 9, "I")               # the ox's head
+    p.px(4, 4, "k"); p.px(7, 4, "k"); p.rect(4, 7, 7, 8, "I")       # eyes, muzzle
+    p.px(1, 1, "x"); p.px(0, 0, "x"); p.px(10, 1, "x"); p.px(11, 0, "x")   # horns
+    p.rect(4, 10, 7, 10, "g")
+    return p
+
+
 def arrow():
     """An arrow, for every bow: a steel point, a wooden shaft, feathered fletching."""
     p = Pic(5, 18, (2, 9))
@@ -385,7 +398,7 @@ WEAPONS = {
     "scathach_spear": (scathach_spear, 0.12), "longbow": (longbow, 0.1), "great_bow": (great_bow, 0.1),
     "huntress_bow": (huntress_bow, 0.1), "bladed_discus": (bladed_discus, 0.0), "sling_of_lugh": (sling_of_lugh, -0.2),
     "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0), "giant_sword": (giant_sword, 0.1),
-    "gilgamesh_axe": (gilgamesh_axe, 0.4),
+    "gilgamesh_axe": (gilgamesh_axe, 0.4), "rostam_mace": (rostam_mace, 0.4),
 }
 
 if __name__ == "__main__":

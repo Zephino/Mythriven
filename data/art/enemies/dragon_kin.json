@@ -1,0 +1,116 @@
+{
+ "_doc": "Dragon-kin (the Shahnameh's dragons): a small winged, fire-breathing dragon, scaled in dark green and red. Built by tools/art/build_mazandaran.py.",
+ "size": [
+  26,
+  16
+ ],
+ "anchor": [
+  12,
+  15
+ ],
+ "palette": {
+  "o": "#0a0c08",
+  "g": "#3a6a3a",
+  "G": "#244a26",
+  "r": "#8a2a2a",
+  "y": "#f0d040",
+  "f": "#f0a020",
+  "F": "#e04010"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..........................",
+    "....o.....................",
+    "...oro....................",
+    "....oroo..................",
+    "....orrro.................",
+    ".....orrro................",
+    "......orrroo..............",
+    "......orrrrrooo....ooo....",
+    "......oorrrrrggoooogggo.o.",
+    ".....oggggggggggggggygoofo",
+    ".oooogggggggggggggggggofo.",
+    "oGGGGggggggggggggggooo.oFo",
+    "oGGGGgggggggggggggo.....o.",
+    "Gooooogggggggggggo........",
+    "o.....oogggggggoo.........",
+    "........ooooooo..........."
+   ]
+  ],
+  "walk": [
+   [
+    ".....o....................",
+    "....oro...................",
+    "....orro..................",
+    ".....orro.................",
+    ".....orrro................",
+    "......orrro...............",
+    "......orrrro..............",
+    "......orrrrrooo....ooo....",
+    "......oorrrrrggoooogggo.o.",
+    ".....oggggggggggggggygoofo",
+    ".oooogggggggggggggggggofo.",
+    "oGGGGggggggggggggggooo.oFo",
+    "oGGGGgggggggggggggo.....o.",
+    "Gooooogggggggggggo........",
+    "o.....oogggggggoo.........",
+    "........ooooooo..........."
+   ],
+   [
+    "....orro..................",
+    "....orrro.................",
+    ".....orrro................",
+    ".....orrro................",
+    ".....orrrro...............",
+    "......orrrro..............",
+    "......orrrrro.............",
+    "......orrrrrroo....ooo....",
+    "......oorrrrrrgoooogggo.o.",
+    ".....oggggggggggggggygoofo",
+    ".oooogggggggggggggggggofo.",
+    "oGGGGggggggggggggggooo.oFo",
+    "oGGGGgggggggggggggo.....o.",
+    "Gooooogggggggggggo........",
+    "o.....oogggggggoo.........",
+    "........ooooooo..........."
+   ],
+   [
+    ".....o....................",
+    "....oro...................",
+    "....orro..................",
+    ".....orro.................",
+    ".....orrro................",
+    "......orrro...............",
+    "......orrrro..............",
+    "......orrrrrooo....ooo....",
+    "......oorrrrrggoooogggo.o.",
+    ".....oggggggggggggggygoofo",
+    ".oooogggggggggggggggggofo.",
+    "oGGGGggggggggggggggooo.oFo",
+    "oGGGGgggggggggggggo.....o.",
+    "Gooooogggggggggggo........",
+    "o.....oogggggggoo.........",
+    "........ooooooo..........."
+   ],
+   [
+    "..........................",
+    "....o.....................",
+    "...oro....................",
+    "....oroo..................",
+    "....orrro.................",
+    ".....orrro................",
+    "......orrroo..............",
+    "......orrrrrooo....ooo....",
+    "......oorrrrrggoooogggo.o.",
+    ".....oggggggggggggggygoofo",
+    ".oooogggggggggggggggggofo.",
+    "oGGGGggggggggggggggooo.oFo",
+    "oGGGGgggggggggggggo.....o.",
+    "Gooooogggggggggggo........",
+    "o.....oogggggggoo.........",
+    "........ooooooo..........."
+   ]
+  ]
+ }
+}

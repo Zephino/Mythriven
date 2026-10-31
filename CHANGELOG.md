@@ -2,6 +2,29 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.72
+Date: 10/31/2026
+Time: 4:21 PM
+
+### Changes
+- **Pack 3, Mazandaran, is built and open** (`docs/PACK_3_PLAN.md`). Beat Tiamat (the Land Between the Rivers' 30:00 boss) to unlock it. From Ferdowsi's Shahnameh, the Seven Labours of Rostam.
+  - **The land:** the green mountain forest of the Caspian shore (oak, hornbeam, plane trees), rock and dirt; the ruined arched palaces of the divs; red deer, pheasants and foxes.
+  - **Sorcerous darkness** (the hazard): the divs' dark falls over the field and the clear ring round your Hero breathes in and out.
+  - **Monsters:** horned divs, sorcerers, wild lions and dragon-kin.
+  - **No gods of its own** (no Persian gods are used, as the design says): shrines bring gods from the other pantheons. Instead, **the Simurgh**: elites drop her feathers; once you hold 3, the moment you fall below 30% health one burns and she sweeps in, healing you fully and blowing away every enemy shot.
+  - **Bosses:**
+    - **The Dragon of the Third Labour** (10:00): hidden in the dark, only its eyes show; it takes little harm unless a Hero is close or Holy light has lit it up.
+    - **The Witch of the Fourth Labour** (20:00): she stands among three travellers who look just like her and keep changing places; only the real one can be hurt, and a hit shows her true face.
+    - **The White Div** (30:00): his cave cracks into pits that stay for the whole fight, while his divs pour out.
+  - **New Hero: Rostam** (Champion; HP 150, Speed 88, Armor 2), unlocked by defeating the White Div. Signature weapon: the **ox-headed mace**. Legend Trait **Rakhsh**: his horse fights beside him, charging and kicking the nearest monsters; monsters can't harm him. Passive **Tahamtan** ("the mighty-bodied"): +15% Max HP.
+  - Boss achievements, 7 banter lines (Rostam has his own with each boss), and Mazandaran's rows on the lore check.
+- The companion who fights beside a Hero (Enkidu, now Rakhsh) is one shared script.
+- A Pack 2 Resonance test no longer fails by chance when a lucky critical hit killed its test monster.
+- 5 new tests (307 tests pass).
+
+### Reason
+The owner asked to keep going with the packs ("Okay great"). Mazandaran is Pack 3's second level.
+
 ## Version 00.02.71
 Date: 10/31/2026
 Time: 4:08 PM

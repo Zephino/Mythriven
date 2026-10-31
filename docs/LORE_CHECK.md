@@ -208,6 +208,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | louhi_vainamoinen | boss entrance (as vainamoinen) | louhi | Old singer, you stole my Sampo; now pay for it. | Kalevala 42-43 (the theft of the Sampo and Louhi's pursuit) | no |
 | louhi_ukko | boss meets god (with ukko) | louhi | Thunder-god, my hidden sun is no business of yours. | Kalevala 47-49 (Ukko strikes fire when the sun and moon are hidden) | no |
 
+### Mazandaran
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| hero | rostam | Rostam | Ferdowsi, the Shahnameh: Rostam and Rakhsh; the Seven Labours (Haft Khan); the ox-headed mace | no |
+| special summon | simurgh | The Simurgh | Shahnameh (she raises Zal and gives him feathers to burn in need; she heals Rudaba and Rostam) | no |
+| boss | dragon_third_labour | The Dragon of the Third Labour | Shahnameh, third labour (the dragon came out of the dark; Rakhsh woke Rostam) | no |
+| boss | witch_fourth_labour | The Witch of the Fourth Labour | Shahnameh, fourth labour (the witch disguised as a young woman) | no |
+| boss | white_div | The White Div | Shahnameh, seventh labour (the White Div in his cave) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| rostam_binds | hero bind | rostam | Fight beside me, and we will pass every labour. | Original line written for Mythriven | no |
+| dragon_third_labour_entrance | boss entrance | dragon_third_labour | You will not see me until it is too late. | Shahnameh, third labour (the dragon hidden in the dark) | no |
+| dragon_third_labour_rostam | boss entrance (as rostam) | dragon_third_labour | Your horse woke you once, rider; he will not save you twice. | Shahnameh, third labour (Rakhsh wakes Rostam) | no |
+| witch_fourth_labour_entrance | boss entrance | witch_fourth_labour | Come, traveller, sit and share my feast. | Shahnameh, fourth labour (the witch's feast) | no |
+| witch_fourth_labour_rostam | boss entrance (as rostam) | witch_fourth_labour | Sing me your song again, champion, and do not say that name. | Shahnameh, fourth labour (Rostam sings, then names God, and her disguise fails) | no |
+| white_div_entrance | boss entrance | white_div | You have come a long way to die in the dark. | Shahnameh, seventh labour (the White Div's cave) | no |
+| white_div_rostam | boss entrance (as rostam) | white_div | Rostam. Six labours, and the seventh is me. | Shahnameh, the Seven Labours | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

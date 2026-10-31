@@ -619,5 +619,35 @@
       "id": "louhi"
     },
     "persists": true
+  },
+  {
+    "id": "boss_dragon_third_labour",
+    "name_key": "ACH_BOSS_DRAGON_THIRD_LABOUR_NAME",
+    "desc_key": "ACH_BOSS_DRAGON_THIRD_LABOUR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "dragon_third_labour"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_witch_fourth_labour",
+    "name_key": "ACH_BOSS_WITCH_FOURTH_LABOUR_NAME",
+    "desc_key": "ACH_BOSS_WITCH_FOURTH_LABOUR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "witch_fourth_labour"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_white_div",
+    "name_key": "ACH_BOSS_WHITE_DIV_NAME",
+    "desc_key": "ACH_BOSS_WHITE_DIV_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "white_div"
+    },
+    "persists": true
   }
 ]

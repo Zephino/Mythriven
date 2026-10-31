@@ -1,0 +1,124 @@
+{
+ "_doc": "A wild lion (the Shahnameh, first labour: the lion that attacked while Rostam slept, killed by Rakhsh). Built by tools/art/build_mazandaran.py.",
+ "size": [
+  28,
+  18
+ ],
+ "anchor": [
+  13,
+  17
+ ],
+ "palette": {
+  "o": "#140c06",
+  "k": "#080402",
+  "l": "#c8984a",
+  "L": "#a07836",
+  "m": "#7a4a20"
+ },
+ "frames": {
+  "idle": [
+   [
+    "............................",
+    ".....................o......",
+    "...................oomoo....",
+    "..................ommmmmo...",
+    ".................ommmmmmmo..",
+    "............o...ommmmmmmmmo.",
+    "o......oooooloooommmmllmmmo.",
+    "mooo.oollllllllllmmmmllkllo.",
+    "olllollllllllllllmmmmlllllo.",
+    "ollllllllllllllllmmmmlllllko",
+    ".oolllllllllllllllmmmmmmmoo.",
+    "...olllllllllllllllmmmmmo...",
+    "....olllllllllllllllomoo....",
+    "....ollllLLllllllLLo.o......",
+    "....ollooLLolllooLLo........",
+    "....ollooLLoollooLLo........",
+    "....ollooLLoollooLLo........",
+    "....ollooLLoollooLLo........"
+   ]
+  ],
+  "walk": [
+   [
+    "............................",
+    ".....................o......",
+    "...................oomoo....",
+    "..................ommmmmo...",
+    ".................ommmmmmmo..",
+    "............o...ommmmmmmmmo.",
+    "o......oooooloooommmmllmmmo.",
+    "mooo.oollllllllllmmmmllkllo.",
+    "olllollllllllllllmmmmlllllo.",
+    "ollllllllllllllllmmmmlllllko",
+    ".oolllllllllllllllmmmmmmmoo.",
+    "...olllllllllllllllmmmmmo...",
+    "....olllllllllllllllomoo....",
+    ".....ollLLllllllllLLoo......",
+    ".....ollLLoollooooLLo.......",
+    ".....ollLLoollo..oLLo.......",
+    ".....ollLLoollo..oLLo.......",
+    ".....ollLLoollo..oLLo......."
+   ],
+   [
+    "............................",
+    ".....................o......",
+    "...................oomoo....",
+    "..................ommmmmo...",
+    ".................ommmmmmmo..",
+    "............o...ommmmmmmmmo.",
+    "o......oooooloooommmmllmmmo.",
+    "mooo.oollllllllllmmmmllkllo.",
+    "olllollllllllllllmmmmlllllo.",
+    "ollllllllllllllllmmmmlllllko",
+    ".oolllllllllllllllmmmmmmmoo.",
+    "...olllllllllllllllmmmmmo...",
+    "....olllllllllllllllomoo....",
+    "....ollllLLllllllLLo.o......",
+    "....ollooLLolllooLLo........",
+    "....ollooLLoollooLLo........",
+    "....ollooLLoollooLLo........",
+    "....ollooLLoollooLLo........"
+   ],
+   [
+    "............................",
+    ".....................o......",
+    "...................oomoo....",
+    "..................ommmmmo...",
+    ".................ommmmmmmo..",
+    "............o...ommmmmmmmmo.",
+    "o......oooooloooommmmllmmmo.",
+    "mooo.oollllllllllmmmmllkllo.",
+    "olllollllllllllllmmmmlllllo.",
+    "ollllllllllllllllmmmmlllllko",
+    ".oolllllllllllllllmmmmmmmoo.",
+    "...olllllllllllllllmmmmmo...",
+    "....olllllllllllllllomoo....",
+    "...ollolllLLllllLLoo.o......",
+    "...ollooooLLlollLLo.........",
+    "...ollo..oLLoollLLo.........",
+    "...ollo..oLLoollLLo.........",
+    "...ollo..oLLoollLLo........."
+   ],
+   [
+    "............................",
+    ".....................o......",
+    "...................oomoo....",
+    "..................ommmmmo...",
+    ".................ommmmmmmo..",
+    "............o...ommmmmmmmmo.",
+    "o......oooooloooommmmllmmmo.",
+    "mooo.oollllllllllmmmmllkllo.",
+    "olllollllllllllllmmmmlllllo.",
+    "ollllllllllllllllmmmmlllllko",
+    ".oolllllllllllllllmmmmmmmoo.",
+    "...olllllllllllllllmmmmmo...",
+    "....olllllllllllllllomoo....",
+    "....ollllLLllllllLLo.o......",
+    "....ollooLLolllooLLo........",
+    "....ollooLLoollooLLo........",
+    "....ollooLLoollooLLo........",
+    "....ollooLLoollooLLo........"
+   ]
+  ]
+ }
+}

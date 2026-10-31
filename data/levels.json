@@ -1104,5 +1104,129 @@
       "edge": "#9aa0aa",
       "stones": "#8a8c90"
     }
+  },
+  {
+    "_doc": "Mazandaran, Pack 3 level 2 (docs/PACK_3_PLAN.md; GAME_DESIGN.md Act III). Mountain forests, caves, the palaces of the divs. Source: Ferdowsi, the Shahnameh (the Seven Labours of Rostam). No Persian gods are used (a living religion): shrines draw gods from the other pantheons, and the Simurgh is called with feathers.",
+    "id": "mazandaran",
+    "name_key": "LEVEL_MAZANDARAN_NAME",
+    "region": "persian",
+    "act": 3,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "mazandaran",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "dark_grass",
+          "max": -0.3,
+          "placeholder_color": "#3a5a30",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "grass",
+          "max": 0.2,
+          "placeholder_color": "#4e7036",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dirt",
+          "max": 0.6,
+          "placeholder_color": "#7a6248",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#7a7670",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "div_palace_ruin",
+      "pine_tree"
+    ],
+    "decorations_per_chunk": [
+      2,
+      5
+    ],
+    "decoration_art": {
+      "div_palace_ruin": {
+        "shape": "rect",
+        "size_px": [
+          34,
+          26
+        ],
+        "placeholder_color": "#8a7a6a",
+        "weight": 1
+      },
+      "pine_tree": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          30
+        ],
+        "placeholder_color": "#2e4a32",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "dragon_third_labour",
+      "20": "witch_fourth_labour",
+      "30": "white_div"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_land_between_the_rivers",
+      "boss": "tiamat"
+    },
+    "waves": "waves_mazandaran.json",
+    "hazard": {
+      "type": "weather",
+      "name_key": "HAZARD_SORCEROUS_DARKNESS_NAME",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 20,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.55,
+      "pulse": 0.2,
+      "pulse_hz": 0.25,
+      "veil_color": "#14081c",
+      "particles": "mist",
+      "particle_color": "#3a2050",
+      "fade_s": 2.5
+    },
+    "ground_patches": {
+      "kind": "slow",
+      "count": 5,
+      "radius_px": [
+        24,
+        36
+      ],
+      "color": "#3a4a30",
+      "speed_mult": 0.65
+    },
+    "seal": "persian_rosette",
+    "tint": "#e8e2dc",
+    "flora": {
+      "density": 1.1,
+      "trees": {
+        "oak": 3,
+        "hornbeam": 2,
+        "plane_tree": 1
+      }
+    },
+    "road": {
+      "color": "#8a7458",
+      "edge": "#64523c",
+      "stones": "#9a948a"
+    },
+    "simurgh": true
   }
 ]

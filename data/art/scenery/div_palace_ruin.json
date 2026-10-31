@@ -1,0 +1,70 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A ruined palace of the divs (Mazandaran): a broken arched gateway of cut stone, its arch fallen, a carved band of rosettes along the top.",
+ "size": [
+  34,
+  24
+ ],
+ "anchor": [
+  17,
+  23
+ ],
+ "palette": {
+  "a": "#484848",
+  "b": "#664e18",
+  "c": "#a2a2a8",
+  "d": "#a8a8ae",
+  "e": "#e4ba4e",
+  "f": "#909096",
+  "g": "#aeb4ba",
+  "h": "#f0c654",
+  "i": "#d8b448",
+  "j": "#8a8a90",
+  "k": "#2a2a2a",
+  "l": "#66666c",
+  "m": "#727272",
+  "n": "#3c3c3c",
+  "o": "#606066",
+  "p": "#7e7e7e",
+  "q": "#84848a",
+  "r": "#969c9c",
+  "s": "#787878",
+  "t": "#6c6c6c",
+  "u": "#5a5a60",
+  "v": "#666666",
+  "w": "#545454",
+  "x": "#54545a",
+  "y": "#4e5454",
+  "z": "#787e7e",
+  "A": "#48484e"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".aaabaaaabaaaabaaaabaaaabaaaabaaa.",
+    "acddedfgdeddcghcdgcigdddicddgedcga",
+    "addfdcdddccccddfddgddddjcdgdcddgda",
+    ".kljjmjjjjjnnaaaaaaaaaaddjfffjjjn.",
+    ".kopjjqjjjnjqnn....aardkoqpsjqpqn.",
+    ".kojtpppppnnnjpn..adraakuqpqqjjpn.",
+    ".koqqjpqqqn..nn....aa..koqqtqqmqn.",
+    ".kvqpjqpqqn............koqpjqjqqn.",
+    ".kojjjqjqqn............koqmppjjjn.",
+    ".kojqjqpjqn............kopptjqqpn.",
+    ".kvqqmqjqqn............kopmjpqqjn.",
+    ".kvpmqqpqjn............kwpppqqqjn.",
+    ".kuptqpppqn............kupqpqqpsn.",
+    ".kuqpppsqpn............koqqsqpmsn.",
+    ".kopqqqsppn............kolsqqsqqn.",
+    ".kusplsssqn............koqpspplpn.",
+    ".kxpssssspn............kupqsqpqqn.",
+    ".kwqqpppppn....k.......kuqqpspspn.",
+    ".kuqqplpqpn..nkwknnnn..koppppqspn.",
+    ".kxptqpppsn.nsqsqppqqn.kopqqqqppn.",
+    ".kyzssvssmn.nsmssssssn.kuszssmmsn.",
+    ".kAsvsmsmzn.nsmssosvsn.kyzsvsvmsn.",
+    ".kxsssmsvsn.nsmmmmmssn.kxssssmzzn.",
+    "..knnnnnnn...nnnnnnnn...knnnnnnn.."
+   ]
+  ]
+ }
+}

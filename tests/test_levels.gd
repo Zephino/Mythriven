@@ -579,3 +579,49 @@ func test_louhi_hides_the_sun_then_becomes_the_eagle() -> void:
 	louhi.phase_index = 2
 	assert_false(louhi.is_dark())
 	assert_eq(louhi.art_id(), "louhi_eagle", "the great eagle")
+
+
+func test_the_dragon_of_the_third_labour_hides_in_darkness() -> void:
+	_start("mazandaran")
+	var dragon: DragonThirdLabourBoss = _bosses.spawn_boss("dragon_third_labour", 0) as DragonThirdLabourBoss
+	assert_not_null(dragon)
+	_player.position = dragon.position_now() + Vector2(600, 0)
+	assert_false(dragon.is_seen(), "far from any Hero, it is hidden")
+	assert_lt(dragon.modify_hit(100.0, _player, Vector2.ZERO), 50.0)
+	dragon.on_element_hit("holy")
+	assert_true(dragon.is_seen(), "Holy light shows it")
+	assert_almost_eq(dragon.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)
+	dragon.signature(5.0)
+	_player.position = dragon.position_now() + Vector2(40, 0)
+	assert_true(dragon.is_seen(), "so does standing close")
+
+
+func test_the_witch_hides_among_decoys_and_a_hit_shows_her_face() -> void:
+	_start("mazandaran")
+	var witch: WitchFourthLabourBoss = _bosses.spawn_boss("witch_fourth_labour", 1) as WitchFourthLabourBoss
+	assert_eq(witch.art_id(), "witch_fourth_labour_disguised")
+	witch.signature(4.0)
+	assert_eq(witch.decoys.size(), 3, "three travellers who look just like her")
+	witch.modify_hit(10.0, _player, Vector2.ZERO)
+	assert_eq(witch.art_id(), "witch_fourth_labour", "her true face")
+
+
+func test_the_white_divs_cave_cracks_into_pits() -> void:
+	_start("mazandaran")
+	var white: WhiteDivBoss = _bosses.spawn_boss("white_div", 2) as WhiteDivBoss
+	white.target = _player
+	white.signature(6.0)
+	assert_eq(white.pits.size(), 2)
+
+
+func test_the_simurgh_comes_when_a_feather_burns() -> void:
+	_start("mazandaran")
+	var simurgh := SimurghCall.new()
+	_world.add_child(simurgh)
+	for _i: int in 3:
+		GameAuthority.elite_killed.emit(_player.position, {}, false)
+	assert_eq(simurgh.count(_player), 3, "elites drop her feathers")
+	_player.hp = _player.max_hp * 0.1
+	simurgh._process(0.1)
+	assert_almost_eq(_player.hp, _player.max_hp, 0.01, "she heals fully")
+	assert_eq(simurgh.count(_player), 2, "one feather burned")

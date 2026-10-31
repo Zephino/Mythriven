@@ -1,0 +1,186 @@
+{
+ "_doc": "Critters of mazandaran (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#b05a2a",
+  "b": "#c86a30",
+  "c": "#c8642a",
+  "d": "#f0ece4",
+  "e": "#a8582a",
+  "f": "#5a3a2a",
+  "g": "#d8b040",
+  "h": "#24222a",
+  "i": "#3a3844",
+  "j": "#f0a040",
+  "m": "#3a2a1a"
+ },
+ "frames": {
+  "red_squirrel": [
+   [
+    ".oo.........",
+    "obbo.....o..",
+    "obbo....oao.",
+    "obbbooooaao.",
+    "obbboaaaakao",
+    "obbbaaaaaao.",
+    "obboaaaaao..",
+    "obboaaaaao..",
+    ".oo.oaaao...",
+    "....oaoao..."
+   ],
+   [
+    "obbo.....o..",
+    "obbo....oao.",
+    "obbbooooaao.",
+    "obbboaaaakao",
+    "obbbaaaaaao.",
+    "obboaaaaao..",
+    "obboaaaaao..",
+    ".oo.oaaao...",
+    "....oaoao...",
+    "....oaoo...."
+   ]
+  ],
+  "red_fox": [
+   [
+    "............oo..",
+    "......ooo..occo.",
+    ".ooooocccoockcco",
+    "occcccccccccccco",
+    "dccccccccccccdck",
+    "ooocccccccccoooo",
+    "...oockcckoo....",
+    "....ockocko.....",
+    "....ockocko....."
+   ],
+   [
+    "............oo..",
+    "......ooo..occo.",
+    ".ooooocccoockcco",
+    "occcccccccccccco",
+    "dccccccccccccdck",
+    "ooocccccccccoooo",
+    "...ocockccko....",
+    "...ocookocko....",
+    "...ocookocko...."
+   ]
+  ],
+  "pheasant": [
+   [
+    ".....oo.",
+    "o.oooeko",
+    "foeeeeeg",
+    "offffeeo",
+    ".oeeeeo.",
+    "..ogogo."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "foeeeeko",
+    "offffeeg",
+    ".oeeeeoo",
+    "..ogogo."
+   ]
+  ],
+  "pheasant_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oeeeeeeg",
+    "..oeefeeoo",
+    "...offfo..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...offfkoo",
+    "..oeefeeeg",
+    "..oeeeeeoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "raven": [
+   [
+    ".......oo.",
+    "o..oooohko",
+    "ioohhhhhhh",
+    "oiiiiihhoo",
+    ".ohhhhhho.",
+    "..ohhhho..",
+    "...ohoho.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "ioohhhhhko",
+    "oiiiiihhhh",
+    ".ohhhhhhoo",
+    "..ohhhho..",
+    "...ohoho.."
+   ]
+  ],
+  "raven_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...ohhhhhohh",
+    "...ohhihhooo",
+    "....oiiio...",
+    "...oiooio..."
+   ],
+   [
+    "....o..o....",
+    "...oiooioo..",
+    "....oiiiokoo",
+    "...ohhihhohh",
+    "...ohhhhhooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".jjkjj.",
+    ".jjkjj.",
+    "..mkm..",
+    "...k...",
+    "......."
+   ],
+   [
+    "jjj.jjj",
+    "jjjkjjj",
+    "jjjkjjj",
+    ".mmkmm.",
+    ".mmkmm.",
+    "......."
+   ]
+  ]
+ },
+ "critters": {
+  "red_squirrel": {
+   "kind": "ground"
+  },
+  "red_fox": {
+   "kind": "ground"
+  },
+  "pheasant": {
+   "kind": "bird"
+  },
+  "raven": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  }
+ }
+}

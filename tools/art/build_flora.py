@@ -328,6 +328,12 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"bramble": ("M", "P", "m", "B"), "fern": ("fern",)},
         "rock": ("g", "G", "H", "l")},
+    # Mazandaran: the Hyrcanian mountain forest of the Caspian shore (oak, hornbeam, plane trees), box and fern.
+    "mazandaran": {
+        "trees": {"oak": (broadleaf, 30, 34), "hornbeam": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y"), 24, 32),
+                  "plane_tree": (lambda c, r, s: broadleaf(c, r, s, "P", "p", "q"), 32, 38)},
+        "bushes": {"box": ("P", "p", "q", None), "fern": ("fern",)},
+        "rock": ("g", "G", "H", "l")},
     # Pohjola: the dark northern forest of spruce and pine, and the birch of the Kalevala (runo 44: the kantele of birch).
     "pohjola": {
         "trees": {"spruce": (spruce, 22, 40), "scots_pine": (umbrella_pine, 24, 40), "birch": (birch, 18, 34)},

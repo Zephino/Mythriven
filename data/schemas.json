@@ -1021,6 +1021,14 @@
               "gold_mult": "number"
             }
           },
+          "simurgh": {
+            "type": "object",
+            "fields": {
+              "feathers_to_call": "int",
+              "call_below_hp_fraction": "number",
+              "flight_s": "number"
+            }
+          },
           "secrets": {
             "type": "object",
             "fields": {
@@ -1230,6 +1238,10 @@
             },
             "order": {
               "type": "int",
+              "optional": true
+            },
+            "simurgh": {
+              "type": "bool",
               "optional": true
             },
             "coming_soon": {
@@ -2605,6 +2617,86 @@
       }
     },
     "waves_avalons_shadow.json": {
+      "gated": false,
+      "schema": {
+        "type": "object",
+        "fields": {
+          "level": "string",
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "from_min": "number",
+                "spawns_per_s": "number",
+                "singles": {
+                  "type": "object"
+                },
+                "packs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "chance": "number",
+                      "size": {
+                        "type": "array",
+                        "items": "int"
+                      }
+                    }
+                  }
+                },
+                "groups": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "fields": {
+                      "type": "string",
+                      "kind": "string",
+                      "every_s": "number",
+                      "size": "int"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "elites": {
+            "type": "object",
+            "fields": {
+              "types": {
+                "type": "array",
+                "items": "string"
+              },
+              "times_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_interval_s": {
+                "type": "array",
+                "items": "number"
+              },
+              "random_after_s": "number"
+            }
+          },
+          "boss_fodder": {
+            "type": "array",
+            "items": "string"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "fields": {
+                "id": "string",
+                "at_s": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "waves_mazandaran.json": {
       "gated": false,
       "schema": {
         "type": "object",

@@ -4,8 +4,12 @@ extends HeroKit
 ## axe, then comes back to his side; monsters can't harm him. Enkidu's blows grow with Gilgamesh's Might and level.
 ## Source: Epic of Gilgamesh, Tablets I-VI (Enkidu, made from clay, fights beside him against Humbaba and the Bull of
 ## Heaven). Passive, two-thirds divine: +10% Max HP and Might (Tablet I: two-thirds of him god, one-third man).
+## Shared by every Hero with a companion who fights beside them (the trait's "art" names the picture): Rostam's horse
+## Rakhsh, who killed the lion of the first labour and woke him against the dragon (the Shahnameh), uses it too.
+## Passives here are percentages: max_hp_pct, might_pct, move_speed_pct.
 
 const ART := "companions/enkidu"
+const PASSIVE_STATS := {"max_hp_pct": "max_hp", "might_pct": "might", "move_speed_pct": "move_speed"}
 
 ## Enkidu's place in the world, and the monster he is after (-1 when none).
 var enkidu_pos := Vector2.ZERO
@@ -19,8 +23,9 @@ var _face_left: bool = false
 func setup(owner_player: Player, hero_data: Dictionary) -> void:
 	super.setup(owner_player, hero_data)
 	var passive: Dictionary = passive_data()
-	player.stats.add_bonus("max_hp", float(passive.get("max_hp_pct", 0.0)) / 100.0)
-	player.stats.add_bonus("might", float(passive.get("might_pct", 0.0)) / 100.0)
+	for key: String in PASSIVE_STATS:
+		if passive.has(key):
+			player.stats.add_bonus(PASSIVE_STATS[key], float(passive[key]) / 100.0)
 	enkidu_pos = player.position + Vector2(-20, 0)
 
 
@@ -92,7 +97,7 @@ func _draw() -> void:
 	if player == null:
 		return
 	var at: Vector2 = enkidu_pos - player.position
-	var art: Dictionary = PixelArt.find(ART)
+	var art: Dictionary = PixelArt.find(str(trait_data().get("art", ART)))
 	if not art.is_empty():
 		PixelArt.draw_standing(self, art, at, _face_left, Color.WHITE, true, _stride)
 	else:

@@ -741,5 +741,57 @@
       "type": "defeat_boss",
       "boss": "humbaba"
     }
+  },
+  {
+    "id": "rostam",
+    "name_key": "HERO_ROSTAM_NAME",
+    "tradition_key": "TRADITION_PERSIAN",
+    "role_key": "ROLE_CHAMPION",
+    "placeholder_color": "#c8903a",
+    "patron_pantheon": "",
+    "care_tier": "A",
+    "lore_source": "Ferdowsi, the Shahnameh: Rostam and Rakhsh; the Seven Labours (Haft Khan); the ox-headed mace",
+    "lore_verified": false,
+    "stats": {
+      "max_hp": 150,
+      "move_speed": 88,
+      "armor": 2,
+      "might": 0,
+      "area": 0,
+      "cooldown": 0,
+      "pickup_radius": 40,
+      "luck": 0,
+      "crit": 5
+    },
+    "signature_weapon": "rostam_mace",
+    "expertise": [
+      "blunt",
+      "bow"
+    ],
+    "trait": {
+      "id": "rakhsh",
+      "name_key": "TRAIT_RAKHSH",
+      "desc_key": "TRAIT_RAKHSH_DESC",
+      "art": "companions/rakhsh",
+      "leash_px": 190,
+      "speed_px_s": 160,
+      "strike_every_s": 1.0,
+      "strike_reach_px": 22,
+      "strike_damage": 16,
+      "strike_radius_px": 30
+    },
+    "passive": {
+      "id": "tahamtan",
+      "name_key": "PASSIVE_TAHAMTAN",
+      "desc_key": "PASSIVE_TAHAMTAN_DESC",
+      "max_hp_pct": 15
+    },
+    "divine_link": {
+      "id": "none"
+    },
+    "unlock": {
+      "type": "defeat_boss",
+      "boss": "white_div"
+    }
   }
 ]

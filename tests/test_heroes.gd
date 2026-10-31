@@ -735,3 +735,15 @@ func test_gilgamesh_is_two_thirds_divine_and_enkidu_fights_beside_him() -> void:
 	assert_lt(_enemies.hp[slot], hp, "Enkidu runs out and strikes it")
 	assert_lt(gilgamesh.kit.enkidu_pos.distance_to(_enemies.positions[slot]), 40.0)
 	GameAuthority.remove_player(gilgamesh)
+
+
+func test_rostam_and_rakhsh() -> void:
+	var rostam: Player = GameAuthority.spawn_player(_parent, Vector2.ZERO, null, true, "rostam")
+	assert_almost_eq(rostam.max_hp, 172.5, 0.5, "Tahamtan: +15% Max HP")
+	var slot: int = _enemies.spawn("troll", Vector2(60, 0))
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	var hp: float = _enemies.hp[slot]
+	for _i: int in 60:
+		rostam.kit._process(0.05)
+	assert_lt(_enemies.hp[slot], hp, "Rakhsh charges and kicks it")
+	GameAuthority.remove_player(rostam)

@@ -1299,5 +1299,75 @@
     "text_key": "BANTER_LOUHI_UKKO",
     "lore_source": "Kalevala 47-49 (Ukko strikes fire when the sun and moon are hidden)",
     "needs_owner_review": true
+  },
+  {
+    "id": "rostam_binds",
+    "trigger": "hero_bind",
+    "speaker": "rostam",
+    "hero": "rostam",
+    "god": "",
+    "text_key": "BANTER_ROSTAM_BINDS",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "dragon_third_labour_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "dragon_third_labour",
+    "hero": "",
+    "god": "dragon_third_labour",
+    "text_key": "BANTER_DRAGON_THIRD_LABOUR_ENTRANCE",
+    "lore_source": "Shahnameh, third labour (the dragon hidden in the dark)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "dragon_third_labour_rostam",
+    "trigger": "boss_entrance",
+    "speaker": "dragon_third_labour",
+    "hero": "rostam",
+    "god": "dragon_third_labour",
+    "text_key": "BANTER_DRAGON_THIRD_LABOUR_ROSTAM",
+    "lore_source": "Shahnameh, third labour (Rakhsh wakes Rostam)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "witch_fourth_labour_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "witch_fourth_labour",
+    "hero": "",
+    "god": "witch_fourth_labour",
+    "text_key": "BANTER_WITCH_FOURTH_LABOUR_ENTRANCE",
+    "lore_source": "Shahnameh, fourth labour (the witch's feast)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "witch_fourth_labour_rostam",
+    "trigger": "boss_entrance",
+    "speaker": "witch_fourth_labour",
+    "hero": "rostam",
+    "god": "witch_fourth_labour",
+    "text_key": "BANTER_WITCH_FOURTH_LABOUR_ROSTAM",
+    "lore_source": "Shahnameh, fourth labour (Rostam sings, then names God, and her disguise fails)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "white_div_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "white_div",
+    "hero": "",
+    "god": "white_div",
+    "text_key": "BANTER_WHITE_DIV_ENTRANCE",
+    "lore_source": "Shahnameh, seventh labour (the White Div's cave)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "white_div_rostam",
+    "trigger": "boss_entrance",
+    "speaker": "white_div",
+    "hero": "rostam",
+    "god": "white_div",
+    "text_key": "BANTER_WHITE_DIV_ROSTAM",
+    "lore_source": "Shahnameh, the Seven Labours",
+    "needs_owner_review": true
   }
 ]

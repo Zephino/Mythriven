@@ -699,6 +699,8 @@
 
   "bestiary": { "_doc": "Bestiary: entry on first kill; weakness after weakness_kills; myth after myth_kills.", "weakness_kills": 25, "myth_kills": 100 },
 
+  "simurgh": { "_doc": "The Simurgh (docs/PACK_3_PLAN.md: Mazandaran): elites drop her feathers; holding feathers_to_call, a Hero who falls below call_below_hp_fraction burns one and she heals them fully and clears enemy shots.", "feathers_to_call": 3, "call_below_hp_fraction": 0.3, "flight_s": 2.0 },
+
   "cosmetics": {
     "_doc": "Cosmetics from secrets (GAME_DESIGN.md: Secret unlocks). Placeholder: an aura ring around the Hero in this colour until Phase 19 art. Equip one in the Hall of Legends → Unlocks.",
     "list": [

@@ -248,6 +248,11 @@ LEVELS = {
         "birds": {"wren": ("#7a5a3a", "#5a4028", "#3a2a1a", False), "robin": ("#7a6a4a", "#5a4a30", "#2a2018", False)},
         "insects": {"butterfly": (butterfly, "#e8f0f8", "#6a6a8a"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
+    "mazandaran": {
+        "ground": {"red_squirrel": (squirrel, "#b05a2a", "#c86a30"), "red_fox": (fox, "#c8642a", "#f0ece4")},
+        "birds": {"pheasant": ("#a8582a", "#5a3a2a", "#d8b040", False), "raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {"butterfly": (butterfly, "#f0a040", "#3a2a1a")},
+        "large": {"red_deer": ("#8a4a2a", "#c89a70", "#3a2018", "antlers", 30, 28)}},
     "pohjola": {
         "ground": {"red_squirrel": (squirrel, "#b05a2a", "#c86a30"), "mountain_hare": (hare, "#e8e8ec", "#ffffff"),
                    "red_fox": (fox, "#c8642a", "#f0ece4")},

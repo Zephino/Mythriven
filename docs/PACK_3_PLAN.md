@@ -1,7 +1,7 @@
 # Pack 3 plan: Distant Legends
 
 Status: **approved by the owner** (10/31/2026: "yes, as suggested" to all five questions). Pohjola built and released
-10/31/2026 (00.02.70). The owner asked to start Pack 3 once Pack 2 was finished ("When your done
+10/31/2026 (00.02.70); Mazandaran (00.02.72). The owner asked to start Pack 3 once Pack 2 was finished ("When your done
 start pack 3"). Like Pack 2, this plan comes first; building starts when the owner answers the questions at the end.
 
 Everything named here comes from `GAME_DESIGN.md` (Act III levels, Gods added with Acts II–III, Acts II–IV bosses,
@@ -66,7 +66,7 @@ in runo 1).
 
 ---
 
-## Level 10: Mazandaran (Persian, the Shahnameh)
+## Level 10: Mazandaran (Persian, the Shahnameh): **done and released 10/31/2026 (00.02.72)**
 
 **Look:** mountain forests, caves, the ruined palaces of the divs.
 *Source: Ferdowsi, the Shahnameh: the Seven Labours of Rostam (Haft Khan).*

@@ -14,6 +14,7 @@ extends Node
 var director: RunDirector
 var hazard: Hazard
 var ground_patches: GroundPatches
+var simurgh: SimurghCall
 var shots: EnemyProjectiles
 var gold: GoldPickups
 var chests: ChestPickups
@@ -69,6 +70,10 @@ func build(world: WorldRoot, enemies: EnemyManager, spawner: EnemySpawner, level
 	hazard = Hazard.create(GameAuthority.run.level_data.get("hazard", {}))
 	hazard.name = "Hazard"
 	world.add_child(hazard)
+	# Mazandaran calls the Simurgh with feathers instead of having local gods (docs/PACK_3_PLAN.md).
+	if bool(GameAuthority.run.level_data.get("simurgh", false)):
+		simurgh = SimurghCall.new()
+		world.add_child(simurgh)
 	var patches: Dictionary = GameAuthority.run.level_data.get("ground_patches", {})
 	if not patches.is_empty():
 		ground_patches = GroundPatches.new()

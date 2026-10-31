@@ -164,6 +164,7 @@ func test_the_chosen_slain_and_thryms_wedding() -> void:
 	assert_eq(_enemies.active[strong], 1, "the strong are spared")
 	assert_true(_enemies.active[weak] == 0 or _enemies.charmed[weak] != 0, "the weak fall")
 	var near: int = _enemies.spawn("troll", Vector2(40, 0))
+	_enemies.hp[near] = 100000.0
 	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
 	_layer.run_resonance(ResonanceManager.find_id("thryms_wedding"), _player)
 	assert_gt(_enemies.statuses.stun[near], 0.0, "the hammer stuns")

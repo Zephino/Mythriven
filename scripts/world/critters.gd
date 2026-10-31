@@ -35,7 +35,7 @@ func setup(level: Dictionary) -> void:
 				_by_kind[kind] = []
 			(_by_kind[kind] as Array).append(name)
 	# The level's own large animals: those of its people's land.
-	var tradition: String = {"greek": "greek", "norse": "norse", "egyptian": "egyptian", "irish": "irish", "welsh": "irish", "mesopotamian": "mesopotamian", "finnish": "norse"}.get(str(level.get("region", "")), "")
+	var tradition: String = {"greek": "greek", "norse": "norse", "egyptian": "egyptian", "irish": "irish", "welsh": "irish", "mesopotamian": "mesopotamian", "finnish": "norse", "persian": "irish"}.get(str(level.get("region", "")), "")
 	# An animal that names its levels (the Underworld's black cattle) lives only there; the rest by their land.
 	var level_id: String = str(level.get("id", ""))
 	var own: PackedStringArray = []

@@ -266,6 +266,21 @@ def log_hut_ruin():
     return p
 
 
+def div_palace_ruin():
+    """A ruined palace of the divs (Mazandaran): a broken arched gateway of cut stone, its arch fallen, a carved band
+    of rosettes along the top."""
+    p = Pic(34, 26, (17, 25))
+    for x0 in (2, 24):
+        p.rect(x0, 6, x0 + 7, 25, "g"); p.rect(x0, 6, x0, 25, "G")
+    for k in range(6):
+        p.px(9 + k, 6 + k // 2, "g"); p.px(24 - k, 6 + k // 2, "h")      # the broken arch springing
+    p.rect(1, 4, 32, 5, "h")
+    for x in range(4, 30, 5):
+        p.px(x, 4, "y")                                                 # rosettes
+    p.rect(13, 22, 20, 25, "g"); p.px(15, 21, "G")                     # fallen stones
+    return p
+
+
 def grave_stele():
     """A Greek grave stele (the Underworld): a tall marble slab with a palmette crown, worn and leaning a little."""
     p = Pic(12, 26, (6, 25))
@@ -290,7 +305,7 @@ def lekythos():
 
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
-                                   ziggurat_ruin, boundary_stone, log_hut_ruin)}
+                                   ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

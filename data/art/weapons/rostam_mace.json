@@ -1,0 +1,74 @@
+{
+ "_doc": "Held weapon (docs/ART_RULES.md: Weapons), built by tools/art/build_weapons.py. grip is the pixel held in the Hero's hand. Rostam's ox-headed mace (the gorz-e gavsar of the Shahnameh, the mace made in the shape of an ox's head): a heavy iron head shaped like an ox's head with horns, on a stout shaft.",
+ "size": [
+  20,
+  30
+ ],
+ "grip": [
+  2,
+  25
+ ],
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "c": "#9a6232",
+  "C": "#5e3818",
+  "a": "#c8a070",
+  "e": "#e4e8ec",
+  "E": "#9aa2ac",
+  "s": "#ffffff",
+  "g": "#d0a048",
+  "G": "#8a6420",
+  "u": "#f0cc58",
+  "U": "#b08a28",
+  "b": "#6a4422",
+  "B": "#3e2612",
+  "i": "#8a9098",
+  "I": "#4e545c",
+  "w": "#efe6d2",
+  "h": "#3a3440",
+  "H": "#5a4e6a",
+  "r": "#7a2a1c",
+  "R": "#4e1a10",
+  "j": "#3a7ac0",
+  "J": "#c83030",
+  "l": "#a8e0f0",
+  "x": "#c8b8a0"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".......o..........o.",
+    "......oxo.......ooxo",
+    "......oxooooooooxoo.",
+    ".......oIIiiiiiio...",
+    "......oIIiiiiiio....",
+    "......oIIkiikiio....",
+    "......oIIiiiiiio....",
+    ".....oIIiiiiiio.....",
+    ".....oIIIIIIiio.....",
+    "....oIIIIIIiio......",
+    "....oIIiiiiiio......",
+    ".....ooggggoo.......",
+    "......ocCoo.........",
+    "......ocCo..........",
+    ".....ocCo...........",
+    ".....ocCo...........",
+    ".....ocCo...........",
+    "....ocCo............",
+    "....ocCo............",
+    "...ocCo.............",
+    "...ocCo.............",
+    "...ocCo.............",
+    "..obbo..............",
+    "..obbo..............",
+    ".obbo...............",
+    ".obbo...............",
+    ".obbo...............",
+    "obbo................",
+    "ocCo................",
+    ".oo................."
+   ]
+  ]
+ }
+}

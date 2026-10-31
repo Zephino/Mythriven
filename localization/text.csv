@@ -1652,3 +1652,47 @@ BANTER_IKU_TURSO_VAINAMOINEN,"You lifted me out by my ears once, old man; never 
 BANTER_LOUHI_ENTRANCE,"The North is mine, and so are its sun and moon."
 BANTER_LOUHI_VAINAMOINEN,"Old singer, you stole my Sampo; now pay for it."
 BANTER_LOUHI_UKKO,"Thunder-god, my hidden sun is no business of yours."
+LEVEL_MAZANDARAN_NAME,Mazandaran
+HAZARD_SORCEROUS_DARKNESS_NAME,The divs' darkness falls!
+SIMURGH_FEATHER,A Simurgh feather! (%d/%d)
+SIMURGH_CALLED,A feather burns: the Simurgh comes!
+ENEMY_DIV_NAME,Div
+ENEMY_DIV_MYTH,"The demons of the Shahnameh, enemies of Iran. Mazandaran was their land, and the old painted manuscripts show them horned, spotted and tailed, wearing gold bands on their arms."
+ENEMY_SORCERER_NAME,Sorcerer
+ENEMY_SORCERER_MYTH,"Mazandaran was a land of sorcery. When King Kay Kavus marched against it, the White Div's magic brought darkness down on his army and blinded them."
+ENEMY_WILD_LION_NAME,Wild lion
+ENEMY_WILD_LION_MYTH,"In the first of Rostam's Seven Labours, a lion came upon him while he slept in a reed bed, and his horse Rakhsh fought and killed it alone."
+ENEMY_DRAGON_KIN_NAME,Dragon-kin
+ENEMY_DRAGON_KIN_MYTH,"Dragons haunt the Shahnameh: Rostam, his grandfather Sam and the hero Esfandiyar each fought one."
+BOSS_DRAGON_THIRD_LABOUR_NAME,The Dragon of the Third Labour
+BOSS_WITCH_FOURTH_LABOUR_NAME,The Witch of the Fourth Labour
+BOSS_WHITE_DIV_NAME,The White Div
+ENEMY_DRAGON_THIRD_LABOUR_NAME,The Dragon of the Third Labour
+ENEMY_WITCH_FOURTH_LABOUR_NAME,The Witch of the Fourth Labour
+ENEMY_WHITE_DIV_NAME,The White Div
+ENEMY_DRAGON_THIRD_LABOUR_MYTH,"On the third night of his journey a dragon came out of the darkness where Rostam slept. Twice Rakhsh woke him and twice it vanished before he could see it; the third time it was seen, and horse and rider killed it together."
+ENEMY_WITCH_FOURTH_LABOUR_MYTH,"Rostam found a feast laid out in the wilderness, and a lovely young woman came to share it. When he gave thanks in God's name, her face turned black, and he saw the old witch she was."
+ENEMY_WHITE_DIV_MYTH,"The great demon of Mazandaran, who blinded King Kay Kavus and his army. Rostam found him asleep in a dark cave, huge as a mountain, and fought him to the death; the White Div's blood restored the king's sight."
+TRADITION_PERSIAN,Persian epic (the Shahnameh)
+ROLE_CHAMPION,Champion
+HERO_ROSTAM_NAME,Rostam
+HERO_ROSTAM_LEGEND,"The greatest champion of the Shahnameh, son of Zal, raised under the Simurgh's wing. On his horse Rakhsh he passed the Seven Labours to free King Kay Kavus from Mazandaran, killing a lion, a dragon, a witch and the White Div."
+WEAPON_ROSTAM_MACE_NAME,Ox-headed mace
+WEAPON_ROSTAM_MACE_DESC,Crushing sweeps with the mace shaped like an ox's head; they knock monsters far back.
+TRAIT_RAKHSH,Rakhsh
+TRAIT_RAKHSH_DESC,"His horse Rakhsh fights beside him: he charges the nearest monster, kicks it and everything round it, and comes back to his side. Monsters can't harm him; his blows grow with Might and level."
+PASSIVE_TAHAMTAN,Tahamtan
+PASSIVE_TAHAMTAN_DESC,The mighty-bodied: +15% Max HP.
+ACH_BOSS_DRAGON_THIRD_LABOUR_NAME,Defeat the Dragon of the Third Labour
+ACH_BOSS_DRAGON_THIRD_LABOUR_DESC,The 10:00 boss of Mazandaran.
+ACH_BOSS_WITCH_FOURTH_LABOUR_NAME,Defeat the Witch of the Fourth Labour
+ACH_BOSS_WITCH_FOURTH_LABOUR_DESC,The 20:00 boss of Mazandaran.
+ACH_BOSS_WHITE_DIV_NAME,Defeat the White Div
+ACH_BOSS_WHITE_DIV_DESC,The 30:00 boss of Mazandaran.
+BANTER_ROSTAM_BINDS,"Fight beside me, and we will pass every labour."
+BANTER_DRAGON_THIRD_LABOUR_ENTRANCE,You will not see me until it is too late.
+BANTER_DRAGON_THIRD_LABOUR_ROSTAM,"Your horse woke you once, rider; he will not save you twice."
+BANTER_WITCH_FOURTH_LABOUR_ENTRANCE,"Come, traveller, sit and share my feast."
+BANTER_WITCH_FOURTH_LABOUR_ROSTAM,"Sing me your song again, champion, and do not say that name."
+BANTER_WHITE_DIV_ENTRANCE,You have come a long way to die in the dark.
+BANTER_WHITE_DIV_ROSTAM,"Rostam. Six labours, and the seventh is me."
