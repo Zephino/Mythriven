@@ -2,6 +2,20 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.59
+Date: 10/30/2026
+Time: 11:03 PM
+
+### Changes
+- **Heracles' body stands apart from his club and cloak.** Each part now has its own dark edge:
+  - a 1-pixel outline separates the body from the lion-skin cloak behind it;
+  - a dark line runs between his arm and his chest;
+  - the club sits a pixel further out, its handle end showing above his fist, with fingers wrapped round it.
+- New rule in `docs/ART_RULES.md`: every part gets its own dark edge, and parts never run into each other.
+
+### Reason
+The owner said his body blended into the weapon and the cloak.
+
 ## Version 00.01.58
 Date: 10/30/2026
 Time: 11:00 PM

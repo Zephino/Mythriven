@@ -23,14 +23,14 @@ def _draw(back_leg, front_leg):
     # a ragged furry edge, with the lion's hind paw hanging at the bottom.
     for y in range(8, 27):
         width = 2 if y < 14 else (3 if y < 21 else 4)
-        x0 = 10 - width
-        row(y, x0, 9, "L")
+        x0 = 9 - width
+        row(y, x0, 8, "L")
         px(x0, y, "m")                      # dark fur along the outer edge
         if y % 3 == 0:
             px(x0 + 1, y, "l")              # lighter tufts of fur
-    for x in (6, 8):
+    for x in (5, 7):
         px(x, 27, "L"); px(x, 28, "m")      # ragged hem
-    rect(6, 29, 7, 29, "l"); px(6, 30, "w"); px(7, 30, "w")   # the hind paw and its claws
+    rect(5, 29, 6, 29, "l"); px(5, 30, "w"); px(6, 30, "w")   # the hind paw and its claws
     # Lion head hood
     row(1, 10, 11, "m")                       # ear
     row(2, 9, 15, "l"); px(10, 2, "L")
@@ -51,7 +51,7 @@ def _draw(back_leg, front_leg):
     rect(10, 14, 17, 19, "s"); rect(10, 14, 11, 19, "S")
     row(16, 12, 13, "S"); row(16, 15, 16, "S"); px(14, 17, "S"); px(14, 18, "S")   # chest and stomach lines
     # Front arm, hand gripping the club
-    rect(18, 14, 19, 19, "s"); rect(17, 14, 17, 19, "S"); px(19, 14, "S"); rect(18, 20, 19, 20, "s")
+    rect(18, 14, 19, 19, "s"); rect(17, 15, 17, 19, "o"); px(19, 14, "S"); rect(18, 20, 19, 20, "s")
     # Belt with a bronze buckle
     row(20, 10, 17, "b"); px(14, 20, "y")
     # Dark red chiton to the knees, flaring a little, with folds
@@ -67,11 +67,12 @@ def _draw(back_leg, front_leg):
         row(31, x0, x0 + 3, "b")
     # Club: a thin handle showing below the hand, widening into a heavy rounded
     # head that rests by his feet; knots are dark marks on the wood.
-    for y, x0, x1 in [(19,20,20),(20,20,20),(21,20,20),(22,20,21),(23,20,21),(24,20,22),(25,20,22),
-                      (26,20,23),(27,20,23),(28,20,23),(29,20,23),(30,21,22)]:
+    for y, x0, x1 in [(18,21,21),(19,21,21),(20,21,21),(21,21,21),(22,21,22),(23,21,22),(24,21,23),(25,21,23),
+                      (26,21,24),(27,21,24),(28,21,24),(29,21,24),(30,22,23)]:
         row(y, x0, x1, "c")
         if x1 > x0: px(x1, y, "C")
-    for (x, y) in [(21,25),(22,28),(21,29)]: px(x, y, "C")     # knots
+    rect(20, 20, 20, 20, "s")                                   # fingers round the handle
+    for (x, y) in [(22,25),(23,28),(22,29)]: px(x, y, "C")     # knots
 
 # Dark outline around everything
 def outline():
