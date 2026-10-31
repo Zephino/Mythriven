@@ -88,3 +88,45 @@ func test_sync_waits_while_off_and_batches_during_a_run() -> void:
 	sync.request_sync(true)
 	assert_almost_eq(sync._wait_s, CloudSync.SOON_S, 0.01, "soon after a purchase or a run")
 	sync._wait_s = -1.0
+
+
+func test_this_device_keeps_its_own_id_and_account_alongside_the_code() -> void:
+	var id: String = CloudSync.device_id()
+	assert_true(id.length() >= 16, "a random device id")
+	CloudSync.set_code("ABCDEFGHJK23")
+	CloudSync.set_account("google")
+	assert_eq(CloudSync.device_id(), id, "kept when the code changes")
+	assert_eq(CloudSync.account(), "google")
+	CloudSync.set_account("")
+	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "signing out keeps nothing else from changing")
+
+
+func test_signing_in_links_this_device_to_the_accounts_save() -> void:
+	SaveGame.add_to("heroes_unlocked", "atalanta")
+	var sync: CloudSync = add_child_autofree(CloudSync.new())
+	sync.sign_in.finish("ABCD-EFGH-JK23")
+	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "the account's save")
+	assert_eq(CloudSync.account(), "google")
+	assert_eq(sync.sign_in.state, "done")
+	sync.sign_in.finish("not a code")
+	assert_eq(sync.sign_in.error, "UI_SIGNIN_NO_CONNECTION")
+	assert_eq(CloudSync.code(), "ABCDEFGHJK23", "a bad reply changes nothing")
+	sync.turn_off()
+	assert_eq(CloudSync.account(), "", "signing out forgets the account on this device")
+
+
+func test_without_cloud_saves_play_is_always_allowed_here() -> void:
+	var sync: CloudSync = add_child_autofree(CloudSync.new())
+	var answers: Array[bool] = []
+	sync.play_lock.claim(func(allowed: bool) -> void: answers.append(allowed))
+	assert_eq(answers, [true] as Array[bool], "no account: nothing to check")
+
+
+func test_losing_the_save_to_another_device_ends_the_run_here() -> void:
+	GameAuthority.start_run("aegean_shore")
+	var sync: CloudSync = add_child_autofree(CloudSync.new())
+	watch_signals(GameAuthority)
+	sync.play_lock.lost.emit()
+	assert_true(GameAuthority.run.ended, "the run ends with a message")
+	assert_signal_emitted(GameAuthority, "run_ended")
+	GameAuthority.end_scene()

@@ -14,6 +14,8 @@ extends Node
 ## (SaveGame.merge: unlocks combine, the higher level wins, gold comes from
 ## the device played last), saves the result here, and uploads it. The game
 ## always works offline; a failed sync is simply tried again later.
+## Signing in with Google (AccountSignIn, owner request 10/31/2026) fills in
+## the account's code automatically; PlayLock keeps a save to one device at a time.
 
 signal status_changed
 
@@ -28,6 +30,8 @@ var state: String = "off"
 ## A one-line notice for the player (for example when gold came from the other device).
 var notice: String = ""
 var last_synced_unix: int = 0
+var sign_in: AccountSignIn
+var play_lock: PlayLock
 
 var _http: HTTPRequest
 var _busy: bool = false
@@ -45,6 +49,10 @@ func _ready() -> void:
 	_http.timeout = 20.0
 	_http.request_completed.connect(_on_reply)
 	add_child(_http)
+	sign_in = AccountSignIn.new()
+	add_child(sign_in)
+	play_lock = PlayLock.new()
+	add_child(play_lock)
 	state = "synced" if is_on() else "off"
 	if is_on():
 		request_sync(true)
@@ -53,10 +61,39 @@ func _ready() -> void:
 # --- The sync code (this device only) ------------------------------------------------
 
 static func code() -> String:
+	return normalize(_value("code"))
+
+
+## How this device signed in ("google"), or "" when it uses a typed code.
+static func account() -> String:
+	return _value("account")
+
+
+## This device's own random id (for the one-device-at-a-time rule).
+static func device_id() -> String:
+	var id: String = _value("device")
+	if id == "":
+		id = Crypto.new().generate_random_bytes(12).hex_encode()
+		_set_value("device", id)
+	return id
+
+
+static func _value(key: String) -> String:
 	var file := ConfigFile.new()
 	if file.load(file_path()) != OK:
 		return ""
-	return normalize(str(file.get_value("cloud", "code", "")))
+	return str(file.get_value("cloud", key, ""))
+
+
+## Changes one value in this device's cloud file ("" removes it), keeping the others.
+static func _set_value(key: String, value: String) -> void:
+	var file := ConfigFile.new()
+	file.load(file_path())
+	if value != "":
+		file.set_value("cloud", key, value)
+	elif file.has_section_key("cloud", key):
+		file.erase_section_key("cloud", key)
+	file.save(file_path())
 
 
 ## This device's code file (a scratch one while the tests run or use a test save).
@@ -71,10 +108,11 @@ static func is_on() -> bool:
 
 
 static func set_code(new_code: String) -> void:
-	var file := ConfigFile.new()
-	if new_code != "":
-		file.set_value("cloud", "code", new_code)
-	file.save(file_path())
+	_set_value("code", new_code)
+
+
+static func set_account(provider: String) -> void:
+	_set_value("account", provider)
 
 
 ## A new random code (60 bits), from letters and digits that can't be mixed up.
@@ -126,7 +164,9 @@ func link(typed: String) -> bool:
 
 ## Stops syncing on this device (its save stays; the cloud copy stays too).
 func turn_off() -> void:
+	play_lock.release()
 	set_code("")
+	set_account("")
 	_http.cancel_request()
 	_busy = false
 	state = "off"

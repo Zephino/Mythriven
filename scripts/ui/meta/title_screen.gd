@@ -43,6 +43,7 @@ func build() -> void:
 func _on_quit() -> void:
 	if Net.active():
 		Net.leave()
+	Meta.cloud.play_lock.release()
 	if not OS.has_feature("web"):
 		get_tree().quit()
 		return

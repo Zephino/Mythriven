@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import worker from "../src/index.js";
-import { SaveVault, hashCode, normalizeCode, validateSave, MIN_WRITE_GAP_MS } from "../src/cloud.js";
+import { SaveVault, hashCode, normalizeCode, validateSave, MIN_WRITE_GAP_MS, LEASE_MS } from "../src/cloud.js";
 
 /** A stand-in for Cloudflare's Durable Objects: one SaveVault per name. */
 function fakeVaults() {
@@ -18,8 +18,12 @@ function fakeVaults() {
           async get(key) {
             return data.get(key);
           },
-          async put(entries) {
-            for (const [k, v] of Object.entries(entries)) data.set(k, v);
+          async put(entries, value) {
+            if (typeof entries === "string") data.set(entries, value);
+            else for (const [k, v] of Object.entries(entries)) data.set(k, v);
+          },
+          async delete(key) {
+            data.delete(key);
           },
         };
         vaults.set(id, new SaveVault({ storage }));
@@ -91,4 +95,43 @@ test("cloud saves answer the browser's preflight with Authorization allowed", as
 test("without the Durable Object set up, cloud saves say so", async () => {
   const res = await worker.fetch(request("GET", CODE), {});
   assert.equal(res.status, 503);
+});
+
+function play(code, device, action) {
+  return new Request("https://w.example/cloud/play", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${code}` },
+    body: JSON.stringify({ device, action }),
+  });
+}
+
+test("a save is played on one device at a time", async () => {
+  const env = { SAVE_VAULT: fakeVaults() };
+  assert.equal((await worker.fetch(play(CODE, "pcdevice01", "claim"), env)).status, 200);
+  assert.equal((await worker.fetch(play(CODE, "phonedev01", "claim"), env)).status, 409, "the phone is turned away");
+  assert.equal((await worker.fetch(play(CODE, "pcdevice01", "beat"), env)).status, 200, "the PC keeps playing");
+  assert.equal((await worker.fetch(play(CODE, "phonedev01", "beat"), env)).status, 409);
+  assert.equal((await worker.fetch(play(CODE, "pcdevice01", "release"), env)).status, 200);
+  assert.equal((await worker.fetch(play(CODE, "phonedev01", "claim"), env)).status, 200, "free once the PC stops");
+  assert.equal((await worker.fetch(play(CODE, "pcdevice01", "beat"), env)).status, 409, "the PC hears it lost the save");
+  assert.equal((await worker.fetch(play("ZZZZ-ZZZZ-ZZ22", "pcdevice01", "claim"), env)).status, 200, "other saves are separate");
+});
+
+test("a claim lapses when the device stops sending beats (a closed game)", async () => {
+  const env = { SAVE_VAULT: fakeVaults() };
+  await worker.fetch(play(CODE, "pcdevice01", "claim"), env);
+  const realNow = Date.now;
+  Date.now = () => realNow() + LEASE_MS + 1000;
+  try {
+    assert.equal((await worker.fetch(play(CODE, "phonedev01", "claim"), env)).status, 200);
+  } finally {
+    Date.now = realNow;
+  }
+});
+
+test("play requests need a valid device and action", async () => {
+  const env = { SAVE_VAULT: fakeVaults() };
+  assert.equal((await worker.fetch(play(CODE, "x", "claim"), env)).status, 400);
+  assert.equal((await worker.fetch(play(CODE, "pcdevice01", "steal"), env)).status, 400);
+  assert.equal((await worker.fetch(play("bad", "pcdevice01", "claim"), env)).status, 401);
 });

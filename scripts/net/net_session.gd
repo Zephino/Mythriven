@@ -99,10 +99,11 @@ func join_game(join_code: String, hero_id: String, is_public: bool = false) -> v
 
 
 ## Leaves the lobby or the run (the host leaving ends it for everyone).
-func leave() -> void:
+## `reason`: a translation key shown on the Co-op screen ("" when the player chose to leave).
+func leave(reason: String = "") -> void:
 	if lobby != null:
 		lobby.leave()
-	_close("")
+	_close(reason)
 
 
 func choose_hero(hero_id: String) -> void:

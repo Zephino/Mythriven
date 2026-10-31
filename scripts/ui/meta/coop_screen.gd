@@ -131,13 +131,22 @@ func _first_hero() -> String:
 
 
 func _on_host() -> void:
-	_message = ""
-	Net.host_game(_first_hero(), public_mode)
+	_claim_then(func() -> void: Net.host_game(_first_hero(), public_mode))
 
 
 func _on_join_public(game_code: String) -> void:
+	_claim_then(func() -> void: Net.join_game(game_code, _first_hero(), true))
+
+
+## One device at a time (PlayLock): this account can't be in a game on another device.
+func _claim_then(go: Callable) -> void:
 	_message = ""
-	Net.join_game(game_code, _first_hero(), true)
+	Meta.cloud.play_lock.claim(func(allowed: bool) -> void:
+		if allowed:
+			go.call()
+		else:
+			_message = "UI_PLAY_ELSEWHERE"
+			refresh())
 
 
 func _refresh_list() -> void:
@@ -156,9 +165,9 @@ func _on_listed(games: Array[Dictionary], ok: bool) -> void:
 
 
 func _on_join() -> void:
-	_message = ""
 	if _code_box != null:
-		Net.join_game(_code_box.text, _first_hero())
+		var typed: String = _code_box.text
+		_claim_then(func() -> void: Net.join_game(typed, _first_hero()))
 
 
 func _on_join_submitted(_text: String) -> void:
@@ -181,10 +190,12 @@ func _on_toggle_swift() -> void:
 
 func _on_leave() -> void:
 	Net.leave()
+	Meta.cloud.play_lock.release()
 
 
 func _on_ended(reason: String) -> void:
 	_message = reason
+	Meta.cloud.play_lock.release()
 	if public_mode:
 		_refresh_list()
 	refresh()
@@ -198,4 +209,5 @@ func _on_run_starting() -> void:
 func close() -> void:
 	if Net.state != Net.State.IN_RUN:
 		Net.leave()
+		Meta.cloud.play_lock.release()
 	super.close()

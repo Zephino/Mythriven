@@ -3,6 +3,12 @@
  *
  *   GET /cloud/save   the player's saved progress ({ save, updated } or { save: null })
  *   PUT /cloud/save   store the player's (already merged) progress
+ *   POST /cloud/play  {device, action: "claim" | "beat" | "release"}: the
+ *                     one-device-at-a-time rule (owner decision 10/30/2026). A
+ *                     save can be played on one device at a time: claiming it
+ *                     while another device holds it answers 409 {busy: true}.
+ *                     The device sends "beat" every 30 s while playing; a
+ *                     claim not renewed for LEASE_MS lapses (a closed game).
  *
  * A player is known only by their private sync code, sent as
  * `Authorization: Bearer <code>`. The Worker never stores the code itself:
@@ -22,11 +28,13 @@ export const CODE_LENGTH = 12;
 export const MAX_SAVE_BYTES = 256_000;
 /** A device may write at most once every this many ms (the game waits 30 s). */
 export const MIN_WRITE_GAP_MS = 5_000;
+/** A device's claim to play lapses after this long without a "beat". */
+export const LEASE_MS = 90_000;
 
 function corsHeaders() {
   return {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, PUT, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, PUT, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Accept, Authorization",
     "Content-Type": "application/json; charset=utf-8",
     "Cache-Control": "no-store",
@@ -68,13 +76,20 @@ export function validateSave(text) {
   return { save };
 }
 
-/** Routes /cloud/save to the player's own SaveVault. */
+/** Routes /cloud/save and /cloud/play to the player's own SaveVault. */
 export async function handleCloud(request, env) {
   if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders() });
   if (!env.SAVE_VAULT) return json({ error: "cloud saves are not set up" }, 503);
   const auth = request.headers.get("Authorization") || "";
   const code = normalizeCode(auth.replace(/^Bearer\s+/i, ""));
   if (!code) return json({ error: "invalid code" }, 401);
+  if (new URL(request.url).pathname === "/cloud/play") {
+    if (request.method !== "POST") return json({ error: "method not allowed" }, 405);
+    const text = await request.text();
+    if (text.length > 1000) return json({ error: "too large" }, 413);
+    const stub = env.SAVE_VAULT.get(env.SAVE_VAULT.idFromName(await hashCode(code)));
+    return stub.fetch("https://vault/play", { method: "POST", body: text });
+  }
   if (request.method !== "GET" && request.method !== "PUT") return json({ error: "method not allowed" }, 405);
   let body = "";
   if (request.method === "PUT") {
@@ -95,6 +110,7 @@ export class SaveVault {
   }
 
   async fetch(request) {
+    if (new URL(request.url).pathname === "/play") return this.play(await request.text());
     if (request.method === "GET") {
       const save = (await this.storage.get("save")) ?? null;
       const updated = (await this.storage.get("updated")) ?? 0;
@@ -106,5 +122,27 @@ export class SaveVault {
     const text = await request.text();
     await this.storage.put({ save: text, updated: now });
     return json({ ok: true, updated: now });
+  }
+
+  /** One device at a time: claim, keep ("beat"), or let go of the right to play. */
+  async play(text) {
+    let body;
+    try {
+      body = JSON.parse(text);
+    } catch {
+      return json({ error: "invalid json" }, 400);
+    }
+    const device = typeof body.device === "string" && /^[A-Za-z0-9]{8,40}$/.test(body.device) ? body.device : "";
+    if (!device || !["claim", "beat", "release"].includes(body.action)) return json({ error: "invalid request" }, 400);
+    const now = Date.now();
+    const lease = (await this.storage.get("lease")) ?? null;
+    const heldByOther = lease && lease.device !== device && lease.until > now;
+    if (body.action === "release") {
+      if (lease && lease.device === device) await this.storage.delete("lease");
+      return json({ ok: true });
+    }
+    if (heldByOther) return json({ busy: true }, 409);
+    await this.storage.put("lease", { device, until: now + LEASE_MS });
+    return json({ ok: true });
   }
 }

@@ -23,6 +23,10 @@ class_name = "LobbyRoom"
 name = "PUBLIC_GAMES"
 class_name = "PublicGames"
 
+[[durable_objects.bindings]]
+name = "ACCOUNTS"
+class_name = "AccountVault"
+
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["SaveVault"]
@@ -35,11 +39,18 @@ new_sqlite_classes = ["LobbyRoom"]
 tag = "v3"
 new_sqlite_classes = ["PublicGames"]
 
+[[migrations]]
+tag = "v4"
+new_sqlite_classes = ["AccountVault"]
+
 [vars]
 GITHUB_OWNER = "Zephino"
 GITHUB_REPO = "Mythriven"
 GITHUB_PATH = "leaderboard.json"
 GITHUB_BRANCH = "data"
 
-# The GitHub key is a secret, never written here:
-#   npx wrangler secret put GITHUB_TOKEN
+# Secrets are never written here (Cloudflare dashboard → the Worker →
+# Settings → Variables and Secrets, type "Secret"):
+#   GITHUB_TOKEN          the leaderboard's GitHub key
+#   GOOGLE_CLIENT_ID      Sign in with Google (see README: Sign in with Google)
+#   GOOGLE_CLIENT_SECRET

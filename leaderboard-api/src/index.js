@@ -3,6 +3,8 @@
  *   GET  /leaderboard   the board, best first
  *   POST /leaderboard   send one score; it is checked, then saved
  *   GET/PUT /cloud/save cloud saves, by private sync code (see cloud.js)
+ *   POST /cloud/play    one device at a time per save (see cloud.js)
+ *   /auth/*             Sign in with Google (see accounts.js)
  *   GET  /lobby         co-op lobbies with 6-digit codes, over WebSocket (see lobby.js)
  *   GET  /lobby/public  the public co-op games anyone can join (see public_games.js)
  *
@@ -18,10 +20,12 @@
 import { addEntry, emptyBoard, isDuplicate, normalizeBoard, qualifies, validateScore } from "./board.js";
 import { handleSuggestionPost, suggestionStatus } from "./suggestions.js";
 import { handleCloud } from "./cloud.js";
+import { handleAuth } from "./accounts.js";
 import { handleLobby } from "./lobby.js";
 import { handlePublicList } from "./public_games.js";
 
 export { SaveVault } from "./cloud.js";
+export { AccountVault } from "./accounts.js";
 export { LobbyRoom } from "./lobby.js";
 export { PublicGames } from "./public_games.js";
 
@@ -178,7 +182,8 @@ export default {
       const url = new URL(request.url);
       // Cloud saves answer their own preflight and check their own code and
       // write limit (no KV use).
-      if (url.pathname === "/cloud/save") return await handleCloud(request, env);
+      if (url.pathname === "/cloud/save" || url.pathname === "/cloud/play") return await handleCloud(request, env);
+      if (url.pathname.startsWith("/auth/")) return await handleAuth(request, env);
       if (url.pathname === "/lobby") return await handleLobby(request, env);
       if (url.pathname === "/lobby/public") return await handlePublicList(request, env);
       if (request.method === "OPTIONS") {

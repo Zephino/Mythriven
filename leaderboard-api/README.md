@@ -81,6 +81,49 @@ Free-plan limits (as of 2026): about 100,000 Durable Object requests a day.
 Each sync uses 2 (download + upload), and a player syncs only a handful of
 times per run, so that covers thousands of runs a day.
 
+## Sign in with Google (owner setup, about 15 minutes, free)
+
+The game's Settings → **Account and cloud save** has **Sign in with Google**.
+It only works after these steps. The **Client ID** and **Client secret** you
+make here go into Cloudflare as secrets, never into the repo or a chat.
+
+1. Go to **https://console.cloud.google.com** and sign in with your Google account.
+2. At the top, click the project picker → **New project** → name it
+   `Mythriven` → **Create**. Make sure it's selected at the top.
+3. Search for **Google Auth Platform** (or menu → APIs & Services → OAuth
+   consent screen) → **Get started**:
+   - App name: `Mythriven`; User support email: your email → Next.
+   - Audience: **External** → Next. Contact email: your email → Next.
+   - Agree to the policy → **Create**.
+   - Don't upload a logo (that starts a slow review; the game doesn't need one).
+4. In Google Auth Platform → **Clients** → **Create client**:
+   - Application type: **Web application**; Name: `Mythriven Worker`.
+   - **Authorized redirect URIs** → Add URI:
+     `https://mythriven.thebotcoder.workers.dev/auth/callback`
+   - **Create**. A box shows the **Client ID** and **Client secret**. Keep
+     this tab open (or download the JSON) for the next step.
+5. Google Auth Platform → **Audience** → **Publish app** → Confirm. (Until you
+   do, only "test users" you list there can sign in.) The game only asks for
+   Google's basic sign-in ("openid"), so Google doesn't need to review it.
+6. Cloudflare dashboard → **Workers & Pages** → **mythriven** → **Settings**
+   → **Variables and Secrets** → **Add**:
+   - Type **Secret**, Name `GOOGLE_CLIENT_ID`, Value: the Client ID → add.
+   - Type **Secret**, Name `GOOGLE_CLIENT_SECRET`, Value: the Client secret → add.
+   - **Deploy** (or Save). Secrets stay when the Worker updates from GitHub.
+7. Test: open the game → Settings → **Account and cloud save** → **Sign in
+   with Google**. A Google page opens; sign in; come back to the game. Do the
+   same on your phone: both devices now share your progress.
+
+How it works: `src/accounts.js`. The Worker keeps only a hash of Google's id
+for each player (no name, no email) and the account's cloud-save code. The
+`AccountVault` Durable Object holds accounts and sign-ins in progress
+(migration v4).
+
+**One device at a time:** `POST /cloud/play` (in `src/cloud.js`). Before a
+run or co-op game the game claims its save; another device trying to play the
+same save is turned away until the first goes back to the title or closes
+(a closed game lets go after 90 s).
+
 ## Co-op lobbies (Phase 20)
 
 `/lobby` (WebSocket) runs co-op games: a `LobbyRoom` Durable Object per 6-digit
@@ -105,6 +148,7 @@ while its run is in progress; friend games stay closed once started.
 - `src/index.js`: the web service (GET/POST, rate limits, GitHub commit).
 - `src/cloud.js`: cloud saves (`/cloud/save`, the `SaveVault` Durable Object).
 - `src/lobby.js`: co-op lobbies (`/lobby`, the `LobbyRoom` Durable Object).
+- `src/accounts.js`: Sign in with Google (`/auth/*`, the `AccountVault` Durable Object).
 - `src/public_games.js`: the public games list (`/lobby/public`, the `PublicGames` Durable Object).
 - Test the game against a Worker on your own computer: `npx wrangler dev`,
   then start Godot with `-- --api=http://127.0.0.1:8787`.

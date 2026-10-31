@@ -2,6 +2,8 @@ class_name MenuFlow
 extends Node
 ## The menus outside a run (GAME_DESIGN.md: Screens): Title → Play → level
 ## select → Hero select → the run, and the Hall of Legends with its pages.
+## Before a run starts, PlayLock checks this account isn't playing on another
+## device; back in the menus (outside co-op), this device lets go of it.
 ## The main scene adds this when there's no run to start and listens for
 ## `start`. Which screen opens first comes from Meta.next_screen.
 
@@ -9,6 +11,8 @@ signal start(hero_id: String)
 
 
 func _ready() -> void:
+	if not Net.active():
+		Meta.cloud.play_lock.release()
 	match Meta.next_screen:
 		"hero_select":
 			show_hero_select()
@@ -47,8 +51,16 @@ func show_hero_select() -> void:
 
 func _on_hero_chosen(hero_id: String) -> void:
 	GameAuthority.selected_hero_id = hero_id
-	start.emit(hero_id)
-	queue_free()
+	var checking := NoticeScreen.make("UI_PLAY", "UI_PLAY_CHECKING", false)
+	add_child(checking)
+	Meta.cloud.play_lock.claim(func(allowed: bool) -> void:
+		checking.queue_free()
+		if allowed:
+			start.emit(hero_id)
+			queue_free()
+			return
+		show_hero_select()
+		add_child(NoticeScreen.make("UI_PLAY_ELSEWHERE_TITLE", "UI_PLAY_ELSEWHERE")))
 
 
 ## A co-op run is starting (Net chose the level and this player's Hero).

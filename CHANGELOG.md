@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.01.38
+Date: 10/30/2026
+Time: 8:08 PM
+
+### Changes
+- **Sign in with Google** (Settings → Account and cloud save). It works the same on the web, PC, and phones: a Google page opens in the browser, the player signs in there, and the game links that device to the account's cloud save. Progress then follows the player between PC and phone. Only Google's id is used (stored hashed), never a name or email. The 12-character code stays as the option for players without Google. Needs the owner's one-time Google setup (`leaderboard-api/README.md`, "Sign in with Google").
+- **One device at a time.** An account (or sync code) can only play on one device at a time, and never twice in the same co-op game. Starting a run or a co-op game on a second device shows "Your account is already playing on another device". Going back to the title lets go; a closed game lets go within about 90 s. If another device takes over while one was offline, that device's run ends with a message. Offline play is still allowed.
+- Worker: `/auth/start`, `/auth/google`, `/auth/callback`, `/auth/poll` (new `AccountVault` Durable Object, migration v4) and `/cloud/play` (the one-device claim, kept with each cloud save).
+- New tests: 4 game tests, 7 Worker tests. Two game windows on one account were run against a local Worker: the second was turned away from a solo run and from hosting co-op until the first went back to the title.
+
+### Reason
+The owner chose free Google sign-in, wants the account on PC and phone, and asked that an account never play on two devices or in two games at once.
+
 ## Version 00.01.37
 Date: 10/30/2026
 Time: 7:55 PM

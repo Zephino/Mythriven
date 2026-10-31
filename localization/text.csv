@@ -1068,9 +1068,9 @@ ENEMY_SPARTOI_BRUTE_MYTH,"The Spartoi, the ""Sown Men"": when Cadmus, and later 
 ENEMY_KHALKOTAUROS_BOMBER_NAME,Bronze bull
 ENEMY_KHALKOTAUROS_BOMBER_MYTH,"The Khalkotauroi, King Aeëtes' bulls with hooves of bronze, breathed fire from their mouths; Jason had to yoke them to plough the field where he sowed the dragon's teeth."
 UI_SETTING_VALUE_ANYWHERE,Whole screen
-UI_CLOUD_SAVE,Cloud save
+UI_CLOUD_SAVE,Account and cloud save
 UI_CLOUD_NOT_SET_UP,Cloud saves aren't set up for this version of the game yet.
-UI_CLOUD_ABOUT,Keep your progress on PC and phone. Your progress is saved online under a private code; no account or email needed.
+UI_CLOUD_ABOUT,"Keep your progress on PC and phone. Sign in with Google on each device, and your progress follows you. Mythriven only gets Google's id for you, never your name or email."
 UI_CLOUD_TURN_ON,Turn on cloud save
 UI_CLOUD_LINK_HELP,Already using cloud save on another device? Type its code here:
 UI_CLOUD_CODE_PLACEHOLDER,XXXX-XXXX-XXXX
@@ -1141,3 +1141,19 @@ UI_PUBLIC_IN_RUN,in a run
 UI_PUBLIC_IN_LOBBY,in the lobby
 UI_PUBLIC_LISTED,"Your game is on the Public Games list. Players can join any time, even during a run."
 UI_PUBLIC_NEED_READY,Start opens once everyone has a Hero and is back in the lobby. You can start alone: others can join during the run.
+UI_OK,OK
+UI_CLOUD_NO_ACCOUNT,"No Google account? Use a private code instead:"
+UI_CLOUD_ONE_DEVICE,"Your progress can be played on one device at a time. Close the game on one device before playing on another."
+UI_SIGNIN_GOOGLE,Sign in with Google
+UI_SIGNIN_WAITING,"A Google sign-in page opened in your browser. Sign in there, then come back here."
+UI_SIGNED_IN_GOOGLE,Signed in with Google.
+UI_SIGN_OUT,Sign out on this device
+UI_SIGNIN_NOT_SET_UP,Sign-in with Google isn't set up yet.
+UI_SIGNIN_NO_CONNECTION,Couldn't reach the sign-in service. Check your internet and try again.
+UI_SIGNIN_EXPIRED,"The sign-in took too long. Press Sign in with Google again."
+UI_SIGNIN_CANCELLED,Sign-in was cancelled.
+UI_SIGNIN_POPUP_BLOCKED,"Your browser blocked the sign-in window. Allow pop-ups for this page, then press Sign in with Google again."
+UI_PLAY_CHECKING,Getting ready…
+UI_PLAY_ELSEWHERE_TITLE,Playing on another device
+UI_PLAY_ELSEWHERE,"Your account is already playing on another device. Finish or close the game there, then try again (a closed game lets go within about a minute and a half)."
+UI_PLAY_TAKEN_ELSEWHERE,Your account started playing on another device.

@@ -59,6 +59,18 @@ static func lobby_url() -> String:
 	return base.replace("https://", "wss://").replace("http://", "ws://") + "/lobby"
 
 
+## Sign in with Google (leaderboard-api/src/accounts.js); "" until set up.
+static func auth_url(path: String) -> String:
+	var base: String = api_base()
+	return "" if base.is_empty() else base + "/auth/" + path
+
+
+## One device at a time per save (leaderboard-api/src/cloud.js); "" until set up.
+static func play_url() -> String:
+	var base: String = api_base()
+	return "" if base.is_empty() else base + "/cloud/play"
+
+
 ## The list of public co-op games (leaderboard-api/src/public_games.js); "" until set up.
 static func public_games_url() -> String:
 	var base: String = api_base()
