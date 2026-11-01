@@ -176,31 +176,36 @@ def wild_hunt(c, step):
     c.px(66, 13, "y"); c.px(71, 21, "o")                                                 # burning eye, nostril
     for i in range(10):                                                                  # the mane, flying back
         c.px(57 - i, 13 + i, "m"); c.px(56 - i, 15 + i, "m")
-    # The huntsman: a huge cloaked shape on the horse's back
-    poly(c, [(30, 8), (40, 6), (45, 14), (45, 28), (28, 28)], "R")                       # body under the cloak
-    poly(c, [(30, 10), (24, 18), (18, 30), (22, 34), (30, 30)], "R")                     # the cloak, hanging over the horse's back
-    for x0, y0, y1 in ((25, 22, 31), (29, 13, 29), (34, 14, 27), (39, 15, 26)):         # folds in the cloak
-        for y in range(y0, y1 + 1):
-            c.px(x0 + (y - y0) // 6, y, "r")
-    c.row(23, 31, 44, "b"); c.px(38, 23, "y")                                            # belt and buckle
-    poly(c, [(33, 2), (40, 0), (45, 4), (45, 11), (36, 12), (32, 8)], "R")              # the hood
-    for y in range(1, 11):
-        c.px(min(45, 40 + y // 2), y, "r")                                               # the hood's lit edge
-    poly(c, [(40, 4), (44, 5), (44, 10), (40, 10)], "v")                                 # the dark opening of the hood
-    c.px(41, 6, "y"); c.px(43, 6, "y"); c.px(41, 7, "Y"); c.px(43, 7, "Y")              # eyes burning in the hood
-    c.px(42, 12, "y"); c.px(43, 12, "Y")                                                 # the cloak's clasp
-    poly(c, [(40, 16), (48, 10), (50, 12), (42, 19)], "R")                               # arm raised high
-    c.row(15, 41, 46, "r")                                                               # light along the sleeve
-    c.rect(47, 8, 50, 11, "b"); c.px(47, 8, "B")                                         # gloved fist
+    # The huntsman, sitting his horse: a short hooded cape, a dark tunic, the reins in one hand, the horn raised in the other
+    poly(c, [(31, 11), (27, 14), (23, 22), (26, 25), (31, 23)], "R")                     # the short cape behind his back
+    for y in range(15, 24):
+        c.px(27 + (y - 15) // 3, y, "r")                                                 # a fold in it
+    poly(c, [(31, 12), (39, 11), (41, 15), (40, 24), (31, 24)], "t")                     # body in a dark tunic
+    c.px(39, 16, "T"); c.px(39, 17, "T"); c.px(33, 20, "T")
+    c.row(21, 31, 40, "b"); c.px(36, 21, "y")                                            # belt and buckle
+    poly(c, [(30, 10), (41, 10), (42, 13), (30, 14)], "R")                               # the cape across his shoulders
+    c.px(40, 11, "y")                                                                    # its clasp
+    ellipse(c, 36, 6, 4.5, 5, "R")                                                       # the hood
+    poly(c, [(33, 2), (30, 5), (32, 7)], "R")                                            # its point, falling back
+    poly(c, [(38, 4), (41, 4), (41, 9), (38, 9)], "v")                                   # the dark opening of the hood
+    c.px(38, 6, "y"); c.px(40, 6, "y"); c.px(38, 7, "Y"); c.px(40, 7, "Y")              # eyes burning in the hood
+    c.px(40, 2, "r"); c.px(41, 3, "r")                                                   # light on the hood's brow
+    poly(c, [(39, 14), (45, 9), (47, 10), (41, 17)], "t")                                # the raised arm
+    c.rect(46, 7, 48, 10, "b"); c.px(46, 7, "B")                                         # gloved fist
     for i in range(9):                                                                   # the hunting horn held up in his fist
         t = i / 8
-        x, y = 49 + t * 7, 10 - t * 9 + t * t * 3
+        x, y = 47 + t * 7, 8 - t * 7 + t * t * 2
         r = 0.8 + 1.8 * t
         ellipse(c, x, y, r, r, "h")
-    c.row(6, 51, 53, "H")                                                                # its band
-    c.rect(55, 1, 58, 3, "H")                                                            # the open bell
-    c.rect(31, 27, 34, 33, "R"); c.px(34, 28, "r")                                       # his leg down the horse's side
-    c.rect(30, 33, 35, 36, "B"); c.row(36, 29, 36, "y")                                  # boot in the stirrup
+    c.row(5, 49, 51, "H")                                                                # its band
+    c.rect(53, 1, 56, 3, "H")                                                            # the open bell
+    poly(c, [(33, 16), (36, 16), (42, 21), (40, 23)], "t")                               # the other arm, forward to the reins
+    c.rect(41, 21, 42, 22, "b")                                                          # hand on the reins
+    for i in range(15):
+        c.px(43 + i, 21 - i // 3, "B")                                                   # the reins, to the horse's mouth
+    poly(c, [(31, 23), (38, 23), (41, 27), (35, 29)], "t")                               # thigh over the horse's side
+    c.rect(38, 27, 40, 33, "t"); c.px(38, 28, "T")                                       # the lower leg
+    c.rect(37, 33, 42, 35, "B"); c.row(36, 36, 42, "y")                                  # boot in the stirrup
     # Near legs of the horse
     hoofed_leg(c, 26 + step * 2, 40, 58, "k", "K", "K", bend=-2)
     hoofed_leg(c, 48 - step * 2, 40, 58, "k", "K", "K", bend=1)
@@ -209,20 +214,20 @@ def wild_hunt(c, step):
     edge = []
     for y in range(c.h):
         for x in range(c.w):
-            if c.g[y][x] in "RrbBvhHyY":
+            if c.g[y][x] in "RrtTbBvhHyY":
                 for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
                     nx, ny = x + dx, y + dy
-                    if not (0 <= nx < c.w and 0 <= ny < c.h) or c.g[ny][nx] not in "RrbBvhHyY":
+                    if not (0 <= nx < c.w and 0 <= ny < c.h) or c.g[ny][nx] not in "RrtTbBvhHyY":
                         edge.append((x, y))
                         break
     for x, y in edge:
-        if c.g[y][x] in "Rr":
+        if c.g[y][x] in "RrtT":
             c.px(x, y, "q")
     for x in range(4, 74, 4):
         c.px(x, 59, "g")                                                                 # a pale ghost-light underfoot
 
 
-HUNT_PAL = {"o": "#2a3040", "R": "#141218", "r": "#3a3848", "v": "#050408", "b": "#4a3422", "B": "#2a1c12",
+HUNT_PAL = {"o": "#2a3040", "R": "#141218", "r": "#3a3848", "v": "#050408", "b": "#4a3422", "B": "#2a1c12", "t": "#363040", "T": "#4a4356",
             "Y": "#b8781a", "q": "#5a5e72", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
             "H": "#6a4420", "l": "#4a4a62", "g": "#8a9ab8"}
 

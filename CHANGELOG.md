@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.40
+Date: 11/01/2026
+Time: 3:09 PM
+
+### Changes
+- **The Wild Hunt's huntsman redrawn as a rider in the saddle** (owner: he still looked weird). Before, he was one tall cloaked blob from his head down over the horse's back. Now he sits his horse like a rider: a hood (with the burning eyes) on clear shoulders, a short cape that stops at his back, a dark tunic with a belt, one hand forward holding the reins to the horse's mouth, the other raising the hunting horn, and his leg bent over the horse's side with the boot in the stirrup. He keeps the soft outline.
+
+### Reason
+The owner said the character still looked weird with the cape.
+
 ## Version 00.03.39
 Date: 11/01/2026
 Time: 2:56 PM
