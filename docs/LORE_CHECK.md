@@ -1040,6 +1040,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | finvarra_entrance | boss entrance | finvarra | Welcome to my hill. Do stay. Everyone stays. | Lady Wilde, Ancient Legends of Ireland (1887) | no |
 | finvarra_morrigan | boss meets god (with morrigan) | finvarra | The Great Queen, in my hill? Mind the fairy food. | Original line written for Mythriven | no |
 
+### Hy-Brasil
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | hy_brasil | Hy-Brasil | Roderick O'Flaherty, H-Iar Connaught (1684); "O-Brazile, or the Inchanted Island" (1675 pamphlet); the Flying Dutchman: Barrington, A Voyage to Botany Bay (1795); "Vanderdecken's Message Home", Blackwood's Magazine (1821) | no |
+| enemy | black_rabbit | Black rabbit | "O-Brazile, or the Inchanted Island" (1675 pamphlet) (the crew find the island full of great black rabbits) | no |
+| enemy | dutchman_sailor | Dutchman's sailor | the Flying Dutchman: Barrington, A Voyage to Botany Bay (1795); "Vanderdecken's Message Home", Blackwood's Magazine (1821) | no |
+| boss | great_black_rabbit | The Great Black Rabbit | "O-Brazile, or the Inchanted Island" (1675 pamphlet) (the great black rabbits of the enchanted island) | no |
+| boss | obrazile_necromancer | The Necromancer of O'Brazile | "O-Brazile, or the Inchanted Island" (1675 pamphlet) (a necromancer's spell held the island hidden, until the sailors lit a fire on its shore) | no |
+| boss | flying_dutchman | The Flying Dutchman | the Flying Dutchman: Barrington, A Voyage to Botany Bay (1795); "Vanderdecken's Message Home", Blackwood's Magazine (1821); GAME_DESIGN.md (the Flying Dutchman) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| great_black_rabbit_entrance | boss entrance | great_black_rabbit | (The biggest black rabbit you have ever seen thumps the ground.) | "O-Brazile, or the Inchanted Island" (1675 pamphlet) | no |
+| obrazile_necromancer_entrance | boss entrance | obrazile_necromancer | Seven years I keep this island in the mist. You will not see it again. | "O-Brazile, or the Inchanted Island" (1675 pamphlet) | no |
+| flying_dutchman_entrance | boss entrance | flying_dutchman | (A ship with ragged sails beats in against the wind. Someone on deck holds up a bundle of letters.) | the Flying Dutchman: Barrington, A Voyage to Botany Bay (1795); "Vanderdecken's Message Home", Blackwood's Magazine (1821) | no |
+| flying_dutchman_poseidon | boss meets god (with poseidon) | flying_dutchman | Lord of the sea, let me round the Cape. Just this once. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

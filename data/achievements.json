@@ -1754,5 +1754,35 @@
       "id": "finvarra"
     },
     "persists": true
+  },
+  {
+    "id": "boss_great_black_rabbit",
+    "name_key": "ACH_BOSS_GREAT_BLACK_RABBIT_NAME",
+    "desc_key": "ACH_BOSS_GREAT_BLACK_RABBIT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "great_black_rabbit"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_obrazile_necromancer",
+    "name_key": "ACH_BOSS_OBRAZILE_NECROMANCER_NAME",
+    "desc_key": "ACH_BOSS_OBRAZILE_NECROMANCER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "obrazile_necromancer"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_flying_dutchman",
+    "name_key": "ACH_BOSS_FLYING_DUTCHMAN_NAME",
+    "desc_key": "ACH_BOSS_FLYING_DUTCHMAN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "flying_dutchman"
+    },
+    "persists": true
   }
 ]

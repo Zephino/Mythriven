@@ -3126,3 +3126,31 @@ BANTER_RED_EARED_HOUND_ENTRANCE,"(A white hound with red ears races past, after 
 BANTER_FOMOR_ENTRANCE,"Three days and three nights, the last one took. Can you last as long?"
 BANTER_FINVARRA_ENTRANCE,Welcome to my hill. Do stay. Everyone stays.
 BANTER_FINVARRA_MORRIGAN,"The Great Queen, in my hill? Mind the fairy food."
+LEVEL_HY_BRASIL_NAME,Hy-Brasil
+HAZARD_SEVEN_YEAR_MIST_NAME,The mist of seven years rolls in over the island...
+ENEMY_BLACK_RABBIT_NAME,Black rabbit
+ENEMY_BLACK_RABBIT_MYTH,"When Captain Nisbet's men landed on O-Brazile, the 1675 pamphlet says, they found it swarming with great black rabbits."
+ENEMY_DUTCHMAN_SAILOR_NAME,Dutchman's sailor
+ENEMY_DUTCHMAN_SAILOR_MYTH,"One of Vanderdecken's crew, doomed to sail with him off the Cape of Good Hope until doomsday, and to beg passing ships to carry their letters home."
+BOSS_GREAT_BLACK_RABBIT_NAME,The Great Black Rabbit
+ENEMY_GREAT_BLACK_RABBIT_NAME,The Great Black Rabbit
+ENEMY_GREAT_BLACK_RABBIT_MYTH,"The greatest of the black rabbits that swarmed over O-Brazile when Captain Nisbet's crew landed there, as big as a dog and twice as bold."
+BOSS_OBRAZILE_NECROMANCER_NAME,The Necromancer of O'Brazile
+ENEMY_OBRAZILE_NECROMANCER_NAME,The Necromancer of O'Brazile
+ENEMY_OBRAZILE_NECROMANCER_MYTH,"The necromancer whose spell kept O-Brazile hidden in the sea. Captain Nisbet's sailors lit a fire on the shore; there was a terrible noise, and the next day an old gentleman came to thank them: the fire had broken the spell."
+BOSS_OBRAZILE_NECROMANCER_SPELL,His spell holds the island. Light the driftwood fires to break it!
+BOSS_OBRAZILE_NECROMANCER_BROKEN,All three fires burn: the spell breaks!
+BOSS_FLYING_DUTCHMAN_NAME,The Flying Dutchman
+ENEMY_FLYING_DUTCHMAN_NAME,The Flying Dutchman
+ENEMY_FLYING_DUTCHMAN_MYTH,"The ship of the Dutch captain Vanderdecken, who swore he would round the Cape of Good Hope if it took him till doomsday. It is seen in storms off the Cape, and its crew ask passing ships to carry letters home to people long dead; no ship that takes them comes to good."
+BOSS_FLYING_DUTCHMAN_LETTER,You took a letter for the long dead... an ill omen!
+ACH_BOSS_GREAT_BLACK_RABBIT_NAME,Defeat The Great Black Rabbit
+ACH_BOSS_GREAT_BLACK_RABBIT_DESC,The 10:00 boss of Hy-Brasil.
+ACH_BOSS_OBRAZILE_NECROMANCER_NAME,Defeat The Necromancer of O'Brazile
+ACH_BOSS_OBRAZILE_NECROMANCER_DESC,The 20:00 boss of Hy-Brasil.
+ACH_BOSS_FLYING_DUTCHMAN_NAME,Defeat The Flying Dutchman
+ACH_BOSS_FLYING_DUTCHMAN_DESC,The 30:00 boss of Hy-Brasil.
+BANTER_GREAT_BLACK_RABBIT_ENTRANCE,(The biggest black rabbit you have ever seen thumps the ground.)
+BANTER_OBRAZILE_NECROMANCER_ENTRANCE,Seven years I keep this island in the mist. You will not see it again.
+BANTER_FLYING_DUTCHMAN_ENTRANCE,(A ship with ragged sails beats in against the wind. Someone on deck holds up a bundle of letters.)
+BANTER_FLYING_DUTCHMAN_POSEIDON,"Lord of the sea, let me round the Cape. Just this once."

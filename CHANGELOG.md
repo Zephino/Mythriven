@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.22
+Date: 11/01/2026
+Time: 1:47 AM
+
+### Changes
+- **Hy-Brasil, the phantom isle, is built and open** (Pack 12, `docs/PACK_12_PLAN.md`). It opens when you beat the White Dragon. Sources: O'Flaherty's description of West Connaught (1684), the 1675 pamphlet "O-Brazile, or the Inchanted Island", and the sailors' legend of the Flying Dutchman (1795 and 1821; not any film or opera).
+  - **Hazard, the mist of seven years:** thick sea mist rolls over the island and the view closes in.
+  - **Monsters:** black rabbits (swarms), the Dutchman's crew, storm gusts, and the drowned from 10:00.
+  - **10:00, the Great Black Rabbit:** every 2.5 s it marks a spot near a Hero and bounds there, landing hard.
+  - **20:00, the Necromancer of O'Brazile:** his spell lets only a quarter of the damage through. Three piles of driftwood lie on the shore: stand at one for 1.5 s to light it. Each fire weakens the spell, and all three burning at once break his guard. The fires burn out after 12 s.
+  - **30:00, the Flying Dutchman** (the design's boss): for 6 s it is a phantom that can't be hurt, sailing across the arena and striking whoever it passes; then for 6 s a solid ship, firing on marked spots. Letters for the long dead drift after the Heroes; one that reaches you Hexes you.
+  - A misty Atlantic island of heather, hawthorns and bare rock, with beached boats; black rabbits and gulls.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- **Fix:** the Red-Eared Hound's fawn jumped on its first step (it appeared on one path and then moved along another). It now appears where it runs.
+- 3 new tests (447 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 12; the realms are built one at a time.
+
 ## Version 00.03.21
 Date: 11/01/2026
 Time: 1:34 AM

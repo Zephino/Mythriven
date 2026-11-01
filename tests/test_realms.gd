@@ -1609,6 +1609,53 @@ func test_finvarra_carries_heroes_into_his_hill() -> void:
 	assert_gt(king.broken_s, 0.0, "his guard breaks")
 
 
+func test_the_great_black_rabbit_bounds_and_lands() -> void:
+	_start("hy_brasil")
+	assert_eq(str(_level("hy_brasil")["unlock"]["boss"]), "white_dragon")
+	var rabbit: GreatBlackRabbitBoss = _bosses.spawn_boss("great_black_rabbit", 0) as GreatBlackRabbitBoss
+	rabbit.signature(2.1)
+	assert_ne(rabbit.landing, Vector2.INF, "a landing spot is marked")
+	var hp: float = _player.hp
+	rabbit.signature(1.0)
+	assert_eq(rabbit.leaps, 1)
+	assert_eq(rabbit.landed_on, 1, "it lands on the Hero")
+	assert_lt(_player.hp, hp)
+
+
+func test_the_necromancers_spell_breaks_by_fire() -> void:
+	_start("hy_brasil")
+	var mage: ObrazileNecromancerBoss = _bosses.spawn_boss("obrazile_necromancer", 1) as ObrazileNecromancerBoss
+	assert_eq(mage.piles.size(), 3)
+	assert_almost_eq(mage.modify_hit(100.0, _player, Vector2.ZERO), 25.0, 0.01, "the spell holds")
+	mage.light(0)
+	assert_almost_eq(mage.modify_hit(100.0, _player, Vector2.ZERO), 50.0, 0.01, "one fire weakens it")
+	mage.light(1)
+	_player.position = mage.piles[2]["pos"]
+	mage.signature(0.8)
+	mage.signature(0.8)
+	assert_eq(mage.spells_broken, 1, "three fires break it")
+	assert_gt(mage.broken_s, 0.0)
+	mage.signature(12.1)
+	assert_eq(mage.burning(), 0, "the fires burn out")
+
+
+func test_the_flying_dutchman_is_a_phantom_by_turns() -> void:
+	_start("hy_brasil")
+	var ship: FlyingDutchmanBoss = _bosses.spawn_boss("flying_dutchman", 2) as FlyingDutchmanBoss
+	ship.signature(0.1)
+	assert_eq(ship.art_id(), "flying_dutchman_phantom")
+	assert_eq(ship.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "a phantom can't be hurt")
+	ship.signature(6.0)
+	assert_false(ship.phantom)
+	assert_almost_eq(ship.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "solid")
+	ship.signature(0.6)
+	assert_gt(ship.marks.size(), 0, "firing on marked spots")
+	ship.letters.append(_player.position)
+	ship.signature(0.1)
+	assert_eq(ship.letters_taken, 1)
+	assert_true(_player.statuses.has("hex"), "an ill omen")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

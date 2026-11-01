@@ -5519,5 +5519,117 @@
       "edge": "#888050",
       "stones": "#c8c098"
     }
+  },
+  {
+    "_doc": "Hy-Brasil, Pack 12 realm 2, the phantom isle seen once in seven years (docs/PACK_12_PLAN.md). Sources: O'Flaherty (1684); \"O-Brazile, or the Inchanted Island\" (1675 pamphlet); the Flying Dutchman: Barrington, A Voyage to Botany Bay (1795); \"Vanderdecken's Message Home\", Blackwood's Magazine (1821). A realm: no local gods.",
+    "id": "hy_brasil",
+    "name_key": "LEVEL_HY_BRASIL_NAME",
+    "region": "realm_phantom_isle",
+    "act": 14,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "hy_brasil",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "sand",
+          "max": -0.3,
+          "placeholder_color": "#c8c0a8",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "grass",
+          "max": 0.15,
+          "placeholder_color": "#6a8a5a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "heather",
+          "max": 0.6,
+          "placeholder_color": "#6a5a6a",
+          "placeholder_dots": "#a07ab0"
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#7a7e78",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "beached_boat",
+      "standing_stone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "beached_boat": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          14
+        ],
+        "placeholder_color": "#6a4a2a",
+        "weight": 1
+      },
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          22
+        ],
+        "placeholder_color": "#9a9e98",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "great_black_rabbit",
+      "20": "obrazile_necromancer",
+      "30": "flying_dutchman"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "dinas_emrys",
+      "boss": "white_dragon"
+    },
+    "waves": "waves_hy_brasil.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 24,
+      "push_px_s": 10,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.45,
+      "pulse": 0.1,
+      "pulse_hz": 0.15,
+      "veil_color": "#d8dce0",
+      "particles": "mist",
+      "particle_color": "#f0f4f8",
+      "fade_s": 3.0,
+      "name_key": "HAZARD_SEVEN_YEAR_MIST_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#dce0e4",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "hawthorn": 1,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#a8a490",
+      "edge": "#888470",
+      "stones": "#c8c4b0"
+    }
   }
 ]

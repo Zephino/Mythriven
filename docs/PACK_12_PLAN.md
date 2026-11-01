@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 12). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Tír na nÓg built and released 11/01/2026 (00.03.21).
+it. Tír na nÓg built and released 11/01/2026 (00.03.21); Hy-Brasil (00.03.22).
 
 Realms work like Packs 5-11: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -43,7 +43,7 @@ whirlwind; W. B. Yeats, Fairy and Folk Tales of the Irish Peasantry (1888).*
 | 20:00 | **The Fomor** | The giant Oisín fought for three days and three nights. By day he fights; at each nightfall he rests and gets back a third of the damage done to him since dawn |
 | 30:00 | **Finvarra** (the design's) | The fairy king of Knockma. He carries a Hero off into his hill for a moment (whisked away across the arena and Hexed). His hill stands in the arena: Heroes who dig into it (stand on it) break his guard, as Ethna's husband did |
 
-## Realm 46: Hy-Brasil (the isle seen once in seven years)
+## Realm 46: Hy-Brasil (the isle seen once in seven years): **done and released 11/01/2026 (00.03.22)**
 *Sources: Roderick O'Flaherty, A Chorographical Description of West or H-Iar Connaught (1684: O'Brasil, the
 enchanted island sometimes seen off the coast); "O-Brazile, or the Inchanted Island" (1675 pamphlet: Captain John
 Nisbet's crew land, find great black rabbits and a castle, and light a fire on the shore, which breaks the spell a
@@ -65,7 +65,7 @@ dead).*
 | --- | --- | --- |
 | 10:00 | **The Great Black Rabbit** | The biggest of the island's black rabbits: it bounds from spot to spot (marked first), landing hard |
 | 20:00 | **The Necromancer of O'Brazile** | His spell holds the island, and while it holds he can't be hurt much. Three piles of driftwood lie on the shore: a Hero who lights one (stands at it) weakens the spell; with all three lit it breaks (his guard breaks). They burn out after a while |
-| 30:00 | **The Flying Dutchman** (the design's) | Vanderdecken's ship. By turns it is a phantom (it can't be hurt, sailing across the arena and striking whoever it passes) and a solid ship, hove to, firing on marked spots. Its crew drop letters for the long dead: a Hero who picks one up is Hexed for a while |
+| 30:00 | **The Flying Dutchman** (the design's) | Vanderdecken's ship. By turns it is a phantom (it can't be hurt, sailing across the arena and striking whoever it passes) and a solid ship, hove to, firing on marked spots. Its crew send letters for the long dead drifting after the Heroes: a Hero one reaches is Hexed for a while |
 
 ## Realm 47: the Shadow's Court
 *Source: Hans Christian Andersen, "The Shadow" (1847; not any later version): the learned man's shadow goes into the

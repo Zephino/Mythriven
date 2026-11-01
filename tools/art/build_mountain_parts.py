@@ -47,6 +47,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "atlantis": ("#a89c8c", "#9a5a4a", "#c0b4a4", "#3e3a3a", "#6a5e50", None),
     "ginnungagap": ("#3a3a4a", "#2e2e3c", "#4a4a5c", "#34343e", "#1e1e26", "#c8d4e0"),
     "tir_na_nog": ("#8aaa7a", "#7a9a6a", "#9aba8a", "#8aaa7a", "#5a7a4a", None),
+    "hy_brasil": ("#8a8e88", "#7a7e78", "#9a9e98", "#84887e", "#5a5e58", None),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),

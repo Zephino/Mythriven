@@ -3009,5 +3009,46 @@
     "text_key": "BANTER_FINVARRA_MORRIGAN",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "great_black_rabbit_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "great_black_rabbit",
+    "hero": "",
+    "god": "great_black_rabbit",
+    "text_key": "BANTER_GREAT_BLACK_RABBIT_ENTRANCE",
+    "lore_source": "\"O-Brazile, or the Inchanted Island\" (1675 pamphlet)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "obrazile_necromancer_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "obrazile_necromancer",
+    "hero": "",
+    "god": "obrazile_necromancer",
+    "text_key": "BANTER_OBRAZILE_NECROMANCER_ENTRANCE",
+    "lore_source": "\"O-Brazile, or the Inchanted Island\" (1675 pamphlet)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "flying_dutchman_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "flying_dutchman",
+    "hero": "",
+    "god": "flying_dutchman",
+    "text_key": "BANTER_FLYING_DUTCHMAN_ENTRANCE",
+    "lore_source": "the Flying Dutchman: Barrington, A Voyage to Botany Bay (1795); \"Vanderdecken's Message Home\", Blackwood's Magazine (1821)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "flying_dutchman_poseidon",
+    "trigger": "boss_meets_god",
+    "speaker": "flying_dutchman",
+    "hero": "",
+    "god": "flying_dutchman",
+    "with_god": "poseidon",
+    "text_key": "BANTER_FLYING_DUTCHMAN_POSEIDON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

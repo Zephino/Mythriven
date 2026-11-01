@@ -505,6 +505,11 @@ LEVELS = {
                   "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
         "bushes": {"fern": ("fern",), "bramble": ("M", "P", "m", "B")},
         "rock": ("g", "G", "H", "l")},
+    # Hy-Brasil: a misty Atlantic island; wind-bent hawthorns, heather and bare rock.
+    "hy_brasil": {
+        "trees": {"hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"heather": ("P", "p", "q", None)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

@@ -1,0 +1,93 @@
+{
+ "_doc": "A black rabbit (the O-Brazile pamphlet, 1675: the island swarming with great black rabbits). Built by tools/art/build_otherworlds.py.",
+ "size": [
+  14,
+  12
+ ],
+ "anchor": [
+  7,
+  11
+ ],
+ "palette": {
+  "o": "#0a0a0e",
+  "k": "#24222a",
+  "K": "#3a3844",
+  "w": "#e8e4dc"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".........o.o..",
+    "........okoKo.",
+    "........okoKo.",
+    "........okoKo.",
+    "......o.okkKo.",
+    "....ookokkkkko",
+    "..ookkkkkkkwko",
+    ".owkkkkkkkkkko",
+    ".okkkkkkkkkoo.",
+    "..okkkkkkko...",
+    "...okkkkko....",
+    "....ookoo....."
+   ]
+  ],
+  "walk": [
+   [
+    "........okoKo.",
+    "........okoKo.",
+    "........okoKo.",
+    "......o.okkKo.",
+    "....ookokkkkko",
+    "..ookkkkkkkwko",
+    ".owkkkkkkkkkko",
+    ".okkkkkkkkkoo.",
+    "..okkkkkkko...",
+    "...okkkkko....",
+    "....ookoo.....",
+    "......o......."
+   ],
+   [
+    ".........o.o..",
+    "........okoKo.",
+    "........okoKo.",
+    "........okoKo.",
+    "......o.okkKo.",
+    "....ookokkkkko",
+    "..ookkkkkkkwko",
+    ".owkkkkkkkkkko",
+    ".okkkkkkkkkoo.",
+    "..okkkkkkko...",
+    "...okkkkko....",
+    "....ookoo....."
+   ],
+   [
+    "........okoKo.",
+    "........okoKo.",
+    "........okoKo.",
+    "......o.okkKo.",
+    "....ookokkkkko",
+    "..ookkkkkkkwko",
+    ".owkkkkkkkkkko",
+    ".okkkkkkkkkoo.",
+    "..okkkkkkko...",
+    "...okkkkko....",
+    "....ookoo.....",
+    "......o......."
+   ],
+   [
+    ".........o.o..",
+    "........okoKo.",
+    "........okoKo.",
+    "........okoKo.",
+    "......o.okkKo.",
+    "....ookokkkkko",
+    "..ookkkkkkkwko",
+    ".owkkkkkkkkkko",
+    ".okkkkkkkkkoo.",
+    "..okkkkkkko...",
+    "...okkkkko....",
+    "....ookoo....."
+   ]
+  ]
+ }
+}

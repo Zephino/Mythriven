@@ -1,0 +1,89 @@
+{
+ "_doc": "Critters of hy_brasil (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#24222a",
+  "b": "#3a3844",
+  "c": "#e8ecec",
+  "d": "#9aa4ac",
+  "e": "#e0b030"
+ },
+ "frames": {
+  "rabbit": [
+   [
+    ".......oaao.",
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    "..oaaaaao...",
+    "..oaaoaao..."
+   ],
+   [
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    ".oaaaaaoo...",
+    ".oaaoooaao..",
+    "..oo..oaao.."
+   ]
+  ],
+  "gull": [
+   [
+    ".......oo.",
+    "o..oooocko",
+    "doocccccce",
+    "odddddccoo",
+    ".occcccco.",
+    "..occcco..",
+    "...oeoeo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "doocccccko",
+    "odddddccce",
+    ".occccccoo",
+    "..occcco..",
+    "...oeoeo.."
+   ]
+  ],
+  "gull_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...occcccoce",
+    "...occdccooo",
+    "....odddo...",
+    "...odoodo..."
+   ],
+   [
+    "....o..o....",
+    "...odoodoo..",
+    "....odddokoo",
+    "...occdccoce",
+    "...occcccooo",
+    "....ooooo...",
+    "............"
+   ]
+  ]
+ },
+ "critters": {
+  "rabbit": {
+   "kind": "ground"
+  },
+  "gull": {
+   "kind": "bird"
+  }
+ }
+}
