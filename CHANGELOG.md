@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.48
+Date: 11/01/2026
+Time: 6:39 PM
+
+### Changes
+- **Centaur legs fixed** (owner: the legs looked weird). The shared centaur body had four thick, evenly spaced posts like a table. Now it has a horse's legs: the front pair under the chest and the back pair under the rump with a gap between, each long and slim, tapering to a knee (in front) or a hock bent back (behind), with dark hooves. The sprites are a little taller to fit the longer legs. This fixes every centaur: Arcadia's centaurs, Mount Pelion's centaur raiders and slingers, and the bosses Eurytus, Rhoetus and Nessus.
+
+### Reason
+The owner said the reworked centaur's legs looked weird.
+
 ## Version 00.03.47
 Date: 11/01/2026
 Time: 6:34 PM

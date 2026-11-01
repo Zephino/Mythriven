@@ -427,7 +427,7 @@ if __name__ == "__main__":
                        (60, 52), (28, 50), [0, 1, 0, -1, 0])
     kit.build_boss("the_elf_knight", the_elf_knight, ELF_KNIGHT_BOSS_PAL, doc(the_elf_knight.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("queen_of_elfame", queen_of_elfame, QUEEN_ELF_PAL, doc(queen_of_elfame.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("centaur", centaur, CENTAUR_PAL, doc(centaur.__doc__), (28, 28), (13, 27), walk, folder="enemies")
+    kit.build_boss("centaur", centaur, CENTAUR_PAL, doc(centaur.__doc__), (28, 30), (13, 29), walk, folder="enemies")
     kit.build_boss("stymphalian_diver", stymphalian_diver, DIVER_PAL, doc(stymphalian_diver.__doc__), (20, 14), (10, 13), walk, folder="enemies")
     kit.build_boss("ceryneian_hind", ceryneian_hind, HIND_PAL, doc(ceryneian_hind.__doc__), (48, 48), (24, 46), [0, 1, 0, -1, 0])
     kit.build_boss("erymanthian_boar", erymanthian_boar, ERY_PAL, doc(erymanthian_boar.__doc__), (64, 50), (30, 48), [0, 1, 0, -1, 0])

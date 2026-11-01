@@ -23,8 +23,16 @@ def centaur(c, step, k=1.0, held=None):
     """A centaur (shared): a horse's body with a man's chest, arms and head where the horse's neck would be."""
     def r(v):
         return int(round(v * k))
-    for i, d in enumerate((-step, step, step, -step)):
-        c.rect(r(6 + i * 7) + d, r(30), r(8 + i * 7) + d, r(42), "h")
+    def leg(x, d, hind):
+        """A slim horse's leg: thick at the top, a knee (or a hock bent back), a thin cannon, a dark hoof."""
+        x = r(x) + d
+        bend = -1 if hind else 0
+        poly(c, [(x - 1, r(30)), (x + 2, r(30)), (x + 1, r(38)), (x, r(38))], "h")       # upper leg, tapering
+        c.rect(x + bend, r(38), x + bend + max(1, r(1.2)), r(45), "h")                   # the thin cannon
+        c.px(x + bend, r(38), "H")                                                       # the knee or hock
+        c.rect(x + bend - 1, r(45), x + bend + max(1, r(1.2)), r(46), "H")               # the hoof
+    leg(7, -step, True); leg(29, step, False)                                            # far legs
+    leg(11, step, True); leg(33, -step, False)                                           # near legs
     ellipse(c, r(20), r(28), 16 * k, 6 * k, "b")
     for i in range(r(8)):
         c.px(r(4) - i // 2, r(26) + i, "H")
@@ -311,11 +319,11 @@ if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_frontiers.py."
     walk = [0, 1, 2, 3, 4]
-    kit.build_boss("centaur_raider", centaur_raider, CENTAUR_PAL, doc(centaur_raider.__doc__), (24, 24), (12, 23), walk, folder="enemies")
-    kit.build_boss("centaur_slinger", centaur_slinger, CENTAUR_PAL, doc(centaur_slinger.__doc__), (24, 24), (12, 23), walk, folder="enemies")
-    kit.build_boss("eurytus", eurytus, CENTAUR_PAL, doc(eurytus.__doc__), (48, 46), (22, 44), [0, 1, 0, -1, 0])
-    kit.build_boss("rhoetus", rhoetus, CENTAUR_PAL, doc(rhoetus.__doc__), (48, 46), (22, 44), [0, 1, 0, -1, 0])
-    kit.build_boss("nessus", nessus, NESSUS_PAL, doc(nessus.__doc__), (48, 46), (22, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("centaur_raider", centaur_raider, CENTAUR_PAL, doc(centaur_raider.__doc__), (24, 26), (12, 25), walk, folder="enemies")
+    kit.build_boss("centaur_slinger", centaur_slinger, CENTAUR_PAL, doc(centaur_slinger.__doc__), (24, 26), (12, 25), walk, folder="enemies")
+    kit.build_boss("eurytus", eurytus, CENTAUR_PAL, doc(eurytus.__doc__), (48, 50), (22, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("rhoetus", rhoetus, CENTAUR_PAL, doc(rhoetus.__doc__), (48, 50), (22, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("nessus", nessus, NESSUS_PAL, doc(nessus.__doc__), (48, 50), (22, 48), [0, 1, 0, -1, 0])
     kit.build_boss("dovre_troll", dovre_troll, DOVRE_TROLL_PAL, doc(dovre_troll.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("troll_brat", troll_brat, TROLL_BRAT_PAL, doc(troll_brat.__doc__), (13, 13), (6, 12), walk, folder="enemies")
     kit.build_boss("hedal_trolls", hedal_trolls, HEDAL_PAL, doc(hedal_trolls.__doc__), (58, 58), (28, 56), [0, 1, 0, -1, 0])
