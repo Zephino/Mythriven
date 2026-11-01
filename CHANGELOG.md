@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.36
+Date: 11/01/2026
+Time: 2:42 PM
+
+### Changes
+- **The Wild Hunt has a light grey outline** (owner's idea) instead of a near-black one, so the black rider and horse stand out clearly against Erebus' dark ground.
+
+### Reason
+The owner suggested a grey outline so the dark huntsman reads better.
+
 ## Version 00.03.35
 Date: 11/01/2026
 Time: 2:35 PM

@@ -198,7 +198,7 @@ def wild_hunt(c, step):
         c.px(x, 59, "g")                                                                 # a pale ghost-light underfoot
 
 
-HUNT_PAL = {"o": "#2a3040", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
+HUNT_PAL = {"o": "#a8b0c4", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
             "H": "#6a4420", "l": "#4a4a62", "g": "#8a9ab8"}
 
 
