@@ -9257,5 +9257,243 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Hyperborea bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "arimaspian_chieftain",
+    "name_key": "BOSS_ARIMASPIAN_CHIEFTAIN_NAME",
+    "tradition": "greek",
+    "lore_source": "Herodotus, Histories 3.116, 4.13, 4.27 (the one-eyed Arimaspians steal the griffins' gold)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "arimaspian_chieftain",
+    "move_speed": 48,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "gold_thief",
+      "steal": 5.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Hyperborea bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "six_month_sleeper",
+    "name_key": "BOSS_SIX_MONTH_SLEEPER_NAME",
+    "tradition": "greek",
+    "lore_source": "Herodotus, Histories 4.25 (men of the far north who were said to sleep six months of the year)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "six_month_sleeper",
+    "move_speed": 40,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "half_asleep",
+      "awake_s": 8.0,
+      "asleep_s": 5.0,
+      "heal_per_s": 0.015,
+      "asleep_damage_taken": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Hyperborea bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "griffin_matriarch",
+    "name_key": "BOSS_GRIFFIN_MATRIARCH_NAME",
+    "tradition": "greek",
+    "lore_source": "Herodotus, Histories 3.116, 4.13, 4.27 (the griffins that guard the gold of the north); GAME_DESIGN.md (the griffin matriarch)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "griffin_matriarch",
+    "move_speed": 44,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_golden_nest",
+      "nest_offset_px": 140,
+      "ground_s": 6.0,
+      "nest_s": 5.0,
+      "sky_s": 2.0,
+      "swoop_telegraph_s": 1.0,
+      "fly_px_s": 260,
+      "heal_per_s": 0.01,
+      "nest_damage_taken": 0.5,
+      "swoop_radius_px": 50,
+      "swoop_damage": 22
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "young_griffin"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "young_griffin"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

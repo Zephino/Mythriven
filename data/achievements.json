@@ -1484,5 +1484,35 @@
       "id": "nome_king"
     },
     "persists": true
+  },
+  {
+    "id": "boss_arimaspian_chieftain",
+    "name_key": "ACH_BOSS_ARIMASPIAN_CHIEFTAIN_NAME",
+    "desc_key": "ACH_BOSS_ARIMASPIAN_CHIEFTAIN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "arimaspian_chieftain"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_six_month_sleeper",
+    "name_key": "ACH_BOSS_SIX_MONTH_SLEEPER_NAME",
+    "desc_key": "ACH_BOSS_SIX_MONTH_SLEEPER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "six_month_sleeper"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_griffin_matriarch",
+    "name_key": "ACH_BOSS_GRIFFIN_MATRIARCH_NAME",
+    "desc_key": "ACH_BOSS_GRIFFIN_MATRIARCH_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "griffin_matriarch"
+    },
+    "persists": true
   }
 ]

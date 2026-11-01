@@ -1,0 +1,114 @@
+{
+ "_doc": "A young griffin (Herodotus 3.116, 4.13: the griffins that guard the gold): a small eagle-headed, lion-bodied beast on golden wings. Built by tools/art/build_heavens.py.",
+ "size": [
+  20,
+  16
+ ],
+ "anchor": [
+  10,
+  15
+ ],
+ "palette": {
+  "o": "#2a1a08",
+  "y": "#e8c040",
+  "t": "#c8944a",
+  "w": "#f0ece4",
+  "k": "#1a1008"
+ },
+ "frames": {
+  "idle": [
+   [
+    "....................",
+    "....................",
+    "....................",
+    "..............o.....",
+    ".............owo....",
+    "...oo.......owkwo...",
+    "..oyyooo..oowwwywo..",
+    "...oyyyyootoywwyo...",
+    "....oyyotttttywo....",
+    ".....oottttttto.....",
+    ".....ottttttttto....",
+    "......ottttttto.....",
+    ".....otottttto......",
+    "......o.ootooto.....",
+    "..........o..o......",
+    "...................."
+   ]
+  ],
+  "walk": [
+   [
+    "..o..............o..",
+    ".oyo............oyo.",
+    "..oyo..........oyo..",
+    "..oyyo........oyyo..",
+    "...oyyo......owyo...",
+    "...oyyyo....owkwo...",
+    "....oyyyo.oowwwywo..",
+    "....oyyyootoywwyo...",
+    ".....oyotttttywo....",
+    "......ottttttto.....",
+    ".....ottttttttto....",
+    "......ottttttto.....",
+    ".....otottttto......",
+    "......o.ootooto.....",
+    "..........o..o......",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "..............o.....",
+    ".............owo....",
+    "...oo.......owkwo...",
+    "..oyyooo..oowwwywo..",
+    "...oyyyyootoywwyo...",
+    "....oyyotttttywo....",
+    ".....oottttttto.....",
+    ".....ottttttttto....",
+    "......ottttttto.....",
+    ".....otottttto......",
+    "......o.ootooto.....",
+    "..........o..o......",
+    "...................."
+   ],
+   [
+    "..o..............o..",
+    ".oyo............oyo.",
+    "..oyo..........oyo..",
+    "..oyyo........oyyo..",
+    "...oyyo......owyo...",
+    "...oyyyo....owkwo...",
+    "....oyyyo.oowwwywo..",
+    "....oyyyootoywwyo...",
+    ".....oyotttttywo....",
+    "......ottttttto.....",
+    ".....ottttttttto....",
+    "......ottttttto.....",
+    ".....otottttto......",
+    "......o.ootooto.....",
+    "..........o..o......",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "..............o.....",
+    ".............owo....",
+    "...oo.......owkwo...",
+    "..oyyooo..oowwwywo..",
+    "...oyyyyootoywwyo...",
+    "....oyyotttttywo....",
+    ".....oottttttto.....",
+    ".....ottttttttto....",
+    "......ottttttto.....",
+    ".....otottttto......",
+    "......o.ootooto.....",
+    "..........o..o......",
+    "...................."
+   ]
+  ]
+ }
+}

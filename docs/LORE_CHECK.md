@@ -844,6 +844,27 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | between_the_blows | Between the Blows | The hammer keeps a steady beat. Learn it. | Baum, Ozma of Oz (1907), ch. 13 (passing the Giant with the Hammer) | no |
 | billinas_eggs | Billina's Eggs | A hen once beat the Nome King. Eggs are your best weapon here. | Baum, Ozma of Oz (1907): Billina the hen's eggs undo the Nomes | no |
 
+## Pack 10: The Heavens
+
+### Hyperborea
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | hyperborea | Hyperborea | Herodotus, Histories 4.13-36 (the Hyperboreans, the Arimaspians and the griffins); Pindar, Pythian 10 | no |
+| enemy | arimaspian | Arimaspian | Herodotus, Histories 4.13, 4.27 (the one-eyed Arimaspians) | no |
+| enemy | young_griffin | Young griffin | Herodotus, Histories 3.116, 4.13 (the gold-guarding griffins) | no |
+| enemy | feather_flurry | Flurry of feathers | Herodotus, Histories 4.7, 4.31 (the air of the north full of feathers: snow) | no |
+| boss | arimaspian_chieftain | The Arimaspian Chieftain | Herodotus, Histories 3.116, 4.13, 4.27 (the one-eyed Arimaspians steal the griffins' gold) | no |
+| boss | six_month_sleeper | The Six-Month Sleeper | Herodotus, Histories 4.25 (men of the far north who were said to sleep six months of the year) | no |
+| boss | griffin_matriarch | The Griffin Matriarch | Herodotus, Histories 3.116, 4.13, 4.27 (the griffins that guard the gold of the north); GAME_DESIGN.md (the griffin matriarch) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| arimaspian_chieftain_entrance | boss entrance | arimaspian_chieftain | One eye is enough to see gold. | Herodotus 4.27 | no |
+| six_month_sleeper_entrance | boss entrance | six_month_sleeper | Mmh... is it spring already? | Herodotus 4.25 | no |
+| griffin_matriarch_entrance | boss entrance | griffin_matriarch | (A great griffin rises from her nest of gold and screams.) | Herodotus 4.13 | no |
+| griffin_matriarch_skadi | boss meets god (with skadi) | griffin_matriarch | (The griffin bows her head to the huntress of the snows, and then attacks anyway.) | Original description written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

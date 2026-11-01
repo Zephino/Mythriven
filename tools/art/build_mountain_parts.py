@@ -38,6 +38,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "the_goblin_market": ("#6a6a5a", "#5a5a4a", "#7a7a6a", "#646454", "#44443a", None),
     "libertalia": ("#c8b088", "#b09870", "#d8c098", "#c0a880", "#8a7050", None),
     "the_hollow_hills": ("#4a4440", "#3e3834", "#5a524c", "#46403c", "#2e2a26", None),
+    "hyperborea": ("#dce4ee", "#c8d0dc", "#a8b0bc", "#8a929e", "#6a727e", "#f6f8fc"),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),

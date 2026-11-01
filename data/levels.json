@@ -4510,5 +4510,117 @@
       "edge": "#3a3430",
       "stones": "#7a7068"
     }
+  },
+  {
+    "_doc": "Hyperborea, Pack 10 realm 1, the radiant land beyond the north wind (docs/PACK_10_PLAN.md). Sources: Herodotus 3.116, 4.13-36; Pindar, Pythian 10. The Hyperboreans themselves are a blessed, peaceful people and not enemies. A realm: no local gods.",
+    "id": "hyperborea",
+    "name_key": "LEVEL_HYPERBOREA_NAME",
+    "region": "realm_north",
+    "act": 12,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "hyperborea",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "snow",
+          "max": -0.3,
+          "placeholder_color": "#e4ecf4",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "packed_snow",
+          "max": 0.1,
+          "placeholder_color": "#c8d4e0",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "flowers",
+          "max": 0.55,
+          "placeholder_color": "#7a9a5a",
+          "placeholder_dots": "#f0e080"
+        },
+        {
+          "id": "grass",
+          "max": 1.0,
+          "placeholder_color": "#6a8a4a",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "hoard_heap",
+      "standing_stone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "hoard_heap": {
+        "shape": "rect",
+        "size_px": [
+          22,
+          10
+        ],
+        "placeholder_color": "#e0b040",
+        "weight": 1
+      },
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          22
+        ],
+        "placeholder_color": "#c8ccd4",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "arimaspian_chieftain",
+      "20": "six_month_sleeper",
+      "30": "griffin_matriarch"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "lemnos",
+      "boss": "talos"
+    },
+    "waves": "waves_hyperborea.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 22,
+      "push_px_s": 25,
+      "enemy_push_px_s": 10,
+      "wind_turn_s": 8,
+      "vision_screens": 0.5,
+      "pulse": 0.1,
+      "pulse_hz": 0.2,
+      "veil_color": "#eef4fa",
+      "particles": "snow",
+      "particle_color": "#ffffff",
+      "fade_s": 2.5,
+      "name_key": "HAZARD_AIR_FULL_OF_FEATHERS_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#eef0f6",
+    "flora": {
+      "density": 0.5,
+      "trees": {
+        "birch": 2,
+        "spruce": 2
+      }
+    },
+    "road": {
+      "color": "#c8ccd4",
+      "edge": "#a8acb4",
+      "stones": "#e0e4ec"
+    }
   }
 ]

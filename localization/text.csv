@@ -2802,3 +2802,31 @@ COSMETIC_BRONZE_GLOW,Bronze Glow
 COSMETIC_GLEN_DUSK,Glen Dusk
 COSMETIC_SEA_SPRAY,Sea Spray
 COSMETIC_CAST_IRON,Cast Iron
+LEVEL_HYPERBOREA_NAME,Hyperborea
+HAZARD_AIR_FULL_OF_FEATHERS_NAME,"The air fills with feathers, as Herodotus said!"
+ENEMY_ARIMASPIAN_NAME,Arimaspian
+ENEMY_ARIMASPIAN_MYTH,"Beyond the Issedones, Herodotus heard, live the one-eyed Arimaspians, who steal the gold of the north from the griffins that guard it."
+ENEMY_YOUNG_GRIFFIN_NAME,Young griffin
+ENEMY_YOUNG_GRIFFIN_MYTH,"Griffins, with eagles' heads and wings on lions' bodies, guard the gold of the far north against the Arimaspians."
+ENEMY_FEATHER_FLURRY_NAME,Flurry of feathers
+ENEMY_FEATHER_FLURRY_MYTH,The Scythians said no one can see or travel far to the north because the earth and air there are full of feathers. Herodotus thought they meant snow.
+BOSS_ARIMASPIAN_CHIEFTAIN_NAME,The Arimaspian Chieftain
+ENEMY_ARIMASPIAN_CHIEFTAIN_NAME,The Arimaspian Chieftain
+ENEMY_ARIMASPIAN_CHIEFTAIN_MYTH,"A chieftain of the one-eyed Arimaspians, the gold thieves of the far north, loaded with gold he has taken from the griffins' nests."
+BOSS_SIX_MONTH_SLEEPER_NAME,The Six-Month Sleeper
+ENEMY_SIX_MONTH_SLEEPER_NAME,The Six-Month Sleeper
+ENEMY_SIX_MONTH_SLEEPER_MYTH,"Beyond the bald men, Herodotus was told, live men who sleep for six months of the year. He did not believe it; but here they are."
+BOSS_GRIFFIN_MATRIARCH_NAME,The Griffin Matriarch
+ENEMY_GRIFFIN_MATRIARCH_NAME,The Griffin Matriarch
+ENEMY_GRIFFIN_MATRIARCH_MYTH,"The greatest of the griffins that guard the gold of the north, eagle-headed and lion-bodied, nesting on a hoard the Arimaspians have never been able to steal."
+ACH_BOSS_ARIMASPIAN_CHIEFTAIN_NAME,Defeat The Arimaspian Chieftain
+ACH_BOSS_ARIMASPIAN_CHIEFTAIN_DESC,The 10:00 boss of Hyperborea.
+ACH_BOSS_SIX_MONTH_SLEEPER_NAME,Defeat The Six-Month Sleeper
+ACH_BOSS_SIX_MONTH_SLEEPER_DESC,The 20:00 boss of Hyperborea.
+ACH_BOSS_GRIFFIN_MATRIARCH_NAME,Defeat The Griffin Matriarch
+ACH_BOSS_GRIFFIN_MATRIARCH_DESC,The 30:00 boss of Hyperborea.
+BANTER_ARIMASPIAN_CHIEFTAIN_ENTRANCE,One eye is enough to see gold.
+BANTER_SIX_MONTH_SLEEPER_ENTRANCE,Mmh... is it spring already?
+BANTER_GRIFFIN_MATRIARCH_ENTRANCE,(A great griffin rises from her nest of gold and screams.)
+BANTER_GRIFFIN_MATRIARCH_SKADI,"(The griffin bows her head to the huntress of the snows, and then attacks anyway.)"
+PACK_12_NAME,Pack 10: The Heavens

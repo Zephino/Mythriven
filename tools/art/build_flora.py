@@ -458,6 +458,11 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"fern": ("fern",)},
         "rock": ("n", "N", "O", None)},
+    # Hyperborea: the bright land beyond the north wind; birch and spruce, and flowers in the snow.
+    "hyperborea": {
+        "trees": {"birch": (birch, 18, 38), "spruce": (spruce, 22, 40)},
+        "bushes": {"juniper": ("P", "p", "q", None)},
+        "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

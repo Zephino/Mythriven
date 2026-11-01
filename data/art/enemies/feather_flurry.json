@@ -1,0 +1,92 @@
+{
+ "_doc": "A flurry of the north's \"feathers\" (Herodotus 4.31: the air beyond the north wind is full of feathers, which he took to be snow): a swirl of white flakes. Built by tools/art/build_heavens.py.",
+ "size": [
+  14,
+  12
+ ],
+ "anchor": [
+  7,
+  11
+ ],
+ "palette": {
+  "o": "#6a7888",
+  "w": "#ffffff",
+  "W": "#c8d8e8"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..............",
+    "..............",
+    ".....o...o....",
+    "....owo.owo...",
+    ".....oWoWo....",
+    "...o.oo.oo.o..",
+    "..owoWo.oWowo.",
+    "...o.oo.oo.o..",
+    ".....oWoWo....",
+    "....owo.owo...",
+    ".....o...o....",
+    ".............."
+   ]
+  ],
+  "walk": [
+   [
+    "..............",
+    ".......o......",
+    "......owo.....",
+    "...o...o..o...",
+    "..owoooWoowo..",
+    "...ooWoooWo...",
+    ".....o...o....",
+    "....oWoooWoo..",
+    "...owooWooowo.",
+    "....o..o...o..",
+    "......owo.....",
+    ".......o......"
+   ],
+   [
+    "..............",
+    "........o.....",
+    "....o..owo....",
+    "...owo.oo.....",
+    "....o.oWoo.o..",
+    ".....oWooWowo.",
+    "...o.oo.oo.o..",
+    "..owoWooWo....",
+    "...o.ooWo.o...",
+    "......oo.owo..",
+    ".....owo..o...",
+    "......o......."
+   ],
+   [
+    "..............",
+    "......o.......",
+    ".....owo..o...",
+    "......o.oowo..",
+    "...o.oWoWoo...",
+    "..owooo.oo....",
+    "...ooWo.oWoo..",
+    ".....oo.ooowo.",
+    "....ooWoWo.o..",
+    "...owoo.o.....",
+    "....o..owo....",
+    "........o....."
+   ],
+   [
+    "..............",
+    ".......o......",
+    "......owo.....",
+    "....o..o...o..",
+    "...owooWooowo.",
+    "....oWoooWoo..",
+    ".....o...o....",
+    "...ooWoooWo...",
+    "..owoooWoowo..",
+    "...o...o..o...",
+    "......owo.....",
+    ".......o......"
+   ]
+  ]
+ }
+}

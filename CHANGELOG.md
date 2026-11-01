@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.11
+Date: 10/31/2026
+Time: 11:38 PM
+
+### Changes
+- **Pack 10, The Heavens, is planned** (`docs/PACK_10_PLAN.md`): Hyperborea, the Empyrean, the Glass Mountain and Demos Oneiron, from the old texts only (Herodotus, the ancient astronomers, the Grimms, Andersen's 1844 Snow Queen, Homer and Ovid). Dante's religious heaven is left out. Claude made the choices with the owner's trust; any can be changed.
+- **Hyperborea, the land beyond the north wind, is built and open.** It opens when you beat Talos, under a new "Pack 10: The Heavens" heading.
+  - **Hazard, the air full of feathers:** as Herodotus was told, the northern air fills with "feathers" (snow): the view closes in and a light wind blows.
+  - **Monsters:** Arimaspians (the one-eyed gold thieves), frost wisps, flurries of "feathers", young griffins, and from 10:00 frost giants.
+  - **10:00, the Arimaspian Chieftain:** every blow he lands steals some of your run gold; when his guard breaks he drops it all back.
+  - **20:00, the Six-Month Sleeper** (Herodotus 4.25): awake for 8 s, asleep for 5 s. Asleep he heals, but takes double damage.
+  - **30:00, the Griffin Matriarch** (the design's boss): on her golden nest she heals and takes half damage; then she rises out of reach and swoops down on a marked spot under a Hero.
+  - Snowfields with spring flowers, birch and spruce, golden hoards and standing stones; mountain hares, swans and reindeer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (415 tests pass).
+
+### Reason
+The owner said "go ahead" with Pack 10 after Pack 9 was finished.
+
 ## Version 00.03.10
 Date: 10/31/2026
 Time: 11:26 PM

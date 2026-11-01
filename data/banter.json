@@ -2640,5 +2640,46 @@
     "text_key": "BANTER_NOME_KING_MOKOSH",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "arimaspian_chieftain_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "arimaspian_chieftain",
+    "hero": "",
+    "god": "arimaspian_chieftain",
+    "text_key": "BANTER_ARIMASPIAN_CHIEFTAIN_ENTRANCE",
+    "lore_source": "Herodotus 4.27",
+    "needs_owner_review": true
+  },
+  {
+    "id": "six_month_sleeper_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "six_month_sleeper",
+    "hero": "",
+    "god": "six_month_sleeper",
+    "text_key": "BANTER_SIX_MONTH_SLEEPER_ENTRANCE",
+    "lore_source": "Herodotus 4.25",
+    "needs_owner_review": true
+  },
+  {
+    "id": "griffin_matriarch_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "griffin_matriarch",
+    "hero": "",
+    "god": "griffin_matriarch",
+    "text_key": "BANTER_GRIFFIN_MATRIARCH_ENTRANCE",
+    "lore_source": "Herodotus 4.13",
+    "needs_owner_review": true
+  },
+  {
+    "id": "griffin_matriarch_skadi",
+    "trigger": "boss_meets_god",
+    "speaker": "griffin_matriarch",
+    "hero": "",
+    "god": "griffin_matriarch",
+    "with_god": "skadi",
+    "text_key": "BANTER_GRIFFIN_MATRIARCH_SKADI",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
   }
 ]

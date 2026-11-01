@@ -1121,3 +1121,46 @@ func test_pack_9_boss_secrets() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
+func test_hyperborea_is_pack_10() -> void:
+	var level: Dictionary = _level("hyperborea")
+	assert_eq(int(level["act"]), 12)
+	assert_eq(str(level["unlock"]["boss"]), "talos")
+	assert_eq(tr("PACK_12_NAME"), "Pack 10: The Heavens")
+
+
+func test_the_arimaspian_steals_gold_and_drops_it() -> void:
+	_start("hyperborea")
+	var chief: ArimaspianBoss = _bosses.spawn_boss("arimaspian_chieftain", 0) as ArimaspianBoss
+	GameAuthority.run.gold = 20.0
+	GameAuthority.player_damaged.emit(_player, 5.0, "arimaspian_chieftain")
+	assert_almost_eq(GameAuthority.run.gold, 15.0, 0.01, "stolen")
+	chief.guard_break()
+	assert_almost_eq(GameAuthority.run.gold, 20.0, 0.5, "dropped again")
+
+
+func test_the_six_month_sleeper_naps() -> void:
+	_start("hyperborea")
+	var sleeper: SixMonthSleeperBoss = _bosses.spawn_boss("six_month_sleeper", 1) as SixMonthSleeperBoss
+	sleeper.signature(8.1)
+	assert_true(sleeper.asleep)
+	assert_almost_eq(sleeper.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "asleep, hurt double")
+	sleeper.signature(5.1)
+	assert_false(sleeper.asleep, "and awake")
+
+
+func test_the_griffin_matriarch_nests_and_swoops() -> void:
+	_start("hyperborea")
+	var griffin: GriffinMatriarchBoss = _bosses.spawn_boss("griffin_matriarch", 2) as GriffinMatriarchBoss
+	griffin.signature(6.1)
+	assert_eq(griffin.state, "nest")
+	for k: int in 10:
+		griffin.signature(0.5)
+	assert_eq(griffin.state, "sky", "up into the sky")
+	assert_eq(griffin.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "out of reach")
+	var hp: float = _player.hp
+	griffin.signature(2.1)
+	griffin.signature(1.1)
+	assert_eq(griffin.swoops, 1)
+	assert_lt(_player.hp, hp, "the swoop")
