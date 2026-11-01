@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.43
+Date: 11/01/2026
+Time: 3:43 PM
+
+### Changes
+- **The dwarves and Gullinbursti remade** (owner: the dwarves and Gullinbursti looked weird).
+  - **A new shared dwarf body** for the dwarf bosses: short, broad and strong, a big head with a big nose, bushy brows and deep-set eyes, a long flowing beard with strands and rings in its braids, a belted tunic, big hands and heavy boots. Each dwarf now has his own headgear, colours and item, so they're easy to tell apart:
+    - **Brokkr:** red beard, a pointed hood, a smith's leather apron and his bellows.
+    - **Andvari:** old and bald with a fringe of white hair, a grey beard, a damp blue-green tunic, a pike's fin on his back, the gold ring, gold at his feet.
+    - **Alvíss:** a pale dwarf with a white beard and a pale nose, in a violet robe and hood; and the same dwarf turned to cracked grey stone.
+    - **Fjalar and Galar:** Fjalar red-bearded in red with a pointed hood; Galar black-bearded in blue under an iron cap, holding a ladle dripping mead.
+    - **Alberich:** a gold crown, a long white beard, the grey Tarnkappe over his shoulders with gold clasps, and his whip with gold knots.
+  - **The dwarf smith and hammer-bearer** (monsters) redrawn to match: a pointed hood or an iron cap with a nose-guard, big noses, long beards, an apron or mail.
+  - **Gullinbursti:** a proper boar, heavy in the shoulders, a long snout with its disc and nostrils, an upturned tusk, a small eye and ear, slim legs with cloven hooves, a thin tufted tail, and a glowing crest of golden bristles along its back.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for the dwarves and Gullinbursti to be remade.
+
 ## Version 00.03.42
 Date: 11/01/2026
 Time: 3:27 PM

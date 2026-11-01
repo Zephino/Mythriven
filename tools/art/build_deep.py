@@ -10,88 +10,166 @@ STEP = [0, -1, 0, 1, 0]
 
 # --- Nidavellir (Voluspa 37; Reginsmal; Skaldskaparmal 35, 39) --------------------------------------------------------
 
+def dwarf_body(c, step, ox=0, tunic="t", tunic_d="T", skin="s", skin_d="S", hair="h", hair_d="H", boots="B",
+               belt="b", hat=None, hat_col="c", hat_d="C", beard_long=34, braid_rings=True):
+    """The shared dwarf body for the dwarf bosses: short, broad and strong, a big head with a big nose, bushy brows and
+    deep-set eyes, a long flowing beard over the chest, a belted tunic, big hands and heavy boots. `hat`: "hood" (a
+    pointed hood), "helm" (an iron cap with a nose-guard), "crown", or None (bare, with a fringe of hair)."""
+    X = lambda x: x + ox
+    for k, d in enumerate((-step, step)):                                                # short legs, heavy boots
+        c.rect(X(14 + k * 8) + d, 37, X(18 + k * 8) + d, 42, tunic_d)
+        c.rect(X(13 + k * 8) + d, 42, X(19 + k * 8) + d, 46, boots); c.row(42, X(13 + k * 8) + d, X(19 + k * 8) + d, "k")
+    poly(c, [(X(9), 20), (X(31), 20), (X(33), 30), (X(30), 38), (X(10), 38), (X(7), 30)], tunic)   # broad body
+    poly(c, [(X(9), 20), (X(13), 20), (X(12), 38), (X(10), 38), (X(7), 30)], tunic_d)
+    c.row(33, X(9), X(31), belt); c.rect(X(19), 32, X(21), 34, "y")                       # belt and buckle
+    poly(c, [(X(7), 21), (X(10), 21), (X(9), 32), (X(5), 32)], tunic_d)                   # the far arm
+    ellipse(c, X(6), 34, 2.5, 2.5, skin_d)                                               # big fist
+    ellipse(c, X(20), 12, 7.5, 7.5, skin)                                                # the head
+    c.px(X(12), 12, skin_d); c.px(X(12), 13, skin_d); c.px(X(28), 12, skin_d)            # ears
+    poly(c, [(X(13), 15), (X(27), 15), (X(28), 22), (X(25), beard_long - 6), (X(20), beard_long),
+             (X(15), beard_long - 6), (X(12), 22)], hair)                                # the beard, over the chest
+    for x in (X(15), X(18), X(22), X(25)):
+        for y in range(18, beard_long - 4, 2):
+            if c.g[y][x] == hair:
+                c.px(x, y, hair_d)                                                       # strands
+    if braid_rings:
+        c.px(X(17), beard_long - 6, "y"); c.px(X(23), beard_long - 6, "y")               # rings in the braids
+    c.rect(X(15), 15, X(25), 16, hair_d)                                                 # moustache
+    ellipse(c, X(21), 13, 2, 2.2, skin_d); c.px(X(21), 12, skin)                         # the big nose
+    c.row(9, X(15), X(18), hair); c.row(9, X(22), X(25), hair)                           # bushy brows
+    c.px(X(17), 11, "k"); c.px(X(23), 11, "k"); c.px(X(16), 11, skin_d); c.px(X(24), 11, skin_d)   # deep-set eyes
+    if hat == "hood":
+        poly(c, [(X(11), 9), (X(20), 0), (X(26), 1), (X(29), 9), (X(28), 12), (X(12), 12)], hat_col)
+        poly(c, [(X(20), 0), (X(14), -1), (X(11), 3), (X(16), 4)], hat_col)              # the hood's point, falling back
+        c.row(9, X(12), X(28), hat_d)
+        c.row(9, X(15), X(18), hair); c.row(9, X(22), X(25), hair)
+    elif hat == "helm":
+        ellipse(c, X(20), 6, 8.5, 5, hat_col); c.rect(X(11), 6, X(29), 8, hat_col)
+        c.row(8, X(11), X(29), hat_d); c.rect(X(20), 8, X(21), 12, hat_d)                # rim and nose-guard
+        c.px(X(17), 3, "w")
+    elif hat == "crown":
+        c.rect(X(13), 3, X(27), 6, "y")
+        for x in (X(13), X(17), X(20), X(23), X(27)):
+            c.px(x, 2, "y")
+        c.px(X(20), 4, "r"); c.px(X(16), 5, "Y"); c.px(X(24), 5, "Y")
+    else:
+        c.rect(X(13), 5, X(27), 6, hair); c.px(X(13), 7, hair); c.px(X(27), 7, hair)    # a fringe of hair round a bald crown
+    poly(c, [(X(29), 21), (X(33), 21), (X(35), 30), (X(32), 30)], tunic_d)               # the near arm, reaching forward
+    ellipse(c, X(34), 31, 2.5, 2.5, skin)                                                # big hand
+
+
 def dwarf_smith(c, f):
-    """A dwarf smith of Nidavellir (Voluspa 10-16; Skaldskaparmal 35): short and broad, a long beard, a leather apron,
-    a smith's hammer."""
+    """A dwarf smith of Nidavellir (Voluspa 10-16; Skaldskaparmal 35): short and broad, a pointed hood, a big nose and a
+    long beard, a leather apron, a smith's hammer."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 17, x + 1 + d, 20, "B")
-    c.rect(5, 9, 14, 17, "a"); c.rect(6, 11, 13, 17, "A")
-    ellipse(c, 9, 6, 3.5, 3, "s"); c.px(8, 5, "k"); c.px(10, 5, "k")
-    poly(c, [(6, 7), (12, 7), (11, 14), (7, 14)], "h")                                    # the beard
-    c.rect(5, 2, 13, 4, "c")
-    c.rect(15, 6, 16, 14, "B"); c.rect(14, 4, 18, 6, "i")                                  # hammer
+        c.rect(x + d, 17, x + 1 + d, 18, "a"); c.rect(x - 1 + d, 19, x + 2 + d, 20, "B")
+    poly(c, [(5, 10), (14, 10), (15, 17), (4, 17)], "a"); c.rect(7, 12, 12, 17, "A")    # body and apron
+    ellipse(c, 9, 6, 3.5, 3.5, "s")
+    poly(c, [(6, 7), (12, 7), (11, 13), (9, 14), (7, 13)], "h"); c.px(9, 10, "H")        # beard
+    c.px(10, 6, "S"); c.px(8, 5, "k"); c.px(11, 5, "k")                                  # nose, eyes
+    poly(c, [(5, 4), (9, 0), (13, 3), (13, 5), (5, 5)], "c")                             # pointed hood
+    c.rect(15, 6, 16, 14, "w"); c.rect(14, 3, 18, 6, "i")                                # hammer
+    c.px(14, 10, "s")
 
 
-DWARF_PAL = {"o": "#120c08", "a": "#6a4a2a", "A": "#4a3018", "s": "#d8a880", "k": "#1a1008", "h": "#b07030",
-             "c": "#3a3a48", "B": "#3a2818", "i": "#9aa0a8"}
+DWARF_PAL = {"o": "#120c08", "a": "#6a4a2a", "A": "#4a3018", "s": "#d8a880", "S": "#b0805a", "k": "#1a1008",
+             "h": "#b07030", "H": "#7a4a1a", "c": "#5a3a3a", "B": "#3a2818", "i": "#9aa0a8", "w": "#6a4a2a"}
 
 
 def dwarf_hammerer(c, f):
-    """A dwarf hammer-bearer (Skaldskaparmal 35): a heavy dwarf in mail with a great two-handed hammer."""
+    """A dwarf hammer-bearer (Skaldskaparmal 35): a heavy dwarf in mail and an iron cap with a nose-guard, carrying a
+    great two-handed hammer."""
     s = STEP[f]
     for x, d in ((8, -s), (14, s)):
-        c.rect(x + d, 20, x + 2 + d, 24, "B")
-    c.rect(5, 10, 18, 20, "m"); c.row(14, 5, 18, "M"); c.row(17, 5, 18, "M")
-    ellipse(c, 11, 6, 4, 3.5, "s"); c.px(10, 5, "k"); c.px(13, 5, "k")
-    poly(c, [(7, 7), (15, 7), (14, 16), (8, 16)], "h")
-    c.rect(6, 1, 16, 4, "i")
-    c.rect(20, 3, 21, 20, "B"); c.rect(18, 0, 24, 4, "i")
+        c.rect(x + d, 20, x + 2 + d, 22, "m"); c.rect(x - 1 + d, 23, x + 3 + d, 24, "B")
+    poly(c, [(5, 10), (18, 10), (19, 20), (4, 20)], "m")
+    for y in (13, 16, 19):
+        c.row(y, 5, 18, "M")                                                             # mail rings
+    ellipse(c, 11, 6, 4, 4, "s")
+    poly(c, [(7, 7), (15, 7), (14, 15), (11, 17), (8, 15)], "h"); c.px(11, 11, "H"); c.px(9, 9, "H")
+    ellipse(c, 6.5 + 4.5, 3, 4.5, 2.5, "i"); c.row(4, 6, 16, "I"); c.rect(11, 4, 11, 7, "I")   # iron cap, nose-guard
+    c.px(9, 6, "k"); c.px(13, 6, "k")
+    c.rect(20, 3, 21, 20, "w"); c.rect(18, 0, 24, 4, "i"); c.row(4, 18, 24, "I")        # great hammer
+    c.px(19, 12, "s"); c.px(19, 13, "s")
 
 
-HAMMER_PAL = dict(DWARF_PAL, m="#7a7e88", M="#5a5e68", h="#c8c0b0")
+HAMMER_PAL = dict(DWARF_PAL, m="#7a7e88", M="#5a5e68", h="#c8c0b0", H="#9a9284", I="#6a7078")
 
 
 def gullinbursti(c, step):
     """Gullinbursti (Skaldskaparmal 35): the boar with golden bristles that Brokkr and Sindri forged for Freyr; it runs
-    over air and sea faster than any horse, and its bristles light up the darkest night."""
-    ellipse(c, 28, 28, 18, 10, "g")
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(14 + k * 9 + d, 34, 17 + k * 9 + d, 46, "G")
-    poly(c, [(44, 22), (56, 26), (56, 33), (44, 34)], "g"); c.rect(54, 28, 57, 31, "G"); c.px(49, 25, "k")
-    poly(c, [(52, 31), (55, 36), (53, 31)], "w")                                            # tusk
-    for x in range(14, 46, 2):
-        c.px(x, 17 + abs(x - 30) // 6, "y"); c.px(x, 16 + abs(x - 30) // 6, "w")           # golden bristles
-    c.px(9, 27, "g"); c.px(8, 26, "g")
+    over air and sea faster than any horse, and its bristles light up the darkest night. A great golden boar, heavy in
+    the shoulders, its crest of bristles glowing."""
+    def leg(x, col, shade):
+        poly(c, [(x - 2, 34), (x + 3, 34), (x + 2, 42), (x + 1, 46), (x - 1, 46), (x - 1, 42)], col)
+        c.rect(x - 2, 46, x + 2, 48, shade); c.px(x, 47, "k")                            # cloven hoof
+    leg(16 - step, "G", "D"); leg(46 + step, "G", "D")                                   # far legs
+    for i in range(6):
+        c.px(6 - i // 2, 24 + i, "G")                                                    # thin tail
+    c.px(3, 30, "y"); c.px(3, 31, "y")
+    poly(c, [(8, 26), (14, 20), (30, 16), (44, 14), (52, 20), (54, 30), (50, 38), (36, 38), (20, 38), (10, 36)], "g")
+    ellipse(c, 14, 30, 7, 7, "g")                                                        # the haunch
+    poly(c, [(22, 36), (44, 36), (40, 39), (24, 39)], "G")                               # shadow under the belly
+    poly(c, [(48, 18), (58, 24), (64, 28), (64, 33), (56, 34), (50, 32)], "g")           # long head and snout
+    c.rect(63, 28, 65, 33, "G"); c.px(64, 30, "k"); c.px(64, 32, "k")                    # the snout's disc, nostrils
+    poly(c, [(59, 32), (62, 26), (63, 27), (60, 33)], "w")                               # the tusk curving up
+    c.px(55, 23, "k"); c.px(56, 23, "y")                                                 # small eye
+    poly(c, [(49, 17), (51, 11), (54, 18)], "G")                                         # ear
+    leg(20 + step, "g", "G"); leg(50 - step, "g", "G")                                   # near legs
+    for x in range(14, 54):                                                              # the glowing crest of bristles
+        top = next((y for y in range(c.h) if c.g[y][x] in "gG"), None)
+        if top is None:
+            continue
+        h = 3 if 26 <= x <= 46 else 2
+        for y in range(top - h, top):
+            c.px(x, y, "l" if (x + y) % 2 else "y")
+        if x % 3 == 0:
+            c.px(x, top - h - 1, "w")
+    for x, y in ((24, 26), (32, 24), (40, 22), (18, 30)):
+        c.px(x, y, "L")                                                                  # gleam on the gold
 
 
-BOAR_PAL = {"o": "#2a1a04", "g": "#d8a030", "G": "#a87420", "y": "#ffe070", "w": "#fff8d8", "k": "#1a0e04",
-            "l": "#fff0a0", "L": "#f8d860"}
+BOAR_PAL = {"o": "#2a1a04", "g": "#d8a030", "G": "#a87420", "D": "#7a5210", "y": "#ffe070", "w": "#fff8d8",
+            "k": "#1a0e04", "l": "#fff0a0", "L": "#f8d860"}
 
 
 def brokkr(c, step):
     """Brokkr (Skaldskaparmal 35): the dwarf who worked the bellows for his brother Sindri and would not stop though the
-    fly stung him; he carried the treasures to the gods. A dwarf in a leather apron with a pair of bellows."""
-    for k, d in enumerate((-step, step)):
-        c.rect(14 + k * 8 + d, 40, 17 + k * 8 + d, 46, "B")
-    c.rect(10, 20, 31, 40, "a"); c.rect(13, 24, 28, 40, "A")
-    ellipse(c, 20, 13, 7, 6, "s"); c.px(17, 12, "k"); c.px(23, 12, "k")
-    poly(c, [(14, 15), (26, 15), (24, 32), (16, 32)], "h")
-    c.rect(12, 5, 28, 9, "c")
-    poly(c, [(32, 26), (40, 22), (42, 32), (34, 34)], "b"); c.rect(41, 26, 46, 28, "i")        # the bellows
+    fly stung him; he carried the treasures to the gods. A stocky red-bearded dwarf in a smith's leather apron and a
+    pointed hood, his bellows in his hand."""
+    dwarf_body(c, step, hat="hood", hat_col="c", hat_d="C")
+    poly(c, [(13, 22), (27, 22), (28, 38), (12, 38)], "A")                               # the leather apron
+    poly(c, [(13, 15), (27, 15), (28, 22), (25, 28), (20, 34), (15, 28), (12, 22)], "h")
+    for x in (15, 18, 22, 25):
+        for y in range(18, 30, 2):
+            if c.g[y][x] == "h":
+                c.px(x, y, "H")
+    poly(c, [(34, 24), (42, 20), (45, 30), (36, 34)], "b"); c.rect(44, 25, 47, 27, "i")   # the bellows
+    c.row(29, 36, 43, "B")
 
 
-BROKKR_PAL = dict(DWARF_PAL, b="#7a5430")
+BROKKR_PAL = {"o": "#120c08", "k": "#1a1008", "t": "#5a3a22", "T": "#3a2414", "s": "#d8a880", "S": "#a87a58",
+              "h": "#c0602a", "H": "#8a3e18", "B": "#3a2818", "b": "#7a5430", "c": "#6a2a2a", "C": "#4a1a1a",
+              "A": "#6a4a2a", "y": "#e8c040", "i": "#9aa0a8", "w": "#f0ece4"}
 
 
 def andvari(c, step):
     """Andvari (Reginsmal): the dwarf who lived as a pike in the waterfall Andvarafors guarding his gold; robbed, he
-    cursed his ring Andvaranaut. A small grey dwarf clutching a gold ring, a pike's fins on his back."""
-    for k, d in enumerate((-step, step)):
-        c.rect(14 + k * 8 + d, 40, 17 + k * 8 + d, 46, "B")
-    c.rect(11, 20, 30, 40, "u"); c.rect(13, 24, 28, 40, "U")
+    cursed his ring Andvaranaut. A small old grey dwarf, bald with a fringe of white hair, a long grey beard, a damp
+    blue-green tunic, clutching the gold ring; gold at his feet."""
+    dwarf_body(c, step, tunic="u", tunic_d="U", hair="h", hair_d="H", hat=None)
     for k in range(5):
-        c.px(30 + k, 22 + k * 2, "f"); c.px(31 + k, 22 + k * 2, "f")                           # pike fins
-    ellipse(c, 20, 13, 7, 6, "s"); c.px(17, 12, "k"); c.px(23, 12, "k")
-    poly(c, [(14, 15), (26, 15), (23, 30), (17, 30)], "h")
-    c.rect(12, 5, 28, 9, "c")
-    for a in range(12):
-        c.px(8 + round(3 * math.cos(a / 12 * 6.28)), 30 + round(3 * math.sin(a / 12 * 6.28)), "y")   # the ring
-    for k in range(8):
-        c.px(4 + k * 4, 46, "y")                                                                  # gold at his feet
+        c.px(32 + k, 20 + k * 2, "f"); c.px(33 + k, 20 + k * 2, "f")                     # a pike's fin on his back
+    for a in range(16):
+        c.px(round(37 + 3 * math.cos(a / 16 * 6.28)), round(31 + 3 * math.sin(a / 16 * 6.28)), "y")   # the ring
+    for k in range(9):
+        c.px(4 + k * 4, 47, "y"); c.px(5 + k * 4, 47, "Y")                               # gold at his feet
 
 
-ANDVARI_PAL = dict(DWARF_PAL, u="#4a5a6a", U="#3a4858", f="#6a8a7a", y="#f0c840", h="#9a9a9a", s="#c8b8a8")
+ANDVARI_PAL = {"o": "#0c0c10", "k": "#141418", "u": "#3a5a5a", "U": "#2a4242", "s": "#c8b8a8", "S": "#9a8a7a",
+               "h": "#a8a8a8", "H": "#7a7a7a", "B": "#2a2a2a", "b": "#4a3a2a", "f": "#6a8a7a", "y": "#f0c840",
+               "Y": "#b08a20", "w": "#f0f0f0"}
 
 
 # --- Svartalfheim (Gylfaginning 17, 34; Alvissmal; Skaldskaparmal 1; the Nibelungenlied) ------------------------------
@@ -127,62 +205,59 @@ NIB_PAL = {"o": "#0a0808", "k": "#1a1418", "m": "#4a4a56", "M": "#2e2e38", "s": 
 
 
 def alviss(stone):
-    """Alviss (Alvissmal): the "all-wise" dwarf, pale-nosed and dwelling under stone, who came to claim Thor's daughter;
-    Thor kept him answering questions until the sun rose and turned him to stone."""
+    """Alviss (Alvissmal): the "all-wise" dwarf, pale about the nose and dwelling under stone, who came to claim Thor's
+    daughter; Thor kept him answering questions until the sun rose and turned him to stone. A pale dwarf with a long
+    white beard in a deep violet robe and hood; and the same dwarf turned to grey stone, cracked."""
     def draw(c, step):
-        skin, robe, beard = ("g", "G", "g") if stone else ("p", "v", "w")
-        for k, d in enumerate((-step, step)):
-            c.rect(14 + k * 8 + d, 40, 17 + k * 8 + d, 46, "G" if stone else "k")
-        c.rect(11, 20, 30, 40, robe)
-        ellipse(c, 20, 13, 7, 6, skin); c.px(17, 12, "k"); c.px(23, 12, "k")
-        c.rect(19, 13, 21, 16, "w" if not stone else "G")                                  # the pale nose
-        poly(c, [(14, 15), (26, 15), (24, 34), (16, 34)], beard)
-        c.rect(12, 4, 28, 8, "G" if stone else "c")
         if stone:
-            for x, y in ((14, 24), (25, 30), (18, 36), (22, 10)):
-                c.px(x, y, "k"); c.px(x + 1, y + 1, "k")                                    # cracks
+            dwarf_body(c, 0, tunic="g", tunic_d="G", skin="g", skin_d="G", hair="G", hair_d="d", boots="G", belt="G",
+                       hat="hood", hat_col="g", hat_d="G", braid_rings=False)
+            for x, y in ((14, 24), (25, 30), (18, 36), (22, 6), (10, 28), (30, 26)):
+                c.px(x, y, "d"); c.px(x + 1, y + 1, "d")                                 # cracks
+            return
+        dwarf_body(c, step, tunic="v", tunic_d="V", skin="p", skin_d="P", hair="w", hair_d="W", hat="hood",
+                   hat_col="v", hat_d="V", braid_rings=False)
+        ellipse(c, 21, 13, 2, 2.2, "n")                                                  # the pale nose
     return draw
 
 
-ALVISS_PAL = {"o": "#08080c", "k": "#14121a", "p": "#d8d0d8", "v": "#3a3450", "w": "#f0f0f4", "c": "#2a2438",
-              "g": "#8a8a88", "G": "#6a6a68"}
+ALVISS_PAL = {"o": "#08080c", "k": "#14121a", "p": "#d8c8c8", "P": "#a89898", "n": "#f4eeee", "v": "#4a3a6a",
+              "V": "#2e2448", "w": "#f0f0f4", "W": "#b8b8c4", "B": "#1e1a24", "b": "#2a2438", "y": "#c8c0e0",
+              "g": "#8a8a88", "G": "#6a6a68", "d": "#3a3a38"}
 
 
 def fjalar_and_galar(c, step):
     """Fjalar and Galar (Skaldskaparmal 1): the two dwarf brothers who killed Kvasir and brewed the mead of poetry from
-    his blood mixed with honey in two vats and a kettle. Two dwarves side by side, one with a ladle."""
-    for bx, robe in ((4, "r"), (26, "u")):
-        for k, d in enumerate((-step, step)):
-            c.rect(bx + 4 + k * 6 + d, 38, bx + 6 + k * 6 + d, 44, "k")
-        c.rect(bx + 1, 20, bx + 17, 38, robe)
-        ellipse(c, bx + 9, 13, 6, 5, "s"); c.px(bx + 7, 12, "k"); c.px(bx + 11, 12, "k")
-        poly(c, [(bx + 4, 15), (bx + 14, 15), (bx + 12, 30), (bx + 6, 30)], "h")
-        c.rect(bx + 2, 5, bx + 16, 8, "c")
-    c.rect(44, 18, 45, 34, "b"); ellipse(c, 44, 36, 3, 2, "y")                              # the ladle of mead
+    his blood mixed with honey in two vats and a kettle. Two dwarves side by side: Fjalar red-haired in a red tunic and
+    a pointed hood, Galar dark-haired in blue under an iron cap, holding a ladle dripping mead."""
+    dwarf_body(c, step, ox=-4, tunic="r", tunic_d="R", hair="h", hair_d="H", hat="hood", hat_col="R", hat_d="C")
+    dwarf_body(c, -step, ox=22, tunic="u", tunic_d="U", hair="j", hair_d="J", hat="helm", hat_col="i", hat_d="I")
+    c.rect(57, 14, 58, 30, "b"); ellipse(c, 57, 33, 3, 2, "m"); c.px(57, 36, "m"); c.px(58, 38, "m")   # ladle of mead
 
 
-FJALAR_PAL = {"o": "#0c0806", "k": "#1a1410", "r": "#6a2a2a", "u": "#2a4a6a", "s": "#d8a880", "h": "#9a6a3a",
-              "c": "#3a3a48", "b": "#6a4a2a", "y": "#e8a840"}
+FJALAR_PAL = {"o": "#0c0806", "k": "#1a1410", "r": "#7a2a2a", "R": "#5a1e1e", "u": "#2a4a6a", "U": "#1e3650",
+              "s": "#d8a880", "S": "#a87a58", "h": "#c0602a", "H": "#8a3e18", "j": "#3a2a1e", "J": "#20160e",
+              "B": "#2a1e14", "b": "#6a4a2a", "C": "#3a1414", "i": "#9aa0a8", "I": "#6a7078", "y": "#e8c040",
+              "m": "#f0b030", "w": "#ffffff"}
 
 
 def alberich(c, step):
     """Alberich (the Nibelungenlied, 3rd adventure): the strong dwarf who guarded the Nibelung hoard and owned the
-    cloak of invisibility (the Tarnkappe) until Siegfried won it from him. A crowned dwarf with a long beard and a
-    whip, the grey cloak over his shoulders."""
-    for k, d in enumerate((-step, step)):
-        c.rect(14 + k * 8 + d, 40, 17 + k * 8 + d, 46, "k")
-    poly(c, [(8, 18), (32, 18), (36, 42), (4, 42)], "g")                                  # the Tarnkappe
-    c.rect(12, 20, 28, 40, "r")
-    ellipse(c, 20, 13, 7, 6, "s"); c.px(17, 12, "k"); c.px(23, 12, "k")
-    poly(c, [(14, 15), (26, 15), (23, 36), (17, 36)], "w")
-    c.rect(13, 4, 27, 7, "y"); c.px(14, 3, "y"); c.px(20, 2, "y"); c.px(26, 3, "y")      # crown
-    for k in range(10):
-        c.px(36 + k // 2, 20 + k * 2, "b")                                                  # his whip of gold knots
-    c.px(38, 30, "y"); c.px(39, 36, "y")
+    cloak of invisibility (the Tarnkappe) until Siegfried won it from him. A crowned dwarf with a long white beard, the
+    grey Tarnkappe over his shoulders, a whip with knots of gold."""
+    poly(c, [(6, 19), (34, 19), (38, 44), (2, 44)], "g")                                 # the Tarnkappe behind him
+    c.row(30, 4, 36, "G"); c.row(38, 3, 37, "G")
+    dwarf_body(c, step, tunic="r", tunic_d="R", hair="w", hair_d="W", hat="crown")
+    c.px(9, 20, "y"); c.px(31, 20, "y")                                                  # the cloak's clasps
+    for k in range(12):
+        c.px(36 + k // 2, 30 + k, "b")                                                   # his whip
+    for k in (3, 7, 11):
+        c.px(36 + k // 2, 30 + k, "y")                                                   # its knots of gold
 
 
-ALBERICH_PAL = {"o": "#0a0808", "k": "#1a1410", "g": "#6a6e78", "r": "#5a2a4a", "s": "#d8b090", "w": "#e8e4dc",
-                "y": "#f0c840", "b": "#6a4a2a"}
+ALBERICH_PAL = {"o": "#0a0808", "k": "#1a1410", "g": "#6a6e78", "G": "#50545e", "r": "#5a2a4a", "R": "#401c34",
+                "s": "#d8b090", "S": "#a8805e", "w": "#e8e4dc", "W": "#b0aca4", "B": "#2a1e14", "b": "#6a4a2a",
+                "y": "#f0c840", "Y": "#b08a20"}
 
 
 # --- Mycendra (the game's own invented fungal city; GAME_DESIGN.md: Fantasy realms) ------------------------------------
@@ -368,7 +443,7 @@ if __name__ == "__main__":
     walk = [0, 1, 2, 3, 4]
     kit.build_boss("dwarf_smith", dwarf_smith, DWARF_PAL, doc(dwarf_smith.__doc__), (20, 22), (10, 21), walk, folder="enemies")
     kit.build_boss("dwarf_hammerer", dwarf_hammerer, HAMMER_PAL, doc(dwarf_hammerer.__doc__), (26, 26), (12, 25), walk, folder="enemies")
-    kit.build_boss("gullinbursti", gullinbursti, BOAR_PAL, doc(gullinbursti.__doc__), (60, 50), (28, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("gullinbursti", gullinbursti, BOAR_PAL, doc(gullinbursti.__doc__), (68, 50), (32, 48), [0, 1, 0, -1, 0])
     kit.build_boss("brokkr", brokkr, BROKKR_PAL, doc(brokkr.__doc__), (48, 48), (20, 46), [0, 1, 0, -1, 0])
     kit.build_boss("andvari", andvari, ANDVARI_PAL, doc(andvari.__doc__), (44, 48), (20, 46), [0, 1, 0, -1, 0])
     kit.build_boss("svartalf", svartalf, SVART_PAL, doc(svartalf.__doc__), (20, 24), (10, 23), walk, folder="enemies")
@@ -376,7 +451,7 @@ if __name__ == "__main__":
     kit.build_boss("alviss", alviss(False), ALVISS_PAL, doc(alviss.__doc__), (40, 48), (20, 46), [0, 1, 0, -1, 0])
     kit.build_boss("alviss_stone", alviss(True), ALVISS_PAL, doc(alviss.__doc__ + " Here, turned to stone."), (40, 48),
                    (20, 46), [0, 0, 0, 0, 0])
-    kit.build_boss("fjalar_and_galar", fjalar_and_galar, FJALAR_PAL, doc(fjalar_and_galar.__doc__), (50, 46), (24, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("fjalar_and_galar", fjalar_and_galar, FJALAR_PAL, doc(fjalar_and_galar.__doc__), (64, 48), (31, 46), [0, 1, 0, -1, 0])
     kit.build_boss("alberich", alberich, ALBERICH_PAL, doc(alberich.__doc__), (44, 48), (20, 46), [0, 1, 0, -1, 0])
     kit.build_boss("cap_walker", cap_walker, CAP_PAL, doc(cap_walker.__doc__), (20, 22), (10, 21), walk, folder="enemies")
     kit.build_boss("spore_puff", spore_puff, PUFF_PAL, doc(spore_puff.__doc__), (14, 16), (7, 15), walk, folder="enemies")
