@@ -1961,6 +1961,7 @@
   {
     "_doc": "The Realm of the Ten Suns, bonus level 53 (docs/BONUS_LEVELS_PLAN.md; GAME_DESIGN.md Act IV). Scorched terraced hills, rivers, pagodas. Sources: the Huainanzi; the Shanhaijing; Journey to the West; New Year folklore. No local gods (Chinese folk deities are Tier B): shrines from every pantheon.",
     "id": "the_realm_of_the_ten_suns",
+    "listed_last": true,
     "name_key": "LEVEL_TEN_SUNS_NAME",
     "region": "chinese",
     "act": 5,
@@ -2085,6 +2086,7 @@
   {
     "_doc": "The Crossroads, the finale, level 54 (docs/BONUS_LEVELS_PLAN.md; GAME_DESIGN.md: The Crossroads, Act IV). Every region's land blended and fraying; the hazard rotates through all of them; all families; shrines from all pantheons; random 10:00 and 20:00 bosses; the Unweaver at 30:00. The Crossroads and the Unweaver are the game's own invented names (in the design).",
     "id": "the_crossroads",
+    "listed_last": true,
     "name_key": "LEVEL_CROSSROADS_NAME",
     "region": "crossroads",
     "act": 6,

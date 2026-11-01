@@ -23,6 +23,20 @@ static func all() -> Array[Dictionary]:
 	return found
 
 
+## The levels in level-select order: the packs first, then the bonus level and the finale ("listed_last"), as the owner
+## asked (11/01/2026), even though they come before the later packs in play.
+static func in_list_order() -> Array[Dictionary]:
+	var first: Array[Dictionary] = []
+	var last: Array[Dictionary] = []
+	for level: Dictionary in all():
+		if bool(level.get("listed_last", false)):
+			last.append(level)
+		else:
+			first.append(level)
+	first.append_array(last)
+	return first
+
+
 static func progress(level_id: String) -> Dictionary:
 	var entry: Variant = (SaveGame.data()["levels"] as Dictionary).get(level_id, {})
 	return entry if entry is Dictionary else {}

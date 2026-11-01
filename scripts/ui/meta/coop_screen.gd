@@ -179,7 +179,7 @@ func _on_join_submitted(_text: String) -> void:
 
 func _on_next_level() -> void:
 	var open: Array[String] = []
-	for level: Dictionary in LevelRules.all():
+	for level: Dictionary in LevelRules.in_list_order():
 		if LevelRules.is_unlocked(level):
 			open.append(str(level.get("id", "")))
 	if open.is_empty():

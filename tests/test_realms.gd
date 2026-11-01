@@ -465,3 +465,11 @@ func test_the_ant_queen_is_fed_by_her_carriers() -> void:
 			break
 	assert_eq(queen.delivered, 2, "two carriers reach her (one was killed)")
 	assert_gt(_enemies.hp[queen.slot], hp, "and the gold heals her")
+
+
+func test_the_bonus_level_and_the_finale_are_listed_after_the_packs() -> void:
+	var order: Array[Dictionary] = LevelRules.in_list_order()
+	var ids: Array = order.map(func(l: Dictionary) -> String: return str(l["id"]))
+	assert_eq(ids[ids.size() - 2], "the_realm_of_the_ten_suns")
+	assert_eq(ids[ids.size() - 1], "the_crossroads")
+	assert_lt(ids.find("erebus"), ids.find("the_realm_of_the_ten_suns"), "Pack 5 comes before the bonus level")

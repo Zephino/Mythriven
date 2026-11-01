@@ -1257,6 +1257,10 @@
               "type": "bool",
               "optional": true
             },
+            "listed_last": {
+              "type": "bool",
+              "optional": true
+            },
             "tint": {
               "type": "string",
               "optional": true

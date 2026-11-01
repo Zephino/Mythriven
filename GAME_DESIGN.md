@@ -302,6 +302,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 
 *(11/01/2026: **the Myrmidon Hive** is built and released (00.02.93), opened by beating Black Annis: the tunnels give way (collapsing ground); Myrmidons, gold-digging ants, winged ants, Spartoi brutes; the Gold-Digging Ant (digs up heaps of gold sand; whoever takes one gets run gold and is chased down for 5 s), Myrmex (ploughs furrows across the arena that slow for 10 s), the Queen of the Gold-Digging Ants (carrier ants walk in from the arena's edge, each that reaches her heals her 3%). Pack 6's four realms are all built.)*
 
+*(11/01/2026: owner: "bonus level and the finale should be on the bottom of the list under the packs". The level select (and the co-op level picker) now lists every pack first, then the Realm of the Ten Suns and the Crossroads (levels.json "listed_last"); how they unlock and how hard they are is unchanged.)*
+
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 
 **Notes**

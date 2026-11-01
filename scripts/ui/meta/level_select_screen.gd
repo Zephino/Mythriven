@@ -24,7 +24,7 @@ func page_width() -> float:
 func build() -> void:
 	set_title(tr_key("UI_LEVEL_SELECT"))
 	var pack: int = 0
-	for level: Dictionary in LevelRules.all():
+	for level: Dictionary in LevelRules.in_list_order():
 		# A heading for each pack (Pack 1: Legends of the West, Pack 2: Deeper Myths...).
 		if int(level.get("act", 1)) != pack:
 			pack = int(level.get("act", 1))

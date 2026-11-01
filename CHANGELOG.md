@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.94
+Date: 10/31/2026
+Time: 8:56 PM
+
+### Changes
+- **The bonus level and the finale are now at the bottom of the level list**, under all the packs: the Realm of the Ten Suns ("Bonus level") and then the Crossroads ("The finale") come after Pack 6. The co-op level picker uses the same order. How they unlock and how hard they are hasn't changed.
+- 1 new test (367 tests pass).
+
+### Reason
+Owner request: "bonus level and the finale should be on the bottom of the list under the packs".
+
 ## Version 00.02.93
 Date: 10/31/2026
 Time: 8:32 PM
