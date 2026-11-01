@@ -752,7 +752,11 @@
       { "id": "war_paint", "name_key": "COSMETIC_WAR_PAINT", "color": "#a83a2a" },
       { "id": "golden_sceptre", "name_key": "COSMETIC_GOLDEN_SCEPTRE", "color": "#f0d070" },
       { "id": "thought_silver", "name_key": "COSMETIC_THOUGHT_SILVER", "color": "#c8d0e8" },
-      { "id": "tower_flame", "name_key": "COSMETIC_TOWER_FLAME", "color": "#f07a20" }
+      { "id": "tower_flame", "name_key": "COSMETIC_TOWER_FLAME", "color": "#f07a20" },
+      { "id": "bronze_glow", "name_key": "COSMETIC_BRONZE_GLOW", "color": "#c08a3a" },
+      { "id": "glen_dusk", "name_key": "COSMETIC_GLEN_DUSK", "color": "#8a6a9a" },
+      { "id": "sea_spray", "name_key": "COSMETIC_SEA_SPRAY", "color": "#a8d8e8" },
+      { "id": "cast_iron", "name_key": "COSMETIC_CAST_IRON", "color": "#5a5e66" }
     ]
   },
 

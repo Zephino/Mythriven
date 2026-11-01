@@ -7,6 +7,8 @@ extends BossController
 ## Lanes about to be fired along: {"pos": Vector2 (a point on the lane), "dir": Vector2 (along it), "left": float}.
 var lanes: Array = []
 var broadsides: int = 0
+## The Free Sailor secret: no broadside ever hits the local Hero.
+var hit_local: bool = false
 var _fire_in: float = 4.0
 
 
@@ -55,6 +57,8 @@ func _fire_lane(lane: Dictionary) -> void:
 	for player: Player in GameAuthority.players:
 		if player.alive and lane_distance(lane, player.position) <= half + player.body_radius:
 			GameAuthority.damage_player(player, float(_sig().get("ball_damage", 16.0)), str(data.get("id", "")), Vector2(lane["pos"]))
+			if player.is_local:
+				hit_local = true
 
 
 ## The world re-centres under the Heroes (WorldRoot.origin_shifted): the lanes move with it.
@@ -74,3 +78,7 @@ func _draw() -> void:
 		var fill: float = clampf(1.0 - float(lane["left"]) / float(_sig().get("telegraph_s", 1.4)), 0.0, 1.0)
 		draw_colored_polygon(PackedVector2Array([p - d * length + n, p + d * length + n, p + d * length - n, p - d * length - n]), Color(area_color, 0.15 + 0.25 * fill))
 	super._draw()
+
+
+func secret_earned() -> String:
+	return "the_free_sailor" if not hit_local else ""

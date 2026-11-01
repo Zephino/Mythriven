@@ -90,3 +90,8 @@ func _draw() -> void:
 			var spin: float = Time.get_ticks_msec() * 0.004 + r
 			draw_arc(me, 40.0 + r * 40.0, spin, spin + 4.0, 24, Color(0.4, 0.6, 0.75, 0.5), 2.0)
 	super._draw()
+
+
+## Not an Island secret: beaten before its third whirlpool.
+func secret_earned() -> String:
+	return "not_an_island" if whirlpools < 3 else ""

@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.10
+Date: 10/31/2026
+Time: 11:26 PM
+
+### Changes
+- **Eight Pack 9 secrets**, two for each realm of Gears and Plunder (`docs/PACK_9_PLAN.md`):
+  - **Medea's Ointment:** beat the Bulls of Aeëtes without their fire ever burning you. A bronze-glow aura.
+  - **The Nail:** strike Talos down while the nail in his ankle shows. The **Talos' Nail** passive (+2% critical chance per level).
+  - **Lizzie's Errand:** beat the Snail Goblin within 60 s. A glen-dusk aura.
+  - **No Thanks:** break out of three of the Goblin Merchant-Men's rings, then beat them. The **Silver Penny** passive (+5% luck per level).
+  - **The Free Sailor:** beat Captain Misson without a single broadside hitting you. A sea-spray aura.
+  - **Not an Island:** beat the Kraken before its third whirlpool. The **Kraken Ink** passive (+4% weapon area per level).
+  - **Between the Blows:** beat the Giant with the Hammer without the hammer ever falling on you. A cast-iron aura.
+  - **Billina's Eggs:** frighten the Nome King with eggs three times, then beat him. **Billina's Egg** passive (+1 Armor per level, up to 3).
+- Four new passive icons. The secrets are on the lore check (their Oracle hints are original drafts). **Pack 9 is complete.**
+- 1 new test (411 tests pass).
+
+### Reason
+Every level gets two secrets; this finishes Pack 9 (owner: "go ahead").
+
 ## Version 00.03.09
 Date: 10/31/2026
 Time: 11:22 PM

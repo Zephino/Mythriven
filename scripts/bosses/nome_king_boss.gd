@@ -92,3 +92,8 @@ func _draw() -> void:
 		draw_set_transform(Vector2.ZERO)
 		draw_arc(p, 12.0, 0.0, TAU, 20, Color(1, 1, 1, 0.4), 1.0)
 	super._draw()
+
+
+## Billina's Eggs secret: frightened three times.
+func secret_earned() -> String:
+	return "billinas_eggs" if frights >= 3 else ""

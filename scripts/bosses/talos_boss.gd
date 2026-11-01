@@ -102,3 +102,8 @@ func _draw() -> void:
 		draw_arc(me, float(_sig().get("heat_radius_px", 70.0)), 0.0, TAU, 40, Color(1.0, 0.4, 0.1, 0.5), 2.0)
 	if nail_s > 0.0:
 		draw_circle(me + Vector2(6, GameAuthority.enemies.radius[slot] - 2.0), 3.0, Color(1.0, 0.9, 0.5))
+
+
+## The Nail secret: struck down while the nail in his ankle shows.
+func secret_earned() -> String:
+	return "the_nail" if nail_s > 0.0 else ""

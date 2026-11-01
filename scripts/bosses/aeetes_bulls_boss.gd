@@ -7,6 +7,8 @@ extends BossController
 ## Burning ground: {"pos": Vector2, "left": float}.
 var flames: Array = []
 var breaths: int = 0
+## Medea's Ointment secret: their fire never burns the local Hero.
+var burned_local: bool = false
 var _breath_in: float = 4.0
 var _tick: float = 0.0
 
@@ -29,6 +31,8 @@ func signature(delta: float) -> void:
 				if player.alive and player.position.distance_to(f["pos"]) <= reach + player.body_radius:
 					GameAuthority.damage_player(player, float(_sig().get("flame_damage", 4.0)), str(data.get("id", "")), f["pos"])
 					player.statuses.apply("burn")
+					if player.is_local:
+						burned_local = true
 					break
 	if not is_alive():
 		return
@@ -66,3 +70,7 @@ func _draw() -> void:
 		draw_circle(at, reach, Color(0.95, 0.45, 0.1, 0.3 * fade))
 		draw_circle(at + Vector2(0, -3), reach * 0.5, Color(1.0, 0.85, 0.3, 0.4 * fade))
 	super._draw()
+
+
+func secret_earned() -> String:
+	return "medeas_ointment" if not burned_local else ""

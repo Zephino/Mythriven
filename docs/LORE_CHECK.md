@@ -831,6 +831,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | nome_king_entrance | boss entrance | nome_king | Welcome, welcome! You'll make a lovely ornament. | Ozma of Oz (his game of ornaments) | no |
 | nome_king_mokosh | boss meets god (with mokosh) | nome_king | Mother of the damp earth! All that is under it is mine. | Original line written for Mythriven | no |
 
+### Pack 9 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| medeas_ointment | Medea's Ointment | Jason was anointed against the fire. Be quicker than the flames. | Apollodorus 1.9.23 (Medea's ointment kept the bulls' fire from burning Jason) | no |
+| the_nail | The Nail | One vein, one nail. Strike when it shows. | Apollodorus 1.9.26 (the nail that stopped Talos' one vein) | no |
+| lizzies_errand | Lizzie's Errand | Lizzie did not linger in the glen. Neither should you. | Rossetti, Goblin Market (Lizzie runs home through the glen) | no |
+| no_thanks | No Thanks | Lizzie held her mouth shut through all their coaxing. | Rossetti, Goblin Market (Lizzie pays her silver penny but will not eat) | no |
+| the_free_sailor | The Free Sailor | Watch the lanes, and stand between them. | A General History of the Pyrates (1724), "Of Captain Misson" | no |
+| not_an_island | Not an Island | The sailors who thought it an island were dragged down. Don't wait for the whirlpool. | Pontoppidan (1752-53): the Kraken mistaken for islands; its whirlpool | no |
+| between_the_blows | Between the Blows | The hammer keeps a steady beat. Learn it. | Baum, Ozma of Oz (1907), ch. 13 (passing the Giant with the Hammer) | no |
+| billinas_eggs | Billina's Eggs | A hen once beat the Nome King. Eggs are your best weapon here. | Baum, Ozma of Oz (1907): Billina the hen's eggs undo the Nomes | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

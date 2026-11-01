@@ -6,6 +6,8 @@ extends BossController
 ## King's kingdom with his hammer, so no one can pass.
 
 var blows: int = 0
+## Between the Blows secret: the hammer never falls on the local Hero.
+var hit_local: bool = false
 var aim := Vector2.RIGHT
 var _beat_left: float = 1.2
 
@@ -35,6 +37,8 @@ func hammer_falls() -> void:
 	for player: Player in GameAuthority.players:
 		if player.alive and on_strip(player.position):
 			GameAuthority.damage_player(player, float(_sig().get("hammer_damage", 16.0)), str(data.get("id", "")), position_now())
+			if player.is_local:
+				hit_local = true
 	var effects: EffectLayer = get_tree().get_first_node_in_group(EffectLayer.GROUP) as EffectLayer
 	if effects != null:
 		effects.spawn_ring(position_now() + aim * float(_sig().get("strip_px", 170.0)) * 0.6, 26.0, Color(0.55, 0.55, 0.6), true)
@@ -55,3 +59,7 @@ func _draw() -> void:
 	var n: Vector2 = aim.orthogonal() * float(_sig().get("strip_width_px", 36.0)) * 0.5
 	var fill: float = clampf(1.0 - _beat_left / float(_sig().get("beat_s", 1.5)), 0.0, 1.0)
 	draw_colored_polygon(PackedVector2Array([p + n, p + aim * length + n, p + aim * length - n, p - n]), Color(area_color, 0.1 + 0.3 * fill))
+
+
+func secret_earned() -> String:
+	return "between_the_blows" if not hit_local else ""

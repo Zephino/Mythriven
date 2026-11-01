@@ -36,3 +36,8 @@ func surround(player: Player) -> int:
 	if banner != null and rings == 1:
 		banner.show_text(tr("BOSS_GOBLIN_MERCHANTS_COME_BUY"))
 	return made
+
+
+## Come Buy, No Thanks secret: three of their rings survived before they fall.
+func secret_earned() -> String:
+	return "no_thanks" if rings >= 3 else ""

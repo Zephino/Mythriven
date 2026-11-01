@@ -2766,3 +2766,39 @@ BANTER_KALIKO_ENTRANCE,"His Majesty is busy. I know every tunnel here, and you d
 BANTER_HAMMER_GIANT_ENTRANCE,(BANG. BANG. BANG. The hammer never stops.)
 BANTER_NOME_KING_ENTRANCE,"Welcome, welcome! You'll make a lovely ornament."
 BANTER_NOME_KING_MOKOSH,Mother of the damp earth! All that is under it is mine.
+SECRET_MEDEAS_OINTMENT_NAME,Medea's Ointment
+SECRET_MEDEAS_OINTMENT_DESC,Defeat the Bulls of Aeëtes without their fire ever burning you. A bronze-glow aura.
+SECRET_MEDEAS_OINTMENT_HINT,Jason was anointed against the fire. Be quicker than the flames.
+SECRET_THE_NAIL_NAME,The Nail
+SECRET_THE_NAIL_DESC,Strike Talos down while the nail in his ankle shows. Adds the Talos' Nail passive.
+SECRET_THE_NAIL_HINT,"One vein, one nail. Strike when it shows."
+SECRET_LIZZIES_ERRAND_NAME,Lizzie's Errand
+SECRET_LIZZIES_ERRAND_DESC,Defeat the Snail Goblin within 60 s of its coming. A glen-dusk aura.
+SECRET_LIZZIES_ERRAND_HINT,Lizzie did not linger in the glen. Neither should you.
+SECRET_NO_THANKS_NAME,No Thanks
+SECRET_NO_THANKS_DESC,"Break out of three of the Goblin Merchant-Men's rings, then defeat them. Adds the Silver Penny passive."
+SECRET_NO_THANKS_HINT,Lizzie held her mouth shut through all their coaxing.
+SECRET_FREE_SAILOR_NAME,The Free Sailor
+SECRET_FREE_SAILOR_DESC,Defeat Captain Misson without a single broadside hitting you. A sea-spray aura.
+SECRET_FREE_SAILOR_HINT,"Watch the lanes, and stand between them."
+SECRET_NOT_AN_ISLAND_NAME,Not an Island
+SECRET_NOT_AN_ISLAND_DESC,Defeat the Kraken before its third whirlpool. Adds the Kraken Ink passive.
+SECRET_NOT_AN_ISLAND_HINT,The sailors who thought it an island were dragged down. Don't wait for the whirlpool.
+SECRET_BETWEEN_BLOWS_NAME,Between the Blows
+SECRET_BETWEEN_BLOWS_DESC,Defeat the Giant with the Hammer without the hammer ever falling on you. A cast-iron aura.
+SECRET_BETWEEN_BLOWS_HINT,The hammer keeps a steady beat. Learn it.
+SECRET_BILLINAS_EGGS_NAME,Billina's Eggs
+SECRET_BILLINAS_EGGS_DESC,"Frighten the Nome King with eggs three times, then defeat him. Adds Billina's Egg passive."
+SECRET_BILLINAS_EGGS_HINT,A hen once beat the Nome King. Eggs are your best weapon here.
+PASSIVE_TALOS_NAIL_NAME,Talos' Nail
+PASSIVE_TALOS_NAIL_DESC,+2% critical chance per level.
+PASSIVE_SILVER_PENNY_NAME,Silver Penny
+PASSIVE_SILVER_PENNY_DESC,+5% luck per level.
+PASSIVE_KRAKEN_INK_NAME,Kraken Ink
+PASSIVE_KRAKEN_INK_DESC,+4% weapon area per level.
+PASSIVE_BILLINAS_EGG_NAME,Billina's Egg
+PASSIVE_BILLINAS_EGG_DESC,+1 Armor per level.
+COSMETIC_BRONZE_GLOW,Bronze Glow
+COSMETIC_GLEN_DUSK,Glen Dusk
+COSMETIC_SEA_SPRAY,Sea Spray
+COSMETIC_CAST_IRON,Cast Iron

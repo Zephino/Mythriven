@@ -34,6 +34,7 @@ func signature(delta: float) -> void:
 			_slowed.erase(player.player_id)
 	if not is_alive():
 		return
+	age += delta
 	_drop_in -= delta
 	if _drop_in <= 0.0:
 		_drop_in = float(_sig().get("drop_every_s", 0.4))
@@ -59,3 +60,11 @@ func _draw() -> void:
 		var fade: float = clampf(float(s["left"]) / 2.0, 0.0, 1.0)
 		draw_circle(Vector2(s["pos"]) - global_position, reach, Color(0.6, 0.75, 0.55, 0.3 * fade))
 	super._draw()
+
+
+## Lizzie's Errand secret: beaten before it has crawled through 60 s of slime-laying.
+var age: float = 0.0
+
+
+func secret_earned() -> String:
+	return "lizzies_errand" if age <= float(_sig().get("secret_s", 60.0)) else ""

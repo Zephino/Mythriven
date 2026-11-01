@@ -503,5 +503,57 @@
       "secret": "the_scabbard_regained"
     },
     "persists": false
+  },
+  {
+    "id": "talos_nail",
+    "name_key": "PASSIVE_TALOS_NAIL_NAME",
+    "desc_key": "PASSIVE_TALOS_NAIL_DESC",
+    "stat": "crit",
+    "per_level": 0.02,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_nail"
+    },
+    "persists": false
+  },
+  {
+    "id": "silver_penny",
+    "name_key": "PASSIVE_SILVER_PENNY_NAME",
+    "desc_key": "PASSIVE_SILVER_PENNY_DESC",
+    "stat": "luck",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "no_thanks"
+    },
+    "persists": false
+  },
+  {
+    "id": "kraken_ink",
+    "name_key": "PASSIVE_KRAKEN_INK_NAME",
+    "desc_key": "PASSIVE_KRAKEN_INK_DESC",
+    "stat": "area",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "not_an_island"
+    },
+    "persists": false
+  },
+  {
+    "id": "billinas_egg",
+    "name_key": "PASSIVE_BILLINAS_EGG_NAME",
+    "desc_key": "PASSIVE_BILLINAS_EGG_DESC",
+    "stat": "armor",
+    "per_level": 1,
+    "max_level": 3,
+    "unlock": {
+      "type": "secret",
+      "secret": "billinas_eggs"
+    },
+    "persists": false
   }
 ]

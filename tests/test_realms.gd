@@ -1082,3 +1082,42 @@ func test_the_nome_king_makes_ornaments_and_fears_eggs() -> void:
 	king.signature(0.1)
 	assert_eq(king.frights, 1, "an egg!")
 	assert_almost_eq(king.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01)
+
+
+func test_pack_9_boss_secrets() -> void:
+	_start("lemnos")
+	var bulls: AeetesBullsBoss = _bosses.spawn_boss("aeetes_bulls", 0) as AeetesBullsBoss
+	assert_eq(bulls.secret_earned(), "medeas_ointment")
+	var giant: TalosBoss = _bosses.spawn_boss("talos", 2) as TalosBoss
+	assert_eq(giant.secret_earned(), "", "the nail is hidden")
+	giant.nail_s = 1.0
+	assert_eq(giant.secret_earned(), "the_nail")
+	GameAuthority.end_scene()
+	_start("the_goblin_market")
+	var snail: SnailGoblinBoss = _bosses.spawn_boss("snail_goblin", 1) as SnailGoblinBoss
+	assert_eq(snail.secret_earned(), "lizzies_errand")
+	snail.age = 61.0
+	assert_eq(snail.secret_earned(), "")
+	var merchants: GoblinMerchantsBoss = _bosses.spawn_boss("goblin_merchants", 2) as GoblinMerchantsBoss
+	merchants.rings = 3
+	assert_eq(merchants.secret_earned(), "no_thanks")
+	GameAuthority.end_scene()
+	_start("libertalia")
+	var captain: MissonBoss = _bosses.spawn_boss("misson", 1) as MissonBoss
+	assert_eq(captain.secret_earned(), "the_free_sailor")
+	var beast: KrakenBoss = _bosses.spawn_boss("kraken", 2) as KrakenBoss
+	assert_eq(beast.secret_earned(), "not_an_island")
+	GameAuthority.end_scene()
+	_start("the_hollow_hills")
+	var hammer: HammerGiantBoss = _bosses.spawn_boss("hammer_giant", 1) as HammerGiantBoss
+	assert_eq(hammer.secret_earned(), "between_the_blows")
+	var king: NomeKingBoss = _bosses.spawn_boss("nome_king", 2) as NomeKingBoss
+	king.frights = 3
+	assert_eq(king.secret_earned(), "billinas_eggs")
+	for secret: String in ["medeas_ointment", "the_nail", "lizzies_errand", "no_thanks", "the_free_sailor",
+			"not_an_island", "between_the_blows", "billinas_eggs"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)

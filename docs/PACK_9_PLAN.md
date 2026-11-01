@@ -100,3 +100,17 @@ slowed (the weather veil, with Chill).
 | 10:00 | **Kaliko** | The Nome King's chamberlain, who knows every tunnel: he pops up out of one of several holes, attacks, and drops down again; he can only be hurt above ground |
 | 20:00 | **The Giant with the Hammer** | The iron giant who pounds the road to the Nome King's kingdom without stopping: his hammer falls on a line in front of him in a steady beat; pass between the blows |
 | 30:00 | **The Nome King** (the design's; Baum's book) | He turns Heroes into ornaments for a moment (they can't move). But Nomes fear eggs: eggs appear, and a Hero who takes one terrifies him (he is stunned and takes extra damage) |
+
+## Secrets (00.03.10, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Lemnos | Medea's Ointment | Beat the Bulls of Aeëtes without their fire burning you | Bronze-glow aura |
+| Lemnos | The Nail | Strike Talos down while the nail in his ankle shows | Talos' Nail passive (+2% crit per level) |
+| The Goblin Market | Lizzie's Errand | Beat the Snail Goblin within 60 s | Glen-dusk aura |
+| The Goblin Market | No Thanks | Break out of three of the Merchant-Men's rings, then beat them | Silver Penny passive (+5% luck per level) |
+| Libertalia | The Free Sailor | Beat Captain Misson without a broadside hitting you | Sea-spray aura |
+| Libertalia | Not an Island | Beat the Kraken before its third whirlpool | Kraken Ink passive (+4% area per level) |
+| The Hollow Hills | Between the Blows | Beat the Giant with the Hammer without the hammer hitting you | Cast-iron aura |
+| The Hollow Hills | Billina's Eggs | Frighten the Nome King with eggs three times, then beat him | Billina's Egg passive (+1 Armor per level, 3 levels) |
+
+**Pack 9 is complete.**
