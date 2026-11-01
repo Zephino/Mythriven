@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.45
+Date: 11/01/2026
+Time: 5:21 PM
+
+### Changes
+- **Alfheim and Elfame reworked** (owner: keep the adders; rework everything else).
+  - **A new shared figure body** (`tools/art/figure_kit.py`) for people-shaped bosses, in place of the old stiff block: a shaped head with hair (long, shoulder-length, short or in a bun), eyes, brows, a nose and a mouth; a neck and shoulders; arms with hands (one can reach out); a fitted top over a gown, robe or tunic with folds and shading; and optional cloak, crown, belt and pointed elf ears.
+  - **The Erlking's Daughter:** long golden hair with a garland of leaves, pointed ears, a shimmering white gown with a green girdle, holding out her hand to dance.
+  - **Völundr:** a bearded young smith in a leather apron, his hammer in his hand, great riveted feathered wings spread behind him.
+  - **The Erlking** ("with crown and train"): gaunt and pale, long silver hair and beard, a gold crown, a grey-green robe with a long train trailing in mist.
+  - **The Elf-Knight:** fair-haired with pointed ears, green over silver mail, a cloak, a dagger at his belt, a silver horn at his lips.
+  - **The Queen of Elfame:** long red-gold hair and a silver crown, a grass-green silk gown and a dark velvet mantle, silver bells at her girdle, an apple from her garden in her hand.
+  - **Tam Lin's bear:** a great brown bear on all fours, humped at the shoulder, with a big round head, small round ears, a muzzle, claws and light on its fur.
+  - **Tam Lin's burning iron:** a red-hot bar glowing white at its heart, with hammer marks, sparks, and the air shimmering above it.
+  - **The monsters:** light elves (shining, with golden hair, pointed ears and a bow), elf-knights (green mail, a silver helm, a sword and horn), elf-maidens (dancing, dress and hair swirling, arms raised), and fairy riders (in green on a milk-white horse with silver bells on its mane).
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for everything in Alfheim and Elfame except the adders to be reworked.
+
 ## Version 00.03.44
 Date: 11/01/2026
 Time: 4:06 PM

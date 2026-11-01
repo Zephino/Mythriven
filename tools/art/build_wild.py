@@ -4,6 +4,7 @@
 import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
+from figure_kit import person
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -21,107 +22,139 @@ def figure(c, step, robe, skin, hair, legs="k", x0=14, top=18, bottom=50):
 # --- Alfheim (Grimnismal 5; Volundarkvida; Gylfaginning 17; "Wid faerstice"; Herder 1778; Goethe 1782) ----------------
 
 def light_elf(c, f):
-    """A light elf (Gylfaginning 17: "fairer to look upon than the sun"): a slender shining figure in pale gold."""
+    """A light elf (Gylfaginning 17: "fairer to look upon than the sun"): a slender shining elf with pointed ears and
+    golden hair, in pale gold, with a bow for elf-shot."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "g")
-    poly(c, [(6, 8), (13, 8), (15, 19), (4, 19)], "w")
-    ellipse(c, 9, 5, 3, 3, "s"); c.px(8, 5, "b"); c.px(10, 5, "b")
-    c.rect(6, 1, 12, 3, "y"); c.px(5, 5, "s"); c.px(13, 5, "s")
-    c.px(15, 9, "y"); c.px(16, 8, "y")
+        c.rect(x + d, 17, x + 1 + d, 21, "g"); c.rect(x + d, 22, x + 2 + d, 22, "G")
+    poly(c, [(6, 9), (13, 9), (15, 18), (4, 18)], "w"); poly(c, [(6, 9), (8, 9), (7, 18), (4, 18)], "W")
+    c.row(13, 6, 13, "y")                                                                 # girdle
+    ellipse(c, 9, 5, 3, 3.4, "s")
+    poly(c, [(6, 5), (3, 2), (6, 7)], "s"); poly(c, [(12, 5), (15, 2), (12, 7)], "s")    # pointed ears
+    ellipse(c, 9, 2, 3.4, 2, "y"); c.rect(5, 2, 6, 9, "y"); c.rect(12, 2, 13, 9, "y")   # golden hair
+    c.px(8, 5, "b"); c.px(10, 5, "b")
+    for k in range(9):                                                                   # the bow
+        c.px(16 + (1 if 2 <= k <= 6 else 0), 6 + k, "G")
+    c.rect(15, 6, 15, 14, "W")
+    for x, y in ((2, 0), (17, 3), (0, 12)):
+        c.px(x, y, "y")                                                                  # its shining
 
 
-LIGHT_ELF_PAL = {"o": "#4a3a10", "w": "#f4ecc8", "g": "#c8b878", "s": "#f8e8d8", "b": "#3a6aa0", "y": "#f0d050"}
+LIGHT_ELF_PAL = {"o": "#4a3a10", "w": "#f4ecc8", "W": "#d8ccA0", "g": "#c8b878", "G": "#8a7a40", "s": "#f8e8d8",
+                 "b": "#3a6aa0", "y": "#f0d050"}
 
 
 def elf_knight(c, f):
-    """An elf-knight (the ballad of Lady Isabel and the Elf-Knight): a knight in green with a silver horn at his side."""
+    """An elf-knight (the ballad of Lady Isabel and the Elf-Knight): a slim knight in green mail with pointed ears, a
+    silver helm and sword, and a silver horn at his side."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "k")
-    c.rect(5, 8, 14, 18, "v"); c.row(12, 5, 14, "V")
-    ellipse(c, 9, 5, 3, 3, "s"); c.rect(6, 1, 12, 3, "h")
-    c.rect(15, 0, 15, 17, "i"); c.rect(3, 13, 5, 15, "i")
+        c.rect(x + d, 17, x + 1 + d, 21, "V"); c.rect(x + d, 22, x + 2 + d, 22, "k")
+    poly(c, [(5, 9), (14, 9), (15, 17), (4, 17)], "v")
+    for y in (11, 13, 15):
+        c.row(y, 5, 14, "V")                                                             # green mail
+    ellipse(c, 9, 5, 3, 3.2, "s")
+    poly(c, [(6, 5), (3, 3), (6, 7)], "s"); poly(c, [(12, 5), (15, 3), (12, 7)], "s")    # pointed ears
+    ellipse(c, 9, 2, 3.4, 2.2, "i"); c.rect(9, 2, 9, 6, "I")                             # silver helm, nose-guard
+    c.px(8, 5, "k"); c.px(10, 5, "k")
+    c.rect(16, 1, 16, 16, "i"); c.rect(15, 13, 17, 13, "y")                              # sword
+    poly(c, [(3, 12), (1, 15), (4, 16)], "i")                                            # horn at his side
 
 
 ELF_KNIGHT_PAL = {"o": "#0a1008", "k": "#1a2414", "v": "#3a7a3a", "V": "#2a5a2a", "s": "#f0dcc8", "h": "#d8c060",
-                  "i": "#c8ccd4"}
+                  "i": "#c8ccd4", "I": "#8a8e96", "y": "#d8c060"}
 
 
 def elf_maiden(c, f):
     """An elf-maiden, one of the Erlking's daughters (Goethe: "my daughters shall dance with you at night"): a pale
-    dancing girl in a misty white dress."""
+    dancing girl, her misty white dress and golden hair swirling."""
     s = STEP[f]
-    poly(c, [(5, 6), (9, 6), (12, 14 + s), (2, 14 - s)], "w")
-    ellipse(c, 7, 3, 2.5, 2.5, "s"); c.rect(5, 0, 9, 1, "y")
-    c.px(1, 6 + s, "w"); c.px(13, 6 - s, "w")
+    poly(c, [(6, 7), (9, 7), (13 + s, 14), (1 - s, 14)], "w")                             # swirling dress
+    c.px(3 - s, 13, "W"); c.px(7, 13, "W"); c.px(11 + s, 13, "W")
+    ellipse(c, 7, 4, 2.4, 2.6, "s"); c.px(6, 4, "b"); c.px(8, 4, "b")
+    ellipse(c, 7, 2, 2.8, 1.6, "y"); c.px(4 - s, 3, "y"); c.px(3 - s, 4, "y"); c.px(10 - s, 3, "y")   # hair swinging
+    c.px(3, 7 - s, "s"); c.px(2, 6 - s, "s"); c.px(11, 7 + s, "s"); c.px(12, 6 + s, "s")  # arms raised in the dance
 
 
-MAIDEN_PAL = {"o": "#2a3040", "w": "#e8eef8", "s": "#f8ecdc", "y": "#e8d870"}
+MAIDEN_PAL = {"o": "#2a3040", "w": "#e8eef8", "W": "#c0c8d8", "s": "#f8ecdc", "y": "#e8d870", "b": "#3a6aa0"}
 
 
 def erlking_daughter(c, step):
     """The Erlking's daughter (Herder, 1778): she holds out her hand to Sir Oluf and asks him to dance; when he refuses,
-    she strikes him over the heart. A tall pale elf-woman in shimmering white, a garland in her golden hair."""
-    figure(c, step, "w", "s", "y")
-    c.rect(16, 18, 26, 22, "W")
-    for x in range(14, 28, 3):
-        c.px(x, 2, "f")
-    c.rect(29, 22, 33, 26, "s")
+    she strikes him over the heart. A tall pale elf-woman with long golden hair and a garland of leaves, in a
+    shimmering white gown with a green girdle, holding out her hand."""
+    person(c, step, hair="y", hair_d="Y", hair_style="long", garment="gown", robe="w", robe_d="W", robe_l="L",
+           belt="g", ears=True, eye="e", arm_forward=True, boots="W")
+    for x in range(15, 26, 2):
+        c.px(x, 4, "f"); c.px(x + 1, 3, "g")                                             # garland of leaves
+    for x, y in ((9, 30), (31, 40), (12, 46), (28, 24)):
+        c.px(x, y, "L")                                                                  # shimmer
 
 
-DAUGHTER_PAL = {"o": "#2a3040", "k": "#c8ccd8", "w": "#eef2fa", "W": "#c8d0e8", "s": "#f8ecdc", "y": "#f0d860",
-                "f": "#a8e080"}
+DAUGHTER_PAL = {"o": "#2a3040", "k": "#1a1a24", "e": "#4a7ab0", "m": "#d88a8a", "w": "#eef2fa", "W": "#c0c8e0",
+                "L": "#ffffff", "s": "#f8ecdc", "S": "#d8c4b4", "y": "#f0d860", "Y": "#c8a840", "f": "#a8e080",
+                "g": "#5a9a4a"}
 
 
 def volundr(c, step):
     """Volundr (Volundarkvida): the smith, "prince of elves", lamed by King Nidud, who forged himself wings and flew
-    away laughing. A smith in a leather apron with great feathered wings, a hammer at his belt."""
-    for side in (-1, 1):
-        for k in range(9):
-            x = 21 + side * (8 + k * 2)
-            c.rect(min(x, x + side), 10 + k + step, max(x, x + side), 30 - k // 2, "f" if k % 2 else "F")
-    figure(c, step, "a", "s", "h", x0=14, top=20, bottom=48)
-    c.rect(17, 30, 25, 32, "b"); c.rect(26, 28, 28, 36, "i")
+    away laughing. A strong young smith with brown hair and a short beard, a leather apron over his tunic, great
+    feathered wings spread behind him, his hammer in his hand."""
+    for side in (-1, 1):                                                                 # the forged wings
+        for k in range(10):
+            x = 20 + side * (6 + k * 2)
+            y0 = 10 + k // 2 + step
+            c.rect(min(x, x + side), y0, max(x, x + side), 34 - k, "f" if k % 2 else "F")
+            c.px(x, y0, "i")                                                             # a metal rivet on each feather
+    person(c, step, hair="h", hair_d="H", hair_style="short", beard="H", garment="tunic", robe="t", robe_d="T",
+           legs="T", boots="b", belt="b", arm_forward=True)
+    poly(c, [(16, 22), (24, 22), (25, 38), (15, 38)], "a"); c.row(22, 16, 24, "A")       # leather apron
+    c.rect(33, 13, 34, 24, "w"); c.rect(31, 11, 36, 14, "i")                             # his hammer
 
 
-VOLUNDR_PAL = {"o": "#120c08", "k": "#2a1c10", "a": "#6a4a2a", "s": "#e0b890", "h": "#8a5a2a", "f": "#e8e4dc",
-               "F": "#b8b4ac", "b": "#3a2818", "i": "#9aa0a8"}
+VOLUNDR_PAL = {"o": "#120c08", "k": "#1a1008", "m": "#a85a4a", "a": "#6a4a2a", "A": "#4a3018", "s": "#e0b890",
+               "S": "#b88a68", "h": "#8a5a2a", "H": "#5a3a1a", "t": "#3a5a6a", "T": "#2a4250", "f": "#e8e4dc",
+               "F": "#b8b4ac", "b": "#3a2818", "i": "#9aa0a8", "w": "#5a3a1a"}
 
 
 def erlking(c, step):
     """The Erlking (Goethe, 1782): "the Erlking with crown and train", who woos the child riding through the night with
-    his father. A tall grey figure, crowned, with a long trailing cloak and a misty beard."""
-    poly(c, [(10, 18), (32, 18), (40, 56), (2, 56)], "g")
-    poly(c, [(14, 18), (28, 18), (31, 50), (11, 50)], "G")
-    c.rect(16, 4, 26, 16, "s"); c.px(19, 9, "e"); c.px(23, 9, "e")
-    poly(c, [(15, 12), (27, 12), (24, 30), (18, 30)], "w")
-    c.rect(15, 1, 27, 4, "y"); c.px(16, 0, "y"); c.px(21, 0, "y"); c.px(26, 0, "y")
-    for k in range(6):
-        c.px(34 + k, 22 - k, "s")                                                         # his beckoning hand
+    his father. A tall, gaunt, pale king with long silver hair and a misty beard, a gold crown, a dark grey-green robe,
+    a long train sweeping behind him, beckoning."""
+    poly(c, [(12, 26), (28, 26), (40, 56), (0, 56)], "G")                                # the long train behind him
+    for x in range(4, 38, 5):
+        c.px(x, 54, "w")                                                                 # mist at its hem
+    person(c, step, cx=20, head_y=10, hair="w", hair_d="W", hair_style="long", beard="w", garment="robe",
+           robe="g", robe_d="G", robe_l=None, belt="y", crown="y", eye="e", arm_forward=True, boots="G",
+           skin="s", skin_d="S")
 
 
-ERLKING_PAL = {"o": "#0a0c14", "g": "#4a5468", "G": "#5a6478", "s": "#d8dce4", "e": "#1a2030", "w": "#c8ccd4",
-               "y": "#d8c060"}
+ERLKING_PAL = {"o": "#0a0c14", "k": "#1a1e28", "g": "#4a5a58", "G": "#323e3e", "s": "#d8dce4", "S": "#a8acb8",
+               "e": "#7ab0d8", "w": "#d8dce4", "W": "#a8aeb8", "y": "#d8c060", "m": "#8a8a98"}
 
 
 # --- Elfame (Thomas the Rhymer, Child 37; Tam Lin, Child 39; Lady Isabel and the Elf-Knight, Child 4) -----------------
 
 def fae_rider(c, f):
     """A rider of the fairy rade (Tam Lin: the fairies ride out at Halloween, on black, brown and milk-white steeds): a
-    small fairy rider in green on a white horse."""
+    small fairy rider in green on a milk-white horse, its bridle hung with silver bells."""
     s = STEP[f]
-    ellipse(c, 11, 11, 7, 3.5, "w")
-    for k, d in enumerate((-s, s, s, -s)):
-        c.rect(5 + k * 4 + d, 13, 5 + k * 4 + d, 18, "W")
-    poly(c, [(16, 7), (21, 9), (21, 11), (16, 11)], "w"); c.px(18, 8, "k")
-    c.rect(9, 3, 13, 9, "v"); ellipse(c, 11, 2, 2, 2, "s"); c.rect(9, 0, 13, 0, "y")
+    for k, d in enumerate((-s, s, s, -s)):                                               # slim legs
+        x = 5 + k * 4 + d
+        c.rect(x, 13, x, 18, "W"); c.px(x, 19, "k")
+    ellipse(c, 11, 11, 7, 3.2, "w")                                                      # body
+    poly(c, [(15, 9), (19, 4), (22, 6), (21, 9), (17, 11)], "w"); c.px(20, 5, "k")       # neck and head
     for k in range(4):
-        c.px(3 - k // 2, 10 + k, "W")
+        c.px(16 - k, 6 + k, "y")                                                         # silver bells on the mane
+    for k in range(5):
+        c.px(3 - k // 2, 10 + k, "W")                                                    # tail
+    c.rect(9, 4, 13, 9, "v"); c.rect(10, 9, 11, 12, "V")                                 # rider in green
+    ellipse(c, 11, 2, 2, 2, "s"); c.px(9, 2, "y"); c.rect(9, 0, 13, 0, "y")              # face, golden hair
+    poly(c, [(9, 4), (5, 6), (6, 9), (9, 7)], "V")                                       # cloak streaming
 
 
-RIDER_PAL = {"o": "#1a2018", "w": "#f0f0ea", "W": "#c8c8c0", "k": "#1a1a1a", "v": "#3a8a3a", "s": "#f0dcc8",
-             "y": "#e8c840"}
+RIDER_PAL = {"o": "#1a2018", "w": "#f0f0ea", "W": "#c8c8c0", "k": "#1a1a1a", "v": "#3a8a3a", "V": "#2a6a2a",
+             "s": "#f0dcc8", "y": "#e8e4c8"}
 
 
 def tam_lin(shape):
@@ -135,50 +168,80 @@ def tam_lin(shape):
             ellipse(c, 50, 28, 5, 4, "a"); c.px(52, 27, "y"); c.row(30, 54, 57, "r")
             return
         if shape == "bear":
-            ellipse(c, 28, 30, 18, 12, "b")
-            for k, d in enumerate((-step, step, step, -step)):
-                c.rect(14 + k * 9 + d, 38, 18 + k * 9 + d, 48, "B")
-            ellipse(c, 44, 22, 8, 7, "b"); c.px(47, 20, "k"); c.px(40, 15, "b"); c.px(47, 15, "b")
+            # A great brown bear on all fours: a hump over the shoulders, a big round head with small round ears.
+            def leg(x, col, shade):
+                poly(c, [(x - 3, 32), (x + 4, 32), (x + 4, 44), (x + 3, 48), (x - 3, 48), (x - 3, 42)], col)
+                c.rect(x - 3, 47, x + 4, 49, shade)
+                for t in range(3):
+                    c.px(x - 2 + t * 2, 49, "w")                                         # claws
+            leg(14 - step, "B", "D"); leg(38 + step, "B", "D")
+            poly(c, [(6, 30), (12, 22), (24, 20), (34, 14), (44, 18), (48, 28), (44, 38), (30, 40), (14, 40),
+                     (7, 36)], "b")                                                      # the body, humped at the shoulder
+            ellipse(c, 12, 32, 7, 8, "b")
+            poly(c, [(16, 37), (40, 37), (36, 40), (20, 40)], "B")
+            for x, y in ((20, 24), (28, 20), (36, 18), (14, 28)):
+                c.px(x, y, "L"); c.px(x + 1, y, "L")                                     # light on the fur
+            ellipse(c, 48, 24, 7, 6.5, "b")                                              # big round head
+            ellipse(c, 54, 27, 3.5, 2.8, "L"); c.px(57, 26, "k")                         # muzzle and nose
+            ellipse(c, 44, 18, 2.2, 2.2, "b"); ellipse(c, 51, 17, 2.2, 2.2, "b")         # small round ears
+            c.px(44, 18, "D"); c.px(51, 17, "D")
+            c.px(50, 22, "k"); c.px(51, 22, "y")                                         # small eye
+            leg(18 + step, "b", "B"); leg(42 - step, "b", "B")
+            c.px(4, 30, "b"); c.px(5, 29, "b")                                           # stub of a tail
             return
-        ellipse(c, 28, 30, 10, 18, "r")                                                   # a bar of burning iron
-        c.rect(24, 12, 32, 48, "R"); c.rect(26, 16, 30, 44, "y")
-        for k in range(6):
-            c.px(22 + k * 3, 8 - (k + step) % 3, "y")
+        # A bar of red-hot iron, glowing white at its heart, sparks flying and the air shimmering above it.
+        for k in range(3):
+            for y in range(4, 14):
+                c.px(22 + k * 6 + round(math.sin(y * 0.8 + k + step) * 1.2), y, "h")     # heat shimmer
+        poly(c, [(20, 14), (36, 14), (38, 18), (38, 46), (36, 50), (20, 50), (18, 46), (18, 18)], "R")
+        poly(c, [(21, 16), (35, 16), (36, 46), (34, 48), (22, 48), (20, 46)], "r")
+        c.rect(24, 18, 32, 46, "y"); c.rect(26, 20, 30, 44, "w")                         # white-hot heart
+        for y in (24, 32, 40):
+            c.row(y, 21, 35, "R")                                                        # hammer marks
+        for x, y in ((14, 18), (42, 22), (12, 34), (44, 38), (16, 10), (40, 8)):
+            c.px(x, y - (step % 2), "y"); c.px(x + 1, y - 1 - (step % 2), "w")           # sparks
     return draw
 
 
-TAMLIN_PAL = {"o": "#120808", "a": "#4a6a3a", "A": "#3a5a2a", "y": "#ffe060", "r": "#e8501a", "R": "#c83a10",
-              "b": "#5a3a24", "B": "#3a2414", "k": "#100a08"}
+TAMLIN_PAL = {"o": "#120808", "a": "#4a6a3a", "A": "#3a5a2a", "y": "#ffe060", "r": "#e8501a", "R": "#a82a08",
+              "w": "#fff8e0", "h": "#f8c080", "b": "#6a4428", "B": "#4a2e18", "D": "#2e1c0e", "L": "#8a6040",
+              "k": "#100a08"}
 
 
 def the_elf_knight(c, step):
     """The Elf-Knight (Child 4): he blew his horn, and Lady Isabel heard it and followed him; he meant to drown her as
-    he had drowned seven king's daughters, but she lulled him to sleep and killed him with his own dagger. A knight in
-    green with a long silver horn."""
-    figure(c, step, "v", "s", "y")
-    c.rect(16, 20, 26, 30, "V")
-    for k in range(10):
-        c.px(30 + k // 2, 18 + k, "i"); c.px(31 + k // 2, 18 + k, "I")                     # the horn
-    c.rect(34, 27, 38, 30, "i")
+    he had drowned seven king's daughters, but she lulled him to sleep and killed him with his own dagger. A handsome
+    fair-haired elf-knight with pointed ears, in green over silver mail, a long silver horn raised to his lips."""
+    person(c, step, hair="y", hair_d="Y", hair_style="shoulder", garment="tunic", robe="v", robe_d="V",
+           legs="i", boots="k", belt="b", ears=True, eye="e", arm_forward=True, cloak=("V", "D"))
+    for y in range(23, 36, 2):
+        c.row(y, 16, 24, "I")                                                            # silver mail under the green
+    for k, (x, y) in enumerate(((22, 13), (24, 12), (26, 11), (28, 9), (29, 7))):        # the silver horn at his lips
+        ellipse(c, x, y, 0.6 + k * 0.35, 0.6 + k * 0.35, "i")
+    c.px(29, 6, "I"); c.px(30, 7, "I")
+    c.rect(26, 26, 27, 34, "I"); c.px(26, 25, "y")                                       # dagger at his belt
 
 
-ELF_KNIGHT_BOSS_PAL = dict(ELF_KNIGHT_PAL, i="#d8dce4", I="#a8acb4", y="#d8c060", V="#2a5a2a")
+ELF_KNIGHT_BOSS_PAL = {"o": "#0a1008", "k": "#1a2414", "m": "#c88a7a", "v": "#3a7a3a", "V": "#2a5a2a",
+                       "D": "#1a3a1a", "s": "#f0dcc8", "S": "#c8b0a0", "y": "#d8c060", "Y": "#a8903a", "e": "#3a8a6a",
+                       "i": "#d8dce4", "I": "#a8acb4", "b": "#5a3a1a"}
 
 
 def queen_of_elfame(c, step):
     """The Queen of Elfame (Thomas the Rhymer): "her skirt was of the grass-green silk, her mantle of the velvet fine;
-    at every tett of her horse's mane hung fifty silver bells and nine". A queen in grass-green with a silver crown and
-    a branch of fruit."""
-    figure(c, step, "v", "s", "h")
-    c.rect(16, 18, 26, 26, "V")
-    for x in range(12, 32, 3):
-        c.px(x, 40, "i"); c.px(x + 1, 44, "i")                                             # silver bells
-    c.rect(14, 1, 27, 3, "i"); c.px(15, 0, "i"); c.px(21, 0, "i"); c.px(26, 0, "i")
-    c.rect(30, 22, 31, 34, "b"); c.px(32, 24, "r"); c.px(29, 28, "r"); c.px(32, 30, "r")
+    at every tett of her horse's mane hung fifty silver bells and nine". A queen with long red-gold hair and a silver
+    crown, in grass-green silk with a dark velvet mantle, silver bells at her girdle, an apple of her garden in her
+    hand."""
+    person(c, step, hair="h", hair_d="H", hair_style="long", garment="gown", robe="v", robe_d="V", robe_l="l",
+           belt="i", crown="i", cloak=("u", "U"), eye="e", arm_forward=True, boots="V")
+    for x in range(14, 27, 3):
+        c.px(x, 29, "i"); c.px(x + 1, 30, "I")                                           # silver bells at her girdle
+    ellipse(c, 35, 15, 2, 2, "r"); c.px(35, 13, "b"); c.px(34, 14, "R")                  # the apple
 
 
-QUEEN_ELF_PAL = {"o": "#0a120a", "k": "#1a2a1a", "v": "#3a9a3a", "V": "#2a7a2a", "s": "#f4e0d0", "h": "#c87a3a",
-                 "i": "#e0e4ec", "b": "#5a3a1a", "r": "#d02a3a"}
+QUEEN_ELF_PAL = {"o": "#0a120a", "k": "#1a2a1a", "m": "#c86a6a", "e": "#3a8a5a", "v": "#3a9a3a", "V": "#2a7a2a",
+                 "l": "#7ac87a", "u": "#3a1a4a", "U": "#24102e", "s": "#f4e0d0", "S": "#d0b8a8", "h": "#c87a3a",
+                 "H": "#8a4a1a", "i": "#e0e4ec", "I": "#a8acb4", "b": "#5a3a1a", "r": "#d02a3a", "R": "#8a1a20"}
 
 
 # --- Arcadia (Ovid, Metamorphoses 1.163-243; Apollodorus 2.5.3-6; Pausanias 8) ---------------------------------------
