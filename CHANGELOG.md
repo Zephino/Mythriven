@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.39
+Date: 11/01/2026
+Time: 2:56 PM
+
+### Changes
+- **The Wild Hunt's huntsman outline toned down** (owner: the grey made him pop too much). The outline is now a soft dark slate instead of light grey: he still separates from his horse and the ground, without glowing.
+
+### Reason
+The owner found the light grey outline too strong.
+
 ## Version 00.03.38
 Date: 11/01/2026
 Time: 2:52 PM
