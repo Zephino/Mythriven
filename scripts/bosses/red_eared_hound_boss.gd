@@ -95,3 +95,8 @@ func _draw() -> void:
 			draw_line(p + Vector2(x, 3), p + Vector2(x, 10), Color(0.5, 0.33, 0.18), 1.5)
 		draw_arc(p, 14.0, 0.0, TAU, 20, Color(1.0, 0.95, 0.6, 0.6), 1.0)
 	super._draw()
+
+
+## The Fawn Goes Free secret: the fawn reached first three times, then the hound beaten.
+func secret_earned() -> String:
+	return "the_fawn_goes_free" if baffled >= 3 else ""

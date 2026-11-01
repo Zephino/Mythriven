@@ -189,7 +189,8 @@ def icon_packs():
                       ("pack8", ["the_fallen_banner", "ariadnes_thread", "seeing_through", "the_scabbard_regained"]),
                       ("pack9", ["the_nail", "no_thanks", "not_an_island", "billinas_eggs"]),
                       ("pack10", ["the_unrobbed_nest", "the_sunrise", "eternity", "the_gate_of_horn"]),
-                      ("pack11", ["the_cold_hearth", "wide_awake", "the_three_walls", "where_rime_meets_fire"])):
+                      ("pack11", ["the_cold_hearth", "wide_awake", "the_three_walls", "where_rime_meets_fire"]),
+                      ("pack12", ["ethna_won_back", "no_letters_home", "master_again", "the_tinners_manners"])):
         for sid in ids:
             by_secret[sid] = pack
     out = {}

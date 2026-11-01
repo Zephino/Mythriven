@@ -67,3 +67,9 @@ func _draw() -> void:
 		draw_rect(Rect2(p + Vector2(-4, -14), Vector2(8, 9)), Color(1.0, 0.85, 0.4))
 		draw_rect(Rect2(p + Vector2(-4, -14), Vector2(8, 9)), Color(0.2, 0.2, 0.22), false, 1.0)
 	super._draw()
+
+
+## Into the Light secret: a quarter of his health struck away in the lamplight, then beaten.
+func secret_earned() -> String:
+	var whole: float = GameAuthority.enemies.max_hp[slot] if slot != -1 and GameAuthority.enemies != null else 1.0
+	return "into_the_light" if lit_damage >= whole * 0.25 else ""

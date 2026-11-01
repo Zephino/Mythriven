@@ -692,6 +692,49 @@ def muspell_ember():
     return p
 
 
+def ethnas_girdle():
+    """Ethna's Girdle (Lady Wilde, "Ethna the Bride": the fairy girdle that bound her to Finvarra's hill): a woven
+    green-and-gold girdle tied in a knot."""
+    p = icon()
+    for x in range(1, 15):
+        y = 8 + round(2 * math.sin(x / 2.0))
+        p.rect(x, y, x, y + 1, "v" if x % 3 else "y")
+    p.rect(7, 6, 9, 11, "y"); p.px(8, 8, "G")
+    p.rect(6, 11, 6, 14, "v"); p.rect(10, 11, 10, 14, "v")
+    return p
+
+
+def cape_wind():
+    """Cape Wind (the Flying Dutchman, beating for ever against the wind off the Cape): a bellying grey sail."""
+    p = icon()
+    p.rect(4, 2, 4, 14, "b")
+    for y in range(3, 12):
+        w = 6 + round(2 * math.sin((y - 3) / 8 * math.pi))
+        p.rect(5, y, 4 + w, y, "e" if y % 3 else "E")
+    p.rect(2, 14, 12, 14, "B")
+    return p
+
+
+def poetrys_light():
+    """Poetry's Light (Andersen, "The Shadow": Poetry, who lived in the house opposite, glimpsed in the light): a
+    candle in a lit window."""
+    p = icon()
+    p.rect(3, 2, 13, 14, "B"); p.rect(4, 3, 12, 13, "r")
+    p.rect(8, 3, 8, 13, "B"); p.rect(4, 8, 12, 8, "B")
+    p.rect(6, 10, 6, 12, "e"); p.px(6, 9, "y")
+    return p
+
+
+def tinners_candle():
+    """Tinner's Candle (Hunt, 1865: the Cornish tinners' candles, stuck on their hats with clay): a candle on a lump
+    of clay, burning."""
+    p = icon()
+    p.rect(4, 12, 12, 14, "F"); p.rect(5, 11, 11, 11, "F")
+    p.rect(7, 5, 9, 11, "e"); p.rect(7, 5, 7, 11, "E")
+    p.px(8, 3, "y"); p.px(8, 4, "r"); p.px(8, 2, "y")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
@@ -705,7 +748,8 @@ ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hou
          "torn_banner": torn_banner, "ariadne_thread": ariadne_thread, "drinking_horn": drinking_horn, "scabbard_strap": scabbard_strap,
          "talos_nail": talos_nail, "silver_penny": silver_penny, "kraken_ink": kraken_ink, "billinas_egg": billinas_egg,
          "griffin_feather": griffin_feather, "orions_belt": orions_belt, "gerdas_tears": gerdas_tears, "poppy_seed": poppy_seed,
-         "cold_ash": cold_ash, "lludds_vigil": lludds_vigil, "orichalcum_plate": orichalcum_plate, "muspell_ember": muspell_ember}
+         "cold_ash": cold_ash, "lludds_vigil": lludds_vigil, "orichalcum_plate": orichalcum_plate, "muspell_ember": muspell_ember,
+         "ethnas_girdle": ethnas_girdle, "cape_wind": cape_wind, "poetrys_light": poetrys_light, "tinners_candle": tinners_candle}
 
 
 def outlined(p):

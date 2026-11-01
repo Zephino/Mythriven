@@ -92,3 +92,8 @@ func _draw() -> void:
 		if _held > 0.0:
 			draw_arc(p, r + 6.0, -PI / 2, -PI / 2 + TAU * _held / float(_sig().get("dig_s", 2.0)), 24, Color(1.0, 0.9, 0.5), 2.0)
 	super._draw()
+
+
+## Ethna Won Back secret: Knockma dug into twice, then Finvarra beaten.
+func secret_earned() -> String:
+	return "ethna_won_back" if digs >= 2 else ""

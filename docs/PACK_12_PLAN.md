@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 12). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Tír na nÓg built and released 11/01/2026 (00.03.21); Hy-Brasil (00.03.22); the Shadow's Court (00.03.23); the Knockers' Deep (00.03.24). **All four realms are built.**
+it. Tír na nÓg built and released 11/01/2026 (00.03.21); Hy-Brasil (00.03.22); the Shadow's Court (00.03.23); the Knockers' Deep (00.03.24). **All four realms are built.** The eight secrets (00.03.25).
 
 Realms work like Packs 5-11: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -106,3 +106,17 @@ dark stone).
 | 10:00 | **The Old Knocker** | He knocks on marked spots, and the roof comes down there. Leave him his share: crusts of pasty appear, and a Hero who takes one pleases him (he stops knocking for a while and lets his guard down: double damage) |
 | 20:00 | **Joan the Wad** | The piskie with the torch. Her light leads the farthest Hero astray: they are drawn after it for a moment |
 | 30:00 | **The Spriggan** (the design's) | The treasure's guard. Every so often he swells to a giant's size (slow, hitting hard, hard to hurt, stamping out rings), then shrinks again, spent (double damage). Gold lies in his cairn: a Hero who takes some (run gold) makes him swell at once |
+
+## Secrets (00.03.25, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Tír na nÓg | The Fawn Goes Free | Reach the fawn before the Red-Eared Hound three times, then beat it | Fairy-gold aura |
+| Tír na nÓg | Ethna Won Back | Dig into Finvarra's hill twice, then beat him | Ethna's Girdle passive (+4% max HP per level) |
+| Hy-Brasil | The Spell Broken | Break the Necromancer of O'Brazile's spell twice, then beat him | Sea-mist aura |
+| Hy-Brasil | No Letters Home | Beat the Flying Dutchman without anyone taking one of its letters | Cape Wind passive (+4% move speed per level) |
+| The Shadow's Court | Into the Light | Strike away a quarter of the Learned Man's health in the lamplight, then beat him | Lamplight aura |
+| The Shadow's Court | Master Again | Beat the Shadow while none of the shadows he tore off still stands | Poetry's Light passive (weapon cooldowns 3% shorter per level) |
+| The Knockers' Deep | The Tinner's Manners | Leave the Old Knocker his share of the pasty three times, then beat him | Tinner's Candle passive (+5% luck per level) |
+| The Knockers' Deep | Let It Lie | Beat the Spriggan without anyone taking gold from his cairn | Tin-grey aura |
+
+**Pack 12 is complete.**

@@ -62,3 +62,8 @@ func _draw() -> void:
 			if GameAuthority.enemies.active[s] != 0:
 				draw_line(me, GameAuthority.enemies.positions[s] - global_position, Color(0.1, 0.05, 0.15, 0.5), 1.5)
 	super._draw()
+
+
+## Master Again secret: beaten while none of the stolen shadows still stands.
+func secret_earned() -> String:
+	return "master_again" if torn > 0 and standing_shadows() == 0 else ""

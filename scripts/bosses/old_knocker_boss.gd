@@ -96,3 +96,8 @@ func _draw() -> void:
 		draw_line(p + Vector2(-6, 0), p + Vector2(6, 0), Color(0.75, 0.55, 0.25), 2.0)
 		draw_arc(p, 12.0, 0.0, TAU, 20, Color(1, 1, 1, 0.35), 1.0)
 	super._draw()
+
+
+## The Tinner's Manners secret: the knocker left his share three times, then beaten.
+func secret_earned() -> String:
+	return "the_tinners_manners" if fed >= 3 else ""

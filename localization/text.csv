@@ -3212,3 +3212,39 @@ BANTER_OLD_KNOCKER_ENTRANCE,"(Tap. Tap. Tap. Somewhere above you, the rock creak
 BANTER_JOAN_THE_WAD_ENTRANCE,"This way! No, this way! Hee hee!"
 BANTER_GREAT_SPRIGGAN_ENTRANCE,"Dig here, would you? Let me get a little bigger."
 BANTER_GREAT_SPRIGGAN_THOR,You're big. I can be bigger.
+SECRET_FAWN_FREE_NAME,The Fawn Goes Free
+SECRET_FAWN_FREE_DESC,"Reach the fawn before the Red-Eared Hound three times, then defeat it. A fairy-gold aura."
+SECRET_FAWN_FREE_HINT,The hound has never caught the fawn. Neither should it now.
+SECRET_ETHNA_WON_NAME,Ethna Won Back
+SECRET_ETHNA_WON_DESC,"Dig into Finvarra's hill twice, then defeat him. Adds the Ethna's Girdle passive."
+SECRET_ETHNA_WON_HINT,Ethna's husband dug into the fairy hill to win her back.
+SECRET_SPELL_BROKEN_NAME,The Spell Broken
+SECRET_SPELL_BROKEN_DESC,"Break the Necromancer of O'Brazile's spell twice, then defeat him. A sea-mist aura."
+SECRET_SPELL_BROKEN_HINT,"The sailors lit a fire on the shore, and the spell broke."
+SECRET_NO_LETTERS_NAME,No Letters Home
+SECRET_NO_LETTERS_DESC,Defeat the Flying Dutchman without anyone taking one of its letters. Adds the Cape Wind passive.
+SECRET_NO_LETTERS_HINT,Its crew beg ships to carry their letters home. Don't.
+SECRET_INTO_LIGHT_NAME,Into the Light
+SECRET_INTO_LIGHT_DESC,"Strike away a quarter of the Learned Man's health while he stands in the lamplight, then defeat him. A lamplight aura."
+SECRET_INTO_LIGHT_HINT,A shadow is weakest in the light.
+SECRET_MASTER_AGAIN_NAME,Master Again
+SECRET_MASTER_AGAIN_DESC,Defeat the Shadow while none of the shadows he tore off still stands. Adds the Poetry's Light passive.
+SECRET_MASTER_AGAIN_HINT,Take your shadows back before you take him down.
+SECRET_TINNERS_MANNERS_NAME,The Tinner's Manners
+SECRET_TINNERS_MANNERS_DESC,"Leave the Old Knocker his share of the pasty three times, then defeat him. Adds the Tinner's Candle passive."
+SECRET_TINNERS_MANNERS_HINT,A good tinner always leaves the knockers a bit of his pasty.
+SECRET_LET_IT_LIE_NAME,Let It Lie
+SECRET_LET_IT_LIE_DESC,Defeat the Spriggan without anyone taking gold from his cairn. A tin-grey aura.
+SECRET_LET_IT_LIE_HINT,Leave the spriggan's treasure where it lies.
+PASSIVE_ETHNAS_GIRDLE_NAME,Ethna's Girdle
+PASSIVE_ETHNAS_GIRDLE_DESC,+4% max HP per level.
+PASSIVE_CAPE_WIND_NAME,Cape Wind
+PASSIVE_CAPE_WIND_DESC,+4% move speed per level.
+PASSIVE_POETRYS_LIGHT_NAME,Poetry's Light
+PASSIVE_POETRYS_LIGHT_DESC,Weapon cooldowns 3% shorter per level.
+PASSIVE_TINNERS_CANDLE_NAME,Tinner's Candle
+PASSIVE_TINNERS_CANDLE_DESC,+5% luck per level.
+COSMETIC_FAIRY_GOLD,Fairy Gold
+COSMETIC_SEA_MIST,Sea Mist
+COSMETIC_LAMPLIGHT,Lamplight
+COSMETIC_CORNISH_TIN,Cornish Tin

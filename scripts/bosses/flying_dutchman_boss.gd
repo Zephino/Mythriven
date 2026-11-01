@@ -137,3 +137,8 @@ func _draw() -> void:
 		draw_line(p + Vector2(6, -4), p, Color(0.6, 0.55, 0.45), 1.0)
 		draw_circle(p, 1.5, Color(0.7, 0.1, 0.1))
 	super._draw()
+
+
+## No Letters Home secret: beaten without anyone taking a letter.
+func secret_earned() -> String:
+	return "no_letters_home" if letters_taken == 0 else ""

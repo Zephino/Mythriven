@@ -144,3 +144,8 @@ func _draw() -> void:
 		if _held > 0.0:
 			draw_arc(p, 20.0, -PI / 2, -PI / 2 + TAU * _held / float(_sig().get("take_s", 1.0)), 24, Color(1.0, 0.9, 0.5), 2.0)
 	super._draw()
+
+
+## Let It Lie secret: beaten without anyone taking gold from his cairn.
+func secret_earned() -> String:
+	return "let_it_lie" if gold_taken == 0 else ""

@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.25
+Date: 11/01/2026
+Time: 2:14 AM
+
+### Changes
+- **Pack 12, Otherworlds, is complete: eight new secrets**, two per realm (`docs/PACK_12_PLAN.md`).
+  - **Tír na nÓg:** *The Fawn Goes Free* (reach the fawn before the Red-Eared Hound three times, then beat it: fairy-gold aura); *Ethna Won Back* (dig into Finvarra's hill twice, then beat him: Ethna's Girdle passive, +4% max HP per level).
+  - **Hy-Brasil:** *The Spell Broken* (break the Necromancer's spell twice, then beat him: sea-mist aura); *No Letters Home* (beat the Flying Dutchman without anyone taking a letter: Cape Wind passive, +4% move speed per level).
+  - **The Shadow's Court:** *Into the Light* (strike away a quarter of the Learned Man's health in the lamplight, then beat him: lamplight aura); *Master Again* (beat the Shadow while none of his stolen shadows still stands: Poetry's Light passive, weapon cooldowns 3% shorter per level).
+  - **The Knockers' Deep:** *The Tinner's Manners* (leave the Old Knocker his pasty three times, then beat him: Tinner's Candle passive, +5% luck per level); *Let It Lie* (beat the Spriggan without anyone taking his gold: tin-grey aura).
+  - Four new passive icons, the Oracle hints, and the secrets' rows on the lore check (for the owner to check).
+- 1 new test.
+
+### Reason
+The owner asked for all nine packs, one at a time, each realm with two secrets. This finishes Pack 12.
+
 ## Version 00.03.24
 Date: 11/01/2026
 Time: 2:07 AM

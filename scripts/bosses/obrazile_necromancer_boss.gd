@@ -94,3 +94,8 @@ func _draw() -> void:
 			if _held[i] > 0.0:
 				draw_arc(at, 18.0, -PI / 2, -PI / 2 + TAU * _held[i] / float(_sig().get("light_s", 1.5)), 24, Color(1.0, 0.8, 0.4), 2.0)
 	super._draw()
+
+
+## The Spell Broken secret: his spell broken twice, then beaten.
+func secret_earned() -> String:
+	return "the_spell_broken" if spells_broken >= 2 else ""

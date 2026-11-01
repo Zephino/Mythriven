@@ -1214,6 +1214,51 @@ func test_pack_11_boss_secrets() -> void:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
 
 
+func test_pack_12_boss_secrets() -> void:
+	_start("tir_na_nog")
+	var hound: RedEaredHoundBoss = _bosses.spawn_boss("red_eared_hound", 0) as RedEaredHoundBoss
+	hound.baffled = 3
+	assert_eq(hound.secret_earned(), "the_fawn_goes_free")
+	var king: FinvarraBoss = _bosses.spawn_boss("finvarra", 2) as FinvarraBoss
+	king.digs = 2
+	assert_eq(king.secret_earned(), "ethna_won_back")
+	GameAuthority.end_scene()
+	_start("hy_brasil")
+	var mage: ObrazileNecromancerBoss = _bosses.spawn_boss("obrazile_necromancer", 1) as ObrazileNecromancerBoss
+	mage.spells_broken = 2
+	assert_eq(mage.secret_earned(), "the_spell_broken")
+	var ship: FlyingDutchmanBoss = _bosses.spawn_boss("flying_dutchman", 2) as FlyingDutchmanBoss
+	assert_eq(ship.secret_earned(), "no_letters_home")
+	ship.letters_taken = 1
+	assert_eq(ship.secret_earned(), "")
+	GameAuthority.end_scene()
+	_start("shadows_court")
+	var scholar: LearnedManBoss = _bosses.spawn_boss("learned_man", 0) as LearnedManBoss
+	assert_eq(scholar.secret_earned(), "")
+	scholar.lit_damage = _enemies.max_hp[scholar.slot] * 0.3
+	assert_eq(scholar.secret_earned(), "into_the_light")
+	var master: TheShadowBoss = _bosses.spawn_boss("the_shadow", 2) as TheShadowBoss
+	master.tear_shadows()
+	assert_eq(master.secret_earned(), "", "a stolen shadow still stands")
+	for s: int in master.shadows.duplicate():
+		_enemies.remove_quietly(s)
+	assert_eq(master.secret_earned(), "master_again")
+	GameAuthority.end_scene()
+	_start("knockers_deep")
+	var knocker: OldKnockerBoss = _bosses.spawn_boss("old_knocker", 0) as OldKnockerBoss
+	knocker.fed = 3
+	assert_eq(knocker.secret_earned(), "the_tinners_manners")
+	var guard: GreatSprigganBoss = _bosses.spawn_boss("great_spriggan", 2) as GreatSprigganBoss
+	assert_eq(guard.secret_earned(), "let_it_lie")
+	for secret: String in ["the_fawn_goes_free", "ethna_won_back", "the_spell_broken", "no_letters_home", "into_the_light",
+			"master_again", "the_tinners_manners", "let_it_lie"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
 func test_hyperborea_is_pack_10() -> void:
 	var level: Dictionary = _level("hyperborea")
 	assert_eq(int(level["act"]), 12)

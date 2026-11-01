@@ -659,5 +659,57 @@
       "secret": "where_rime_meets_fire"
     },
     "persists": false
+  },
+  {
+    "id": "ethnas_girdle",
+    "name_key": "PASSIVE_ETHNAS_GIRDLE_NAME",
+    "desc_key": "PASSIVE_ETHNAS_GIRDLE_DESC",
+    "stat": "max_hp",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "ethna_won_back"
+    },
+    "persists": false
+  },
+  {
+    "id": "cape_wind",
+    "name_key": "PASSIVE_CAPE_WIND_NAME",
+    "desc_key": "PASSIVE_CAPE_WIND_DESC",
+    "stat": "move_speed",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "no_letters_home"
+    },
+    "persists": false
+  },
+  {
+    "id": "poetrys_light",
+    "name_key": "PASSIVE_POETRYS_LIGHT_NAME",
+    "desc_key": "PASSIVE_POETRYS_LIGHT_DESC",
+    "stat": "cooldown",
+    "per_level": 0.03,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "master_again"
+    },
+    "persists": false
+  },
+  {
+    "id": "tinners_candle",
+    "name_key": "PASSIVE_TINNERS_CANDLE_NAME",
+    "desc_key": "PASSIVE_TINNERS_CANDLE_DESC",
+    "stat": "luck",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_tinners_manners"
+    },
+    "persists": false
   }
 ]

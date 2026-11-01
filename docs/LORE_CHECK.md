@@ -1095,6 +1095,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | great_spriggan_entrance | boss entrance | great_spriggan | Dig here, would you? Let me get a little bigger. | Robert Hunt, Popular Romances of the West of England (1865) | no |
 | great_spriggan_thor | boss meets god (with thor) | great_spriggan | You're big. I can be bigger. | Original line written for Mythriven | no |
 
+### Pack 12 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| the_fawn_goes_free | The Fawn Goes Free | The hound has never caught the fawn. Neither should it now. | Coimín, "Laoi Oisín i dTír na nÓg" (c. 1750): the hornless fawn and the red-eared hound | no |
+| ethna_won_back | Ethna Won Back | Ethna's husband dug into the fairy hill to win her back. | Lady Wilde, Ancient Legends of Ireland (1887), "Ethna the Bride" | no |
+| the_spell_broken | The Spell Broken | The sailors lit a fire on the shore, and the spell broke. | "O-Brazile, or the Inchanted Island" (1675): the fire on the shore breaks the spell | no |
+| no_letters_home | No Letters Home | Its crew beg ships to carry their letters home. Don't. | "Vanderdecken's Message Home", Blackwood's Magazine (1821): never take the Dutchman's letters | no |
+| into_the_light | Into the Light | A shadow is weakest in the light. | Andersen, "The Shadow" (1847) | no |
+| master_again | Master Again | Take your shadows back before you take him down. | Andersen, "The Shadow" (1847): the shadow that became its master's master | no |
+| the_tinners_manners | The Tinner's Manners | A good tinner always leaves the knockers a bit of his pasty. | Robert Hunt, Popular Romances of the West of England (1865): the pasty left for the knockers | no |
+| let_it_lie | Let It Lie | Leave the spriggan's treasure where it lies. | Robert Hunt, Popular Romances of the West of England (1865): the spriggans punish treasure-seekers | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.
