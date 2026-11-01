@@ -1020,6 +1020,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_hungry_cow | The Hungry Cow | The first cow lives on salt. Take it from her. | Snorri, Gylfaginning 6 (Auðumbla licks the salty rime-blocks) | no |
 | where_rime_meets_fire | Where Rime Meets Fire | Bring fire to his rime, and rime to his fire. | Snorri, Gylfaginning 5 (where the rime met the heat, life quickened) | no |
 
+## Pack 12: Otherworlds
+
+### Tír na nÓg
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | tir_na_nog | Tír na nÓg | Mícheál Coimín, "Laoi Oisín i dTír na nÓg" (c. 1750); Lady Wilde, Ancient Legends of Ireland (1887) ("Ethna the Bride"); Yeats (1888) | no |
+| enemy | sidhe_warrior | Sídhe warrior | Lady Wilde, Ancient Legends of Ireland (1887); Yeats (1888) (the fairy host, the sídhe) | no |
+| enemy | sidhe_piper | Sídhe piper | Lady Wilde, Ancient Legends of Ireland (1887) (the fairy music that draws mortals away) | no |
+| boss | red_eared_hound | The Red-Eared Hound | Mícheál Coimín, "Laoi Oisín i dTír na nÓg" (c. 1750) (on the way to the Land of Youth, a hornless fawn chased by a white hound with red ears) | no |
+| boss | fomor | The Fomor | Mícheál Coimín, "Laoi Oisín i dTír na nÓg" (c. 1750) (Oisín fights a Fomorian giant for three days and three nights to free a captive princess) | no |
+| boss | finvarra | Finvarra | Lady Wilde, Ancient Legends of Ireland (1887) ("Ethna the Bride": Finvarra carries Ethna off into his hill of Knockma; her husband digs into the hill); GAME_DESIGN.md (Finvarra, king of the Connacht fairies) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| red_eared_hound_entrance | boss entrance | red_eared_hound | (A white hound with red ears races past, after a fawn that is always just ahead.) | Mícheál Coimín, "Laoi Oisín i dTír na nÓg" (c. 1750) | no |
+| fomor_entrance | boss entrance | fomor | Three days and three nights, the last one took. Can you last as long? | Mícheál Coimín, "Laoi Oisín i dTír na nÓg" (c. 1750) | no |
+| finvarra_entrance | boss entrance | finvarra | Welcome to my hill. Do stay. Everyone stays. | Lady Wilde, Ancient Legends of Ireland (1887) | no |
+| finvarra_morrigan | boss meets god (with morrigan) | finvarra | The Great Queen, in my hill? Mind the fairy food. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

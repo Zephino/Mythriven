@@ -5407,5 +5407,117 @@
       "edge": "#24242e",
       "stones": "#5a5a6a"
     }
+  },
+  {
+    "_doc": "Tír na nÓg, Pack 12 realm 1, the Land of Youth (docs/PACK_12_PLAN.md). Sources: Mícheál Coimín, \"Laoi Oisín i dTír na nÓg\" (c. 1750); Lady Wilde, Ancient Legends of Ireland (1887); Yeats, Fairy and Folk Tales of the Irish Peasantry (1888). Oisín and Niamh are not enemies. A realm: no local gods.",
+    "id": "tir_na_nog",
+    "name_key": "LEVEL_TIR_NA_NOG_NAME",
+    "region": "realm_youth",
+    "act": 14,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "tir_na_nog",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "flowers",
+          "max": -0.3,
+          "placeholder_color": "#6aa04a",
+          "placeholder_dots": "#f0d050"
+        },
+        {
+          "id": "grass",
+          "max": 0.15,
+          "placeholder_color": "#5a9a3a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "clover",
+          "max": 0.6,
+          "placeholder_color": "#4a8a3a",
+          "placeholder_dots": "#f0f0f0"
+        },
+        {
+          "id": "meadow",
+          "max": 1.0,
+          "placeholder_color": "#7aaa4a",
+          "placeholder_dots": "#e080a0"
+        }
+      ]
+    },
+    "decorations": [
+      "fairy_knowe",
+      "standing_stone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "fairy_knowe": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          16
+        ],
+        "placeholder_color": "#6a9a4a",
+        "weight": 1
+      },
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          22
+        ],
+        "placeholder_color": "#a8aca0",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "red_eared_hound",
+      "20": "fomor",
+      "30": "finvarra"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "ashkarrow",
+      "boss": "lord_of_ashkarrow"
+    },
+    "waves": "waves_tir_na_nog.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 20,
+      "push_px_s": 60,
+      "enemy_push_px_s": 20,
+      "wind_turn_s": 4,
+      "vision_screens": 0.7,
+      "pulse": 0.12,
+      "pulse_hz": 0.4,
+      "veil_color": "#f0e0a0",
+      "particles": "petals",
+      "particle_color": "#f8f0c0",
+      "fade_s": 2.0,
+      "name_key": "HAZARD_FAIRY_WIND_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#f0f4d8",
+    "flora": {
+      "density": 0.7,
+      "trees": {
+        "apple": 3,
+        "hawthorn": 1
+      }
+    },
+    "road": {
+      "color": "#a8a070",
+      "edge": "#888050",
+      "stones": "#c8c098"
+    }
   }
 ]

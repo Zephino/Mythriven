@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.21
+Date: 11/01/2026
+Time: 1:34 AM
+
+### Changes
+- **Pack 12, Otherworlds, is planned** (`docs/PACK_12_PLAN.md`): Tír na nÓg, Hy-Brasil, the Shadow's Court and the Knockers' Deep, each opened by a Pack 11 30:00 boss.
+- **Tír na nÓg, the Land of Youth, is built and open.** It opens when you beat the Lord of Ashkarrow. Sources: Coimín's 18th-century lay of Oisín in the Land of Youth, Lady Wilde's Ancient Legends of Ireland (1887) and Yeats' Fairy and Folk Tales (1888). Oisín and Niamh, the heroes of the tale, are not enemies.
+  - **Hazard, the fairy wind:** the fairy host passes in a whirlwind that sweeps the Heroes along and closes the view.
+  - **Monsters:** sídhe warriors, sídhe pipers (casters), the sluagh (swarms) and will-o'-the-wisps.
+  - **10:00, the Red-Eared Hound:** it forever chases a hornless fawn round the arena. A Hero who reaches the fawn first leaves the hound baffled for 3 s, taking double damage.
+  - **20:00, the Fomor** (the giant Oisín fought for three days and nights): every 12 s night falls; he rests for 3 s and gets back a third of the damage done to him since dawn.
+  - **30:00, Finvarra** (the design's boss, king of the fairies of Knockma): every 8 s he carries the nearest Hero off across the arena, Hexed. A Hero who stands on his hill for 2 s digs into it and breaks his guard, as Ethna's husband dug into Knockma.
+  - A land of everlasting summer: apple trees and hawthorns, flowers and clover, fairy mounds and standing stones; hares, swans, butterflies and white deer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (444 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 12, the next of the nine packs, built one realm at a time.
+
 ## Version 00.03.20
 Date: 11/01/2026
 Time: 1:07 AM

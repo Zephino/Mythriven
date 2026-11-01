@@ -2968,5 +2968,46 @@
     "text_key": "BANTER_VOID_HERALD_ODIN",
     "lore_source": "Original line written for Mythriven; Gylfaginning 8 (Odin and his brothers make the world from Ymir)",
     "needs_owner_review": true
+  },
+  {
+    "id": "red_eared_hound_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "red_eared_hound",
+    "hero": "",
+    "god": "red_eared_hound",
+    "text_key": "BANTER_RED_EARED_HOUND_ENTRANCE",
+    "lore_source": "Mícheál Coimín, \"Laoi Oisín i dTír na nÓg\" (c. 1750)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "fomor_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "fomor",
+    "hero": "",
+    "god": "fomor",
+    "text_key": "BANTER_FOMOR_ENTRANCE",
+    "lore_source": "Mícheál Coimín, \"Laoi Oisín i dTír na nÓg\" (c. 1750)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "finvarra_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "finvarra",
+    "hero": "",
+    "god": "finvarra",
+    "text_key": "BANTER_FINVARRA_ENTRANCE",
+    "lore_source": "Lady Wilde, Ancient Legends of Ireland (1887)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "finvarra_morrigan",
+    "trigger": "boss_meets_god",
+    "speaker": "finvarra",
+    "hero": "",
+    "god": "finvarra",
+    "with_god": "morrigan",
+    "text_key": "BANTER_FINVARRA_MORRIGAN",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

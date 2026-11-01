@@ -1563,6 +1563,52 @@ func test_the_herald_of_the_void_shatters_between_rime_and_fire() -> void:
 	assert_gt(herald.marks.size(), 0, "the gap opens under the farthest Hero")
 
 
+func test_tir_na_nog_is_pack_12() -> void:
+	var level: Dictionary = _level("tir_na_nog")
+	assert_eq(int(level["act"]), 14)
+	assert_eq(str(level["unlock"]["boss"]), "lord_of_ashkarrow")
+	assert_eq(tr("PACK_14_NAME"), "Pack 12: Otherworlds")
+
+
+func test_the_red_eared_hound_chases_the_fawn() -> void:
+	_start("tir_na_nog")
+	var hound: RedEaredHoundBoss = _bosses.spawn_boss("red_eared_hound", 0) as RedEaredHoundBoss
+	_player.position = Vector2(9999, 9999)
+	hound.signature(0.1)
+	assert_ne(hound.fawn, Vector2.INF, "the fawn runs")
+	_player.position = hound.fawn
+	hound.signature(0.01)
+	assert_eq(hound.baffled, 1, "a Hero reached it first")
+	assert_almost_eq(hound.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "baffled")
+
+
+func test_the_fomor_recovers_at_nightfall() -> void:
+	_start("tir_na_nog")
+	var giant: FomorBoss = _bosses.spawn_boss("fomor", 1) as FomorBoss
+	giant.signature(0.1)
+	var whole: float = _enemies.hp[giant.slot]
+	_enemies.hp[giant.slot] -= giant.modify_hit(300.0, _player, Vector2.ZERO)
+	giant.signature(12.0)
+	assert_eq(giant.nights, 1)
+	assert_almost_eq(_enemies.hp[giant.slot], whole - 300.0 + 99.0, 0.5, "a third of the day's wounds close")
+
+
+func test_finvarra_carries_heroes_into_his_hill() -> void:
+	_start("tir_na_nog")
+	var king: FinvarraBoss = _bosses.spawn_boss("finvarra", 2) as FinvarraBoss
+	assert_ne(king.hill, Vector2.INF)
+	var at: Vector2 = _player.position
+	king.signature(5.1)
+	assert_eq(king.carried, 1)
+	assert_ne(_player.position, at, "whisked away")
+	assert_true(_player.statuses.has("hex"))
+	_player.position = king.hill
+	king.signature(1.0)
+	king.signature(1.1)
+	assert_eq(king.digs, 1, "dug into Knockma")
+	assert_gt(king.broken_s, 0.0, "his guard breaks")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

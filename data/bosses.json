@@ -11193,5 +11193,243 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Tír na nÓg bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "red_eared_hound",
+    "name_key": "BOSS_RED_EARED_HOUND_NAME",
+    "tradition": "irish",
+    "lore_source": "Mícheál Coimín, \"Laoi Oisín i dTír na nÓg\" (c. 1750) (on the way to the Land of Youth, a hornless fawn chased by a white hound with red ears)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "red_eared_hound",
+    "move_speed": 60,
+    "keep_distance_px": 30,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_fawn",
+      "fawn_px_s": 70,
+      "fawn_reach_px": 16,
+      "baffled_s": 3.0,
+      "baffled_damage_taken": 2.0,
+      "fawn_again_s": 4.0,
+      "hound_px_s": 60
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Tír na nÓg bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "fomor",
+    "name_key": "BOSS_FOMOR_NAME",
+    "tradition": "irish",
+    "lore_source": "Mícheál Coimín, \"Laoi Oisín i dTír na nÓg\" (c. 1750) (Oisín fights a Fomorian giant for three days and three nights to free a captive princess)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "fomor",
+    "move_speed": 34,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "three_days",
+      "day_s": 12.0,
+      "night_s": 3.0,
+      "night_heal": 0.33
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Tír na nÓg bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "finvarra",
+    "name_key": "BOSS_FINVARRA_NAME",
+    "tradition": "irish",
+    "lore_source": "Lady Wilde, Ancient Legends of Ireland (1887) (\"Ethna the Bride\": Finvarra carries Ethna off into his hill of Knockma; her husband digs into the hill); GAME_DESIGN.md (Finvarra, king of the Connacht fairies)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "finvarra",
+    "move_speed": 42,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "knockma",
+      "carry_every_s": 8.0,
+      "carry_px": 200,
+      "hill_px": 120,
+      "hill_radius_px": 26,
+      "dig_s": 2.0,
+      "dig_again_s": 10.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "sidhe_warrior"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "sidhe_warrior"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1724,5 +1724,35 @@
       "id": "void_herald"
     },
     "persists": true
+  },
+  {
+    "id": "boss_red_eared_hound",
+    "name_key": "ACH_BOSS_RED_EARED_HOUND_NAME",
+    "desc_key": "ACH_BOSS_RED_EARED_HOUND_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "red_eared_hound"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_fomor",
+    "name_key": "ACH_BOSS_FOMOR_NAME",
+    "desc_key": "ACH_BOSS_FOMOR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "fomor"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_finvarra",
+    "name_key": "ACH_BOSS_FINVARRA_NAME",
+    "desc_key": "ACH_BOSS_FINVARRA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "finvarra"
+    },
+    "persists": true
   }
 ]

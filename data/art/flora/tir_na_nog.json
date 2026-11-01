@@ -1,0 +1,1032 @@
+{
+ "_doc": "Trees, bushes and rocks of tir_na_nog (docs/WORLD_PLAN.md: 1), built by tools/art/build_flora.py and weathered. items: kind (tree, bush, boulder, stone, pebbles), solid_r (the solid base in px; 0 = walk over), slow_r (stones that slow you).",
+ "palette": {
+  "a": "#323c28",
+  "b": "#28281e",
+  "c": "#828c64",
+  "d": "#647850",
+  "e": "#6e825a",
+  "f": "#5a6446",
+  "g": "#788c5a",
+  "h": "#50643c",
+  "i": "#aab482",
+  "j": "#6e7850",
+  "k": "#646e50",
+  "l": "#96a078",
+  "m": "#505a3c",
+  "n": "#f0f0dc",
+  "o": "#5a6e46",
+  "p": "#465032",
+  "q": "#3c4632",
+  "r": "#281e14",
+  "s": "#5a3c32",
+  "t": "#3c281e",
+  "u": "#1e140a",
+  "v": "#5a4632",
+  "w": "#321e14",
+  "x": "#32281e",
+  "y": "#a0aa82",
+  "z": "#503c28",
+  "A": "#464632",
+  "B": "#828264",
+  "C": "#3c321e",
+  "D": "#463c28",
+  "E": "#8c966e",
+  "F": "#644632",
+  "G": "#283c1e",
+  "H": "#5a783c",
+  "I": "#5a8246",
+  "J": "#506e32",
+  "K": "#648c46",
+  "L": "#96b464",
+  "M": "#50783c",
+  "N": "#82a05a",
+  "O": "#506e3c",
+  "P": "#466432",
+  "Q": "#3c5a28",
+  "R": "#1e2814",
+  "S": "#8caa64",
+  "T": "#325028",
+  "U": "#32461e",
+  "V": "#3c5028",
+  "W": "#789650",
+  "X": "#6e8246",
+  "Y": "#463228",
+  "Z": "#465a32",
+  "0": "#141e14",
+  "1": "#284632",
+  "2": "#283c28",
+  "3": "#6e6e5a",
+  "4": "#786e64",
+  "5": "#1e3228",
+  "6": "#6e645a",
+  "7": "#64645a",
+  "8": "#323232",
+  "9": "#3c4646",
+  "!": "#6e6e78",
+  "#": "#282828",
+  "$": "#64646e",
+  "%": "#6e6e6e",
+  "&": "#8c8c96",
+  "*": "#96a0a0",
+  "+": "#505a5a",
+  "-": "#78825a",
+  "=": "#969696",
+  "?": "#787878",
+  "@": "#50505a",
+  "^": "#787882",
+  "_": "#464650",
+  "~": "#505050",
+  "<": "#828282",
+  ">": "#5a5a64",
+  ":": "#82828c",
+  ";": "#646464",
+  ",": "#5a5a5a",
+  "|": "#464646",
+  "/": "#3c3c46",
+  "(": "#3c3c3c",
+  ")": "#788282",
+  "[": "#a0a0aa",
+  "]": "#0a0a00"
+ },
+ "frames": {
+  "apple_small_0": [
+   [
+    "..........aaaa....",
+    ".......baacdeea...",
+    "....bbbfegcgdega..",
+    "...bhhhfegiggeca..",
+    ".aajekejeeedjljeb.",
+    "aejgjgeeeeejjeejmb",
+    "agejjjngeegjleeejm",
+    "agjgjejjjgjnjjeoee",
+    "agennjdejekegejeej",
+    "bmmenmgejleggeeeem",
+    "bpmnmmmmmpmmjojjmm",
+    "bmmpmmmmppmqmmmmmm",
+    ".bmmpmmmmmmpmmmmmb",
+    "..bmppmppmmmpmmmb.",
+    "...bmpmpmmmmmmmb..",
+    "....bbmpmpmpmbb...",
+    "......brstubb.....",
+    ".......rstu.......",
+    ".......rvwu.......",
+    "......uustuuu.....",
+    ".....uttxttttu...."
+   ]
+  ],
+  "apple_small_1": [
+   [
+    "....aaaaaaaaaa....",
+    "...aeegggcegeda...",
+    "..ageeggdyceccga..",
+    "..agycncgegegcgga.",
+    "..bnjgeeeelnegegga",
+    ".bhneeeeeeeejjeege",
+    "bhmmegjggnyjkegeee",
+    "bmmmmjekleeekjeejm",
+    "bmmmymmpmmhhjekpmm",
+    "bmmmmhhmmmmpmpmmpm",
+    "bmmpmmpnmpmmpmmmmp",
+    "bmmmpmmpmmmppmmppp",
+    ".bmpmpmppmpmmmmmpb",
+    "..bpmmmmmmpmpmppb.",
+    "...bmmmmmmqmpmpb..",
+    "....bbmpmmmmmbb...",
+    "......brstubb.....",
+    ".......rstu.......",
+    ".......rztu.......",
+    "......uuztuuu.....",
+    ".....utttxtxtu...."
+   ]
+  ],
+  "apple_medium_0": [
+   [
+    "...............aaa........",
+    "...........aaAadcgaa......",
+    "........baageyecjgggaa....",
+    "......abmcgcgggcgeceega...",
+    "....bageegnegeygdgeedgga..",
+    "...bmjogggjjjeejjjgeeegea.",
+    "..bmjeyeeekgggnekjeggeeja.",
+    "..beyjeoeeneneegeekeggegb.",
+    ".bheejjeeggejjggBggeegoemb",
+    ".bmjeggegdjjgjemlleeeeegee",
+    "bmmegjeegeggegejpjeeeeeege",
+    "bmpmeeegegeeegloeleeejjjje",
+    "bmmmneejgjkgmmegjleeeogeeg",
+    "bhhmphnmpmhmmmmggjleeeeege",
+    "bhmhmhmmmhmmhhmmpejndegeoh",
+    ".bmmmmmmmppmpmnmmmmjdedmpb",
+    ".bmmmqpmmmpmmpmmmmmppmpppb",
+    "..bmmmmmppmmmpmmpmmppmmmb.",
+    "...bmmmmpmmmmpppmmpmmmmb..",
+    "....bppmppmmmmmpmmmmmpb...",
+    ".....bbmmmmmmmmpmmppbb....",
+    ".......bbpmppppmpmbb......",
+    ".........bbrvstubb........",
+    "...........rvvCu..........",
+    "...........rvvCu..........",
+    "...........rsDtu..........",
+    "...........rsstu..........",
+    "...........rvstu..........",
+    "..........uuzstuu.........",
+    ".........uxtttxttu........"
+   ]
+  ],
+  "apple_medium_1": [
+   [
+    "..........................",
+    "............bbb...........",
+    "........bbbbhfhbaaa.......",
+    "......abhfphggEcggeab.....",
+    "...aaacjggggggeegkichbb...",
+    "..agekeeejegegeeeggeemhb..",
+    ".agggenjegBeleegegekemmmb.",
+    ".ageeeggeejgglnjjjjnehmhb.",
+    ".aegeeegeejkgjegedgjgjmpmb",
+    ".bjeleenjegljeejkeleeejmhb",
+    "bmmehmgjgegeegjeeegehjeehm",
+    "bmmegegggmeeeenoegkggggjpm",
+    "bhhjegggegngeejleeedeeeemm",
+    "bmmmeeeejekojjgygejgjeemhh",
+    "bhmmhgeggngehgegejeeeemmmh",
+    ".bmmmmmmmmmmmmmmmjjjmmmmmb",
+    ".bmmmmpmmmmmmppmmpmmpmppmb",
+    "..bqppmpmppmpmpmmmpqmmmmb.",
+    "...bpmmpmpmmmmpmmmppmmpb..",
+    "....bppmmpmmmmmmmmmmmpb...",
+    ".....bbmmmmmpmmpmmmmbb....",
+    ".......bbpmmmmmmmmbb......",
+    ".........bbrsvCubb........",
+    "...........rvvtu..........",
+    "...........rvFCu..........",
+    "...........rvsxu..........",
+    "...........rvstu..........",
+    "...........rsztu..........",
+    "..........uuvstuu.........",
+    ".........uttttxxxu........"
+   ]
+  ],
+  "apple_large_0": [
+   [
+    "...................................",
+    "...............aaaaaaa.............",
+    "...........aaaaggegeegaaaaaa.......",
+    "........aaaegcgggeggggcgggegaa.....",
+    "......aageeegeegygegelgdegcejca....",
+    ".....aeggecegcgegggdcdedggjggega...",
+    "....aggkggeggycjngcgggggjccegcca...",
+    "...ajgegjeengejjneggjejeeengejjja..",
+    "..aegeneyjgegggjgegdjeyoegjgeegea..",
+    "..boegejeleegeeejggeeglgjegeeeegb..",
+    ".bmeejegeejjjeejgelgjeeloeeggkemmb.",
+    ".bmgejjeeggjeegeeeeegegejgjjgjmmhb.",
+    "bpheegejgejjmjgegjoeggekljeeemmhmmb",
+    "bphmggggejeljedegggyjeeeggeehmmmhhb",
+    "bmmhmenjejegejleednjjgegjjegmmhmmhb",
+    "bmhmmhhelgkedeegejgdedeelmemmhmmmmb",
+    "bmmmhlymmegneeejjejeejggjemmmmmmmhb",
+    "bmmmmmBhphmmeeeemmmgejjempmmmmmmhhb",
+    "bmhmmmBmhmmmnmmmmmmmmmmhmhmmmmmmmhb",
+    "bpmmmmmmmmmhhmhmmmmhmnmmpmpmmmmmmhb",
+    ".bmmmmmnmmpmmmpmmmpmpmpmmpmmmmmmqb.",
+    ".bqmmmmmmpqmmppmpmmpppnmmmpmmpmpmb.",
+    "..bmmmmmmmppmmppmmmmmmppmmmpmmpmb..",
+    "...bmpmpmmpmmmmmmpmppmmpmmmmpmmb...",
+    "....bmmqpppmmqmmmmmmpmpmmmmmmpb....",
+    ".....bmpmpmmppmmmpmmpmpmmmqmmb.....",
+    "......bmppmmmpmpmmpmmpmmmmpmb......",
+    ".......bbmpmmmmpmpqmmmpmpmbb.......",
+    ".........bbbmmpmmmmmmpmbbb.........",
+    "............bbrvvvtubbb............",
+    "..............rsvvxu...............",
+    "..............rzvvCu...............",
+    "..............rFvstu...............",
+    "..............rvvvxu...............",
+    "..............rvsstu...............",
+    "..............rzsstu...............",
+    "..............rvsvtu...............",
+    "..............rsvzxu...............",
+    ".............uuzsstuuu.............",
+    "............uxxxttxxxtu............"
+   ]
+  ],
+  "apple_large_1": [
+   [
+    "...................................",
+    ".........aaaaaaaaaaaa..............",
+    ".......aaggkgeegggggeaaaa..........",
+    "......acggcgcdegggicccecga.........",
+    ".....agegeggkceccgcceceggcab.......",
+    "....agcegeegeigclgccgcgegjchb......",
+    "...agcggenglggggkcgcggcecgncmb.....",
+    "...aoegkegegejeeejgeejeglgeeemb....",
+    "..aeegegjjeneeeeekgejejejeegeemb...",
+    "..bgejeggjejeeleejjeegeejkgjeehhb..",
+    ".bhhegeeoeggjojgeelejedngejejemhmb.",
+    ".bmpelgegjngjlkgeeeegeegjejggehmmb.",
+    "bhmylmgemjylkgelggjejegeeejeghmmmhb",
+    "bmmeEjjgeeeejejgepejejegjjhkmmmmmmb",
+    "bmgegeejgneeeejyeggjgejjljjpmhmmmhb",
+    "bmgeeegdkgjeeejgjhpmneeemmmmmmhmhmb",
+    "bmegjeenonjojyeeemmhmnlmhmmhpmmmhhb",
+    "bmlgegeeelgoggjeemmlmmhmmmmmhhhmhmb",
+    "bmmeejknjgdeedjenhppmmmhmmhmmmhmhmb",
+    "bmmmjjgegjejgegmhmhhhpmmhmhmhhhmmmb",
+    ".bmmpmdjjdjjjmmmmmpmppmmmpmmmpmmmb.",
+    ".bpmmmmmmmmmmmmmmmmmmppmqmmmpmpmmb.",
+    "..bmmmmmpmmmmpmmpmmmmmmmmmmmmmmmb..",
+    "...bmmmpmmpmmmmmmmmmmpmmppmmmmmb...",
+    "....bmmmmpmpmmmmmmmppmmmpmmmmmb....",
+    ".....bmpmqpmmmmpmpmpmmmmpmmmqb.....",
+    "......bmmmmmmppmmppqmmmmmmmmb......",
+    ".......bbmmmmpmmpppmpmmmmpbb.......",
+    ".........bbbpmmmmppmmmmbbb.........",
+    "............bbrvvFtubbb............",
+    "..............rFvvtu...............",
+    "..............rsvFCu...............",
+    "..............rvvFtu...............",
+    "..............rvsstu...............",
+    "..............rssztu...............",
+    "..............rssvtu...............",
+    "..............rvsstu...............",
+    "..............rvsztu...............",
+    ".............uuzsstuuu.............",
+    "............utttttttxtu............"
+   ]
+  ],
+  "hawthorn_small_0": [
+   [
+    "...GGGGGG......",
+    "..GHIJKIIGG....",
+    ".GIIKHHILIKGGG.",
+    ".GMInHNHInHHIIG",
+    ".GMInIHnnNNIHHO",
+    "GIMIPHIMIQIHIIH",
+    "RQHIHHHJHIMHMPR",
+    "QQQMHHQIISHIIQQ",
+    "QTQQQQQnHHITQTQ",
+    "RQQQUQQQQQQTTQR",
+    "RQQQQTQQQUQQQQR",
+    ".RQQQQQQQQQQTR.",
+    "..RQQTQTTQQQR..",
+    "...RRQQQQQRR...",
+    ".....RstuR.....",
+    ".....rstu......",
+    "....uustuuu....",
+    "...uttxtxttu..."
+   ]
+  ],
+  "hawthorn_small_1": [
+   [
+    "...GGGGGGOGG...",
+    "..GHKKIKKIKIG..",
+    ".VNHISOHIHHIIG.",
+    "..GHJHHMHPHMJG.",
+    ".RHInHHnMMMHHR.",
+    "RQMHnHHOIHMPMTR",
+    "RQMMHMHMQMHIMQR",
+    "TQQIHHMInMHIQQQ",
+    "QQnnQQQQQHMQQQQ",
+    "RQTQTTQQTUQQQTR",
+    "RTQQQQTQQTQQQQR",
+    ".RTTQQUTUTTQQR.",
+    "..RQQUQQQTQQR..",
+    "...RRQQTTQRR...",
+    ".....RFxuR.....",
+    ".....rstu......",
+    "....uustuuu....",
+    "...uttwxtttu..."
+   ]
+  ],
+  "hawthorn_medium_0": [
+   [
+    ".......GGHHIIGG.......",
+    ".....GGIKHKIJKHGGG....",
+    "...GGKHHKHIIHKHKKIG...",
+    "..GKJISIKKIHKIIKIIIG..",
+    ".GHHIKIIHnIIHHIJKHIIG.",
+    ".GHHnHIMHIHJMHNMIIMMR.",
+    ".GHJHPHHIHMINMMHHIMQQR",
+    ".RHIHNHHInMMnHOOPIHHQR",
+    "RQQHHIHHIHMIHHHMHHIIQQ",
+    "RQNQHnHJHMHMPSNHMMMHQQ",
+    "RQQQJnIPHHMWHnMHMIHHQQ",
+    "RQQQQIMHNHInJHIHHHHQQQ",
+    "RQQQQQHMIIMQQnHMIQQQQQ",
+    "RQQQQQTQUTQQTTTTQQTTUQ",
+    ".RUUTTQQQQQQTQTQTQQQTR",
+    "..RQTQTQQQTQQTTQQQTQR.",
+    "...RTTQQQQQQQQQQUQQR..",
+    "....RQTQQUUQTQUTTQR...",
+    ".....RRUQQQQQTQQRR....",
+    ".......RRRFstuRR......",
+    ".........rvvtu........",
+    ".........rzstu........",
+    ".........rzDtu........",
+    ".........rsvxu........",
+    "........uuvztuu.......",
+    ".......uxttttttu......"
+   ]
+  ],
+  "hawthorn_medium_1": [
+   [
+    "......................",
+    "......GGGGGGVR........",
+    ".....GIKIKKINQRRR.....",
+    "....GISHIIIHIIHQQRR...",
+    "...RKHIHIKIIKSIIKQQR..",
+    "..RQHMIHIHnMMSMHMQQQR.",
+    ".RQQnPHHMIIJHMMIIMQQQR",
+    ".RQMIJHMMMHIMIHHHHMMQR",
+    "RQQINHMHIQHMMOHHIJMIHQ",
+    "RQHHnMIHIHHIMQJHIHMHMO",
+    "RQQHHnMJMNMHMIIQNMHMHH",
+    "RUQMHPnHMMIHHQMnIIHIHQ",
+    "RQQQQMHnJOQQIHHHIHHHMQ",
+    "RTQQQQnQQQQQQnQOMOMTQQ",
+    ".RQQQQQTQQQTTTTTQQTQQR",
+    "..RQQQQQQTQQTQQQQTTQR.",
+    "...RQQQTQTQQQQQQTTQR..",
+    "....RQQTQTTQQQQTQQR...",
+    ".....RRQQTQTQTQQRR....",
+    ".......RRRsvtuRR......",
+    ".........rvsCu........",
+    ".........rsstu........",
+    ".........rssxu........",
+    ".........rzvxu........",
+    "........uusvxuu.......",
+    ".......utxttxxxu......"
+   ]
+  ],
+  "hawthorn_large_0": [
+   [
+    "..................GGG.........",
+    "..............GGGGHIOGG.......",
+    "..........RGGGIKIIIIKKKGG.....",
+    ".......VRRQHKIKIIIJHHHIIIG....",
+    "......RWQSISHIILIIIHIHIHJHG...",
+    ".....RPHHKKIHIIIHKHIHHOOKIHG..",
+    "....GHPOMHHNHIHHIIMNNMHMHHHIG.",
+    "...RHIIHIIMIMHPHIHIHJJHHMIHIIG",
+    "..RQHHJIIMIINIHHInnHHIMIHHHMHG",
+    ".VXPHHHMIMMOJMNHJJMMMMHOIIHHHG",
+    ".RQTMHHQnMHIMMnMIHMMIMnIHMMHMR",
+    "RQQQMHnMIIMnHIQMJHJMMHHHHHIIQQ",
+    "RQNUHHIMHHMIIMMIMMSMnHMHMQIQQQ",
+    "RQQQTnMIIMnIHHHMHMHHHHIHOMQQQQ",
+    "RQSQQQQQHHHHQQMHHSIMHQHMHQQQQQ",
+    "RQQQQNQNQQQnTQQHHMHHHIHHQQQQQQ",
+    "RQQQTQQTQQQQQQQQQIIHHQQQTQQQQQ",
+    ".RTQTTQQQQTQQQQQQQQQQQQQTUTUQR",
+    ".RQQQTQQTQQQQQQTTQTnQQQQTQQQQR",
+    "..RTUUUQQTQQQQTTQQQQQQQQQQQQR.",
+    "...RQQQTQQQQQQQQQQQTQQUQQQTR..",
+    "...RQQTQQTQQQQQTTQQQTTQUQQTR..",
+    "....RRQTQQQQUQQQQQTQQQQQQRR...",
+    "......RQQTTQQTTQQQTQTQTTR.....",
+    ".......RRQQTTUQQQTQQQQRR......",
+    ".........RRRRQQTQURRRR........",
+    "............rvsvtu............",
+    "............rFvvCu............",
+    "............rsFvtu............",
+    "............rYsstu............",
+    "............rsvstu............",
+    "............rzvztu............",
+    "............rszstu............",
+    "...........uuvzYtuuu..........",
+    "..........uxtxttttttu........."
+   ]
+  ],
+  "hawthorn_large_1": [
+   [
+    "..............................",
+    ".............GGGVGGG..........",
+    "........GGGGGHHHLKIIGG........",
+    "......GGHIIIIHHHKIIKKIGR......",
+    "....GGIIIKKIIKKIKIKIHHIQR.....",
+    "...GHIIHIHKHIIKHIOKnnIIIQR....",
+    "...GHIHnHMHMHIHMHHMMHHHHMHG...",
+    "...RMHIMMHHHHIHHOHInMMIMHHHG..",
+    "..RQIMMHHNHHHHHMnHHMIIHHIHIHR.",
+    ".RQQHIIMHIIHMIMMIHIMMHnHHHMHQR",
+    ".RQQMQInMHINIIIHHHHJHHMHMHHHQR",
+    "RQQSIIInUHSMHHMnSNIHMHMMIMHMQQ",
+    "RQQQHHHHHHHNMJHIIMMQHMIHHHHQQU",
+    "RQQQHHHIIHHIHHMHIMHHHnHMMMQQQQ",
+    "RQQQQTnNMHHHHHMHQQTQIPHQQQQQQQ",
+    "RQQQQQQHMMIMMQQQQQQQQQQQQQQQQQ",
+    "RQQQQSQnQQQQQQQQQQQQTQQQQQQQQQ",
+    ".RTTQTQQQQQQQQQQQQQQTQQQQTQQTR",
+    ".RQQQUQQTQQQQUTQQQQQQTTQQQQQQR",
+    "..RQQQUQQQQTQQQQQQQQQQQQQUQTR.",
+    "...RTQQTQTQQQQTQTQUTQQQQQQQR..",
+    "...RQTQQTQQQQQQQTTTTQTTTTQQR..",
+    "....RRTQQQQQQTQQQTQQQQTQTRR...",
+    "......RQTQQQQQQTQQQQQQTQR.....",
+    ".......RRQQTQQQTQUQTQQRR......",
+    ".........RRRRTQQQTRRRR........",
+    "............rsvFCu............",
+    "............rvsFCu............",
+    "............rvFstu............",
+    "............rvzztu............",
+    "............rvssxu............",
+    "............rzsztu............",
+    "............rssztu............",
+    "...........uuzzstuuu..........",
+    "..........uxttwttxttu........."
+   ]
+  ],
+  "bush_fern_0": [
+   [
+    "................",
+    "................",
+    ".......G........",
+    "...G..GHG...G...",
+    "..GIRGRQR.GRJG..",
+    "...RTMGHGGOTR...",
+    ".GRGRQRMRRQRGRG.",
+    "GPQHRRMRTMRRMQMG",
+    ".GRRTMTMMUOTRRG.",
+    "....RGRRTRGR...."
+   ]
+  ],
+  "bush_fern_1": [
+   [
+    "................",
+    "................",
+    ".......G........",
+    "...G..GHG...G...",
+    "..GHRGRQR.GRMG..",
+    "...RQOGOGGHTR...",
+    ".GRGRTRHRRURGRG.",
+    "GMQORRHRQMRROQHG",
+    ".GRRTOTJZTPTRRG.",
+    "....RGRRTRGR...."
+   ]
+  ],
+  "bush_bramble_0": [
+   [
+    "......00......",
+    "....00110000..",
+    "...0212212220.",
+    "..0232214M310.",
+    "..RQ121412220.",
+    ".RQ22256222QQR",
+    "RTQQ2722T6QTQU",
+    "RTQQQTTUQQUTQQ",
+    "RUTVTVTTTTTVTT",
+    ".RVTUVTVTTVVTR"
+   ]
+  ],
+  "bush_bramble_1": [
+   [
+    "..................",
+    "..................",
+    "......000000......",
+    ".....0125112000...",
+    "...R0122H722M2200.",
+    "..RQM2212254222220",
+    ".R6TQQ222622223222",
+    "RQ6QQQQQ222222222Q",
+    "RTQTQT3QQT7U2222QQ",
+    "RQQQQQQ6TTQQQQUTQQ",
+    ".RVUTVTTTTTTTVTTVR",
+    "..RTVTTTVTTTTTVVR."
+   ]
+  ],
+  "boulder_round_small": [
+   [
+    "...............",
+    "........8......",
+    "....8898!8a....",
+    "...#$%&*!!ea8..",
+    ".8#+--=**=-%!8.",
+    "8%?&=@e=&&-!ea.",
+    ".8%^_~&<&<%%>8.",
+    ".8!%:=~&&=@~$8.",
+    ".8%%%%:&%$!>~#.",
+    "..#~~~~~@~__#..",
+    "...#~@~~@~##...",
+    "....######.....",
+    "..............."
+   ]
+  ],
+  "boulder_round_medium": [
+   [
+    "......................",
+    "......................",
+    "......................",
+    "......a889988.........",
+    ".....a-?>==!;8888.....",
+    "....a!&&&<==:&%!;88...",
+    "...a-=:=*-@@&&=%!%>8..",
+    "...8=<=j*:*+@*=%!$!8..",
+    "..8%===<==*<e@=!!!?%8.",
+    "..8!!=^&=&&&:=~%%!$!8.",
+    "..8%$$&&:&&==&$%%%%%8.",
+    "..8!%%!%:=&%$!!!>!>8..",
+    "...8$!%$;%%%%$,%%;8...",
+    "....#~~@~@@~_|~~|#....",
+    ".....#~/_/~_@@~~#.....",
+    "......##||||~|##......",
+    "........####~#........",
+    "............#........."
+   ]
+  ],
+  "boulder_round_large": [
+   [
+    "..............................",
+    "..............................",
+    "..............................",
+    "...............88.............",
+    ".......88888888!%88...........",
+    "......8?!%!!;!%!?!%88.........",
+    ".....8!?!===*=&=&!%!!88.......",
+    "....8!?==&&=*=*&<==je?%a......",
+    "...8%?=e*:=&&&==&===%!!ja.....",
+    "..8??!&*=&-**&====*-!@+!?a....",
+    ".8?!??<=*==^&====*=&&e!-!ja...",
+    ".8!%?e**:=&==j*=&===!!>?!ja...",
+    "..8$%%:=:::&&::&=:&&%!%$!%%8..",
+    "..8%$!$=~_~&:&:&&==!%$%%$%%8..",
+    "..8$%,%%$=/~::!&^!!%!$$%!$$8..",
+    "..8%$!$%%%$%%$%$!!!!$%$%!%8...",
+    "...8!!%%!!$$%$$%!%!!%%!%>8....",
+    "....8$!$!$!!!!%>%$%%%%%!!8....",
+    ".....8#~@@_@_~~~~_|~@~_@#.....",
+    ".......#_@@_~~_@@~@_@###......",
+    "........##_|___|~__##.........",
+    "..........#########...........",
+    "..............................",
+    ".............................."
+   ]
+  ],
+  "boulder_slab_small": [
+   [
+    "....................",
+    ".....8888888........",
+    "...88;%!%!%!899998..",
+    ".88!&***==*===&==!8.",
+    "8!=e-==ee=&=&jj=?%8.",
+    "8%%%!!%%%!%%!!%%%%8.",
+    "8%%%%!!$%!$%%%!%%%!8",
+    ">%$$%%,%%%!!%%%%$$%8",
+    "%_|~_~_~__~_~_||~~_#",
+    "|~(~_~~__~~|__|___|_"
+   ]
+  ],
+  "boulder_slab_medium": [
+   [
+    "............................",
+    "............................",
+    ".......8888888888...........",
+    ".....88?!$!!!?%!!899999888..",
+    "...a8?&==*=*=*=*&=*===&!!!8.",
+    ".8a-=&je==-==&e=-&=&*&e&=ea.",
+    "8?&*=&==*<&==**&====*=*&!!8.",
+    "8%!&=::==$%%%%!%$!,%$%$%%$8.",
+    "8$%$>!!$!>!%%%%$%%%%!$;%%%8.",
+    "8%%!,!;%%%!!%%%%%$%$$!%%!$!8",
+    ">$$!$$$!$!%%%%%!!%%!$$%%%>%8",
+    "$%$;;$$$$;,$$$;$;%$$$%;$;$%8",
+    "%__~____~~|_~_|_|||__|__|_~#",
+    "_|_|_____~||~_|~(||~~_~|__|~"
+   ]
+  ],
+  "boulder_slab_large": [
+   [
+    "......................................",
+    "......................................",
+    "......................................",
+    "..........8888888888..................",
+    "........88%?!!!?>%!!8998888888888.....",
+    ".....888!;=&===&****=*=!?%!!%%%!!898..",
+    "...aa?!=&=*=*==*===*==*===**&**=*<&?8.",
+    ".8ajj&&^^=*=*-j&==&e==&-=e=e&e*==--%8.",
+    "8%&===*&===**&*:&**^=&=<*==<*<&&==?!8.",
+    "8%&&=&=&&^:&=:&&=&&::&&&:&:&&::&&&%%8.",
+    "8%$!!%%$$$!!%$!$$!%%!%$$%$%$$!$%$%%%8.",
+    "8$%$!%%%%%!%!%%!$>$$$%%%$%$$%;$%%$%!8.",
+    "8;$%%$$%%%%%%%%!$%$%!!%%$$!$>;!!!%!>$8",
+    "%%!$!%%%!%%!$,$$!!!!%%%%%%!%>$%%!%$%$8",
+    "!%$$%!$%%%$$!%%$%%$%%!%$%$%!%!%$%!!>$8",
+    "%%!!%$!%%%%%%!!!%%$%%%!$$%%$!%%%$!%%$8",
+    "$$$;;$$$$$;$$$$$$;;$$;$;$;;$%$$$%$$;$8",
+    "$_|~|_~___|(_____|_~|_~|_~~____~|||~~#",
+    "||~_~|_|||____~___~~_||_|_|~_~_~__~_|_"
+   ]
+  ],
+  "boulder_jagged_small": [
+   [
+    "....88.....",
+    "...8??8....",
+    "...8!!8.8..",
+    "..8%&!88!8.",
+    "..8%=?!!!8.",
+    ".8!&*?%!?8.",
+    ".8$==!$!%8.",
+    ".8%&*?%!?8.",
+    ".8!=^%j!%8.",
+    "8%%&&%!j%8.",
+    "8$!::%>>$$8",
+    "8$$=$;$!!%8",
+    "8;%&$%%!>%8",
+    "#__@_~~@@_#",
+    "|~___/_|/_#",
+    "__~_~|_|||#",
+    "##########."
+   ]
+  ],
+  "boulder_jagged_medium": [
+   [
+    "......88........",
+    ".....8)?8.......",
+    ".....8))8.......",
+    "....8$*??8..8...",
+    "....8!&!!888!8..",
+    "...8!*=!!8!!?8..",
+    "...8!&=!$?!!!8..",
+    "..8?**==;!!?!8..",
+    "..8!====!!?!!8..",
+    "..8%=*==%???%8..",
+    "..8%<*=&?!%!?%8.",
+    ".8%?==*=%!!!!!8.",
+    ".8%%&=&&%j$!!!8.",
+    ".8$!=:&:!%j%$%8.",
+    ".8%%!::&%$%%%$8.",
+    ".8%;$&&%%%$$%!8.",
+    "8!%%%=>%%%%%$%8.",
+    "8%$$%!%!%%$!!%8.",
+    "8!$%$$%$!!%%!$#.",
+    "#~_@_~@~~~@@_~_#",
+    "#_~~__||~___~~_#",
+    "||_~__|_|~____~#",
+    "|_~__|__|~____~#",
+    "###############."
+   ]
+  ],
+  "boulder_jagged_large": [
+   [
+    ".........88...........",
+    "........8%?8..........",
+    ".......8!??8..........",
+    ".......8?[?8..........",
+    "......8)?*!!8....8....",
+    "......8)[[)?8..88?8...",
+    ".....8!%**!!%88!?%8...",
+    ".....8?=*=?!!8!!??8...",
+    "....8!%==:!?!>!$!!8...",
+    "...8!!=&=*!?%?%?%!8...",
+    "...8!%==&*%!;%!??!8...",
+    "...8%!&<==*!!!%?!%8...",
+    "...8?!&====!!????!!8..",
+    "...8!?=&&==??!?!%%!8..",
+    "..8?!%&=&*=%?$>%?!%8..",
+    "..8!?%=&=*&%?!!!??!8..",
+    "..8!%%&=&&&!%j$%!!!8..",
+    "..8$%%&&=:!%!$e%$!%8..",
+    "..8!%$&^:=:%%%;%!!%8..",
+    ".8%;%%&:&:!!!%$$!$!!8.",
+    ".8$;!%&=:&$%%;$%!%%%8.",
+    ".8%!$!:&&%%;%>%%!!%%8.",
+    ".8>%%$:=$%;;$>%$%!%%8.",
+    ".8%,!!$>%$$!!$$$!,!!8.",
+    "8%%!%$%!!%%%%%%%%!!%8.",
+    "#@_@~~~~|@/~~/~@@@~_#.",
+    "#__|(|__|~(_/~_~___~#.",
+    "#__|_~___~__|__|~~~|~#",
+    "#_~|_|(________~_|_~~#",
+    "__~(|(_|_|__|__~~~_|(#",
+    "_~__|_~_~~_|_~~_|~|__#",
+    "#####################."
+   ]
+  ],
+  "boulder_split_small": [
+   [
+    "...............",
+    "...............",
+    "....889]8......",
+    "...8!!&b!aa8...",
+    "..8%==b-&ke?8..",
+    ".8?=k@b-=<!@?8.",
+    ".8%&!::b&=!!%8.",
+    ".8%!&&=&b_~!$8.",
+    ".8%!%%&b!%%@#..",
+    "..#_~@_~b~__#..",
+    "...##~__b~##...",
+    ".....###]#.....",
+    "..............."
+   ]
+  ],
+  "boulder_split_medium": [
+   [
+    "......................",
+    "......................",
+    "............8.........",
+    "........89]a?88.......",
+    "......98%<be%%?88.....",
+    "....89&*j&&b*=!!?8....",
+    "..88%=j:*-&b===?!!8...",
+    ".8%!==&&-+=bk*&!!?%8..",
+    ".8%%*=&<=^~=b*=!%?>!8.",
+    ".8%%%&:&=:&@~b:!%%!$$8",
+    ".8!!!%:&=:&:&_b!!!%%8.",
+    ".8$!!%%%=^&$%@b%%$%8..",
+    "..8%%%%;>!,%!%b_%%8...",
+    "...#@~@~@~~|~@~b@#....",
+    "....##~_@@~~_~@##.....",
+    "......######_##.......",
+    "............#.........",
+    "......................"
+   ]
+  ],
+  "boulder_split_large": [
+   [
+    "..............................",
+    "..............................",
+    "..............................",
+    "..............................",
+    ".........888888]8888..........",
+    ".......a8?!%!!%b!?%?888.......",
+    "......ad!<j*&&&=b?!!!!?88.....",
+    "....88%=*j====&=&b*%!!!%;8....",
+    "...8!!*=&=^====&eb*=!!?%!8....",
+    "..a%!?=*&^++&**&=*b=!????%8...",
+    ".a-?j!===&e*@j+=e*=b=f!?%!8...",
+    "..a!;!==*j==&*&+&===bj??%%8...",
+    "..8!$!:=&::=&=&&=&&:b!%%$%8...",
+    "..8%%!%:=_~&=&=&^&&!b%%$%%$8..",
+    "...8%%%$!::|&:=&&%$b;%%$!%8...",
+    "...8;%$>%%$%$>!%%%$b!%,$$;8...",
+    "...8!!%!%%%!$$$!%%%b!%%!!%8...",
+    "....8>!!!!!!%%%$%%%b>%!$%$8...",
+    ".....#~~~~__~|~~~~~b@~~~/_#...",
+    "......#_@~|_@~~~~~~~b@__@#....",
+    ".......#____|_/|/~~_#####.....",
+    "........############..........",
+    "..............................",
+    ".............................."
+   ]
+  ],
+  "stone_0": [
+   [
+    "....8...",
+    "..88!88.",
+    ".8!*??!8",
+    "8$%%%%!%",
+    "8$!%!!!!",
+    ".#__|_;8"
+   ]
+  ],
+  "stone_1": [
+   [
+    ".....8....",
+    "..888)888.",
+    ".8;!*!%%!8",
+    "8!%%%$,%%%",
+    "8$$%!!%%!$",
+    "8$;%%!!%!$",
+    ".#(|~~__;8"
+   ]
+  ],
+  "stone_2": [
+   [
+    "..9....",
+    ".8*8888",
+    "8%%!%!%",
+    "8!%$$$$",
+    "8;___$$"
+   ]
+  ],
+  "pebbles_0": [
+   [
+    "..........",
+    ".....*>...",
+    ".*?..~**!.",
+    ".@.:$.~@..",
+    "..._......",
+    ".........."
+   ]
+  ],
+  "pebbles_1": [
+   [
+    "..........",
+    "..........",
+    ".*!..&?&%.",
+    ".@:%._._..",
+    ".._.......",
+    ".........."
+   ]
+  ]
+ },
+ "items": {
+  "apple_small_0": {
+   "kind": "tree",
+   "tree": "apple",
+   "size": "small",
+   "solid_r": 4
+  },
+  "apple_small_1": {
+   "kind": "tree",
+   "tree": "apple",
+   "size": "small",
+   "solid_r": 4
+  },
+  "apple_medium_0": {
+   "kind": "tree",
+   "tree": "apple",
+   "size": "medium",
+   "solid_r": 5
+  },
+  "apple_medium_1": {
+   "kind": "tree",
+   "tree": "apple",
+   "size": "medium",
+   "solid_r": 5
+  },
+  "apple_large_0": {
+   "kind": "tree",
+   "tree": "apple",
+   "size": "large",
+   "solid_r": 7
+  },
+  "apple_large_1": {
+   "kind": "tree",
+   "tree": "apple",
+   "size": "large",
+   "solid_r": 7
+  },
+  "hawthorn_small_0": {
+   "kind": "tree",
+   "tree": "hawthorn",
+   "size": "small",
+   "solid_r": 4
+  },
+  "hawthorn_small_1": {
+   "kind": "tree",
+   "tree": "hawthorn",
+   "size": "small",
+   "solid_r": 4
+  },
+  "hawthorn_medium_0": {
+   "kind": "tree",
+   "tree": "hawthorn",
+   "size": "medium",
+   "solid_r": 5
+  },
+  "hawthorn_medium_1": {
+   "kind": "tree",
+   "tree": "hawthorn",
+   "size": "medium",
+   "solid_r": 5
+  },
+  "hawthorn_large_0": {
+   "kind": "tree",
+   "tree": "hawthorn",
+   "size": "large",
+   "solid_r": 7
+  },
+  "hawthorn_large_1": {
+   "kind": "tree",
+   "tree": "hawthorn",
+   "size": "large",
+   "solid_r": 7
+  },
+  "bush_fern_0": {
+   "kind": "bush",
+   "solid_r": 0
+  },
+  "bush_fern_1": {
+   "kind": "bush",
+   "solid_r": 0
+  },
+  "bush_bramble_0": {
+   "kind": "bush",
+   "solid_r": 0
+  },
+  "bush_bramble_1": {
+   "kind": "bush",
+   "solid_r": 0
+  },
+  "boulder_round_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 5
+  },
+  "boulder_round_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 8
+  },
+  "boulder_round_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 11
+  },
+  "boulder_slab_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 7
+  },
+  "boulder_slab_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 10
+  },
+  "boulder_slab_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 14
+  },
+  "boulder_jagged_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 4
+  },
+  "boulder_jagged_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 6
+  },
+  "boulder_jagged_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 8
+  },
+  "boulder_split_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 5
+  },
+  "boulder_split_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 8
+  },
+  "boulder_split_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 11
+  },
+  "stone_0": {
+   "kind": "stone",
+   "slow_r": 4
+  },
+  "stone_1": {
+   "kind": "stone",
+   "slow_r": 6
+  },
+  "stone_2": {
+   "kind": "stone",
+   "slow_r": 4
+  },
+  "pebbles_0": {
+   "kind": "pebbles"
+  },
+  "pebbles_1": {
+   "kind": "pebbles"
+  }
+ }
+}

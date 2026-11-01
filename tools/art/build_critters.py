@@ -410,6 +410,11 @@ LEVELS = {
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
         "insects": {},
         "large": {}},
+    "tir_na_nog": {
+        "ground": {"hare": (hare, "#c8c0b0", "#f0ece4")},
+        "birds": {"swan": ("#f4f4f4", "#e0e0e0", "#e0a030", True)},
+        "insects": {"butterfly": (butterfly, "#f0d860", "#3a3020"), "firefly": (lambda *a: firefly(a[-1]),)},
+        "large": {"red_deer": ("#e8e4dc", "#f0ece4", "#8a8070", "antlers", 28, 26)}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

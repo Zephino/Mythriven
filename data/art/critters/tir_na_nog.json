@@ -1,0 +1,127 @@
+{
+ "_doc": "Critters of tir_na_nog (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#c8c0b0",
+  "b": "#f0ece4",
+  "c": "#f4f4f4",
+  "d": "#e0e0e0",
+  "e": "#e0a030",
+  "f": "#f0d860",
+  "g": "#3a3020"
+ },
+ "frames": {
+  "hare": [
+   [
+    ".......oaao.",
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    "..oaaaaao...",
+    "..oaaoaao..."
+   ],
+   [
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    ".oaaaaaoo...",
+    ".oaaoooaao..",
+    "..oo..oaao.."
+   ]
+  ],
+  "swan": [
+   [
+    ".......oo.",
+    "o..oooocko",
+    "doocccccce",
+    "odddddccoo",
+    ".occcccco.",
+    "..occcco..",
+    "...oeoeo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "doocccccko",
+    "odddddccce",
+    ".occccccoo",
+    "..occcco..",
+    "...oeoeo.."
+   ]
+  ],
+  "swan_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...occcccoce",
+    "...occdccooo",
+    "....odddo...",
+    "...odoodo..."
+   ],
+   [
+    "....o..o....",
+    "...odoodoo..",
+    "....odddokoo",
+    "...occdccoce",
+    "...occcccooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".ffkff.",
+    ".ffkff.",
+    "..gkg..",
+    "...k...",
+    "......."
+   ],
+   [
+    "fff.fff",
+    "fffkfff",
+    "fffkfff",
+    ".ggkgg.",
+    ".ggkgg.",
+    "......."
+   ]
+  ],
+  "firefly": [
+   [
+    "...",
+    ".L.",
+    "..."
+   ],
+   [
+    ".l.",
+    "lLl",
+    ".l."
+   ]
+  ]
+ },
+ "critters": {
+  "hare": {
+   "kind": "ground"
+  },
+  "swan": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  },
+  "firefly": {
+   "kind": "firefly"
+  }
+ }
+}

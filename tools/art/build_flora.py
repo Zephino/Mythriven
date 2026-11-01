@@ -499,6 +499,12 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"scorched_scrub": ("n", "N", "O", None)},
         "rock": ("g", "G", "H", "l")},
+    # Tír na nÓg: the Land of Youth, ever in summer; apple trees in flower and fruit, hawthorns, flowers everywhere.
+    "tir_na_nog": {
+        "trees": {"apple": (lambda c, r, s: broadleaf(c, r, s, "V", "v", "w", "h"), 26, 30),
+                  "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26)},
+        "bushes": {"fern": ("fern",), "bramble": ("M", "P", "m", "B")},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

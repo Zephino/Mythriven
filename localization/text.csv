@@ -2831,6 +2831,7 @@ BANTER_GRIFFIN_MATRIARCH_ENTRANCE,(A great griffin rises from her nest of gold a
 BANTER_GRIFFIN_MATRIARCH_SKADI,"(The griffin bows her head to the huntress of the snows, and then attacks anyway.)"
 PACK_12_NAME,Pack 10: The Heavens
 PACK_13_NAME,Pack 11: The Abyss
+PACK_14_NAME,Pack 12: Otherworlds
 LEVEL_EMPYREAN_NAME,The Empyrean
 HAZARD_FALLING_STARS_NAME,The stars are falling!
 ENEMY_STAR_HOUND_NAME,Star hound
@@ -3096,3 +3097,32 @@ COSMETIC_CINDER_GLOW,Cinder Glow
 COSMETIC_DRAGON_WHITE,Dragon White
 COSMETIC_ORICHALCUM_RED,Orichalcum
 COSMETIC_RIME_BLUE,Rime Blue
+LEVEL_TIR_NA_NOG_NAME,Tír na nÓg
+HAZARD_FAIRY_WIND_NAME,The fairy host passes in a whirlwind!
+ENEMY_SIDHE_WARRIOR_NAME,Sídhe warrior
+ENEMY_SIDHE_WARRIOR_MYTH,"One of the fairy host of the hills, tall and fair, who ride out to fight and hurl against the hosts of other hills."
+ENEMY_SIDHE_PIPER_NAME,Sídhe piper
+ENEMY_SIDHE_PIPER_MYTH,"A fairy piper of the hills. Whoever hears the fairy music, the old stories say, can never be content with mortal music again."
+BOSS_RED_EARED_HOUND_NAME,The Red-Eared Hound
+ENEMY_RED_EARED_HOUND_NAME,The Red-Eared Hound
+ENEMY_RED_EARED_HOUND_MYTH,"On his ride over the sea with Niamh, Oisín saw a hornless fawn leaping over the waves, and after it a white hound with red ears, chasing it for ever and never catching it."
+BOSS_RED_EARED_HOUND_BAFFLED,You reached the fawn first! The hound is baffled!
+BOSS_FOMOR_NAME,The Fomor
+ENEMY_FOMOR_NAME,The Fomor
+ENEMY_FOMOR_MYTH,The Fomorian giant who held a king's daughter captive in a land of the Otherworld. Oisín fought him for three days and three nights before he struck off his head.
+BOSS_FOMOR_NIGHT,Night falls. The Fomor rests and recovers...
+BOSS_FINVARRA_NAME,Finvarra
+ENEMY_FINVARRA_NAME,Finvarra
+ENEMY_FINVARRA_MYTH,"The king of the fairies of the West, who holds his court under the hill of Knockma. He carried off the beautiful bride Ethna to his hill, and her husband won her back by digging into it."
+BOSS_FINVARRA_CARRIED,Finvarra carries you off into his hill!
+BOSS_FINVARRA_DUG,You dug into Knockma! Finvarra's guard breaks!
+ACH_BOSS_RED_EARED_HOUND_NAME,Defeat The Red-Eared Hound
+ACH_BOSS_RED_EARED_HOUND_DESC,The 10:00 boss of Tír na nÓg.
+ACH_BOSS_FOMOR_NAME,Defeat The Fomor
+ACH_BOSS_FOMOR_DESC,The 20:00 boss of Tír na nÓg.
+ACH_BOSS_FINVARRA_NAME,Defeat Finvarra
+ACH_BOSS_FINVARRA_DESC,The 30:00 boss of Tír na nÓg.
+BANTER_RED_EARED_HOUND_ENTRANCE,"(A white hound with red ears races past, after a fawn that is always just ahead.)"
+BANTER_FOMOR_ENTRANCE,"Three days and three nights, the last one took. Can you last as long?"
+BANTER_FINVARRA_ENTRANCE,Welcome to my hill. Do stay. Everyone stays.
+BANTER_FINVARRA_MORRIGAN,"The Great Queen, in my hill? Mind the fairy food."
