@@ -4851,5 +4851,113 @@
       "edge": "#a8b4c4",
       "stones": "#e8f0f8"
     }
+  },
+  {
+    "_doc": "Demos Oneiron, Pack 10 realm 4, the land of dreams (docs/PACK_10_PLAN.md). Sources: Homer, Odyssey 24.12 and 19.560-569; Ovid, Metamorphoses 11.583-649. A realm: no local gods.",
+    "id": "demos_oneiron",
+    "name_key": "LEVEL_DEMOS_ONEIRON_NAME",
+    "region": "realm_dream",
+    "act": 12,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "demos_oneiron",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "flowers",
+          "max": -0.3,
+          "placeholder_color": "#4a3a5a",
+          "placeholder_dots": "#d84a5a"
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.15,
+          "placeholder_color": "#2e2a44",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "heather",
+          "max": 0.6,
+          "placeholder_color": "#3a2e4e",
+          "placeholder_dots": "#8a6ab0"
+        },
+        {
+          "id": "ash",
+          "max": 1.0,
+          "placeholder_color": "#2a2638",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "dream_gate",
+      "poppies"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "dream_gate": {
+        "shape": "rect",
+        "size_px": [
+          22,
+          26
+        ],
+        "placeholder_color": "#e8dcc0",
+        "weight": 1
+      },
+      "poppies": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          10
+        ],
+        "placeholder_color": "#c83a3a",
+        "weight": 3
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "phantasos",
+      "20": "morpheus",
+      "30": "phobetor"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_hollow_hills",
+      "boss": "nome_king"
+    },
+    "waves": "waves_demos_oneiron.json",
+    "hazard": {
+      "type": "lights",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 22,
+      "lights": 3,
+      "lure_radius_px": 130,
+      "lure_px_s": 70,
+      "drift_px_s": 28,
+      "range_px": 260,
+      "color": "#c8a0f0",
+      "name_key": "HAZARD_DREAM_LIGHTS_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#c8bcdc",
+    "flora": {
+      "density": 0.4,
+      "trees": {
+        "black_poplar": 2,
+        "willow": 2
+      }
+    },
+    "road": {
+      "color": "#5a4e70",
+      "edge": "#3e3452",
+      "stones": "#8a7ea0"
+    }
   }
 ]

@@ -473,6 +473,12 @@ LEVELS = {
         "trees": {"spruce": (spruce, 22, 40), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"juniper": ("P", "p", "q", None)},
         "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
+    # Demos Oneiron: the dim country of Sleep; black poplars and willows by the river of forgetting, poppies.
+    "demos_oneiron": {
+        "trees": {"black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40),
+                  "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30)},
+        "bushes": {"asphodel": ("I", "i", "L", "h")},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

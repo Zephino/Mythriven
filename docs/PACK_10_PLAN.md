@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 10). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Hyperborea built and released 11/01/2026 (00.03.11); the Empyrean (00.03.12); the Glass Mountain (00.03.13).
+it. Hyperborea built and released 11/01/2026 (00.03.11); the Empyrean (00.03.12); the Glass Mountain (00.03.13); Demos Oneiron (00.03.14). **All four realms are built.**
 
 Realms work like Packs 5-9: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -77,7 +77,7 @@ slopes are slippery (the slide patches).
 | 20:00 | **Old Rinkrank** | The old man in the glass mountain. He lets down his ladder and climbs out of reach, throwing glass shards down, then climbs back |
 | 30:00 | **The Snow Queen** (the design's; Andersen's) | Her kiss freezes the nearest Hero for a moment. Pieces of ice lie on the frozen lake: gather four and the word is made, breaking her spell (her guard breaks) |
 
-## Realm 40: Demos Oneiron (the land of dreams)
+## Realm 40: Demos Oneiron (the land of dreams): **done and released 11/01/2026 (00.03.14)**
 *Sources: Homer, Odyssey 24.12 (the land of dreams, past the White Rock) and 19.560-569 (the gates of horn and ivory);
 Ovid, Metamorphoses 11.583-649 (the House of Sleep; the dream-shapers Morpheus, Phobetor and Phantasos).*
 

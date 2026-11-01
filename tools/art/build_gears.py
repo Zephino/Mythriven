@@ -359,6 +359,7 @@ if __name__ == "__main__":
     kit.build_boss("bronze_automaton", bronze_automaton, AUTOMATON_PAL, doc(bronze_automaton.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("golden_handmaiden", golden_handmaiden, HANDMAIDEN_PAL, doc(golden_handmaiden.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("aeetes_bulls", aeetes_bulls, BULLS_PAL, doc(aeetes_bulls.__doc__), (58, 52), (28, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("gold_silver_hounds", gold_silver_hound(True), HOUNDS_PAL, doc(gold_silver_hound.__doc__), (52, 46), (24, 44), [0, 1, 0, -1, 0])
     kit.build_boss("gold_silver_hounds_gold", gold_silver_hound(True), HOUNDS_PAL, doc(gold_silver_hound.__doc__ + " The gold hound."), (52, 46), (24, 44), [0, 1, 0, -1, 0])
     kit.build_boss("gold_silver_hounds_silver", gold_silver_hound(False), HOUNDS_PAL, doc(gold_silver_hound.__doc__ + " The silver hound."), (52, 46), (24, 44), [0, 1, 0, -1, 0])
     kit.build_boss("talos", talos(False), TALOS_PAL, doc(talos.__doc__), (54, 68), (26, 66), [0, 1, 0, -1, 0])

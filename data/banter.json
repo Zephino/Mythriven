@@ -2763,5 +2763,46 @@
     "text_key": "BANTER_SNOW_QUEEN_SKADI",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "phantasos_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "phantasos",
+    "hero": "",
+    "god": "phantasos",
+    "text_key": "BANTER_PHANTASOS_ENTRANCE",
+    "lore_source": "Ovid 11.641-643",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morpheus_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "morpheus",
+    "hero": "",
+    "god": "morpheus",
+    "text_key": "BANTER_MORPHEUS_ENTRANCE",
+    "lore_source": "Ovid 11.633-638",
+    "needs_owner_review": true
+  },
+  {
+    "id": "phobetor_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "phobetor",
+    "hero": "",
+    "god": "phobetor",
+    "text_key": "BANTER_PHOBETOR_ENTRANCE",
+    "lore_source": "Ovid 11.638-641",
+    "needs_owner_review": true
+  },
+  {
+    "id": "phobetor_hecate",
+    "trigger": "boss_meets_god",
+    "speaker": "phobetor",
+    "hero": "",
+    "god": "phobetor",
+    "with_god": "hecate",
+    "text_key": "BANTER_PHOBETOR_HECATE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

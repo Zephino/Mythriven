@@ -902,6 +902,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | snow_queen_entrance | boss entrance | snow_queen | Are you cold? Come here. One kiss, and you'll never feel the cold again. | Andersen, The Snow Queen (her kiss) | no |
 | snow_queen_skadi | boss meets god (with skadi) | snow_queen | A goddess of the snows. Then you understand my palace. | Original line written for Mythriven | no |
 
+### Demos Oneiron
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | demos_oneiron | Demos Oneiron | Homer, Odyssey 24.12 (the land of dreams); Ovid, Metamorphoses 11.583-649 (the House of Sleep) | no |
+| enemy | dream | Dream | Ovid, Metamorphoses 11.613-615 (the empty dreams about the House of Sleep) | no |
+| enemy | nightmare_beast | Nightmare beast | Ovid, Metamorphoses 11.638-640 (the beasts of Phobetor's nightmares) | no |
+| boss | phantasos | Phantasos | Ovid, Metamorphoses 11.641-643 (Phantasos, who takes the shapes of earth, rock, water and wood) | no |
+| boss | morpheus | Morpheus | Ovid, Metamorphoses 11.633-638 (Morpheus, who imitates the human form better than any) | no |
+| boss | phobetor | Phobetor | Ovid, Metamorphoses 11.638-641 (Icelus to the gods, Phobetor to men: beast, bird and serpent) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| phantasos_entrance | boss entrance | phantasos | (The rock in front of you opens its eyes.) | Ovid 11.641-643 | no |
+| morpheus_entrance | boss entrance | morpheus | You look familiar. Let me look more so. | Ovid 11.633-638 | no |
+| phobetor_entrance | boss entrance | phobetor | Gods call me Icelus. You will call me what you call your worst dream. | Ovid 11.638-641 | no |
+| phobetor_hecate | boss meets god (with hecate) | phobetor | Lady of the crossroads at night, we work the same hours. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

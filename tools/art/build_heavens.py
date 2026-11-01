@@ -252,6 +252,103 @@ SNOW_QUEEN_PAL = {"o": "#4a5a6a", "k": "#2a3a4a", "w": "#f4f8fc", "W": "#c8dcec"
                   "i": "#a8e0f8"}
 
 
+# --- Demos Oneiron (Odyssey 19.560-569, 24.12; Ovid, Metamorphoses 11.583-649) -----------------------------------------
+
+def dream(c, f):
+    """A dream (Ovid 11.613-615: empty dreams lie all about the House of Sleep, as many as the ears of the harvest, the
+    leaves of the woods, the sands of the shore): a pale wisp with a dim face."""
+    s = STEP[f]
+    poly(c, [(4, 4), (10, 4), (12, 11 + s), (2, 11 - s)], "w")
+    c.px(6, 6, "k"); c.px(8, 6, "k")
+    c.px(3, 12, "W"); c.px(11, 12 - s, "W")
+
+
+DREAM_PAL = {"o": "#3a2a5a", "w": "#d8c8f0", "W": "#a890d0", "k": "#4a3a6a"}
+
+
+def nightmare_beast(c, f):
+    """A nightmare beast (Ovid 11.638-640: the shapes of beasts that Phobetor brings): a shadowy wolf-like beast with
+    too many glowing eyes."""
+    s = STEP[f]
+    ellipse(c, 11, 9, 7, 3.5, "k")
+    for k, d in enumerate((-s, s, s, -s)):
+        c.rect(5 + k * 4 + d, 11, 5 + k * 4 + d, 15, "K")
+    poly(c, [(16, 5), (22, 7), (22, 10), (16, 10)], "k")
+    for x, y in ((18, 6), (20, 7), (17, 8)):
+        c.px(x, y, "r")
+    for k in range(5):
+        c.px(4 - k, 8 + k % 2, "p")
+
+
+NIGHTMARE_PAL = {"o": "#120a1a", "k": "#2a1a3a", "K": "#1a1028", "r": "#f04a8a", "p": "#6a3a8a"}
+
+
+def phantasos(form):
+    """Phantasos (Ovid 11.641-643): the dream-shaper of things without life: earth, rock, water, wood. Here as a rock
+    with a sleeping face, or as a figure of water."""
+    def draw(c, step):
+        if form == "rock":
+            ellipse(c, 24, 32, 20, 16, "g"); ellipse(c, 22, 28, 14, 10, "G")
+            c.row(28, 17, 20, "k"); c.row(28, 26, 29, "k"); c.row(36, 20, 27, "k")
+            for x, y in ((10, 24), (36, 36), (30, 20)):
+                c.px(x, y, "l"); c.px(x + 1, y, "l")
+            return
+        for y in range(8, 50):
+            w = 4 + int(8 * math.sin(min(y, 46) / 46 * math.pi)) + ((y + step) % 5 == 0)
+            c.rect(24 - w, y, 24 + w, y, "b" if (y + step) % 4 else "B")
+        c.px(21, 16, "w"); c.px(27, 16, "w")
+        for k in range(5):
+            c.px(14 + k * 5, 50 + k % 2, "B")
+    return draw
+
+
+PHANTASOS_PAL = {"o": "#0e1020", "g": "#6a6878", "G": "#7e7c8c", "k": "#2a2838", "l": "#7a8a5a", "b": "#5a8ad0",
+                 "B": "#8ab0e8", "w": "#ffffff"}
+
+
+def morpheus(c, step):
+    """Morpheus (Ovid 11.633-638): the dream-shaper of men, who copies a man's walk, face and voice, and his very dress;
+    a winged youth in grey, his face half a mask."""
+    for side in (-1, 1):
+        for k in range(7):
+            x = 21 + side * (10 + k * 2)
+            c.rect(min(x, x + side), 12 + k, max(x, x + side), 26 - k // 2, "w" if k % 2 else "W")
+    figure(c, step, "g", "s", "h")
+    c.rect(21, 7, 25, 15, "W")                                                                       # half a mask
+
+
+MORPHEUS_PAL = {"o": "#120e1a", "k": "#1e1828", "g": "#6a6478", "s": "#e8d8c8", "h": "#2a2030", "w": "#e8e4f0",
+                "W": "#b8b0c8"}
+
+
+def phobetor(form):
+    """Phobetor (Ovid 11.638-641): "called Icelus by the gods, Phobetor by mortal men", who becomes a beast, a bird or a
+    long serpent: the bringer of nightmares."""
+    def draw(c, step):
+        if form == "beast":
+            ellipse(c, 26, 30, 18, 10, "k")
+            for k, d in enumerate((-step, step, step, -step)):
+                c.rect(12 + k * 9 + d, 36, 15 + k * 9 + d, 48, "K")
+            poly(c, [(42, 18), (56, 22), (56, 30), (42, 32)], "k")
+            for x, y in ((46, 21), (49, 23), (52, 21), (47, 25)):
+                c.px(x, y, "r")
+            c.row(30, 50, 56, "w")
+            return
+        if form == "bird":
+            poly(c, [(28, 26), (2, 8 + step * 2), (22, 32)], "k"); poly(c, [(32, 26), (58, 8 - step * 2), (38, 32)], "K")
+            ellipse(c, 30, 30, 7, 6, "k"); poly(c, [(34, 26), (42, 28), (34, 31)], "p"); c.px(33, 27, "r")
+            for k in range(4):
+                c.px(26 - k * 2, 38 + k, "K")
+            return
+        for k in range(16):
+            ellipse(c, 8 + k * 3, 34 + round(6 * math.sin(k / 2.2 + step * 0.5)), 4, 3, "k" if k % 2 else "p")
+        ellipse(c, 56, 30, 5, 4, "k"); c.px(58, 29, "r"); c.row(32, 60, 63, "r")
+    return draw
+
+
+PHOBETOR_PAL = {"o": "#0a0612", "k": "#2a1a3a", "K": "#1a1028", "p": "#5a2a7a", "r": "#f04a8a", "w": "#e8e0f0"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_heavens.py."
@@ -273,4 +370,15 @@ if __name__ == "__main__":
     kit.build_boss("seven_ravens", seven_ravens, RAVENS_PAL, doc(seven_ravens.__doc__), (60, 40), (30, 38), [0, 1, 0, -1, 0])
     kit.build_boss("rinkrank", rinkrank, RINKRANK_PAL, doc(rinkrank.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("snow_queen", snow_queen, SNOW_QUEEN_PAL, doc(snow_queen.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("dream", dream, DREAM_PAL, doc(dream.__doc__), (14, 14), (7, 13), walk, folder="enemies")
+    kit.build_boss("nightmare_beast", nightmare_beast, NIGHTMARE_PAL, doc(nightmare_beast.__doc__), (24, 16), (11, 15), walk, folder="enemies")
+    kit.build_boss("phantasos", phantasos("rock"), PHANTASOS_PAL, doc(phantasos.__doc__), (48, 54), (24, 52), [0, 1, 0, 1, 0])
+    for form in ("rock", "water"):
+        kit.build_boss("phantasos_" + form, phantasos(form), PHANTASOS_PAL, doc(phantasos.__doc__ + " Here, as %s." % form),
+                       (48, 54), (24, 52), [0, 1, 0, 1, 0])
+    kit.build_boss("morpheus", morpheus, MORPHEUS_PAL, doc(morpheus.__doc__), (44, 56), (21, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("phobetor", phobetor("beast"), PHOBETOR_PAL, doc(phobetor.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
+    for form in ("beast", "bird", "serpent"):
+        kit.build_boss("phobetor_" + form, phobetor(form), PHOBETOR_PAL, doc(phobetor.__doc__ + " Here, as a %s." % form),
+                       (64, 52), (30, 50), [0, 1, 0, -1, 0])
     print("wrote the Heavens' art")

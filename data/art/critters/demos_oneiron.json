@@ -1,0 +1,96 @@
+{
+ "_doc": "Critters of demos_oneiron (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#8a7a68",
+  "b": "#5a4a3a",
+  "c": "#d8b040",
+  "d": "#c8b8e8",
+  "e": "#4a3a6a"
+ },
+ "frames": {
+  "owl": [
+   [
+    ".....oo.",
+    "o.oooako",
+    "boaaaaac",
+    "obbbbaao",
+    ".oaaaao.",
+    "..ococo."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "boaaaako",
+    "obbbbaac",
+    ".oaaaaoo",
+    "..ococo."
+   ]
+  ],
+  "owl_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oaaaaaac",
+    "..oaabaaoo",
+    "...obbbo..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...obbbkoo",
+    "..oaabaaac",
+    "..oaaaaaoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "moth": [
+   [
+    ".......",
+    ".ddkdd.",
+    ".ddkdd.",
+    "..eke..",
+    "...k...",
+    "......."
+   ],
+   [
+    "ddd.ddd",
+    "dddkddd",
+    "dddkddd",
+    ".eekee.",
+    ".eekee.",
+    "......."
+   ]
+  ],
+  "firefly": [
+   [
+    "...",
+    ".L.",
+    "..."
+   ],
+   [
+    ".l.",
+    "lLl",
+    ".l."
+   ]
+  ]
+ },
+ "critters": {
+  "owl": {
+   "kind": "bird"
+  },
+  "moth": {
+   "kind": "insect"
+  },
+  "firefly": {
+   "kind": "firefly"
+  }
+ }
+}

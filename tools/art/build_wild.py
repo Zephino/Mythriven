@@ -345,6 +345,8 @@ if __name__ == "__main__":
     kit.build_boss("volundr", volundr, VOLUNDR_PAL, doc(volundr.__doc__), (44, 54), (21, 52), [0, 1, 0, -1, 0])
     kit.build_boss("erlking", erlking, ERLKING_PAL, doc(erlking.__doc__), (44, 58), (21, 56), [0, 1, 0, -1, 0])
     kit.build_boss("fae_rider", fae_rider, RIDER_PAL, doc(fae_rider.__doc__), (24, 20), (11, 19), walk, folder="enemies")
+    # His plain picture (the banter portrait and the codex) is his first shape.
+    kit.build_boss("tam_lin", tam_lin("adder"), TAMLIN_PAL, doc(tam_lin.__doc__), (60, 52), (28, 50), [0, 1, 0, -1, 0])
     for shape in ("adder", "bear", "iron"):
         kit.build_boss("tam_lin_" + shape, tam_lin(shape), TAMLIN_PAL, doc(tam_lin.__doc__ + " Here, as %s." % shape),
                        (60, 52), (28, 50), [0, 1, 0, -1, 0])

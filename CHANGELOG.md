@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.14
+Date: 11/01/2026
+Time: 12:04 AM
+
+### Changes
+- **Demos Oneiron, the land of dreams, is built and open** (Pack 10, `docs/PACK_10_PLAN.md`). It opens when you beat the Nome King. With it, all four realms of The Heavens are built. Sources: Homer (the land of dreams; the gates of horn and ivory) and Ovid (the House of Sleep and its dream-shapers).
+  - **Hazard, the dream lights:** lights drift through the dream and draw the monsters toward them.
+  - **Monsters:** dreams (swarms), nightmare beasts and night bats.
+  - **10:00, Phantasos** (the shaper of things): every 5 s he becomes a rock (still, and blows do only a quarter of their damage) or water (slipping about fast).
+  - **20:00, Morpheus** (the imitator): 15% of every blow struck at him comes back on the Hero who struck it (up to 8 damage a blow).
+  - **30:00, Phobetor** (the design's boss; "Icelus" to the gods): every 6 s he changes shape: a beast that charges, a bird that flies out of reach and strikes marked spots from above, and a serpent that sends out rings of venom (Poison).
+  - A dim dream country of poppies, black poplars and willows, with the gates of horn and ivory; owls, moths and fireflies.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- **Fix:** four bosses that change shape (Tam Lin, the Gold and Silver Hounds, Phantasos, Phobetor) had no picture under their own name, so their banter portrait was blank. They now have one, and a new test makes sure every boss always does.
+- 4 new tests (425 tests pass).
+
+### Reason
+Pack 10, realm 4 of 4 (owner: "go ahead"); the blank portrait was spotted in this realm's screenshot.
+
 ## Version 00.03.13
 Date: 10/31/2026
 Time: 11:53 PM

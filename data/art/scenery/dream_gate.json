@@ -1,0 +1,74 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. One of the two gates of dreams (Odyssey 19.560-569: true dreams come through the gate of horn, false ones through the gate of ivory): a pale arch, half horn-brown and half ivory.",
+ "size": [
+  23,
+  29
+ ],
+ "anchor": [
+  11,
+  28
+ ],
+ "palette": {
+  "a": "#4e4236",
+  "b": "#66605a",
+  "c": "#a89678",
+  "d": "#9c8a6c",
+  "e": "#ded8d2",
+  "f": "#eae4d8",
+  "g": "#f6f0e4",
+  "h": "#a29072",
+  "i": "#baa884",
+  "j": "#b49c7e",
+  "k": "#ccc6ba",
+  "l": "#c0bab4",
+  "m": "#d2d2c6",
+  "n": "#908466",
+  "o": "#968a6c",
+  "p": "#d2ccc6",
+  "q": "#c6c6ba",
+  "r": "#aea8a2",
+  "s": "#ded8cc",
+  "t": "#8a7860",
+  "u": "#84725a",
+  "v": "#96846c",
+  "w": "#babaae",
+  "x": "#a8a8a2",
+  "y": "#907e66",
+  "z": "#b4aea8"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".........aabbbbb.......",
+    ".......aacdefeggbb.....",
+    "......achiigfgggffb....",
+    ".....aijijcffggefgkb...",
+    "....ajjjcddabbefffkeb..",
+    "...ajjhcjaa...bblffefb.",
+    "...achhja.......bmemfb.",
+    ".aahccca........bbemmfb",
+    "achcccda.......bfmeffeb",
+    "accchja........bfelfmmb",
+    "achccca........bfemefeb",
+    "ajchnda........beefeeb.",
+    "ajhccca........bfffmfb.",
+    "acdjcca........bfeeffb.",
+    "ahhhoha........bppqppb.",
+    "aocohha........brppspb.",
+    "aochota........bsqpqlb.",
+    "ahcchca........bpsppsb.",
+    "ahoohha........bqpssqb.",
+    "accchca........bqqsqsb.",
+    "ahoohca........bpqsppb.",
+    "ahhouoa........bsppplb.",
+    "aocohha........bsqpqpb.",
+    "aohcooa........bqpsqsb.",
+    "avvhhha........bwxqwqb.",
+    "ayvyuha........bqpqqwb.",
+    "ayvvyva........bwqqwpb.",
+    "ayvhvya........bpqzqqb.",
+    ".aaaaa..........bbbbb.."
+   ]
+  ]
+ }
+}

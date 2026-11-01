@@ -2884,3 +2884,28 @@ BANTER_SEVEN_RAVENS_ENTRANCE,"(Seven ravens circle the glass mountain, crying wi
 BANTER_RINKRANK_ENTRANCE,"Who's on my mountain? Let down the ladder, let down the ladder!"
 BANTER_SNOW_QUEEN_ENTRANCE,"Are you cold? Come here. One kiss, and you'll never feel the cold again."
 BANTER_SNOW_QUEEN_SKADI,A goddess of the snows. Then you understand my palace.
+LEVEL_DEMOS_ONEIRON_NAME,Demos Oneiron
+HAZARD_DREAM_LIGHTS_NAME,Lights drift through the dream...
+ENEMY_DREAM_NAME,Dream
+ENEMY_DREAM_MYTH,"All about the House of Sleep lie empty dreams of every shape, as many as the ears of the harvest, the leaves of the woods and the sands of the shore."
+ENEMY_NIGHTMARE_BEAST_NAME,Nightmare beast
+ENEMY_NIGHTMARE_BEAST_MYTH,"The beasts that come in bad dreams, the shapes Phobetor wears and sends out into the sleeping world."
+BOSS_PHANTASOS_NAME,Phantasos
+ENEMY_PHANTASOS_NAME,Phantasos
+ENEMY_PHANTASOS_MYTH,"The third of Sleep's sons, who shapes dreams of things that have no life: he becomes earth, rock, water or a tree."
+BOSS_MORPHEUS_NAME,Morpheus
+ENEMY_MORPHEUS_NAME,Morpheus
+ENEMY_MORPHEUS_MYTH,"Sleep's son, the skilled imitator, who copies a man's walk, his face, his voice, his dress and his very words better than any other. Sleep sent him to Alcyone in the shape of her drowned husband."
+BOSS_PHOBETOR_NAME,Phobetor
+ENEMY_PHOBETOR_NAME,Phobetor
+ENEMY_PHOBETOR_MYTH,"Sleep's son whom the gods call Icelus and men call Phobetor, ""the frightener"": he becomes a wild beast, a bird, or a long serpent, and brings the nightmares."
+ACH_BOSS_PHANTASOS_NAME,Defeat Phantasos
+ACH_BOSS_PHANTASOS_DESC,The 10:00 boss of Demos Oneiron.
+ACH_BOSS_MORPHEUS_NAME,Defeat Morpheus
+ACH_BOSS_MORPHEUS_DESC,The 20:00 boss of Demos Oneiron.
+ACH_BOSS_PHOBETOR_NAME,Defeat Phobetor
+ACH_BOSS_PHOBETOR_DESC,The 30:00 boss of Demos Oneiron.
+BANTER_PHANTASOS_ENTRANCE,(The rock in front of you opens its eyes.)
+BANTER_MORPHEUS_ENTRANCE,You look familiar. Let me look more so.
+BANTER_PHOBETOR_ENTRANCE,Gods call me Icelus. You will call me what you call your worst dream.
+BANTER_PHOBETOR_HECATE,"Lady of the crossroads at night, we work the same hours."

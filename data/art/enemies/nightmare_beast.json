@@ -1,0 +1,114 @@
+{
+ "_doc": "A nightmare beast (Ovid 11.638-640: the shapes of beasts that Phobetor brings): a shadowy wolf-like beast with too many glowing eyes. Built by tools/art/build_heavens.py.",
+ "size": [
+  24,
+  16
+ ],
+ "anchor": [
+  11,
+  15
+ ],
+ "palette": {
+  "o": "#120a1a",
+  "k": "#2a1a3a",
+  "K": "#1a1028",
+  "r": "#f04a8a",
+  "p": "#6a3a8a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "........ooooooookooo....",
+    "......ookkkkkkkokkrkoo..",
+    "o.o.ookkkkkkkkkkkkkkrko.",
+    "popopkkkkkkkkkkkkrkkkko.",
+    "opopkkkkkkkkkkkkkkkkkko.",
+    ".o.ookkkkkkkkkkkkkoooo..",
+    "....oKkkkKkkkKkkkKo.....",
+    "....oKookKkkkKkooKo.....",
+    "....oKo.oKoooKo.oKo.....",
+    "....oKo.oKo.oKo.oKo.....",
+    "....oKo.oKo.oKo.oKo....."
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "........ooooooookooo....",
+    "......ookkkkkkkokkrkoo..",
+    "o.o.ookkkkkkkkkkkkkkrko.",
+    "popopkkkkkkkkkkkkrkkkko.",
+    "opopkkkkkkkkkkkkkkkkkko.",
+    ".o.ookkkkkkkkkkkkkoooo..",
+    ".....oKkKkkkKkkkkoKo....",
+    ".....oKoKkkkKkkoooKo....",
+    ".....oKoKoooKoo..oKo....",
+    ".....oKoKo.oKo...oKo....",
+    ".....oKoKo.oKo...oKo...."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "........ooooooookooo....",
+    "......ookkkkkkkokkrkoo..",
+    "o.o.ookkkkkkkkkkkkkkrko.",
+    "popopkkkkkkkkkkkkrkkkko.",
+    "opopkkkkkkkkkkkkkkkkkko.",
+    ".o.ookkkkkkkkkkkkkoooo..",
+    "....oKkkkKkkkKkkkKo.....",
+    "....oKookKkkkKkooKo.....",
+    "....oKo.oKoooKo.oKo.....",
+    "....oKo.oKo.oKo.oKo.....",
+    "....oKo.oKo.oKo.oKo....."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "........ooooooookooo....",
+    "......ookkkkkkkokkrkoo..",
+    "o.o.ookkkkkkkkkkkkkkrko.",
+    "popopkkkkkkkkkkkkrkkkko.",
+    "opopkkkkkkkkkkkkkkkkkko.",
+    ".o.ookkkkkkkkkkkkkoooo..",
+    "...oKokkkkKkkkKkKo......",
+    "...oKoookkKkkkKoKo......",
+    "...oKo..ooKoooKoKo......",
+    "...oKo...oKo.oKoKo......",
+    "...oKo...oKo.oKoKo......"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "........ooooooookooo....",
+    "......ookkkkkkkokkrkoo..",
+    "o.o.ookkkkkkkkkkkkkkrko.",
+    "popopkkkkkkkkkkkkrkkkko.",
+    "opopkkkkkkkkkkkkkkkkkko.",
+    ".o.ookkkkkkkkkkkkkoooo..",
+    "....oKkkkKkkkKkkkKo.....",
+    "....oKookKkkkKkooKo.....",
+    "....oKo.oKoooKo.oKo.....",
+    "....oKo.oKo.oKo.oKo.....",
+    "....oKo.oKo.oKo.oKo....."
+   ]
+  ]
+ }
+}

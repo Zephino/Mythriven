@@ -1235,3 +1235,45 @@ func test_the_snow_queens_kiss_and_the_word() -> void:
 		queen.gather_piece()
 	assert_eq(queen.spells_broken, 1, "the word is made")
 	assert_gt(queen.broken_s, 0.0)
+
+
+func test_phantasos_becomes_rock_and_water() -> void:
+	_start("demos_oneiron")
+	assert_eq(str(_level("demos_oneiron")["unlock"]["boss"]), "nome_king")
+	assert_eq(str(_level("demos_oneiron")["hazard"]["type"]), "lights")
+	var shaper: PhantasosBoss = _bosses.spawn_boss("phantasos", 0) as PhantasosBoss
+	shaper.signature(0.1)
+	assert_eq(shaper.art_id(), "phantasos_rock")
+	assert_almost_eq(shaper.modify_hit(100.0, _player, Vector2.ZERO), 25.0, 0.01, "rock")
+	shaper.signature(5.0)
+	assert_eq(shaper.art_id(), "phantasos_water")
+
+
+func test_morpheus_turns_blows_back() -> void:
+	_start("demos_oneiron")
+	var mimic: MorpheusBoss = _bosses.spawn_boss("morpheus", 1) as MorpheusBoss
+	var hp: float = _player.hp
+	mimic.modify_hit(40.0, _player, Vector2.ZERO)
+	assert_lt(_player.hp, hp, "a share comes back")
+	assert_almost_eq(mimic.mirrored, 6.0, 0.01)
+
+
+func test_phobetor_takes_nightmare_shapes() -> void:
+	_start("demos_oneiron")
+	var dread: PhobetorBoss = _bosses.spawn_boss("phobetor", 2) as PhobetorBoss
+	dread.signature(0.1)
+	assert_eq(dread.art_id(), "phobetor_beast")
+	dread.signature(6.0)
+	assert_eq(dread.art_id(), "phobetor_bird")
+	assert_eq(dread.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "the bird is out of reach")
+	dread.signature(0.6)
+	assert_gt(dread.marks.size(), 0, "it strikes from above")
+	dread.signature(6.0)
+	assert_eq(dread.art_id(), "phobetor_serpent")
+
+
+func test_every_boss_has_a_picture_under_its_own_name() -> void:
+	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
+	for entry: Variant in Data.get_file(BossManager.FILE):
+		if entry is Dictionary:
+			assert_false(PixelArt.boss(str(entry.get("enemy", entry.get("id", "")))).is_empty(), str(entry.get("id", "")))

@@ -1574,5 +1574,35 @@
       "id": "snow_queen"
     },
     "persists": true
+  },
+  {
+    "id": "boss_phantasos",
+    "name_key": "ACH_BOSS_PHANTASOS_NAME",
+    "desc_key": "ACH_BOSS_PHANTASOS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "phantasos"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_morpheus",
+    "name_key": "ACH_BOSS_MORPHEUS_NAME",
+    "desc_key": "ACH_BOSS_MORPHEUS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "morpheus"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_phobetor",
+    "name_key": "ACH_BOSS_PHOBETOR_NAME",
+    "desc_key": "ACH_BOSS_PHOBETOR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "phobetor"
+    },
+    "persists": true
   }
 ]

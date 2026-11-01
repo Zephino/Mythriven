@@ -9978,5 +9978,244 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Demos Oneiron bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "phantasos",
+    "name_key": "BOSS_PHANTASOS_NAME",
+    "tradition": "greek",
+    "lore_source": "Ovid, Metamorphoses 11.641-643 (Phantasos, who takes the shapes of earth, rock, water and wood)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "phantasos",
+    "move_speed": 40,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "shaper_of_things",
+      "form_s": 5.0,
+      "rock_damage_taken": 0.25,
+      "water_speed_mult": 2.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Demos Oneiron bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "morpheus",
+    "name_key": "BOSS_MORPHEUS_NAME",
+    "tradition": "greek",
+    "lore_source": "Ovid, Metamorphoses 11.633-638 (Morpheus, who imitates the human form better than any)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "morpheus",
+    "move_speed": 42,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_imitator",
+      "mirror_fraction": 0.15,
+      "mirror_max": 8.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Demos Oneiron bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "phobetor",
+    "name_key": "BOSS_PHOBETOR_NAME",
+    "tradition": "greek",
+    "lore_source": "Ovid, Metamorphoses 11.638-641 (Icelus to the gods, Phobetor to men: beast, bird and serpent)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "phobetor",
+    "move_speed": 42,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "nightmare_shapes",
+      "form_s": 6.0,
+      "charge_every_s": 2.0,
+      "charge_px": 140,
+      "charge_damage": 14,
+      "strike_every_s": 1.0,
+      "telegraph_s": 1.0,
+      "strike_radius_px": 30,
+      "strike_damage": 14,
+      "venom_every_s": 2.0,
+      "venom_radius_px": 80,
+      "venom_damage": 8
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "dream"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "dream"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

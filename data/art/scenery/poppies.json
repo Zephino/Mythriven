@@ -1,0 +1,46 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. Poppies before the cave of Sleep (Ovid 11.605-607: poppies bloom before the door, and countless herbs from whose juice Night gathers sleep).",
+ "size": [
+  16,
+  13
+ ],
+ "anchor": [
+  8,
+  12
+ ],
+ "palette": {
+  "a": "#481812",
+  "b": "#120c06",
+  "c": "#963c30",
+  "d": "#2a1e18",
+  "e": "#9c3c30",
+  "f": "#a24236",
+  "g": "#1e2a12",
+  "h": "#425a2a",
+  "i": "#7e362a",
+  "j": "#78302a",
+  "k": "#241e12",
+  "l": "#8a3630",
+  "m": "#48602a",
+  "n": "#3c5424"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....aba........",
+    "....acdea.......",
+    "....acefaaba....",
+    ".aba.ghgaidca...",
+    "ajklagmgallcaba.",
+    "alccagmg.gmgckca",
+    ".gmg.gng.gnglcca",
+    ".gmg.ghg.ghggng.",
+    ".gmg.ghg.ghggng.",
+    ".gmg.ghg.ghgghg.",
+    ".gng.gng.ghgghg.",
+    ".gng.gng.gnggng.",
+    "..g...g...g..g.."
+   ]
+  ]
+ }
+}

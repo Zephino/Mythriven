@@ -1,0 +1,103 @@
+{
+ "_doc": "A dream (Ovid 11.613-615: empty dreams lie all about the House of Sleep, as many as the ears of the harvest, the leaves of the woods, the sands of the shore): a pale wisp with a dim face. Built by tools/art/build_heavens.py.",
+ "size": [
+  14,
+  14
+ ],
+ "anchor": [
+  7,
+  13
+ ],
+ "palette": {
+  "o": "#3a2a5a",
+  "w": "#d8c8f0",
+  "W": "#a890d0",
+  "k": "#4a3a6a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..............",
+    "..............",
+    "..............",
+    "....oooooo....",
+    "...owwwwwwo...",
+    "...owwwwwwo...",
+    "..owwwkwkwwo..",
+    "..owwwwwwwwo..",
+    "..owwwwwwwwo..",
+    ".owwwwwwwwwwo.",
+    ".owwwwwwwwwwo.",
+    "..oooooooooo..",
+    "..oWo.....oWo.",
+    "...o.......o.."
+   ]
+  ],
+  "walk": [
+   [
+    "..............",
+    "..............",
+    "..............",
+    "....oooooo....",
+    "...owwwwwwo...",
+    "...owwwwwwo...",
+    "..owwwkwkwwo..",
+    "..owwwwwwwwo..",
+    "..owwwwwwwwo..",
+    "..owwwwwwwwwo.",
+    ".owwwwwwwooo..",
+    ".owwooooo.....",
+    "..oWo......o..",
+    "...o......oWo."
+   ],
+   [
+    "..............",
+    "..............",
+    "..............",
+    "....oooooo....",
+    "...owwwwwwo...",
+    "...owwwwwwo...",
+    "..owwwkwkwwo..",
+    "..owwwwwwwwo..",
+    "..owwwwwwwwo..",
+    ".owwwwwwwwwwo.",
+    ".owwwwwwwwwwo.",
+    "..oooooooooo..",
+    "..oWo.....oWo.",
+    "...o.......o.."
+   ],
+   [
+    "..............",
+    "..............",
+    "..............",
+    "....oooooo....",
+    "...owwwwwwo...",
+    "..owwwwwwwo...",
+    "..owwwkwkwwo..",
+    "..owwwwwwwwo..",
+    ".owwwwwwwwwo..",
+    ".owwwwwwwwwo..",
+    "..oowwwwwwwwo.",
+    "...oooooowwWo.",
+    "..oWo....ooo..",
+    "...o.........."
+   ],
+   [
+    "..............",
+    "..............",
+    "..............",
+    "....oooooo....",
+    "...owwwwwwo...",
+    "...owwwwwwo...",
+    "..owwwkwkwwo..",
+    "..owwwwwwwwo..",
+    "..owwwwwwwwo..",
+    ".owwwwwwwwwwo.",
+    ".owwwwwwwwwwo.",
+    "..oooooooooo..",
+    "..oWo.....oWo.",
+    "...o.......o.."
+   ]
+  ]
+ }
+}

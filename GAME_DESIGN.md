@@ -140,7 +140,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | **Released 11/01/2026** (`docs/PACK_7_PLAN.md`) |
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | **Released 11/01/2026** (`docs/PACK_8_PLAN.md`) |
 | 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | **Released 11/01/2026** (`docs/PACK_9_PLAN.md`) |
-| 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | **Building** (`docs/PACK_10_PLAN.md`; Hyperborea, the Empyrean and the Glass Mountain released 11/01/2026) |
+| 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | **Building** (`docs/PACK_10_PLAN.md`; all four realms released 11/01/2026) |
 | 11 | The Abyss | 41 Ashkarrow · 42 Dinas Emrys · 43 Atlantis · 44 Ginnungagap | Later |
 | 12 | Otherworlds | 45 Tír na nÓg · 46 Hy-Brasil · 47 The Shadow's Court · 48 The Knockers' Deep | Later |
 | 13 | Wild Frontiers | 49 Mount Pelion · 50 Dovrefjell · 51 The City of Brass · 52 The Sea King's Hall | Later |
@@ -333,6 +333,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 *(11/01/2026: **the Empyrean** is built and released (00.03.12), opened by beating the Kraken: falling stars (telegraphed strikes); star hounds, star motes, comets; the Scorpion (its tail strikes a marked spot under a Hero, Poisoning and leaving a pool of venom), the Great Bear (circles the arena without stopping, swiping whoever is near), Orion (calls his two hounds every 12 s; struck blind every 14 s for 5 s, lunging at random and taking 50% more damage).)*
 
 *(11/01/2026: **the Glass Mountain** is built and released (00.03.13), opened by beating the Goblin Merchant-Men: falling icicles (strikes that Chill) on slippery glass slopes; white bees, snowflake guards, frost wisps, ravens, frost giants; the Seven Ravens (scatter into seven ravens and can't be hurt; each raven killed takes 3% of its health; they gather after 6 s), Old Rinkrank (climbs his ladder out of reach for 3 s, throwing glass down on marked spots), the Snow Queen (her kiss freezes the nearest Hero for 1.5 s; gathering four pieces of ice makes the word and breaks her guard).)*
+
+*(11/01/2026: **Demos Oneiron** is built and released (00.03.14), opened by beating the Nome King: the dream lights (wandering lights that draw monsters toward them); dreams, nightmare beasts, night bats; Phantasos (by turns a rock, still and taking a quarter of the damage, and water, fast), Morpheus (15% of each blow struck at him comes back on the striker, up to 8), Phobetor (beast: charges; bird: out of reach, strikes from above; serpent: rings of venom; each for 6 s). Pack 10's four realms are all built.)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

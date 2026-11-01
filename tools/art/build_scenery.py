@@ -744,12 +744,34 @@ def glass_spire():
     return p
 
 
+def dream_gate():
+    """One of the two gates of dreams (Odyssey 19.560-569: true dreams come through the gate of horn, false ones through
+    the gate of ivory): a pale arch, half horn-brown and half ivory."""
+    p = Pic(24, 28, (12, 27))
+    p.rect(2, 8, 6, 27, "E"); p.rect(17, 8, 21, 27, "m")
+    for a in range(30):
+        t = a / 30 * math.pi
+        x, y = round(12 - 8 * math.cos(t)), round(9 - 8 * math.sin(t))
+        p.rect(x, y, x + 2, y + 2, "E" if a < 15 else "m")
+    return p
+
+
+def poppies():
+    """Poppies before the cave of Sleep (Ovid 11.605-607: poppies bloom before the door, and countless herbs from whose
+    juice Night gathers sleep)."""
+    p = Pic(16, 12, (8, 11))
+    for x, h in ((2, 6), (6, 9), (10, 7), (13, 5)):
+        p.rect(x, 11 - h, x, 11, "C")
+        p.rect(x - 1, 10 - h, x + 1, 11 - h, "r"); p.px(x, 10 - h, "z")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall, ship_cannon, beached_boat, gem_cluster, armillary_sphere, glass_spire)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall, ship_cannon, beached_boat, gem_cluster, armillary_sphere, glass_spire, dream_gate, poppies)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")
