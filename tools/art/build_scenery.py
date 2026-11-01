@@ -651,12 +651,24 @@ def labyrinth_wall():
     return p
 
 
+def giant_glove():
+    """Skrymir's glove (Gylfaginning 45: Thor and his companions slept in what they took for a great hall, and it was
+    the giant's glove; its thumb was the side room): a huge leather glove lying on the ground."""
+    p = Pic(34, 18, (17, 17))
+    blob(p, 14, 11, 12, 6, "b"); blob(p, 13, 10, 10, 4.5, "e")
+    for k in range(4):
+        p.rect(24, 4 + k * 3, 32, 5 + k * 3, "b"); p.rect(24, 4 + k * 3, 31, 4 + k * 3, "e")
+    p.rect(4, 3, 8, 8, "b"); p.rect(5, 3, 7, 6, "e")                                            # the thumb
+    p.rect(0, 12, 3, 16, "z")                                                                     # its open cuff
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

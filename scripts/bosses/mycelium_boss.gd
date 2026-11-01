@@ -2,7 +2,8 @@ class_name MyceliumBoss
 extends BossController
 ## The Mycelium, 20:00 (docs/PACK_6_PLAN.md: Mycendra, the game's own invented realm). Signature, spreading threads:
 ## every few seconds its pale threads spread a little further over the ground around it. Standing on them slows and
-## Poisons. They stay until it dies, so keep it moving.
+## Poisons. They stay until it dies, so keep it moving. Logi (Utgard, 10:00) uses this script too, with
+## "thread_status" burn and a fire "thread_color": his wildfire spreads over the ground the same way.
 
 ## Patches of threads on the ground.
 var threads: Array[Vector2] = []
@@ -38,7 +39,7 @@ func signature(delta: float) -> void:
 			player.slow_zone_mult = float(_sig().get("thread_slow", 0.6))
 			_slowed[player.player_id] = true
 			if poison_now:
-				player.statuses.apply("poison")
+				player.statuses.apply(str(_sig().get("thread_status", "poison")))
 		elif _slowed.has(player.player_id):
 			player.slow_zone_mult = 1.0
 			_slowed.erase(player.player_id)
@@ -72,9 +73,10 @@ func _exit_tree() -> void:
 
 func _draw() -> void:
 	var reach: float = float(_sig().get("thread_radius_px", 26.0))
+	var tint := Color.html(str(_sig().get("thread_color", "#ebe6d1")))
 	for at: Vector2 in threads:
 		var p: Vector2 = at - global_position
-		draw_circle(p, reach, Color(0.85, 0.85, 0.75, 0.18))
+		draw_circle(p, reach, Color(tint, 0.18))
 		for k: int in 5:
-			draw_line(p, p + Vector2.from_angle(k * 1.3 + at.x) * reach, Color(0.92, 0.9, 0.82, 0.5), 1.0)
+			draw_line(p, p + Vector2.from_angle(k * 1.3 + at.x + Time.get_ticks_msec() * 0.001 * float(_sig().get("flicker", 0.0))) * reach, Color(tint, 0.5), 1.0)
 	super._draw()

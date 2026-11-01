@@ -707,6 +707,25 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | asterion_entrance | boss entrance | asterion | (Something huge breathes in the dark of the Labyrinth, and the floor shakes.) | Apollodorus 3.1.4 | no |
 | cretan_bull_heracles | boss entrance (as heracles) | cretan_bull | (It knows you. The seventh labour; it has not forgotten the rope.) | Apollodorus 2.5.7 (the seventh labour) | no |
 
+### Utgard
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | utgard | Utgard | Snorri, Gylfaginning 44-47 (Thor's journey to Utgarda-Loki) | no |
+| enemy | utgard_thrall | Utgard thrall | Snorri, Gylfaginning 46 (the great hall of Utgard full of giants) | no |
+| enemy | utgard_phantom | Phantom of Utgard | Snorri, Gylfaginning 47 (Utgarda-Loki reveals that everything was illusion) | no |
+| enemy | utgard_illusion | Illusion of Utgarda-Loki | Snorri, Gylfaginning 44-47 (Utgarda-Loki's illusions) | no |
+| boss | logi | Logi | Snorri, Gylfaginning 46-47 (Logi, "wildfire", wins the eating contest against Loki) | no |
+| boss | hugi | Hugi | Snorri, Gylfaginning 46-47 (Hugi, "thought", outruns Thjalfi three times) | no |
+| boss | utgarda_loki | Útgarða-Loki | Snorri, Gylfaginning 44-47 (the giant king of Utgard and his illusions) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| logi_entrance | boss entrance | logi | Meat, bones, trough... and now you. | Gylfaginning 46 (the eating contest) | no |
+| hugi_entrance | boss entrance | hugi | Run, if you like. I'll be there before you. | Gylfaginning 46 (the race) | no |
+| utgarda_loki_entrance | boss entrance | utgarda_loki | Welcome to Utgard, little ones. Nothing here is what it seems. | Gylfaginning 47 | no |
+| utgarda_loki_thor | boss meets god (with thor) | utgarda_loki | Thor! Did you ever finish that horn? The sea is still lower for it. | Gylfaginning 47 (the horn joined to the sea; the ebb tide) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

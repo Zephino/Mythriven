@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 8). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
-boss idea; everything else was chosen by Claude from old public-domain texts only. Ghorvast built and released 11/01/2026 (00.03.01); Knossos (00.03.02). The owner can change or veto any of
+boss idea; everything else was chosen by Claude from old public-domain texts only. Ghorvast built and released 11/01/2026 (00.03.01); Knossos (00.03.02); Utgard (00.03.03). Logi reuses the Mycelium's spreading ground, as fire that Burns. The owner can change or veto any of
 it.
 
 Realms work like Packs 5-7: endless map, a hazard, monster families, three bosses, no local gods.
@@ -60,7 +60,7 @@ judging the dead); Ovid, Metamorphoses 8.152-182.*
 | 20:00 | **Minos** | The judge of the dead: every so often he condemns the Hero farthest from him, who takes damage until they come close to him for judgement |
 | 30:00 | **Asterion, the Minotaur** (the design's) | He charges three times in a row, then stands winded for a few seconds; blows struck up close hurt him more, as Theseus beat him with his fists |
 
-## Realm 31: Utgard (the giants' fortress of illusions)
+## Realm 31: Utgard (the giants' fortress of illusions): **done and released 11/01/2026 (00.03.03)**
 *Sources: Snorri, Gylfaginning 44-47 (Thor's journey to Útgarða-Loki: Skrýmir, the contests with Logi, Hugi, the
 cat, the drinking horn and Elli, all illusions).* Loki, who loses the eating contest, is not a character.
 

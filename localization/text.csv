@@ -2567,3 +2567,31 @@ BANTER_CRETAN_BULL_ENTRANCE,(It paws the paving stones. Its eyes are white with 
 BANTER_MINOS_ENTRANCE,Stand before me. Every shade I have judged stood where you stand.
 BANTER_ASTERION_ENTRANCE,"(Something huge breathes in the dark of the Labyrinth, and the floor shakes.)"
 BANTER_CRETAN_BULL_HERACLES,(It knows you. The seventh labour; it has not forgotten the rope.)
+LEVEL_UTGARD_NAME,Utgard
+HAZARD_SKRYMIR_BLOWS_NAME,The ground heaves under unseen giant blows!
+ENEMY_UTGARD_THRALL_NAME,Utgard thrall
+ENEMY_UTGARD_THRALL_MYTH,"Thor and his companions came to a castle so high they had to bend their heads back to see over it; inside, on two benches, sat a great many people, most of them huge."
+ENEMY_UTGARD_PHANTOM_NAME,Phantom of Utgard
+ENEMY_UTGARD_PHANTOM_MYTH,"Pale shapes of Utgarda-Loki's glamour, that burst like mist at a blow. When Thor turned to strike the king, the castle itself had vanished."
+ENEMY_UTGARD_ILLUSION_NAME,Illusion of Utgarda-Loki
+ENEMY_UTGARD_ILLUSION_MYTH,"A copy of the giant king, made of nothing but glamour. While his copies stand, the king himself is hard to strike."
+BOSS_LOGI_NAME,Logi
+ENEMY_LOGI_NAME,Logi
+ENEMY_LOGI_MYTH,"Utgarda-Loki's man in the eating contest. Loki ate all the meat off the bones in his half of the trough; Logi ate the meat, the bones and the trough too. He was wildfire itself, which burns everything."
+BOSS_HUGI_NAME,Hugi
+ENEMY_HUGI_NAME,Hugi
+ENEMY_HUGI_MYTH,"The young man who raced Thjálfi, the fastest of men, three times, and each time was so far ahead he could turn round to meet him. Utgarda-Loki later told Thor the truth: Hugi was his own thought, and nothing is as fast as thought."
+BOSS_UTGARDA_LOKI_NAME,Útgarða-Loki
+ENEMY_UTGARDA_LOKI_NAME,Útgarða-Loki
+ENEMY_UTGARDA_LOKI_MYTH,"The king of the giants of Utgard. He was the giant Skrýmir who led Thor through the forest; the drinking horn was joined to the sea, the cat was the World Serpent, the old woman Elli was old age itself. All of it was illusion, and when Thor turned to strike him, the king and his castle had vanished."
+BOSS_UTGARDA_LOKI_ILLUSIONS,Útgarða-Loki raises illusions! Break them to reach him!
+ACH_BOSS_LOGI_NAME,Defeat Logi
+ACH_BOSS_LOGI_DESC,The 10:00 boss of Utgard.
+ACH_BOSS_HUGI_NAME,Defeat Hugi
+ACH_BOSS_HUGI_DESC,The 20:00 boss of Utgard.
+ACH_BOSS_UTGARDA_LOKI_NAME,Defeat Útgarða-Loki
+ACH_BOSS_UTGARDA_LOKI_DESC,The 30:00 boss of Utgard.
+BANTER_LOGI_ENTRANCE,"Meat, bones, trough... and now you."
+BANTER_HUGI_ENTRANCE,"Run, if you like. I'll be there before you."
+BANTER_UTGARDA_LOKI_ENTRANCE,"Welcome to Utgard, little ones. Nothing here is what it seems."
+BANTER_UTGARDA_LOKI_THOR,Thor! Did you ever finish that horn? The sea is still lower for it.

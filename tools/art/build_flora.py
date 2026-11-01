@@ -426,6 +426,11 @@ LEVELS = {
         "trees": {"cypress": (cypress, 12, 38), "olive": (olive, 26, 30)},
         "bushes": {"myrtle": ("V", "v", "w", "h")},
         "rock": ("a", "A", "B", None)},
+    # Utgard: the stony, wintry country round the giants' castle; spruce and dead trees.
+    "utgard": {
+        "trees": {"spruce": (spruce, 22, 40), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"juniper": ("P", "p", "q", None)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

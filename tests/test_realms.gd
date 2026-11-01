@@ -820,3 +820,34 @@ func test_asterion_rushes_thrice_then_is_winded() -> void:
 	assert_gt(bull_man.winded_s, 0.0, "winded after three")
 	_player.position = bull_man.position_now() + Vector2(30, 0)
 	assert_almost_eq(bull_man.modify_hit(10.0, _player, Vector2.ZERO), 15.0, 0.01, "fists up close")
+
+
+func test_logis_wildfire_spreads_and_burns() -> void:
+	_start("utgard")
+	assert_eq(str(_level("utgard")["unlock"]["boss"]), "erlking")
+	var fire: MyceliumBoss = _bosses.spawn_boss("logi", 0) as MyceliumBoss
+	fire.signature(2.1)
+	assert_gt(fire.threads.size(), 0, "the fire spreads")
+	_player.position = fire.threads[0]
+	fire.signature(1.1)
+	assert_true(_player.statuses.has("burn"), "and burns")
+
+
+func test_hugi_is_always_ahead() -> void:
+	_start("utgard")
+	var thought: HugiBoss = _bosses.spawn_boss("hugi", 1) as HugiBoss
+	_player.velocity = Vector2(100, 0)
+	thought.get_ahead_of(_player)
+	assert_gt(thought.position_now().x, _player.position.x, "ahead, where you're heading")
+
+
+func test_utgarda_lokis_illusions_shield_him() -> void:
+	_start("utgard")
+	var king: UtgardaLokiBoss = _bosses.spawn_boss("utgarda_loki", 2) as UtgardaLokiBoss
+	king.raise_copies()
+	assert_eq(king.copies_standing(), 3)
+	assert_almost_eq(king.modify_hit(100.0, _player, Vector2.ZERO), 25.0, 0.01, "blows strike air")
+	for slot: int in king.copies.duplicate():
+		_enemies.remove_quietly(slot)
+	assert_eq(king.copies_standing(), 0)
+	assert_almost_eq(king.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)

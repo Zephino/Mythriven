@@ -138,7 +138,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | **Released 10/31/2026** (`docs/PACK_5_PLAN.md`) |
 | 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | **Released 11/01/2026** (`docs/PACK_6_PLAN.md`) |
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | **Released 11/01/2026** (`docs/PACK_7_PLAN.md`) |
-| 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | **Building** (`docs/PACK_8_PLAN.md`; Ghorvast and Knossos released 11/01/2026) |
+| 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | **Building** (`docs/PACK_8_PLAN.md`; Ghorvast, Knossos and Utgard released 11/01/2026) |
 | 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | Later |
 | 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | Later |
 | 11 | The Abyss | 41 Ashkarrow · 42 Dinas Emrys · 43 Atlantis · 44 Ginnungagap | Later |
@@ -315,6 +315,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 *(11/01/2026: owner: "go ahead" (Pack 8). Pack 8, **Warlords**, is designed by Claude (`docs/PACK_8_PLAN.md`); Ghorvast stays the design's invented realm, with plain descriptive names and nothing from modern fantasy. **Ghorvast** is built and released (00.03.01), opened by beating the Hydra: fire-arrow volleys (strikes that Burn); orc warriors, archers and brutes, carrion crows, ravens; the War Drummer (each beat calls three orcs, beating faster as he is hurt), the Pit Champion (blows fill his rage: berserk for 5 s, then spent and taking double damage), the Warlord (his war banner cuts the damage he takes to 30% until a Hero tears it down).)*
 
 *(11/01/2026: **Knossos** is built and released (00.03.02), opened by beating Lycaon: the Labyrinth's dark (the view closes in); Cretan guards, young bulls, shades, Minotaur elites; the Cretan Bull (charges; a charge that hits no one leaves it dazed for 2.5 s, taking 50% more damage), Minos (condemns the Hero farthest from him, who takes damage until they come within judging distance), Asterion, the Minotaur (three rushes in a row, then winded for 3 s; blows from up close do 50% more).)*
+
+*(11/01/2026: **Utgard** is built and released (00.03.03), opened by beating the Erlking: Skrýmir's blows (telegraphed ground strikes); Utgard thralls, phantoms, ravens, frost thursar; Logi (his wildfire spreads over the ground and Burns), Hugi (every 3.5 s he is suddenly ahead of a Hero, where they are heading), Útgarða-Loki (raises three copies of himself; while any stands he takes a quarter of the damage).)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

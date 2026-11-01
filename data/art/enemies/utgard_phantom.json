@@ -1,0 +1,123 @@
+{
+ "_doc": "A phantom of Utgard (Gylfaginning 47: all of it was illusion): a pale, half-there shape that bursts at a blow. Built by tools/art/build_warlords.py.",
+ "size": [
+  16,
+  18
+ ],
+ "anchor": [
+  8,
+  17
+ ],
+ "palette": {
+  "o": "#4a5468",
+  "w": "#d8dcec",
+  "W": "#a8b0c8",
+  "k": "#2a3040"
+ },
+ "frames": {
+  "idle": [
+   [
+    "................",
+    "................",
+    "................",
+    "......oooo......",
+    ".....owwwwo.....",
+    ".....owwwwo.....",
+    "....owwkwkwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "...owwwwwwwwo...",
+    "...owwwwwwwwo...",
+    "....ooooooooo...",
+    "...oWoWoWoWoWo..",
+    "....o.o.o.o.o...",
+    "................",
+    "................"
+   ]
+  ],
+  "walk": [
+   [
+    "................",
+    "................",
+    "................",
+    "......oooo......",
+    ".....owwwwo.....",
+    ".....owwwwo.....",
+    "....owwkwkwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwwo...",
+    "...owwwwwwwwo...",
+    "...owwwwwwoo....",
+    "...owwoooo......",
+    "....ooo.o.o.o...",
+    "...oWoWoWoWoWo..",
+    "....o.o.o.o.o...",
+    "................"
+   ],
+   [
+    "................",
+    "................",
+    "................",
+    "......oooo......",
+    ".....owwwwo.....",
+    ".....owwwwo.....",
+    "....owwkwkwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "...owwwwwwwwo...",
+    "...owwwwwwwwo...",
+    "....ooooooooo...",
+    "...oWoWoWoWoWo..",
+    "....o.o.o.o.o...",
+    "................",
+    "................"
+   ],
+   [
+    "................",
+    "................",
+    "................",
+    "......oooo......",
+    ".....owwwwo.....",
+    ".....owwwwo.....",
+    "....owwkwko.....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "...owwwwwwwo....",
+    "...owwwwwwwo....",
+    "....oowwwwwwo...",
+    "......oooowwo...",
+    "....o.o.o.ooo...",
+    "...oWoWoWoWoWo..",
+    "....o.o.o.o.o...",
+    "................"
+   ],
+   [
+    "................",
+    "................",
+    "................",
+    "......oooo......",
+    ".....owwwwo.....",
+    ".....owwwwo.....",
+    "....owwkwkwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "....owwwwwwo....",
+    "...owwwwwwwwo...",
+    "...owwwwwwwwo...",
+    "....ooooooooo...",
+    "...oWoWoWoWoWo..",
+    "....o.o.o.o.o...",
+    "................",
+    "................"
+   ]
+  ]
+ }
+}

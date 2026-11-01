@@ -1,0 +1,56 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. Skrymir's glove (Gylfaginning 45: Thor and his companions slept in what they took for a great hall, and it was the giant's glove; its thumb was the side room): a huge leather glove lying on the ground.",
+ "size": [
+  35,
+  17
+ ],
+ "anchor": [
+  18,
+  16
+ ],
+ "palette": {
+  "a": "#2a2418",
+  "b": "#5a5442",
+  "c": "#604e42",
+  "d": "#c6ba9c",
+  "e": "#d2c0a2",
+  "f": "#665442",
+  "g": "#deccae",
+  "h": "#5a4e3c",
+  "i": "#5a483c",
+  "j": "#c0ae96",
+  "k": "#ae9c84",
+  "l": "#a2967e",
+  "m": "#544236",
+  "n": "#b4a88a",
+  "o": "#120c06",
+  "p": "#9c9078",
+  "q": "#241e12",
+  "r": "#241812",
+  "s": "#1e1812",
+  "t": "#544836"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....abbba.........................",
+    "....acdeefa..............bbbbbbbba.",
+    "....afeeefa....a........beedddgegfa",
+    "....acdddcabbbafabbaaa..acchficccha",
+    "....ahejjceddkjdlejfhhaa.aaaaaaaaa.",
+    "....affcchdddjeddjddddhiaddeeddeefa",
+    "....afhhffdjjddddkdjejkchcchccchcca",
+    "...acjjdjdeddjddjejddjjemhcaaaaaaa.",
+    "...ajjjljjdjjdjjdnndnjdnjdlnjjnjjia",
+    ".oochnnjjdjlnjjjdjjjpdjnhhhmhhhciha",
+    "oqrrrhdjdjjdjpnjdddkndjhhhhaaaaaaa.",
+    "orrrrihdpdnjjjjjjjddjnchcnjdnjjdjha",
+    "orrqqhhchhjnjkddddnhicchmchhiihchia",
+    "orrrqoahihhhchchihhhhhhcaaaaaaaaaa.",
+    "osrrso.aammimtttmittttaa...........",
+    ".oooo....aaaaaataaaaaa.............",
+    "...............a..................."
+   ]
+  ]
+ }
+}

@@ -1304,5 +1304,35 @@
       "id": "asterion"
     },
     "persists": true
+  },
+  {
+    "id": "boss_logi",
+    "name_key": "ACH_BOSS_LOGI_NAME",
+    "desc_key": "ACH_BOSS_LOGI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "logi"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_hugi",
+    "name_key": "ACH_BOSS_HUGI_NAME",
+    "desc_key": "ACH_BOSS_HUGI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "hugi"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_utgarda_loki",
+    "name_key": "ACH_BOSS_UTGARDA_LOKI_NAME",
+    "desc_key": "ACH_BOSS_UTGARDA_LOKI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "utgarda_loki"
+    },
+    "persists": true
   }
 ]

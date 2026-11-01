@@ -32,6 +32,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "lerna": ("#6a7262", "#5a6252", "#7a8272", "#646c5c", "#424a3a", None),
     "ghorvast": ("#5a5048", "#4a423c", "#6a5e54", "#544a42", "#342e2a", None),
     "knossos": ("#b0a48c", "#a0947c", "#c0b49c", "#a89c84", "#7a6e58", None),
+    "utgard": ("#7a7e88", "#6a6e78", "#8a8e98", "#747882", "#4e525a", "#f0f2f6"),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),

@@ -2395,5 +2395,46 @@
     "text_key": "BANTER_CRETAN_BULL_HERACLES",
     "lore_source": "Apollodorus 2.5.7 (the seventh labour)",
     "needs_owner_review": true
+  },
+  {
+    "id": "logi_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "logi",
+    "hero": "",
+    "god": "logi",
+    "text_key": "BANTER_LOGI_ENTRANCE",
+    "lore_source": "Gylfaginning 46 (the eating contest)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hugi_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "hugi",
+    "hero": "",
+    "god": "hugi",
+    "text_key": "BANTER_HUGI_ENTRANCE",
+    "lore_source": "Gylfaginning 46 (the race)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "utgarda_loki_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "utgarda_loki",
+    "hero": "",
+    "god": "utgarda_loki",
+    "text_key": "BANTER_UTGARDA_LOKI_ENTRANCE",
+    "lore_source": "Gylfaginning 47",
+    "needs_owner_review": true
+  },
+  {
+    "id": "utgarda_loki_thor",
+    "trigger": "boss_meets_god",
+    "speaker": "utgarda_loki",
+    "hero": "",
+    "god": "utgarda_loki",
+    "with_god": "thor",
+    "text_key": "BANTER_UTGARDA_LOKI_THOR",
+    "lore_source": "Gylfaginning 47 (the horn joined to the sea; the ebb tide)",
+    "needs_owner_review": true
   }
 ]

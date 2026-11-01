@@ -172,6 +172,85 @@ ASTERION_PAL = {"o": "#0e0806", "s": "#a86a44", "l": "#5a3a24", "b": "#3a2418", 
                 "h": "#e8dcc0"}
 
 
+# --- Utgard (Snorri, Gylfaginning 44-47) ------------------------------------------------------------------------------
+
+def utgard_thrall(c, f):
+    """A thrall of Utgard's hall (Gylfaginning 46: the great hall full of giants on benches): a big rough giant's
+    servant in furs, carrying a cudgel."""
+    s = STEP[f]
+    for x, d in ((7, -s), (12, s)):
+        c.rect(x + d, 19, x + 2 + d, 24, "k")
+    c.rect(5, 8, 15, 19, "f"); c.row(13, 5, 15, "F")
+    ellipse(c, 10, 5, 3.5, 3, "s"); c.rect(7, 1, 13, 3, "h"); c.rect(8, 7, 12, 9, "h")
+    c.rect(17, 3, 18, 17, "b")
+
+
+THRALL_PAL = {"o": "#100c08", "k": "#2a2018", "f": "#8a7458", "F": "#6a5640", "s": "#c8a888", "h": "#8a6a40",
+              "b": "#5a3a1a"}
+
+
+def utgard_phantom(c, f):
+    """A phantom of Utgard (Gylfaginning 47: all of it was illusion): a pale, half-there shape that bursts at a blow."""
+    s = STEP[f]
+    poly(c, [(6, 4), (10, 4), (12, 13 + s), (4, 13 - s)], "w")
+    c.px(7, 6, "k"); c.px(9, 6, "k")
+    for x in range(4, 13, 2):
+        c.px(x, 14 + (x + f) % 2, "W")
+
+
+PHANTOM_PAL = {"o": "#4a5468", "w": "#d8dcec", "W": "#a8b0c8", "k": "#2a3040"}
+
+
+def utgarda_loki(copy):
+    """Utgarda-Loki (Gylfaginning 44-47): the king of the giants of Utgard, so tall that Thor had to bend his head back
+    to see over him, master of illusions."""
+    def draw(c, step):
+        figure(c, step, "g" if not copy else "G", "s", "h", x0=14, top=20, bottom=52)
+        c.rect(16, 20, 26, 30, "G" if not copy else "g")
+        c.rect(14, 2, 27, 4, "y"); c.px(15, 1, "y"); c.px(21, 1, "y"); c.px(26, 1, "y")
+        poly(c, [(16, 15), (25, 15), (24, 26), (17, 26)], "h")                                   # long beard
+        if copy:
+            for y in range(0, 58, 3):
+                for x in range(4, 40, 4):
+                    if (x + y) % 3 == 0 and y < len(c.g) and x < len(c.g[y]) and c.g[y][x] in ("g", "G", "h"):
+                        c.px(x, y, "m")
+    return draw
+
+
+UTGARD_PAL = {"o": "#0a0c14", "k": "#2a2a34", "g": "#4a5a7a", "G": "#3a4a6a", "s": "#c8b8a8", "h": "#a8a0a0",
+              "y": "#c8c8d0", "m": "#c8d0f0"}
+
+
+def logi(c, step):
+    """Logi (Gylfaginning 46-47): "Wildfire", who ate the meat, the bones and the trough itself in the eating contest
+    against Loki. A tall figure made of leaping flame."""
+    for y in range(4, 58):
+        w = 3 + int(9 * math.sin(min(y, 50) / 50 * math.pi)) + ((y + step * 2) % 4 == 0)
+        c.rect(21 - w, y, 21 + w, y, "r" if y > 40 else ("y" if (y + step) % 5 else "w"))
+    for k in range(5):
+        c.px(14 + k * 3, 2 - (k + step) % 2, "y")
+    c.px(18, 14, "k"); c.px(24, 14, "k"); c.rect(18, 20, 24, 21, "k")
+
+
+LOGI_PAL = {"o": "#4a1004", "r": "#c83a10", "y": "#f0a020", "w": "#fff0a0", "k": "#5a1a04"}
+
+
+def hugi(c, step):
+    """Hugi (Gylfaginning 46-47): the young man who outran Thjalfi three times; he was Utgarda-Loki's thought. A slim
+    pale runner, caught mid-stride, hair streaming."""
+    for k, d in enumerate((-step * 3, step * 3)):
+        c.rect(17 + k * 5 + d, 42, 19 + k * 5 + d, 54, "s")
+    c.rect(15, 20, 26, 42, "w"); c.rect(15, 32, 26, 34, "W")
+    c.rect(17, 8, 25, 18, "s"); c.px(19, 12, "k"); c.px(23, 12, "k")
+    for k in range(10):
+        c.px(15 - k, 8 + k // 3, "h"); c.px(15 - k, 9 + k // 3, "h")                               # hair streaming back
+    for k in range(4):
+        c.row(26 + k * 4, 2, 10 - k * 2, "W")                                                       # speed lines
+
+
+HUGI_PAL = {"o": "#2a3040", "s": "#e8dcd0", "w": "#e8eef8", "W": "#a8b8d8", "k": "#1a2030", "h": "#d8d0b0"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_warlords.py."
@@ -189,4 +268,11 @@ if __name__ == "__main__":
     kit.build_boss("cretan_bull", cretan_bull, CRETAN_BULL_PAL, doc(cretan_bull.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
     kit.build_boss("minos", minos, MINOS_PAL, doc(minos.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("asterion", asterion, ASTERION_PAL, doc(asterion.__doc__), (50, 60), (25, 58), [0, 1, 0, -1, 0])
+    kit.build_boss("utgard_thrall", utgard_thrall, THRALL_PAL, doc(utgard_thrall.__doc__), (22, 26), (11, 25), walk, folder="enemies")
+    kit.build_boss("utgard_phantom", utgard_phantom, PHANTOM_PAL, doc(utgard_phantom.__doc__), (16, 18), (8, 17), walk, folder="enemies")
+    kit.build_boss("utgard_illusion", utgarda_loki(True), UTGARD_PAL, doc(utgarda_loki.__doc__ + " Here, one of his illusions."),
+                   (42, 60), (21, 58), [0, 1, 0, -1, 0], folder="enemies")
+    kit.build_boss("logi", logi, LOGI_PAL, doc(logi.__doc__), (42, 60), (21, 58), [0, 1, 0, 1, 0])
+    kit.build_boss("hugi", hugi, HUGI_PAL, doc(hugi.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("utgarda_loki", utgarda_loki(False), UTGARD_PAL, doc(utgarda_loki.__doc__), (42, 60), (21, 58), [0, 1, 0, -1, 0])
     print("wrote the Warlords' art")

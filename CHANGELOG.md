@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.03
+Date: 10/31/2026
+Time: 10:12 PM
+
+### Changes
+- **Utgard, the giants' fortress of illusions, is built and open** (Pack 8, `docs/PACK_8_PLAN.md`). It opens when you beat the Erlking (Alfheim's 30:00 boss). It's Útgarða-Loki's rigged contests and illusions (Snorri, Gylfaginning 44-47), kept apart from Jotunheim's mountains.
+  - **Hazard, Skrýmir's blows:** the ground heaves and splits under unseen giant blows (telegraphed).
+  - **Monsters:** Utgard thralls, phantoms (that burst at a blow), ravens, and from 10:00 frost giants.
+  - **10:00, Logi** ("wildfire", who out-ate Loki): his fire spreads over the ground around him and keeps spreading, Burning whoever stands in it.
+  - **20:00, Hugi** ("thought", who outran Thjálfi): every few seconds he is suddenly ahead of a Hero, right where they're heading.
+  - **30:00, Útgarða-Loki** (the design's boss): he raises three copies of himself; while any copy stands, he takes only a quarter of the damage. Break the illusions first.
+  - Stony, wintry country with runestones and Skrýmir's giant glove (the "hall" Thor slept in); mountain hares and ravens.
+  - 3 achievements, 4 banter lines (Útgarða-Loki teases Thor about the drinking horn) and the realm's rows on the lore check.
+- 3 new tests (393 tests pass).
+
+### Reason
+Pack 8, realm 3 of 4 (owner: "go ahead").
+
 ## Version 00.03.02
 Date: 10/31/2026
 Time: 10:03 PM

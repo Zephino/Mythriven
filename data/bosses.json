@@ -7824,5 +7824,242 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Utgard bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "logi",
+    "name_key": "BOSS_LOGI_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri, Gylfaginning 46-47 (Logi, \"wildfire\", wins the eating contest against Loki)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "logi",
+    "move_speed": 44,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "wildfire",
+      "spread_every_s": 1.5,
+      "thread_radius_px": 24,
+      "max_threads": 40,
+      "thread_slow": 0.8,
+      "poison_every_s": 1.0,
+      "thread_status": "burn",
+      "thread_color": "#f07a20",
+      "flicker": 3.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Utgard bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "hugi",
+    "name_key": "BOSS_HUGI_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri, Gylfaginning 46-47 (Hugi, \"thought\", outruns Thjalfi three times)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "hugi",
+    "move_speed": 60,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "speed_of_thought",
+      "leap_every_s": 3.5,
+      "ahead_px": 110
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Utgard bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "utgarda_loki",
+    "name_key": "BOSS_UTGARDA_LOKI_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri, Gylfaginning 44-47 (the giant king of Utgard and his illusions)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "utgarda_loki",
+    "move_speed": 40,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "illusions",
+      "raise_every_s": 6.0,
+      "copies": 3,
+      "copy": "utgard_illusion",
+      "shielded_damage_taken": 0.25
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "utgard_phantom"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "utgard_phantom"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

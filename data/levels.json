@@ -3839,5 +3839,115 @@
       "edge": "#8a7a5e",
       "stones": "#d0c0a0"
     }
+  },
+  {
+    "_doc": "Utgard, Pack 8 realm 3, the giants' fortress of illusions (docs/PACK_8_PLAN.md). Source: Snorri, Gylfaginning 44-47. Kept apart from Jotunheim: Utgarda-Loki's illusions and rigged contests. Loki is not a character. A realm: no local gods.",
+    "id": "utgard",
+    "name_key": "LEVEL_UTGARD_NAME",
+    "region": "realm_giant",
+    "act": 10,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "utgard",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "stone",
+          "max": -0.3,
+          "placeholder_color": "#6a6e7a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "packed_snow",
+          "max": 0.1,
+          "placeholder_color": "#a8b0bc",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 0.55,
+          "placeholder_color": "#5a5e68",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "snow",
+          "max": 1.0,
+          "placeholder_color": "#c8d0dc",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "giant_glove",
+      "runestone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "giant_glove": {
+        "shape": "rect",
+        "size_px": [
+          32,
+          16
+        ],
+        "placeholder_color": "#8a7458",
+        "weight": 1
+      },
+      "runestone": {
+        "shape": "rect",
+        "size_px": [
+          12,
+          22
+        ],
+        "placeholder_color": "#8a8c90",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "logi",
+      "20": "hugi",
+      "30": "utgarda_loki"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "alfheim",
+      "boss": "erlking"
+    },
+    "waves": "waves_utgard.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 14,
+      "strikes_per_s": 0.8,
+      "radius_px": 40,
+      "telegraph_s": 1.4,
+      "damage": 16,
+      "element": "earth",
+      "range_px": 230,
+      "color": "#8a8c96",
+      "look": "rockslide",
+      "name_key": "HAZARD_SKRYMIR_BLOWS_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#d0d4e0",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "spruce": 2,
+        "dead_tree": 2
+      }
+    },
+    "road": {
+      "color": "#8a8c94",
+      "edge": "#6a6c74",
+      "stones": "#a8aab2"
+    }
   }
 ]
