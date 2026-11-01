@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.35
+Date: 11/01/2026
+Time: 2:35 PM
+
+### Changes
+- **The Wild Hunt fixed again** (owner: it looked like "a dude with wings smoking"). His cloak now hangs down over the horse's back instead of streaming out like wings, and the pale horn at his mouth (which looked like smoke) is now a solid gold-brown hunting horn with a dark band, held up high in his raised fist.
+
+### Reason
+The owner is going over all the new sprites, and the 00.03.34 Wild Hunt still read wrongly.
+
 ## Version 00.03.34
 Date: 11/01/2026
 Time: 2:29 PM

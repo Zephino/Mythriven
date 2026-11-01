@@ -158,7 +158,7 @@ EURY_PAL = {"o": "#06080e", "b": "#2a3448", "B": "#1a2232", "k": "#0a0a10", "w":
 def wild_hunt(c, step):
     """The Wild Hunt (the Anglo-Saxon Chronicle for 1127: "the huntsmen were black, and big, and loathsome, and their
     hounds all black and wide-eyed and ugly, and they rode on black horses"): a huge black huntsman in a streaming hooded
-    cloak, eyes burning, blowing his horn, on a black horse at the gallop."""
+    cloak, eyes burning, holding up his hunting horn, on a black horse at the gallop."""
     # Far legs of the horse, in shadow
     hoofed_leg(c, 22 - step * 2, 38, 58, "K", "K", "K", bend=-2)
     hoofed_leg(c, 52 + step * 2, 38, 58, "K", "K", "K", bend=1)
@@ -176,13 +176,19 @@ def wild_hunt(c, step):
     c.px(66, 13, "y"); c.px(71, 21, "o")                                                 # burning eye, nostril
     for i in range(10):                                                                  # the mane, flying back
         c.px(57 - i, 13 + i, "m"); c.px(56 - i, 15 + i, "m")
-    # The huntsman: a huge cloaked shape on the horse's back, his cloak streaming behind him
+    # The huntsman: a huge cloaked shape on the horse's back
     poly(c, [(30, 8), (40, 6), (44, 14), (44, 28), (28, 28)], "K")
-    poly(c, [(30, 10), (14, 6), (6, 12), (18, 16), (26, 24)], "K")                       # the cloak, blown back
+    poly(c, [(30, 10), (24, 18), (18, 30), (22, 34), (30, 30)], "K")                     # the cloak, hanging over the horse's back
     poly(c, [(33, 2), (40, 0), (44, 4), (44, 10), (36, 12), (32, 8)], "K")              # the hood
     c.px(40, 6, "y"); c.px(42, 6, "y")                                                   # eyes burning in the hood
-    poly(c, [(40, 14), (46, 10), (48, 12), (42, 17)], "K")                               # arm raised
-    horn(c, [(44, 8), (47, 6), (50, 4), (53, 3), (56, 3), (58, 4)], "h", "H")            # the hunting horn at his lips
+    poly(c, [(40, 16), (48, 10), (50, 12), (42, 19)], "K")                               # arm raised high
+    for i in range(9):                                                                   # the hunting horn held up in his fist
+        t = i / 8
+        x, y = 49 + t * 7, 10 - t * 9 + t * t * 3
+        r = 0.8 + 1.8 * t
+        ellipse(c, x, y, r, r, "h")
+    c.row(6, 51, 53, "H")                                                                # its gold band
+    c.rect(55, 1, 58, 3, "H")                                                            # the open bell
     c.rect(30, 26, 34, 34, "K")                                                          # his leg down the horse's side
     # Near legs of the horse
     hoofed_leg(c, 26 + step * 2, 40, 58, "k", "K", "K", bend=-2)
@@ -192,8 +198,8 @@ def wild_hunt(c, step):
         c.px(x, 59, "g")                                                                 # a pale ghost-light underfoot
 
 
-HUNT_PAL = {"o": "#2a3040", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#d8c8a0",
-            "H": "#a8946a", "l": "#4a4a62", "g": "#8a9ab8"}
+HUNT_PAL = {"o": "#2a3040", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
+            "H": "#6a4420", "l": "#4a4a62", "g": "#8a9ab8"}
 
 
 # --- Karnstein (Le Fanu, Carmilla 1872; Polidori, The Vampyre 1819; Varney the Vampire 1845-47; Calmet 1746) ---------
