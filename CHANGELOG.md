@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.32
+Date: 11/01/2026
+Time: 1:43 PM
+
+### Changes
+- **Rostam's helmet now has horns** (owner's request). The old Persian manuscript paintings often show his helmet made from a div's horned head, so the horns fit the source. Nothing else about him changed.
+
+### Reason
+The owner is going over every sprite, two Heroes at a time, and asked for horns on Rostam's helmet.
+
 ## Version 00.03.31
 Date: 11/01/2026
 Time: 8:41 AM

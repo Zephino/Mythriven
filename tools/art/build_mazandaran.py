@@ -179,16 +179,22 @@ SIMURGH_PAL = {"o": "#140c08", "k": "#080402", "g": "#3aa08a", "b": "#2a6ab0", "
 
 ROSTAM_DOC = ("Rostam (docs/PACK_3_PLAN.md: Mazandaran's Hero; art 10/31/2026). Built by tools/art/build_mazandaran.py on "
               "the shared body in tools/art/hero_kit.py. From the Shahnameh and the old manuscript paintings: the "
-              "champion of Iran in his tiger-skin war-coat (babr-e bayan), a helmet, a long black beard; he carries his "
-              "ox-headed mace.")
+              "champion of Iran in his tiger-skin war-coat (babr-e bayan), a horned helmet (the manuscript paintings "
+              "often show his helmet made from a div's horned head), a long black beard; he carries his ox-headed mace. "
+              "Horns added at the owner's request, 11/01/2026.")
 ROSTAM_PAL = {"o": "#1e140c", "k": "#0e0a06", "s": "#c89870", "S": "#9a7050", "h": "#1a1410", "H": "#3a2e24",
               "b": "#c8903a", "B": "#9a6a24", "d": "#3a2a18", "i": "#9aa2ac", "I": "#6a727c", "u": "#d8b048",
-              "n": "#5a3a20"}
+              "n": "#5a3a20", "w": "#ece4d0", "W": "#b8ac94"}
 
 
 def rostam(c, back_leg, front_leg):
     kit.far_arm(c)
     c.rect(10, 2, 16, 6, "i"); c.rect(10, 2, 10, 7, "I"); c.px(13, 1, "u")             # helmet
+    for x, y in ((9, 3), (8, 2), (8, 1), (9, 0)):                                         # the div's horns on it
+        c.px(x, y, "w")
+    for x, y in ((17, 3), (18, 2), (18, 1), (17, 0)):
+        c.px(x, y, "w")
+    c.px(9, 1, "W"); c.px(17, 1, "W")
     c.rect(11, 6, 16, 11, "s"); c.px(11, 7, "S"); c.px(15, 8, "k"); c.px(17, 8, "s")
     c.rect(11, 10, 16, 15, "h")                                                           # long black beard
     for y in (11, 13):

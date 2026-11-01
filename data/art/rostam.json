@@ -1,5 +1,5 @@
 {
- "_doc": "Rostam (docs/PACK_3_PLAN.md: Mazandaran's Hero; art 10/31/2026). Built by tools/art/build_mazandaran.py on the shared body in tools/art/hero_kit.py. From the Shahnameh and the old manuscript paintings: the champion of Iran in his tiger-skin war-coat (babr-e bayan), a helmet, a long black beard; he carries his ox-headed mace.",
+ "_doc": "Rostam (docs/PACK_3_PLAN.md: Mazandaran's Hero; art 10/31/2026). Built by tools/art/build_mazandaran.py on the shared body in tools/art/hero_kit.py. From the Shahnameh and the old manuscript paintings: the champion of Iran in his tiger-skin war-coat (babr-e bayan), a horned helmet (the manuscript paintings often show his helmet made from a div's horned head), a long black beard; he carries his ox-headed mace. Horns added at the owner's request, 11/01/2026.",
  "size": [
   24,
   34
@@ -25,7 +25,9 @@
   "i": "#9aa2ac",
   "I": "#6a727c",
   "u": "#d8b048",
-  "n": "#5a3a20"
+  "n": "#5a3a20",
+  "w": "#ece4d0",
+  "W": "#b8ac94"
  },
  "recolor": [
   "b",
@@ -34,10 +36,10 @@
  "frames": {
   "idle": [
    [
-    ".............o..........",
-    "..........ooouooo.......",
-    ".........oIiiiiiio......",
-    ".........oIiiiiiio......",
+    "........owo..o..owo.....",
+    ".......owWooouoooWwo....",
+    ".......owoIiiiiiiowo....",
+    "........owIiiiiiiwo.....",
     ".........oIiiiiiio......",
     ".........oIiiiiiio......",
     ".........oIsssssso......",
@@ -72,10 +74,10 @@
   ],
   "walk": [
    [
-    ".............o..........",
-    "..........ooouooo.......",
-    ".........oIiiiiiio......",
-    ".........oIiiiiiio......",
+    "........owo..o..owo.....",
+    ".......owWooouoooWwo....",
+    ".......owoIiiiiiiowo....",
+    "........owIiiiiiiwo.....",
     ".........oIiiiiiio......",
     ".........oIiiiiiio......",
     ".........oIsssssso......",
@@ -108,10 +110,10 @@
     "........................"
    ],
    [
-    ".............o..........",
-    "..........ooouooo.......",
-    ".........oIiiiiiio......",
-    ".........oIiiiiiio......",
+    "........owo..o..owo.....",
+    ".......owWooouoooWwo....",
+    ".......owoIiiiiiiowo....",
+    "........owIiiiiiiwo.....",
     ".........oIiiiiiio......",
     ".........oIiiiiiio......",
     ".........oIsssssso......",
@@ -144,10 +146,10 @@
     "........................"
    ],
    [
-    ".............o..........",
-    "..........ooouooo.......",
-    ".........oIiiiiiio......",
-    ".........oIiiiiiio......",
+    "........owo..o..owo.....",
+    ".......owWooouoooWwo....",
+    ".......owoIiiiiiiowo....",
+    "........owIiiiiiiwo.....",
     ".........oIiiiiiio......",
     ".........oIiiiiiio......",
     ".........oIsssssso......",
@@ -180,10 +182,10 @@
     "........................"
    ],
    [
-    ".............o..........",
-    "..........ooouooo.......",
-    ".........oIiiiiiio......",
-    ".........oIiiiiiio......",
+    "........owo..o..owo.....",
+    ".......owWooouoooWwo....",
+    ".......owoIiiiiiiowo....",
+    "........owIiiiiiiwo.....",
     ".........oIiiiiiio......",
     ".........oIiiiiiio......",
     ".........oIsssssso......",
