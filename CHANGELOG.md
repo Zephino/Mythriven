@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.47
+Date: 11/01/2026
+Time: 6:34 PM
+
+### Changes
+- **Arcadia's centaur reworked** (owner's request). It is now drawn on the Mount Pelion centaur body the owner approved: a horse's body with a man's bearded chest, shoulders, arms and head, raising a pine branch to strike (Apollodorus: the centaurs of Pholoe attacked Heracles with rocks and pine trees). It is a little bigger than before.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time; in Arcadia and Lerna, the owner asked for the centaur to be reworked.
+
 ## Version 00.03.46
 Date: 11/01/2026
 Time: 5:26 PM

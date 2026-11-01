@@ -5,6 +5,7 @@ import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
 from figure_kit import person
+from build_frontiers import centaur as pelion_centaur
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -261,18 +262,16 @@ QUEEN_ELF_PAL = {"o": "#0a120a", "k": "#1a2a1a", "m": "#c86a6a", "e": "#3a8a5a",
 
 def centaur(c, f):
     """A centaur of Pholoe (Apollodorus 2.5.4: the centaurs who smelled Pholus' wine and attacked Heracles with rocks and
-    pine trees): a horse's body and a man's chest, carrying a pine branch."""
-    s = STEP[f]
-    ellipse(c, 12, 16, 8, 4, "b")
-    for k, d in enumerate((-s, s, s, -s)):
-        c.rect(6 + k * 4 + d, 18, 6 + k * 4 + d, 24, "B")
-    c.rect(17, 6, 21, 15, "s"); ellipse(c, 19, 4, 2.5, 2.5, "s"); c.rect(17, 1, 21, 2, "h"); c.px(20, 4, "k")
-    c.rect(22, 0, 23, 14, "t"); c.px(21, 1, "p"); c.px(24, 2, "p"); c.px(21, 4, "p"); c.px(24, 5, "p")
-    for k in range(4):
-        c.px(3 - k // 2, 15 + k, "B")
+    pine trees): a horse's body with a man's bearded chest, arms and head, a pine branch raised to strike (drawn on the
+    Mount Pelion centaur body)."""
+    def pine(c, r):
+        c.rect(r(42), r(0), r(43), r(16), "t")                                           # the pine branch
+        for y in range(r(0), r(10), 2):
+            c.px(r(41), y, "p"); c.px(r(44), y + 1, "p")
+    pelion_centaur(c, STEP[f], 0.6, pine)
 
 
-CENTAUR_PAL = {"o": "#120c08", "b": "#8a5a34", "B": "#6a4024", "s": "#d8a880", "h": "#3a2414", "k": "#1a0e08",
+CENTAUR_PAL = {"o": "#120c08", "h": "#5a3a1e", "b": "#8a5a34", "H": "#3a2412", "s": "#d8a880", "S": "#a8744a",
                "t": "#5a3a1a", "p": "#3a6a3a"}
 
 
@@ -428,7 +427,7 @@ if __name__ == "__main__":
                        (60, 52), (28, 50), [0, 1, 0, -1, 0])
     kit.build_boss("the_elf_knight", the_elf_knight, ELF_KNIGHT_BOSS_PAL, doc(the_elf_knight.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("queen_of_elfame", queen_of_elfame, QUEEN_ELF_PAL, doc(queen_of_elfame.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("centaur", centaur, CENTAUR_PAL, doc(centaur.__doc__), (26, 26), (12, 25), walk, folder="enemies")
+    kit.build_boss("centaur", centaur, CENTAUR_PAL, doc(centaur.__doc__), (28, 28), (13, 27), walk, folder="enemies")
     kit.build_boss("stymphalian_diver", stymphalian_diver, DIVER_PAL, doc(stymphalian_diver.__doc__), (20, 14), (10, 13), walk, folder="enemies")
     kit.build_boss("ceryneian_hind", ceryneian_hind, HIND_PAL, doc(ceryneian_hind.__doc__), (48, 48), (24, 46), [0, 1, 0, -1, 0])
     kit.build_boss("erymanthian_boar", erymanthian_boar, ERY_PAL, doc(erymanthian_boar.__doc__), (64, 50), (30, 48), [0, 1, 0, -1, 0])
