@@ -511,6 +511,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | andvari_entrance | boss entrance | andvari | Take the gold, then. Take the ring. It will be the death of you. | Reginsmal (Andvari's curse) | no |
 | brokkr_thor | boss meets god (with thor) | brokkr | Thor! How's the handle on that hammer? A little short, I'd say. | Skaldskaparmal 35 (Mjolnir's short handle) | no |
 
+### Svartalfheim
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | svartalfheim | Svartalfheim | Snorri, Gylfaginning 17 and 34 (the dark elves under the earth; Gleipnir made in Svartalfaheimr) | no |
+| enemy | svartalf | Svartalf | Snorri, Gylfaginning 17 (the dark elves live down in the earth, blacker than pitch) | no |
+| enemy | nibelung | Nibelung | The Nibelungenlied, 3rd adventure (the warriors of the Nibelungs who guard the hoard) | no |
+| boss | alviss | Alvíss | The Poetic Edda, Alvissmal (the dwarf kept talking until sunrise and turned to stone) | no |
+| boss | fjalar_and_galar | Fjalar and Galar | Snorri, Skaldskaparmal 1 (the dwarves who brewed the mead of poetry in Odrerir, Bodn and Son) | no |
+| boss | alberich | Alberich | The Nibelungenlied (c. 1200), 3rd adventure (Alberich, the Tarnkappe, and Siegfried's victory) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| alviss_entrance | boss entrance | alviss | Ask me anything. I know the names of all things in every world. | Alvissmal (his answers) | no |
+| fjalar_and_galar_entrance | boss entrance | fjalar_and_galar | A drink? It's very good mead. Kvasir is in it. | Skaldskaparmal 1 (the mead brewed from Kvasir's blood) | no |
+| alberich_entrance | boss entrance | alberich | You can't see me, but I see you. | The Nibelungenlied (the cloak of invisibility) | no |
+| alviss_thor | boss meets god (with thor) | alviss | Thor! Ask your questions, then. The night is long. | Alvissmal (Thor questions him until dawn) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

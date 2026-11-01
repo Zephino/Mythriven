@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.91
+Date: 10/31/2026
+Time: 8:17 PM
+
+### Changes
+- **Svartalfheim, the realm of the dark elves, is built and open** (Pack 6, `docs/PACK_6_PLAN.md`). It opens when you beat the Wild Hunt (Erebus' 30:00 boss).
+  - **Hazard, the dark below:** the light fails in the deep places and the view closes in.
+  - **Monsters:** svartálfar (dark elves, casters), Nibelungs (the hoard's warriors), night bats, and from 10:00 dwarf hammer-bearers.
+  - **10:00, Alvíss** (Alvíssmál): shafts of daylight drift across the arena. Lead him into one and he turns to stone for 4 s: he can't act and takes double damage.
+  - **20:00, Fjalar and Galar** (Skáldskaparmál 1): they brew the mead of poetry in three vats, which heal them while they stand. Stand at a vat for a second to tip it over; after a while they brew new ones.
+  - **30:00, Alberich** (the design's boss; the Nibelungenlied): every 12 s he puts on his cloak of invisibility and can't be hurt. Walk into his shimmer to tear the cloak off, as Siegfried did, and his guard breaks.
+  - Dark caverns with stalagmites and heaps of the Nibelung hoard; toads, bats and moths.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (359 tests pass).
+
+### Reason
+Pack 6, realm 2 of 4 (owner: "go ahead").
+
 ## Version 00.02.90
 Date: 10/31/2026
 Time: 8:11 PM

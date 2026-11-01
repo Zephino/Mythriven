@@ -527,12 +527,33 @@ def forge_hearth():
     return p
 
 
+def stalagmite():
+    """Stalagmites in the caverns of Svartalfheim: a cluster of pale dripstone spires."""
+    p = Pic(18, 26, (9, 25))
+    for x0, h in ((3, 14), (8, 24), (13, 17)):
+        for y in range(26 - h, 26):
+            w = max(1, (y - (26 - h)) // 5)
+            p.rect(x0 - w // 2, y, x0 + w // 2 + 1, y, "j" if (y + x0) % 5 else "I")
+    return p
+
+
+def hoard_heap():
+    """A heap of the Nibelung hoard (the Nibelungenlied: more gold and gems than a hundred carts could carry)."""
+    p = Pic(24, 12, (12, 11))
+    for y in range(3, 12):
+        half = min(11, (y - 2) * 2)
+        p.rect(12 - half, y, 11 + half, y, "y" if (y % 2) else "F")
+    for x, y in ((8, 6), (14, 4), (17, 9), (5, 10)): p.px(x, y, "r")
+    p.px(12, 5, "m")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

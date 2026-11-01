@@ -1,0 +1,49 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A heap of the Nibelung hoard (the Nibelungenlied: more gold and gems than a hundred carts could carry).",
+ "size": [
+  24,
+  11
+ ],
+ "anchor": [
+  12,
+  10
+ ],
+ "palette": {
+  "a": "#664e18",
+  "b": "#42362a",
+  "c": "#f0c654",
+  "d": "#d8b448",
+  "e": "#481812",
+  "f": "#907e60",
+  "g": "#968466",
+  "h": "#963c30",
+  "i": "#ba9642",
+  "j": "#e4ba4e",
+  "k": "#ded8d2",
+  "l": "#cca848",
+  "m": "#786c54",
+  "n": "#84785a",
+  "o": "#d8ae48",
+  "p": "#c0a242",
+  "q": "#ae903c",
+  "r": "#7e7254",
+  "s": "#8a3630"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..........aaaa..........",
+    "........bbcccdeb........",
+    "......abffffgghgba......",
+    "....bbdidjjjkjjdllbb....",
+    "..abgmnfhnffffgffnnfba..",
+    ".blloopoppllllllpllioqb.",
+    "bnnnrrrrrnfnrffrnnfnnnfb",
+    "aolppllpoplollolpsqollpa",
+    "bfrnnsnnnfrnnrfnffnnffnb",
+    "aiilpipppippiiilpippplla",
+    ".aaaaaaaaaaaaaaaaaaaaaa."
+   ]
+  ]
+ }
+}

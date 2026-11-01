@@ -345,3 +345,43 @@ func test_andvaris_ring_breaks_his_guard_and_curses() -> void:
 	assert_eq(dwarf.taken, 1)
 	assert_gt(dwarf.broken_s, 0.0, "his guard breaks")
 	assert_true(_player.statuses.has("hex"), "the curse")
+
+
+func test_alviss_turns_to_stone_in_the_daylight() -> void:
+	_start("svartalfheim")
+	assert_eq(str(_level("svartalfheim")["unlock"]["boss"]), "wild_hunt")
+	var dwarf: AlvissBoss = _bosses.spawn_boss("alviss", 0) as AlvissBoss
+	dwarf.beams.append({"pos": dwarf.position_now(), "drift": Vector2.ZERO})
+	dwarf.signature(0.1)
+	assert_eq(dwarf.art_id(), "alviss_stone", "stone")
+	assert_almost_eq(dwarf.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "and brittle")
+	dwarf.signature(4.1)
+	assert_eq(dwarf.art_id(), "alviss")
+
+
+func test_fjalar_and_galars_vats_heal_until_tipped() -> void:
+	_start("svartalfheim")
+	var brothers: FjalarAndGalarBoss = _bosses.spawn_boss("fjalar_and_galar", 1) as FjalarAndGalarBoss
+	brothers.brew()
+	assert_eq(brothers.vats.size(), 3)
+	_enemies.hp[brothers.slot] = _enemies.max_hp[brothers.slot] * 0.5
+	var hp: float = _enemies.hp[brothers.slot]
+	_player.position = brothers.vats[0]["pos"]
+	brothers.signature(0.6)
+	assert_gt(_enemies.hp[brothers.slot], hp, "the mead heals them")
+	brothers.signature(0.6)
+	assert_eq(brothers.tipped, 1, "a vat tipped")
+	assert_eq(brothers.vats.size(), 2)
+
+
+func test_alberich_vanishes_until_his_cloak_is_torn() -> void:
+	_start("svartalfheim")
+	var dwarf: AlberichBoss = _bosses.spawn_boss("alberich", 2) as AlberichBoss
+	_player.position = dwarf.position_now() + Vector2(300, 0)
+	dwarf.signature(6.1)
+	assert_gt(dwarf.cloaked_s, 0.0)
+	assert_eq(dwarf.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "unseen, unhurt")
+	_player.position = dwarf.position_now()
+	dwarf.signature(0.1)
+	assert_eq(dwarf.torn, 1)
+	assert_gt(dwarf.broken_s, 0.0, "his guard breaks")

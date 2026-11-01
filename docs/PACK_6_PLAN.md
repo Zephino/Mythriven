@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead"). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one boss idea;
-everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of it. Nidavellir built and released 11/01/2026 (00.02.90). Gullinbursti reuses Morvarc'h's gallop (a golden trail).
+everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of it. Nidavellir built and released 11/01/2026 (00.02.90); Svartalfheim (00.02.91). Gullinbursti reuses Morvarc'h's gallop (a golden trail).
 
 Realms work like Pack 5's: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -36,7 +36,7 @@ Brokkr at the bellows) and 39 (Andvari's gold).* Loki, who is the fly and who ro
 | 20:00 | **Brokkr** | Every so often he works the bellows while the forge makes a treasure. Hurt him enough while he works ("the fly stings him") and the forging fails; let him finish and his blows grow stronger for a while (the hammer) |
 | 30:00 | **Andvari** (the design's) | The dwarf who guarded his gold as a pike in a waterfall. His cursed ring, Andvaranaut, falls in the arena: a Hero who takes it breaks his guard, but is cursed (Hex) |
 
-## Realm 22: Svartalfheim (the dark elves)
+## Realm 22: Svartalfheim (the dark elves): **done and released 11/01/2026 (00.02.91)**
 *Sources: Snorri, Gylfaginning 17 and 34 (the dark elves; Gleipnir made in Svartálfaheimr); the Poetic Edda,
 Alvíssmál (the dwarf Alvíss turned to stone by the dawn); Skáldskaparmál 1 (Fjalar and Galar and the mead of poetry);
 the Nibelungenlied (c. 1200), 3rd and 8th adventures (Alberich, the cloak of invisibility, the Nibelung hoard).*

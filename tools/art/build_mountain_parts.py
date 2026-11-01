@@ -23,6 +23,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "ossory": ("#5a5c56", "#4a4c46", "#6a6c64", "#54564e", "#3a3c36", None),
     "the_brocken": ("#6a6a72", "#5a5a62", "#7a7a82", "#64646c", "#46464e", "#e8eaee"),
     "nidavellir": ("#4a4246", "#3e383c", "#5e5458", "#4a4246", "#2e282a", None),
+    "svartalfheim": ("#2e2e38", "#24242e", "#3e3e4a", "#30303c", "#1a1a22", None),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),

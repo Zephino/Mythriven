@@ -378,6 +378,11 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"scorched_scrub": ("n", "N", "O", None)},
         "rock": ("n", "N", "O", None)},
+    # Svartalfheim: caverns under the earth; nothing grows but a few dead roots.
+    "svartalfheim": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

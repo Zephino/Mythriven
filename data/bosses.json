@@ -5668,5 +5668,243 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Svartalfheim bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "alviss",
+    "name_key": "BOSS_ALVISS_NAME",
+    "tradition": "norse",
+    "lore_source": "The Poetic Edda, Alvissmal (the dwarf kept talking until sunrise and turned to stone)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "alviss",
+    "move_speed": 42,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_dawn",
+      "beam_every_s": 6.0,
+      "beam_radius_px": 40,
+      "max_beams": 3,
+      "drift_px_s": 12,
+      "stone_s": 4.0,
+      "stone_damage_taken": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Svartalfheim bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "fjalar_and_galar",
+    "name_key": "BOSS_FJALAR_AND_GALAR_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri, Skaldskaparmal 1 (the dwarves who brewed the mead of poetry in Odrerir, Bodn and Son)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "fjalar_and_galar",
+    "move_speed": 40,
+    "keep_distance_px": 80,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_mead_vats",
+      "brew_every_s": 15.0,
+      "vat_px": 150,
+      "vat_reach_px": 20,
+      "tip_s": 1.0,
+      "heal_per_vat_s": 0.004
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Svartalfheim bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "alberich",
+    "name_key": "BOSS_ALBERICH_NAME",
+    "tradition": "german",
+    "lore_source": "The Nibelungenlied (c. 1200), 3rd adventure (Alberich, the Tarnkappe, and Siegfried's victory)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "alberich",
+    "move_speed": 46,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_tarnkappe",
+      "cloak_every_s": 12.0,
+      "cloak_s": 6.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "nibelung"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "nibelung"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

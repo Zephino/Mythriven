@@ -1,0 +1,64 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. Stalagmites in the caverns of Svartalfheim: a cluster of pale dripstone spires.",
+ "size": [
+  16,
+  26
+ ],
+ "anchor": [
+  8,
+  25
+ ],
+ "palette": {
+  "a": "#303030",
+  "b": "#7e7e72",
+  "c": "#78786c",
+  "d": "#4e4e48",
+  "e": "#b4b4ae",
+  "f": "#c0c0ba",
+  "g": "#a8a8a2",
+  "h": "#aeaea8",
+  "i": "#6c6c66",
+  "j": "#727266",
+  "k": "#a8a89c",
+  "l": "#72726c",
+  "m": "#969690",
+  "n": "#a2a29c",
+  "o": "#9c9c96",
+  "p": "#848484",
+  "q": "#90908a",
+  "r": "#666660",
+  "s": "#60605a"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".......aa.......",
+    "......abca......",
+    "......deed......",
+    "......dffd......",
+    "......degd......",
+    "......dhhd......",
+    "......aija......",
+    "......dhhd..dd..",
+    "......dhkd.dhhd.",
+    "......dkhd.dekd.",
+    "..aa..ahea.dekd.",
+    ".ajlaajjijaajja.",
+    ".dkhddhhheddkmd.",
+    ".dnnddoonoddopd.",
+    ".dnnddnnmoddond.",
+    ".dooddnqmoddnod.",
+    ".aiiaairiiaaiia.",
+    ".dnhddonooddood.",
+    ".dhnddhnoodhnohd",
+    ".donddnnnndhnond",
+    ".aonaanohhannood",
+    "arsrrrrrsrrsrssa",
+    "doooonnmmoonoond",
+    "dnooomonooomoond",
+    "dommmmmmmomoommd",
+    ".dddddddddddddd."
+   ]
+  ]
+ }
+}

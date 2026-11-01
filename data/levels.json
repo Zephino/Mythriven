@@ -2820,5 +2820,116 @@
       "edge": "#3a3436",
       "stones": "#7a7274"
     }
+  },
+  {
+    "_doc": "Svartalfheim, Pack 6 realm 2, the realm of the dark elves (docs/PACK_6_PLAN.md). Sources: Gylfaginning 17 and 34; Alvissmal; Skaldskaparmal 1; the Nibelungenlied, 3rd adventure. A realm: no local gods.",
+    "id": "svartalfheim",
+    "name_key": "LEVEL_SVARTALFHEIM_NAME",
+    "region": "realm_dark_elf",
+    "act": 8,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "svartalfheim",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "cracked",
+          "max": -0.4,
+          "placeholder_color": "#1e1e28",
+          "placeholder_dots": "#3a4a6a"
+        },
+        {
+          "id": "stone",
+          "max": 0.15,
+          "placeholder_color": "#2a2a34",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 0.6,
+          "placeholder_color": "#24242c",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "ash",
+          "max": 1.0,
+          "placeholder_color": "#2e2c34",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "stalagmite",
+      "hoard_heap"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "stalagmite": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          24
+        ],
+        "placeholder_color": "#a8a8a0",
+        "weight": 2
+      },
+      "hoard_heap": {
+        "shape": "rect",
+        "size_px": [
+          22,
+          10
+        ],
+        "placeholder_color": "#e0b040",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "alviss",
+      "20": "fjalar_and_galar",
+      "30": "alberich"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "erebus",
+      "boss": "wild_hunt"
+    },
+    "waves": "waves_svartalfheim.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 24,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.45,
+      "pulse": 0.1,
+      "pulse_hz": 0.12,
+      "veil_color": "#04040a",
+      "particles": "mist",
+      "particle_color": "#3a3a50",
+      "fade_s": 3.0,
+      "name_key": "HAZARD_DARK_BELOW_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#a8acc4",
+    "flora": {
+      "density": 0.05,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#3a3a44",
+      "edge": "#24242c",
+      "stones": "#5a5a66"
+    }
   }
 ]

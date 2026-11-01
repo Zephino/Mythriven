@@ -2029,5 +2029,46 @@
     "text_key": "BANTER_BROKKR_THOR",
     "lore_source": "Skaldskaparmal 35 (Mjolnir's short handle)",
     "needs_owner_review": true
+  },
+  {
+    "id": "alviss_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "alviss",
+    "hero": "",
+    "god": "alviss",
+    "text_key": "BANTER_ALVISS_ENTRANCE",
+    "lore_source": "Alvissmal (his answers)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "fjalar_and_galar_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "fjalar_and_galar",
+    "hero": "",
+    "god": "fjalar_and_galar",
+    "text_key": "BANTER_FJALAR_AND_GALAR_ENTRANCE",
+    "lore_source": "Skaldskaparmal 1 (the mead brewed from Kvasir's blood)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "alberich_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "alberich",
+    "hero": "",
+    "god": "alberich",
+    "text_key": "BANTER_ALBERICH_ENTRANCE",
+    "lore_source": "The Nibelungenlied (the cloak of invisibility)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "alviss_thor",
+    "trigger": "boss_meets_god",
+    "speaker": "alviss",
+    "hero": "",
+    "god": "alviss",
+    "with_god": "thor",
+    "text_key": "BANTER_ALVISS_THOR",
+    "lore_source": "Alvissmal (Thor questions him until dawn)",
+    "needs_owner_review": true
   }
 ]

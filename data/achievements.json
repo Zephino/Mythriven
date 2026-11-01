@@ -1034,5 +1034,35 @@
       "id": "andvari"
     },
     "persists": true
+  },
+  {
+    "id": "boss_alviss",
+    "name_key": "ACH_BOSS_ALVISS_NAME",
+    "desc_key": "ACH_BOSS_ALVISS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "alviss"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_fjalar_and_galar",
+    "name_key": "ACH_BOSS_FJALAR_AND_GALAR_NAME",
+    "desc_key": "ACH_BOSS_FJALAR_AND_GALAR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "fjalar_and_galar"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_alberich",
+    "name_key": "ACH_BOSS_ALBERICH_NAME",
+    "desc_key": "ACH_BOSS_ALBERICH_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "alberich"
+    },
+    "persists": true
   }
 ]

@@ -2244,3 +2244,31 @@ BANTER_BROKKR_ENTRANCE,"Keep back! A wager's a wager, and I'm at the bellows."
 BANTER_ANDVARI_ENTRANCE,"Take the gold, then. Take the ring. It will be the death of you."
 BANTER_BROKKR_THOR,"Thor! How's the handle on that hammer? A little short, I'd say."
 PACK_8_NAME,Pack 6: The Deep Below
+LEVEL_SVARTALFHEIM_NAME,Svartalfheim
+HAZARD_DARK_BELOW_NAME,The light fails in the deep places...
+ENEMY_SVARTALF_NAME,Svartalf
+ENEMY_SVARTALF_MYTH,"Snorri tells of two kinds of elves: the light elves, fairer than the sun, and the dark elves, who live down in the earth and are blacker than pitch, unlike them in every way."
+ENEMY_NIBELUNG_NAME,Nibelung
+ENEMY_NIBELUNG_MYTH,"The warriors of the land of the Nibelungs, who guarded the great hoard in a hollow mountain. Siegfried overcame them, and their twelve giants, and their dwarf lord Alberich, and made the hoard his own."
+BOSS_ALVISS_NAME,Alvíss
+ENEMY_ALVISS_NAME,Alvíss
+ENEMY_ALVISS_MYTH,"""All-wise"", a pale-nosed dwarf who lived under stone and came to claim Thor's daughter as his bride. Thor asked him the names of all things in every world, and he answered every one, until the sun rose and its light turned him to stone."
+BOSS_ALVISS_STONE,Daylight! Alvíss turns to stone!
+BOSS_FJALAR_AND_GALAR_NAME,Fjalar and Galar
+ENEMY_FJALAR_AND_GALAR_NAME,Fjalar and Galar
+ENEMY_FJALAR_AND_GALAR_MYTH,"Two dwarf brothers who killed the wise Kvasir and let his blood run into two vats, Són and Boðn, and a kettle, Óðrerir. Mixed with honey it became the mead that makes whoever drinks it a poet or a scholar."
+BOSS_FJALAR_BREW,Fjalar and Galar brew their mead! Tip the vats!
+BOSS_ALBERICH_NAME,Alberich
+ENEMY_ALBERICH_NAME,Alberich
+ENEMY_ALBERICH_MYTH,"The strong dwarf who guarded the Nibelung hoard. He owned the Tarnkappe, a cloak that made its wearer invisible and gave him the strength of twelve men, until Siegfried wrestled it from him and made him keeper of the hoard in his own name."
+BOSS_ALBERICH_TORN,You tear off the Tarnkappe!
+ACH_BOSS_ALVISS_NAME,Defeat Alvíss
+ACH_BOSS_ALVISS_DESC,The 10:00 boss of Svartalfheim.
+ACH_BOSS_FJALAR_AND_GALAR_NAME,Defeat Fjalar and Galar
+ACH_BOSS_FJALAR_AND_GALAR_DESC,The 20:00 boss of Svartalfheim.
+ACH_BOSS_ALBERICH_NAME,Defeat Alberich
+ACH_BOSS_ALBERICH_DESC,The 30:00 boss of Svartalfheim.
+BANTER_ALVISS_ENTRANCE,Ask me anything. I know the names of all things in every world.
+BANTER_FJALAR_AND_GALAR_ENTRANCE,A drink? It's very good mead. Kvasir is in it.
+BANTER_ALBERICH_ENTRANCE,"You can't see me, but I see you."
+BANTER_ALVISS_THOR,"Thor! Ask your questions, then. The night is long."
