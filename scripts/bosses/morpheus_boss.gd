@@ -26,3 +26,8 @@ func _draw() -> void:
 	if is_alive():
 		var at: Vector2 = position_now() - global_position
 		draw_arc(at + Vector2(sin(Time.get_ticks_msec() * 0.003) * 6.0, 0), GameAuthority.enemies.radius[slot] + 4.0, 0.0, TAU, 28, Color(0.8, 0.7, 1.0, 0.35), 1.5)
+
+
+## Your Own Face secret: beaten while he turned back less than 30 damage.
+func secret_earned() -> String:
+	return "your_own_face" if mirrored < 30.0 else ""

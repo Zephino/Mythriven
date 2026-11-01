@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.15
+Date: 11/01/2026
+Time: 12:09 AM
+
+### Changes
+- **Pack 10, The Heavens, is complete: eight new secrets**, two per realm (`docs/PACK_10_PLAN.md`).
+  - **Hyperborea:** *Nothing Stolen* (beat the Arimaspian Chieftain without him stealing any gold: griffin-gold aura); *The Unrobbed Nest* (beat the Griffin Matriarch before her third swoop: Griffin Feather passive, +4% move speed per level).
+  - **The Empyrean:** *The Bear Sets* (beat the Great Bear within 60 s: starlight aura); *The Sunrise* (strike Orion down while he is blind: Orion's Belt passive, +2% crit per level).
+  - **The Glass Mountain:** *Seven Brothers* (bring down fourteen ravens, then beat the Seven Ravens: raven-black aura); *Eternity* (make the word of ice twice, then beat the Snow Queen: Gerda's Tears passive, +4% max HP per level).
+  - **Demos Oneiron:** *Your Own Face* (beat Morpheus while he turns back less than 30 damage: dream-violet aura); *The Gate of Horn* (beat Phobetor before he changes shape six times: Poppy Seed passive, weapon cooldowns 3% shorter per level).
+  - Four new passive icons, the Oracle hints, and the secrets' rows on the lore check (for the owner to check).
+- 1 new test.
+
+### Reason
+The owner asked for all nine packs, one at a time, each realm with two secrets. This finishes Pack 10.
+
 ## Version 00.03.14
 Date: 11/01/2026
 Time: 12:04 AM

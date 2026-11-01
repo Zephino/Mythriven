@@ -86,3 +86,8 @@ func _draw() -> void:
 		var top: Vector2 = position_now() - global_position + Vector2(-9, -GameAuthority.enemies.radius[slot] - 30.0)
 		for k: int in int(_sig().get("word_pieces", 4)):
 			draw_rect(Rect2(top + Vector2(k * 5, 0), Vector2(4, 4)), Color(0.8, 0.95, 1.0) if k < gathered else Color(1, 1, 1, 0.2))
+
+
+## Eternity secret: the word made twice.
+func secret_earned() -> String:
+	return "eternity" if spells_broken >= 2 else ""

@@ -6,6 +6,8 @@ extends BossController
 ## (the Bears turn round the pole).
 
 var angle: float = 0.0
+## The Bear Sets secret: seconds since she came (beaten within secret_s).
+var age: float = 0.0
 var swipes: int = 0
 var _swipe_in: float = 1.0
 var _started: bool = false
@@ -18,6 +20,7 @@ func _sig() -> Dictionary:
 func signature(delta: float) -> void:
 	if not is_alive():
 		return
+	age += delta
 	var enemies: EnemyManager = GameAuthority.enemies
 	var centre: Vector2 = GameAuthority.bosses.arena_center if GameAuthority.bosses != null else position_now()
 	if not _started:
@@ -41,3 +44,7 @@ func _draw() -> void:
 		var centre: Vector2 = GameAuthority.bosses.arena_center if GameAuthority.bosses != null else position_now()
 		draw_arc(centre - global_position, float(_sig().get("orbit_px", 150.0)), 0.0, TAU, 64, Color(0.75, 0.8, 1.0, 0.15), 1.0)
 	super._draw()
+
+
+func secret_earned() -> String:
+	return "the_bear_sets" if age <= float(_sig().get("secret_s", 60.0)) else ""

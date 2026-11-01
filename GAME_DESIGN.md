@@ -140,7 +140,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | **Released 11/01/2026** (`docs/PACK_7_PLAN.md`) |
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | **Released 11/01/2026** (`docs/PACK_8_PLAN.md`) |
 | 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | **Released 11/01/2026** (`docs/PACK_9_PLAN.md`) |
-| 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | **Building** (`docs/PACK_10_PLAN.md`; all four realms released 11/01/2026) |
+| 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | **Released 11/01/2026** (`docs/PACK_10_PLAN.md`) |
 | 11 | The Abyss | 41 Ashkarrow · 42 Dinas Emrys · 43 Atlantis · 44 Ginnungagap | Later |
 | 12 | Otherworlds | 45 Tír na nÓg · 46 Hy-Brasil · 47 The Shadow's Court · 48 The Knockers' Deep | Later |
 | 13 | Wild Frontiers | 49 Mount Pelion · 50 Dovrefjell · 51 The City of Brass · 52 The Sea King's Hall | Later |

@@ -1123,6 +1123,51 @@ func test_pack_9_boss_secrets() -> void:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
 
 
+func test_pack_10_boss_secrets() -> void:
+	_start("hyperborea")
+	var thief: ArimaspianBoss = _bosses.spawn_boss("arimaspian_chieftain", 0) as ArimaspianBoss
+	assert_eq(thief.secret_earned(), "nothing_stolen")
+	thief.thefts = 1
+	assert_eq(thief.secret_earned(), "")
+	var griffin: GriffinMatriarchBoss = _bosses.spawn_boss("griffin_matriarch", 2) as GriffinMatriarchBoss
+	assert_eq(griffin.secret_earned(), "the_unrobbed_nest")
+	griffin.swoops = 3
+	assert_eq(griffin.secret_earned(), "")
+	GameAuthority.end_scene()
+	_start("the_empyrean")
+	var bear: GreatBearBoss = _bosses.spawn_boss("great_bear", 1) as GreatBearBoss
+	assert_eq(bear.secret_earned(), "the_bear_sets")
+	bear.age = 61.0
+	assert_eq(bear.secret_earned(), "")
+	var hunter: OrionBoss = _bosses.spawn_boss("orion", 2) as OrionBoss
+	assert_eq(hunter.secret_earned(), "", "he can see")
+	hunter.blind_s = 1.0
+	assert_eq(hunter.secret_earned(), "the_sunrise")
+	GameAuthority.end_scene()
+	_start("the_glass_mountain")
+	var ravens: SevenRavensBoss = _bosses.spawn_boss("seven_ravens", 0) as SevenRavensBoss
+	ravens.killed = 14
+	assert_eq(ravens.secret_earned(), "seven_brothers")
+	var queen: SnowQueenBoss = _bosses.spawn_boss("snow_queen", 2) as SnowQueenBoss
+	queen.spells_broken = 2
+	assert_eq(queen.secret_earned(), "eternity")
+	GameAuthority.end_scene()
+	_start("demos_oneiron")
+	var mimic: MorpheusBoss = _bosses.spawn_boss("morpheus", 1) as MorpheusBoss
+	assert_eq(mimic.secret_earned(), "your_own_face")
+	mimic.mirrored = 30.0
+	assert_eq(mimic.secret_earned(), "")
+	var dread: PhobetorBoss = _bosses.spawn_boss("phobetor", 2) as PhobetorBoss
+	assert_eq(dread.secret_earned(), "the_gate_of_horn")
+	for secret: String in ["nothing_stolen", "the_unrobbed_nest", "the_bear_sets", "the_sunrise", "seven_brothers",
+			"eternity", "your_own_face", "the_gate_of_horn"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
 func test_hyperborea_is_pack_10() -> void:
 	var level: Dictionary = _level("hyperborea")
 	assert_eq(int(level["act"]), 12)

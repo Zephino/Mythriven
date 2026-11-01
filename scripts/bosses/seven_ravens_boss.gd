@@ -80,3 +80,8 @@ func gather() -> void:
 func _draw() -> void:
 	if scattered_s <= 0.0:
 		super._draw()
+
+
+## Seven Brothers Freed secret: fourteen ravens brought down.
+func secret_earned() -> String:
+	return "seven_brothers" if killed >= 14 else ""

@@ -56,3 +56,8 @@ func go_blind() -> void:
 	var banner: Banner = get_tree().get_first_node_in_group(Banner.GROUP) as Banner
 	if banner != null and blindings == 1:
 		banner.show_text(tr("BOSS_ORION_BLIND"))
+
+
+## The Sunrise secret: struck down while he is blind.
+func secret_earned() -> String:
+	return "the_sunrise" if blind_s > 0.0 else ""

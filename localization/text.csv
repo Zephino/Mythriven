@@ -2909,3 +2909,39 @@ BANTER_PHANTASOS_ENTRANCE,(The rock in front of you opens its eyes.)
 BANTER_MORPHEUS_ENTRANCE,You look familiar. Let me look more so.
 BANTER_PHOBETOR_ENTRANCE,Gods call me Icelus. You will call me what you call your worst dream.
 BANTER_PHOBETOR_HECATE,"Lady of the crossroads at night, we work the same hours."
+SECRET_NOTHING_STOLEN_NAME,Nothing Stolen
+SECRET_NOTHING_STOLEN_DESC,Defeat the Arimaspian Chieftain without him stealing any of your gold. A griffin-gold aura.
+SECRET_NOTHING_STOLEN_HINT,The one-eyed thieves take gold with every blow. Give them none.
+SECRET_UNROBBED_NEST_NAME,The Unrobbed Nest
+SECRET_UNROBBED_NEST_DESC,Defeat the Griffin Matriarch before her third swoop. Adds the Griffin Feather passive.
+SECRET_UNROBBED_NEST_HINT,She swoops from the sky to guard her nest. End it before she can.
+SECRET_BEAR_SETS_NAME,The Bear Sets
+SECRET_BEAR_SETS_DESC,Defeat the Great Bear within 60 s. A starlight aura.
+SECRET_BEAR_SETS_HINT,She has never once set. Make her.
+SECRET_SUNRISE_NAME,The Sunrise
+SECRET_SUNRISE_DESC,Strike Orion down while he is blind. Adds the Orion's Belt passive.
+SECRET_SUNRISE_HINT,The hunter cannot see. That is the moment.
+SECRET_SEVEN_BROTHERS_NAME,Seven Brothers
+SECRET_SEVEN_BROTHERS_DESC,"Bring down fourteen of the Seven Ravens' birds, then defeat them. A raven-black aura."
+SECRET_SEVEN_BROTHERS_HINT,"Seven brothers, scattered twice. Catch them all."
+SECRET_ETERNITY_NAME,Eternity
+SECRET_ETERNITY_DESC,"Make the word of ice twice, then defeat the Snow Queen. Adds the Gerda's Tears passive."
+SECRET_ETERNITY_HINT,She promised Kai the whole world if he could make the word. Make it.
+SECRET_OWN_FACE_NAME,Your Own Face
+SECRET_OWN_FACE_DESC,Defeat Morpheus while he turns back less than 30 damage on you. A dream-violet aura.
+SECRET_OWN_FACE_HINT,"He gives back what you give him. Give him less, and more surely."
+SECRET_GATE_OF_HORN_NAME,The Gate of Horn
+SECRET_GATE_OF_HORN_DESC,Defeat Phobetor before he changes shape six times. Adds the Poppy Seed passive.
+SECRET_GATE_OF_HORN_HINT,Wake before the nightmare finds its worst shape.
+PASSIVE_GRIFFIN_FEATHER_NAME,Griffin Feather
+PASSIVE_GRIFFIN_FEATHER_DESC,+4% move speed per level.
+PASSIVE_ORIONS_BELT_NAME,Orion's Belt
+PASSIVE_ORIONS_BELT_DESC,+2% critical chance per level.
+PASSIVE_GERDAS_TEARS_NAME,Gerda's Tears
+PASSIVE_GERDAS_TEARS_DESC,+4% max HP per level.
+PASSIVE_POPPY_SEED_NAME,Poppy Seed
+PASSIVE_POPPY_SEED_DESC,Weapon cooldowns 3% shorter per level.
+COSMETIC_GRIFFIN_GOLD,Griffin Gold
+COSMETIC_STARLIGHT,Starlight
+COSMETIC_RAVEN_BLACK,Raven Black
+COSMETIC_DREAM_VIOLET,Dream Violet

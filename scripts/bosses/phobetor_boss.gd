@@ -93,3 +93,8 @@ func _draw() -> void:
 		draw_set_transform(Vector2.ZERO)
 		return
 	super._draw()
+
+
+## The Gate of Horn secret: beaten before he changes shape six times.
+func secret_earned() -> String:
+	return "the_gate_of_horn" if changes < 6 else ""

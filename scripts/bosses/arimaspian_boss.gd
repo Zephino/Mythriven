@@ -35,3 +35,8 @@ func guard_break() -> void:
 		var near: Player = GameAuthority.enemies.nearest_player(position_now())
 		GameAuthority.collect_gold(near, stolen)
 		stolen = 0.0
+
+
+## Nothing Stolen secret: beaten without him stealing any gold.
+func secret_earned() -> String:
+	return "nothing_stolen" if thefts == 0 else ""

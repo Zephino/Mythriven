@@ -610,6 +610,46 @@ def billinas_egg():
     return p
 
 
+def griffin_feather():
+    """Griffin Feather (Herodotus: the gold-guarding griffins): a golden feather."""
+    p = icon()
+    for y in range(2, 12):
+        w = [1, 2, 2, 3, 3, 3, 3, 2, 2, 1][y - 2]
+        p.rect(8 - w, y, 7, y, "y" if y % 3 else "r")
+        p.rect(9, y, 8 + w, y, "r" if y % 3 else "y")
+    p.rect(8, 1, 8, 14, "R")
+    return p
+
+
+def orions_belt():
+    """Orion's Belt (Aratus): the three bright stars of the hunter's belt."""
+    p = icon()
+    for x, y in ((3, 11), (8, 8), (13, 5)):
+        p.rect(x - 1, y, x + 1, y, "w"); p.rect(x, y - 1, x, y + 1, "w"); p.px(x, y, "m")
+    return p
+
+
+def gerdas_tears():
+    """Gerda's Tears (Andersen: her warm tears melted the ice in Kai's heart): two shining teardrops."""
+    p = icon()
+    for cx in (5, 11):
+        for y in range(3, 14):
+            w = 0 if y < 7 else min(2, (y - 6) // 2 + 1) if y < 11 else 2 - (y - 11)
+            p.rect(cx - w, y, cx + w, y, "m" if y % 3 else "u")
+    return p
+
+
+def poppy_seed():
+    """Poppy Seed (Ovid: poppies bloom before the door of Sleep): a red poppy with a dark heart."""
+    p = icon()
+    for y in range(2, 12):
+        for x in range(2, 14):
+            if math.hypot(x - 8, y - 7) <= 5:
+                p.px(x, y, "p" if (x + y) % 4 else "P")
+    p.rect(7, 6, 9, 8, "k"); p.rect(8, 12, 8, 15, "l")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
@@ -621,7 +661,8 @@ ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hou
          "draupnir": draupnir_ring, "tarnkappe_thread": tarnkappe_thread, "glow_cap": glow_cap, "ant_strength": ant_strength,
          "elf_arrow": elf_arrow, "rhymers_tongue": rhymers_tongue, "thunderstone": thunderstone, "iolaus_brand": iolaus_brand,
          "torn_banner": torn_banner, "ariadne_thread": ariadne_thread, "drinking_horn": drinking_horn, "scabbard_strap": scabbard_strap,
-         "talos_nail": talos_nail, "silver_penny": silver_penny, "kraken_ink": kraken_ink, "billinas_egg": billinas_egg}
+         "talos_nail": talos_nail, "silver_penny": silver_penny, "kraken_ink": kraken_ink, "billinas_egg": billinas_egg,
+         "griffin_feather": griffin_feather, "orions_belt": orions_belt, "gerdas_tears": gerdas_tears, "poppy_seed": poppy_seed}
 
 
 def outlined(p):

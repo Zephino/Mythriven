@@ -920,6 +920,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | phobetor_entrance | boss entrance | phobetor | Gods call me Icelus. You will call me what you call your worst dream. | Ovid 11.638-641 | no |
 | phobetor_hecate | boss meets god (with hecate) | phobetor | Lady of the crossroads at night, we work the same hours. | Original line written for Mythriven | no |
 
+### Pack 10 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| nothing_stolen | Nothing Stolen | The one-eyed thieves take gold with every blow. Give them none. | Herodotus 4.13, 4.27 (the Arimaspians steal the griffins' gold) | no |
+| the_unrobbed_nest | The Unrobbed Nest | She swoops from the sky to guard her nest. End it before she can. | Herodotus 3.116, 4.13 (the griffins guard the gold) | no |
+| the_bear_sets | The Bear Sets | She has never once set. Make her. | Ovid, Metamorphoses 2.527-530 (the Bear may never bathe in Ocean) | no |
+| the_sunrise | The Sunrise | The hunter cannot see. That is the moment. | Apollodorus 1.4.3 (Orion's sight restored by the rising sun) | no |
+| seven_brothers | Seven Brothers | Seven brothers, scattered twice. Catch them all. | The Brothers Grimm, The Seven Ravens (KHM 25) | no |
+| eternity | Eternity | She promised Kai the whole world if he could make the word. Make it. | Andersen, The Snow Queen (1844): Kai makes the word, and Gerda's tears melt his heart | no |
+| your_own_face | Your Own Face | He gives back what you give him. Give him less, and more surely. | Ovid, Metamorphoses 11.633-638 (Morpheus the imitator) | no |
+| the_gate_of_horn | The Gate of Horn | Wake before the nightmare finds its worst shape. | Homer, Odyssey 19.560-569 (true dreams come through the gate of horn) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

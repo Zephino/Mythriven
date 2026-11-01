@@ -9601,7 +9601,8 @@
       "turn_rad_s": 0.6,
       "swipe_every_s": 1.0,
       "swipe_radius_px": 50,
-      "swipe_damage": 12
+      "swipe_damage": 12,
+      "secret_s": 60.0
     },
     "phases": [
       {

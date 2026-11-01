@@ -555,5 +555,57 @@
       "secret": "billinas_eggs"
     },
     "persists": false
+  },
+  {
+    "id": "griffin_feather",
+    "name_key": "PASSIVE_GRIFFIN_FEATHER_NAME",
+    "desc_key": "PASSIVE_GRIFFIN_FEATHER_DESC",
+    "stat": "move_speed",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_unrobbed_nest"
+    },
+    "persists": false
+  },
+  {
+    "id": "orions_belt",
+    "name_key": "PASSIVE_ORIONS_BELT_NAME",
+    "desc_key": "PASSIVE_ORIONS_BELT_DESC",
+    "stat": "crit",
+    "per_level": 0.02,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_sunrise"
+    },
+    "persists": false
+  },
+  {
+    "id": "gerdas_tears",
+    "name_key": "PASSIVE_GERDAS_TEARS_NAME",
+    "desc_key": "PASSIVE_GERDAS_TEARS_DESC",
+    "stat": "max_hp",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "eternity"
+    },
+    "persists": false
+  },
+  {
+    "id": "poppy_seed",
+    "name_key": "PASSIVE_POPPY_SEED_NAME",
+    "desc_key": "PASSIVE_POPPY_SEED_DESC",
+    "stat": "cooldown",
+    "per_level": 0.03,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_gate_of_horn"
+    },
+    "persists": false
   }
 ]

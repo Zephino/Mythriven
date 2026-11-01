@@ -103,3 +103,8 @@ func _draw() -> void:
 	if state == "sky" or state == "swoop":
 		return
 	super._draw()
+
+
+## The Unrobbed Nest secret: beaten before her third swoop.
+func secret_earned() -> String:
+	return "the_unrobbed_nest" if swoops < 3 else ""
