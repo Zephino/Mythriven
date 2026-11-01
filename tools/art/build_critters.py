@@ -300,6 +300,11 @@ LEVELS = {
         "birds": {"bat": ("#3a3440", "#24202a", "#24202a", True)},
         "insects": {"moth": (butterfly, "#a8a49c", "#3a3a40")},
         "large": {}},
+    "mycendra": {
+        "ground": {"toad": (frog, "#5a4a5a", "#9a8a8a")},
+        "birds": {},
+        "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650"), "firefly": (lambda *a: firefly(a[-1]),)},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

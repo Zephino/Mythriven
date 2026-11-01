@@ -59,3 +59,8 @@ func _draw() -> void:
 		if float(vat["held"]) > 0.0:
 			draw_arc(at, 20.0, -PI / 2, -PI / 2 + TAU * float(vat["held"]) / float(_sig().get("tip_s", 1.0)), 24, Color(1.0, 0.85, 0.4), 2.0)
 	super._draw()
+
+## The world re-centres under the Heroes (WorldRoot.origin_shifted): move what this boss left on the ground with it.
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	for vat: Dictionary in vats:
+		vat["pos"] = Vector2(vat["pos"]) - shift_px

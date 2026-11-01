@@ -548,12 +548,30 @@ def hoard_heap():
     return p
 
 
+def giant_mushroom():
+    """A giant mushroom of Mycendra (the game's own): a tall pale stalk under a broad violet cap."""
+    p = Pic(26, 30, (13, 29))
+    p.rect(11, 12, 15, 29, "m"); p.rect(11, 12, 12, 29, "M")
+    blob(p, 13, 9, 12, 6, "R"); blob(p, 12, 8, 10, 4.5, "r")
+    for x in (6, 11, 17): p.px(x, 7, "m")
+    p.rect(2, 13, 24, 13, "R")
+    return p
+
+
+def glow_caps():
+    """A cluster of small glowing mushrooms (Mycendra, the game's own)."""
+    p = Pic(16, 10, (8, 9))
+    for x, h in ((2, 4), (6, 7), (10, 5), (13, 3)):
+        p.rect(x, 9 - h, x, 9, "m"); p.rect(x - 1, 8 - h, x + 1, 8 - h, "a"); p.px(x, 7 - h, "a")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

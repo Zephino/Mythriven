@@ -1,0 +1,48 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A cluster of small glowing mushrooms (Mycendra, the game's own).",
+ "size": [
+  16,
+  12
+ ],
+ "anchor": [
+  8,
+  11
+ ],
+ "palette": {
+  "a": "#484e2a",
+  "b": "#a2b466",
+  "c": "#90965a",
+  "d": "#9ca860",
+  "e": "#b4b4a8",
+  "f": "#96a260",
+  "g": "#66605a",
+  "h": "#d2d2c6",
+  "i": "#7e8a4e",
+  "j": "#849054",
+  "k": "#eae4d8",
+  "l": "#ded8d2",
+  "m": "#d2ccc6",
+  "n": "#8a965a",
+  "o": "#c6c6ba",
+  "p": "#ded8cc",
+  "q": "#babaae"
+ },
+ "frames": {
+  "idle": [
+   [
+    "......a.........",
+    ".....aba........",
+    "....abcda.a.....",
+    "..a..aea.afa....",
+    ".ada.ghgaijdaa..",
+    "acddagkg.alaaja.",
+    ".ama.gmg.gmafnfa",
+    ".gog.gpg.gpgama.",
+    ".gmg.gmg.goggmg.",
+    ".gog.gmg.gpggmg.",
+    ".gog.gqg.gmggog.",
+    "..g...g...g..g.."
+   ]
+  ]
+ }
+}

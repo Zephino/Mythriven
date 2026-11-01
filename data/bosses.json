@@ -5906,5 +5906,245 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Mycendra bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "great_puffball",
+    "name_key": "BOSS_GREAT_PUFFBALL_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "great_puffball",
+    "move_speed": 30,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "bursting",
+      "burst_every_fraction": 0.1,
+      "cloud_s": 5.0,
+      "cloud_radius_px": 70,
+      "poison_every_s": 1.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Mycendra bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "mycelium",
+    "name_key": "BOSS_MYCELIUM_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "mycelium",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "spreading_threads",
+      "spread_every_s": 3.0,
+      "thread_radius_px": 26,
+      "max_threads": 30,
+      "thread_slow": 0.6,
+      "poison_every_s": 1.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Mycendra bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "spore_mother",
+    "name_key": "BOSS_SPORE_MOTHER_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "spore_mother",
+    "move_speed": 30,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "fruiting",
+      "sprout_every_s": 4.0,
+      "sprouts_each": 2,
+      "max_sprouts": 8,
+      "grow_s": 5.0,
+      "stamp_reach_px": 14,
+      "stamp_s": 0.6,
+      "burst_radius_px": 50,
+      "burst_damage": 10
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "spore_puff"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "spore_puff"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

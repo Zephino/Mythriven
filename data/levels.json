@@ -2931,5 +2931,118 @@
       "edge": "#24242c",
       "stones": "#5a5a66"
     }
+  },
+  {
+    "_doc": "Mycendra, Pack 6 realm 3, the fungal city (docs/PACK_6_PLAN.md). The design's invented realm: no public-domain source; its monsters and bosses have plain descriptive names. A realm: no local gods.",
+    "id": "mycendra",
+    "name_key": "LEVEL_MYCENDRA_NAME",
+    "region": "realm_fungus",
+    "act": 8,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "mycendra",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "bog",
+          "max": -0.3,
+          "placeholder_color": "#2e2a34",
+          "placeholder_dots": "#6a8a3a"
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.15,
+          "placeholder_color": "#2a3428",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dirt",
+          "max": 0.6,
+          "placeholder_color": "#342a30",
+          "placeholder_dots": "#5a4a6a"
+        },
+        {
+          "id": "cracked",
+          "max": 1.0,
+          "placeholder_color": "#2a2630",
+          "placeholder_dots": "#8aa848"
+        }
+      ]
+    },
+    "decorations": [
+      "giant_mushroom",
+      "glow_caps"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "giant_mushroom": {
+        "shape": "rect",
+        "size_px": [
+          24,
+          28
+        ],
+        "placeholder_color": "#b0402a",
+        "weight": 2
+      },
+      "glow_caps": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          8
+        ],
+        "placeholder_color": "#c8f060",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "great_puffball",
+      "20": "mycelium",
+      "30": "spore_mother"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "karnstein",
+      "boss": "carmilla"
+    },
+    "waves": "waves_mycendra.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 22,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.7,
+      "pulse": 0.12,
+      "pulse_hz": 0.18,
+      "veil_color": "#a8b868",
+      "particles": "mist",
+      "particle_color": "#d8e890",
+      "fade_s": 2.5,
+      "player_status": "poison",
+      "status_every_s": 4.0,
+      "name_key": "HAZARD_SPORE_CLOUDS_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#c4b8d0",
+    "flora": {
+      "density": 0.1,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#4a3e4a",
+      "edge": "#2e2630",
+      "stones": "#6a5a6a"
+    }
   }
 ]

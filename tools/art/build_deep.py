@@ -185,6 +185,91 @@ ALBERICH_PAL = {"o": "#0a0808", "k": "#1a1410", "g": "#6a6e78", "r": "#5a2a4a", 
                 "y": "#f0c840", "b": "#6a4a2a"}
 
 
+# --- Mycendra (the game's own invented fungal city; GAME_DESIGN.md: Fantasy realms) ------------------------------------
+
+def cap_walker(c, f):
+    """A cap walker (Mycendra, the game's own): a squat mushroom-person on two stubby legs under a broad spotted cap."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 20, "S")
+    c.rect(6, 10, 13, 17, "s"); c.px(8, 13, "k"); c.px(11, 13, "k")
+    ellipse(c, 9.5, 7, 8, 4, "r"); c.row(10, 3, 16, "R")
+    for x, y in ((5, 6), (9, 4), (13, 6), (11, 8)):
+        c.px(x, y, "w")
+
+
+CAP_PAL = {"o": "#120a08", "s": "#e0d4b8", "S": "#b8a888", "k": "#2a1a10", "r": "#b0402a", "R": "#80281a",
+           "w": "#f0ece0"}
+
+
+def spore_puff(c, f):
+    """A spore puff (Mycendra, the game's own): a small round puffball drifting on the air, trailing spores."""
+    s = STEP[f]
+    ellipse(c, 7, 6 + s, 5, 5, "p"); ellipse(c, 6, 5 + s, 3, 3, "P")
+    c.px(6, 1 + s, "w")
+    for k in range(3):
+        c.px(2 + k * 4, 12 + (k + f) % 2, "g")
+
+
+PUFF_PAL = {"o": "#2a2410", "p": "#d8cc98", "P": "#ece4c0", "w": "#f8f4e0", "g": "#a8b848"}
+
+
+def glow_fly(c, f):
+    """A glow-fly (Mycendra, the game's own): a fly lit pale green by the fungus light."""
+    up = f % 2
+    ellipse(c, 8, 7, 3, 2, "k"); c.px(10, 7, "g"); c.px(5, 7, "y")
+    poly(c, [(7, 6), (4, 1 if up else 3), (9, 5)], "w"); poly(c, [(9, 6), (12, 1 if up else 3), (10, 5)], "w")
+
+
+GLOWFLY_PAL = {"o": "#0e140a", "k": "#1e2a14", "g": "#c8f060", "y": "#a8f048", "w": "#c8e8c0"}
+
+
+def great_puffball(c, step):
+    """The Great Puffball (Mycendra, the game's own): a puffball as big as an ox, its skin cracked, spores leaking."""
+    ellipse(c, 28, 30, 24, 20 - step, "p"); ellipse(c, 24, 24, 16, 12, "P")
+    for x, y in ((14, 20), (36, 18), (30, 36), (20, 38), (40, 30)):
+        c.px(x, y, "k"); c.px(x + 1, y + 1, "k"); c.px(x + 2, y + 1, "k")
+    for k in range(6):
+        c.px(10 + k * 7, 6 + (k % 3) * 2, "g")
+    c.rect(18, 48, 38, 50, "s")
+
+
+GREATPUFF_PAL = {"o": "#2a2410", "p": "#d8cc98", "P": "#ece4c0", "k": "#8a7a50", "g": "#a8b848", "s": "#6a5a3a"}
+
+
+def mycelium(c, step):
+    """The Mycelium (Mycendra, the game's own): a heaving mass of pale fungus threads with a knot of mushrooms at its
+    heart."""
+    ellipse(c, 30, 34, 26, 14, "w")
+    for k in range(22):
+        a = k / 22 * math.tau
+        for r in range(10, 28, 2):
+            c.px(round(30 + math.cos(a + r * 0.05 + step * 0.1) * r), round(34 + math.sin(a) * r * 0.55), "W")
+    for x, h in ((22, 10), (30, 14), (37, 9)):
+        c.rect(x, 30 - h, x + 1, 30, "s"); ellipse(c, x + 0.5, 30 - h, 4, 2.5, "b")
+
+
+MYCELIUM_PAL = {"o": "#2a2620", "w": "#e8e4d4", "W": "#c8c2b0", "s": "#e0d4b8", "b": "#8a5a3a"}
+
+
+def spore_mother(c, step):
+    """The Spore Mother (Mycendra, the game's own): a towering mushroom with a vast frilled cap and a face in its stalk,
+    spores raining from its gills."""
+    c.rect(22, 22, 36, 60, "s"); c.rect(22, 22, 24, 60, "S")
+    c.px(26, 34, "k"); c.px(32, 34, "k"); c.row(40, 27, 31, "k")
+    ellipse(c, 29, 18, 26, 12, "v"); c.row(28, 4, 54, "V")
+    for x in range(6, 54, 3):
+        c.px(x, 29, "V"); c.px(x + 1, 30 + (x // 3 + step) % 2, "g")                        # the frilled gills
+    for x, y in ((14, 14), (24, 9), (36, 10), (44, 16), (29, 20)):
+        c.rect(x, y, x + 2, y + 1, "w")
+    for k in range(6):
+        c.px(10 + k * 8, 36 + (k * 5 + step) % 12, "g")
+
+
+MOTHER_PAL = {"o": "#120a10", "s": "#e0d4b8", "S": "#b8a888", "k": "#2a1a10", "v": "#6a3a7a", "V": "#4a2858",
+              "g": "#b8c858", "w": "#e8d8f0"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_deep.py."
@@ -201,4 +286,10 @@ if __name__ == "__main__":
                    (20, 46), [0, 0, 0, 0, 0])
     kit.build_boss("fjalar_and_galar", fjalar_and_galar, FJALAR_PAL, doc(fjalar_and_galar.__doc__), (50, 46), (24, 44), [0, 1, 0, -1, 0])
     kit.build_boss("alberich", alberich, ALBERICH_PAL, doc(alberich.__doc__), (44, 48), (20, 46), [0, 1, 0, -1, 0])
+    kit.build_boss("cap_walker", cap_walker, CAP_PAL, doc(cap_walker.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("spore_puff", spore_puff, PUFF_PAL, doc(spore_puff.__doc__), (14, 16), (7, 15), walk, folder="enemies")
+    kit.build_boss("glow_fly", glow_fly, GLOWFLY_PAL, doc(glow_fly.__doc__), (16, 12), (8, 11), walk, folder="enemies")
+    kit.build_boss("great_puffball", great_puffball, GREATPUFF_PAL, doc(great_puffball.__doc__), (56, 54), (28, 52), [0, 1, 0, 1, 0])
+    kit.build_boss("mycelium", mycelium, MYCELIUM_PAL, doc(mycelium.__doc__), (60, 52), (30, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("spore_mother", spore_mother, MOTHER_PAL, doc(spore_mother.__doc__), (58, 64), (29, 62), [0, 1, 0, -1, 0])
     print("wrote the Deep Below's art")

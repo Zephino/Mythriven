@@ -83,3 +83,8 @@ func _draw() -> void:
 
 func secret_earned() -> String:
 	return "out_of_the_undergrowth" if not caught_local else ""
+
+## The world re-centres under the Heroes (WorldRoot.origin_shifted): move what this boss left on the ground with it.
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	if pounce_at != Vector2.INF:
+		pounce_at -= shift_px

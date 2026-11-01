@@ -1,0 +1,114 @@
+{
+ "_doc": "A spore puff (Mycendra, the game's own): a small round puffball drifting on the air, trailing spores. Built by tools/art/build_deep.py.",
+ "size": [
+  14,
+  16
+ ],
+ "anchor": [
+  7,
+  15
+ ],
+ "palette": {
+  "o": "#2a2410",
+  "p": "#d8cc98",
+  "P": "#ece4c0",
+  "w": "#f8f4e0",
+  "g": "#a8b848"
+ },
+ "frames": {
+  "idle": [
+   [
+    "......oo......",
+    "....oowpooo...",
+    "...oppPppppo..",
+    "..opPPPPPpppo.",
+    "..opPPPPPpppo.",
+    "..oPPPPPPPppo.",
+    ".oppPPPPPppppo",
+    "..opPPPPPpppo.",
+    "..opppPpppppo.",
+    "..opppppppppo.",
+    "...opppppppo..",
+    "..o.ooopooo...",
+    ".ogo..oo.ogo..",
+    "..o..ogo..o...",
+    "......o.......",
+    ".............."
+   ]
+  ],
+  "walk": [
+   [
+    "....oowpooo...",
+    "...oppPppppo..",
+    "..opPPPPPpppo.",
+    "..opPPPPPpppo.",
+    "..oPPPPPPPppo.",
+    ".oppPPPPPppppo",
+    "..opPPPPPpppo.",
+    "..opppPpppppo.",
+    "..opppppppppo.",
+    "...opppppppo..",
+    "....ooopooo...",
+    "......oo......",
+    "..o..ogo..o...",
+    ".ogo..o..ogo..",
+    "..o.......o...",
+    ".............."
+   ],
+   [
+    "......oo......",
+    "....oowpooo...",
+    "...oppPppppo..",
+    "..opPPPPPpppo.",
+    "..opPPPPPpppo.",
+    "..oPPPPPPPppo.",
+    ".oppPPPPPppppo",
+    "..opPPPPPpppo.",
+    "..opppPpppppo.",
+    "..opppppppppo.",
+    "...opppppppo..",
+    "..o.ooopooo...",
+    ".ogo..oo.ogo..",
+    "..o..ogo..o...",
+    "......o.......",
+    ".............."
+   ],
+   [
+    "..............",
+    "......oo......",
+    "....oowpooo...",
+    "...oppPppppo..",
+    "..opPPPPPpppo.",
+    "..opPPPPPpppo.",
+    "..oPPPPPPPppo.",
+    ".oppPPPPPppppo",
+    "..opPPPPPpppo.",
+    "..opppPpppppo.",
+    "..opppppppppo.",
+    "...opppppppo..",
+    "..o.oogpooo...",
+    ".ogo..oo.ogo..",
+    "..o.......o...",
+    ".............."
+   ],
+   [
+    "......oo......",
+    "....oowpooo...",
+    "...oppPppppo..",
+    "..opPPPPPpppo.",
+    "..opPPPPPpppo.",
+    "..oPPPPPPPppo.",
+    ".oppPPPPPppppo",
+    "..opPPPPPpppo.",
+    "..opppPpppppo.",
+    "..opppppppppo.",
+    "...opppppppo..",
+    "..o.ooopooo...",
+    ".ogo..oo.ogo..",
+    "..o..ogo..o...",
+    "......o.......",
+    ".............."
+   ]
+  ]
+ }
+}

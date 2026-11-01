@@ -1064,5 +1064,35 @@
       "id": "alberich"
     },
     "persists": true
+  },
+  {
+    "id": "boss_great_puffball",
+    "name_key": "ACH_BOSS_GREAT_PUFFBALL_NAME",
+    "desc_key": "ACH_BOSS_GREAT_PUFFBALL_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "great_puffball"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_mycelium",
+    "name_key": "ACH_BOSS_MYCELIUM_NAME",
+    "desc_key": "ACH_BOSS_MYCELIUM_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "mycelium"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_spore_mother",
+    "name_key": "ACH_BOSS_SPORE_MOTHER_NAME",
+    "desc_key": "ACH_BOSS_SPORE_MOTHER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "spore_mother"
+    },
+    "persists": true
   }
 ]

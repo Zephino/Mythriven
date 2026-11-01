@@ -54,3 +54,8 @@ func _draw() -> void:
 	var glint: float = 0.6 + 0.4 * sin(Time.get_ticks_msec() * 0.008)
 	draw_arc(at, 5.0, 0.0, TAU, 16, Color(1.0, 0.85, 0.3, glint), 2.5)
 	draw_arc(at, 14.0, 0.0, TAU, 24, Color(1.0, 0.85, 0.3, 0.35), 1.0)
+
+## The world re-centres under the Heroes (WorldRoot.origin_shifted): move what this boss left on the ground with it.
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	if ring != Vector2.INF:
+		ring -= shift_px

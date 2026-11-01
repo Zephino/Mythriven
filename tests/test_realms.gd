@@ -385,3 +385,43 @@ func test_alberich_vanishes_until_his_cloak_is_torn() -> void:
 	dwarf.signature(0.1)
 	assert_eq(dwarf.torn, 1)
 	assert_gt(dwarf.broken_s, 0.0, "his guard breaks")
+
+
+func test_mycendra_spore_clouds_poison() -> void:
+	var level: Dictionary = _level("mycendra")
+	assert_eq(str(level["unlock"]["boss"]), "carmilla")
+	assert_eq(str(level["hazard"]["player_status"]), "poison")
+
+
+func test_the_great_puffball_bursts_as_it_is_hurt() -> void:
+	_start("mycendra")
+	var puff: PuffballBoss = _bosses.spawn_boss("great_puffball", 0) as PuffballBoss
+	_player.position = puff.position_now()
+	_enemies.hp[puff.slot] = _enemies.max_hp[puff.slot] * 0.75
+	puff.signature(0.1)
+	assert_eq(puff.bursts, 2, "a burst for each tenth lost (90% and 80%)")
+	assert_true(_player.statuses.has("poison"))
+
+
+func test_the_mycelium_spreads_and_holds() -> void:
+	_start("mycendra")
+	var web: MyceliumBoss = _bosses.spawn_boss("mycelium", 1) as MyceliumBoss
+	web.signature(2.1)
+	assert_eq(web.threads.size(), 1)
+	_player.position = web.threads[0]
+	web.signature(0.1)
+	assert_lt(_player.slow_zone_mult, 1.0, "the threads hold")
+	web.on_origin_shifted(Vector2(100, 0), Vector2i.ZERO)
+	assert_eq(web.threads[0], _player.position - Vector2(100, 0), "and move with the world")
+
+
+func test_the_spore_mothers_mushrooms_burst_unless_stamped() -> void:
+	_start("mycendra")
+	var mother: SporeMotherBoss = _bosses.spawn_boss("spore_mother", 2) as SporeMotherBoss
+	mother.sprout()
+	mother.sprout()
+	_player.position = mother.sprouts[0]["pos"]
+	mother.signature(0.7)
+	assert_eq(mother.stamped, 1, "stamped out")
+	mother.signature(5.0)
+	assert_gt(mother.burst_count, 0, "the other one burst")

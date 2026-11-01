@@ -1,0 +1,760 @@
+{
+ "_doc": "Trees, bushes and rocks of mycendra (docs/WORLD_PLAN.md: 1), built by tools/art/build_flora.py and weathered. items: kind (tree, bush, boulder, stone, pebbles), solid_r (the solid base in px; 0 = walk over), slow_r (stones that slow you).",
+ "palette": {
+  "a": "#42423c",
+  "b": "#a29c8a",
+  "c": "#9c9684",
+  "d": "#908a7e",
+  "e": "#36302a",
+  "f": "#726c60",
+  "g": "#6c665a",
+  "h": "#787266",
+  "i": "#7e786c",
+  "j": "#8a8478",
+  "k": "#969084",
+  "l": "#666054",
+  "m": "#5a5448",
+  "n": "#605a4e",
+  "o": "#a8a290",
+  "p": "#847e72",
+  "q": "#605a54",
+  "r": "#5a5a4e",
+  "s": "#908a78",
+  "t": "#544e48",
+  "u": "#2a3c18",
+  "v": "#5a7e3c",
+  "w": "#182a12",
+  "x": "#3c602a",
+  "y": "#3c5a2a",
+  "z": "#4e7236",
+  "A": "#54783c",
+  "B": "#36542a",
+  "C": "#364e24",
+  "D": "#486630",
+  "E": "#304e24",
+  "F": "#4e6c36",
+  "G": "#608442",
+  "H": "#1e181e",
+  "I": "#2a242a",
+  "J": "#3c3c42",
+  "K": "#423c48",
+  "L": "#5a5460",
+  "M": "#4e484e",
+  "N": "#424248",
+  "O": "#2a2a30",
+  "P": "#302a30",
+  "Q": "#48484e",
+  "R": "#54545a",
+  "S": "#605a60",
+  "T": "#4e4e54",
+  "U": "#423c42",
+  "V": "#3c363c",
+  "W": "#121218",
+  "X": "#24242a",
+  "Y": "#303036",
+  "Z": "#363036",
+  "0": "#241e24",
+  "1": "#36363c",
+  "2": "#1e1e24",
+  "3": "#48424e",
+  "4": "#606066",
+  "5": "#060606",
+  "6": "#2a241e"
+ },
+ "frames": {
+  "dead_tree_small_0": [
+   [
+    ".................",
+    ".................",
+    ".....a...........",
+    "....aba......a...",
+    "....aca.....ada..",
+    ".....aca...aba...",
+    ".....efee.acca...",
+    "...a.egcfedaaba..",
+    "..aca.edfba.ege..",
+    "...acaacgeeehe...",
+    "....aiedhehde....",
+    "....ajfdfdea.....",
+    ".....aedge.......",
+    "......ajge.......",
+    "......akle.......",
+    "......ajme.......",
+    "......adle.......",
+    "......aine.......",
+    "......ajge.......",
+    "......ajle.......",
+    ".....eejgeee.....",
+    "....egnlglnle...."
+   ]
+  ],
+  "dead_tree_small_1": [
+   [
+    ".................",
+    ".................",
+    "..a..............",
+    ".aoa........a....",
+    "..aba......aba...",
+    "..aabe....abaa...",
+    ".aceefeae.efeba..",
+    "..egeecbfepdca...",
+    "...ecaachbaba....",
+    "....adacfeeda....",
+    ".....abbqefe.....",
+    "......adlje......",
+    "......adle.......",
+    "......akfe.......",
+    "......akle.......",
+    "......akge.......",
+    "......ajge.......",
+    "......adfe.......",
+    "......ajne.......",
+    "......ajne.......",
+    ".....eejleee.....",
+    "....enlllnlle...."
+   ]
+  ],
+  "dead_tree_medium_0": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "......a.........ae......",
+    ".....aca.......acge.....",
+    ".....eabe......ace......",
+    "....eheehe....ada..e....",
+    ".....ecade...ada..efe...",
+    "......acefeaaeba.ebe....",
+    ".......adefccggeehe.....",
+    ".......acaddbieece......",
+    ".......aceabdfege.......",
+    "........efecbgdpa.......",
+    ".........eccccaa........",
+    "..........ajdge.........",
+    "..........ajdfe.........",
+    "..........addge.........",
+    "..........ajkge.........",
+    "..........adjle.........",
+    "..........addfe.........",
+    "..........addge.........",
+    "..........addle.........",
+    "..........aijle.........",
+    "..........ajdre.........",
+    "..........asjle.........",
+    "..........apsle.........",
+    "..........asjne.........",
+    "..........ajsne.........",
+    ".........eesjlee........",
+    "........elllllgge......."
+   ]
+  ],
+  "dead_tree_medium_1": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    ".......e................",
+    "......efe......aa.......",
+    ".......ehe....abba......",
+    "........eba..adaa.......",
+    "........aba..efe........",
+    ".........abe.aba.a......",
+    "..........efeacaaca.....",
+    "..........acaadada......",
+    ".....a....egbcada.......",
+    "....aca...egjbaca.......",
+    "....acca..acbhege.......",
+    ".....aacaaepdgde........",
+    ".......abdfdcca.........",
+    "........aaedile.........",
+    "..........addfe.........",
+    "..........ajjge.........",
+    "..........akdle.........",
+    "..........adhge.........",
+    "..........addle.........",
+    "..........akjle.........",
+    "..........akdfe.........",
+    "..........ajdle.........",
+    "..........ahdge.........",
+    "..........asjme.........",
+    "..........ajjle.........",
+    "..........ajple.........",
+    "..........ajsge.........",
+    ".........eepjgee........",
+    "........ellnltlge......."
+   ]
+  ],
+  "dead_tree_large_0": [
+   [
+    "................................",
+    "................................",
+    "................................",
+    "................................",
+    ".....e..........................",
+    "....ehe.........................",
+    ".....ebe................a.......",
+    "......efe..............aba......",
+    ".......ege............aca.......",
+    "........eba..........ada........",
+    ".......aada..........aca........",
+    "......aceapa.........aca...e....",
+    ".......eheada......aeba...efe...",
+    "........ebeade....acgba..ehe....",
+    ".........efeefeaaecaea..ade.....",
+    ".........ehe.ebcchge..aaca......",
+    "..........ecaadbdbe..ebca.......",
+    "..........aceacdcfe.efea........",
+    "...........efcbcbgeace..........",
+    "............eadccleba...........",
+    ".............addchfe............",
+    ".............ajidde.............",
+    ".............adkdge.............",
+    ".............adkdre.............",
+    ".............akkdfe.............",
+    ".............ajpjge.............",
+    ".............adjjge.............",
+    ".............ajjkfe.............",
+    ".............adjjge.............",
+    ".............akdjge.............",
+    ".............addkge.............",
+    ".............adjdle.............",
+    ".............akddge.............",
+    ".............akjdle.............",
+    ".............ajjdge.............",
+    ".............akddle.............",
+    ".............ajjsle.............",
+    ".............ajjsle.............",
+    ".............ahjjge.............",
+    ".............assple.............",
+    ".............asjple.............",
+    "............eepjsneee...........",
+    "...........elgnlgnlmle.........."
+   ]
+  ],
+  "dead_tree_large_1": [
+   [
+    "................................",
+    "................................",
+    "................................",
+    "................................",
+    ".........a......................",
+    "........aba.....................",
+    ".........aoa..........a.........",
+    "..........abe........aca........",
+    "...........ehe......aca.........",
+    "............eca.....ehe.........",
+    "............ade.....aca.........",
+    ".............ehe...ada..........",
+    ".............aca...ege..........",
+    "......a......aba..ehe...........",
+    ".....ada......acaeada...a.......",
+    ".....efee....acbdlba...aca......",
+    "......eche...acccca...eada......",
+    ".......aece..addcge.eegba.......",
+    ".........ehe.adcdheefcea........",
+    "..........efeajdcgeaca..........",
+    "...........ejbbddghca...........",
+    "............aajfjfea............",
+    ".............akddfe.............",
+    ".............ajjdle.............",
+    ".............akjjge.............",
+    ".............adkkfe.............",
+    ".............akdkge.............",
+    ".............adkdfe.............",
+    ".............adkdle.............",
+    ".............ajjdne.............",
+    ".............adddge.............",
+    ".............ajdjle.............",
+    ".............addjfe.............",
+    ".............ajdkle.............",
+    ".............aiddle.............",
+    ".............addhge.............",
+    ".............ajpjle.............",
+    ".............ajpsle.............",
+    ".............ajhsle.............",
+    ".............ajjjle.............",
+    ".............ajjfle.............",
+    "............eesjjleee...........",
+    "...........egglnlllgle.........."
+   ]
+  ],
+  "bush_fern_0": [
+   [
+    "................",
+    "................",
+    ".......u........",
+    "...u..uvu...u...",
+    "..uvwuwxw.uwvu..",
+    "...wyzuAuuAyw...",
+    ".uwuwywAwwBwuwu.",
+    "uvCzwwAwBvwwDBzu",
+    ".uwwEzBzFCFCwwu.",
+    "....wuwwBwuw...."
+   ]
+  ],
+  "bush_fern_1": [
+   [
+    "................",
+    "................",
+    ".......u........",
+    "...u..uFu...u...",
+    "..uGwuwyw.uwvu..",
+    "...wCvuzuuzBw...",
+    ".uwuwCwzwwBwuwu.",
+    "uzCAwwvwyAwwvBzu",
+    ".uwwBFCFzBFEwwu.",
+    "....wuwwCwuw...."
+   ]
+  ],
+  "boulder_round_small": [
+   [
+    "...............",
+    "...............",
+    "....HHIIHH.....",
+    "...HJKLMKNH....",
+    "..HNOOOPQLKH...",
+    "..HLLROSOOPKH..",
+    ".HJRRTRRRTUIUH.",
+    ".HUJLRTRTTJVVH.",
+    ".HVJJJTRJJJJJH.",
+    "..WOOXOOOIOOW..",
+    "...WXOOOIIOW...",
+    "....WWWWXWW....",
+    "........W......"
+   ]
+  ],
+  "boulder_round_medium": [
+   [
+    "......................",
+    "......................",
+    "......................",
+    "........HIIHHHH.......",
+    ".....HIHKSLKJNJHHH....",
+    "....HKRLLSLLLRKJKJH...",
+    "...HNRSRLRLPORSKJJKH..",
+    "..HKSMMTLLLLSOLKKJKH..",
+    ".HKNLMLRRSSLOPTNKNJJH.",
+    ".HUJJRRLLRRRTRIJJVJVH.",
+    ".HJJJJTLRLTTQTJVJJUUH.",
+    ".HVJYJOILTRVUVUJUZVH..",
+    "..HUVUUVIVJUUJUVJUJH..",
+    "...WOO0OOII0OOIOOOW...",
+    "....WWOOOOOOOOOOOW....",
+    "......WWWOOOOIWWW.....",
+    ".........WWWWW........",
+    "......................"
+   ]
+  ],
+  "boulder_round_large": [
+   [
+    "..............................",
+    "..............................",
+    "..............................",
+    "..............................",
+    "............HHHHHHHH..........",
+    ".........IIHKKKJKNKJHH........",
+    ".......IISSMMLSLRJNN1KHHH.....",
+    "......IRSLLLRLRLLRLJNJJ11H....",
+    "....HHRLLLLLLRMSMLLSNNKKNJH...",
+    "...HKKLLSLRLLLSLSSLQKOOKKJH...",
+    "..HJKJLROOLSLLLSRSRSRKNOJKKH..",
+    "..HJNKLROPORLLLLRLLLNNJKKJKJH.",
+    "..HJUURRTRORRLTRNLRQJJVJJUJVH.",
+    "..HVVVJLRTTLTRLRRRLJJJVJJZVZH.",
+    "...HZVJJJRRTTRLRRUJJVUU1JJVUH.",
+    "...HVVJJJJVVJUVUJJZUVUVVVJZJH.",
+    "...HVJJJZUJUUUVJUJJUJJJVJVJH..",
+    "....HHJUUJJJJJUJJUUUJJZ1VVUH..",
+    "......WOOOOOIIOXOOOIOOOXIIW...",
+    ".......WOOIOOIOOIOOOOOOOIW....",
+    "........WWXIXIXIXII2WWWWW.....",
+    "..........WWWWWWWWWW..........",
+    "..............................",
+    ".............................."
+   ]
+  ],
+  "boulder_slab_small": [
+   [
+    "....................",
+    ".....HHHHHHH........",
+    "...HHJKKKNNJHIIIIH..",
+    ".HHNRLLRLSLSLSLLSKH.",
+    "HKSLLRLLRSSSLLRLKJH.",
+    "HJUVUJVJJVUJJVVVVVH.",
+    "HUVJJZZVJUVVJJJVUJUH",
+    "UJJUUVUJVUJVVUVVUJVH",
+    "JXIXOXIIIOOOX0IOXIIW",
+    "IOIIXII0OXXIIXOXOOIO"
+   ]
+  ],
+  "boulder_slab_medium": [
+   [
+    "............................",
+    "............................",
+    ".......HHHHHHHHHH...........",
+    ".....HHKKNJNJKJKKHIIIIIHHH..",
+    "...HHKLSSQQLRLSLLLRLSRSNKKH.",
+    ".HHKSLSLLSLSSSLLLLRSMRLSRKH.",
+    "HNRSSLSSLLSLRSRSLLTLRLLSJJH.",
+    "HJJTTTRRRJJUUJUJUUVJJJJVUVH.",
+    "HJVJUVVVJJVUJUJVVVVUJJUUVUH.",
+    "HJUJYJJJVUUUUUJJJJJJUUU1JJUH",
+    "UUUJJJJUJJJUJUVUVUJJUJVUVVJH",
+    "VVVJJVYYVJVVZVJJVVVJVVVVVVVH",
+    "VIOI0OIOOOI2XIIXIOXOOOOIIXXW",
+    "IIOXOOIXXOIOIIOOIIOOXXXOOIOI"
+   ]
+  ],
+  "boulder_slab_large": [
+   [
+    "......................................",
+    "......................................",
+    "......................................",
+    "..........HHHHHHHHHH..................",
+    "........HHKJJKKKJKNNHIIHHHHHHHHHH.....",
+    ".....HHHKKLRMLRLLSLTRRRJNJNKJKKKNHIH..",
+    "...HHKNQMRLSLRLQSLLLRLLRLRRSSSLLRLRKH.",
+    ".HHKJLRTLLRLLLLSSLSLRSRLRLRSSLLLLSLKH.",
+    "HKLMTLLLRLRSRLSLRRSLLSLLLSSLRLLRLLKZH.",
+    "HVRQLRLTRRRRLRRRRTTRLTRRRTLLTRRLRRUVH.",
+    "HJVJVJUUVJJJUVUJJVJJVUJUJUVJVUVVJVUUH.",
+    "HJJJVJZ1VUJJUVJJUJVJJJVUJVUJ1JUUVJJVH.",
+    "HVJVJUVJUJJJZVVUJJJJJJUJJVZUUUJVVJJJVH",
+    "UJUJJJJUVUJVVJVJUJVVJUJUVVJJVJJJUJJZUH",
+    "ZJJJJV1VJVJVVYJJJVVZJJJVJJVUJUVJJVJVUH",
+    "VVJUUJUJVVJJVJZJJJUJJVUVJJUVJ1JYJJJVJH",
+    "VJVJVJV11JVVVV1JJJ11JPV11VVJJ1VY1JJ1VH",
+    "JIXOIIIIXOOI0IXIIXXXXXXOX0IOIIOOOIXOIW",
+    "IXXIXXO2OXOIIOIIIXXXXIIIOOXXOIXXOXOIXX"
+   ]
+  ],
+  "boulder_jagged_small": [
+   [
+    "....HH.....",
+    "...HK3H....",
+    "...HK3H.H..",
+    "..HKSZHHJH.",
+    "..HKLNKKKH.",
+    ".HKRMKKKKH.",
+    ".HNRLKJNJH.",
+    ".HKSSJJKJH.",
+    ".HVTRJUJVH.",
+    "HJURRUJVUH.",
+    "HUVLLUJUVVH",
+    "HUJLVJJUVVH",
+    "HUVLJUJVUJH",
+    "WOIOIOIOOOW",
+    "IXIIOIIIIIW",
+    "OXIOOI0OIXW",
+    "WWWWWWWWWW."
+   ]
+  ],
+  "boulder_jagged_medium": [
+   [
+    "......HH........",
+    ".....HNNH.......",
+    ".....HNKH.......",
+    "....HNSNKH..H...",
+    "....HJRKKHHHKH..",
+    "...HZSRJKHJVKH..",
+    "...HZTRJNJZKKH..",
+    "..HZSLSSKKKKJH..",
+    "..HKLSLLKNNNNH..",
+    "..HKLSRLKKKJNH..",
+    "..HKLLSLNNKKJZH.",
+    ".HNKLLSLKKJKKJH.",
+    ".HJUTTRRUVJJZJH.",
+    ".HJJRTTRJYJJVVH.",
+    ".HJJVQTLJJZJJUH.",
+    ".HUUVLLJUUVYUVH.",
+    "HJJJJTUUJVJJUUH.",
+    "HUJJUJUJUVUJJVH.",
+    "HZJVJUJJYZJVUJW.",
+    "WX0OOOOOOIOOIOXW",
+    "WIIIIOXOOOXOIIIW",
+    "IIIIOX0IOOXOIOIW",
+    "IXXO0IXIOXIOOIIW",
+    "WWWWWWWWWWWWWWW."
+   ]
+  ],
+  "boulder_jagged_large": [
+   [
+    ".........HH...........",
+    "........H3NH..........",
+    ".......HKN3H..........",
+    ".......H34NH..........",
+    "......HNNS3VH....H....",
+    "......HK4SNNH..HHKH...",
+    ".....HJKSLKKKHHJKKH...",
+    ".....HNSLLKNJHJNKKH...",
+    "....H1JLLLNK1KKKJKH...",
+    "...HKNSLLLKK1KJZKNH...",
+    "...HNKRLRRKNVJKKJJH...",
+    "...HK1LLRLRKNKNKJJH...",
+    "...HJJSLLLLKKKNKJKJH..",
+    "...HKJLSLLLKKKKKNNJH..",
+    "..HNNJSSLLLKJKKJNK1H..",
+    "..HJKVRLLLSJNKKJKJNH..",
+    "..HVVJRRRTRUUJJVVJVH..",
+    "..HJUJRTTLRJVUJJUJUH..",
+    "..HUJJLLTNRVUVJUUJJH..",
+    ".HJJUURLLLTZVJJYUVJUH.",
+    ".HVJUJMTRR1JJJVJUJ1JH.",
+    ".HJJJJRTTJJJVJUJ1JJJH.",
+    ".HJV1UTRJJVUJJJVJJJ1H.",
+    ".HJJJJJVJJJJZJJUVJJUH.",
+    "HUVJVJJJUJJVJJVVVVVUH.",
+    "WIOOOOOOOIIOIIOIOOIOW.",
+    "WOIIIOOIIOIIIOXIIXXIW.",
+    "WIIIOXIIIII0IXIIIIIIOW",
+    "WXXOX0IIXIOOXIOX0XIXIW",
+    "XXOXIIXOXIIXOIOIOIIIIW",
+    "OIIIIIOXIIXXOIIXOXO0IW",
+    "WWWWWWWWWWWWWWWWWWWWW."
+   ]
+  ],
+  "boulder_split_small": [
+   [
+    "...............",
+    "...............",
+    "....HH5IHH.....",
+    "...HKK6RKZHH...",
+    "..HJSS6LLRJKH..",
+    "..HLPOL6ORKJJH.",
+    ".HURRR6TROOOJH.",
+    ".HJZRRL6RMZJOW.",
+    ".HUUVURR6JVVUH.",
+    "..WOOOO6OOOOW..",
+    "...WWOO6IIOW...",
+    ".....WW56WW....",
+    "........5......"
+   ]
+  ],
+  "boulder_split_medium": [
+   [
+    "......................",
+    "......................",
+    "............H.........",
+    "......HHHI5H1H........",
+    ".....HNKKS6JKKHH......",
+    "...HHJSMSSL6SLKJHH....",
+    "..HJNLLLTS6LRSMJJ1H...",
+    ".H1NRLLLL6STLLLJJKJH..",
+    ".HJKRLLRLS6RRLSKKNKH..",
+    "..HJJRLLTR6TRLQJUJV1H.",
+    "..HJVVOIR6TIORVVJJVUH.",
+    "..HZUXOJOR6JUIVJVJVUH.",
+    "...HUJUOU6JUZUJJVUUH..",
+    "....WOOO6OOIOO0IXOW...",
+    "....W0O6OOOIOIOOWW....",
+    ".....WI6OOX0XIWW......",
+    "......W5WWWWWW........",
+    "......................"
+   ]
+  ],
+  "boulder_split_large": [
+   [
+    "..............................",
+    "..............................",
+    "..............................",
+    "................H.............",
+    "........HHHHH5HHJHH...........",
+    ".......HKJKKN61JJKKHH.........",
+    "......HKJRRSS6RLSKJKJHH.......",
+    "....HHKLLSRL6RRLRLLJJKKHH.....",
+    "...HKKLSLRLLR6LLLRRRNKNKKH....",
+    "..HKVNLLSSQS6LSLRLMLJNKKJH....",
+    "..HKKKLRROOLR6RLSLRLLKKKKJH...",
+    "..HNZNSMMRLO6RRRSSSRJKKKNJNH..",
+    "..HUJVTTTRT6TRRRLLTRJJ1VVJJH..",
+    "..HVVJJTTT6RLRRRRTRJVVUZJVJVH.",
+    "...HJJUJUR6ORLLLT1ZVJIOJJJJH..",
+    "...HUJVZJ6JJO1UVJVUUJJUOJJH...",
+    "...HVUJJU6JVJUVJUJJU1VJJVUH...",
+    "....HJJJ6JJJUJUJUZJUJUJJVH....",
+    ".....WOI6OOOIOOOIOOIOOOIOW....",
+    "......W6XOIO0IOOOIIXOIOWW.....",
+    ".......WXIXXOO0IXIXIWWW.......",
+    "........WWWWWWIOO0WW..........",
+    "..............WWWW............",
+    ".............................."
+   ]
+  ],
+  "stone_0": [
+   [
+    "....H...",
+    "..HHNHH.",
+    ".HNLNJNH",
+    "HVVUUUJU",
+    "HJJJJVVV",
+    ".WI0IXVH"
+   ]
+  ],
+  "stone_1": [
+   [
+    ".....H....",
+    "..HHH3HHH.",
+    ".HJKLKNJNH",
+    "HJ1UUJVJJJ",
+    "HUJJJJJJUV",
+    "HJJJVUJJJV",
+    ".WXIXIIXJH"
+   ]
+  ],
+  "stone_2": [
+   [
+    "..I....",
+    ".HSHHHH",
+    "HJJUJVJ",
+    "HJJJJUJ",
+    "HJIIIVJ"
+   ]
+  ],
+  "pebbles_0": [
+   [
+    "..........",
+    ".LN.LK....",
+    ".LNROSZ...",
+    ".O.O.O....",
+    "..........",
+    ".........."
+   ]
+  ],
+  "pebbles_1": [
+   [
+    "..........",
+    "....TN....",
+    "....ORK...",
+    "...TJOTJ..",
+    "...O..O...",
+    ".........."
+   ]
+  ]
+ },
+ "items": {
+  "dead_tree_small_0": {
+   "kind": "tree",
+   "tree": "dead_tree",
+   "size": "small",
+   "solid_r": 4
+  },
+  "dead_tree_small_1": {
+   "kind": "tree",
+   "tree": "dead_tree",
+   "size": "small",
+   "solid_r": 4
+  },
+  "dead_tree_medium_0": {
+   "kind": "tree",
+   "tree": "dead_tree",
+   "size": "medium",
+   "solid_r": 5
+  },
+  "dead_tree_medium_1": {
+   "kind": "tree",
+   "tree": "dead_tree",
+   "size": "medium",
+   "solid_r": 5
+  },
+  "dead_tree_large_0": {
+   "kind": "tree",
+   "tree": "dead_tree",
+   "size": "large",
+   "solid_r": 7
+  },
+  "dead_tree_large_1": {
+   "kind": "tree",
+   "tree": "dead_tree",
+   "size": "large",
+   "solid_r": 7
+  },
+  "bush_fern_0": {
+   "kind": "bush",
+   "solid_r": 0
+  },
+  "bush_fern_1": {
+   "kind": "bush",
+   "solid_r": 0
+  },
+  "boulder_round_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 5
+  },
+  "boulder_round_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 8
+  },
+  "boulder_round_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 11
+  },
+  "boulder_slab_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 7
+  },
+  "boulder_slab_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 10
+  },
+  "boulder_slab_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 14
+  },
+  "boulder_jagged_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 4
+  },
+  "boulder_jagged_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 6
+  },
+  "boulder_jagged_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 8
+  },
+  "boulder_split_small": {
+   "kind": "boulder",
+   "size": "small",
+   "solid_r": 5
+  },
+  "boulder_split_medium": {
+   "kind": "boulder",
+   "size": "medium",
+   "solid_r": 8
+  },
+  "boulder_split_large": {
+   "kind": "boulder",
+   "size": "large",
+   "solid_r": 11
+  },
+  "stone_0": {
+   "kind": "stone",
+   "slow_r": 4
+  },
+  "stone_1": {
+   "kind": "stone",
+   "slow_r": 6
+  },
+  "stone_2": {
+   "kind": "stone",
+   "slow_r": 4
+  },
+  "pebbles_0": {
+   "kind": "pebbles"
+  },
+  "pebbles_1": {
+   "kind": "pebbles"
+  }
+ }
+}

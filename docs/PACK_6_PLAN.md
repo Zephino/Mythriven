@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead"). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one boss idea;
-everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of it. Nidavellir built and released 11/01/2026 (00.02.90); Svartalfheim (00.02.91). Gullinbursti reuses Morvarc'h's gallop (a golden trail).
+everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of it. Nidavellir built and released 11/01/2026 (00.02.90); Svartalfheim (00.02.91); Mycendra (00.02.92). Gullinbursti reuses Morvarc'h's gallop (a golden trail).
 
 Realms work like Pack 5's: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -55,7 +55,7 @@ the Nibelungenlied (c. 1200), 3rd and 8th adventures (Alberich, the cloak of inv
 | 20:00 | **Fjalar and Galar** | The two dwarves who brewed the mead of poetry in the vats Óðrerir, Boðn and Són. Three vats stand in the arena and heal them while they stand; tip a vat over by standing at it |
 | 30:00 | **Alberich** (the design's) | The dwarf lord of the Nibelung hoard with his cloak of invisibility (the Tarnkappe). He puts on the cloak and can't be hurt; walk into him to tear it off, as Siegfried did, and he is stunned |
 
-## Realm 23: Mycendra (the fungal city) — invented
+## Realm 23: Mycendra (the fungal city) — invented: **done and released 11/01/2026 (00.02.92)**
 *The design marks this realm invented: no public-domain source was found. Its name, its bosses and its monsters are the
 game's own, and are kept as plain descriptive names (no invented proper names), for the owner to approve or rename.
 Fungi themselves, fairy rings and puffballs are ordinary nature and folklore.*

@@ -1,0 +1,81 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A giant mushroom of Mycendra (the game's own): a tall pale stalk under a broad violet cap.",
+ "size": [
+  27,
+  29
+ ],
+ "anchor": [
+  13,
+  28
+ ],
+ "palette": {
+  "a": "#3c1812",
+  "b": "#481812",
+  "c": "#783c30",
+  "d": "#8a4230",
+  "e": "#9c3c30",
+  "f": "#a24236",
+  "g": "#7e3c30",
+  "h": "#963c30",
+  "i": "#7e362a",
+  "j": "#6c362a",
+  "k": "#8a3630",
+  "l": "#d2d2c6",
+  "m": "#ded8d2",
+  "n": "#72362a",
+  "o": "#78302a",
+  "p": "#84362a",
+  "q": "#6c3024",
+  "r": "#663024",
+  "s": "#a8a296",
+  "t": "#b4ae9c",
+  "u": "#eae4d8",
+  "v": "#544e48",
+  "w": "#bab4a8",
+  "x": "#ded8cc",
+  "y": "#d2ccc6",
+  "z": "#66605a",
+  "A": "#96968a",
+  "B": "#c6c6ba",
+  "C": "#c0bab4",
+  "D": "#babaae",
+  "E": "#aea89c",
+  "F": "#908a7e",
+  "G": "#a29c90"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".............a.............",
+    ".......abbbbacabbaaa.......",
+    ".....badeeefeefeeccgaa.....",
+    "...abheffhheeeieeffhgdaa...",
+    "..adeehfeeeeeiffeeefejgca..",
+    ".ackeklhehhmkhkkkmhhikcgna.",
+    ".aekokhhekkkkkkhhehehphcca.",
+    "acchikhhkokkhehhheheehncgca",
+    ".agcehhkhiikekekephhhcccna.",
+    ".acnnhhhekkkeheehhkecncnga.",
+    "..annnccekhhehekhnnngcgna..",
+    ".aqcgngcgnngccnccccccngnca.",
+    "..aaaaanccgncrcgnncgaaaaa..",
+    ".......aaaastgumaaaa.......",
+    "..........vtwxyyz..........",
+    "..........vtsyyxz..........",
+    "..........vAtByyz..........",
+    "..........vttyyyz..........",
+    "..........vAwByBz..........",
+    "..........vttBCyz..........",
+    "..........vswyxBz..........",
+    "..........vtsyxxz..........",
+    "..........vtwyBxz..........",
+    "..........vtsyyxz..........",
+    "..........vssDDBz..........",
+    "..........vsEyyBz..........",
+    "..........vFGyDBz..........",
+    "..........vEGBDBz..........",
+    "...........vvzzz..........."
+   ]
+  ]
+ }
+}

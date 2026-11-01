@@ -2272,3 +2272,30 @@ BANTER_ALVISS_ENTRANCE,Ask me anything. I know the names of all things in every 
 BANTER_FJALAR_AND_GALAR_ENTRANCE,A drink? It's very good mead. Kvasir is in it.
 BANTER_ALBERICH_ENTRANCE,"You can't see me, but I see you."
 BANTER_ALVISS_THOR,"Thor! Ask your questions, then. The night is long."
+LEVEL_MYCENDRA_NAME,Mycendra
+HAZARD_SPORE_CLOUDS_NAME,Clouds of spores drift through the city!
+ENEMY_CAP_WALKER_NAME,Cap walker
+ENEMY_CAP_WALKER_MYTH,"The mushroom-folk of Mycendra, squat and slow, shuffling out of the gloom under their broad spotted caps. (Mythriven's own creature.)"
+ENEMY_SPORE_PUFF_NAME,Spore puff
+ENEMY_SPORE_PUFF_MYTH,"Small puffballs that drift through the air of Mycendra in clouds, trailing spores. (Mythriven's own creature.)"
+ENEMY_GLOW_FLY_NAME,Glow-fly
+ENEMY_GLOW_FLY_MYTH,"Flies lit a pale green by the fungus light they feed on, darting across the city in long streams. (Mythriven's own creature.)"
+BOSS_GREAT_PUFFBALL_NAME,The Great Puffball
+ENEMY_GREAT_PUFFBALL_NAME,The Great Puffball
+ENEMY_GREAT_PUFFBALL_MYTH,"A puffball as big as an ox, its skin split and leaking. Every blow that lands makes it burst in a cloud of spores. (Mythriven's own creature.)"
+BOSS_MYCELIUM_NAME,The Mycelium
+ENEMY_MYCELIUM_NAME,The Mycelium
+ENEMY_MYCELIUM_MYTH,"The great web of fungus threads that holds Mycendra together, heaving itself up from the ground. Wherever it passes, its threads stay. (Mythriven's own creature.)"
+BOSS_SPORE_MOTHER_NAME,The Spore Mother
+ENEMY_SPORE_MOTHER_NAME,The Spore Mother
+ENEMY_SPORE_MOTHER_MYTH,"The oldest and tallest mushroom of Mycendra, with a face in its stalk. Wherever its spores fall, new mushrooms swell and burst. (Mythriven's own creature.)"
+ACH_BOSS_GREAT_PUFFBALL_NAME,Defeat The Great Puffball
+ACH_BOSS_GREAT_PUFFBALL_DESC,The 10:00 boss of Mycendra.
+ACH_BOSS_MYCELIUM_NAME,Defeat The Mycelium
+ACH_BOSS_MYCELIUM_DESC,The 20:00 boss of Mycendra.
+ACH_BOSS_SPORE_MOTHER_NAME,Defeat The Spore Mother
+ACH_BOSS_SPORE_MOTHER_DESC,The 30:00 boss of Mycendra.
+BANTER_GREAT_PUFFBALL_ENTRANCE,(It wheezes. Spores puff from its cracks with every breath.)
+BANTER_MYCELIUM_ENTRANCE,"(The ground itself heaves, pale threads reaching for your feet.)"
+BANTER_SPORE_MOTHER_ENTRANCE,"Grow, my children. Grow, and burst."
+BANTER_SPORE_MOTHER_PERSEPHONE,"Spring goddess, everything that rots comes back to me."

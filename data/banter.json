@@ -2070,5 +2070,46 @@
     "text_key": "BANTER_ALVISS_THOR",
     "lore_source": "Alvissmal (Thor questions him until dawn)",
     "needs_owner_review": true
+  },
+  {
+    "id": "great_puffball_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "great_puffball",
+    "hero": "",
+    "god": "great_puffball",
+    "text_key": "BANTER_GREAT_PUFFBALL_ENTRANCE",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "mycelium_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "mycelium",
+    "hero": "",
+    "god": "mycelium",
+    "text_key": "BANTER_MYCELIUM_ENTRANCE",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "spore_mother_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "spore_mother",
+    "hero": "",
+    "god": "spore_mother",
+    "text_key": "BANTER_SPORE_MOTHER_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "spore_mother_persephone",
+    "trigger": "boss_meets_god",
+    "speaker": "spore_mother",
+    "hero": "",
+    "god": "spore_mother",
+    "with_god": "persephone",
+    "text_key": "BANTER_SPORE_MOTHER_PERSEPHONE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

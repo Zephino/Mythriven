@@ -81,3 +81,8 @@ func _draw() -> void:
 			draw_line(at + Vector2.from_angle(a) * Vector2(reach, reach * 0.6), at + Vector2.from_angle(a + 0.2) * Vector2(reach + 10.0, (reach + 10.0) * 0.6),
 					Color(0.3, 0.2, 0.12, fade), 1.5)
 	super._draw()
+
+## The world re-centres under the Heroes (WorldRoot.origin_shifted): move what this boss left on the ground with it.
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	for pit: Dictionary in pits:
+		pit["pos"] = Vector2(pit["pos"]) - shift_px

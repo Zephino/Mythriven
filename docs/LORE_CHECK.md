@@ -529,6 +529,25 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | alberich_entrance | boss entrance | alberich | You can't see me, but I see you. | The Nibelungenlied (the cloak of invisibility) | no |
 | alviss_thor | boss meets god (with thor) | alviss | Thor! Ask your questions, then. The night is long. | Alvissmal (Thor questions him until dawn) | no |
 
+### Mycendra
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | mycendra | Mycendra | Invented for Mythriven (GAME_DESIGN.md marks Mycendra invented) | no |
+| enemy | cap_walker | Cap walker | Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name) | no |
+| enemy | spore_puff | Spore puff | Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name) | no |
+| enemy | glow_fly | Glow-fly | Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name) | no |
+| boss | great_puffball | The Great Puffball | Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name) | no |
+| boss | mycelium | The Mycelium | Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name) | no |
+| boss | spore_mother | The Spore Mother | Invented for Mythriven (GAME_DESIGN.md: Mycendra has no public-domain source; plain descriptive name) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| great_puffball_entrance | boss entrance | great_puffball | (It wheezes. Spores puff from its cracks with every breath.) | Original description written for Mythriven | no |
+| mycelium_entrance | boss entrance | mycelium | (The ground itself heaves, pale threads reaching for your feet.) | Original description written for Mythriven | no |
+| spore_mother_entrance | boss entrance | spore_mother | Grow, my children. Grow, and burst. | Original line written for Mythriven | no |
+| spore_mother_persephone | boss meets god (with persephone) | spore_mother | Spring goddess, everything that rots comes back to me. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

@@ -1,0 +1,76 @@
+{
+ "_doc": "Critters of mycendra (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#5a4a5a",
+  "b": "#9a8a8a",
+  "c": "#c8c4b8",
+  "d": "#4a4650"
+ },
+ "frames": {
+  "toad": [
+   [
+    ".........",
+    ".....oo..",
+    "..oooako.",
+    ".oaaaaao.",
+    "oaaaaaaao",
+    "oaabbbao."
+   ],
+   [
+    ".....oo..",
+    "..oooako.",
+    ".oaaaaao.",
+    "oaaaaaaao",
+    "oobbbbao.",
+    "aaooooo..",
+    "aao......"
+   ]
+  ],
+  "moth": [
+   [
+    ".......",
+    ".cckcc.",
+    ".cckcc.",
+    "..dkd..",
+    "...k...",
+    "......."
+   ],
+   [
+    "ccc.ccc",
+    "ccckccc",
+    "ccckccc",
+    ".ddkdd.",
+    ".ddkdd.",
+    "......."
+   ]
+  ],
+  "firefly": [
+   [
+    "...",
+    ".L.",
+    "..."
+   ],
+   [
+    ".l.",
+    "lLl",
+    ".l."
+   ]
+  ]
+ },
+ "critters": {
+  "toad": {
+   "kind": "ground"
+  },
+  "moth": {
+   "kind": "insect"
+  },
+  "firefly": {
+   "kind": "firefly"
+  }
+ }
+}

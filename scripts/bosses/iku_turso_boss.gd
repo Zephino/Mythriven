@@ -102,3 +102,9 @@ func _draw() -> void:
 			draw_arc(at, 10.0 + fmod(t * 30.0 + r * 12.0, 36.0), 0.0, TAU, 24, Color(0.85, 0.95, 1.0, 0.7), 1.5)
 		return
 	super._draw()
+
+## The world re-centres under the Heroes (WorldRoot.origin_shifted): move what this boss left on the ground with it.
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	for hole: Dictionary in holes:
+		hole["pos"] = Vector2(hole["pos"]) - shift_px
+	_rise_at -= shift_px

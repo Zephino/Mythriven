@@ -85,3 +85,8 @@ func _draw() -> void:
 ## The King's Mercy secret: he was given his clothes back at least twice.
 func secret_earned() -> String:
 	return "the_kings_mercy" if turned >= 2 else ""
+
+## The world re-centres under the Heroes (WorldRoot.origin_shifted): move what this boss left on the ground with it.
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	if clothes != Vector2.INF:
+		clothes -= shift_px

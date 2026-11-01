@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.92
+Date: 10/31/2026
+Time: 8:25 PM
+
+### Changes
+- **Mycendra, the fungal city, is built and open** (Pack 6, `docs/PACK_6_PLAN.md`). It opens when you beat Carmilla (Karnstein's 30:00 boss). The design marks Mycendra as invented (there is no old source for it), so everything in it has a plain, descriptive name for the owner to approve or rename.
+  - **Hazard, spore clouds:** clouds of spores drift through the city, hiding the view and Poisoning every Hero while they lie thick.
+  - **Monsters:** cap walkers (mushroom-folk), spore puffs (drifting swarms) and glow-flies.
+  - **10:00, the Great Puffball:** each time it loses a tenth of its health it bursts, leaving a spore cloud that Poisons whoever stands in it for 5 s.
+  - **20:00, the Mycelium:** its threads spread a little further over the ground every 3 s and stay while it lives; standing on them slows and Poisons.
+  - **30:00, the Spore Mother:** mushrooms sprout around the arena and burst after 5 s, hurting and Poisoning whoever is near, unless a Hero stamps them out by standing on them.
+  - Dark, spongy ground with giant mushrooms and glowing caps; toads, moths and fireflies.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check (marked as invented).
+- **Fix:** some bosses left things on the ground that didn't move when the endless map re-centres around the Heroes (the Bull of Heaven's pits, Iku-Turso's and Níðhöggr's holes, and the new Pack 5 and 6 bosses' clothes, ring, bower, pounce spot, sunbeams and vats). They now stay where they were put.
+- 4 new tests (363 tests pass).
+
+### Reason
+Pack 6, realm 3 of 4 (owner: "go ahead"); the fix was found while building the Mycelium.
+
 ## Version 00.02.91
 Date: 10/31/2026
 Time: 8:17 PM

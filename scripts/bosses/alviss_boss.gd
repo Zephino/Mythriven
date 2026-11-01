@@ -73,3 +73,8 @@ func _draw() -> void:
 		draw_circle(at, reach, Color(1.0, 0.95, 0.7, 0.22))
 		draw_arc(at, reach, 0.0, TAU, 28, Color(1.0, 0.9, 0.5, 0.6), 1.5)
 	super._draw()
+
+## The world re-centres under the Heroes (WorldRoot.origin_shifted): move what this boss left on the ground with it.
+func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
+	for beam: Dictionary in beams:
+		beam["pos"] = Vector2(beam["pos"]) - shift_px
