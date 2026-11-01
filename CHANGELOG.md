@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.28
+Date: 11/01/2026
+Time: 8:19 AM
+
+### Changes
+- **The City of Brass, the desert kingdom, is built and open** (Pack 13, `docs/PACK_13_PLAN.md`). It opens when you beat the Shadow. Source: "The City of Brass" in the One Thousand and One Nights (Burton's translation, 1885). As the design says, only its brass horseman, its automatons and its desert ruins are used: the jinn in the tale are left out.
+  - **Hazard, the sandstorm:** a desert storm sweeps over the ruins, pushing the Heroes and closing the view.
+  - **Monsters:** brass soldiers, bronze automatons, sand serpents, locusts (swarms) and ravens.
+  - **10:00, the Watcher on the Wall:** every 7 s a vision beckons from beyond the nearest Hero and draws them toward it. Reaching it hurts badly ("he threw himself down"); any blow on the Watcher breaks the vision.
+  - **20:00, the Queen's Guardians** (the two automatons by the dead queen's bier): four sword-blades turn round them, cutting whoever they pass. The queen's jewels lie about: each gives 5 gold, but the guardians strike whoever takes one.
+  - **30:00, the Brass Horseman** (the design's boss): he points his spear at a Hero for 1.5 s, then charges along the line. Stand behind him (against his spear) for 1 s to turn him the wrong way: he is dazed for 3 s and takes double damage.
+  - Desert sand, dunes and old paving, with palms, thorn trees, columns and obelisks; lizards and ravens.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (464 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 13; the realms are built one at a time.
+
 ## Version 00.03.27
 Date: 11/01/2026
 Time: 8:06 AM

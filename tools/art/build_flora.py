@@ -531,6 +531,11 @@ LEVELS = {
         "trees": {"spruce": (spruce, 22, 40), "birch": (birch, 18, 38)},
         "bushes": {"juniper": ("P", "p", "q", None)},
         "rock": ("g", "G", "H", "l")},
+    # The City of Brass: the long desert road; a few palms and thorn trees, dry scrub.
+    "city_of_brass": {
+        "trees": {"palm": (palm, 26, 40), "acacia": (acacia, 32, 28)},
+        "bushes": {"scrub": ("m", "M", "y", None)},
+        "rock": ("a", "A", "B", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

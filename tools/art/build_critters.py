@@ -440,6 +440,11 @@ LEVELS = {
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
         "insects": {},
         "large": {"reindeer": ("#c8b8a0", "#f0ece4", "#6a5a48", "antlers", 28, 26)}},
+    "city_of_brass": {
+        "ground": {"grey_lizard": (lizard, "#c8a870", "#8a6a48")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

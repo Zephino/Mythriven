@@ -6073,5 +6073,117 @@
       "edge": "#6a6a60",
       "stones": "#aaaaa0"
     }
+  },
+  {
+    "_doc": "The City of Brass, Pack 13 realm 3, the desert kingdom (docs/PACK_13_PLAN.md). Source: \"The City of Brass\", One Thousand and One Nights (Burton's translation, 1885). Only the horseman, the automatons and the ruins are used: the jinn and the tale's religious framing are left out. A realm: no local gods.",
+    "id": "city_of_brass",
+    "name_key": "LEVEL_CITY_OF_BRASS_NAME",
+    "region": "realm_brass",
+    "act": 15,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "city_of_brass",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "sand",
+          "max": -0.3,
+          "placeholder_color": "#d8b880",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dunes",
+          "max": 0.15,
+          "placeholder_color": "#c8a870",
+          "placeholder_dots": "#e8d0a0"
+        },
+        {
+          "id": "paving",
+          "max": 0.6,
+          "placeholder_color": "#b8a080",
+          "placeholder_dots": "#c89a4a"
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#a08868",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "broken_column",
+      "obelisk"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "broken_column": {
+        "shape": "rect",
+        "size_px": [
+          12,
+          24
+        ],
+        "placeholder_color": "#c8a870",
+        "weight": 1
+      },
+      "obelisk": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          26
+        ],
+        "placeholder_color": "#b8904a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "wall_watcher",
+      "20": "queens_guardians",
+      "30": "brass_horseman"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "shadows_court",
+      "boss": "the_shadow"
+    },
+    "waves": "waves_city_of_brass.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 20,
+      "push_px_s": 45,
+      "enemy_push_px_s": 15,
+      "wind_turn_s": 6,
+      "vision_screens": 0.5,
+      "pulse": 0.12,
+      "pulse_hz": 0.3,
+      "veil_color": "#d8b070",
+      "particles": "sand",
+      "particle_color": "#e8c890",
+      "fade_s": 2.5,
+      "name_key": "HAZARD_BRASS_SANDSTORM_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#f0e0c0",
+    "flora": {
+      "density": 0.2,
+      "trees": {
+        "palm": 2,
+        "acacia": 1
+      }
+    },
+    "road": {
+      "color": "#c8a870",
+      "edge": "#a88850",
+      "stones": "#e0c890"
+    }
   }
 ]

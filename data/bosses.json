@@ -12646,5 +12646,255 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The City of Brass bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "wall_watcher",
+    "name_key": "BOSS_WALL_WATCHER_NAME",
+    "tradition": "arabian",
+    "lore_source": "\"The City of Brass\", One Thousand and One Nights (Burton's translation, 1885) (each man who climbed the city wall saw a vision beckoning, clapped his hands, cried out and threw himself down)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "wall_watcher",
+    "move_speed": 40,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_vision",
+      "beckon_every_s": 7.0,
+      "beckon_s": 3.5,
+      "vision_px": 200,
+      "pull_px_s": 70,
+      "reach_px": 16,
+      "fall_damage": 20
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The City of Brass bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "queens_guardians",
+    "name_key": "BOSS_QUEENS_GUARDIANS_NAME",
+    "tradition": "arabian",
+    "lore_source": "\"The City of Brass\", One Thousand and One Nights (Burton's translation, 1885) (two automatons with swords guard the embalmed queen, and strike down the man who takes her jewels)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "queens_guardians",
+    "move_speed": 26,
+    "keep_distance_px": 30,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "turning_blades",
+      "arms": 4,
+      "blade_px": 110,
+      "turn_rad_s": 1.2,
+      "blade_width_px": 10,
+      "blade_damage": 8,
+      "hit_every_s": 0.5,
+      "jewels": 2,
+      "jewel_reach_px": 14,
+      "jewel_gold": 5.0,
+      "jewel_damage": 15,
+      "jewel_again_s": 12.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The City of Brass bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "brass_horseman",
+    "name_key": "BOSS_BRASS_HORSEMAN_NAME",
+    "tradition": "arabian",
+    "lore_source": "\"The City of Brass\", One Thousand and One Nights (Burton's translation, 1885) (the brass horseman on the pillar, whose spear points the way when he is turned); GAME_DESIGN.md (the brass horseman)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "brass_horseman",
+    "move_speed": 34,
+    "keep_distance_px": 80,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "pointing_spear",
+      "aim_every_s": 4.0,
+      "aim_s": 1.5,
+      "charge_px": 220,
+      "charge_width_px": 24,
+      "charge_damage": 16,
+      "turn_px": 40,
+      "turn_s": 1.0,
+      "dazed_s": 3.0,
+      "dazed_damage_taken": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "brass_soldier"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "brass_soldier"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

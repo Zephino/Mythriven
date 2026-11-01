@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 13, the last of the nine). The design (`GAME_DESIGN.md`: Fantasy realms) names each
 realm, its source and one boss idea; everything else was chosen by Claude from old public-domain texts only. The owner
-can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26); Dovrefjell (00.03.27).
+can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26); Dovrefjell (00.03.27); the City of Brass (00.03.28).
 
 Realms work like Packs 5-12: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -65,7 +65,7 @@ Boys Who Met the Trolls in the Hedal Woods" (three trolls with one eye between t
 | 20:00 | **The Great Bøyg** | The thing in the dark that can't be fought, only gone round. Blows from a Hero standing still barely touch it; a Hero who keeps moving round it hurts it fully |
 | 30:00 | **The Mountain King** (the design's) | The Dovre-King. He gives a Hero the troll's eye (Hexed), and his court calls for blood. But a church bell stands in the arena: a Hero who rings it (stands at it) brings the hall down round him (stunned, double damage) |
 
-## Realm 51: the City of Brass
+## Realm 51: the City of Brass: **done and released 11/01/2026 (00.03.28)**
 *Source: "The City of Brass" in the One Thousand and One Nights (Richard Burton's translation, 1885, nights 566-578):
 the long desert road, the brass horseman on a pillar whose spear points the way when he is turned, the walled city with
 no gate whose watchers on the wall threw themselves down, and the embalmed queen guarded by two automatons that strike
@@ -84,7 +84,7 @@ veil, sand, with a push).
 
 | Time | Boss | Mechanic |
 | --- | --- | --- |
-| 10:00 | **The Watcher on the Wall** | The wall's enchantment: each man who climbed it saw a vision beckoning and threw himself down. Every so often the vision beckons and draws the nearest Hero toward it; reach the Watcher and strike to break it |
+| 10:00 | **The Watcher on the Wall** | The wall's enchantment: each man who climbed it saw a vision beckoning and threw himself down. Every so often a vision beckons and draws the nearest Hero toward it; any blow on the Watcher breaks it |
 | 20:00 | **The Queen's Guardians** | The two automatons, sword in hand, that guard the queen's body. Their blades sweep round them in a turning cross; jewels lie by the queen's bier, and a Hero who takes one is struck at once |
 | 30:00 | **The Brass Horseman** (the design's) | The horseman on the pillar whose spear points the way. He turns to point his spear at a Hero (a marked line), then charges along it. A Hero who turns him (stands behind him for a moment) sends him the wrong way, and he stops, dazed |
 

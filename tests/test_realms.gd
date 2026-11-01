@@ -1886,6 +1886,54 @@ func test_the_mountain_kings_hall_falls_to_the_bell() -> void:
 	assert_almost_eq(king.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "the hall falls on him")
 
 
+func test_the_watcher_on_the_wall_beckons() -> void:
+	_start("city_of_brass")
+	assert_eq(str(_level("city_of_brass")["unlock"]["boss"]), "the_shadow")
+	var watcher: WallWatcherBoss = _bosses.spawn_boss("wall_watcher", 0) as WallWatcherBoss
+	var at: Vector2 = _player.position
+	watcher.signature(4.1)
+	assert_ne(watcher.vision, Vector2.INF, "a vision beckons")
+	watcher.signature(0.5)
+	assert_ne(_player.position, at, "drawn toward it")
+	watcher.modify_hit(10.0, _player, Vector2.ZERO)
+	assert_eq(watcher.visions_broken, 1, "a blow breaks it")
+	assert_eq(watcher.vision, Vector2.INF)
+
+
+func test_the_queens_guardians_blades_and_jewels() -> void:
+	_start("city_of_brass")
+	var guards: QueensGuardiansBoss = _bosses.spawn_boss("queens_guardians", 1) as QueensGuardiansBoss
+	guards.angle = 0.0
+	_player.position = guards.position_now() + Vector2(60, 0)
+	assert_true(guards.blade_hits(_player.position))
+	var hp: float = _player.hp
+	guards.signature(0.01)
+	assert_eq(guards.cuts, 1)
+	assert_lt(_player.hp, hp)
+	assert_eq(guards.jewels.size(), 2, "the queen's jewels")
+	var gold: float = GameAuthority.run.gold
+	_player.position = guards.jewels[0]
+	guards.signature(0.01)
+	assert_eq(guards.jewels_taken, 1)
+	assert_gt(GameAuthority.run.gold, gold)
+
+
+func test_the_brass_horseman_charges_and_is_turned() -> void:
+	_start("city_of_brass")
+	var rider: BrassHorsemanBoss = _bosses.spawn_boss("brass_horseman", 2) as BrassHorsemanBoss
+	rider.signature(2.1)
+	assert_ne(rider.aim, Vector2.INF, "the spear points")
+	var hp: float = _player.hp
+	rider.signature(1.6)
+	assert_eq(rider.charges, 1)
+	assert_lt(_player.hp, hp, "the charge")
+	_player.position = rider.position_now() - rider.spear * 40.0
+	rider.signature(0.6)
+	rider.signature(0.6)
+	assert_eq(rider.turned, 1, "turned on his pillar")
+	assert_almost_eq(rider.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "dazed")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

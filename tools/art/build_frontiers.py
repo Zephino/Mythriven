@@ -161,6 +161,82 @@ MOUNTAIN_KING_PAL = {"o": "#10140e", "k": "#1a1e14", "r": "#6a2a2a", "g": "#7a8a
                      "y": "#e8c040"}
 
 
+# --- The City of Brass ("The City of Brass", the Nights; Burton, 1885; no jinn) --------------------------------------
+
+def brass_soldier(c, f):
+    """A brass soldier (the tale's brass figures): a stiff automaton of polished brass with a round shield."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 22, "B")
+    c.rect(6, 8, 13, 17, "y"); c.row(12, 6, 13, "B")
+    c.rect(7, 2, 12, 7, "y"); c.rect(8, 4, 11, 4, "k")
+    ellipse(c, 4, 12, 3, 4, "B"); c.px(4, 12, "y")
+    c.rect(15, 4, 15, 18, "s")
+
+
+BRASS_SOLDIER_PAL = {"o": "#2a1a08", "k": "#1a1008", "y": "#d8a840", "B": "#9a6a1a", "s": "#c8ccd4"}
+
+
+def locust(c, f):
+    """A locust (the desert road): a long green-brown grasshopper with whirring wings."""
+    up = f % 2
+    c.rect(2, 6, 11, 7, "g"); c.px(12, 6, "k")
+    poly(c, [(4, 6), (10, 2 + up), (11, 5)], "w")
+    c.px(4, 9, "G"); c.px(7, 9, "G"); c.px(3, 10, "G")
+
+
+LOCUST_PAL = {"o": "#1a1408", "g": "#8a8a3a", "G": "#5a5a2a", "w": "#d8d4b0", "k": "#1a1408"}
+
+
+def wall_watcher(c, step):
+    """The Watcher on the Wall ("The City of Brass": the vision that beckoned each man who climbed the wall): a tall,
+    veiled figure of shimmering light standing on a brass battlement, one hand raised to beckon."""
+    c.rect(4, 42, 38, 52, "B"); c.row(42, 4, 38, "y")
+    for x in range(4, 38, 8):
+        c.rect(x, 38, x + 4, 42, "B")
+    poly(c, [(15, 10), (27, 10), (31, 40), (11, 40)], "w")
+    ellipse(c, 21, 7, 5, 5, "W")
+    c.rect(28, 4 - step, 30, 14, "W")
+    for x, y in ((14, 20), (26, 26), (18, 34)):
+        c.px(x, y, "y")
+
+
+WATCHER_PAL = {"o": "#4a3a20", "w": "#f4ecd8", "W": "#fff8e8", "y": "#e8c040", "B": "#9a6a1a"}
+
+
+def queens_guardians(c, step):
+    """The Queen's Guardians ("The City of Brass": two automatons with swords beside the dead queen's bier): two
+    figures, one of steel and one of brass, each with a raised sword."""
+    for k, (body, dark) in enumerate((("s", "S"), ("y", "B"))):
+        x0 = 4 + k * 22
+        for i, d in enumerate((-step, step)):
+            c.rect(x0 + 3 + i * 6 + d, 44, x0 + 5 + i * 6 + d, 54, dark)
+        c.rect(x0, 18, x0 + 14, 44, body); c.row(30, x0, x0 + 14, dark)
+        c.rect(x0 + 3, 6, x0 + 11, 16, body); c.rect(x0 + 4, 10, x0 + 10, 10, "k")
+        c.rect(x0 + 16, 2, x0 + 17, 30, "W"); c.rect(x0 + 14, 28, x0 + 19, 29, dark)
+
+
+GUARDIANS_PAL = {"o": "#1a1408", "k": "#1a1008", "s": "#a8acb4", "S": "#6a6e76", "y": "#d8a840", "B": "#9a6a1a",
+                 "W": "#e8ecf4"}
+
+
+def brass_horseman(c, step):
+    """The Brass Horseman ("The City of Brass": the horseman of brass on a pillar, spear in hand, who points the way):
+    a rider and horse all of brass, the spear levelled."""
+    for i, d in enumerate((-step, step, step, -step)):
+        c.rect(14 + i * 8 + d, 36, 16 + i * 8 + d, 50, "B")
+    ellipse(c, 28, 32, 16, 7, "y")
+    poly(c, [(40, 30), (48, 18), (54, 22), (46, 34)], "y"); c.px(51, 21, "k")
+    c.rect(24, 12, 32, 28, "y"); c.rect(25, 4, 31, 11, "y"); c.rect(24, 2, 32, 4, "B")
+    c.px(27, 7, "k"); c.px(30, 7, "k")
+    c.rect(18, 16, 60, 17, "B"); poly(c, [(60, 14), (64, 16), (60, 19)], "s")
+    for i in range(6):
+        c.px(12 - i, 30 + i, "B")
+
+
+HORSEMAN_PAL = {"o": "#2a1a08", "k": "#1a1008", "y": "#d8a840", "B": "#9a6a1a", "s": "#c8ccd4"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_frontiers.py."
@@ -175,4 +251,9 @@ if __name__ == "__main__":
     kit.build_boss("hedal_trolls", hedal_trolls, HEDAL_PAL, doc(hedal_trolls.__doc__), (58, 58), (28, 56), [0, 1, 0, -1, 0])
     kit.build_boss("great_boyg", great_boyg, BOYG_PAL, doc(great_boyg.__doc__), (60, 52), (30, 50), [0, 1, 0, -1, 0])
     kit.build_boss("mountain_king", mountain_king, MOUNTAIN_KING_PAL, doc(mountain_king.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("brass_soldier", brass_soldier, BRASS_SOLDIER_PAL, doc(brass_soldier.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("locust", locust, LOCUST_PAL, doc(locust.__doc__), (14, 12), (7, 11), walk, folder="enemies")
+    kit.build_boss("wall_watcher", wall_watcher, WATCHER_PAL, doc(wall_watcher.__doc__), (42, 54), (21, 52), [0, 1, 0, -1, 0])
+    kit.build_boss("queens_guardians", queens_guardians, GUARDIANS_PAL, doc(queens_guardians.__doc__), (48, 56), (24, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("brass_horseman", brass_horseman, HORSEMAN_PAL, doc(brass_horseman.__doc__), (66, 52), (32, 50), [0, 1, 0, -1, 0])
     print("wrote Wild Frontiers' art")

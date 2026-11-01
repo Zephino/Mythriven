@@ -1,0 +1,94 @@
+{
+ "_doc": "A locust (the desert road): a long green-brown grasshopper with whirring wings. Built by tools/art/build_frontiers.py.",
+ "size": [
+  14,
+  12
+ ],
+ "anchor": [
+  7,
+  11
+ ],
+ "palette": {
+  "o": "#1a1408",
+  "g": "#8a8a3a",
+  "G": "#5a5a2a",
+  "w": "#d8d4b0",
+  "k": "#1a1408"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..............",
+    ".........o....",
+    "........owo...",
+    "......oowwo...",
+    ".....owwwwwo..",
+    "..ooowwoooooo.",
+    ".oggggggggggko",
+    ".oggggggggggo.",
+    "..oooooooooo..",
+    "...oGooGo.....",
+    "..oGo..o......",
+    "...o.........."
+   ]
+  ],
+  "walk": [
+   [
+    "..............",
+    "..............",
+    ".........o....",
+    ".......oowo...",
+    ".....oowwwwo..",
+    "..ooowwoooooo.",
+    ".oggggggggggko",
+    ".oggggggggggo.",
+    "..oooooooooo..",
+    "...oGooGo.....",
+    "..oGo..o......",
+    "...o.........."
+   ],
+   [
+    "..............",
+    ".........o....",
+    "........owo...",
+    "......oowwo...",
+    ".....owwwwwo..",
+    "..ooowwoooooo.",
+    ".oggggggggggko",
+    ".oggggggggggo.",
+    "..oooooooooo..",
+    "...oGooGo.....",
+    "..oGo..o......",
+    "...o.........."
+   ],
+   [
+    "..............",
+    "..............",
+    ".........o....",
+    ".......oowo...",
+    ".....oowwwwo..",
+    "..ooowwoooooo.",
+    ".oggggggggggko",
+    ".oggggggggggo.",
+    "..oooooooooo..",
+    "...oGooGo.....",
+    "..oGo..o......",
+    "...o.........."
+   ],
+   [
+    "..............",
+    ".........o....",
+    "........owo...",
+    "......oowwo...",
+    ".....owwwwwo..",
+    "..ooowwoooooo.",
+    ".oggggggggggko",
+    ".oggggggggggo.",
+    "..oooooooooo..",
+    "...oGooGo.....",
+    "..oGo..o......",
+    "...o.........."
+   ]
+  ]
+ }
+}

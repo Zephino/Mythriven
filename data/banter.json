@@ -3214,5 +3214,46 @@
     "text_key": "BANTER_MOUNTAIN_KING_THOR",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "wall_watcher_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "wall_watcher",
+    "hero": "",
+    "god": "wall_watcher",
+    "text_key": "BANTER_WALL_WATCHER_ENTRANCE",
+    "lore_source": "\"The City of Brass\", One Thousand and One Nights (Burton's translation, 1885)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "queens_guardians_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "queens_guardians",
+    "hero": "",
+    "god": "queens_guardians",
+    "text_key": "BANTER_QUEENS_GUARDIANS_ENTRANCE",
+    "lore_source": "\"The City of Brass\", One Thousand and One Nights (Burton's translation, 1885)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "brass_horseman_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "brass_horseman",
+    "hero": "",
+    "god": "brass_horseman",
+    "text_key": "BANTER_BRASS_HORSEMAN_ENTRANCE",
+    "lore_source": "\"The City of Brass\", One Thousand and One Nights (Burton's translation, 1885)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "brass_horseman_ra",
+    "trigger": "boss_meets_god",
+    "speaker": "brass_horseman",
+    "hero": "",
+    "god": "brass_horseman",
+    "with_god": "ra",
+    "text_key": "BANTER_BRASS_HORSEMAN_RA",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
   }
 ]

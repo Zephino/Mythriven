@@ -1904,5 +1904,35 @@
       "id": "mountain_king"
     },
     "persists": true
+  },
+  {
+    "id": "boss_wall_watcher",
+    "name_key": "ACH_BOSS_WALL_WATCHER_NAME",
+    "desc_key": "ACH_BOSS_WALL_WATCHER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "wall_watcher"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_queens_guardians",
+    "name_key": "ACH_BOSS_QUEENS_GUARDIANS_NAME",
+    "desc_key": "ACH_BOSS_QUEENS_GUARDIANS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "queens_guardians"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_brass_horseman",
+    "name_key": "ACH_BOSS_BRASS_HORSEMAN_NAME",
+    "desc_key": "ACH_BOSS_BRASS_HORSEMAN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "brass_horseman"
+    },
+    "persists": true
   }
 ]

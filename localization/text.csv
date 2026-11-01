@@ -3306,3 +3306,31 @@ BANTER_HEDAL_TROLLS_ENTRANCE,"Give me the eye! No, give ME the eye!"
 BANTER_GREAT_BOYG_ENTRANCE,Go round about.
 BANTER_MOUNTAIN_KING_ENTRANCE,"Troll, to thyself be enough! Will you take my daughter, and a tail?"
 BANTER_MOUNTAIN_KING_THOR,"The troll-slayer! Ring no bells in my hall, thunderer."
+LEVEL_CITY_OF_BRASS_NAME,The City of Brass
+HAZARD_BRASS_SANDSTORM_NAME,A sandstorm sweeps over the ruins!
+ENEMY_BRASS_SOLDIER_NAME,Brass soldier
+ENEMY_BRASS_SOLDIER_MYTH,"One of the brass figures of the silent city, made by its kings' craftsmen, still keeping watch long after everyone inside the walls died."
+ENEMY_LOCUST_NAME,Locust
+ENEMY_LOCUST_MYTH,Swarms of locusts on the long desert road to the City of Brass.
+BOSS_WALL_WATCHER_NAME,The Watcher on the Wall
+ENEMY_WALL_WATCHER_NAME,The Watcher on the Wall
+ENEMY_WALL_WATCHER_MYTH,"The enchantment on the wall of the City of Brass. Each man who climbed up to look over it saw a vision beckoning to him from inside, cried ""Thou art beautiful!"" and threw himself down and died."
+BOSS_WALL_WATCHER_BECKONS,A vision beckons... strike the Watcher to break it!
+BOSS_QUEENS_GUARDIANS_NAME,The Queen's Guardians
+ENEMY_QUEENS_GUARDIANS_NAME,The Queen's Guardians
+ENEMY_QUEENS_GUARDIANS_MYTH,"The two automatons, one of steel and one of brass, that stand with swords on either side of the dead queen's bier. When one of Emir Musa's men climbed up to take her jewels, they struck off his head."
+BOSS_QUEENS_GUARDIANS_JEWEL,You took the queen's jewel... the guardians strike!
+BOSS_BRASS_HORSEMAN_NAME,The Brass Horseman
+ENEMY_BRASS_HORSEMAN_NAME,The Brass Horseman
+ENEMY_BRASS_HORSEMAN_MYTH,"The horseman of brass on his pillar in the desert, spear in hand. The inscription said: turn him, and he will point the way to the City of Brass."
+BOSS_BRASS_HORSEMAN_TURNED,"You turned the horseman! He points the wrong way, dazed!"
+ACH_BOSS_WALL_WATCHER_NAME,Defeat The Watcher on the Wall
+ACH_BOSS_WALL_WATCHER_DESC,The 10:00 boss of The City of Brass.
+ACH_BOSS_QUEENS_GUARDIANS_NAME,Defeat The Queen's Guardians
+ACH_BOSS_QUEENS_GUARDIANS_DESC,The 20:00 boss of The City of Brass.
+ACH_BOSS_BRASS_HORSEMAN_NAME,Defeat The Brass Horseman
+ACH_BOSS_BRASS_HORSEMAN_DESC,The 30:00 boss of The City of Brass.
+BANTER_WALL_WATCHER_ENTRANCE,Climb up. Look over. You will see such beautiful things.
+BANTER_QUEENS_GUARDIANS_ENTRANCE,(Two automatons raise their swords beside the dead queen's bier.)
+BANTER_BRASS_HORSEMAN_ENTRANCE,"(The horseman turns on his pillar, and his spear swings round to point at you.)"
+BANTER_BRASS_HORSEMAN_RA,"(The brass flashes in the sun god's light, too bright to look at.)"

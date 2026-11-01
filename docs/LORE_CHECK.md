@@ -1146,6 +1146,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | mountain_king_entrance | boss entrance | mountain_king | Troll, to thyself be enough! Will you take my daughter, and a tail? | Henrik Ibsen, Peer Gynt (1867) | no |
 | mountain_king_thor | boss meets god (with thor) | mountain_king | The troll-slayer! Ring no bells in my hall, thunderer. | Original line written for Mythriven | no |
 
+### The City of Brass
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | city_of_brass | The City of Brass | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) (the horseman, the automatons, the walled city; no jinn) | no |
+| enemy | brass_soldier | Brass soldier | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) (the city's brass figures and automatons) | no |
+| enemy | locust | Locust | The desert road of the tale | no |
+| boss | wall_watcher | The Watcher on the Wall | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) (each man who climbed the city wall saw a vision beckoning, clapped his hands, cried out and threw himself down) | no |
+| boss | queens_guardians | The Queen's Guardians | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) (two automatons with swords guard the embalmed queen, and strike down the man who takes her jewels) | no |
+| boss | brass_horseman | The Brass Horseman | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) (the brass horseman on the pillar, whose spear points the way when he is turned); GAME_DESIGN.md (the brass horseman) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| wall_watcher_entrance | boss entrance | wall_watcher | Climb up. Look over. You will see such beautiful things. | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) | no |
+| queens_guardians_entrance | boss entrance | queens_guardians | (Two automatons raise their swords beside the dead queen's bier.) | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) | no |
+| brass_horseman_entrance | boss entrance | brass_horseman | (The horseman turns on his pillar, and his spear swings round to point at you.) | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) | no |
+| brass_horseman_ra | boss meets god (with ra) | brass_horseman | (The brass flashes in the sun god's light, too bright to look at.) | Original description written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.
