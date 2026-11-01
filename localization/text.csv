@@ -3334,3 +3334,31 @@ BANTER_WALL_WATCHER_ENTRANCE,Climb up. Look over. You will see such beautiful th
 BANTER_QUEENS_GUARDIANS_ENTRANCE,(Two automatons raise their swords beside the dead queen's bier.)
 BANTER_BRASS_HORSEMAN_ENTRANCE,"(The horseman turns on his pillar, and his spear swings round to point at you.)"
 BANTER_BRASS_HORSEMAN_RA,"(The brass flashes in the sun god's light, too bright to look at.)"
+LEVEL_SEA_KINGS_HALL_NAME,The Sea King's Hall
+HAZARD_DEEP_CURRENTS_NAME,The deep currents sweep you along!
+ENEMY_WATER_SNAKE_NAME,Water snake
+ENEMY_WATER_SNAKE_MYTH,"One of the ugly, fat water-snakes the Sea Witch let crawl over her, which she called her little chickens."
+ENEMY_SILVER_FISH_NAME,Silver fish
+ENEMY_SILVER_FISH_MYTH,"The little fish that swim in and out through the Sea King's windows, as birds fly into our houses."
+BOSS_POLYP_WOOD_NAME,The Polyp Wood
+ENEMY_POLYP_WOOD_NAME,The Polyp Wood
+ENEMY_POLYP_WOOD_MYTH,"The wood of polyps round the Sea Witch's house: half animals and half plants, like hundred-headed snakes growing out of the ground. Their slimy arms seize anything that comes near and never let go; in their grip lie the white bones of drowned men."
+BOSS_WITCH_SNAKES_NAME,The Witch's Water Snakes
+ENEMY_WITCH_SNAKES_NAME,The Witch's Water Snakes
+ENEMY_WITCH_SNAKES_MYTH,"The Sea Witch's great fat water-snakes, her ""little chickens"", which coil about her house among the polyps."
+BOSS_WITCH_SNAKES_COIL,The coils close in! Get inside the ring!
+BOSS_SEA_WITCH_NAME,The Sea Witch
+ENEMY_SEA_WITCH_NAME,The Sea Witch
+ENEMY_SEA_WITCH_MYTH,"The Sea Witch who lives beyond the roaring whirlpools in a house built of drowned men's bones. She brewed the potion that gave the little mermaid legs, in a cauldron she scoured with her snakes, and took her voice in payment."
+BOSS_SEA_WITCH_BREWS,The Sea Witch is brewing! Spill her cauldron!
+BOSS_SEA_WITCH_VOICE,The Sea Witch takes your voice!
+ACH_BOSS_POLYP_WOOD_NAME,Defeat The Polyp Wood
+ACH_BOSS_POLYP_WOOD_DESC,The 10:00 boss of The Sea King's Hall.
+ACH_BOSS_WITCH_SNAKES_NAME,Defeat The Witch's Water Snakes
+ACH_BOSS_WITCH_SNAKES_DESC,The 20:00 boss of The Sea King's Hall.
+ACH_BOSS_SEA_WITCH_NAME,Defeat The Sea Witch
+ACH_BOSS_SEA_WITCH_DESC,The 30:00 boss of The Sea King's Hall.
+BANTER_POLYP_WOOD_ENTRANCE,"(Slimy arms rise from the sea floor, reaching for anything that moves.)"
+BANTER_WITCH_SNAKES_ENTRANCE,(The witch's fat water-snakes uncoil and slide toward you.)
+BANTER_SEA_WITCH_ENTRANCE,I know what you want. It will cost you. Everything costs something.
+BANTER_SEA_WITCH_POSEIDON,Another king of the sea? I've buried better in my wood.

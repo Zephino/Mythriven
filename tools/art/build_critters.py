@@ -445,6 +445,11 @@ LEVELS = {
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
         "insects": {},
         "large": {}},
+    "sea_kings_hall": {
+        "ground": {"crab": (lizard, "#c85a3a", "#8a3a2a")},
+        "birds": {},
+        "insects": {},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

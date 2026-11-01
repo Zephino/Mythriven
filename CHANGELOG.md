@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.29
+Date: 11/01/2026
+Time: 8:28 AM
+
+### Changes
+- **The Sea King's Hall, the palace beneath the waves, is built and open** (Pack 13, `docs/PACK_13_PLAN.md`). It opens when you beat the Spriggan. With it, all four realms of Wild Frontiers are built. Source: Hans Christian Andersen's "The Little Mermaid" (1837) only, not any film. The Little Mermaid, her sisters and the Sea King's family are not enemies.
+  - **Hazard, the deep currents:** the sea's currents sweep the Heroes along, the deep water closes in, and everyone is Soaked.
+  - **Monsters:** water snakes, silver fish (swarms), storm gusts, and the drowned from 10:00.
+  - **10:00, the Polyp Wood** (the grasping polyps round the witch's house): every 3 s their arms reach for marked spots under the Heroes; whoever is still there is hurt and held fast for 1.5 s.
+  - **20:00, the Witch's Water Snakes** (her "little chickens"): every 9 s their coils ring the arena and close in. While the ring is tight, a Hero caught outside it is squeezed.
+  - **30:00, the Sea Witch** (the design's boss, Andersen's): every 14 s she brews in her cauldron for 6 s, healing while it bubbles. Stand at the cauldron for 1.5 s to spill it and stun her. Every 10 s she takes the nearest Hero's voice (Hexed and held for a moment).
+  - The sea floor: sand, sea grass, coral and the deep, with kelp, drowned arches and sea gates; crabs.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (467 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 13; this is its last realm. Its secrets come next.
+
 ## Version 00.03.28
 Date: 11/01/2026
 Time: 8:19 AM

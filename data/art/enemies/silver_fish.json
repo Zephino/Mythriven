@@ -1,0 +1,84 @@
+{
+ "_doc": "A silver fish (Andersen: the little fish that swim in and out of the Sea King's windows). Built by tools/art/build_frontiers.py.",
+ "size": [
+  12,
+  10
+ ],
+ "anchor": [
+  6,
+  9
+ ],
+ "palette": {
+  "o": "#2a3a4a",
+  "s": "#c8d8e8",
+  "S": "#8aa0b8",
+  "w": "#ffffff",
+  "k": "#1a2a3a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "............",
+    "............",
+    "o...ooooo...",
+    "So.ossssso..",
+    "SSossssskso.",
+    "SSssssssssso",
+    "Sooswwwwwso.",
+    "o..ossssso..",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "walk": [
+   [
+    "............",
+    "............",
+    "....ooooo...",
+    "o..ossssso..",
+    "Soossssskso.",
+    "Sossssssssso",
+    "o.oswwwwwso.",
+    "...ossssso..",
+    "....ooooo...",
+    "............"
+   ],
+   [
+    "............",
+    "............",
+    "o...ooooo...",
+    "So.ossssso..",
+    "SSossssskso.",
+    "SSssssssssso",
+    "Sooswwwwwso.",
+    "o..ossssso..",
+    "....ooooo...",
+    "............"
+   ],
+   [
+    "............",
+    "............",
+    "....ooooo...",
+    "o..ossssso..",
+    "Soossssskso.",
+    "Sossssssssso",
+    "o.oswwwwwso.",
+    "...ossssso..",
+    "....ooooo...",
+    "............"
+   ],
+   [
+    "............",
+    "............",
+    "o...ooooo...",
+    "So.ossssso..",
+    "SSossssskso.",
+    "SSssssssssso",
+    "Sooswwwwwso.",
+    "o..ossssso..",
+    "....ooooo...",
+    "............"
+   ]
+  ]
+ }
+}

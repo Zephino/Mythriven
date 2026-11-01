@@ -1164,6 +1164,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | brass_horseman_entrance | boss entrance | brass_horseman | (The horseman turns on his pillar, and his spear swings round to point at you.) | "The City of Brass", One Thousand and One Nights (Burton's translation, 1885) | no |
 | brass_horseman_ra | boss meets god (with ra) | brass_horseman | (The brass flashes in the sun god's light, too bright to look at.) | Original description written for Mythriven | no |
 
+### The Sea King's Hall
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | sea_kings_hall | The Sea King's Hall | Hans Christian Andersen, "The Little Mermaid" (1837) | no |
+| enemy | water_snake | Water snake | Hans Christian Andersen, "The Little Mermaid" (1837) (the Sea Witch's fat water-snakes, "her little chickens") | no |
+| enemy | silver_fish | Silver fish | Hans Christian Andersen, "The Little Mermaid" (1837) (the fish that swim in and out of the Sea King's palace) | no |
+| boss | polyp_wood | The Polyp Wood | Hans Christian Andersen, "The Little Mermaid" (1837) (the polyps round the Sea Witch's house, half animal and half plant, which seize whatever comes near and never let go) | no |
+| boss | witch_snakes | The Witch's Water Snakes | Hans Christian Andersen, "The Little Mermaid" (1837) (the fat water-snakes the Sea Witch calls her little chickens) | no |
+| boss | sea_witch | The Sea Witch | Hans Christian Andersen, "The Little Mermaid" (1837) (the Sea Witch in her house of drowned men's bones, who brews the potion in her cauldron and takes the mermaid's voice as payment); GAME_DESIGN.md (the Sea Witch, Andersen's) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| polyp_wood_entrance | boss entrance | polyp_wood | (Slimy arms rise from the sea floor, reaching for anything that moves.) | Hans Christian Andersen, "The Little Mermaid" (1837) | no |
+| witch_snakes_entrance | boss entrance | witch_snakes | (The witch's fat water-snakes uncoil and slide toward you.) | Hans Christian Andersen, "The Little Mermaid" (1837) | no |
+| sea_witch_entrance | boss entrance | sea_witch | I know what you want. It will cost you. Everything costs something. | Hans Christian Andersen, "The Little Mermaid" (1837) | no |
+| sea_witch_poseidon | boss meets god (with poseidon) | sea_witch | Another king of the sea? I've buried better in my wood. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

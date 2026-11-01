@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 13, the last of the nine). The design (`GAME_DESIGN.md`: Fantasy realms) names each
 realm, its source and one boss idea; everything else was chosen by Claude from old public-domain texts only. The owner
-can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26); Dovrefjell (00.03.27); the City of Brass (00.03.28).
+can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26); Dovrefjell (00.03.27); the City of Brass (00.03.28); the Sea King's Hall (00.03.29). **All four realms are built.**
 
 Realms work like Packs 5-12: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -88,7 +88,7 @@ veil, sand, with a push).
 | 20:00 | **The Queen's Guardians** | The two automatons, sword in hand, that guard the queen's body. Their blades sweep round them in a turning cross; jewels lie by the queen's bier, and a Hero who takes one is struck at once |
 | 30:00 | **The Brass Horseman** (the design's) | The horseman on the pillar whose spear points the way. He turns to point his spear at a Hero (a marked line), then charges along it. A Hero who turns him (stands behind him for a moment) sends him the wrong way, and he stops, dazed |
 
-## Realm 52: the Sea King's Hall
+## Realm 52: the Sea King's Hall: **done and released 11/01/2026 (00.03.29)**
 *Source: Hans Christian Andersen, "The Little Mermaid" (1837; not any film): the Sea King's palace of coral and amber
 at the bottom of the sea, the storm that wrecked the prince's ship, the Sea Witch's house of drowned men's bones in a
 wood of polyps "half animal and half plant" that seize whatever comes near and never let go, the fat water-snakes she

@@ -1,0 +1,133 @@
+{
+ "_doc": "A water snake (Andersen: the Sea Witch's fat water-snakes, \"her little chickens\"): a thick, slimy green-brown snake, swimming. Built by tools/art/build_frontiers.py.",
+ "size": [
+  24,
+  20
+ ],
+ "anchor": [
+  12,
+  19
+ ],
+ "palette": {
+  "o": "#0e140a",
+  "g": "#5a6a3a",
+  "G": "#3a4a2a",
+  "y": "#e8d040"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.ooo...",
+    "..............oogogggo..",
+    "............ooggGgggygo.",
+    "..o........oGGgggggggggo",
+    "ooGoo.....ooGGggGgggggo.",
+    "GGGGGo...oggGGGGgogggo..",
+    "GGGGgoo.ooggggGoo.ooo...",
+    "GGggggGoGGgggggo........",
+    "ooggGGggGGGGgoo.........",
+    ".oggGGggGGGGGo..........",
+    "..ooGGggggGoo...........",
+    "....ooGogoo.............",
+    "......o.o...............",
+    "........................"
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "..............o.o.......",
+    "............ooGogoo.....",
+    "..........ooGGgggggoo...",
+    ".........oggGGgggggggo..",
+    "........ooggGGggGgggygo.",
+    "..o...ooGGggggGogggggggo",
+    "ooGoooggGGGGgoooGgggggo.",
+    "GGGGgoggGGGGGo..oogggo..",
+    "GGggGGggggGoo.....ooo...",
+    "GGggGGGGgoo.............",
+    "ooggGGGGGo..............",
+    "..oogoGoo...............",
+    "....o.o.................",
+    "........................"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "............o...........",
+    "..........oogoo.........",
+    "........ooggggGoo.......",
+    "......ooGGggGGGGgoo.....",
+    ".....oggGGggGGgggggoo...",
+    "....ooggGGGGGGgggggggo..",
+    "..ooGGggggGoooggGgggygo.",
+    "ooggGGGGgoo...oogggggggo",
+    "GGggGGGGGo.....oGgggggo.",
+    "GGggggGoo.......oogggo..",
+    "GGGGgoo...........ooo...",
+    "ooGoo...................",
+    "..o.....................",
+    "........................"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........o.o.............",
+    "......oogoGoo...........",
+    ".....oggGGGGgoo.........",
+    "....ooggGGgggggo........",
+    "..ooGGggGGggggGoo.......",
+    ".oggGGGGgoggGGGGgoo.....",
+    "ooggGGGGGoooGGgggggoo...",
+    "GGggggGoo..oGGgggggggo..",
+    "GGGGgoo.....ooggGgggygo.",
+    "GGGGGo........oogggggggo",
+    "ooGoo..........oGgggggo.",
+    "..o.............oogggo..",
+    "..................ooo...",
+    "........................"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "......o.o...............",
+    "....ooGogoo.............",
+    "..ooGGggggGoo...........",
+    ".oggGGggGGGGGo..........",
+    "ooggGGggGGGGgoo.........",
+    "GGggggGoGGgggggo........",
+    "GGGGgoo.ooggggGoo.ooo...",
+    "GGGGGo...oggGGGGgogggo..",
+    "ooGoo.....ooGGggGgggygo.",
+    "..o........oGGgggggggggo",
+    "............ooggGgggggo.",
+    "..............oogogggo..",
+    "................o.ooo...",
+    "........................"
+   ]
+  ]
+ }
+}

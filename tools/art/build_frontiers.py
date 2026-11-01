@@ -237,6 +237,76 @@ def brass_horseman(c, step):
 HORSEMAN_PAL = {"o": "#2a1a08", "k": "#1a1008", "y": "#d8a840", "B": "#9a6a1a", "s": "#c8ccd4"}
 
 
+# --- The Sea King's Hall (Andersen, "The Little Mermaid", 1837) -------------------------------------------------------
+
+def water_snake(c, f):
+    """A water snake (Andersen: the Sea Witch's fat water-snakes, "her little chickens"): a thick, slimy green-brown
+    snake, swimming."""
+    for k in range(9):
+        ellipse(c, 2 + k * 2, 12 + round(3 * math.sin(k / 1.6 + f * 0.8)), 2.5, 2, "g" if k % 2 else "G")
+    ellipse(c, 19, 12 + round(3 * math.sin(8 / 1.6 + f * 0.8)), 3, 2.5, "g"); c.px(20, 11 + round(3 * math.sin(8 / 1.6 + f * 0.8)), "y")
+
+
+WATER_SNAKE_PAL = {"o": "#0e140a", "g": "#5a6a3a", "G": "#3a4a2a", "y": "#e8d040"}
+
+
+def silver_fish(c, f):
+    """A silver fish (Andersen: the little fish that swim in and out of the Sea King's windows)."""
+    up = f % 2
+    ellipse(c, 6, 5, 4, 2.5, "s"); poly(c, [(2, 5), (0, 2 + up), (0, 8 - up)], "S")
+    c.px(8, 4, "k"); c.row(6, 4, 8, "w")
+
+
+SILVER_FISH_PAL = {"o": "#2a3a4a", "s": "#c8d8e8", "S": "#8aa0b8", "w": "#ffffff", "k": "#1a2a3a"}
+
+
+def polyp_wood(c, step):
+    """The Polyp Wood (Andersen: the polyps round the Sea Witch's house, half animal and half plant, like
+    hundred-headed snakes, holding the white bones of drowned men): a thicket of slimy, writhing green arms rising from
+    the sea floor."""
+    ellipse(c, 30, 48, 24, 6, "G")
+    for k in range(7):
+        x0 = 8 + k * 7
+        for y in range(48, 10 + (k % 3) * 6, -1):
+            x = x0 + round(3 * math.sin(y / 5.0 + k + step * 0.5))
+            c.rect(x, y, x + 2, y, "g" if (y + k) % 4 else "G")
+        c.px(x0 + round(3 * math.sin(11 / 5.0 + k)), 10 + (k % 3) * 6, "p")
+    c.rect(20, 44, 30, 45, "w"); c.px(19, 43, "w"); c.px(31, 43, "w")
+
+
+POLYP_PAL = {"o": "#0e140a", "g": "#6a8a4a", "G": "#4a6a3a", "p": "#c87a8a", "w": "#e8e4dc"}
+
+
+def witch_snakes(c, step):
+    """The Witch's Water Snakes (Andersen: the Sea Witch's "little chickens"): a knot of great fat water-snakes,
+    coiled and rearing."""
+    for k in range(14):
+        a = k / 14 * math.tau
+        ellipse(c, 28 + round(16 * math.cos(a)), 34 + round(9 * math.sin(a)), 5, 4, "g" if k % 2 else "G")
+    for x, h in ((18, 14), (36, 8)):
+        for y in range(34, h, -1):
+            c.rect(x + round(2 * math.sin(y / 3.0 + step)), y, x + 3 + round(2 * math.sin(y / 3.0 + step)), y, "g")
+        ellipse(c, x + 2, h, 4, 3, "G"); c.px(x + 3, h - 1, "y")
+
+
+SNAKES_PAL = WATER_SNAKE_PAL
+
+
+def sea_witch(c, step):
+    """The Sea Witch (Andersen, 1837; not any film): a squat old witch on the sea floor, her hair like sea-weed, a fat
+    water-snake round her shoulders and a toad on her hand."""
+    figure(c, step, "d", "s", "g")
+    c.rect(10, 4, 14, 26, "g"); c.rect(29, 4, 33, 26, "g")
+    for k in range(10):
+        c.px(12 + k * 2, 20 + round(2 * math.sin(k)), "G")
+    ellipse(c, 34, 32, 3, 2, "t"); c.px(35, 31, "y")
+    c.px(18, 10, "y"); c.px(23, 10, "y")
+
+
+SEA_WITCH_PAL = {"o": "#0a0e10", "k": "#141a1e", "d": "#2a3a3a", "s": "#8aa098", "g": "#3a5a2a", "G": "#5a6a3a",
+                 "t": "#6a7a3a", "y": "#e8d040"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_frontiers.py."
@@ -256,4 +326,9 @@ if __name__ == "__main__":
     kit.build_boss("wall_watcher", wall_watcher, WATCHER_PAL, doc(wall_watcher.__doc__), (42, 54), (21, 52), [0, 1, 0, -1, 0])
     kit.build_boss("queens_guardians", queens_guardians, GUARDIANS_PAL, doc(queens_guardians.__doc__), (48, 56), (24, 54), [0, 1, 0, -1, 0])
     kit.build_boss("brass_horseman", brass_horseman, HORSEMAN_PAL, doc(brass_horseman.__doc__), (66, 52), (32, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("water_snake", water_snake, WATER_SNAKE_PAL, doc(water_snake.__doc__), (24, 20), (12, 19), walk, folder="enemies")
+    kit.build_boss("silver_fish", silver_fish, SILVER_FISH_PAL, doc(silver_fish.__doc__), (12, 10), (6, 9), walk, folder="enemies")
+    kit.build_boss("polyp_wood", polyp_wood, POLYP_PAL, doc(polyp_wood.__doc__), (60, 54), (30, 52), [0, 1, 0, -1, 0])
+    kit.build_boss("witch_snakes", witch_snakes, SNAKES_PAL, doc(witch_snakes.__doc__), (56, 46), (28, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("sea_witch", sea_witch, SEA_WITCH_PAL, doc(sea_witch.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     print("wrote Wild Frontiers' art")

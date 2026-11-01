@@ -1934,5 +1934,35 @@
       "id": "brass_horseman"
     },
     "persists": true
+  },
+  {
+    "id": "boss_polyp_wood",
+    "name_key": "ACH_BOSS_POLYP_WOOD_NAME",
+    "desc_key": "ACH_BOSS_POLYP_WOOD_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "polyp_wood"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_witch_snakes",
+    "name_key": "ACH_BOSS_WITCH_SNAKES_NAME",
+    "desc_key": "ACH_BOSS_WITCH_SNAKES_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "witch_snakes"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_sea_witch",
+    "name_key": "ACH_BOSS_SEA_WITCH_NAME",
+    "desc_key": "ACH_BOSS_SEA_WITCH_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "sea_witch"
+    },
+    "persists": true
   }
 ]

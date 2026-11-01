@@ -3255,5 +3255,46 @@
     "text_key": "BANTER_BRASS_HORSEMAN_RA",
     "lore_source": "Original description written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "polyp_wood_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "polyp_wood",
+    "hero": "",
+    "god": "polyp_wood",
+    "text_key": "BANTER_POLYP_WOOD_ENTRANCE",
+    "lore_source": "Hans Christian Andersen, \"The Little Mermaid\" (1837)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "witch_snakes_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "witch_snakes",
+    "hero": "",
+    "god": "witch_snakes",
+    "text_key": "BANTER_WITCH_SNAKES_ENTRANCE",
+    "lore_source": "Hans Christian Andersen, \"The Little Mermaid\" (1837)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "sea_witch_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "sea_witch",
+    "hero": "",
+    "god": "sea_witch",
+    "text_key": "BANTER_SEA_WITCH_ENTRANCE",
+    "lore_source": "Hans Christian Andersen, \"The Little Mermaid\" (1837)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "sea_witch_poseidon",
+    "trigger": "boss_meets_god",
+    "speaker": "sea_witch",
+    "hero": "",
+    "god": "sea_witch",
+    "with_god": "poseidon",
+    "text_key": "BANTER_SEA_WITCH_POSEIDON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

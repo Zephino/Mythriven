@@ -6185,5 +6185,118 @@
       "edge": "#a88850",
       "stones": "#e0c890"
     }
+  },
+  {
+    "_doc": "The Sea King's Hall, Pack 13 realm 4, the merfolk palace beneath the waves (docs/PACK_13_PLAN.md). Source: Hans Christian Andersen, \"The Little Mermaid\" (1837), not any film. The Little Mermaid, her sisters and the Sea King's family are not enemies. A realm: no local gods.",
+    "id": "sea_kings_hall",
+    "name_key": "LEVEL_SEA_KINGS_HALL_NAME",
+    "region": "realm_sea_king",
+    "act": 15,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "sea_kings_hall",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "sand",
+          "max": -0.3,
+          "placeholder_color": "#c8c0a0",
+          "placeholder_dots": "#e8e0c8"
+        },
+        {
+          "id": "sea_grass",
+          "max": 0.15,
+          "placeholder_color": "#3a6a5a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "coral",
+          "max": 0.6,
+          "placeholder_color": "#4a5a6a",
+          "placeholder_dots": "#e07a6a"
+        },
+        {
+          "id": "deep",
+          "max": 1.0,
+          "placeholder_color": "#2a3a4a",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "drowned_arch",
+      "sea_gate"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "drowned_arch": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          24
+        ],
+        "placeholder_color": "#6a8a8a",
+        "weight": 1
+      },
+      "sea_gate": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          26
+        ],
+        "placeholder_color": "#5a7a7a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "polyp_wood",
+      "20": "witch_snakes",
+      "30": "sea_witch"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "knockers_deep",
+      "boss": "great_spriggan"
+    },
+    "waves": "waves_sea_kings_hall.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 22,
+      "push_px_s": 40,
+      "enemy_push_px_s": 15,
+      "wind_turn_s": 6,
+      "vision_screens": 0.6,
+      "pulse": 0.1,
+      "pulse_hz": 0.2,
+      "veil_color": "#2a5a7a",
+      "particles": "mist",
+      "particle_color": "#a8d8f0",
+      "fade_s": 2.5,
+      "player_status": "soaked",
+      "status_every_s": 4.0,
+      "name_key": "HAZARD_DEEP_CURRENTS_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#b8d0dc",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "kelp": 2
+      }
+    },
+    "road": {
+      "color": "#c8c0a0",
+      "edge": "#a8a080",
+      "stones": "#e8e0c8"
+    }
   }
 ]

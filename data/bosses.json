@@ -12896,5 +12896,249 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Sea King's Hall bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "polyp_wood",
+    "name_key": "BOSS_POLYP_WOOD_NAME",
+    "tradition": "danish",
+    "lore_source": "Hans Christian Andersen, \"The Little Mermaid\" (1837) (the polyps round the Sea Witch's house, half animal and half plant, which seize whatever comes near and never let go)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "polyp_wood",
+    "move_speed": 16,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "grasping_polyps",
+      "grab_every_s": 3.0,
+      "telegraph_s": 1.0,
+      "grab_radius_px": 28,
+      "grab_damage": 8,
+      "hold_s": 1.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Sea King's Hall bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "witch_snakes",
+    "name_key": "BOSS_WITCH_SNAKES_NAME",
+    "tradition": "danish",
+    "lore_source": "Hans Christian Andersen, \"The Little Mermaid\" (1837) (the fat water-snakes the Sea Witch calls her little chickens)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "witch_snakes",
+    "move_speed": 40,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_coils",
+      "coil_every_s": 9.0,
+      "start_px": 280,
+      "end_px": 120,
+      "close_px_s": 40,
+      "hold_s": 1.5,
+      "squeeze_every_s": 0.5,
+      "squeeze_damage": 6
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Sea King's Hall bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "sea_witch",
+    "name_key": "BOSS_SEA_WITCH_NAME",
+    "tradition": "danish",
+    "lore_source": "Hans Christian Andersen, \"The Little Mermaid\" (1837) (the Sea Witch in her house of drowned men's bones, who brews the potion in her cauldron and takes the mermaid's voice as payment); GAME_DESIGN.md (the Sea Witch, Andersen's)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "sea_witch",
+    "move_speed": 36,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_cauldron",
+      "cauldron_px": 120,
+      "cauldron_reach_px": 20,
+      "brew_every_s": 14.0,
+      "brew_s": 6.0,
+      "heal_per_s": 0.015,
+      "spill_s": 1.5,
+      "spilled_stun_s": 3.0,
+      "voice_every_s": 10.0,
+      "voice_hold_s": 1.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "water_snake"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "water_snake"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

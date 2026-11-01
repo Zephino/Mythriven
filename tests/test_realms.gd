@@ -1934,6 +1934,52 @@ func test_the_brass_horseman_charges_and_is_turned() -> void:
 	assert_almost_eq(rider.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "dazed")
 
 
+func test_the_polyp_wood_seizes_heroes() -> void:
+	_start("sea_kings_hall")
+	assert_eq(str(_level("sea_kings_hall")["unlock"]["boss"]), "great_spriggan")
+	var wood: PolypWoodBoss = _bosses.spawn_boss("polyp_wood", 0) as PolypWoodBoss
+	wood.signature(2.1)
+	assert_gt(wood.marks.size(), 0, "arms reach out")
+	wood.signature(1.0)
+	assert_eq(wood.seized, 1)
+	assert_gt(_player.rooted_s, 0.0, "held fast")
+
+
+func test_the_witchs_snakes_coil_round_the_arena() -> void:
+	_start("sea_kings_hall")
+	var snakes: WitchSnakesBoss = _bosses.spawn_boss("witch_snakes", 1) as WitchSnakesBoss
+	snakes.signature(5.1)
+	assert_ne(snakes.ring, INF, "the coils ring the arena")
+	_player.position = _bosses.arena_center + Vector2(200, 0)
+	var hp: float = _player.hp
+	snakes.signature(4.1)
+	snakes.signature(0.1)
+	assert_gt(snakes.squeezed, 0, "squeezed outside the ring")
+	assert_lt(_player.hp, hp)
+	snakes.signature(1.5)
+	assert_eq(snakes.ring, INF, "the coils loosen")
+
+
+func test_the_sea_witch_brews_and_takes_voices() -> void:
+	_start("sea_kings_hall")
+	var witch: SeaWitchBoss = _bosses.spawn_boss("sea_witch", 2) as SeaWitchBoss
+	assert_ne(witch.cauldron, Vector2.INF)
+	_enemies.hp[witch.slot] -= 300.0
+	_player.position = Vector2(9999, 9999)
+	witch.signature(5.1)
+	assert_eq(witch.voices, 1, "she takes a voice")
+	assert_true(_player.statuses.has("hex"))
+	witch.signature(1.0)
+	assert_gt(witch.brewing_s, 0.0, "brewing")
+	witch.signature(0.5)
+	assert_gt(witch.brewed, 0.0, "healing while it bubbles")
+	_player.position = witch.cauldron
+	witch.signature(0.8)
+	witch.signature(0.8)
+	assert_eq(witch.spilled, 1, "spilled")
+	assert_eq(witch.brewing_s, 0.0)
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

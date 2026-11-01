@@ -536,6 +536,11 @@ LEVELS = {
         "trees": {"palm": (palm, 26, 40), "acacia": (acacia, 32, 28)},
         "bushes": {"scrub": ("m", "M", "y", None)},
         "rock": ("a", "A", "B", None)},
+    # The Sea King's Hall: the bottom of the sea; tall kelp and sea grass, coral among the sand.
+    "sea_kings_hall": {
+        "trees": {"kelp": (lambda c, r, s: broadleaf(c, r, s, "V", "v", "w"), 16, 40)},
+        "bushes": {"sea_grass": ("V", "v", "w", None)},
+        "rock": ("a", "A", "B", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},
