@@ -6,6 +6,7 @@ import hero_kit as kit
 from hero_kit import ellipse, poly
 from figure_kit import person
 from build_frontiers import centaur as pelion_centaur
+from build_deep import gullinbursti as boar_body
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -305,17 +306,16 @@ HIND_PAL = {"o": "#1a0e04", "b": "#c88a4a", "B": "#a86a34", "k": "#1a0e08", "y":
 
 def erymanthian_boar(c, step):
     """The Erymanthian Boar (Apollodorus 2.5.4): the huge wild boar of Mount Erymanthus, which Heracles drove out of a
-    thicket into the deep snow and snared. A massive dark boar, snow on its bristles."""
-    ellipse(c, 28, 28, 22, 12, "b")
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(12 + k * 10 + d, 36, 16 + k * 10 + d, 48, "B")
-    poly(c, [(46, 20), (60, 24), (60, 32), (46, 36)], "b"); c.rect(58, 26, 61, 30, "B"); c.px(51, 24, "k")
-    poly(c, [(56, 30), (60, 36), (57, 30)], "w")
-    for x in range(10, 46, 2):
-        c.px(x, 16 + abs(x - 28) // 5, "B"); c.px(x, 15 + abs(x - 28) // 5, "s" if x % 6 == 0 else "B")
+    thicket into the deep snow and snared. A massive dark boar, heavy in the shoulders, a crest of coarse bristles
+    tipped with snow, long white tusks and a small red eye (drawn on Gullinbursti's boar body)."""
+    boar_body(c, step)
+    c.px(56, 23, "e")                                                                    # small red eye
+    for x, y in ((20, 22), (30, 19), (40, 16), (26, 28), (46, 24)):
+        c.px(x, y, "w")                                                                  # snow on its back
 
 
-ERY_PAL = {"o": "#0e0806", "b": "#4a3a2e", "B": "#2e241c", "k": "#e83a2a", "w": "#f0ece0", "s": "#f4f8fc"}
+ERY_PAL = {"o": "#0e0806", "g": "#4a3a2e", "G": "#2e241c", "D": "#1e1812", "y": "#5a4a3c", "l": "#3a2e24",
+           "w": "#f4f8fc", "L": "#6a5848", "k": "#0e0806", "e": "#e83a2a"}
 
 
 def lycaon(wolf):
@@ -430,7 +430,7 @@ if __name__ == "__main__":
     kit.build_boss("centaur", centaur, CENTAUR_PAL, doc(centaur.__doc__), (28, 30), (13, 29), walk, folder="enemies")
     kit.build_boss("stymphalian_diver", stymphalian_diver, DIVER_PAL, doc(stymphalian_diver.__doc__), (20, 14), (10, 13), walk, folder="enemies")
     kit.build_boss("ceryneian_hind", ceryneian_hind, HIND_PAL, doc(ceryneian_hind.__doc__), (48, 48), (24, 46), [0, 1, 0, -1, 0])
-    kit.build_boss("erymanthian_boar", erymanthian_boar, ERY_PAL, doc(erymanthian_boar.__doc__), (64, 50), (30, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("erymanthian_boar", erymanthian_boar, ERY_PAL, doc(erymanthian_boar.__doc__), (68, 50), (32, 48), [0, 1, 0, -1, 0])
     kit.build_boss("lycaon", lycaon(False), LYCAON_PAL, doc(lycaon.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("lycaon_wolf", lycaon(True), LYCAON_PAL, doc(lycaon.__doc__ + " Here, as the wolf."), (54, 50), (25, 48), [0, 1, 0, -1, 0])
     kit.build_boss("spartoi", spartoi, SPARTOI_PAL, doc(spartoi.__doc__), (20, 24), (10, 23), walk, folder="enemies")

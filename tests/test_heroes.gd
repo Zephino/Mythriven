@@ -730,10 +730,13 @@ func test_gilgamesh_is_two_thirds_divine_and_enkidu_fights_beside_him() -> void:
 	var slot: int = _enemies.spawn("troll", Vector2(60, 0))
 	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
 	var hp: float = _enemies.hp[slot]
+	# Enkidu may already be on his way back after the blow, so check how close he got, not where he ends.
+	var closest: float = INF
 	for _i: int in 60:
 		gilgamesh.kit._process(0.05)
+		closest = minf(closest, gilgamesh.kit.enkidu_pos.distance_to(_enemies.positions[slot]))
 	assert_lt(_enemies.hp[slot], hp, "Enkidu runs out and strikes it")
-	assert_lt(gilgamesh.kit.enkidu_pos.distance_to(_enemies.positions[slot]), 40.0)
+	assert_lt(closest, 40.0, "he reached it")
 	GameAuthority.remove_player(gilgamesh)
 
 

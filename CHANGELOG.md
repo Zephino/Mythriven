@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.49
+Date: 11/01/2026
+Time: 6:46 PM
+
+### Changes
+- **The Erymanthian Boar remade** (owner's request). It is now drawn on Gullinbursti's boar body: heavy in the shoulders, a long snout with its disc, slim legs with cloven hooves, a thin tufted tail. But where Gullinbursti is gold, this one is a massive dark-brown wild boar with a crest of coarse bristles tipped with snow (Heracles drove it into the deep snow), long white tusks, a small red eye, and snow on its back.
+
+- **Test fix:** the Gilgamesh test could fail now and then because it checked where Enkidu stood at the very last moment, when he may already be heading back after his blow. It now checks how close he got to the enemy.
+
+### Reason
+The owner asked for the boar to be remade too.
+
 ## Version 00.03.48
 Date: 11/01/2026
 Time: 6:39 PM
