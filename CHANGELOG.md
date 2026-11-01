@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.23
+Date: 11/01/2026
+Time: 1:58 AM
+
+### Changes
+- **The Shadow's Court, the realm of living shadows, is built and open** (Pack 12, `docs/PACK_12_PLAN.md`). It opens when you beat Atlas. Source: Hans Christian Andersen's "The Shadow" (1847) only.
+  - **Hazard, the lengthening shadows:** evening falls and the view closes in.
+  - **Monsters:** living shadows, lamp moths (swarms) and night bats.
+  - **10:00, the Learned Man** (who became his own shadow's shadow): he keeps to the dark side of the nearest Hero, away from the lamp that burns in the arena. Lead him into the lamplight and he takes double damage.
+  - **20:00, the Princess Who Saw Too Clearly:** her gaze sweeps slowly round her in a wide cone, hurting and Shocking whoever it falls on. She can't see behind her: blows from behind do 50% more.
+  - **30:00, the Shadow** (the design's boss, who became his master's master): every 14 s he tears each Hero's shadow off, and it rises beside them as a living shadow. While any stolen shadow stands, he takes only half damage.
+  - A dusky southern city of paving and cobbles, dark poplars and old walls; bats and moths.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- **Correction to 00.03.22's notes:** the fix to the Red-Eared Hound's fawn was already in 00.03.21 before it went out, so players never saw that bug.
+- 3 new tests (450 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 12; the realms are built one at a time.
+
 ## Version 00.03.22
 Date: 11/01/2026
 Time: 1:47 AM

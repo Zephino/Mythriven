@@ -11677,5 +11677,244 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Shadow's Court bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "learned_man",
+    "name_key": "BOSS_LEARNED_MAN_NAME",
+    "tradition": "danish",
+    "lore_source": "Hans Christian Andersen, \"The Shadow\" (1847) (the learned man, grown thin and grey as a shadow, becomes his own shadow's shadow)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "learned_man",
+    "move_speed": 50,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "shadows_shadow",
+      "lamp_px": 110,
+      "lamp_radius_px": 90,
+      "lit_damage_taken": 2.0,
+      "behind_px": 40,
+      "follow_px_s": 70
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Shadow's Court bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "clear_sighted_princess",
+    "name_key": "BOSS_CLEAR_SIGHTED_PRINCESS_NAME",
+    "tradition": "danish",
+    "lore_source": "Hans Christian Andersen, \"The Shadow\" (1847) (the princess who suffered from seeing too clearly, and who married the Shadow)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "clear_sighted_princess",
+    "move_speed": 30,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "too_clear_sight",
+      "turn_rad_s": 0.8,
+      "cone_deg": 35,
+      "range_px": 220,
+      "gaze_every_s": 0.5,
+      "gaze_damage": 4,
+      "behind_damage_taken": 1.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Shadow's Court bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "the_shadow",
+    "name_key": "BOSS_THE_SHADOW_NAME",
+    "tradition": "danish",
+    "lore_source": "Hans Christian Andersen, \"The Shadow\" (1847); GAME_DESIGN.md (the Shadow, who became its master's master)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "the_shadow",
+    "move_speed": 40,
+    "keep_distance_px": 80,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "masters_master",
+      "tear_every_s": 14.0,
+      "shadow_enemy": "living_shadow",
+      "shadow_offset_px": 30,
+      "shielded_damage_taken": 0.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "lamp_moth"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "lamp_moth"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

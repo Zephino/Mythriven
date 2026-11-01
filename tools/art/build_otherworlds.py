@@ -179,6 +179,71 @@ PHANTOM_PAL = {"o": "#6a8a8a", "b": "#8aa8a0", "B": "#6a8a84", "y": "#c8e0d0", "
                "S": "#a8c8c0"}
 
 
+# --- The Shadow's Court (Andersen, "The Shadow", 1847) ---------------------------------------------------------------
+
+def living_shadow(c, f):
+    """A living shadow (Andersen, "The Shadow"): a flat, man-shaped blackness that walks about by itself."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 16, x + 1 + d, 22, "k")
+    poly(c, [(6, 8), (13, 8), (14, 17), (5, 17)], "k")
+    ellipse(c, 9, 4, 3, 3.5, "k")
+    c.rect(3, 9, 4, 15, "K"); c.rect(15, 9, 16, 15, "K")
+    c.px(8, 4, "p"); c.px(11, 4, "p")
+
+
+LIVING_SHADOW_PAL = {"o": "#05040a", "k": "#14101c", "K": "#1e1a28", "p": "#5a4a7a"}
+
+
+def lamp_moth(c, f):
+    """A lamp moth (the lamplit balconies of the southern city): a pale, dusty moth."""
+    up = f % 2
+    poly(c, [(6, 6), (1, 2 if up else 5), (2, 9), (6, 8)], "w"); poly(c, [(7, 6), (12, 2 if up else 5), (11, 9), (7, 8)], "W")
+    c.rect(6, 5, 7, 9, "b"); c.px(5, 4, "b"); c.px(8, 4, "b")
+
+
+LAMP_MOTH_PAL = {"o": "#2a241e", "w": "#e0d4c0", "W": "#c8bca8", "b": "#5a4a3a"}
+
+
+def learned_man(c, step):
+    """The Learned Man (Andersen, "The Shadow"): the kind scholar from the cold north, grown so thin and grey that he
+    looks like a shadow himself, a book under his arm."""
+    figure(c, step, "g", "s", "h", x0=15)
+    c.rect(12, 24, 16, 32, "b"); c.row(28, 12, 16, "w")
+    c.rect(19, 9, 25, 10, "k"); c.px(18, 10, "k"); c.px(26, 10, "k")
+
+
+LEARNED_MAN_PAL = {"o": "#0e0e12", "k": "#1e1e24", "g": "#6a6a74", "s": "#c8c4c0", "h": "#9a9aa4", "b": "#5a2a1a",
+                   "w": "#e8e0d0"}
+
+
+def clear_sighted_princess(c, step):
+    """The Princess Who Saw Too Clearly (Andersen, "The Shadow"): a king's daughter in a pale silk gown and a small
+    crown, her eyes wide and bright."""
+    figure(c, step, "w", "s", "y")
+    poly(c, [(10, 30), (34, 30), (38, 50), (6, 50)], "W")
+    c.rect(16, 1, 27, 3, "y"); c.px(18, 0, "y"); c.px(21, 0, "y"); c.px(24, 0, "y")
+    c.rect(17, 9, 19, 11, "b"); c.rect(23, 9, 25, 11, "b"); c.px(18, 10, "k"); c.px(24, 10, "k")
+
+
+PRINCESS_PAL = {"o": "#120e14", "k": "#1e1a24", "w": "#e8e4f4", "W": "#c8c4dc", "s": "#f0dcd0", "y": "#e8c040",
+                "b": "#a8d8ff"}
+
+
+def the_shadow(c, step):
+    """The Shadow (Andersen, "The Shadow"): the shadow turned gentleman, all in black, very fine, in a tall hat, with
+    rings on his fingers and a face as dark as a shadow's."""
+    figure(c, step, "k", "d", "k")
+    c.rect(16, 0, 27, 3, "k"); c.rect(14, 3, 29, 4, "k")
+    c.rect(19, 18, 24, 22, "w")
+    c.px(18, 10, "p"); c.px(24, 10, "p")
+    for x, y in ((12, 32), (31, 32)):
+        c.px(x, y, "y")
+
+
+THE_SHADOW_PAL = {"o": "#05040a", "k": "#14101c", "d": "#2e2838", "w": "#e8e4f0", "p": "#a888e0", "y": "#e8c040"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_otherworlds.py."
@@ -194,4 +259,9 @@ if __name__ == "__main__":
     kit.build_boss("obrazile_necromancer", obrazile_necromancer, NECROMANCER_PAL, doc(obrazile_necromancer.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("flying_dutchman", flying_dutchman(False), DUTCHMAN_PAL, doc(flying_dutchman.__doc__), (62, 50), (31, 48), [0, 1, 0, -1, 0])
     kit.build_boss("flying_dutchman_phantom", flying_dutchman(True), PHANTOM_PAL, doc(flying_dutchman.__doc__ + " Here, as a phantom."), (62, 50), (31, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("living_shadow", living_shadow, LIVING_SHADOW_PAL, doc(living_shadow.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("lamp_moth", lamp_moth, LAMP_MOTH_PAL, doc(lamp_moth.__doc__), (14, 12), (7, 11), walk, folder="enemies")
+    kit.build_boss("learned_man", learned_man, LEARNED_MAN_PAL, doc(learned_man.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("clear_sighted_princess", clear_sighted_princess, PRINCESS_PAL, doc(clear_sighted_princess.__doc__), (44, 56), (21, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("the_shadow", the_shadow, THE_SHADOW_PAL, doc(the_shadow.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     print("wrote Otherworlds' art")

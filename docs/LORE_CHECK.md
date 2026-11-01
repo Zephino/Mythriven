@@ -1058,6 +1058,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | flying_dutchman_entrance | boss entrance | flying_dutchman | (A ship with ragged sails beats in against the wind. Someone on deck holds up a bundle of letters.) | the Flying Dutchman: Barrington, A Voyage to Botany Bay (1795); "Vanderdecken's Message Home", Blackwood's Magazine (1821) | no |
 | flying_dutchman_poseidon | boss meets god (with poseidon) | flying_dutchman | Lord of the sea, let me round the Cape. Just this once. | Original line written for Mythriven | no |
 
+### The Shadow's Court
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | shadows_court | The Shadow's Court | Hans Christian Andersen, "The Shadow" (1847) | no |
+| enemy | living_shadow | Living shadow | Hans Christian Andersen, "The Shadow" (1847) (the shadow that leaves its master and goes off on its own) | no |
+| enemy | lamp_moth | Lamp moth | Hans Christian Andersen, "The Shadow" (1847) (the lamplit balconies of the hot southern city) | no |
+| boss | learned_man | The Learned Man | Hans Christian Andersen, "The Shadow" (1847) (the learned man, grown thin and grey as a shadow, becomes his own shadow's shadow) | no |
+| boss | clear_sighted_princess | The Princess Who Saw Too Clearly | Hans Christian Andersen, "The Shadow" (1847) (the princess who suffered from seeing too clearly, and who married the Shadow) | no |
+| boss | the_shadow | The Shadow | Hans Christian Andersen, "The Shadow" (1847); GAME_DESIGN.md (the Shadow, who became its master's master) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| learned_man_entrance | boss entrance | learned_man | I wrote about the true, the good and the beautiful. Nobody cared. | Hans Christian Andersen, "The Shadow" (1847) | no |
+| clear_sighted_princess_entrance | boss entrance | clear_sighted_princess | I see you. I see far too much of you. | Hans Christian Andersen, "The Shadow" (1847) | no |
+| the_shadow_entrance | boss entrance | the_shadow | I was once a shadow. Now I have one. Would you like to be mine? | Hans Christian Andersen, "The Shadow" (1847) | no |
+| the_shadow_hecate | boss meets god (with hecate) | the_shadow | A goddess of the dark, and torches. You'll make me shorter. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

@@ -510,6 +510,11 @@ LEVELS = {
         "trees": {"hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"heather": ("P", "p", "q", None)},
         "rock": ("g", "G", "H", "l")},
+    # The Shadow's Court: a dusky southern city of balconies and gardens; dark poplars and clipped box.
+    "shadows_court": {
+        "trees": {"black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"box": ("X", "x", "C", None)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

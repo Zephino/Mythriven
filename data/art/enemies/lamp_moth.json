@@ -1,0 +1,93 @@
+{
+ "_doc": "A lamp moth (the lamplit balconies of the southern city): a pale, dusty moth. Built by tools/art/build_otherworlds.py.",
+ "size": [
+  14,
+  12
+ ],
+ "anchor": [
+  7,
+  11
+ ],
+ "palette": {
+  "o": "#2a241e",
+  "w": "#e0d4c0",
+  "W": "#c8bca8",
+  "b": "#5a4a3a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..............",
+    "..............",
+    "..............",
+    ".....o..o.....",
+    ".oo.oboobooo..",
+    "owwooobboWWWo.",
+    "owwwwwbbWWWWo.",
+    ".owwwwbbWWWo..",
+    ".owwoobboWWo..",
+    "..oo.obbooo...",
+    "......oo......",
+    ".............."
+   ]
+  ],
+  "walk": [
+   [
+    "..............",
+    ".o.........o..",
+    "owo.......oWo.",
+    "owwo.o..ooWWo.",
+    "owwwoboobWWWo.",
+    "owwwwobbWWWo..",
+    ".owwwwbbWWWo..",
+    ".owwwwbbWWWo..",
+    ".owwoobboWWo..",
+    "..oo.obbooo...",
+    "......oo......",
+    ".............."
+   ],
+   [
+    "..............",
+    "..............",
+    "..............",
+    ".....o..o.....",
+    ".oo.oboobooo..",
+    "owwooobboWWWo.",
+    "owwwwwbbWWWWo.",
+    ".owwwwbbWWWo..",
+    ".owwoobboWWo..",
+    "..oo.obbooo...",
+    "......oo......",
+    ".............."
+   ],
+   [
+    "..............",
+    ".o.........o..",
+    "owo.......oWo.",
+    "owwo.o..ooWWo.",
+    "owwwoboobWWWo.",
+    "owwwwobbWWWo..",
+    ".owwwwbbWWWo..",
+    ".owwwwbbWWWo..",
+    ".owwoobboWWo..",
+    "..oo.obbooo...",
+    "......oo......",
+    ".............."
+   ],
+   [
+    "..............",
+    "..............",
+    "..............",
+    ".....o..o.....",
+    ".oo.oboobooo..",
+    "owwooobboWWWo.",
+    "owwwwwbbWWWWo.",
+    ".owwwwbbWWWo..",
+    ".owwoobboWWo..",
+    "..oo.obbooo...",
+    "......oo......",
+    ".............."
+   ]
+  ]
+ }
+}

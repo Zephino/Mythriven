@@ -1656,6 +1656,47 @@ func test_the_flying_dutchman_is_a_phantom_by_turns() -> void:
 	assert_true(_player.statuses.has("hex"), "an ill omen")
 
 
+func test_the_learned_man_keeps_to_the_shadow_side() -> void:
+	_start("shadows_court")
+	assert_eq(str(_level("shadows_court")["unlock"]["boss"]), "atlas_king")
+	var scholar: LearnedManBoss = _bosses.spawn_boss("learned_man", 0) as LearnedManBoss
+	assert_ne(scholar.lamp, Vector2.INF)
+	var spot: Vector2 = scholar.shadow_spot(_player)
+	assert_gt(spot.distance_to(scholar.lamp), _player.position.distance_to(scholar.lamp), "behind the Hero, away from the lamp")
+	_enemies.positions[scholar.slot] = Vector2(5000, 5000)
+	assert_almost_eq(scholar.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "in the dark")
+	_enemies.positions[scholar.slot] = scholar.lamp
+	assert_almost_eq(scholar.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "in the lamplight")
+
+
+func test_the_princess_sees_in_front_but_not_behind() -> void:
+	_start("shadows_court")
+	var princess: ClearSightedPrincessBoss = _bosses.spawn_boss("clear_sighted_princess", 1) as ClearSightedPrincessBoss
+	_player.position = princess.position_now() + Vector2(80, 0)
+	princess.gaze_angle = (_player.position - princess.position_now()).angle()
+	assert_true(princess.sees(_player.position))
+	assert_almost_eq(princess.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "struck from the front")
+	var hp: float = _player.hp
+	princess.signature(0.5)
+	assert_eq(princess.seen, 1)
+	assert_lt(_player.hp, hp)
+	princess.gaze_angle = (princess.position_now() - _player.position).angle()
+	assert_false(princess.sees(_player.position), "behind her")
+	assert_almost_eq(princess.modify_hit(10.0, _player, Vector2.ZERO), 15.0, 0.01, "struck from behind")
+
+
+func test_the_shadow_tears_off_the_heroes_shadows() -> void:
+	_start("shadows_court")
+	var master: TheShadowBoss = _bosses.spawn_boss("the_shadow", 2) as TheShadowBoss
+	master.signature(4.1)
+	assert_eq(master.torn, 1)
+	assert_eq(master.standing_shadows(), 1, "the Hero's shadow rises")
+	assert_almost_eq(master.modify_hit(10.0, _player, Vector2.ZERO), 5.0, 0.01, "shielded by it")
+	_enemies.remove_quietly(master.shadows[0])
+	assert_eq(master.standing_shadows(), 0)
+	assert_almost_eq(master.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01)
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

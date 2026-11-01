@@ -5631,5 +5631,117 @@
       "edge": "#888470",
       "stones": "#c8c4b0"
     }
+  },
+  {
+    "_doc": "The Shadow's Court, Pack 12 realm 3, the realm of living shadows (docs/PACK_12_PLAN.md). Source: Hans Christian Andersen, \"The Shadow\" (1847), not any later version. A realm: no local gods.",
+    "id": "shadows_court",
+    "name_key": "LEVEL_SHADOWS_COURT_NAME",
+    "region": "realm_shadow",
+    "act": 14,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "shadows_court",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "paving",
+          "max": -0.3,
+          "placeholder_color": "#4a4652",
+          "placeholder_dots": "#6a6672"
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.15,
+          "placeholder_color": "#2e3438",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cobbles",
+          "max": 0.6,
+          "placeholder_color": "#3a3842",
+          "placeholder_dots": "#5a5662"
+        },
+        {
+          "id": "ash",
+          "max": 1.0,
+          "placeholder_color": "#2a2830",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "castle_wall_ruin",
+      "obelisk"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "castle_wall_ruin": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          22
+        ],
+        "placeholder_color": "#5a5662",
+        "weight": 1
+      },
+      "obelisk": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          26
+        ],
+        "placeholder_color": "#4a4652",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "learned_man",
+      "20": "clear_sighted_princess",
+      "30": "the_shadow"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "atlantis",
+      "boss": "atlas_king"
+    },
+    "waves": "waves_shadows_court.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 24,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.45,
+      "pulse": 0.1,
+      "pulse_hz": 0.12,
+      "veil_color": "#100c18",
+      "particles": "mist",
+      "particle_color": "#2a2438",
+      "fade_s": 3.0,
+      "name_key": "HAZARD_LENGTHENING_SHADOWS_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#b0acc0",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "black_poplar": 2,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#4a4652",
+      "edge": "#2e2a36",
+      "stones": "#6a6672"
+    }
   }
 ]

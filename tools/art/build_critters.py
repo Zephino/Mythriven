@@ -420,6 +420,11 @@ LEVELS = {
         "birds": {"gull": ("#e8ecec", "#9aa4ac", "#e0b030", True)},
         "insects": {},
         "large": {}},
+    "shadows_court": {
+        "ground": {},
+        "birds": {"bat": ("#3a3440", "#24202a", "#24202a", True)},
+        "insects": {"moth": (butterfly, "#c8b8a8", "#3a3a40")},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

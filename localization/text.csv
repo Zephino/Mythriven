@@ -3154,3 +3154,31 @@ BANTER_GREAT_BLACK_RABBIT_ENTRANCE,(The biggest black rabbit you have ever seen 
 BANTER_OBRAZILE_NECROMANCER_ENTRANCE,Seven years I keep this island in the mist. You will not see it again.
 BANTER_FLYING_DUTCHMAN_ENTRANCE,(A ship with ragged sails beats in against the wind. Someone on deck holds up a bundle of letters.)
 BANTER_FLYING_DUTCHMAN_POSEIDON,"Lord of the sea, let me round the Cape. Just this once."
+LEVEL_SHADOWS_COURT_NAME,The Shadow's Court
+HAZARD_LENGTHENING_SHADOWS_NAME,"Evening falls, and the shadows lengthen..."
+ENEMY_LIVING_SHADOW_NAME,Living shadow
+ENEMY_LIVING_SHADOW_MYTH,"A shadow that has left its owner, as the learned man's shadow did when it went into the house opposite, and now walks about on its own."
+ENEMY_LAMP_MOTH_NAME,Lamp moth
+ENEMY_LAMP_MOTH_MYTH,"Moths from the lamplit balconies of the hot city, where the learned man sat at evening and watched the house opposite."
+BOSS_LEARNED_MAN_NAME,The Learned Man
+ENEMY_LEARNED_MAN_NAME,The Learned Man
+ENEMY_LEARNED_MAN_MYTH,"The kind, learned man from the cold north whose shadow left him. Years later it came back rich and fine, and he grew so thin and grey that he agreed to travel as his own shadow's shadow."
+BOSS_LEARNED_MAN_LAMP,He keeps to your shadow. Lead him into the lamplight!
+BOSS_CLEAR_SIGHTED_PRINCESS_NAME,The Princess Who Saw Too Clearly
+ENEMY_CLEAR_SIGHTED_PRINCESS_NAME,The Princess Who Saw Too Clearly
+ENEMY_CLEAR_SIGHTED_PRINCESS_MYTH,"The king's daughter who suffered from seeing far too clearly. She came to the spa to be cured, met the Shadow there, and married him."
+BOSS_CLEAR_SIGHTED_PRINCESS_GAZE,Her gaze sees everything in front of her. Get behind her!
+BOSS_THE_SHADOW_NAME,The Shadow
+ENEMY_THE_SHADOW_NAME,The Shadow
+ENEMY_THE_SHADOW_MYTH,"The learned man's shadow, who went into the house where Poetry lived, came back a rich gentleman, made his old master his shadow, married a princess, and had the learned man put to death."
+BOSS_THE_SHADOW_TEARS,"The Shadow tears your shadow off! Destroy it, or he can't be truly hurt!"
+ACH_BOSS_LEARNED_MAN_NAME,Defeat The Learned Man
+ACH_BOSS_LEARNED_MAN_DESC,The 10:00 boss of The Shadow's Court.
+ACH_BOSS_CLEAR_SIGHTED_PRINCESS_NAME,Defeat The Princess Who Saw Too Clearly
+ACH_BOSS_CLEAR_SIGHTED_PRINCESS_DESC,The 20:00 boss of The Shadow's Court.
+ACH_BOSS_THE_SHADOW_NAME,Defeat The Shadow
+ACH_BOSS_THE_SHADOW_DESC,The 30:00 boss of The Shadow's Court.
+BANTER_LEARNED_MAN_ENTRANCE,"I wrote about the true, the good and the beautiful. Nobody cared."
+BANTER_CLEAR_SIGHTED_PRINCESS_ENTRANCE,I see you. I see far too much of you.
+BANTER_THE_SHADOW_ENTRANCE,I was once a shadow. Now I have one. Would you like to be mine?
+BANTER_THE_SHADOW_HECATE,"A goddess of the dark, and torches. You'll make me shorter."

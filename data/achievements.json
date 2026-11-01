@@ -1784,5 +1784,35 @@
       "id": "flying_dutchman"
     },
     "persists": true
+  },
+  {
+    "id": "boss_learned_man",
+    "name_key": "ACH_BOSS_LEARNED_MAN_NAME",
+    "desc_key": "ACH_BOSS_LEARNED_MAN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "learned_man"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_clear_sighted_princess",
+    "name_key": "ACH_BOSS_CLEAR_SIGHTED_PRINCESS_NAME",
+    "desc_key": "ACH_BOSS_CLEAR_SIGHTED_PRINCESS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "clear_sighted_princess"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_the_shadow",
+    "name_key": "ACH_BOSS_THE_SHADOW_NAME",
+    "desc_key": "ACH_BOSS_THE_SHADOW_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "the_shadow"
+    },
+    "persists": true
   }
 ]

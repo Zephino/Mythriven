@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 12). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Tír na nÓg built and released 11/01/2026 (00.03.21); Hy-Brasil (00.03.22).
+it. Tír na nÓg built and released 11/01/2026 (00.03.21); Hy-Brasil (00.03.22); the Shadow's Court (00.03.23).
 
 Realms work like Packs 5-11: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -67,7 +67,7 @@ dead).*
 | 20:00 | **The Necromancer of O'Brazile** | His spell holds the island, and while it holds he can't be hurt much. Three piles of driftwood lie on the shore: a Hero who lights one (stands at it) weakens the spell; with all three lit it breaks (his guard breaks). They burn out after a while |
 | 30:00 | **The Flying Dutchman** (the design's) | Vanderdecken's ship. By turns it is a phantom (it can't be hurt, sailing across the arena and striking whoever it passes) and a solid ship, hove to, firing on marked spots. Its crew send letters for the long dead drifting after the Heroes: a Hero one reaches is Hexed for a while |
 
-## Realm 47: the Shadow's Court
+## Realm 47: the Shadow's Court: **done and released 11/01/2026 (00.03.23)**
 *Source: Hans Christian Andersen, "The Shadow" (1847; not any later version): the learned man's shadow goes into the
 house opposite, where Poetry lives, comes back years later as a rich man, makes his old master into his shadow, marries
 a princess who suffers from seeing too clearly, and has the learned man put to death.*

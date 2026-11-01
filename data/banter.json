@@ -3050,5 +3050,46 @@
     "text_key": "BANTER_FLYING_DUTCHMAN_POSEIDON",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "learned_man_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "learned_man",
+    "hero": "",
+    "god": "learned_man",
+    "text_key": "BANTER_LEARNED_MAN_ENTRANCE",
+    "lore_source": "Hans Christian Andersen, \"The Shadow\" (1847)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "clear_sighted_princess_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "clear_sighted_princess",
+    "hero": "",
+    "god": "clear_sighted_princess",
+    "text_key": "BANTER_CLEAR_SIGHTED_PRINCESS_ENTRANCE",
+    "lore_source": "Hans Christian Andersen, \"The Shadow\" (1847)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "the_shadow_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "the_shadow",
+    "hero": "",
+    "god": "the_shadow",
+    "text_key": "BANTER_THE_SHADOW_ENTRANCE",
+    "lore_source": "Hans Christian Andersen, \"The Shadow\" (1847)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "the_shadow_hecate",
+    "trigger": "boss_meets_god",
+    "speaker": "the_shadow",
+    "hero": "",
+    "god": "the_shadow",
+    "with_god": "hecate",
+    "text_key": "BANTER_THE_SHADOW_HECATE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]
