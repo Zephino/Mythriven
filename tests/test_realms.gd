@@ -1954,6 +1954,8 @@ func test_the_queens_guardians_blades_and_jewels() -> void:
 	assert_lt(_player.hp, hp)
 	assert_eq(guards.jewels.size(), 2, "the queen's jewels")
 	var gold: float = GameAuthority.run.gold
+	# Random spots can fall close together: keep the second jewel well away from the first.
+	guards.jewels[1] = guards.jewels[0] + Vector2(150, 0)
 	_player.position = guards.jewels[0]
 	guards.signature(0.01)
 	assert_eq(guards.jewels_taken, 1)

@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.31
+Date: 11/01/2026
+Time: 8:41 AM
+
+### Changes
+- **Test fix:** the Queen's Guardians test could have failed now and then in the same way as the Poseidon's Bull test (two jewels falling close enough together to be taken at once). The test now keeps them apart. No change to the game.
+
+### Reason
+A test that fails by chance blocks pushes; found while checking the other tests for the same problem.
+
 ## Version 00.03.30
 Date: 11/01/2026
 Time: 8:34 AM
