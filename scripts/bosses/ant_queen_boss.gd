@@ -46,3 +46,8 @@ func send_carriers() -> void:
 				centre + Vector2.from_angle(rng.randf() * TAU) * float(_sig().get("edge_px", 260.0)))
 		if c >= 0:
 			carriers.append(c)
+
+
+## The Starved Queen secret: beaten before three carriers reach her.
+func secret_earned() -> String:
+	return "the_starved_queen" if delivered < 3 else ""

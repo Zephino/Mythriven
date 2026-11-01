@@ -78,3 +78,8 @@ func _draw() -> void:
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	for beam: Dictionary in beams:
 		beam["pos"] = Vector2(beam["pos"]) - shift_px
+
+
+## The Dawn secret: turned to stone three times.
+func secret_earned() -> String:
+	return "the_dawn" if petrified >= 3 else ""

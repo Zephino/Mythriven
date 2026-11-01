@@ -7,6 +7,8 @@ extends BossController
 ## Spore clouds: {"pos": Vector2, "left": float}.
 var clouds: Array = []
 var bursts: int = 0
+## Clean Air secret: the local Hero never breathes its spores.
+var breathed_local: bool = false
 var _next_burst: float = 0.9
 var _tick: float = 0.0
 
@@ -45,6 +47,8 @@ func poison_in_clouds() -> void:
 		for cloud: Dictionary in clouds:
 			if player.position.distance_to(cloud["pos"]) <= reach + player.body_radius:
 				player.statuses.apply("poison")
+				if player.is_local:
+					breathed_local = true
 				break
 
 
@@ -61,3 +65,7 @@ func _draw() -> void:
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	for cloud: Dictionary in clouds:
 		cloud["pos"] = Vector2(cloud["pos"]) - shift_px
+
+
+func secret_earned() -> String:
+	return "clean_air" if not breathed_local else ""

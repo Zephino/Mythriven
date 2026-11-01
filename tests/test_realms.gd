@@ -473,3 +473,49 @@ func test_the_bonus_level_and_the_finale_are_listed_after_the_packs() -> void:
 	assert_eq(ids[ids.size() - 2], "the_realm_of_the_ten_suns")
 	assert_eq(ids[ids.size() - 1], "the_crossroads")
 	assert_lt(ids.find("erebus"), ids.find("the_realm_of_the_ten_suns"), "Pack 5 comes before the bonus level")
+
+
+func test_pack_6_boss_secrets() -> void:
+	_start("nidavellir")
+	var smith: BrokkrBoss = _bosses.spawn_boss("brokkr", 1) as BrokkrBoss
+	assert_eq(smith.secret_earned(), "")
+	smith.spoiled = 3
+	assert_eq(smith.secret_earned(), "the_flys_sting")
+	var dwarf: AndvariBoss = _bosses.spawn_boss("andvari", 2) as AndvariBoss
+	assert_eq(dwarf.secret_earned(), "the_ring_refused")
+	dwarf.taken = 1
+	assert_eq(dwarf.secret_earned(), "", "someone took it")
+	GameAuthority.end_scene()
+	_start("svartalfheim")
+	var alviss: AlvissBoss = _bosses.spawn_boss("alviss", 0) as AlvissBoss
+	alviss.petrified = 3
+	assert_eq(alviss.secret_earned(), "the_dawn")
+	var alberich: AlberichBoss = _bosses.spawn_boss("alberich", 2) as AlberichBoss
+	alberich.torn = 2
+	assert_eq(alberich.secret_earned(), "the_tarnkappe")
+	GameAuthority.end_scene()
+	_start("mycendra")
+	var puff: PuffballBoss = _bosses.spawn_boss("great_puffball", 0) as PuffballBoss
+	assert_eq(puff.secret_earned(), "clean_air")
+	_player.position = puff.position_now()
+	puff.burst()
+	assert_eq(puff.secret_earned(), "", "breathed the spores")
+	var mother: SporeMotherBoss = _bosses.spawn_boss("spore_mother", 2) as SporeMotherBoss
+	mother.stamped = 10
+	assert_eq(mother.secret_earned(), "the_stamping")
+	GameAuthority.end_scene()
+	_start("the_myrmidon_hive")
+	var ant: GoldAntBoss = _bosses.spawn_boss("great_gold_ant", 0) as GoldAntBoss
+	ant.thefts = 3
+	assert_eq(ant.secret_earned(), "the_gold_thief")
+	var queen: AntQueenBoss = _bosses.spawn_boss("ant_queen", 2) as AntQueenBoss
+	assert_eq(queen.secret_earned(), "the_starved_queen")
+	queen.delivered = 3
+	assert_eq(queen.secret_earned(), "")
+	for secret: String in ["the_flys_sting", "the_ring_refused", "the_dawn", "the_tarnkappe", "clean_air", "the_stamping",
+			"the_gold_thief", "the_starved_queen"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)

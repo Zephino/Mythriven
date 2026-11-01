@@ -2329,3 +2329,39 @@ BANTER_GREAT_GOLD_ANT_ENTRANCE,(It lifts its head from the sand. It can smell go
 BANTER_MYRMEX_ENTRANCE,The plough was my idea! Well... it should have been.
 BANTER_ANT_QUEEN_ENTRANCE,"Bring me the gold, my children. All of it."
 BANTER_MYRMEX_PERSEPHONE,"Daughter of the grain-mother! Every seed the plough sows, we ants gather."
+SECRET_FLYS_STING_NAME,The Fly's Sting
+SECRET_FLYS_STING_DESC,Spoil Brokkr's forging three times before you defeat him. Adds the Draupnir passive.
+SECRET_FLYS_STING_HINT,A fly stung the smith again and again; be the fly.
+SECRET_RING_REFUSED_NAME,The Ring Refused
+SECRET_RING_REFUSED_DESC,Defeat Andvari without anyone taking his cursed ring. A pike-scale aura.
+SECRET_RING_REFUSED_HINT,Every owner of that ring came to grief. Leave it where it lies.
+SECRET_DAWN_NAME,The Dawn
+SECRET_DAWN_DESC,Turn Alvíss to stone three times before you defeat him. A dawn-light aura.
+SECRET_DAWN_HINT,Keep him talking; the sun is coming up.
+SECRET_TARNKAPPE_NAME,The Tarnkappe
+SECRET_TARNKAPPE_DESC,Tear Alberich's cloak off him twice before you defeat him. Adds the Tarnkappe Thread passive.
+SECRET_TARNKAPPE_HINT,Siegfried wrestled the cloak from the dwarf; feel for him in the dark.
+SECRET_CLEAN_AIR_NAME,Clean Air
+SECRET_CLEAN_AIR_DESC,Defeat the Great Puffball without breathing its spores. A spore-cloud aura.
+SECRET_CLEAN_AIR_HINT,Every blow makes it burst. Strike and step back.
+SECRET_STAMPING_NAME,The Stamping
+SECRET_STAMPING_DESC,Stamp out ten of the Spore Mother's mushrooms before you defeat her. Adds the Glow-cap passive.
+SECRET_STAMPING_HINT,"What she plants, tread down."
+SECRET_GOLD_THIEF_NAME,The Gold Thief
+SECRET_GOLD_THIEF_DESC,Take three heaps of the Gold-Digging Ant's gold before you defeat it. A gold-dust aura.
+SECRET_GOLD_THIEF_HINT,The Indians came for the gold on their swiftest camels. Be swift.
+SECRET_STARVED_QUEEN_NAME,The Starved Queen
+SECRET_STARVED_QUEEN_DESC,Defeat the Queen of the Gold-Digging Ants before three carriers reach her. Adds the Ant's Strength passive.
+SECRET_STARVED_QUEEN_HINT,Her workers bring her gold. Let none arrive.
+PASSIVE_DRAUPNIR_NAME,Draupnir
+PASSIVE_DRAUPNIR_DESC,+5% luck per level.
+PASSIVE_TARNKAPPE_THREAD_NAME,Tarnkappe Thread
+PASSIVE_TARNKAPPE_THREAD_DESC,Weapon cooldowns 3% shorter per level.
+PASSIVE_GLOW_CAP_NAME,Glow-cap
+PASSIVE_GLOW_CAP_DESC,+4% max HP per level.
+PASSIVE_ANT_STRENGTH_NAME,Ant's Strength
+PASSIVE_ANT_STRENGTH_DESC,+4% damage per level.
+COSMETIC_PIKE_SCALE,Pike Scale
+COSMETIC_DAWN_LIGHT,Dawn Light
+COSMETIC_SPORE_CLOUD,Spore Cloud
+COSMETIC_GOLD_DUST,Gold Dust

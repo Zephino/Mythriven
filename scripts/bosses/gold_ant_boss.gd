@@ -72,3 +72,8 @@ func _draw() -> void:
 		draw_circle(Vector2(-2, -2), 7.0, Color(1.0, 0.85, 0.35))
 		draw_set_transform(Vector2.ZERO)
 	super._draw()
+
+
+## The Gold Thief secret: three heaps taken.
+func secret_earned() -> String:
+	return "the_gold_thief" if thefts >= 3 else ""

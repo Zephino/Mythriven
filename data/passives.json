@@ -347,5 +347,57 @@
       "secret": "the_empty_bower"
     },
     "persists": false
+  },
+  {
+    "id": "draupnir",
+    "name_key": "PASSIVE_DRAUPNIR_NAME",
+    "desc_key": "PASSIVE_DRAUPNIR_DESC",
+    "stat": "luck",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_flys_sting"
+    },
+    "persists": false
+  },
+  {
+    "id": "tarnkappe_thread",
+    "name_key": "PASSIVE_TARNKAPPE_THREAD_NAME",
+    "desc_key": "PASSIVE_TARNKAPPE_THREAD_DESC",
+    "stat": "cooldown",
+    "per_level": 0.03,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_tarnkappe"
+    },
+    "persists": false
+  },
+  {
+    "id": "glow_cap",
+    "name_key": "PASSIVE_GLOW_CAP_NAME",
+    "desc_key": "PASSIVE_GLOW_CAP_DESC",
+    "stat": "max_hp",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_stamping"
+    },
+    "persists": false
+  },
+  {
+    "id": "ant_strength",
+    "name_key": "PASSIVE_ANT_STRENGTH_NAME",
+    "desc_key": "PASSIVE_ANT_STRENGTH_DESC",
+    "stat": "might",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_starved_queen"
+    },
+    "persists": false
   }
 ]

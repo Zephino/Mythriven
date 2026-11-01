@@ -441,6 +441,46 @@ def iron_claw():
     return p
 
 
+def draupnir_ring():
+    """Draupnir (Skaldskaparmal 35): the gold ring from which eight more of the same weight drip every ninth night."""
+    p = icon()
+    for a in range(40):
+        t = a / 40 * 2 * math.pi
+        p.px(round(8 + 5 * math.cos(t)), round(7 + 5 * math.sin(t)), "y")
+        p.px(round(8 + 4 * math.cos(t)), round(7 + 4 * math.sin(t)), "g")
+    for x in (5, 8, 11): p.px(x, 14, "y")
+    return p
+
+
+def tarnkappe_thread():
+    """Tarnkappe Thread (the Nibelungenlied): a wisp of the grey cloak of invisibility, half there."""
+    p = icon()
+    for y in range(2, 15):
+        for x in range(4, 13):
+            if (x + y) % 2 and abs(x - 8 - round(2 * math.sin(y / 2))) < 4:
+                p.px(x, y, "S" if y % 3 else "s")
+    return p
+
+
+def glow_cap():
+    """Glow-cap (Mycendra, the game's own): a small mushroom glowing pale green."""
+    p = icon()
+    p.rect(7, 8, 9, 14, "e"); p.rect(3, 4, 13, 7, "l"); p.rect(5, 2, 11, 3, "l"); p.px(5, 5, "w"); p.px(10, 4, "w")
+    return p
+
+
+def ant_strength():
+    """Ant's Strength (Herodotus' gold-digging ants): an ant carrying a lump of gold bigger than itself."""
+    p = icon()
+    for x, r in ((4, 2), (8, 1.5), (12, 2.5)):
+        for y in range(16):
+            for xx in range(16):
+                if math.hypot(xx - x, y - 11) <= r: p.px(xx, y, "B")
+    for k in range(3): p.px(6 + k * 2, 14, "k"); p.px(6 + k * 2, 8 + 0, "k")
+    p.rect(6, 2, 12, 7, "y")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
@@ -448,7 +488,8 @@ ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hou
          "elk_skis": skis, "white_div_blood": div_blood, "firebird_feather": feather, "oeyama_sake": sake,
          "laevateinn_shard": flame_blade, "yggdrasil_dew": dew, "golden_key": golden_key, "roc_feather": roc_feather,
          "sun_crow_feather": crow_feather, "loose_thread": loose_thread,
-         "hunters_horn": hunters_horn, "mountebanks_charm": pedlar_charm, "wolf_tooth": wolf_tooth, "iron_claw": iron_claw}
+         "hunters_horn": hunters_horn, "mountebanks_charm": pedlar_charm, "wolf_tooth": wolf_tooth, "iron_claw": iron_claw,
+         "draupnir": draupnir_ring, "tarnkappe_thread": tarnkappe_thread, "glow_cap": glow_cap, "ant_strength": ant_strength}
 
 
 def outlined(p):

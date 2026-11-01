@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.95
+Date: 10/31/2026
+Time: 8:59 PM
+
+### Changes
+- **Eight Pack 6 secrets**, two for each realm of The Deep Below (`docs/PACK_6_PLAN.md`):
+  - **The Fly's Sting:** spoil Brokkr's forging three times, then beat him. The **Draupnir** passive (+5% luck per level).
+  - **The Ring Refused:** beat Andvari without anyone taking his cursed ring. A pike-scale aura.
+  - **The Dawn:** turn Alvíss to stone three times, then beat him. A dawn-light aura.
+  - **The Tarnkappe:** tear Alberich's cloak off twice, then beat him. The **Tarnkappe Thread** passive (weapon cooldowns 3% shorter per level).
+  - **Clean Air:** beat the Great Puffball without breathing its spores. A spore-cloud aura.
+  - **The Stamping:** stamp out ten of the Spore Mother's mushrooms, then beat her. The **Glow-cap** passive (+4% max HP per level).
+  - **The Gold Thief:** take three heaps of the Gold-Digging Ant's gold, then beat it. A gold-dust aura.
+  - **The Starved Queen:** beat the Queen of the Gold-Digging Ants before three carriers reach her. The **Ant's Strength** passive (+4% damage per level).
+- Four new passive icons. The secrets are on the lore check (their Oracle hints are original drafts). **Pack 6 is complete.**
+- 1 new test (368 tests pass).
+
+### Reason
+Every level gets two secrets; this finishes Pack 6 (owner: "go ahead").
+
 ## Version 00.02.94
 Date: 10/31/2026
 Time: 8:56 PM

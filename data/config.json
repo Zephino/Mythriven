@@ -740,7 +740,11 @@
       { "id": "bone_white", "name_key": "COSMETIC_BONE_WHITE", "color": "#ece6d8" },
       { "id": "moonlight", "name_key": "COSMETIC_MOONLIGHT", "color": "#c8d8f8" },
       { "id": "wolf_grey", "name_key": "COSMETIC_WOLF_GREY", "color": "#8a8a90" },
-      { "id": "glory", "name_key": "COSMETIC_GLORY", "color": "#d8c8f0" }
+      { "id": "glory", "name_key": "COSMETIC_GLORY", "color": "#d8c8f0" },
+      { "id": "pike_scale", "name_key": "COSMETIC_PIKE_SCALE", "color": "#8ab0a0" },
+      { "id": "dawn_light", "name_key": "COSMETIC_DAWN_LIGHT", "color": "#ffd8a0" },
+      { "id": "spore_cloud", "name_key": "COSMETIC_SPORE_CLOUD", "color": "#b8c868" },
+      { "id": "gold_dust", "name_key": "COSMETIC_GOLD_DUST", "color": "#f0c840" }
     ]
   },
 

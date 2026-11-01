@@ -58,3 +58,8 @@ func _draw() -> void:
 	var at: Vector2 = position_now() - global_position
 	var shimmer: float = 0.15 + 0.1 * sin(Time.get_ticks_msec() * 0.01)
 	draw_arc(at, GameAuthority.enemies.radius[slot], 0.0, TAU, 20, Color(0.8, 0.85, 1.0, shimmer), 1.0)
+
+
+## The Tarnkappe secret: his cloak torn off twice.
+func secret_earned() -> String:
+	return "the_tarnkappe" if torn >= 2 else ""

@@ -179,7 +179,8 @@ def icon_packs():
                       ("pack3", ["the_ski_chase", "the_seventh_labour", "seared_necks", "poisoned_sake"]),
                       ("pack4", ["laevateinn", "the_gnawed_root", "the_golden_key", "sindbads_escape"]),
                       ("bonus", ["the_nine_crows", "the_last_thread"]),
-                      ("pack5", ["the_last_horn", "lauras_charm", "out_of_the_undergrowth", "the_empty_bower"])):
+                      ("pack5", ["the_last_horn", "lauras_charm", "out_of_the_undergrowth", "the_empty_bower"]),
+                      ("pack6", ["the_flys_sting", "the_tarnkappe", "the_stamping", "the_starved_queen"])):
         for sid in ids:
             by_secret[sid] = pack
     out = {}

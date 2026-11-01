@@ -83,3 +83,8 @@ func _draw() -> void:
 	var at: Vector2 = position_now() - global_position
 	var full: float = float(_sig().get("work_s", 4.0))
 	draw_arc(at, 34.0, -PI / 2, -PI / 2 + TAU * (1.0 - working_s / full), 32, Color(1.0, 0.6, 0.2), 3.0)
+
+
+## The Fly's Sting secret: his forging spoiled three times.
+func secret_earned() -> String:
+	return "the_flys_sting" if spoiled >= 3 else ""

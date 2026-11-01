@@ -568,6 +568,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | ant_queen_entrance | boss entrance | ant_queen | Bring me the gold, my children. All of it. | Original line written for Mythriven | no |
 | myrmex_persephone | boss meets god (with persephone) | myrmex | Daughter of the grain-mother! Every seed the plough sows, we ants gather. | Original line written for Mythriven | no |
 
+### Pack 6 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| the_flys_sting | The Fly's Sting | A fly stung the smith again and again; be the fly. | Snorri, Skaldskaparmal 35 (the fly stings Brokkr at the bellows; Draupnir) | no |
+| the_ring_refused | The Ring Refused | Every owner of that ring came to grief. Leave it where it lies. | The Poetic Edda, Reginsmal (Andvari's curse on the ring) | no |
+| the_dawn | The Dawn | Keep him talking; the sun is coming up. | The Poetic Edda, Alvissmal (the dwarf turned to stone by daylight) | no |
+| the_tarnkappe | The Tarnkappe | Siegfried wrestled the cloak from the dwarf; feel for him in the dark. | The Nibelungenlied, 3rd adventure (Siegfried wins the Tarnkappe) | no |
+| clean_air | Clean Air | Every blow makes it burst. Strike and step back. | Invented for Mythriven (Mycendra) | no |
+| the_stamping | The Stamping | What she plants, tread down. | Invented for Mythriven (Mycendra) | no |
+| the_gold_thief | The Gold Thief | The Indians came for the gold on their swiftest camels. Be swift. | Herodotus, Histories 3.102-105 (the Indians steal the ants' gold) | no |
+| the_starved_queen | The Starved Queen | Her workers bring her gold. Let none arrive. | Herodotus, Histories 3.102-105 (the gold-digging ants) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

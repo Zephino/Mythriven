@@ -59,3 +59,8 @@ func _draw() -> void:
 func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 	if ring != Vector2.INF:
 		ring -= shift_px
+
+
+## The Ring Refused secret: beaten without anyone taking the cursed ring.
+func secret_earned() -> String:
+	return "the_ring_refused" if taken == 0 else ""

@@ -94,3 +94,17 @@ colours).
 | 10:00 | **The Gold-Digging Ant** | It digs up heaps of gold sand. Take the gold (run gold!) and it chases the thief, faster, for a while, as the ants of India chased the gold-gatherers |
 | 20:00 | **Myrmex** | The girl who claimed Athena's plough and was turned into an ant. She ploughs furrows across the arena that slow whoever crosses them |
 | 30:00 | **The Queen of the Gold-Digging Ants** (the design's) | Worker ants keep coming from the edges, carrying gold to her; each that reaches her heals her. Kill the carriers first |
+
+## Secrets (00.02.95, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Nidavellir | The Fly's Sting | Spoil Brokkr's forging three times, then beat him | Draupnir passive (+5% luck per level) |
+| Nidavellir | The Ring Refused | Beat Andvari without anyone taking his ring | Pike-scale aura |
+| Svartalfheim | The Dawn | Turn Alvíss to stone three times, then beat him | Dawn-light aura |
+| Svartalfheim | The Tarnkappe | Tear Alberich's cloak off twice, then beat him | Tarnkappe Thread passive (weapon cooldowns 3% shorter per level) |
+| Mycendra | Clean Air | Beat the Great Puffball without breathing its spores | Spore-cloud aura |
+| Mycendra | The Stamping | Stamp out ten of the Spore Mother's mushrooms, then beat her | Glow-cap passive (+4% max HP per level) |
+| The Myrmidon Hive | The Gold Thief | Take three of the Gold-Digging Ant's heaps, then beat it | Gold-dust aura |
+| The Myrmidon Hive | The Starved Queen | Beat the Queen before three carriers reach her | Ant's Strength passive (+4% damage per level) |
+
+**Pack 6 is complete.**

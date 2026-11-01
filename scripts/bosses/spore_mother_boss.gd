@@ -77,3 +77,8 @@ func _draw() -> void:
 		draw_rect(Rect2(at + Vector2(-1.5, -4.0 - 4.0 * ripe), Vector2(3, 4.0 + 4.0 * ripe)), Color(0.9, 0.88, 0.78))
 		draw_circle(at + Vector2(0, -6.0 - 5.0 * ripe), 3.0 + 4.0 * ripe, Color(0.7, 0.45 + 0.2 * ripe, 0.3))
 	super._draw()
+
+
+## The Stamping secret: ten mushrooms stamped out.
+func secret_earned() -> String:
+	return "the_stamping" if stamped >= 10 else ""
