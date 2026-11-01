@@ -2975,3 +2975,32 @@ BANTER_CHAIN_WARDEN_ENTRANCE,No one leaves Ashkarrow.
 BANTER_ASH_COLOSSUS_ENTRANCE,"(The ash heaps up, and up, and stands.)"
 BANTER_LORD_OF_ASHKARROW_ENTRANCE,"Kneel in the ash. Everyone does, in the end."
 BANTER_LORD_OF_ASHKARROW_SEKHMET,A lioness of the burning sun? My city has room for one more fire.
+LEVEL_DINAS_EMRYS_NAME,Dinas Emrys
+HAZARD_MAY_EVE_SCREAM_NAME,The dragons scream over Britain! Your strength drains away...
+ENEMY_CORANIAD_NAME,Coraniad
+ENEMY_CORANIAD_MYTH,"One of the Coraniaid, the first plague of Britain in Lludd's day: a people who heard every word the wind touched, so no one could plot against them."
+ENEMY_WYRMLING_NAME,Wyrmling
+ENEMY_WYRMLING_MYTH,"Little dragons from the hill. The Historia Brittonum calls the two great dragons under Vortigern's tower ""worms"", folded in a cloth between two vessels in a pool."
+BOSS_CORANIAID_NAME,The Coraniaid
+ENEMY_CORANIAID_NAME,The Coraniaid
+ENEMY_CORANIAID_MYTH,The first plague of Britain: a people whose hearing was so sharp that every word the wind touched reached them. Llefelys told Lludd to steep insects in water and sprinkle it on everyone; it killed the Coraniaid and did the Britons no harm.
+BOSS_CORANIAID_HEARS,The Coraniaid hear you coming and step aside!
+BOSS_FEAST_MAGICIAN_NAME,The Magician of the Feast
+ENEMY_FEAST_MAGICIAN_NAME,The Magician of the Feast
+ENEMY_FEAST_MAGICIAN_MYTH,"The third plague of Britain: every night a mighty man of magic played such sweet music that the whole court fell asleep, and then he carried off all the food and drink. Lludd kept watch, and whenever sleep came on him, he stepped into a vessel of cold water."
+BOSS_FEAST_MAGICIAN_MUSIC,Sweet music... step into the cold water to stay awake!
+BOSS_WHITE_DRAGON_NAME,The White Dragon
+ENEMY_WHITE_DRAGON_NAME,The White Dragon
+ENEMY_WHITE_DRAGON_MYTH,"One of the two dragons buried in Dinas Emrys. Lludd caught them with a vat of the best mead under a silk cloth: they fought in the air, fell into the vat, drank, and slept, and he buried them in a stone chest in the hill."
+BOSS_WHITE_DRAGON_VAT,A vat of mead under a silk cloth... uncover it!
+BOSS_WHITE_DRAGON_ASLEEP,The dragon drinks the mead and falls asleep!
+ACH_BOSS_CORANIAID_NAME,Defeat The Coraniaid
+ACH_BOSS_CORANIAID_DESC,The 10:00 boss of Dinas Emrys.
+ACH_BOSS_FEAST_MAGICIAN_NAME,Defeat The Magician of the Feast
+ACH_BOSS_FEAST_MAGICIAN_DESC,The 20:00 boss of Dinas Emrys.
+ACH_BOSS_WHITE_DRAGON_NAME,Defeat The White Dragon
+ACH_BOSS_WHITE_DRAGON_DESC,The 30:00 boss of Dinas Emrys.
+BANTER_CORANIAID_ENTRANCE,We heard you coming. We heard you thinking of coming.
+BANTER_FEAST_MAGICIAN_ENTRANCE,"(Somewhere, a harp begins to play. Your eyes grow heavy.)"
+BANTER_WHITE_DRAGON_ENTRANCE,"(A white dragon heaves itself out of the hill, shaking off the dirt of centuries.)"
+BANTER_WHITE_DRAGON_RHIANNON,(The dragon sniffs the air: horse and birdsong. It does not like it.)

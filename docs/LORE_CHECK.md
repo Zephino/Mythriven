@@ -953,6 +953,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | lord_of_ashkarrow_entrance | boss entrance | lord_of_ashkarrow | Kneel in the ash. Everyone does, in the end. | Original line written for Mythriven | no |
 | lord_of_ashkarrow_sekhmet | boss meets god (with sekhmet) | lord_of_ashkarrow | A lioness of the burning sun? My city has room for one more fire. | Original line written for Mythriven | no |
 
+### Dinas Emrys
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | dinas_emrys | Dinas Emrys | Historia Brittonum 40-42; "Lludd and Llefelys" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849) | no |
+| enemy | coraniad | Coraniad | "Lludd and Llefelys" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849) (the Coraniaid, the first plague) | no |
+| enemy | wyrmling | Wyrmling | Historia Brittonum 42 (the two "worms", dragons, found sleeping in the pool under the tower) | no |
+| boss | coraniaid | The Coraniaid | "Lludd and Llefelys" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849) (the Coraniaid hear every word the wind touches; Llefelys destroys them with water steeped with insects) | no |
+| boss | feast_magician | The Magician of the Feast | "Lludd and Llefelys" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849) (the third plague: a mighty man of magic who lulls the court asleep with music and carries off the provisions; Lludd keeps awake in a tub of cold water) | no |
+| boss | white_dragon | The White Dragon | Historia Brittonum 42 (the white dragon under Vortigern's tower); "Lludd and Llefelys" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849) (the dragons drink the mead, fall asleep and are buried at Dinas Emrys); GAME_DESIGN.md (the White Dragon) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| coraniaid_entrance | boss entrance | coraniaid | We heard you coming. We heard you thinking of coming. | "Lludd and Llefelys" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849) | no |
+| feast_magician_entrance | boss entrance | feast_magician | (Somewhere, a harp begins to play. Your eyes grow heavy.) | "Lludd and Llefelys" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849) | no |
+| white_dragon_entrance | boss entrance | white_dragon | (A white dragon heaves itself out of the hill, shaking off the dirt of centuries.) | Historia Brittonum 42 | no |
+| white_dragon_rhiannon | boss meets god (with rhiannon) | white_dragon | (The dragon sniffs the air: horse and birdsong. It does not like it.) | Original description written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

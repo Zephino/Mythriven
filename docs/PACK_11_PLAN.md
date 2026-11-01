@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 11). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Ashkarrow built and released 11/01/2026 (00.03.16).
+it. Ashkarrow built and released 11/01/2026 (00.03.16); Dinas Emrys (00.03.17).
 
 Realms work like Packs 5-10: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -40,7 +40,7 @@ city of ash and cinders. Every name in it is plain and descriptive, for the owne
 | 20:00 | **The Ash Colossus** | A giant of hot ash: Fire heals it, but Ice or Water cracks its crust and it takes double damage for a while. It sends out rings of hot ash |
 | 30:00 | **The Lord of Ashkarrow** | Four braziers burn round his throne; each one still lit makes him harder to hurt. Put one out by standing at it; he lights them again, one at a time |
 
-## Realm 42: Dinas Emrys (the dragons' hill)
+## Realm 42: Dinas Emrys (the dragons' hill): **done and released 11/01/2026 (00.03.17)**
 *Sources: Historia Brittonum (9th c.), 40-42 (Vortigern's tower on the hill, the pool beneath, the two dragons that
 fight, the white one driven off); "Lludd and Llefelys" (Welsh, in the Red Book of Hergest, c. 1400; public domain in
 Lady Charlotte Guest's translation, 1849): the three plagues of Britain — the Coraniaid, who heard every word the wind

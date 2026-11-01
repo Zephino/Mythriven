@@ -1634,5 +1634,35 @@
       "id": "lord_of_ashkarrow"
     },
     "persists": true
+  },
+  {
+    "id": "boss_coraniaid",
+    "name_key": "ACH_BOSS_CORANIAID_NAME",
+    "desc_key": "ACH_BOSS_CORANIAID_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "coraniaid"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_feast_magician",
+    "name_key": "ACH_BOSS_FEAST_MAGICIAN_NAME",
+    "desc_key": "ACH_BOSS_FEAST_MAGICIAN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "feast_magician"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_white_dragon",
+    "name_key": "ACH_BOSS_WHITE_DRAGON_NAME",
+    "desc_key": "ACH_BOSS_WHITE_DRAGON_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "white_dragon"
+    },
+    "persists": true
   }
 ]

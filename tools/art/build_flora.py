@@ -484,6 +484,11 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"burnt_scrub": ("n", "N", "O", None)},
         "rock": ("n", "N", "O", None)},
+    # Dinas Emrys: a wooded hill in Snowdonia; oak and rowan, bracken and gorse.
+    "dinas_emrys": {
+        "trees": {"oak": (broadleaf, 30, 34), "rowan": (lambda c, r, s: broadleaf(c, r, s, "V", "v", "w", "r"), 24, 32)},
+        "bushes": {"fern": ("fern",), "gorse": ("M", "m", "y", "f")},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

@@ -2845,5 +2845,46 @@
     "text_key": "BANTER_LORD_OF_ASHKARROW_SEKHMET",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "coraniaid_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "coraniaid",
+    "hero": "",
+    "god": "coraniaid",
+    "text_key": "BANTER_CORANIAID_ENTRANCE",
+    "lore_source": "\"Lludd and Llefelys\" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "feast_magician_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "feast_magician",
+    "hero": "",
+    "god": "feast_magician",
+    "text_key": "BANTER_FEAST_MAGICIAN_ENTRANCE",
+    "lore_source": "\"Lludd and Llefelys\" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "white_dragon_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "white_dragon",
+    "hero": "",
+    "god": "white_dragon",
+    "text_key": "BANTER_WHITE_DRAGON_ENTRANCE",
+    "lore_source": "Historia Brittonum 42",
+    "needs_owner_review": true
+  },
+  {
+    "id": "white_dragon_rhiannon",
+    "trigger": "boss_meets_god",
+    "speaker": "white_dragon",
+    "hero": "",
+    "god": "white_dragon",
+    "with_god": "rhiannon",
+    "text_key": "BANTER_WHITE_DRAGON_RHIANNON",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
   }
 ]

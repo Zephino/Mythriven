@@ -395,6 +395,11 @@ LEVELS = {
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
         "insects": {},
         "large": {}},
+    "dinas_emrys": {
+        "ground": {"red_fox": (fox, "#c8642a", "#f0ece4")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {"butterfly": (butterfly, "#c8d8f0", "#3a3a50")},
+        "large": {"red_deer": ("#8a5a3a", "#d8c0a0", "#3a2418", "antlers", 28, 26)}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

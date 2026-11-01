@@ -5071,5 +5071,119 @@
       "edge": "#2e2826",
       "stones": "#6a5e58"
     }
+  },
+  {
+    "_doc": "Dinas Emrys, Pack 11 realm 2, the dragons' hill (docs/PACK_11_PLAN.md). Sources: Historia Brittonum 40-42; \"Lludd and Llefelys\" (Red Book of Hergest, c. 1400; Lady Charlotte Guest's translation, 1849). The Red Dragon never appears. A realm: no local gods.",
+    "id": "dinas_emrys",
+    "name_key": "LEVEL_DINAS_EMRYS_NAME",
+    "region": "realm_dragon",
+    "act": 13,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "dinas_emrys",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "grass",
+          "max": -0.3,
+          "placeholder_color": "#5a7a4a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "bracken",
+          "max": 0.15,
+          "placeholder_color": "#7a6a3a",
+          "placeholder_dots": "#a8803a"
+        },
+        {
+          "id": "heather",
+          "max": 0.6,
+          "placeholder_color": "#5a4a5a",
+          "placeholder_dots": "#9a6aa0"
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#6a6e68",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "castle_ruin",
+      "standing_stone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "castle_ruin": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          26
+        ],
+        "placeholder_color": "#7a7e72",
+        "weight": 1
+      },
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          22
+        ],
+        "placeholder_color": "#8a8e82",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "coraniaid",
+      "20": "feast_magician",
+      "30": "white_dragon"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_empyrean",
+      "boss": "orion"
+    },
+    "waves": "waves_dinas_emrys.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 20,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.75,
+      "pulse": 0.2,
+      "pulse_hz": 0.6,
+      "veil_color": "#e8e0e8",
+      "particles": "mist",
+      "particle_color": "#f4eef4",
+      "fade_s": 2.0,
+      "player_status": "hex",
+      "status_every_s": 4.0,
+      "name_key": "HAZARD_MAY_EVE_SCREAM_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#d4d8cc",
+    "flora": {
+      "density": 0.6,
+      "trees": {
+        "oak": 3,
+        "rowan": 1
+      }
+    },
+    "road": {
+      "color": "#7a7868",
+      "edge": "#5a584a",
+      "stones": "#9a988a"
+    }
   }
 ]

@@ -1368,6 +1368,53 @@ func test_the_lord_of_ashkarrows_braziers() -> void:
 	assert_eq(lord.lit_count(), 4, "lit again")
 
 
+func test_the_coraniaid_hear_blows_coming() -> void:
+	_start("dinas_emrys")
+	assert_eq(str(_level("dinas_emrys")["unlock"]["boss"]), "orion")
+	var folk: CoraniaidBoss = _bosses.spawn_boss("coraniaid", 0) as CoraniaidBoss
+	assert_eq(folk.pools.size(), 3)
+	var at: Vector2 = folk.position_now()
+	assert_eq(folk.modify_hit(10.0, _player, Vector2.ZERO), 0.0, "heard it, stepped aside")
+	assert_ne(folk.position_now(), at)
+	assert_almost_eq(folk.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "not again so soon")
+	_enemies.positions[folk.slot] = folk.pools[0]
+	folk.signature(2.1)
+	assert_almost_eq(folk.modify_hit(10.0, _player, Vector2.ZERO), 30.0, 0.01, "in the insect-water")
+
+
+func test_the_magician_of_the_feast_plays_the_heroes_asleep() -> void:
+	_start("dinas_emrys")
+	var magician: FeastMagicianBoss = _bosses.spawn_boss("feast_magician", 1) as FeastMagicianBoss
+	_player.position = Vector2(5000, 5000)
+	magician.signature(6.1)
+	assert_ne(magician.playing_in, INF, "the music is coming")
+	magician.signature(2.1)
+	assert_gt(_player.rooted_s, 0.0, "asleep")
+	_player.rooted_s = 0.0
+	_player.position = magician.tubs[0]
+	magician.signature(12.1)
+	magician.signature(2.1)
+	assert_eq(_player.rooted_s, 0.0, "the cold water keeps you awake")
+	assert_eq(magician.sleepers, 1)
+
+
+func test_the_white_dragon_drinks_the_mead_and_sleeps() -> void:
+	_start("dinas_emrys")
+	var dragon: WhiteDragonBoss = _bosses.spawn_boss("white_dragon", 2) as WhiteDragonBoss
+	assert_ne(dragon.vat, Vector2.INF)
+	dragon.signature(8.1)
+	assert_true(dragon.flying)
+	assert_eq(dragon.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "out of reach")
+	dragon.signature(1.0)
+	assert_gt(dragon.marks.size(), 0, "frost from above")
+	_player.position = dragon.vat
+	dragon.signature(0.8)
+	dragon.signature(0.8)
+	assert_eq(dragon.sleeps, 1, "down to drink")
+	assert_false(dragon.flying)
+	assert_almost_eq(dragon.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "asleep, hurt double")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

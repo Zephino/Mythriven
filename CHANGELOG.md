@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.17
+Date: 11/01/2026
+Time: 1:41 AM
+
+### Changes
+- **Dinas Emrys, the dragons' hill, is built and open** (Pack 11, `docs/PACK_11_PLAN.md`). It opens when you beat Orion. Sources: the Historia Brittonum (Vortigern's tower and the dragons under it) and the Welsh tale "Lludd and Llefelys" (the three plagues of Britain). The Red Dragon, the Welsh national symbol, never appears.
+  - **Hazard, the May-Eve scream:** the dragons scream over Britain; the air shivers and every Hero is Hexed (weaker).
+  - **Monsters:** Coraniaid (casters), Vortigern's men-at-arms, wyrmlings (swarms) and ravens.
+  - **10:00, the Coraniaid:** they hear every blow coming and step aside (once every 2 s). Three pools of Llefelys' insect-water lie about: in one they can't step aside and take triple damage.
+  - **20:00, the Magician of the Feast:** every 12 s he plays his music (with a warning); every Hero not standing in one of the two tubs of cold water falls asleep for 2.5 s, and he heals a little for each.
+  - **30:00, the White Dragon** (the design's boss): 8 s on the ground, then 5 s in the air out of reach, breathing frost on marked spots. Stand at the vat of mead for 1.5 s to uncover it: the dragon comes down to drink and sleeps for 5 s, taking double damage. The vat refills after 15 s.
+  - A wooded Welsh hill of oak and rowan, bracken and heather, with tower ruins and standing stones; foxes, ravens and red deer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (433 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 11; the realms are built one at a time.
+
 ## Version 00.03.16
 Date: 11/01/2026
 Time: 1:33 AM
