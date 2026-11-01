@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.33
+Date: 11/01/2026
+Time: 2:06 PM
+
+### Changes
+- **Benkei redrawn** (owner's request: the owner didn't like the white hood). He now has a shaved head under the small black cap of the mountain monks (tokin), heavy brows, a nose, a wild black beard, a white collar, and big prayer beads across his dark robe. Both his Hero sprite and his 20:00 boss (the same picture, twice as big) change.
+
+### Reason
+The owner is going over every sprite, two Heroes at a time, and asked for Benkei to look better, without the thing on his head.
+
 ## Version 00.03.32
 Date: 11/01/2026
 Time: 1:43 PM

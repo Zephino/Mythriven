@@ -131,21 +131,32 @@ SHUTEN_PAL = {"o": "#140606", "k": "#0a0404", "r": "#c83a2a", "p": "#2a3a6a", "u
 
 BENKEI_DOC = ("Benkei (docs/PACK_3_PLAN.md: the Land of Legends; boss and Hero). Built by tools/art/build_legends.py on "
               "the shared body in tools/art/hero_kit.py. From the Gikeiki and the old picture scrolls: the giant warrior "
-              "monk in a white hood (the cowl of the mountain monks), dark robes over armour, his naginata.")
+              "monk with a shaved head under the mountain monks' small black cap (tokin), a wild black beard, big prayer "
+              "beads, dark robes over armour, his naginata. Redrawn 11/01/2026 at the owner's request (the white hood "
+              "replaced).")
 BENKEI_PAL = {"o": "#1e140c", "k": "#0e0a06", "s": "#c89870", "S": "#9a7050", "w": "#ece8e0", "W": "#b8b4ac",
-              "b": "#2e2e36", "B": "#1e1e24", "i": "#6a727c", "n": "#3a2a20"}
+              "b": "#2e2e36", "B": "#1e1e24", "i": "#6a727c", "n": "#3a2a20", "t": "#141418", "T": "#3a3a44", "h": "#1a1410",
+              "u": "#a8763a", "U": "#6a4422"}
 
 
 def benkei(c, back_leg, front_leg):
     kit.far_arm(c)
-    c.rect(9, 2, 17, 13, "w"); c.rect(9, 2, 10, 13, "W")                                # white monk's hood
-    c.rect(12, 6, 16, 11, "s"); c.px(15, 8, "k"); c.px(12, 7, "S")
-    c.rect(12, 10, 16, 11, "k")                                                          # heavy brows and stubble
+    c.rect(10, 3, 16, 12, "s"); c.row(3, 11, 15, "S"); c.px(10, 3, "S")                 # shaved head
+    c.rect(11, 1, 15, 3, "t"); c.row(0, 12, 14, "t"); c.px(13, 1, "T")                  # the mountain monk's small black cap (tokin)
+    c.row(6, 12, 16, "k"); c.px(11, 7, "S")                                              # heavy brows
+    c.px(15, 7, "w"); c.px(16, 7, "k")                                                   # fierce eye
+    c.px(16, 9, "S")                                                                     # nose
+    c.rect(11, 10, 17, 12, "h")                                                          # wild black beard
+    for x in (11, 13, 15, 17):
+        c.px(x, 13, "h")
     for y in range(13, 26):
         c.row(y, 8, 19, "b")
     c.rect(8, 13, 9, 25, "B")
-    for y in (16, 19, 22):
+    c.px(12, 13, "w"); c.px(13, 14, "w"); c.px(15, 13, "w"); c.px(14, 14, "w")           # white collar under the robe
+    for y in (19, 22):
         c.row(y, 10, 18, "i")                                                            # armour under the robe
+    for k in range(6):                                                                   # big prayer beads across the chest
+        c.px(10 + k, 15 + k, "u" if k % 2 else "U"); c.px(11 + k, 15 + k, "u" if k % 2 else "U")
     kit.weapon_arm(c)
     kit.legs(c, back_leg, front_leg, lambda c, x0: (c.rect(x0, 29, x0 + 2, 30, "w"), c.row(31, x0, x0 + 3, "n")))
 
