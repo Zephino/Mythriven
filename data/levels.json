@@ -4730,5 +4730,126 @@
       "edge": "#2a3058",
       "stones": "#8a94d0"
     }
+  },
+  {
+    "_doc": "The Glass Mountain, Pack 10 realm 3, the crystal realm (docs/PACK_10_PLAN.md). Sources: the Brothers Grimm, The Seven Ravens (KHM 25) and Old Rinkrank (KHM 196); Andersen, The Snow Queen (1844; not any film). A realm: no local gods.",
+    "id": "the_glass_mountain",
+    "name_key": "LEVEL_GLASS_MOUNTAIN_NAME",
+    "region": "realm_glass",
+    "act": 12,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_glass_mountain",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "ice",
+          "max": -0.3,
+          "placeholder_color": "#a8c8dc",
+          "placeholder_dots": "#e0f0fa"
+        },
+        {
+          "id": "snow",
+          "max": 0.1,
+          "placeholder_color": "#e4ecf4",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "packed_snow",
+          "max": 0.55,
+          "placeholder_color": "#c8d4e0",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "stone",
+          "max": 1.0,
+          "placeholder_color": "#9aa8b8",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "glass_spire",
+      "ice_shard"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "glass_spire": {
+        "shape": "rect",
+        "size_px": [
+          12,
+          28
+        ],
+        "placeholder_color": "#c8e0f0",
+        "weight": 2
+      },
+      "ice_shard": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          26
+        ],
+        "placeholder_color": "#a8d0e8",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "seven_ravens",
+      "20": "rinkrank",
+      "30": "snow_queen"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_goblin_market",
+      "boss": "goblin_merchants"
+    },
+    "waves": "waves_the_glass_mountain.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 14,
+      "strikes_per_s": 0.9,
+      "radius_px": 28,
+      "telegraph_s": 1.2,
+      "damage": 12,
+      "element": "ice",
+      "range_px": 230,
+      "color": "#c8e8f8",
+      "look": "rockslide",
+      "player_status": "chill",
+      "name_key": "HAZARD_FALLING_ICICLES_NAME"
+    },
+    "ground_patches": {
+      "kind": "slide",
+      "count": 6,
+      "radius_px": [
+        28,
+        46
+      ],
+      "color": "#d0ecfa",
+      "grip_per_s": 2.0
+    },
+    "seal": "norse_band",
+    "tint": "#e8f0f8",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "spruce": 2,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#c8d4e0",
+      "edge": "#a8b4c4",
+      "stones": "#e8f0f8"
+    }
   }
 ]

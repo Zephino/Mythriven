@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.13
+Date: 10/31/2026
+Time: 11:53 PM
+
+### Changes
+- **The Glass Mountain, the crystal realm, is built and open** (Pack 10, `docs/PACK_10_PLAN.md`). It opens when you beat the Goblin Merchant-Men. Sources: the Grimms' "The Seven Ravens" and "Old Rinkrank", and Andersen's "The Snow Queen" (1844; not any film).
+  - **Hazard, falling icicles:** icicles break from the glass and fall (telegraphed strikes that Chill), and the glass slopes are slippery.
+  - **Monsters:** white bees (Andersen's snowflakes, in swarms), snowflake guards, frost wisps, ravens, and from 10:00 frost giants.
+  - **10:00, the Seven Ravens:** every 12 s they scatter into seven ravens and can't be hurt; each raven you kill takes 3% of their health, and after 6 s they gather again.
+  - **20:00, Old Rinkrank:** every 10 s he lets down his ladder and climbs out of reach for 3 s, throwing glass shards down on marked spots under the Heroes.
+  - **30:00, the Snow Queen** (the design's boss; Andersen's): every 9 s her kiss freezes the nearest Hero for a moment. Pieces of ice appear on the frozen lake; gather four and the word is made, breaking her spell (her guard breaks).
+  - Ice, snow and glass with glass spires and ice shards; mountain hares, ravens and reindeer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (421 tests pass).
+
+### Reason
+Pack 10, realm 3 of 4 (owner: "go ahead").
+
 ## Version 00.03.12
 Date: 10/31/2026
 Time: 11:45 PM

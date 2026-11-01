@@ -40,6 +40,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "the_hollow_hills": ("#4a4440", "#3e3834", "#5a524c", "#46403c", "#2e2a26", None),
     "hyperborea": ("#dce4ee", "#c8d0dc", "#a8b0bc", "#8a929e", "#6a727e", "#f6f8fc"),
     "the_empyrean": ("#2a3052", "#1e2444", "#3a4070", "#2a3058", "#141a34", "#e8eeff"),
+    "the_glass_mountain": ("#dce8f2", "#c8d8e8", "#a8bccc", "#8ca0b2", "#6a7e90", "#f6faff"),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),

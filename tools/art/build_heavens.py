@@ -183,6 +183,75 @@ ORION_PAL = {"o": "#06081a", "k": "#141a30", "d": "#2a3a6a", "D": "#1e2a50", "s"
              "y": "#d8b860", "w": "#ffffff", "b": "#6a4a2a"}
 
 
+# --- The Glass Mountain (Grimm KHM 25, KHM 196; Andersen, "The Snow Queen", 1844) -------------------------------------
+
+def white_bee(c, f):
+    """A white bee (Andersen: "the white bees are swarming", the grandmother's name for snowflakes): a snowflake with
+    little wings."""
+    for k in range(6):
+        a = k / 6 * math.tau + f * 0.3
+        for r in (1, 2, 3):
+            c.px(6 + round(r * math.cos(a)), 6 + round(r * math.sin(a)), "w" if r < 3 else "b")
+
+
+WHITE_BEE_PAL = {"o": "#6a7888", "w": "#ffffff", "b": "#c8e0f0"}
+
+
+def snowflake_guard(c, f):
+    """A snowflake guard of the Snow Queen (Andersen, 7th story: her advance guard of living snowflakes, shaped like
+    horrid hedgehogs, knotted snakes and little fat bears): a squat white bear-shape of packed snow."""
+    s = STEP[f]
+    ellipse(c, 10, 10, 7, 6, "w"); ellipse(c, 10, 4, 4, 3, "w")
+    c.px(8, 3, "k"); c.px(12, 3, "k"); c.px(6, 1, "w"); c.px(14, 1, "w")
+    for k, d in enumerate((-s, s)):
+        c.rect(6 + k * 6 + d, 15, 8 + k * 6 + d, 18, "b")
+    for x, y in ((5, 8), (14, 11), (9, 13)):
+        c.px(x, y, "b")
+
+
+SNOW_GUARD_PAL = {"o": "#4a5a6a", "w": "#f4f8fc", "b": "#c8dcec", "k": "#2a3a4a"}
+
+
+def seven_ravens(c, step):
+    """The Seven Ravens (Grimm, KHM 25): seven brothers changed into ravens by their father's hasty word, who live in
+    the glass mountain; their little sister freed them. Seven black ravens flying together as one."""
+    for k in range(7):
+        x = 8 + (k % 4) * 12 + (k // 4) * 6
+        y = 10 + (k // 4) * 16 + ((k + step) % 2) * 2
+        poly(c, [(x, y), (x - 7, y - 5 + step), (x - 3, y + 2)], "k"); poly(c, [(x + 2, y), (x + 9, y - 5 - step), (x + 5, y + 2)], "k")
+        ellipse(c, x + 1, y + 2, 3, 2, "K"); c.px(x + 4, y + 1, "y")
+
+
+RAVENS_PAL = {"o": "#2a2a34", "k": "#141418", "K": "#1e1e24", "y": "#e8c040"}
+
+
+def rinkrank(c, step):
+    """Old Rinkrank (Grimm, KHM 196): the old man with the long grey beard who lived in the glass mountain and made the
+    king's daughter his servant, until she caught his beard in the window."""
+    figure(c, step, "b", "s", "g", legs="B")
+    poly(c, [(15, 12), (27, 12), (25, 44), (17, 44)], "g")                                          # the long grey beard
+    c.rect(30, 20, 31, 46, "B"); c.rect(29, 18, 32, 20, "B")
+
+
+RINKRANK_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#5a4a3a", "B": "#3a2e24", "s": "#e0c0a0", "g": "#b8b8b8"}
+
+
+def snow_queen(c, step):
+    """The Snow Queen (Andersen, 1844): "a lady, tall and slender, and dazzling white; her cloak and cap were of snow".
+    Her palace walls were driven snow; she kissed Kai, and he no longer felt the cold."""
+    figure(c, step, "w", "s", "W", legs="b")
+    poly(c, [(10, 18), (32, 18), (36, 52), (6, 52)], "W")
+    poly(c, [(14, 18), (28, 18), (31, 50), (11, 50)], "w")
+    for k in range(5):
+        c.px(14 + k * 3, 1 - k % 2, "i"); c.px(14 + k * 3, 2, "i")                                 # an icy crown
+    c.rect(14, 3, 27, 4, "i")
+    c.px(18, 10, "b"); c.px(23, 10, "b")
+
+
+SNOW_QUEEN_PAL = {"o": "#4a5a6a", "k": "#2a3a4a", "w": "#f4f8fc", "W": "#c8dcec", "s": "#f0f4f8", "b": "#5a8ab0",
+                  "i": "#a8e0f8"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_heavens.py."
@@ -199,4 +268,9 @@ if __name__ == "__main__":
     kit.build_boss("scorpion", scorpion, SCORPION_PAL, doc(scorpion.__doc__), (52, 46), (26, 44), [0, 1, 0, -1, 0])
     kit.build_boss("great_bear", great_bear, BEAR_PAL, doc(great_bear.__doc__), (62, 50), (30, 48), [0, 1, 0, -1, 0])
     kit.build_boss("orion", orion, ORION_PAL, doc(orion.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("white_bee", white_bee, WHITE_BEE_PAL, doc(white_bee.__doc__), (13, 13), (6, 12), walk, folder="enemies")
+    kit.build_boss("snowflake_guard", snowflake_guard, SNOW_GUARD_PAL, doc(snowflake_guard.__doc__), (20, 20), (10, 19), walk, folder="enemies")
+    kit.build_boss("seven_ravens", seven_ravens, RAVENS_PAL, doc(seven_ravens.__doc__), (60, 40), (30, 38), [0, 1, 0, -1, 0])
+    kit.build_boss("rinkrank", rinkrank, RINKRANK_PAL, doc(rinkrank.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("snow_queen", snow_queen, SNOW_QUEEN_PAL, doc(snow_queen.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
     print("wrote the Heavens' art")

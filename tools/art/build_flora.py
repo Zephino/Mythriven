@@ -468,6 +468,11 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"scorched_scrub": ("n", "N", "O", None)},
         "rock": ("n", "N", "O", None)},
+    # The Glass Mountain: snow and glass slopes; a few snow-laden spruces and dead trees.
+    "the_glass_mountain": {
+        "trees": {"spruce": (spruce, 22, 40), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"juniper": ("P", "p", "q", None)},
+        "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

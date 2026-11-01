@@ -884,6 +884,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | orion_entrance | boss entrance | orion | Every beast on earth, I said. You'll do. | Ovid, Fasti 5 (Orion's boast) | no |
 | orion_skadi | boss meets god (with skadi) | orion | A huntress! Shall we see whose arrow flies true? | Original line written for Mythriven | no |
 
+### The Glass Mountain
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | the_glass_mountain | The Glass Mountain | The Brothers Grimm, KHM 25 and KHM 196 (the glass mountain); Andersen, The Snow Queen (1844) | no |
+| enemy | white_bee | White bee | Andersen, The Snow Queen (1844): "the white bees are swarming" (the snowflakes) | no |
+| enemy | snowflake_guard | Snowflake guard | Andersen, The Snow Queen (1844), 7th story: her advance guard of living snowflakes | no |
+| boss | seven_ravens | The Seven Ravens | The Brothers Grimm, The Seven Ravens (KHM 25): seven brothers turned into ravens, living in the glass mountain | no |
+| boss | rinkrank | Old Rinkrank | The Brothers Grimm, Old Rinkrank (KHM 196): the old man in the glass mountain and his ladder | no |
+| boss | snow_queen | The Snow Queen | Hans Christian Andersen, The Snow Queen (1844; not any film): her kisses, and the pieces of ice that must make the word Eternity | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| seven_ravens_entrance | boss entrance | seven_ravens | (Seven ravens circle the glass mountain, crying with one voice.) | Grimm, KHM 25 | no |
+| rinkrank_entrance | boss entrance | rinkrank | Who's on my mountain? Let down the ladder, let down the ladder! | Grimm, KHM 196 | no |
+| snow_queen_entrance | boss entrance | snow_queen | Are you cold? Come here. One kiss, and you'll never feel the cold again. | Andersen, The Snow Queen (her kiss) | no |
+| snow_queen_skadi | boss meets god (with skadi) | snow_queen | A goddess of the snows. Then you understand my palace. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 10). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Hyperborea built and released 11/01/2026 (00.03.11); the Empyrean (00.03.12).
+it. Hyperborea built and released 11/01/2026 (00.03.11); the Empyrean (00.03.12); the Glass Mountain (00.03.13).
 
 Realms work like Packs 5-9: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -57,7 +57,7 @@ Apollodorus 1.4.3-5 (Orion, blinded, walks toward the sunrise).*
 | 20:00 | **The Great Bear** | Callisto, set in the sky; the Bear never sets: she circles the arena without stopping, swiping whoever is near her path |
 | 30:00 | **Orion** (the design's) | The giant hunter calls his hounds; every so often he is struck blind and lashes about wildly at random, taking more damage until his sight returns |
 
-## Realm 39: the Glass Mountain (the crystal realm)
+## Realm 39: the Glass Mountain (the crystal realm): **done and released 11/01/2026 (00.03.13)**
 *Sources: the Brothers Grimm, "The Seven Ravens" (KHM 25) and "Old Rinkrank" (KHM 196): the glass mountain; Hans
 Christian Andersen, "The Snow Queen" (1844; not any film): the white bees, the snowflake army, the frozen lake, the
 pieces of ice Kai must fit into the word "Eternity".*

@@ -1544,5 +1544,35 @@
       "id": "orion"
     },
     "persists": true
+  },
+  {
+    "id": "boss_seven_ravens",
+    "name_key": "ACH_BOSS_SEVEN_RAVENS_NAME",
+    "desc_key": "ACH_BOSS_SEVEN_RAVENS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "seven_ravens"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_rinkrank",
+    "name_key": "ACH_BOSS_RINKRANK_NAME",
+    "desc_key": "ACH_BOSS_RINKRANK_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "rinkrank"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_snow_queen",
+    "name_key": "ACH_BOSS_SNOW_QUEEN_NAME",
+    "desc_key": "ACH_BOSS_SNOW_QUEEN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "snow_queen"
+    },
+    "persists": true
   }
 ]

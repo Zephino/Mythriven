@@ -1,0 +1,133 @@
+{
+ "_doc": "A snowflake guard of the Snow Queen (Andersen, 7th story: her advance guard of living snowflakes, shaped like horrid hedgehogs, knotted snakes and little fat bears): a squat white bear-shape of packed snow. Built by tools/art/build_heavens.py.",
+ "size": [
+  20,
+  20
+ ],
+ "anchor": [
+  10,
+  19
+ ],
+ "palette": {
+  "o": "#4a5a6a",
+  "w": "#f4f8fc",
+  "b": "#c8dcec",
+  "k": "#2a3a4a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "......o...o...o.....",
+    ".....owooowooowo....",
+    "......oowwwwwoo.....",
+    "......owkwwwkwo.....",
+    ".....owwwwwwwwwo....",
+    ".....oowwwwwwwoo....",
+    "....owwwwwwwwwwwo...",
+    "...owwwwwwwwwwwwwo..",
+    "...owbwwwwwwwwwwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "..owwwwwwwwwwwwwwwo.",
+    "...owwwwwwwwwwbwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "...owwwwwbwwwwwwwo..",
+    "....owwwwwwwwwwwo...",
+    ".....obbbwwwbbbo....",
+    ".....obbbowobbbo....",
+    ".....obbbooobbbo....",
+    ".....obbbo.obbbo....",
+    "......ooo...ooo....."
+   ]
+  ],
+  "walk": [
+   [
+    "......o...o...o.....",
+    ".....owooowooowo....",
+    "......oowwwwwoo.....",
+    "......owkwwwkwo.....",
+    ".....owwwwwwwwwo....",
+    ".....oowwwwwwwoo....",
+    "....owwwwwwwwwwwo...",
+    "...owwwwwwwwwwwwwo..",
+    "...owbwwwwwwwwwwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "..owwwwwwwwwwwwwwwo.",
+    "...owwwwwwwwwwbwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "...owwwwwbwwwwwwwo..",
+    "....owwwwwwwwwwwo...",
+    ".....oobbbwbbboo....",
+    "......obbbwbbbo.....",
+    "......obbbobbbo.....",
+    "......obbbobbbo.....",
+    ".......ooo.ooo......"
+   ],
+   [
+    "......o...o...o.....",
+    ".....owooowooowo....",
+    "......oowwwwwoo.....",
+    "......owkwwwkwo.....",
+    ".....owwwwwwwwwo....",
+    ".....oowwwwwwwoo....",
+    "....owwwwwwwwwwwo...",
+    "...owwwwwwwwwwwwwo..",
+    "...owbwwwwwwwwwwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "..owwwwwwwwwwwwwwwo.",
+    "...owwwwwwwwwwbwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "...owwwwwbwwwwwwwo..",
+    "....owwwwwwwwwwwo...",
+    ".....obbbwwwbbbo....",
+    ".....obbbowobbbo....",
+    ".....obbbooobbbo....",
+    ".....obbbo.obbbo....",
+    "......ooo...ooo....."
+   ],
+   [
+    "......o...o...o.....",
+    ".....owooowooowo....",
+    "......oowwwwwoo.....",
+    "......owkwwwkwo.....",
+    ".....owwwwwwwwwo....",
+    ".....oowwwwwwwoo....",
+    "....owwwwwwwwwwwo...",
+    "...owwwwwwwwwwwwwo..",
+    "...owbwwwwwwwwwwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "..owwwwwwwwwwwwwwwo.",
+    "...owwwwwwwwwwbwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "...owwwwwbwwwwwwwo..",
+    "....owwwwwwwwwwwo...",
+    "....obbbwwwwwbbbo...",
+    "....obbboowoobbbo...",
+    "....obbbo.o.obbbo...",
+    "....obbbo...obbbo...",
+    ".....ooo.....ooo...."
+   ],
+   [
+    "......o...o...o.....",
+    ".....owooowooowo....",
+    "......oowwwwwoo.....",
+    "......owkwwwkwo.....",
+    ".....owwwwwwwwwo....",
+    ".....oowwwwwwwoo....",
+    "....owwwwwwwwwwwo...",
+    "...owwwwwwwwwwwwwo..",
+    "...owbwwwwwwwwwwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "..owwwwwwwwwwwwwwwo.",
+    "...owwwwwwwwwwbwwo..",
+    "...owwwwwwwwwwwwwo..",
+    "...owwwwwbwwwwwwwo..",
+    "....owwwwwwwwwwwo...",
+    ".....obbbwwwbbbo....",
+    ".....obbbowobbbo....",
+    ".....obbbooobbbo....",
+    ".....obbbo.obbbo....",
+    "......ooo...ooo....."
+   ]
+  ]
+ }
+}

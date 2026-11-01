@@ -380,6 +380,11 @@ LEVELS = {
         "birds": {},
         "insects": {"firefly": (lambda *a: firefly(a[-1]),)},
         "large": {}},
+    "the_glass_mountain": {
+        "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {},
+        "large": {"reindeer": ("#c8b8a0", "#f0ece4", "#6a5a48", "antlers", 28, 26)}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

@@ -2722,5 +2722,46 @@
     "text_key": "BANTER_ORION_SKADI",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "seven_ravens_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "seven_ravens",
+    "hero": "",
+    "god": "seven_ravens",
+    "text_key": "BANTER_SEVEN_RAVENS_ENTRANCE",
+    "lore_source": "Grimm, KHM 25",
+    "needs_owner_review": true
+  },
+  {
+    "id": "rinkrank_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "rinkrank",
+    "hero": "",
+    "god": "rinkrank",
+    "text_key": "BANTER_RINKRANK_ENTRANCE",
+    "lore_source": "Grimm, KHM 196",
+    "needs_owner_review": true
+  },
+  {
+    "id": "snow_queen_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "snow_queen",
+    "hero": "",
+    "god": "snow_queen",
+    "text_key": "BANTER_SNOW_QUEEN_ENTRANCE",
+    "lore_source": "Andersen, The Snow Queen (her kiss)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "snow_queen_skadi",
+    "trigger": "boss_meets_god",
+    "speaker": "snow_queen",
+    "hero": "",
+    "god": "snow_queen",
+    "with_god": "skadi",
+    "text_key": "BANTER_SNOW_QUEEN_SKADI",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

@@ -2858,3 +2858,29 @@ BANTER_SCORPION_ENTRANCE,"(The Scorpion rises over the rim of the sky, and somew
 BANTER_GREAT_BEAR_ENTRANCE,"(She turns round the pole, as she always has, and never sets.)"
 BANTER_ORION_ENTRANCE,"Every beast on earth, I said. You'll do."
 BANTER_ORION_SKADI,A huntress! Shall we see whose arrow flies true?
+LEVEL_GLASS_MOUNTAIN_NAME,The Glass Mountain
+HAZARD_FALLING_ICICLES_NAME,Icicles break from the glass and fall!
+ENEMY_WHITE_BEE_NAME,White bee
+ENEMY_WHITE_BEE_MYTH,"""Look, the white bees are swarming,"" said the old grandmother, when the snow was falling; and the Snow Queen, she said, flies where they swarm thickest."
+ENEMY_SNOWFLAKE_GUARD_NAME,Snowflake guard
+ENEMY_SNOWFLAKE_GUARD_MYTH,"The Snow Queen's advance guard: snowflakes that grew larger and larger and came alive, shaped like horrid hedgehogs, knotted snakes and little fat bears."
+BOSS_SEVEN_RAVENS_NAME,The Seven Ravens
+ENEMY_SEVEN_RAVENS_NAME,The Seven Ravens
+ENEMY_SEVEN_RAVENS_MYTH,"Seven brothers whom their father, in a moment's anger, wished into ravens. They flew away to the glass mountain, where their little sister found them at last and freed them."
+BOSS_RINKRANK_NAME,Old Rinkrank
+ENEMY_RINKRANK_NAME,Old Rinkrank
+ENEMY_RINKRANK_MYTH,An old man with a long grey beard who lived inside the glass mountain and made a king's daughter his servant. He came and went by a ladder he let down; she caught his beard in the window and would not let him go until he gave her the ladder.
+BOSS_SNOW_QUEEN_NAME,The Snow Queen
+ENEMY_SNOW_QUEEN_NAME,The Snow Queen
+ENEMY_SNOW_QUEEN_MYTH,"A tall, slender lady, dazzling white, whose cloak and cap were of snow. She kissed Kai and he no longer felt the cold; in her palace he sat on the frozen lake fitting pieces of ice together, trying to make the word that would set him free."
+BOSS_SNOW_QUEEN_WORD,The pieces of ice make the word! Her spell breaks!
+ACH_BOSS_SEVEN_RAVENS_NAME,Defeat The Seven Ravens
+ACH_BOSS_SEVEN_RAVENS_DESC,The 10:00 boss of The Glass Mountain.
+ACH_BOSS_RINKRANK_NAME,Defeat Old Rinkrank
+ACH_BOSS_RINKRANK_DESC,The 20:00 boss of The Glass Mountain.
+ACH_BOSS_SNOW_QUEEN_NAME,Defeat The Snow Queen
+ACH_BOSS_SNOW_QUEEN_DESC,The 30:00 boss of The Glass Mountain.
+BANTER_SEVEN_RAVENS_ENTRANCE,"(Seven ravens circle the glass mountain, crying with one voice.)"
+BANTER_RINKRANK_ENTRANCE,"Who's on my mountain? Let down the ladder, let down the ladder!"
+BANTER_SNOW_QUEEN_ENTRANCE,"Are you cold? Come here. One kiss, and you'll never feel the cold again."
+BANTER_SNOW_QUEEN_SKADI,A goddess of the snows. Then you understand my palace.

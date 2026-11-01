@@ -1,0 +1,77 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A spire of the glass mountain (Grimm, \"The Seven Ravens\"): a tall shard of clear glass, catching the light.",
+ "size": [
+  14,
+  30
+ ],
+ "anchor": [
+  7,
+  29
+ ],
+ "palette": {
+  "a": "#303030",
+  "b": "#66605a",
+  "c": "#78786c",
+  "d": "#ded8d2",
+  "e": "#eae4d8",
+  "f": "#ccc6ba",
+  "g": "#aeaea8",
+  "h": "#90908a",
+  "i": "#a8a89c",
+  "j": "#727266",
+  "k": "#c0bab4",
+  "l": "#b4b4ae",
+  "m": "#6c6c66",
+  "n": "#d2d2c6",
+  "o": "#72726c",
+  "p": "#969690",
+  "q": "#666660",
+  "r": "#a2a29c",
+  "s": "#d2ccc6",
+  "t": "#848484",
+  "u": "#9c9c96",
+  "v": "#c6c6ba",
+  "w": "#ded8cc",
+  "x": "#60605a",
+  "y": "#7e7e78",
+  "z": "#84847e",
+  "A": "#babaae",
+  "B": "#4e4e48"
+ },
+ "frames": {
+  "idle": [
+   [
+    "......ab......",
+    ".....acdb.....",
+    ".....aceb.....",
+    ".....acdb.....",
+    ".....acfb.....",
+    "....beghdb....",
+    "....begidb....",
+    "....beggdb....",
+    "....aeggdb....",
+    "...ajklildb...",
+    "...amelggdb...",
+    "...amdlggdb...",
+    "...ajdlggnb...",
+    "..aoinihipdb..",
+    "..aqlngilidb..",
+    "..aqrsrgtrsb..",
+    "..amgsgrgusb..",
+    ".aqrrvgrurrsb.",
+    ".aqrgsrgggrsb.",
+    ".amrrvrrguuvb.",
+    ".aqrrsurrursb.",
+    "amgrgsurrrrrwb",
+    "amruprrrrurusb",
+    "aqurgrrrrurrsb",
+    "amuurgrrgrruwb",
+    "aqrpupruruurvb",
+    "axyruprprrrzvb",
+    "aqupuuuruuuuvb",
+    "aquuppupuzruAb",
+    ".aBBBBBBBBBBb."
+   ]
+  ]
+ }
+}

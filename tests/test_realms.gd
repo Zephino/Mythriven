@@ -1196,3 +1196,42 @@ func test_orion_is_struck_blind() -> void:
 	assert_eq(_enemies.active_count(), before + 2, "his two hounds")
 	hunter.go_blind()
 	assert_almost_eq(hunter.modify_hit(10.0, _player, Vector2.ZERO), 15.0, 0.01, "blind, easier to hurt")
+
+
+func test_the_seven_ravens_scatter_and_gather() -> void:
+	_start("the_glass_mountain")
+	assert_eq(str(_level("the_glass_mountain")["unlock"]["boss"]), "goblin_merchants")
+	var ravens: SevenRavensBoss = _bosses.spawn_boss("seven_ravens", 0) as SevenRavensBoss
+	ravens.scatter()
+	assert_eq(ravens.ravens.size(), 7)
+	assert_eq(ravens.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "scattered, it can't be hurt")
+	var hp: float = _enemies.hp[ravens.slot]
+	_enemies.remove_quietly(ravens.ravens[0])
+	ravens.signature(0.1)
+	assert_eq(ravens.killed, 1)
+	assert_lt(_enemies.hp[ravens.slot], hp, "each raven lost hurts it")
+	ravens.signature(6.1)
+	assert_eq(ravens.scattered_s, 0.0, "gathered again")
+
+
+func test_old_rinkrank_climbs_his_ladder() -> void:
+	_start("the_glass_mountain")
+	var old: RinkrankBoss = _bosses.spawn_boss("rinkrank", 1) as RinkrankBoss
+	old.climb()
+	assert_eq(old.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "out of reach")
+	old.signature(0.3)
+	assert_gt(old.shards.size(), 0, "glass thrown down")
+	var hp: float = _player.hp
+	old.signature(1.0)
+	assert_lt(_player.hp, hp)
+
+
+func test_the_snow_queens_kiss_and_the_word() -> void:
+	_start("the_glass_mountain")
+	var queen: SnowQueenBoss = _bosses.spawn_boss("snow_queen", 2) as SnowQueenBoss
+	queen.kiss(_player)
+	assert_gt(_player.rooted_s, 0.0, "frozen by her kiss")
+	for k: int in 4:
+		queen.gather_piece()
+	assert_eq(queen.spells_broken, 1, "the word is made")
+	assert_gt(queen.broken_s, 0.0)
