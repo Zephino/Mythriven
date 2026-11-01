@@ -101,3 +101,17 @@ the rockslide look in grey stone).
 | 10:00 | **The Questing Beast** | From its belly comes a noise like thirty couple of hounds questing; its baying drives every Hero back. Pellinore hunted it all his life |
 | 20:00 | **Morgan le Fay** | She has stolen Excalibur's scabbard, whose wearer loses no blood: while she holds it she heals and shrugs off Burn and Poison. The scabbard falls in the arena now and then: take it to stop her healing for a while |
 | 30:00 | **Vortigern** (the design's) | The usurper's tower stands in the arena: near it he takes much less damage. It falls every so often (stones fall round it) and is rebuilt; Fire on him near the tower brings it down at once, as he burned in it |
+
+## Secrets (00.03.05, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Ghorvast | The Silent Drum | Beat the War Drummer before his sixth drumbeat | War-paint aura |
+| Ghorvast | The Fallen Banner | Tear down the Warlord's banner three times, then beat him | Torn Banner passive (+4% area per level) |
+| Knossos | Unjudged | Beat Minos without ever being condemned | Golden-sceptre aura |
+| Knossos | Ariadne's Thread | Beat Asterion before his fourth flurry of rushes | Ariadne's Thread passive (+8% pickup range per level) |
+| Utgard | Faster Than Thought | Beat Hugi before he leaps ahead ten times | Thought-silver aura |
+| Utgard | Seeing Through | Break two sets of Útgarða-Loki's illusions, then beat him | Drinking Horn passive (+4% max HP per level) |
+| Logres | The Scabbard Regained | Take the scabbard from Morgan le Fay three times, then beat her | Scabbard Strap passive (+1 Armor per level, 3 levels) |
+| Logres | The Burning Tower | Bring Vortigern's tower down with Fire twice, then beat him | Tower-flame aura |
+
+**Pack 8 is complete.**

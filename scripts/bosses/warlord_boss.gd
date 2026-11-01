@@ -67,3 +67,8 @@ func _draw() -> void:
 		if _held > 0.0:
 			draw_arc(at, 18.0, -PI / 2, -PI / 2 + TAU * _held / float(_sig().get("tear_s", 1.5)), 24, Color(1.0, 0.9, 0.5), 2.0)
 	super._draw()
+
+
+## The Fallen Banner secret: his banner torn down three times.
+func secret_earned() -> String:
+	return "the_fallen_banner" if torn >= 3 else ""

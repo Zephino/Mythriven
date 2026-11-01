@@ -79,3 +79,8 @@ func _draw() -> void:
 	if wearing() and is_alive():
 		draw_arc(position_now() - global_position, GameAuthority.enemies.radius[slot] + 6.0, 0.0, TAU, 24, Color(0.4, 0.9, 0.5, 0.35), 1.5)
 	super._draw()
+
+
+## The Scabbard Regained secret: the scabbard taken from her three times.
+func secret_earned() -> String:
+	return "the_scabbard_regained" if taken >= 3 else ""

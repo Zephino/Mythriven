@@ -41,3 +41,8 @@ func _draw() -> void:
 	super._draw()
 	if _pulse_s > 0.0 and is_alive():
 		draw_arc(position_now() - global_position, 30.0 + (0.5 - _pulse_s) * 160.0, 0.0, TAU, 40, Color(0.9, 0.5, 0.2, _pulse_s * 1.6), 3.0)
+
+
+## The Silent Drum secret: beaten before his sixth drumbeat.
+func secret_earned() -> String:
+	return "the_silent_drum" if beats < 6 else ""

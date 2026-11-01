@@ -60,3 +60,8 @@ func _draw() -> void:
 	if is_alive() and not copies.is_empty():
 		draw_arc(position_now() - global_position, GameAuthority.enemies.radius[slot] + 10.0, 0.0, TAU, 32,
 				Color(0.7, 0.75, 1.0, 0.4 + 0.2 * sin(Time.get_ticks_msec() * 0.008)), 2.0)
+
+
+## Seeing Through secret: nine of his illusions raised (and so two sets broken) before he falls.
+func secret_earned() -> String:
+	return "seeing_through" if raised >= 9 else ""

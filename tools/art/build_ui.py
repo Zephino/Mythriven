@@ -525,6 +525,47 @@ def iolaus_brand():
     return p
 
 
+def torn_banner():
+    """Torn Banner (Ghorvast, the game's own): a ragged red war banner on a broken pole."""
+    p = icon()
+    p.rect(4, 2, 5, 15, "b")
+    for y in range(2, 10):
+        p.rect(6, y, 6 + 7 - abs(y - 5) - (y % 3), y, "p")
+    return p
+
+
+def ariadne_thread():
+    """Ariadne's Thread (Plutarch, Theseus 19): a ball of red thread, the end trailing away."""
+    p = icon()
+    for y in range(3, 12):
+        for x in range(2, 11):
+            if math.hypot(x - 6, y - 7) <= 4.2:
+                p.px(x, y, "p" if (x + y) % 3 else "P")
+    for k in range(6):
+        p.px(10 + k, 11 + round(math.sin(k) * 1.5), "p")
+    return p
+
+
+def drinking_horn():
+    """Drinking Horn (Gylfaginning 46-47: the horn whose end was in the sea): a curved horn with a silver rim."""
+    p = icon()
+    for k in range(12):
+        w = 1 + k // 4
+        p.rect(2 + k, 12 - k // 2 - w // 2, 2 + k, 12 - k // 2 + w // 2, "E" if k % 3 else "e")
+    p.rect(13, 4, 14, 9, "s")
+    return p
+
+
+def scabbard_strap():
+    """Scabbard Strap (Malory: the scabbard of Excalibur): a red jewelled scabbard on its strap."""
+    p = icon()
+    for k in range(11):
+        p.px(3 + k, 13 - k, "p"); p.px(4 + k, 13 - k, "P")
+    p.px(6, 10, "y"); p.px(9, 7, "u"); p.px(12, 4, "y")
+    p.rect(13, 1, 15, 3, "b")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
@@ -534,7 +575,8 @@ ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hou
          "sun_crow_feather": crow_feather, "loose_thread": loose_thread,
          "hunters_horn": hunters_horn, "mountebanks_charm": pedlar_charm, "wolf_tooth": wolf_tooth, "iron_claw": iron_claw,
          "draupnir": draupnir_ring, "tarnkappe_thread": tarnkappe_thread, "glow_cap": glow_cap, "ant_strength": ant_strength,
-         "elf_arrow": elf_arrow, "rhymers_tongue": rhymers_tongue, "thunderstone": thunderstone, "iolaus_brand": iolaus_brand}
+         "elf_arrow": elf_arrow, "rhymers_tongue": rhymers_tongue, "thunderstone": thunderstone, "iolaus_brand": iolaus_brand,
+         "torn_banner": torn_banner, "ariadne_thread": ariadne_thread, "drinking_horn": drinking_horn, "scabbard_strap": scabbard_strap}
 
 
 def outlined(p):

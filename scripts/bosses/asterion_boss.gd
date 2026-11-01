@@ -74,3 +74,8 @@ func _draw() -> void:
 		var at: Vector2 = position_now() - global_position + Vector2(0, -GameAuthority.enemies.radius[slot] - 6.0)
 		for k: int in 3:
 			draw_circle(at + Vector2(k * 6 - 6, -fmod(Time.get_ticks_msec() * 0.02 + k * 4, 12.0)), 2.5, Color(0.9, 0.9, 0.95, 0.5))
+
+
+## Ariadne's Thread secret: beaten before his fourth flurry of rushes.
+func secret_earned() -> String:
+	return "ariadnes_thread" if flurries < 4 else ""

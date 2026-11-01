@@ -748,7 +748,11 @@
       { "id": "elf_light", "name_key": "COSMETIC_ELF_LIGHT", "color": "#f4ecc8" },
       { "id": "milk_white", "name_key": "COSMETIC_MILK_WHITE", "color": "#f4f4ee" },
       { "id": "golden_horn", "name_key": "COSMETIC_GOLDEN_HORN", "color": "#e8c060" },
-      { "id": "sown_bronze", "name_key": "COSMETIC_SOWN_BRONZE", "color": "#b0803a" }
+      { "id": "sown_bronze", "name_key": "COSMETIC_SOWN_BRONZE", "color": "#b0803a" },
+      { "id": "war_paint", "name_key": "COSMETIC_WAR_PAINT", "color": "#a83a2a" },
+      { "id": "golden_sceptre", "name_key": "COSMETIC_GOLDEN_SCEPTRE", "color": "#f0d070" },
+      { "id": "thought_silver", "name_key": "COSMETIC_THOUGHT_SILVER", "color": "#c8d0e8" },
+      { "id": "tower_flame", "name_key": "COSMETIC_TOWER_FLAME", "color": "#f07a20" }
     ]
   },
 

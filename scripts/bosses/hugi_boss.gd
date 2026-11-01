@@ -35,3 +35,8 @@ func get_ahead_of(player: Player) -> void:
 	GameAuthority.enemies.positions[slot] = player.position + heading * float(_sig().get("ahead_px", 110.0))
 	if effects != null:
 		effects.spawn_ring(position_now(), 20.0, Color(0.85, 0.9, 1.0), true)
+
+
+## Faster Than Thought secret: beaten before he leaps ahead ten times.
+func secret_earned() -> String:
+	return "faster_than_thought" if leaps < 10 else ""

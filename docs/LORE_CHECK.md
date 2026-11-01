@@ -743,6 +743,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | vortigern_entrance | boss entrance | vortigern | This time the tower will stand. | Geoffrey of Monmouth 6.17 | no |
 | morgan_le_fay_king_arthur | boss entrance (as king_arthur) | morgan_le_fay | Brother! Looking for your scabbard? | Malory 4.14 | no |
 
+### Pack 8 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| the_silent_drum | The Silent Drum | Every beat brings more. Silence the drum quickly. | Invented for Mythriven (Ghorvast) | no |
+| the_fallen_banner | The Fallen Banner | Where the banner falls, the warriors falter. | Invented for Mythriven (Ghorvast) | no |
+| unjudged | Unjudged | He condemns those who keep away. Stand before him. | Homer, Odyssey 11.568 (Minos judges the dead) | no |
+| ariadnes_thread | Ariadne's Thread | Theseus didn't wander the Labyrinth. He went straight to the heart of it. | Plutarch, Theseus 19; Apollodorus, Epitome 1.8-9 (Ariadne's thread) | no |
+| faster_than_thought | Faster Than Thought | Nothing outruns thought. Don't race him; stop him. | Snorri, Gylfaginning 46-47 (Hugi is thought) | no |
+| seeing_through | Seeing Through | The horn was joined to the sea. See what is really there. | Snorri, Gylfaginning 47 (all of it was illusion) | no |
+| the_scabbard_regained | The Scabbard Regained | The scabbard is worth ten of the sword. Win it back. | Malory, Le Morte d'Arthur 1.25, 4.14 (the scabbard worth ten of the sword) | no |
+| the_burning_tower | The Burning Tower | Aurelius did not storm the tower. He burned it. | Geoffrey of Monmouth 8.2 (Aurelius burns Vortigern in his tower) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

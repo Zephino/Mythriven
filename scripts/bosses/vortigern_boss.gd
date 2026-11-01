@@ -8,6 +8,8 @@ extends BossController
 var tower := Vector2.INF
 var standing: bool = false
 var falls: int = 0
+## The Burning Tower secret: how many times Fire brought it down.
+var fire_falls: int = 0
 var _fall_in: float = 15.0
 var _rebuild_in: float = 0.0
 
@@ -27,6 +29,7 @@ func modify_hit(amount: float, attacker: Player, push: Vector2) -> float:
 
 func on_element_hit(element: String) -> void:
 	if element == "fire" and near_tower():
+		fire_falls += 1
 		fall()
 
 
@@ -88,3 +91,8 @@ func _draw() -> void:
 			for k: int in 7:
 				draw_circle(at + Vector2.from_angle(k * 0.9) * (6.0 + k * 2.0), 4.0, Color(0.45, 0.43, 0.4))
 	super._draw()
+
+
+## The Burning Tower secret: Fire brought his tower down twice.
+func secret_earned() -> String:
+	return "the_burning_tower" if fire_falls >= 2 else ""

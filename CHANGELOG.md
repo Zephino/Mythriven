@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.05
+Date: 10/31/2026
+Time: 10:23 PM
+
+### Changes
+- **Eight Pack 8 secrets**, two for each Warlords realm (`docs/PACK_8_PLAN.md`):
+  - **The Silent Drum:** beat the War Drummer before his sixth drumbeat. A war-paint aura.
+  - **The Fallen Banner:** tear down the Warlord's banner three times, then beat him. The **Torn Banner** passive (+4% weapon area per level).
+  - **Unjudged:** beat Minos without ever being condemned. A golden-sceptre aura.
+  - **Ariadne's Thread:** beat Asterion before his fourth flurry of rushes. The **Ariadne's Thread** passive (+8% pickup range per level).
+  - **Faster Than Thought:** beat Hugi before he leaps ahead ten times. A thought-silver aura.
+  - **Seeing Through:** break two sets of Útgarða-Loki's illusions, then beat him. The **Drinking Horn** passive (+4% max HP per level).
+  - **The Scabbard Regained:** take Excalibur's scabbard from Morgan le Fay three times, then beat her. The **Scabbard Strap** passive (+1 Armor per level, up to 3).
+  - **The Burning Tower:** bring Vortigern's tower down with Fire twice, then beat him. A tower-flame aura.
+- Four new passive icons. The secrets are on the lore check (their Oracle hints are original drafts). **Pack 8 is complete.**
+- 1 new test (397 tests pass).
+
+### Reason
+Every level gets two secrets; this finishes Pack 8 (owner: "go ahead").
+
 ## Version 00.03.04
 Date: 10/31/2026
 Time: 10:19 PM

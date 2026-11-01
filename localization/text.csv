@@ -2621,3 +2621,39 @@ BANTER_QUESTING_BEAST_ENTRANCE,(From its belly comes a noise like thirty couple 
 BANTER_MORGAN_LE_FAY_ENTRANCE,The scabbard is worth ten of the sword. And it is mine.
 BANTER_VORTIGERN_ENTRANCE,This time the tower will stand.
 BANTER_MORGAN_LE_FAY_KING_ARTHUR,Brother! Looking for your scabbard?
+SECRET_SILENT_DRUM_NAME,The Silent Drum
+SECRET_SILENT_DRUM_DESC,Defeat the War Drummer before his sixth drumbeat. A war-paint aura.
+SECRET_SILENT_DRUM_HINT,Every beat brings more. Silence the drum quickly.
+SECRET_FALLEN_BANNER_NAME,The Fallen Banner
+SECRET_FALLEN_BANNER_DESC,"Tear down the Warlord's banner three times, then defeat him. Adds the Torn Banner passive."
+SECRET_FALLEN_BANNER_HINT,"Where the banner falls, the warriors falter."
+SECRET_UNJUDGED_NAME,Unjudged
+SECRET_UNJUDGED_DESC,Defeat Minos without ever being condemned. A golden-sceptre aura.
+SECRET_UNJUDGED_HINT,He condemns those who keep away. Stand before him.
+SECRET_ARIADNES_THREAD_NAME,Ariadne's Thread
+SECRET_ARIADNES_THREAD_DESC,Defeat Asterion before his fourth flurry of rushes. Adds the Ariadne's Thread passive.
+SECRET_ARIADNES_THREAD_HINT,Theseus didn't wander the Labyrinth. He went straight to the heart of it.
+SECRET_FASTER_THAN_THOUGHT_NAME,Faster Than Thought
+SECRET_FASTER_THAN_THOUGHT_DESC,Defeat Hugi before he leaps ahead of you ten times. A thought-silver aura.
+SECRET_FASTER_THAN_THOUGHT_HINT,Nothing outruns thought. Don't race him; stop him.
+SECRET_SEEING_THROUGH_NAME,Seeing Through
+SECRET_SEEING_THROUGH_DESC,"Break two sets of Útgarða-Loki's illusions, then defeat him. Adds the Drinking Horn passive."
+SECRET_SEEING_THROUGH_HINT,The horn was joined to the sea. See what is really there.
+SECRET_SCABBARD_REGAINED_NAME,The Scabbard Regained
+SECRET_SCABBARD_REGAINED_DESC,"Take Excalibur's scabbard from Morgan le Fay three times, then defeat her. Adds the Scabbard Strap passive."
+SECRET_SCABBARD_REGAINED_HINT,The scabbard is worth ten of the sword. Win it back.
+SECRET_BURNING_TOWER_NAME,The Burning Tower
+SECRET_BURNING_TOWER_DESC,"Bring Vortigern's tower down with Fire twice, then defeat him. A tower-flame aura."
+SECRET_BURNING_TOWER_HINT,Aurelius did not storm the tower. He burned it.
+PASSIVE_TORN_BANNER_NAME,Torn Banner
+PASSIVE_TORN_BANNER_DESC,+4% weapon area per level.
+PASSIVE_ARIADNE_THREAD_NAME,Ariadne's Thread
+PASSIVE_ARIADNE_THREAD_DESC,+8% pickup range per level.
+PASSIVE_DRINKING_HORN_NAME,Drinking Horn
+PASSIVE_DRINKING_HORN_DESC,+4% max HP per level.
+PASSIVE_SCABBARD_STRAP_NAME,Scabbard Strap
+PASSIVE_SCABBARD_STRAP_DESC,+1 Armor per level.
+COSMETIC_WAR_PAINT,War Paint
+COSMETIC_GOLDEN_SCEPTRE,Golden Sceptre
+COSMETIC_THOUGHT_SILVER,Thought Silver
+COSMETIC_TOWER_FLAME,Tower Flame

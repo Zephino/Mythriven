@@ -451,5 +451,57 @@
       "secret": "iolaus_brands"
     },
     "persists": false
+  },
+  {
+    "id": "torn_banner",
+    "name_key": "PASSIVE_TORN_BANNER_NAME",
+    "desc_key": "PASSIVE_TORN_BANNER_DESC",
+    "stat": "area",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_fallen_banner"
+    },
+    "persists": false
+  },
+  {
+    "id": "ariadne_thread",
+    "name_key": "PASSIVE_ARIADNE_THREAD_NAME",
+    "desc_key": "PASSIVE_ARIADNE_THREAD_DESC",
+    "stat": "pickup_radius",
+    "per_level": 0.08,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "ariadnes_thread"
+    },
+    "persists": false
+  },
+  {
+    "id": "drinking_horn",
+    "name_key": "PASSIVE_DRINKING_HORN_NAME",
+    "desc_key": "PASSIVE_DRINKING_HORN_DESC",
+    "stat": "max_hp",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "seeing_through"
+    },
+    "persists": false
+  },
+  {
+    "id": "scabbard_strap",
+    "name_key": "PASSIVE_SCABBARD_STRAP_NAME",
+    "desc_key": "PASSIVE_SCABBARD_STRAP_DESC",
+    "stat": "armor",
+    "per_level": 1,
+    "max_level": 3,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_scabbard_regained"
+    },
+    "persists": false
   }
 ]

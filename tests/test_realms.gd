@@ -891,3 +891,49 @@ func test_vortigerns_tower_shelters_him_until_it_falls() -> void:
 	assert_almost_eq(king.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)
 	king.signature(6.1)
 	assert_true(king.standing, "rebuilt")
+
+
+func test_pack_8_boss_secrets() -> void:
+	_start("ghorvast")
+	var drummer: WarDrummerBoss = _bosses.spawn_boss("war_drummer", 0) as WarDrummerBoss
+	assert_eq(drummer.secret_earned(), "the_silent_drum")
+	drummer.beats = 6
+	assert_eq(drummer.secret_earned(), "")
+	var lord: WarlordBoss = _bosses.spawn_boss("warlord", 2) as WarlordBoss
+	lord.torn = 3
+	assert_eq(lord.secret_earned(), "the_fallen_banner")
+	GameAuthority.end_scene()
+	_start("knossos")
+	var king: MinosBoss = _bosses.spawn_boss("minos", 1) as MinosBoss
+	assert_eq(king.secret_earned(), "unjudged")
+	king.sentences = 1
+	assert_eq(king.secret_earned(), "")
+	var bull_man: AsterionBoss = _bosses.spawn_boss("asterion", 2) as AsterionBoss
+	assert_eq(bull_man.secret_earned(), "ariadnes_thread")
+	GameAuthority.end_scene()
+	_start("utgard")
+	var thought: HugiBoss = _bosses.spawn_boss("hugi", 1) as HugiBoss
+	assert_eq(thought.secret_earned(), "faster_than_thought")
+	var giant: UtgardaLokiBoss = _bosses.spawn_boss("utgarda_loki", 2) as UtgardaLokiBoss
+	giant.raised = 9
+	assert_eq(giant.secret_earned(), "seeing_through")
+	GameAuthority.end_scene()
+	_start("logres")
+	var morgan: MorganLeFayBoss = _bosses.spawn_boss("morgan_le_fay", 1) as MorganLeFayBoss
+	morgan.taken = 3
+	assert_eq(morgan.secret_earned(), "the_scabbard_regained")
+	var usurper: VortigernBoss = _bosses.spawn_boss("vortigern", 2) as VortigernBoss
+	usurper.signature(0.1)
+	_enemies.positions[usurper.slot] = usurper.tower
+	usurper.on_element_hit("fire")
+	usurper.signature(6.1)
+	_enemies.positions[usurper.slot] = usurper.tower
+	usurper.on_element_hit("fire")
+	assert_eq(usurper.secret_earned(), "the_burning_tower")
+	for secret: String in ["the_silent_drum", "the_fallen_banner", "unjudged", "ariadnes_thread", "faster_than_thought",
+			"seeing_through", "the_scabbard_regained", "the_burning_tower"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)

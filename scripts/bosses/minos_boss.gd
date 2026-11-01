@@ -58,3 +58,8 @@ func _draw() -> void:
 		for k: int in 12:
 			draw_circle(from.lerp(to, k / 12.0), 1.5, Color(0.95, 0.8, 0.3, 0.8))
 		draw_arc(position_now() - global_position, float(_sig().get("judge_px", 90.0)), 0.0, TAU, 40, Color(0.95, 0.8, 0.3, 0.35), 1.0)
+
+
+## Unjudged secret: beaten without ever being condemned.
+func secret_earned() -> String:
+	return "unjudged" if sentences == 0 else ""
