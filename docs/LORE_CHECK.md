@@ -865,6 +865,25 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | griffin_matriarch_entrance | boss entrance | griffin_matriarch | (A great griffin rises from her nest of gold and screams.) | Herodotus 4.13 | no |
 | griffin_matriarch_skadi | boss meets god (with skadi) | griffin_matriarch | (The griffin bows her head to the huntress of the snows, and then attacks anyway.) | Original description written for Mythriven | no |
 
+### The Empyrean
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | the_empyrean | The Empyrean | Aratus, Phaenomena; Ptolemy, Almagest (the sphere of the fixed stars and the constellations) | no |
+| enemy | star_hound | Star hound | Aratus, Phaenomena; Hyginus, De Astronomia 2.35-36 (the dogs of Orion among the stars) | no |
+| enemy | star_mote | Star mote | Aratus, Phaenomena (the countless lesser stars) | no |
+| enemy | comet | Comet | Aristotle, Meteorologica 1.6-7 (the comets, "hairy stars") | no |
+| boss | scorpion | The Scorpion | Ovid, Fasti 5.537-544; Hyginus, De Astronomia 2.26 (the scorpion Earth sent against Orion, set in the sky) | no |
+| boss | great_bear | The Great Bear | Ovid, Metamorphoses 2.401-530 (Callisto made a bear and set in the stars); Aratus, Phaenomena 26-62 (the Bears that turn round the pole) | no |
+| boss | orion | Orion | Apollodorus, Library 1.4.3-5 (Orion the hunter, blinded and healed by the sunrise); Aratus; Hyginus, De Astronomia 2.34 | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| scorpion_entrance | boss entrance | scorpion | (The Scorpion rises over the rim of the sky, and somewhere Orion sets.) | Hyginus 2.26 | no |
+| great_bear_entrance | boss entrance | great_bear | (She turns round the pole, as she always has, and never sets.) | Aratus 26-62 | no |
+| orion_entrance | boss entrance | orion | Every beast on earth, I said. You'll do. | Ovid, Fasti 5 (Orion's boast) | no |
+| orion_skadi | boss meets god (with skadi) | orion | A huntress! Shall we see whose arrow flies true? | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

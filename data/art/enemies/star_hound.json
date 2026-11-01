@@ -1,0 +1,112 @@
+{
+ "_doc": "A star hound (Aratus; Hyginus 2.35-36: Orion's dogs set among the stars): a hound picked out in points of light. Built by tools/art/build_heavens.py.",
+ "size": [
+  24,
+  16
+ ],
+ "anchor": [
+  11,
+  15
+ ],
+ "palette": {
+  "o": "#0a0c1a",
+  "d": "#2a3060",
+  "w": "#f0f4ff"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "...........o...odooo....",
+    "......ooooodooooddddoo..",
+    ".....odddddwddddddddwdo.",
+    "....odwdddddddddddddddo.",
+    "...oddddddddddddwdddddo.",
+    "....odddddddddddddoooo..",
+    "....odddddddddddddo.....",
+    "....odooodododooodo.....",
+    "....odo.odooodo.odo.....",
+    "....owo.odo.owo.odo.....",
+    "....odo.odo.odo.odo....."
+   ]
+  ],
+  "walk": [
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "...........o...odooo....",
+    "......ooooodooooddddoo..",
+    ".....odddddwddddddddwdo.",
+    "....odwdddddddddddddddo.",
+    "...oddddddddddddwdddddo.",
+    "....odddddddddddddoooo..",
+    ".....odddddddddddodo....",
+    ".....ododooddooooodo....",
+    ".....ododo.odo...odo....",
+    "....owdodo.odwo..odo....",
+    ".....ododo.odo...odo...."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "...........o...odooo....",
+    "......ooooodooooddddoo..",
+    ".....odddddwddddddddwdo.",
+    "....odwdddddddddddddddo.",
+    "...oddddddddddddwdddddo.",
+    "....odddddddddddddoooo..",
+    "....odddddddddddddo.....",
+    "....odooodododooodo.....",
+    "....odo.odooodo.odo.....",
+    "....owo.odo.owo.odo.....",
+    "....odo.odo.odo.odo....."
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "...........o...odooo....",
+    "......ooooodooooddddoo..",
+    ".....odddddwddddddddwdo.",
+    "....odwdddddddddddddddo.",
+    "...oddddddddddddwdddddo.",
+    "....odddddddddddddoooo..",
+    "...ododddddddddddo......",
+    "...odoooooddoododo......",
+    "...odo...odo.ododo......",
+    "...odwo..odoowdodo......",
+    "...odo...odo.ododo......"
+   ],
+   [
+    "........................",
+    "........................",
+    "........................",
+    "........................",
+    "................o.......",
+    "...........o...odooo....",
+    "......ooooodooooddddoo..",
+    ".....odddddwddddddddwdo.",
+    "....odwdddddddddddddddo.",
+    "...oddddddddddddwdddddo.",
+    "....odddddddddddddoooo..",
+    "....odddddddddddddo.....",
+    "....odooodododooodo.....",
+    "....odo.odooodo.odo.....",
+    "....owo.odo.owo.odo.....",
+    "....odo.odo.odo.odo....."
+   ]
+  ]
+ }
+}

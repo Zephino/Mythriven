@@ -4622,5 +4622,113 @@
       "edge": "#a8acb4",
       "stones": "#e0e4ec"
     }
+  },
+  {
+    "_doc": "The Empyrean, Pack 10 realm 2, the star realm (docs/PACK_10_PLAN.md). Sources: Aratus, Phaenomena; Ptolemy, Almagest; Hyginus, De Astronomia; Ovid, Metamorphoses 2 and Fasti 5; Apollodorus 1.4.3-5. The old astronomers' sky; Dante's religious heaven is left out. A realm: no local gods.",
+    "id": "the_empyrean",
+    "name_key": "LEVEL_EMPYREAN_NAME",
+    "region": "realm_stars",
+    "act": 12,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_empyrean",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "cracked",
+          "max": -0.3,
+          "placeholder_color": "#141a34",
+          "placeholder_dots": "#6a7ac8"
+        },
+        {
+          "id": "stone",
+          "max": 0.15,
+          "placeholder_color": "#1e2444",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "ash",
+          "max": 0.6,
+          "placeholder_color": "#242a4a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#2a3052",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "armillary_sphere",
+      "obelisk"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "armillary_sphere": {
+        "shape": "rect",
+        "size_px": [
+          18,
+          24
+        ],
+        "placeholder_color": "#b08c5c",
+        "weight": 2
+      },
+      "obelisk": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          30
+        ],
+        "placeholder_color": "#c8c0ae",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "scorpion",
+      "20": "great_bear",
+      "30": "orion"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "libertalia",
+      "boss": "kraken"
+    },
+    "waves": "waves_the_empyrean.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 16,
+      "strikes_per_s": 1.0,
+      "radius_px": 30,
+      "telegraph_s": 1.2,
+      "damage": 12,
+      "element": "holy",
+      "range_px": 230,
+      "color": "#e8eeff",
+      "name_key": "HAZARD_FALLING_STARS_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#c4c8e8",
+    "flora": {
+      "density": 0.02,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#3a4070",
+      "edge": "#2a3058",
+      "stones": "#8a94d0"
+    }
   }
 ]

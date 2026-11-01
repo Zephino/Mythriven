@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.12
+Date: 10/31/2026
+Time: 11:45 PM
+
+### Changes
+- **The Empyrean, the star realm, is built and open** (Pack 10, `docs/PACK_10_PLAN.md`). It opens when you beat the Kraken (Libertalia's 30:00 boss). It's the old astronomers' sky of constellations (Aratus, Ptolemy, Hyginus, Ovid), not a religious heaven.
+  - **Hazard, falling stars:** stars fall out of the sky (telegraphed strikes).
+  - **Monsters:** star hounds (Orion's dogs), star motes (swarms) and comets.
+  - **10:00, the Scorpion** (sent by Earth to kill Orion): every 5 s its tail strikes a marked spot under a Hero, Poisoning whoever is hit and leaving a pool of venom.
+  - **20:00, the Great Bear** (Callisto, who never sets): she circles the arena without stopping, swiping whoever is near her path.
+  - **30:00, Orion** (the design's boss): he calls his two hounds, and every 14 s he is struck blind for 5 s, lunging about at random and taking 50% more damage.
+  - A dark starry ground with armillary spheres and obelisks; fireflies drift like stars.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (418 tests pass).
+
+### Reason
+Pack 10, realm 2 of 4 (owner: "go ahead").
+
 ## Version 00.03.11
 Date: 10/31/2026
 Time: 11:38 PM

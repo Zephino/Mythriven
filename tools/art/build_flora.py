@@ -463,6 +463,11 @@ LEVELS = {
         "trees": {"birch": (birch, 18, 38), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},
         "rock": ("g", "G", "H", "l"), "mound": ("s", "z", "Z", False)},
+    # The Empyrean: the sphere of the stars; nothing grows.
+    "the_empyrean": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

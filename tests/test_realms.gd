@@ -1164,3 +1164,35 @@ func test_the_griffin_matriarch_nests_and_swoops() -> void:
 	griffin.signature(1.1)
 	assert_eq(griffin.swoops, 1)
 	assert_lt(_player.hp, hp, "the swoop")
+
+
+func test_the_scorpion_stings_and_leaves_venom() -> void:
+	_start("the_empyrean")
+	assert_eq(str(_level("the_empyrean")["unlock"]["boss"]), "kraken")
+	var scorpion: ScorpionBoss = _bosses.spawn_boss("scorpion", 0) as ScorpionBoss
+	scorpion.signature(3.1)
+	assert_eq(scorpion.stings.size(), 1, "the tail strikes")
+	scorpion.signature(1.1)
+	assert_eq(scorpion.struck, 1)
+	assert_true(_player.statuses.has("poison"))
+	assert_eq(scorpion.pools.size(), 1, "a pool of venom")
+
+
+func test_the_great_bear_circles_the_pole() -> void:
+	_start("the_empyrean")
+	var bear: GreatBearBoss = _bosses.spawn_boss("great_bear", 1) as GreatBearBoss
+	bear.signature(0.1)
+	var a: Vector2 = bear.position_now()
+	bear.signature(1.0)
+	assert_ne(bear.position_now(), a, "she never stops")
+	assert_almost_eq(bear.position_now().distance_to(_bosses.arena_center), 150.0, 1.0, "on her circle")
+
+
+func test_orion_is_struck_blind() -> void:
+	_start("the_empyrean")
+	var hunter: OrionBoss = _bosses.spawn_boss("orion", 2) as OrionBoss
+	var before: int = _enemies.active_count()
+	hunter.signature(3.1)
+	assert_eq(_enemies.active_count(), before + 2, "his two hounds")
+	hunter.go_blind()
+	assert_almost_eq(hunter.modify_hit(10.0, _player, Vector2.ZERO), 15.0, 0.01, "blind, easier to hurt")

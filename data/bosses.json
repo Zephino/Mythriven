@@ -9495,5 +9495,248 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Empyrean bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "scorpion",
+    "name_key": "BOSS_SCORPION_NAME",
+    "tradition": "greek",
+    "lore_source": "Ovid, Fasti 5.537-544; Hyginus, De Astronomia 2.26 (the scorpion Earth sent against Orion, set in the sky)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "scorpion",
+    "move_speed": 40,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_sting",
+      "sting_every_s": 5.0,
+      "telegraph_s": 1.0,
+      "sting_radius_px": 30,
+      "sting_damage": 16,
+      "pool_s": 6.0,
+      "pool_radius_px": 30
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Empyrean bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "great_bear",
+    "name_key": "BOSS_GREAT_BEAR_NAME",
+    "tradition": "greek",
+    "lore_source": "Ovid, Metamorphoses 2.401-530 (Callisto made a bear and set in the stars); Aratus, Phaenomena 26-62 (the Bears that turn round the pole)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "great_bear",
+    "move_speed": 40,
+    "keep_distance_px": 0,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "never_sets",
+      "orbit_px": 150,
+      "turn_rad_s": 0.6,
+      "swipe_every_s": 1.0,
+      "swipe_radius_px": 50,
+      "swipe_damage": 12
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Empyrean bosses (docs/PACK_10_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "orion",
+    "name_key": "BOSS_ORION_NAME",
+    "tradition": "greek",
+    "lore_source": "Apollodorus, Library 1.4.3-5 (Orion the hunter, blinded and healed by the sunrise); Aratus; Hyginus, De Astronomia 2.34",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "orion",
+    "move_speed": 44,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_blind_hunter",
+      "hounds_every_s": 12.0,
+      "hound": "star_hound",
+      "blind_every_s": 14.0,
+      "blind_s": 5.0,
+      "lunge_every_s": 0.8,
+      "lunge_px_s": 160,
+      "blind_damage_taken": 1.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "star_mote"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "star_mote"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

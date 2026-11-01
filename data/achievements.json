@@ -1514,5 +1514,35 @@
       "id": "griffin_matriarch"
     },
     "persists": true
+  },
+  {
+    "id": "boss_scorpion",
+    "name_key": "ACH_BOSS_SCORPION_NAME",
+    "desc_key": "ACH_BOSS_SCORPION_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "scorpion"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_great_bear",
+    "name_key": "ACH_BOSS_GREAT_BEAR_NAME",
+    "desc_key": "ACH_BOSS_GREAT_BEAR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "great_bear"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_orion",
+    "name_key": "ACH_BOSS_ORION_NAME",
+    "desc_key": "ACH_BOSS_ORION_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "orion"
+    },
+    "persists": true
   }
 ]

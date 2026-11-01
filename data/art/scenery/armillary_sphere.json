@@ -1,0 +1,66 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. An armillary sphere (Ptolemy, Almagest 5.1: the astronomers' ring-instrument of the heavens): bronze rings round a globe on a stand.",
+ "size": [
+  19,
+  27
+ ],
+ "anchor": [
+  9,
+  26
+ ],
+ "palette": {
+  "a": "#42362a",
+  "b": "#968466",
+  "c": "#9c8a6c",
+  "d": "#907e60",
+  "e": "#786c54",
+  "f": "#664e18",
+  "g": "#7e7254",
+  "h": "#cca848",
+  "i": "#d8b448",
+  "j": "#e4ba4e",
+  "k": "#243618",
+  "l": "#546c3c",
+  "m": "#84785a",
+  "n": "#4e6c36",
+  "o": "#5a723c",
+  "p": "#c6a242",
+  "q": "#ae903c",
+  "r": "#72664e",
+  "s": "#84725a",
+  "t": "#786c4e"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".......aaaaa.......",
+    ".....aabcbcbaa.....",
+    "...aabbdbadcebaa...",
+    "..addaaca.abaabba..",
+    "..aca.aca.aea.aca..",
+    ".aba.adafffaba.aga.",
+    ".abafhiiiiijdifada.",
+    "adajhabaklkamaijjba",
+    "fhjffadklllkbaffhda",
+    "fif..abnlollga..fhf",
+    "abjffadklnlkmaffpif",
+    "adaihadaknkadahhama",
+    ".adafidjqjhiijfada.",
+    ".ada.amafffama.ama.",
+    "..ama.ama.ada.ada..",
+    "..arraama.araamra..",
+    "...aamdegamgmdaa...",
+    ".....aammdmgaa.....",
+    ".......agdaa.......",
+    ".......amga........",
+    ".......agma........",
+    ".......agga........",
+    ".......agsa........",
+    "....aaaatsaaaaa....",
+    "...astgsggggggta...",
+    "...attgggrtgsgsa...",
+    "....aaaaaaaaaaa...."
+   ]
+  ]
+ }
+}

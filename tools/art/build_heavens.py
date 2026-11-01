@@ -99,6 +99,90 @@ MATRIARCH_PAL = {"o": "#2a1a08", "y": "#e8c040", "Y": "#c8a030", "t": "#c8944a",
                  "k": "#1a1008"}
 
 
+# --- The Empyrean (Aratus, Phaenomena; Ptolemy, Almagest; Hyginus 2.21-36; Ovid, Met. 2, Fasti 5; Apollodorus 1.4) ----
+
+def star_hound(c, f):
+    """A star hound (Aratus; Hyginus 2.35-36: Orion's dogs set among the stars): a hound picked out in points of light."""
+    s = STEP[f]
+    ellipse(c, 11, 9, 7, 3, "d")
+    for k, d in enumerate((-s, s, s, -s)):
+        c.rect(5 + k * 4 + d, 11, 5 + k * 4 + d, 15, "d")
+    poly(c, [(16, 5), (22, 7), (22, 10), (16, 10)], "d")
+    for x, y in ((6, 8), (11, 7), (16, 9), (20, 7), (5, 14), (13, 14)):
+        c.px(x, y, "w")
+
+
+STAR_HOUND_PAL = {"o": "#0a0c1a", "d": "#2a3060", "w": "#f0f4ff"}
+
+
+def star_mote(c, f):
+    """A star mote: a small bright point of the sky, twinkling."""
+    for d in range(-2, 3):
+        c.px(5 + d, 5, "w" if d == 0 else "y"); c.px(5, 5 + d, "w" if d == 0 else "y")
+    if f % 2:
+        c.px(3, 3, "y"); c.px(7, 7, "y"); c.px(3, 7, "y"); c.px(7, 3, "y")
+
+
+STAR_MOTE_PAL = {"o": "#1a1a30", "w": "#ffffff", "y": "#f0e080"}
+
+
+def comet(c, f):
+    """A comet (Aratus: the hairy stars): a bright head with a long streaming tail."""
+    ellipse(c, 16, 6, 2.5, 2.5, "w")
+    for k in range(12):
+        c.px(13 - k, 6 - k // 4 + (k + f) % 2, "y" if k < 6 else "b")
+
+
+COMET_PAL = {"o": "#1a1a30", "w": "#ffffff", "y": "#f0e0a0", "b": "#8aa8e8"}
+
+
+def scorpion(c, step):
+    """The Scorpion (Hyginus 2.26; Ovid, Fasti 5.537-544): the great scorpion Earth sent to kill Orion, set among the
+    stars; drawn in the dark of the sky with stars at its joints, its tail curled to strike."""
+    ellipse(c, 26, 32, 12, 7, "d")
+    for k in range(8):
+        a = math.pi * (1.1 + k * 0.12)
+        c.rect(26 + round(math.cos(a) * 14) - k, 30 - k * 3, 28 + round(math.cos(a) * 14) - k, 32 - k * 3, "d")
+    poly(c, [(33, 8), (37, 2), (36, 9)], "r")
+    for side in (-1, 1):
+        for k in range(3):
+            c.px(26 + side * (12 + k * 3), 36 + k + (step if k % 2 else -step), "d")
+        ellipse(c, 26 + side * 18, 24, 4, 3, "d")
+    for x, y in ((26, 32), (20, 30), (32, 30), (30, 18), (33, 10), (44, 24), (8, 24)):
+        c.px(x, y, "w")
+
+
+SCORPION_PAL = {"o": "#0a0c1a", "d": "#3a2a4a", "r": "#e83a6a", "w": "#f0f4ff"}
+
+
+def great_bear(c, step):
+    """The Great Bear (Ovid, Metamorphoses 2.401-530; Aratus 26-62): Callisto, turned into a bear and set among the
+    stars, where she turns round the pole and never sinks into the sea; a great bear of night-blue picked out in her
+    seven bright stars."""
+    ellipse(c, 30, 30, 22, 12, "d")
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(14 + k * 10 + d, 38, 18 + k * 10 + d, 48, "D")
+    ellipse(c, 50, 24, 9, 8, "d"); c.px(54, 22, "w"); c.px(46, 16, "d"); c.px(53, 16, "d")
+    for x, y in ((10, 26), (16, 24), (22, 24), (28, 26), (34, 30), (40, 28), (44, 24)):
+        c.rect(x, y, x + 1, y + 1, "w")
+
+
+BEAR_PAL = {"o": "#06081a", "d": "#2a3a6a", "D": "#1e2a50", "w": "#ffffff"}
+
+
+def orion(c, step):
+    """Orion (Apollodorus 1.4.3-5; Aratus): the giant hunter, with his club and the three bright stars of his belt."""
+    figure(c, step, "d", "s", "h", legs="D")
+    c.rect(16, 18, 26, 34, "D"); c.row(28, 16, 26, "y")
+    c.px(18, 28, "w"); c.px(21, 28, "w"); c.px(24, 28, "w")                                        # the belt's three stars
+    c.rect(32, 4, 35, 30, "b"); ellipse(c, 33, 4, 3, 3, "b")                                       # his club
+    c.rect(4, 20, 9, 26, "y")
+
+
+ORION_PAL = {"o": "#06081a", "k": "#141a30", "d": "#2a3a6a", "D": "#1e2a50", "s": "#d8c0a0", "h": "#3a2a1a",
+             "y": "#d8b860", "w": "#ffffff", "b": "#6a4a2a"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_heavens.py."
@@ -109,4 +193,10 @@ if __name__ == "__main__":
     kit.build_boss("arimaspian_chieftain", arimaspian_chieftain, CHIEFTAIN_PAL, doc(arimaspian_chieftain.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("six_month_sleeper", six_month_sleeper, SLEEPER_PAL, doc(six_month_sleeper.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("griffin_matriarch", griffin_matriarch, MATRIARCH_PAL, doc(griffin_matriarch.__doc__), (62, 52), (30, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("star_hound", star_hound, STAR_HOUND_PAL, doc(star_hound.__doc__), (24, 16), (11, 15), walk, folder="enemies")
+    kit.build_boss("star_mote", star_mote, STAR_MOTE_PAL, doc(star_mote.__doc__), (11, 11), (5, 10), walk, folder="enemies")
+    kit.build_boss("comet", comet, COMET_PAL, doc(comet.__doc__), (20, 12), (10, 11), walk, folder="enemies")
+    kit.build_boss("scorpion", scorpion, SCORPION_PAL, doc(scorpion.__doc__), (52, 46), (26, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("great_bear", great_bear, BEAR_PAL, doc(great_bear.__doc__), (62, 50), (30, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("orion", orion, ORION_PAL, doc(orion.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     print("wrote the Heavens' art")

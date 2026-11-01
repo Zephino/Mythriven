@@ -2830,3 +2830,31 @@ BANTER_SIX_MONTH_SLEEPER_ENTRANCE,Mmh... is it spring already?
 BANTER_GRIFFIN_MATRIARCH_ENTRANCE,(A great griffin rises from her nest of gold and screams.)
 BANTER_GRIFFIN_MATRIARCH_SKADI,"(The griffin bows her head to the huntress of the snows, and then attacks anyway.)"
 PACK_12_NAME,Pack 10: The Heavens
+LEVEL_EMPYREAN_NAME,The Empyrean
+HAZARD_FALLING_STARS_NAME,The stars are falling!
+ENEMY_STAR_HOUND_NAME,Star hound
+ENEMY_STAR_HOUND_MYTH,"Orion's hounds were set among the stars with him: the Great Dog, whose jaw holds the blazing Dog Star, and the Little Dog that rises before it."
+ENEMY_STAR_MOTE_NAME,Star mote
+ENEMY_STAR_MOTE_MYTH,"The small, nameless stars that Aratus says no one has counted, drifting loose from the sphere."
+ENEMY_COMET_NAME,Comet
+ENEMY_COMET_MYTH,"The ""hairy stars"" that the Greeks saw streaming across the sky with their long bright hair behind them."
+BOSS_SCORPION_NAME,The Scorpion
+ENEMY_SCORPION_NAME,The Scorpion
+ENEMY_SCORPION_MYTH,"When Orion boasted he could kill any beast on earth, Earth sent a scorpion against him. It was set among the stars, and Orion still flees from it: when the Scorpion rises, Orion sets."
+BOSS_GREAT_BEAR_NAME,The Great Bear
+ENEMY_GREAT_BEAR_NAME,The Great Bear
+ENEMY_GREAT_BEAR_MYTH,"Callisto, turned into a bear and set in the sky with her son. Hera, still angry, asked Ocean never to let her bathe in his waters, so the Bear circles the pole for ever and never sets."
+BOSS_ORION_NAME,Orion
+ENEMY_ORION_NAME,Orion
+ENEMY_ORION_MYTH,"The giant hunter who could walk through the sea. Blinded by King Oenopion, he walked east with a boy on his shoulders to guide him until the rays of the rising sun gave him back his sight. He hunts in the sky still, with his dogs at his heels."
+BOSS_ORION_BLIND,Orion is struck blind! He lashes out wildly!
+ACH_BOSS_SCORPION_NAME,Defeat The Scorpion
+ACH_BOSS_SCORPION_DESC,The 10:00 boss of The Empyrean.
+ACH_BOSS_GREAT_BEAR_NAME,Defeat The Great Bear
+ACH_BOSS_GREAT_BEAR_DESC,The 20:00 boss of The Empyrean.
+ACH_BOSS_ORION_NAME,Defeat Orion
+ACH_BOSS_ORION_DESC,The 30:00 boss of The Empyrean.
+BANTER_SCORPION_ENTRANCE,"(The Scorpion rises over the rim of the sky, and somewhere Orion sets.)"
+BANTER_GREAT_BEAR_ENTRANCE,"(She turns round the pole, as she always has, and never sets.)"
+BANTER_ORION_ENTRANCE,"Every beast on earth, I said. You'll do."
+BANTER_ORION_SKADI,A huntress! Shall we see whose arrow flies true?

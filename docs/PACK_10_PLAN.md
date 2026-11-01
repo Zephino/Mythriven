@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 10). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Hyperborea built and released 11/01/2026 (00.03.11).
+it. Hyperborea built and released 11/01/2026 (00.03.11); the Empyrean (00.03.12).
 
 Realms work like Packs 5-9: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -38,7 +38,7 @@ the air of the north "full of feathers"; the men who sleep six months of the yea
 | 20:00 | **The Six-Month Sleeper** | One of the northern men who sleep half the year: awake he fights hard; asleep he heals, but takes double damage |
 | 30:00 | **The Griffin Matriarch** (the design's) | She guards her golden nest: on it she heals and takes half damage; then she leaves it to swoop on a Hero from the sky |
 
-## Realm 38: the Empyrean (the star realm)
+## Realm 38: the Empyrean (the star realm): **done and released 11/01/2026 (00.03.12)**
 *Sources: Aratus, Phaenomena (3rd c. BC); Ptolemy, Almagest (the constellations); Hyginus, De Astronomia 2.21, 2.26,
 2.34; Ovid, Metamorphoses 2.401-530 (Callisto, the Great Bear) and Fasti 5.537-544 (the Scorpion sent against Orion);
 Apollodorus 1.4.3-5 (Orion, blinded, walks toward the sunrise).*

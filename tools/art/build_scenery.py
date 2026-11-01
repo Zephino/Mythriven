@@ -719,12 +719,26 @@ def gem_cluster():
     return p
 
 
+def armillary_sphere():
+    """An armillary sphere (Ptolemy, Almagest 5.1: the astronomers' ring-instrument of the heavens): bronze rings round
+    a globe on a stand."""
+    p = Pic(20, 26, (10, 25))
+    for a in range(48):
+        t = a / 48 * 2 * math.pi
+        p.px(round(10 + 8 * math.cos(t)), round(9 + 8 * math.sin(t)), "F")
+        p.px(round(10 + 8 * math.cos(t)), round(9 + 3 * math.sin(t)), "y")
+        p.px(round(10 + 3 * math.cos(t)), round(9 + 8 * math.sin(t)), "F")
+    blob(p, 10, 9, 2, 2, "u")
+    p.rect(9, 17, 10, 23, "F"); p.rect(5, 24, 15, 25, "F")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall, ship_cannon, beached_boat, gem_cluster)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall, ship_cannon, beached_boat, gem_cluster, armillary_sphere)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

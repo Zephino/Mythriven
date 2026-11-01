@@ -2681,5 +2681,46 @@
     "text_key": "BANTER_GRIFFIN_MATRIARCH_SKADI",
     "lore_source": "Original description written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "scorpion_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "scorpion",
+    "hero": "",
+    "god": "scorpion",
+    "text_key": "BANTER_SCORPION_ENTRANCE",
+    "lore_source": "Hyginus 2.26",
+    "needs_owner_review": true
+  },
+  {
+    "id": "great_bear_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "great_bear",
+    "hero": "",
+    "god": "great_bear",
+    "text_key": "BANTER_GREAT_BEAR_ENTRANCE",
+    "lore_source": "Aratus 26-62",
+    "needs_owner_review": true
+  },
+  {
+    "id": "orion_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "orion",
+    "hero": "",
+    "god": "orion",
+    "text_key": "BANTER_ORION_ENTRANCE",
+    "lore_source": "Ovid, Fasti 5 (Orion's boast)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "orion_skadi",
+    "trigger": "boss_meets_god",
+    "speaker": "orion",
+    "hero": "",
+    "god": "orion",
+    "with_god": "skadi",
+    "text_key": "BANTER_ORION_SKADI",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]
