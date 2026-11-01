@@ -4060,5 +4060,119 @@
       "edge": "#6a604a",
       "stones": "#a8a088"
     }
+  },
+  {
+    "_doc": "Lemnos, Pack 9 realm 1, the forge-island of automatons (docs/PACK_9_PLAN.md). Sources: Iliad 1.590-594, 18.373-420; Odyssey 7.91-94; Apollodorus 1.9.23, 1.9.26; Argonautica 4.1638-1688. The Lemnian women and the Kabeiroi are left out. A realm: no local gods.",
+    "id": "lemnos",
+    "name_key": "LEVEL_LEMNOS_NAME",
+    "region": "realm_forge",
+    "act": 11,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "lemnos",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "ash",
+          "max": -0.3,
+          "placeholder_color": "#4a4440",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cracked",
+          "max": 0.15,
+          "placeholder_color": "#3e3834",
+          "placeholder_dots": "#d06a2a"
+        },
+        {
+          "id": "rock",
+          "max": 0.55,
+          "placeholder_color": "#5a524c",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "stone",
+          "max": 1.0,
+          "placeholder_color": "#6a625a",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "bronze_tripod",
+      "anvil"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "bronze_tripod": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          20
+        ],
+        "placeholder_color": "#c08a3a",
+        "weight": 2
+      },
+      "anvil": {
+        "shape": "rect",
+        "size_px": [
+          18,
+          14
+        ],
+        "placeholder_color": "#6a6a70",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "aeetes_bulls",
+      "20": "gold_silver_hounds",
+      "30": "talos"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "knossos",
+      "boss": "asterion"
+    },
+    "waves": "waves_lemnos.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 20,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.6,
+      "pulse": 0.12,
+      "pulse_hz": 0.2,
+      "veil_color": "#5a4438",
+      "particles": "sand",
+      "particle_color": "#e07a3a",
+      "fade_s": 2.5,
+      "player_status": "burn",
+      "status_every_s": 4.0,
+      "name_key": "HAZARD_FORGE_SMOKE_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#e0ccb8",
+    "flora": {
+      "density": 0.2,
+      "trees": {
+        "olive": 1,
+        "dead_tree": 2
+      }
+    },
+    "road": {
+      "color": "#6a5e52",
+      "edge": "#4a4038",
+      "stones": "#8a7e70"
+    }
   }
 ]

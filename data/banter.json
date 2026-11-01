@@ -2476,5 +2476,46 @@
     "text_key": "BANTER_MORGAN_LE_FAY_KING_ARTHUR",
     "lore_source": "Malory 4.14",
     "needs_owner_review": true
+  },
+  {
+    "id": "aeetes_bulls_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "aeetes_bulls",
+    "hero": "",
+    "god": "aeetes_bulls",
+    "text_key": "BANTER_AEETES_BULLS_ENTRANCE",
+    "lore_source": "Apollodorus 1.9.23",
+    "needs_owner_review": true
+  },
+  {
+    "id": "gold_silver_hounds_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "gold_silver_hounds",
+    "hero": "",
+    "god": "gold_silver_hounds",
+    "text_key": "BANTER_GOLD_SILVER_HOUNDS_ENTRANCE",
+    "lore_source": "Odyssey 7.91-94",
+    "needs_owner_review": true
+  },
+  {
+    "id": "talos_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "talos",
+    "hero": "",
+    "god": "talos",
+    "text_key": "BANTER_TALOS_ENTRANCE",
+    "lore_source": "Argonautica 4.1638-1688",
+    "needs_owner_review": true
+  },
+  {
+    "id": "talos_poseidon",
+    "trigger": "boss_meets_god",
+    "speaker": "talos",
+    "hero": "",
+    "god": "talos",
+    "with_god": "poseidon",
+    "text_key": "BANTER_TALOS_POSEIDON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

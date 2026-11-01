@@ -1,0 +1,66 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. One of Hephaestus' tripods (Iliad 18.373-377: twenty tripods with golden wheels, which could roll by themselves to the gods' gathering and back): a bronze cauldron on three legs, with small golden wheels.",
+ "size": [
+  19,
+  22
+ ],
+ "anchor": [
+  9,
+  21
+ ],
+ "palette": {
+  "a": "#5a5442",
+  "b": "#664e18",
+  "c": "#c6ba9c",
+  "d": "#d8b448",
+  "e": "#c6a242",
+  "f": "#e4ba4e",
+  "g": "#f0c654",
+  "h": "#42362a",
+  "i": "#9c8a6c",
+  "j": "#d2c0a2",
+  "k": "#deccae",
+  "l": "#968466",
+  "m": "#c0ae96",
+  "n": "#a2967e",
+  "o": "#ae9c84",
+  "p": "#907e60",
+  "q": "#b4a88a",
+  "r": "#84785a",
+  "s": "#7e7254",
+  "t": "#786c54",
+  "u": "#72664e",
+  "v": "#c0a242",
+  "w": "#ba9642",
+  "x": "#cca848",
+  "y": "#a88a3c"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".........a.........",
+    "...bbbbbbcbbbbbb...",
+    "..bdeffddfefgdfdb..",
+    "..hijcjkkjjjjkklh..",
+    "..hmccmnmcojcccch..",
+    ".hlpcccjqcccmccplh.",
+    "..hrrjmccmccmclrh..",
+    "..hrsplppcpplpprh..",
+    "...hllplpptpppph...",
+    "...hphhhhphhhhrh...",
+    "...hrh..hlh..hph...",
+    "..hsh...huh...hph..",
+    "..hrh...hrh...hsh..",
+    "..hrh...hsh...hrh..",
+    "..hph...hph...hsh..",
+    "..hrh...hrh...hrh..",
+    ".hrh....hrh....hph.",
+    ".hph....hph....hsh.",
+    "bvwvb..bvwxb..bwvvb",
+    "bxxyb..bvvvb..bwxxb",
+    "bxvvb..bvvxb..bvwvb",
+    ".bbb....bbb....bbb."
+   ]
+  ]
+ }
+}

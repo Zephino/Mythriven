@@ -756,6 +756,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_scabbard_regained | The Scabbard Regained | The scabbard is worth ten of the sword. Win it back. | Malory, Le Morte d'Arthur 1.25, 4.14 (the scabbard worth ten of the sword) | no |
 | the_burning_tower | The Burning Tower | Aurelius did not storm the tower. He burned it. | Geoffrey of Monmouth 8.2 (Aurelius burns Vortigern in his tower) | no |
 
+## Pack 9: Gears and Plunder
+
+### Lemnos
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | lemnos | Lemnos | Homer, Iliad 1.590-594 (Hephaestus falls on Lemnos) and 18 (his forge and its self-moving works) | no |
+| enemy | bronze_automaton | Bronze automaton | Homer, Iliad 18.373-377 (Hephaestus' self-moving works) | no |
+| enemy | golden_handmaiden | Golden handmaiden | Homer, Iliad 18.417-420 (Hephaestus' golden handmaidens) | no |
+| boss | aeetes_bulls | The Bulls of Aeëtes | Apollodorus, Library 1.9.23 (the fire-breathing, bronze-footed bulls Hephaestus made, which Jason yoked) | no |
+| boss | gold_silver_hounds | The Gold and Silver Hounds | Homer, Odyssey 7.91-94 (the gold and silver dogs Hephaestus made to guard the house of Alcinous) | no |
+| boss | talos | Talos | Apollonius, Argonautica 4.1638-1688; Apollodorus, Library 1.9.26 (the bronze giant; the nail in his ankle) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| aeetes_bulls_entrance | boss entrance | aeetes_bulls | (Fire roars from two bronze mouths. The ground smokes under their feet.) | Apollodorus 1.9.23 | no |
+| gold_silver_hounds_entrance | boss entrance | gold_silver_hounds | (Two hounds of gold and silver, immortal and ageless, rise from beside the door.) | Odyssey 7.91-94 | no |
+| talos_entrance | boss entrance | talos | Three times round the island every day. Nothing lands that I don't see. | Argonautica 4.1638-1688 | no |
+| talos_poseidon | boss meets god (with poseidon) | talos | Earth-shaker, your ships do not land here. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

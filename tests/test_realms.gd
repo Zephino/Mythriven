@@ -937,3 +937,49 @@ func test_pack_8_boss_secrets() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
+func test_lemnos_is_pack_9_with_forge_smoke() -> void:
+	var level: Dictionary = _level("lemnos")
+	assert_eq(int(level["act"]), 11)
+	assert_eq(str(level["unlock"]["boss"]), "asterion")
+	assert_eq(str(level["hazard"]["player_status"]), "burn")
+	assert_eq(tr("PACK_11_NAME"), "Pack 9: Gears and Plunder")
+
+
+func test_the_bulls_of_aeetes_breathe_burning_ground() -> void:
+	_start("lemnos")
+	var bulls: AeetesBullsBoss = _bosses.spawn_boss("aeetes_bulls", 0) as AeetesBullsBoss
+	_player.position = bulls.position_now() + Vector2(90, 0)
+	bulls.breathe()
+	assert_eq(bulls.flames.size(), 18)
+	var hp: float = _player.hp
+	bulls.signature(0.6)
+	assert_lt(_player.hp, hp, "the fire burns")
+
+
+func test_the_gold_and_silver_hounds_trade_weaknesses() -> void:
+	_start("lemnos")
+	var hounds: GoldSilverHoundsBoss = _bosses.spawn_boss("gold_silver_hounds", 1) as GoldSilverHoundsBoss
+	hounds.on_element_hit("lightning")
+	assert_almost_eq(hounds.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "gold fears lightning")
+	hounds.signature(6.1)
+	assert_false(hounds.gold)
+	hounds.on_element_hit("lightning")
+	assert_almost_eq(hounds.modify_hit(10.0, _player, Vector2.ZERO), 2.5, 0.01, "silver shrugs it off")
+
+
+func test_talos_throws_heats_and_shows_his_nail() -> void:
+	_start("lemnos")
+	var giant: TalosBoss = _bosses.spawn_boss("talos", 2) as TalosBoss
+	_player.position = giant.position_now() + Vector2(300, 0)
+	giant.signature(4.1)
+	assert_gt(giant.boulders.size(), 0, "a boulder thrown")
+	var hp: float = _player.hp
+	giant.signature(1.3)
+	assert_lt(_player.hp, hp, "and lands")
+	giant.heat_up()
+	assert_eq(giant.art_id(), "talos_hot")
+	giant.signature(4.1)
+	assert_gt(giant.nail_s, 0.0, "the nail shows")
+	assert_almost_eq(giant.modify_hit(10.0, _player, Vector2.ZERO), 25.0, 0.01)

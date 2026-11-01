@@ -437,6 +437,11 @@ LEVELS = {
                   "yew": (lambda c, r, s: broadleaf(c, r, s, "P", "P", "p"), 26, 28)},
         "bushes": {"fern": ("fern",), "gorse": ("M", "m", "y", "f")},
         "rock": ("g", "G", "H", "l")},
+    # Lemnos: a volcanic island round Hephaestus' forge; a few olives and dead, scorched trees.
+    "lemnos": {
+        "trees": {"olive": (olive, 26, 30), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

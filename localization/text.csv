@@ -2657,3 +2657,30 @@ COSMETIC_WAR_PAINT,War Paint
 COSMETIC_GOLDEN_SCEPTRE,Golden Sceptre
 COSMETIC_THOUGHT_SILVER,Thought Silver
 COSMETIC_TOWER_FLAME,Tower Flame
+LEVEL_LEMNOS_NAME,Lemnos
+HAZARD_FORGE_SMOKE_NAME,Smoke and cinders roll out of Hephaestus' forge!
+ENEMY_BRONZE_AUTOMATON_NAME,Bronze automaton
+ENEMY_BRONZE_AUTOMATON_MYTH,In his forge Hephaestus made works that moved by themselves: tripods on golden wheels that rolled to the gods' gathering and back. On his island they walk.
+ENEMY_GOLDEN_HANDMAIDEN_NAME,Golden handmaiden
+ENEMY_GOLDEN_HANDMAIDEN_MYTH,"Hephaestus' servants, made of gold in the likeness of living girls; they have understanding, speech and strength, and skill from the gods."
+BOSS_AEETES_BULLS_NAME,The Bulls of Aeëtes
+ENEMY_AEETES_BULLS_NAME,The Bulls of Aeëtes
+ENEMY_AEETES_BULLS_MYTH,"Two bulls with feet of bronze that breathed fire, Hephaestus' gift to King Aeëtes. Jason had to yoke them alone and plough a field with them; Medea's ointment kept the fire from burning him."
+BOSS_GOLD_SILVER_HOUNDS_NAME,The Gold and Silver Hounds
+ENEMY_GOLD_SILVER_HOUNDS_NAME,The Gold and Silver Hounds
+ENEMY_GOLD_SILVER_HOUNDS_MYTH,"On either side of the door of Alcinous' palace stood dogs of gold and silver, which Hephaestus had made with cunning skill to guard the house, immortal and ageless all their days."
+BOSS_TALOS_NAME,Talos
+ENEMY_TALOS_NAME,Talos
+ENEMY_TALOS_MYTH,"A man of bronze who guarded Crete, running round the island three times a day and hurling rocks at ships. One vein ran from his neck down to his ankle, stopped with a bronze nail; when the nail came out, his ichor ran out and he fell."
+BOSS_TALOS_RED_HOT,"Talos glows red-hot! Keep back, then strike the nail!"
+ACH_BOSS_AEETES_BULLS_NAME,Defeat The Bulls of Aeëtes
+ACH_BOSS_AEETES_BULLS_DESC,The 10:00 boss of Lemnos.
+ACH_BOSS_GOLD_SILVER_HOUNDS_NAME,Defeat The Gold and Silver Hounds
+ACH_BOSS_GOLD_SILVER_HOUNDS_DESC,The 20:00 boss of Lemnos.
+ACH_BOSS_TALOS_NAME,Defeat Talos
+ACH_BOSS_TALOS_DESC,The 30:00 boss of Lemnos.
+BANTER_AEETES_BULLS_ENTRANCE,(Fire roars from two bronze mouths. The ground smokes under their feet.)
+BANTER_GOLD_SILVER_HOUNDS_ENTRANCE,"(Two hounds of gold and silver, immortal and ageless, rise from beside the door.)"
+BANTER_TALOS_ENTRANCE,Three times round the island every day. Nothing lands that I don't see.
+BANTER_TALOS_POSEIDON,"Earth-shaker, your ships do not land here."
+PACK_11_NAME,Pack 9: Gears and Plunder

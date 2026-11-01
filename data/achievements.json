@@ -1364,5 +1364,35 @@
       "id": "vortigern"
     },
     "persists": true
+  },
+  {
+    "id": "boss_aeetes_bulls",
+    "name_key": "ACH_BOSS_AEETES_BULLS_NAME",
+    "desc_key": "ACH_BOSS_AEETES_BULLS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "aeetes_bulls"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_gold_silver_hounds",
+    "name_key": "ACH_BOSS_GOLD_SILVER_HOUNDS_NAME",
+    "desc_key": "ACH_BOSS_GOLD_SILVER_HOUNDS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "gold_silver_hounds"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_talos",
+    "name_key": "ACH_BOSS_TALOS_NAME",
+    "desc_key": "ACH_BOSS_TALOS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "talos"
+    },
+    "persists": true
   }
 ]

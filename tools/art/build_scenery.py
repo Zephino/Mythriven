@@ -663,12 +663,24 @@ def giant_glove():
     return p
 
 
+def bronze_tripod():
+    """One of Hephaestus' tripods (Iliad 18.373-377: twenty tripods with golden wheels, which could roll by themselves to
+    the gods' gathering and back): a bronze cauldron on three legs, with small golden wheels."""
+    p = Pic(18, 22, (9, 21))
+    blob(p, 9, 6, 7, 4, "F"); blob(p, 9, 5, 6, 3, "e"); p.rect(3, 3, 15, 3, "y")
+    for x0, x1 in ((4, 2), (9, 9), (14, 16)):
+        for y in range(9, 19):
+            p.px(round(x0 + (x1 - x0) * (y - 9) / 10), y, "F")
+        p.rect(x1 - 1, 19, x1 + 1, 21, "y")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

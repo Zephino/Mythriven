@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.06
+Date: 10/31/2026
+Time: 11:00 PM
+
+### Changes
+- **Pack 9, Gears and Plunder, is planned** (`docs/PACK_9_PLAN.md`): Lemnos, the Goblin Market, Libertalia and the Hollow Hills, from the old texts only (Homer, Rossetti's 1862 poem, the 1724 General History of the Pyrates, Pontoppidan, Paracelsus and Baum's 1907 book), never their modern adaptations. Claude made the choices with the owner's trust; any can be changed.
+- **Lemnos, Hephaestus' forge-island of automatons, is built and open.** It opens when you beat Asterion, under a new "Pack 9: Gears and Plunder" heading.
+  - **Hazard, the smoke of the forge:** smoke and cinders roll over the island, hiding the view and Burning the Heroes.
+  - **Monsters:** bronze automatons, golden handmaidens (casters), bronze sparks and the bronze bulls.
+  - **10:00, the Bulls of Aeëtes** (Apollodorus): every 6 s they breathe a cone of fire, and the ground there burns for 4 s.
+  - **20:00, the Gold and Silver Hounds** (the Odyssey): they swap every 6 s. The gold hound shrugs off Fire and takes double from Lightning; the silver hound the reverse.
+  - **30:00, Talos** (the design's boss; the Argonautica): he hurls boulders at the Heroes and every 14 s heats himself red-hot, burning whoever is near; when the heat is spent the nail in his ankle shows for 3 s and he takes 2.5 times the damage.
+  - Volcanic ground with Hephaestus' self-moving tripods and anvils; lizards and gulls.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (401 tests pass).
+
+### Reason
+The owner said "go ahead" with Pack 9 after Pack 8 was finished.
+
 ## Version 00.03.05
 Date: 10/31/2026
 Time: 10:23 PM
