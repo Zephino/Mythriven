@@ -96,6 +96,82 @@ def warlord(c, step):
 WARLORD_PAL = dict(ORC_PAL, a="#2a2a30", A="#3a3a44")
 
 
+# --- Knossos (Apollodorus 2.5.7, 3.1.3-4, Epitome 1.7-9; Plutarch, Theseus 15-19; Odyssey 11.568) ---------------------
+
+def cretan_guard(c, f):
+    """A guard of Minos' palace (Plutarch, Theseus 19: Minos' general Taurus and his men): a Cretan soldier with a tall
+    figure-of-eight shield and a spear, long dark hair."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 18, x + 1 + d, 22, "s")
+    c.rect(6, 9, 13, 18, "w"); c.rect(6, 15, 13, 18, "r")
+    ellipse(c, 9, 5, 3, 3, "s"); c.rect(6, 1, 12, 3, "h"); c.rect(5, 3, 6, 10, "h")
+    ellipse(c, 3, 9, 3, 3, "d"); ellipse(c, 3, 15, 3, 3, "d")                                  # figure-of-eight shield
+    c.rect(16, 0, 16, 20, "b")
+
+
+GUARD_PAL = {"o": "#120c08", "s": "#c88a5a", "w": "#ece4d0", "r": "#b03a2a", "h": "#1a1410", "d": "#c8a878",
+             "b": "#6a4a2a"}
+
+
+def young_bull(c, f):
+    """A young Cretan bull (the bulls of the bull-leaping games): a lean dappled bull with long horns."""
+    s = STEP[f]
+    ellipse(c, 10, 9, 7, 3.5, "w"); c.px(7, 8, "b"); c.px(11, 10, "b"); c.px(13, 8, "b")
+    for k, d in enumerate((-s, s, s, -s)):
+        c.rect(4 + k * 4 + d, 11, 4 + k * 4 + d, 15, "W")
+    poly(c, [(15, 6), (20, 8), (20, 11), (15, 11)], "w"); c.px(18, 8, "k")
+    c.px(16, 4, "h"); c.px(15, 3, "h"); c.px(19, 4, "h"); c.px(20, 3, "h")
+
+
+YOUNG_BULL_PAL = {"o": "#120a06", "w": "#e8dcc8", "W": "#b8a890", "b": "#4a3020", "k": "#100808", "h": "#f0e8d8"}
+
+
+def cretan_bull(c, step):
+    """The Cretan Bull (Apollodorus 2.5.7): the white bull Poseidon sent from the sea, which Minos would not sacrifice;
+    Poseidon maddened it, and it ravaged Crete until Heracles caught it."""
+    ellipse(c, 28, 28, 22, 12, "w"); ellipse(c, 26, 24, 16, 6, "W")
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(12 + k * 10 + d, 36, 16 + k * 10 + d, 50, "W")
+    poly(c, [(46, 18), (60, 22), (60, 32), (46, 34)], "w"); c.px(52, 22, "r")
+    c.rect(56, 28, 60, 31, "p")
+    for k in range(7):
+        c.px(48 - k // 2, 17 - k, "h"); c.px(55 + k // 2, 17 - k, "h")                         # horns
+    c.rect(6, 22, 8, 32, "W")
+
+
+CRETAN_BULL_PAL = {"o": "#1a0e08", "w": "#f4f0e8", "W": "#c8c0b0", "r": "#e83a2a", "p": "#d8a8a0", "h": "#e8d8b0"}
+
+
+def minos(c, step):
+    """Minos (Odyssey 11.568: "Minos, the glorious son of Zeus, a golden sceptre in his hand, giving judgement to the
+    dead"): a bearded king in a long robe with a golden sceptre."""
+    figure(c, step, "r", "s", "h")
+    c.rect(16, 18, 26, 26, "R"); c.rect(16, 13, 25, 16, "h")
+    c.rect(14, 1, 27, 3, "y"); c.px(15, 0, "y"); c.px(21, 0, "y"); c.px(26, 0, "y")
+    c.rect(32, 6, 32, 48, "y"); ellipse(c, 32, 5, 2, 2, "y")
+
+
+MINOS_PAL = {"o": "#120808", "k": "#1a1010", "r": "#2a3a7a", "R": "#1a2a5a", "s": "#c88a5a", "h": "#2a1a10",
+             "y": "#e8c040"}
+
+
+def asterion(c, step):
+    """Asterion, the Minotaur (Apollodorus 3.1.4: "he had the face of a bull, but the rest of him was human"): a huge
+    man with a bull's head and horns, naked to the waist, in the Labyrinth's dark."""
+    for k, d in enumerate((-step, step)):
+        c.rect(16 + k * 10 + d, 44, 20 + k * 10 + d, 56, "s")
+    c.rect(14, 20, 36, 34, "s"); c.rect(14, 34, 36, 44, "l")
+    c.rect(8, 22, 13, 38, "s"); c.rect(37, 22, 42, 38, "s")
+    ellipse(c, 25, 12, 8, 8, "b"); c.rect(21, 14, 29, 19, "B"); c.px(22, 10, "r"); c.px(28, 10, "r")
+    for k in range(8):
+        c.px(17 - k, 8 - k // 2, "h"); c.px(33 + k, 8 - k // 2, "h")                          # horns
+
+
+ASTERION_PAL = {"o": "#0e0806", "s": "#a86a44", "l": "#5a3a24", "b": "#3a2418", "B": "#5a3a28", "r": "#e83a2a",
+                "h": "#e8dcc0"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_warlords.py."
@@ -108,4 +184,9 @@ if __name__ == "__main__":
     kit.build_boss("war_drummer", war_drummer, DRUM_PAL, doc(war_drummer.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
     kit.build_boss("pit_champion", pit_champion, CHAMP_PAL, doc(pit_champion.__doc__), (44, 56), (21, 54), [0, 1, 0, -1, 0])
     kit.build_boss("warlord", warlord, WARLORD_PAL, doc(warlord.__doc__), (46, 58), (21, 56), [0, 1, 0, -1, 0])
+    kit.build_boss("cretan_guard", cretan_guard, GUARD_PAL, doc(cretan_guard.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("young_bull", young_bull, YOUNG_BULL_PAL, doc(young_bull.__doc__), (22, 16), (10, 15), walk, folder="enemies")
+    kit.build_boss("cretan_bull", cretan_bull, CRETAN_BULL_PAL, doc(cretan_bull.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("minos", minos, MINOS_PAL, doc(minos.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("asterion", asterion, ASTERION_PAL, doc(asterion.__doc__), (50, 60), (25, 58), [0, 1, 0, -1, 0])
     print("wrote the Warlords' art")

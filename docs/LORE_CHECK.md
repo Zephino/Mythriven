@@ -689,6 +689,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | warlord_entrance | boss entrance | warlord | Under my banner, no one runs. | Original line written for Mythriven | no |
 | warlord_odin | boss meets god (with odin) | warlord | A war god? Good. Mine is a war without gods. | Original line written for Mythriven | no |
 
+### Knossos
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | knossos | Knossos | Apollodorus 3.1.4 and Ovid, Metamorphoses 8 (Minos' palace and Daedalus' Labyrinth) | no |
+| enemy | cretan_guard | Cretan guard | Plutarch, Life of Theseus 19 (Minos' general Taurus and his men) | no |
+| enemy | young_bull | Young bull | The bulls of Crete (Apollodorus 2.5.7; the bull-leaping of Knossos) | no |
+| boss | cretan_bull | The Cretan Bull | Apollodorus, Library 2.5.7 (Poseidon's white bull, maddened; Heracles' seventh labour) | no |
+| boss | minos | Minos | Homer, Odyssey 11.568 (Minos judges the dead with a golden sceptre); Apollodorus 3.1.3-4 | no |
+| boss | asterion | Asterion, the Minotaur | Apollodorus 3.1.4 (Asterius, the Minotaur) and Epitome 1.9 (Theseus beats him to death with his fists); Plutarch, Theseus 19 | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| cretan_bull_entrance | boss entrance | cretan_bull | (It paws the paving stones. Its eyes are white with Poseidon's madness.) | Apollodorus 2.5.7 | no |
+| minos_entrance | boss entrance | minos | Stand before me. Every shade I have judged stood where you stand. | Odyssey 11.568 | no |
+| asterion_entrance | boss entrance | asterion | (Something huge breathes in the dark of the Labyrinth, and the floor shakes.) | Apollodorus 3.1.4 | no |
+| cretan_bull_heracles | boss entrance (as heracles) | cretan_bull | (It knows you. The seventh labour; it has not forgotten the rope.) | Apollodorus 2.5.7 (the seventh labour) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

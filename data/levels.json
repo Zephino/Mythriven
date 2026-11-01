@@ -3727,5 +3727,117 @@
       "edge": "#3a2e22",
       "stones": "#7a6a58"
     }
+  },
+  {
+    "_doc": "Knossos, Pack 8 realm 2, the Labyrinth city (docs/PACK_8_PLAN.md). Sources: Apollodorus 2.5.7, 3.1.3-4, 3.15.8, Epitome 1.7-9; Plutarch, Theseus 15-19; Odyssey 11.568; Ovid, Metamorphoses 8.152-182. Kept apart from the Aegean Shore: the palace and the Labyrinth. A realm: no local gods.",
+    "id": "knossos",
+    "name_key": "LEVEL_KNOSSOS_NAME",
+    "region": "realm_labyrinth",
+    "act": 10,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "knossos",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "stone",
+          "max": -0.2,
+          "placeholder_color": "#a89880",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cracked",
+          "max": 0.25,
+          "placeholder_color": "#8a7a64",
+          "placeholder_dots": "#5a4a3a"
+        },
+        {
+          "id": "dirt",
+          "max": 0.65,
+          "placeholder_color": "#7a6448",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#6a5e50",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "labyrinth_wall",
+      "minoan_column"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "labyrinth_wall": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          18
+        ],
+        "placeholder_color": "#c8c0ae",
+        "weight": 2
+      },
+      "minoan_column": {
+        "shape": "rect",
+        "size_px": [
+          12,
+          28
+        ],
+        "placeholder_color": "#b03a2a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "cretan_bull",
+      "20": "minos",
+      "30": "asterion"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "arcadia",
+      "boss": "lycaon"
+    },
+    "waves": "waves_knossos.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 22,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.45,
+      "pulse": 0.1,
+      "pulse_hz": 0.12,
+      "veil_color": "#140c06",
+      "particles": "mist",
+      "particle_color": "#4a3a2a",
+      "fade_s": 2.5,
+      "name_key": "HAZARD_LABYRINTH_DARK_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#e4d4bc",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "cypress": 2,
+        "olive": 2
+      }
+    },
+    "road": {
+      "color": "#b8a88a",
+      "edge": "#8a7a5e",
+      "stones": "#d0c0a0"
+    }
   }
 ]

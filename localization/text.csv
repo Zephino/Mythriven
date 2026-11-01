@@ -2541,3 +2541,29 @@ BANTER_PIT_CHAMPION_ENTRANCE,Hit me. Go on. Hit me harder.
 BANTER_WARLORD_ENTRANCE,"Under my banner, no one runs."
 BANTER_WARLORD_ODIN,A war god? Good. Mine is a war without gods.
 PACK_10_NAME,Pack 8: Warlords
+LEVEL_KNOSSOS_NAME,Knossos
+HAZARD_LABYRINTH_DARK_NAME,"The halls twist, and the light fails..."
+ENEMY_CRETAN_GUARD_NAME,Cretan guard
+ENEMY_CRETAN_GUARD_MYTH,"The soldiers of King Minos, who guarded the palace and the young Athenians sent as tribute to the Minotaur."
+ENEMY_YOUNG_BULL_NAME,Young bull
+ENEMY_YOUNG_BULL_MYTH,"Lean young bulls of the Cretan herds, of the line of Poseidon's white bull."
+BOSS_CRETAN_BULL_NAME,The Cretan Bull
+ENEMY_CRETAN_BULL_NAME,The Cretan Bull
+ENEMY_CRETAN_BULL_MYTH,"The white bull Poseidon sent up from the sea for Minos to sacrifice. Minos kept it and sacrificed another; Poseidon made it savage, and it ravaged Crete until Heracles caught it and carried it to Greece."
+BOSS_MINOS_NAME,Minos
+ENEMY_MINOS_NAME,Minos
+ENEMY_MINOS_MYTH,"King of Crete, son of Zeus and Europa, who kept the Minotaur in the Labyrinth and fed it Athenian youths. Odysseus saw him in the underworld with a golden sceptre, giving judgement to the dead."
+BOSS_MINOS_CONDEMNS,Minos condemns you! Come before him for judgement!
+BOSS_ASTERION_NAME,"Asterion, the Minotaur"
+ENEMY_ASTERION_NAME,"Asterion, the Minotaur"
+ENEMY_ASTERION_MYTH,"Asterion, the son of Pasiphaë, with a bull's face on a man's body, shut by Minos in the Labyrinth Daedalus built. Theseus found him by the light of Ariadne's thread and killed him with his bare fists."
+ACH_BOSS_CRETAN_BULL_NAME,Defeat The Cretan Bull
+ACH_BOSS_CRETAN_BULL_DESC,The 10:00 boss of Knossos.
+ACH_BOSS_MINOS_NAME,Defeat Minos
+ACH_BOSS_MINOS_DESC,The 20:00 boss of Knossos.
+ACH_BOSS_ASTERION_NAME,"Defeat Asterion, the Minotaur"
+ACH_BOSS_ASTERION_DESC,The 30:00 boss of Knossos.
+BANTER_CRETAN_BULL_ENTRANCE,(It paws the paving stones. Its eyes are white with Poseidon's madness.)
+BANTER_MINOS_ENTRANCE,Stand before me. Every shade I have judged stood where you stand.
+BANTER_ASTERION_ENTRANCE,"(Something huge breathes in the dark of the Labyrinth, and the floor shakes.)"
+BANTER_CRETAN_BULL_HERACLES,(It knows you. The seventh labour; it has not forgotten the rope.)

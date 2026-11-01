@@ -457,12 +457,11 @@ func test_the_ant_queen_is_fed_by_her_carriers() -> void:
 	_enemies.hp[queen.slot] = _enemies.max_hp[queen.slot] * 0.5
 	var hp: float = _enemies.hp[queen.slot]
 	queen.send_carriers()
+	queen._send_in = 999.0
 	assert_eq(queen.carriers.size(), 3)
 	_enemies.remove_quietly(queen.carriers[0])
 	for k: int in 60:
 		queen.signature(0.25)
-		if queen.delivered >= 2:
-			break
 	assert_eq(queen.delivered, 2, "two carriers reach her (one was killed)")
 	assert_gt(_enemies.hp[queen.slot], hp, "and the gold heals her")
 
@@ -778,3 +777,46 @@ func test_the_warlords_banner_shields_him_until_torn_down() -> void:
 	lord.signature(0.8)
 	assert_eq(lord.torn, 1)
 	assert_almost_eq(lord.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)
+
+
+func test_the_cretan_bull_is_dazed_when_it_misses() -> void:
+	_start("knossos")
+	assert_eq(str(_level("knossos")["unlock"]["boss"]), "lycaon")
+	var bull: CretanBullBoss = _bosses.spawn_boss("cretan_bull", 0) as CretanBullBoss
+	bull.target = _player
+	_player.position = bull.position_now() + Vector2(0, 400)
+	bull.signature(2.6)
+	bull.signature(0.7)
+	bull.signature(0.1)
+	assert_eq(bull.misses, 1, "it charged and missed")
+	assert_gt(bull.dazed_s, 0.0, "dazed")
+	assert_almost_eq(bull.modify_hit(10.0, _player, Vector2.ZERO), 15.0, 0.01)
+
+
+func test_minos_condemns_the_hero_who_keeps_away() -> void:
+	_start("knossos")
+	var king: MinosBoss = _bosses.spawn_boss("minos", 1) as MinosBoss
+	_player.position = king.position_now() + Vector2(300, 0)
+	king.condemn_farthest()
+	assert_eq(king.condemned, _player)
+	var hp: float = _player.hp
+	king.signature(1.0)
+	assert_lt(_player.hp, hp, "the sentence hurts")
+	_player.position = king.position_now() + Vector2(40, 0)
+	king.signature(0.1)
+	assert_null(king.condemned, "judged, the sentence ends")
+
+
+func test_asterion_rushes_thrice_then_is_winded() -> void:
+	_start("knossos")
+	var bull_man: AsterionBoss = _bosses.spawn_boss("asterion", 2) as AsterionBoss
+	_player.position = bull_man.position_now() + Vector2(400, 0)
+	bull_man.signature(5.1)
+	assert_gt(bull_man.rush_s, 0.0, "the first rush")
+	for k: int in 20:
+		bull_man.signature(0.25)
+		if bull_man.winded_s > 0.0:
+			break
+	assert_gt(bull_man.winded_s, 0.0, "winded after three")
+	_player.position = bull_man.position_now() + Vector2(30, 0)
+	assert_almost_eq(bull_man.modify_hit(10.0, _player, Vector2.ZERO), 15.0, 0.01, "fists up close")

@@ -7579,5 +7579,250 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Knossos bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "cretan_bull",
+    "name_key": "BOSS_CRETAN_BULL_NAME",
+    "tradition": "greek",
+    "lore_source": "Apollodorus, Library 2.5.7 (Poseidon's white bull, maddened; Heracles' seventh labour)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "cretan_bull",
+    "move_speed": 46,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_maddened_charge",
+      "gallop_every_s": 4.0,
+      "gallop_px": 320,
+      "gallop_s": 0.6,
+      "foam_s": 0.5,
+      "foam_radius_px": 1,
+      "foam_slow": 1.0,
+      "foam_color": "#f4f0e8",
+      "dazed_s": 2.5,
+      "dazed_damage_taken": 1.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Knossos bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "minos",
+    "name_key": "BOSS_MINOS_NAME",
+    "tradition": "greek",
+    "lore_source": "Homer, Odyssey 11.568 (Minos judges the dead with a golden sceptre); Apollodorus 3.1.3-4",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "minos",
+    "move_speed": 40,
+    "keep_distance_px": 140,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_judge",
+      "judge_every_s": 10.0,
+      "judge_px": 90,
+      "sentence_s": 6.0,
+      "sentence_dps": 6.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Knossos bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "asterion",
+    "name_key": "BOSS_ASTERION_NAME",
+    "tradition": "greek",
+    "lore_source": "Apollodorus 3.1.4 (Asterius, the Minotaur) and Epitome 1.9 (Theseus beats him to death with his fists); Plutarch, Theseus 19",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "asterion",
+    "move_speed": 40,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_rush",
+      "rushes": 3,
+      "rush_s": 0.5,
+      "rush_px_s": 420,
+      "between_s": 0.4,
+      "winded_s": 3.0,
+      "flurry_every_s": 9.0,
+      "gore_damage": 18,
+      "close_px": 60,
+      "close_damage_mult": 1.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "cretan_guard"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "cretan_guard"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

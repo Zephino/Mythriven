@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 8). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
-boss idea; everything else was chosen by Claude from old public-domain texts only. Ghorvast built and released 11/01/2026 (00.03.01). The owner can change or veto any of
+boss idea; everything else was chosen by Claude from old public-domain texts only. Ghorvast built and released 11/01/2026 (00.03.01); Knossos (00.03.02). The owner can change or veto any of
 it.
 
 Realms work like Packs 5-7: endless map, a hazard, monster families, three bosses, no local gods.
@@ -40,7 +40,7 @@ from modern fantasy (no wargs, no named orc breeds).*
 | 20:00 | **The Pit Champion** | Every blow he takes fills his rage; when it is full he goes berserk (fast, hitting twice as hard), then is spent and takes double damage |
 | 30:00 | **The Warlord** | He plants his war banner: while it stands he takes far less damage. Tear it down by standing at it |
 
-## Realm 30: Knossos (the Labyrinth city)
+## Realm 30: Knossos (the Labyrinth city): **done and released 11/01/2026 (00.03.02)**
 *Sources: Apollodorus, Library 2.5.7 (the Cretan Bull) and 3.1.3-4, 3.15.8, Epitome 1.7-9 (Minos, Pasiphaë, the
 Labyrinth; Theseus kills the Minotaur with his fists); Plutarch, Life of Theseus 15-19; Homer, Odyssey 11.568 (Minos
 judging the dead); Ovid, Metamorphoses 8.152-182.*

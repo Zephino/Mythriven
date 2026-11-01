@@ -1,0 +1,75 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A column of the palace of Knossos: red, wider at the top than the bottom, with a black cushion capital.",
+ "size": [
+  14,
+  32
+ ],
+ "anchor": [
+  7,
+  31
+ ],
+ "palette": {
+  "a": "#120c06",
+  "b": "#2a1e18",
+  "c": "#241e12",
+  "d": "#241812",
+  "e": "#3c1812",
+  "f": "#7e3c30",
+  "g": "#783c30",
+  "h": "#72362a",
+  "i": "#481812",
+  "j": "#9c3c30",
+  "k": "#963c30",
+  "l": "#8a3630",
+  "m": "#663024",
+  "n": "#6c3024",
+  "o": "#78302a",
+  "p": "#783c2a",
+  "q": "#6c362a",
+  "r": "#602a24",
+  "s": "#84362a",
+  "t": "#5a2a1e",
+  "u": "#544e48",
+  "v": "#a29c90",
+  "w": "#aea89c",
+  "x": "#a8a296"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".aaaaaaaaaaaa.",
+    "abbbbbcbccbbba",
+    "abbcbddbbcccba",
+    ".abbbbbbbcbca.",
+    ".abbcbcbbbbca.",
+    ".acbbbccbbcba.",
+    ".abcbcbcbccca.",
+    ".efgffhghgfge.",
+    ".ijkljjjkkkji.",
+    ".effhgffggffe.",
+    ".egghfhghfhge.",
+    ".eghgggffghge.",
+    ".efhfhhghhghe.",
+    ".effgghhfghge.",
+    "..emgfghfhne..",
+    "..ikklkkkloi..",
+    "..epphhhphhe..",
+    "..ehpphqqpre..",
+    "..ehhphhhphe..",
+    "..emmhhhpqpe..",
+    "..ephqhhhhpe..",
+    "..eqhhqhpmhe..",
+    "...eksllkse...",
+    "...ehppqhhe...",
+    "...ehhphhqe...",
+    "...ehhpqphe...",
+    "...ehqqqqte...",
+    "...eqqqmmme...",
+    "...ehmqmhqe...",
+    "..uvwxwxxwxu..",
+    "..uwvxxvwwwu..",
+    "...uuuuuuuu..."
+   ]
+  ]
+ }
+}

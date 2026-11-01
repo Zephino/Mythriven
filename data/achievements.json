@@ -1274,5 +1274,35 @@
       "id": "warlord"
     },
     "persists": true
+  },
+  {
+    "id": "boss_cretan_bull",
+    "name_key": "ACH_BOSS_CRETAN_BULL_NAME",
+    "desc_key": "ACH_BOSS_CRETAN_BULL_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "cretan_bull"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_minos",
+    "name_key": "ACH_BOSS_MINOS_NAME",
+    "desc_key": "ACH_BOSS_MINOS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "minos"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_asterion",
+    "name_key": "ACH_BOSS_ASTERION_NAME",
+    "desc_key": "ACH_BOSS_ASTERION_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "asterion"
+    },
+    "persists": true
   }
 ]

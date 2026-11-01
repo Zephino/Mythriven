@@ -628,12 +628,35 @@ def palisade():
     return p
 
 
+def minoan_column():
+    """A column of the palace of Knossos: red, wider at the top than the bottom, with a black cushion capital."""
+    p = Pic(14, 30, (7, 29))
+    for y in range(6, 28):
+        w = 3 + (28 - y) // 8
+        p.rect(7 - w, y, 6 + w, y, "R" if y % 7 else "r")
+    p.rect(2, 2, 11, 5, "z"); p.rect(1, 0, 12, 1, "z"); p.rect(3, 28, 10, 29, "M")
+    return p
+
+
+def labyrinth_wall():
+    """A stretch of the Labyrinth's wall (Ovid, Metamorphoses 8: Daedalus' building of winding passages): a dressed
+    stone wall turning a corner."""
+    p = Pic(30, 20, (15, 19))
+    p.rect(0, 6, 29, 19, "M"); p.rect(20, 0, 29, 19, "M")
+    for y in range(6, 20, 4):
+        for x in range(0 if y % 8 else 3, 30, 6):
+            p.rect(x, y, x, y + 3, "n")
+        p.rect(0, y, 29, y, "n")
+    p.rect(0, 6, 19, 6, "m"); p.rect(20, 0, 29, 0, "m")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

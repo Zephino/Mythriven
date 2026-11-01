@@ -421,6 +421,11 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"scorched_scrub": ("n", "N", "O", None)},
         "rock": ("n", "N", "O", None)},
+    # Knossos: the palace and its paved courts on Crete; a few cypresses and olives.
+    "knossos": {
+        "trees": {"cypress": (cypress, 12, 38), "olive": (olive, 26, 30)},
+        "bushes": {"myrtle": ("V", "v", "w", "h")},
+        "rock": ("a", "A", "B", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

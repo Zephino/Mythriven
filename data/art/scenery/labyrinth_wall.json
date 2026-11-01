@@ -1,0 +1,69 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A stretch of the Labyrinth's wall (Ovid, Metamorphoses 8: Daedalus' building of winding passages): a dressed stone wall turning a corner.",
+ "size": [
+  32,
+  22
+ ],
+ "anchor": [
+  16,
+  21
+ ],
+ "palette": {
+  "a": "#66605a",
+  "b": "#ded8d2",
+  "c": "#eae4d8",
+  "d": "#f6f0e4",
+  "e": "#ccc6ba",
+  "f": "#544e48",
+  "g": "#c6c0ae",
+  "h": "#bab4a8",
+  "i": "#d2c6ba",
+  "j": "#a8a296",
+  "k": "#b4ae9c",
+  "l": "#9c968a",
+  "m": "#a29c90",
+  "n": "#d2d2c6",
+  "o": "#c0bab4",
+  "p": "#a89c90",
+  "q": "#969084",
+  "r": "#48423c",
+  "s": "#908a7e",
+  "t": "#848478",
+  "u": "#908a84",
+  "v": "#7e7872",
+  "w": "#96968a",
+  "x": "#8a8a7e",
+  "y": "#aea89c",
+  "z": "#8a8478",
+  "A": "#847e78",
+  "B": "#78726c"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".....................aaaaaaaaaa.",
+    "....................abcddcccbcea",
+    "....................fgggghigjghf",
+    "....................fhhigihhjggf",
+    "....................fggkhgghklgf",
+    "....................fhkgjmhkghhf",
+    ".aaaaaaaaaaaaaaaaaaafhkhhhkghkhf",
+    "abcbbbbncbnobbnnccbnbplqlllppqlr",
+    "rlhgkkhqgggkhqhgkhkphggkhshhhkhf",
+    "rlhgghhqhgkhglhgkhjlkghggpgghhgf",
+    "rlhhhhhlhkgmjlmkhgkphhhkglkhkhhf",
+    "rqtssqqsllqqllqlqslqqllqllqqlssr",
+    "rqkkjhkljkhkkskhkkjqkkjkjskkjkkf",
+    "rqjhjkkqjjhkkqjkkkkskkjkkqhkkhjf",
+    "rlkjkkkqkkkkksjuukjqkkkjkqkjkjjf",
+    "rqssqssqqsslqlsslvlsqssqqqslqqqr",
+    "rlkkhhkqjhkkjlkjwhhlkjkhhqjjmkkf",
+    "rqhhkjkqkhkjklkhjkjqjkhkhskhkjjf",
+    "rxjjjyjqmmymyxjmjjjxjzjmyxysjsmf",
+    "rAxqAAxqqxxxxqxxBxqqxAqxqxAAxAxr",
+    "rxjjjyjqymjjmAjmjjjxmzjjjAjymjyf",
+    ".rfffffrfffffrfffffrfffffrfffff."
+   ]
+  ]
+ }
+}

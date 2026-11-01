@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.02
+Date: 10/31/2026
+Time: 10:03 PM
+
+### Changes
+- **Knossos, the Labyrinth city, is built and open** (Pack 8, `docs/PACK_8_PLAN.md`). It opens when you beat Lycaon (Arcadia's 30:00 boss). It's the palace and the Labyrinth, kept apart from the Aegean Shore.
+  - **Hazard, the Labyrinth's dark:** the halls twist and the light fails; the view closes in.
+  - **Monsters:** Cretan guards, young bulls (in herds), shades, and from 10:00 Minotaurs.
+  - **10:00, the Cretan Bull** (Apollodorus): Poseidon's maddened bull charges across the arena. If a charge hits no one, it skids to a halt dazed for 2.5 s and takes 50% more damage. Make it miss.
+  - **20:00, Minos** (the Odyssey): the judge of the dead condemns the Hero farthest from him; the condemned Hero takes damage every moment until they come close to him for judgement.
+  - **30:00, Asterion, the Minotaur** (the design's boss): he rushes three times in a row, goring whoever he reaches, then stands winded for 3 s. Blows struck up close do 50% more, as Theseus killed him with his fists.
+  - Paved courts with Labyrinth walls and red Minoan columns; lizards, swallows and cicadas.
+  - 3 achievements, 4 banter lines (the Cretan Bull remembers Heracles) and the realm's rows on the lore check.
+- **Test fix:** the Ant Queen's test could be thrown off by a second wave of carriers arriving during it; it now sends one wave only.
+- 3 new tests (390 tests pass).
+
+### Reason
+Pack 8, realm 2 of 4 (owner: "go ahead").
+
 ## Version 00.03.01
 Date: 10/31/2026
 Time: 9:54 PM

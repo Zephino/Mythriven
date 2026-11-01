@@ -2355,5 +2355,45 @@
     "text_key": "BANTER_WARLORD_ODIN",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "cretan_bull_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "cretan_bull",
+    "hero": "",
+    "god": "cretan_bull",
+    "text_key": "BANTER_CRETAN_BULL_ENTRANCE",
+    "lore_source": "Apollodorus 2.5.7",
+    "needs_owner_review": true
+  },
+  {
+    "id": "minos_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "minos",
+    "hero": "",
+    "god": "minos",
+    "text_key": "BANTER_MINOS_ENTRANCE",
+    "lore_source": "Odyssey 11.568",
+    "needs_owner_review": true
+  },
+  {
+    "id": "asterion_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "asterion",
+    "hero": "",
+    "god": "asterion",
+    "text_key": "BANTER_ASTERION_ENTRANCE",
+    "lore_source": "Apollodorus 3.1.4",
+    "needs_owner_review": true
+  },
+  {
+    "id": "cretan_bull_heracles",
+    "trigger": "boss_entrance",
+    "speaker": "cretan_bull",
+    "hero": "heracles",
+    "god": "cretan_bull",
+    "text_key": "BANTER_CRETAN_BULL_HERACLES",
+    "lore_source": "Apollodorus 2.5.7 (the seventh labour)",
+    "needs_owner_review": true
   }
 ]
