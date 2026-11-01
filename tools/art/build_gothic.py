@@ -334,95 +334,134 @@ CARMILLA_PAL = {"o": "#0a080c", "k": "#141016", "K": "#0a080c", "y": "#e8d040", 
 
 def werewolf(c, f):
     """A werewolf of Ossory (Gerald of Wales, Topographia Hibernica II.19): a man and a woman of Ossory forced to take
-    the shape of wolves; a hulking grey wolf-shape that walks upright, with a man's hands."""
+    the shape of wolves. A hulking grey wolf-shape that walks upright on bent wolf's legs, hunched, with long clawed
+    arms, a long snout and a tail."""
     s = STEP[f]
-    for x, d in ((8, -s), (14, s)):
-        c.rect(x + d, 20, x + 2 + d, 27, "G")
-    ellipse(c, 12, 15, 7, 7, "g")
-    poly(c, [(8, 6), (17, 6), (20, 10), (6, 10)], "g"); poly(c, [(15, 8), (22, 9), (21, 12), (16, 11)], "g")
-    c.px(9, 4, "g"); c.px(15, 4, "g"); c.px(17, 8, "y"); c.row(11, 19, 21, "w")
-    c.rect(3, 12, 5, 19, "G"); c.rect(19, 12, 21, 19, "G"); c.px(3, 20, "s"); c.px(21, 20, "s")
+    for x, d in ((7, -s), (13, s)):                                                      # bent wolf's legs
+        poly(c, [(x, 17), (x + 3, 17), (x + 4, 21), (x + 2, 24), (x + 2, 27), (x, 27), (x, 24), (x + 1, 21)], "G")
+        c.rect(x - 1 + 1, 27, x + 3, 27, "K")
+    ellipse(c, 11, 15, 6, 6, "g")                                                        # hunched body
+    poly(c, [(8, 12), (14, 12), (13, 19), (9, 19)], "l")                                 # paler chest
+    poly(c, [(9, 5), (15, 4), (18, 7), (16, 11), (10, 11)], "g")                         # head
+    poly(c, [(16, 7), (22, 8), (22, 10), (16, 11)], "g"); c.px(22, 8, "k")               # snout and nose
+    c.row(10, 18, 21, "K"); c.px(19, 11, "w"); c.px(21, 11, "w")                         # mouth and fangs
+    poly(c, [(10, 5), (10, 0), (13, 4)], "G"); poly(c, [(13, 4), (15, 0), (16, 5)], "g")  # ears
+    c.px(16, 7, "y")                                                                     # eye
+    poly(c, [(15, 12), (20, 13), (21, 19), (19, 20), (18, 15)], "G")                     # long arm reaching
+    c.px(20, 20, "w"); c.px(21, 20, "w"); c.px(19, 21, "w")                              # claws
+    poly(c, [(6, 12), (3, 15), (3, 20), (5, 20), (6, 16)], "G"); c.px(3, 21, "w"); c.px(4, 21, "w")
+    for i in range(6):
+        c.px(5 - i // 2, 20 + i, "G")                                                    # tail
 
 
-WEREWOLF_PAL = {"o": "#141210", "g": "#6a645a", "G": "#4a463e", "y": "#e8c040", "w": "#ece6d8", "s": "#c8a888"}
+WEREWOLF_PAL = {"o": "#141210", "g": "#7a7266", "G": "#544e46", "K": "#2a2622", "l": "#a8a090", "y": "#e8c040",
+                "w": "#ece6d8", "k": "#141010"}
 
 
 def raven(c, f):
-    """A raven over the Irish forest: a big black raven, wings spread."""
+    """A raven over the Irish forest: a big black raven flying, wedge tail, heavy beak, its wings beating with the
+    flight feathers spread like fingers."""
     up = f % 2
-    poly(c, [(9, 7), (1, 3 if up else 10), (5, 9)], "k"); poly(c, [(11, 7), (19, 3 if up else 10), (15, 9)], "k")
-    ellipse(c, 10, 8, 3, 3, "b"); poly(c, [(12, 6), (15, 7), (12, 8)], "K"); c.px(11, 7, "w")
-    poly(c, [(8, 10), (12, 10), (10, 14)], "k")
+    poly(c, [(2, 9), (6, 8), (6, 10)], "k")                                              # wedge tail
+    ellipse(c, 9, 9, 4, 2.5, "k")                                                        # body
+    ellipse(c, 14, 8, 2.5, 2.2, "k"); poly(c, [(15, 7), (19, 8), (15, 9)], "B")         # head, heavy beak
+    c.px(14, 7, "w")
+    if up:                                                                               # wings raised
+        poly(c, [(7, 8), (4, 1), (10, 0), (11, 8)], "K")
+        for x in (4, 6, 8, 10):
+            c.px(x, 0, "k")
+    else:                                                                                # wings spread wide
+        poly(c, [(6, 8), (1, 4), (13, 3), (12, 8)], "K")
+        for x in (1, 3, 5):
+            c.px(x, 3, "k")
 
 
-RAVEN_PAL = {"o": "#2a2a34", "k": "#141418", "b": "#1e1e26", "K": "#3a3a44", "w": "#c8c8d0"}
+RAVEN_PAL = {"o": "#2a2a34", "k": "#141418", "K": "#26262e", "B": "#3a3a44", "w": "#c8c8d0"}
 
 
-def bisclavret(man):
-    """Bisclavret (Marie de France, 12th c.): a Breton baron who becomes a wolf in the woods three days a week; when his
-    wife hides his clothes he must stay a wolf, until the king gives them back. As a great gentle grey wolf, and as the
-    baron once more."""
-    def draw(c, step):
-        if man:
-            for k, d in enumerate((-step, step)):
-                c.rect(15 + k * 6 + d, 44, 17 + k * 6 + d, 54, "B")
-            poly(c, [(13, 18), (27, 18), (29, 46), (11, 46)], "r")
-            c.row(30, 12, 28, "y")
-            c.rect(15, 6, 25, 16, "s"); c.px(18, 10, "k"); c.px(22, 10, "k")
-            c.rect(14, 3, 26, 7, "h"); c.rect(16, 14, 24, 17, "h")
-            c.rect(8, 20, 11, 36, "r"); c.rect(29, 20, 32, 36, "r")
-            return
-        ellipse(c, 24, 30, 16, 8, "g")
-        for k, d in enumerate((-step, step, step, -step)):
-            c.rect(11 + k * 8 + d, 34, 13 + k * 8 + d, 48, "G")
-        poly(c, [(36, 20), (48, 22), (48, 28), (36, 30)], "g"); c.px(41, 22, "y")
-        c.px(37, 17, "g"); c.px(38, 16, "g"); c.px(40, 18, "g"); c.row(28, 44, 48, "k")
-        for k in range(8):
-            c.px(8 - k // 2, 28 + k // 3, "G")
+from build_boss_fenrir import front_leg as wolf_front_leg, hind_leg as wolf_hind_leg
+
+WOLF_WALK = [(0, 0), (3, -3), (0, 0), (-3, 3), (0, 0)]
+
+
+def wolf(snarl=False, ring=False, stripe=False, tuft=False, big_head=False):
+    """A great wolf on four legs, drawn on Fenrir's body (tools/art/build_boss_fenrir.py), with its own features:
+    a snarl or a closed mouth, a ring on the foreleg (Melion), a black stripe down the back and a tufted tail (the Beast
+    of Gevaudan)."""
+    def draw(c, legs):
+        front, back = legs
+        wolf_hind_leg(c, 17 - back, "F", "D")
+        wolf_front_leg(c, 44 + front, "F", "D")
+        for i in range(16):                                                              # the tail
+            t = i / 15
+            ellipse(c, 13 - t * 6, 22 + t * 15 - t * t * 3, 3.6 - t * 1.4 + math.sin(t * 3.1) * 0.8, 3.2 - t * 1.0, "f")
+        if tuft:
+            ellipse(c, 6, 36, 3, 3, "D")
+        poly(c, [(13, 23), (19, 19), (31, 19), (42, 14), (49, 14), (54, 20), (55, 27), (51, 32), (44, 31), (34, 28),
+                 (25, 29), (16, 30)], "f")
+        poly(c, [(44, 15), (51, 8), (58, 8), (60, 16), (56, 25), (50, 20)], "f")
+        for x in range(12, 60):                                                          # darker along the back
+            for y in range(6, 24):
+                if c.g[y][x] == "f" and (c.g[y - 1][x] == "." or c.g[y - 2][x] == "."):
+                    c.px(x, y, "D")
+        if stripe:
+            for x in range(14, 50):                                                      # the black stripe down the back
+                for y in range(6, 26):
+                    if c.g[y][x] in "fD" and c.g[y - 1][x] == "D":
+                        c.px(x, y, "k")
+                        break
+        poly(c, [(50, 20), (56, 22), (55, 28), (51, 31), (48, 27)], "l")                # pale chest
+        poly(c, [(30, 27), (42, 29), (44, 31), (34, 29)], "F")                           # shadow under the belly
+        wolf_hind_leg(c, 22 + back, "f", "F")
+        wolf_front_leg(c, 49 - front, "f", "F")
+        if ring:
+            c.rect(49 - front, 40, 53 - front, 41, "g"); c.px(50 - front, 39, "w"); c.px(52 - front, 39, "r")
+        hx = 1 if big_head else 0
+        ellipse(c, 58, 12, 5 + hx, 4.5 + hx, "f")
+        poly(c, [(51, 8), (52, 1), (56, 7)], "F")
+        poly(c, [(54, 9), (56, 0), (60, 8)], "f"); poly(c, [(55, 6), (56, 3), (57, 7)], "D")
+        poly(c, [(60, 9), (70 + hx, 11), (71 + hx, 14), (68, 17), (60, 18)], "f")
+        ellipse(c, 57, 9, 4, 3, "f")
+        c.px(57, 7, "D"); c.px(58, 7, "D"); c.px(59, 7, "D")
+        c.rect(70 + hx, 11, 71 + hx, 12, "k")
+        if snarl:
+            c.row(15, 62, 69 + hx, "k")
+            for x in range(63, 70 + hx, 2):
+                c.px(x, 16, "w")
+            c.row(16, 61, 62, "r")
+        else:
+            c.row(15, 63, 68, "F")                                                       # a closed mouth
+        c.px(60, 10, "y"); c.px(61, 10, "y"); c.px(61, 11, "k")
+        poly(c, [(55, 14), (61, 17), (59, 20), (55, 19)], "l")
     return draw
 
 
-BISCLAVRET_PAL = {"o": "#141210", "g": "#8a8a90", "G": "#64646a", "y": "#e8d040", "k": "#1a1414", "r": "#3a5a8a",
-                  "B": "#3a2a1a", "s": "#e0b890", "h": "#6a4a2a"}
+def bisclavret_man(c, step):
+    """Bisclavret as the Breton baron once more: a tall man with brown hair and a short beard, a blue tunic belted with
+    gold, a red cloak over his shoulders, and boots."""
+    for k, d in enumerate((-step, step)):
+        c.rect(15 + k * 7 + d, 42, 18 + k * 7 + d, 50, "t"); c.rect(14 + k * 7 + d, 50, 19 + k * 7 + d, 53, "B")
+    poly(c, [(11, 16), (31, 16), (34, 48), (8, 48)], "c"); poly(c, [(11, 16), (8, 48), (12, 48), (14, 20)], "C")   # the cloak
+    poly(c, [(14, 17), (28, 17), (30, 43), (12, 43)], "r")                                # the tunic
+    for y in range(20, 42, 4):
+        c.px(16, y, "R"); c.px(26, y + 2, "R")
+    c.row(30, 13, 29, "y"); c.px(21, 30, "Y")                                             # gold belt
+    c.rect(29, 19, 32, 33, "r"); c.rect(29, 33, 32, 36, "s")                              # arm and hand
+    c.rect(16, 4, 26, 15, "s"); c.px(16, 9, "S")                                          # face
+    c.rect(15, 1, 27, 5, "h"); c.rect(15, 5, 16, 11, "h")                                 # hair
+    c.rect(17, 12, 26, 16, "h"); c.rect(19, 13, 23, 13, "s")                              # beard and mouth
+    c.px(20, 9, "k"); c.px(24, 9, "k"); c.row(8, 19, 21, "H"); c.row(8, 23, 25, "H")     # eyes and brows
+    c.px(13, 17, "y"); c.px(29, 17, "y")                                                  # cloak clasps
 
 
-def melion(c, step):
-    """Melion (the Lai de Melion, 13th c.): a knight of Arthur's turned into a wolf by a ring with a white and a red
-    stone, left so by his faithless wife, who led a pack of wolves through Ireland. A big dark wolf, a gold ring still
-    on its foreleg."""
-    ellipse(c, 26, 28, 18, 9, "g")
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(12 + k * 9 + d, 33, 15 + k * 9 + d, 48, "G")
-    c.rect(39, 40, 42, 41, "y"); c.px(40, 39, "w"); c.px(41, 39, "r")                     # the ring and its two stones
-    poly(c, [(40, 16), (54, 18), (54, 25), (40, 27)], "g"); c.px(46, 19, "y")
-    c.px(41, 12, "g"); c.px(42, 11, "g"); c.px(44, 13, "g"); c.row(24, 50, 54, "k")
-    for k in range(10):
-        c.px(8 - k // 2, 26 + k // 3, "G")
-
-
-MELION_PAL = {"o": "#0e0c0a", "g": "#4a4440", "G": "#34302c", "y": "#e8c040", "w": "#f0f0f0", "r": "#c83030",
-              "k": "#1a1010"}
-
-
-def gevaudan(c, step):
-    """The Beast of Gevaudan (French newspapers of 1764-67): a huge wolf-like beast, bigger than a calf, reddish, with a
-    black stripe down its back, a wide chest, a long tail and great teeth."""
-    ellipse(c, 30, 30, 22, 11, "r")
-    for x in range(14, 48):
-        c.px(x, 20 + abs(x - 30) // 8, "k")                                              # the black stripe
-    ellipse(c, 44, 34, 8, 8, "R")                                                         # the wide chest
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(12 + k * 11 + d, 38, 16 + k * 11 + d, 54, "R")
-    poly(c, [(48, 18), (66, 22), (66, 32), (48, 32)], "r"); c.px(55, 22, "y")
-    c.rect(58, 29, 66, 32, "k")
-    for x in range(58, 66, 2):
-        c.px(x, 29, "w")
-    c.px(50, 14, "r"); c.px(51, 13, "r"); c.px(53, 15, "r")
-    for k in range(14):
-        c.px(8 - k // 2, 28 + k // 2, "r")                                               # the long tail
-
-
-GEVAUDAN_PAL = {"o": "#120804", "r": "#8a4a2a", "R": "#6a3418", "k": "#1a0e08", "y": "#f0c040", "w": "#f0ece0"}
+BISCLAVRET_PAL = {"o": "#1e140c", "k": "#1a1414", "f": "#9a8468", "F": "#6e5c46", "D": "#4a3c2c", "l": "#d8ccb4",
+                  "y": "#e8c040", "Y": "#a8801a", "r": "#3a5a8a", "R": "#2a4268", "w": "#f0ead8", "c": "#8a2a2a",
+                  "C": "#5a1a1a", "t": "#4a3a2a", "B": "#2a1e12", "s": "#e0b890", "S": "#b88a68", "h": "#6a4a2a",
+                  "H": "#3a2a18"}
+MELION_PAL = {"o": "#0e0a08", "k": "#0a0806", "f": "#4a4642", "F": "#34312e", "D": "#24221f", "l": "#8a8680",
+              "y": "#e8c040", "r": "#c83030", "w": "#f0f0f0", "g": "#e0b830"}
+GEVAUDAN_PAL = {"o": "#120804", "k": "#140a06", "f": "#9a5428", "F": "#6e3a1a", "D": "#4a2810", "l": "#c8946a",
+                "y": "#f0c040", "r": "#8a1a1a", "w": "#f4f0e4"}
 
 
 # --- The Brocken (Goethe, Faust I 1808: Walpurgis Night; Praetorius 1668; Silberschlag 1780; Black Annis) ------------
@@ -441,34 +480,50 @@ WITCH_PAL = {"o": "#0e0a10", "k": "#24182a", "g": "#9aaa7a", "y": "#d8b040", "b"
 
 
 def black_goat(c, f):
-    """A black goat of the witches' ride (Praetorius; Faust: they ride up on goats): a shaggy black goat, horns curled
-    back."""
+    """A black goat of the witches' ride (Praetorius; Faust: they ride up on goats): a shaggy black goat with a beard,
+    horns curling back, a yellow eye, and cloven hooves."""
     s = STEP[f]
+    for k, d in enumerate((-s, s, s, -s)):                                               # thin legs, cloven hooves
+        x = 5 + k * 4 + d
+        c.rect(x, 12, x, 16, "K"); c.px(x, 17, "h")
     ellipse(c, 10, 9, 7, 4, "k")
-    for k, d in enumerate((-s, s, s, -s)):
-        c.rect(4 + k * 4 + d, 12, 4 + k * 4 + d, 16, "K")
-    poly(c, [(15, 4), (20, 6), (20, 9), (15, 9)], "k"); c.px(17, 6, "y")
-    c.px(15, 2, "h"); c.px(14, 1, "h"); c.px(13, 2, "h"); c.px(19, 10, "k"); c.px(19, 11, "k")
+    for x in range(4, 17, 2):
+        c.px(x, 13, "k")                                                                 # shaggy fringe
+    poly(c, [(15, 5), (19, 6), (21, 9), (18, 10), (15, 9)], "k")                         # head
+    poly(c, [(16, 5), (14, 1), (12, 2), (14, 5)], "h")                                   # horn, curling back
+    c.px(12, 3, "h"); c.px(18, 7, "y")                                                   # eye
+    c.rect(19, 10, 20, 12, "K")                                                          # beard
+    c.px(3, 6, "k"); c.px(2, 5, "k")                                                     # tail
+    for x, y in ((6, 6), (10, 5), (14, 6), (18, 5)):
+        c.px(x, y, "l")                                                                  # light along the back
 
 
-GOAT_PAL = {"o": "#2a2830", "k": "#1a181e", "K": "#100e14", "y": "#e8c040", "h": "#a89c88"}
+GOAT_PAL = {"o": "#3a3842", "k": "#1e1c24", "K": "#121016", "y": "#e8c040", "h": "#b8ac94", "l": "#44424e"}
 
 
 def brocken_spectre(c, step):
     """The Brocken Spectre (Johann Silberschlag, 1780): the giant shadow a climber casts on the mist below the summit,
-    huge and dim, a ring of coloured light round its head."""
-    for k, d in enumerate((-step, step)):
-        c.rect(18 + k * 12 + d, 50, 22 + k * 12 + d, 66, "s")
-    poly(c, [(16, 18), (40, 18), (44, 52), (12, 52)], "s")
-    ellipse(c, 28, 10, 7, 8, "s")
-    c.rect(6, 20, 12, 44, "s"); c.rect(44, 20, 50, 44, "s")
-    for y in range(4, 66, 3):
-        for x in range(4, 54, 5):
-            if (x + y) % 2 and c.g[y][x] == "s":
-                c.px(x, y, "m")                                                          # the mist through it
+    huge and dim, with a ring of coloured light (a glory) round its head."""
+    for r, col in ((15, "v"), (14, "b"), (13, "g"), (12, "y"), (11, "r")):               # the glory round its head
+        for k in range(72):
+            a = k / 72 * math.tau
+            c.px(round(28 + r * math.cos(a)), round(14 + r * math.sin(a)), col)
+    for k, d in enumerate((-step, step)):                                                # long legs, striding
+        poly(c, [(20 + k * 10 + d, 46), (25 + k * 10 + d, 46), (24 + k * 10 + d, 66), (20 + k * 10 + d, 66)], "s")
+    poly(c, [(19, 22), (37, 22), (40, 48), (16, 48)], "s")                               # the body, spreading into mist
+    ellipse(c, 28, 14, 6, 7, "s")                                                        # the head
+    poly(c, [(19, 23), (8, 30), (6, 44), (10, 44), (13, 32), (20, 28)], "s")             # arms out from the sides
+    poly(c, [(37, 23), (48, 30), (50, 44), (46, 44), (43, 32), (36, 28)], "s")
+    for y in range(4, 68):
+        for x in range(56):
+            if c.g[y][x] == "s" and (x * 7 + y * 3) % 11 == 0:
+                c.px(x, y, "m")                                                          # mist drifting through it
+            elif c.g[y][x] == "s" and any(0 <= x + dx < 56 and c.g[y][x + dx] == "." for dx in (-1, 1)):
+                c.px(x, y, "e")                                                          # its edges dissolving
 
 
-SPECTRE_PAL = {"o": "#3a3e4a", "s": "#4a505e", "m": "#9aa2b4"}
+SPECTRE_PAL = {"o": "#3a3e4a", "s": "#454b5a", "e": "#5a6274", "m": "#8a92a6", "r": "#c86a5a", "y": "#d8c070",
+               "g": "#7ab07a", "b": "#6a8ac8", "v": "#8a6ab0"}
 
 
 def baubo(c, step):
@@ -527,11 +582,20 @@ if __name__ == "__main__":
                    (26, 48), [0, 1, 0, -1, 0])
     kit.build_boss("werewolf", werewolf, WEREWOLF_PAL, doc(werewolf.__doc__), (24, 28), (12, 27), walk, folder="enemies")
     kit.build_boss("raven", raven, RAVEN_PAL, doc(raven.__doc__), (20, 16), (10, 15), walk, folder="enemies")
-    kit.build_boss("bisclavret", bisclavret(False), BISCLAVRET_PAL, doc(bisclavret.__doc__), (52, 50), (24, 48), [0, 1, 0, -1, 0])
-    kit.build_boss("bisclavret_man", bisclavret(True), BISCLAVRET_PAL, doc(bisclavret.__doc__ + " Here, a man again."),
+    BISCLAVRET_DOC = ("Bisclavret (Marie de France, 12th c.): a Breton baron who becomes a wolf in the woods three days a "
+                      "week; when his wife hides his clothes he must stay a wolf, until the king gives them back. A great "
+                      "gentle grey-brown wolf, mouth closed (drawn on Fenrir's body).")
+    kit.build_boss("bisclavret", wolf(), BISCLAVRET_PAL, doc(BISCLAVRET_DOC), (74, 54), (36, 52), WOLF_WALK)
+    kit.build_boss("bisclavret_man", bisclavret_man, BISCLAVRET_PAL, doc(BISCLAVRET_DOC + " Here, a man again: " + bisclavret_man.__doc__),
                    (40, 56), (20, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("melion", melion, MELION_PAL, doc(melion.__doc__), (58, 50), (28, 48), [0, 1, 0, -1, 0])
-    kit.build_boss("gevaudan", gevaudan, GEVAUDAN_PAL, doc(gevaudan.__doc__), (70, 56), (34, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("melion", wolf(snarl=True, ring=True), MELION_PAL, doc(
+        "Melion (the Lai de Melion, 13th c.): a knight of Arthur's turned into a wolf by a ring with a white and a red "
+        "stone, left so by his faithless wife, who led a pack of wolves through Ireland. A big dark wolf, snarling, the "
+        "gold ring with its two stones still on his foreleg (drawn on Fenrir's body)."), (74, 54), (36, 52), WOLF_WALK)
+    kit.build_boss("gevaudan", wolf(snarl=True, stripe=True, tuft=True, big_head=True), GEVAUDAN_PAL, doc(
+        "The Beast of Gevaudan (French newspapers of 1764-67): a huge wolf-like beast, bigger than a calf, reddish, with "
+        "a black stripe down its back, a wide pale chest, a big head, a long tufted tail and great teeth (drawn on "
+        "Fenrir's body)."), (76, 54), (36, 52), WOLF_WALK)
     kit.build_boss("witch", witch, WITCH_PAL, doc(witch.__doc__), (22, 20), (11, 19), walk, folder="enemies")
     kit.build_boss("black_goat", black_goat, GOAT_PAL, doc(black_goat.__doc__), (22, 18), (11, 17), walk, folder="enemies")
     kit.build_boss("brocken_spectre", brocken_spectre, SPECTRE_PAL, doc(brocken_spectre.__doc__), (56, 68), (28, 66), [0, 1, 0, -1, 0])

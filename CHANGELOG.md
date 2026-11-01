@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.42
+Date: 11/01/2026
+Time: 3:27 PM
+
+### Changes
+- **Ossory and the Brocken remade** (owner: keep the Witch, Baubo and Black Annis; remake everything else).
+  - **The three wolf bosses** are now drawn on Fenrir's body (shaped head and ears, deep chest, jointed legs, a bushy tail), each with its own look: **Bisclavret** a gentle grey-brown wolf with its mouth closed; **Melion** a dark, snarling wolf with the gold ring and its white and red stones on his foreleg; **the Beast of Gévaudan** reddish, with a black stripe down its back, a big head, great teeth and a tufted tail (as the newspapers of 1764-67 described it).
+  - **Bisclavret as a man:** a bearded baron in a blue tunic with a gold belt, a red cloak with clasps, and boots.
+  - **The werewolf of Ossory:** a hunched, upright wolf-shape on bent wolf's legs, with a long snout, fangs, long clawed arms and a tail.
+  - **The raven:** a proper flying raven, with a wedge tail, a heavy beak, and wings that spread and beat.
+  - **The Brocken Spectre:** a huge, dim, striding shadow with its arms out and mist drifting through it, its edges dissolving, and the ring of coloured light (the "glory") round its head, as the real Brocken spectre shows.
+  - **The black goat:** a shaggy goat with a beard, horns curling back, a yellow eye and cloven hooves.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for everything in Ossory and the Brocken except the Witch, Baubo and Black Annis to be remade.
+
 ## Version 00.03.41
 Date: 11/01/2026
 Time: 3:17 PM
