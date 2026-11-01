@@ -3182,3 +3182,33 @@ BANTER_LEARNED_MAN_ENTRANCE,"I wrote about the true, the good and the beautiful.
 BANTER_CLEAR_SIGHTED_PRINCESS_ENTRANCE,I see you. I see far too much of you.
 BANTER_THE_SHADOW_ENTRANCE,I was once a shadow. Now I have one. Would you like to be mine?
 BANTER_THE_SHADOW_HECATE,"A goddess of the dark, and torches. You'll make me shorter."
+LEVEL_KNOCKERS_DEEP_NAME,The Knockers' Deep
+HAZARD_CAVE_INS_NAME,The old workings groan... the roof is coming down!
+ENEMY_SPRIGGAN_NAME,Spriggan
+ENEMY_SPRIGGAN_MYTH,"One of the spriggans, the ugliest of the Cornish fairy folk, who guard the treasure buried under the cairns and cromlechs and punish anyone who digs for it."
+ENEMY_KNOCKER_NAME,Knocker
+ENEMY_KNOCKER_MYTH,"One of the little knockers who live in the mines, knocking where the rich lodes lie. The tinners left them a bit of their pasty, and never whistled or swore underground."
+ENEMY_PISKIE_NAME,Piskie
+ENEMY_PISKIE_MYTH,"One of the Cornish piskies, little laughing folk who lead travellers round and round in circles. Turning your coat inside out was said to break the spell."
+BOSS_OLD_KNOCKER_NAME,The Old Knocker
+ENEMY_OLD_KNOCKER_NAME,The Old Knocker
+ENEMY_OLD_KNOCKER_MYTH,"The oldest of the knockers of the mine. Treat him well, leave him the corner of your pasty, and he knocks where the rich tin lies; anger him, and the roof comes down."
+BOSS_OLD_KNOCKER_FED,You left the knocker his share of the pasty. He's pleased!
+BOSS_JOAN_THE_WAD_NAME,Joan the Wad
+ENEMY_JOAN_THE_WAD_NAME,Joan the Wad
+ENEMY_JOAN_THE_WAD_MYTH,"The piskie with the burning wad of straw, Jack o' the Lantern's partner, whose light leads night travellers off the path and into the bogs."
+BOSS_JOAN_THE_WAD_LED,Joan the Wad's light leads you astray!
+BOSS_GREAT_SPRIGGAN_NAME,The Spriggan
+ENEMY_GREAT_SPRIGGAN_NAME,The Spriggan
+ENEMY_GREAT_SPRIGGAN_MYTH,"The spriggan who guards the treasure of the cairn. Small and ugly as he is, the old stories say spriggans can swell to a giant's size in a moment, and woe to anyone who digs where they keep watch."
+BOSS_GREAT_SPRIGGAN_SWELLS,The Spriggan swells to a giant's size!
+ACH_BOSS_OLD_KNOCKER_NAME,Defeat The Old Knocker
+ACH_BOSS_OLD_KNOCKER_DESC,The 10:00 boss of The Knockers' Deep.
+ACH_BOSS_JOAN_THE_WAD_NAME,Defeat Joan the Wad
+ACH_BOSS_JOAN_THE_WAD_DESC,The 20:00 boss of The Knockers' Deep.
+ACH_BOSS_GREAT_SPRIGGAN_NAME,Defeat The Spriggan
+ACH_BOSS_GREAT_SPRIGGAN_DESC,The 30:00 boss of The Knockers' Deep.
+BANTER_OLD_KNOCKER_ENTRANCE,"(Tap. Tap. Tap. Somewhere above you, the rock creaks.)"
+BANTER_JOAN_THE_WAD_ENTRANCE,"This way! No, this way! Hee hee!"
+BANTER_GREAT_SPRIGGAN_ENTRANCE,"Dig here, would you? Let me get a little bigger."
+BANTER_GREAT_SPRIGGAN_THOR,You're big. I can be bigger.

@@ -1697,6 +1697,57 @@ func test_the_shadow_tears_off_the_heroes_shadows() -> void:
 	assert_almost_eq(master.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01)
 
 
+func test_the_old_knocker_brings_the_roof_down_unless_fed() -> void:
+	_start("knockers_deep")
+	assert_eq(str(_level("knockers_deep")["unlock"]["boss"]), "void_herald")
+	var knocker: OldKnockerBoss = _bosses.spawn_boss("old_knocker", 0) as OldKnockerBoss
+	knocker.signature(2.1)
+	assert_gt(knocker.marks.size(), 0, "a knock")
+	var hp: float = _player.hp
+	knocker.signature(1.3)
+	assert_eq(knocker.caved, 1)
+	assert_lt(_player.hp, hp)
+	knocker.crusts.append(_player.position)
+	knocker.signature(0.1)
+	assert_eq(knocker.fed, 1, "his share of the pasty")
+	assert_almost_eq(knocker.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "pleased")
+	knocker.signature(3.1)
+	assert_eq(knocker.marks.size(), 0, "no knocking while pleased")
+
+
+func test_joan_the_wad_leads_heroes_astray() -> void:
+	_start("knockers_deep")
+	var joan: JoanTheWadBoss = _bosses.spawn_boss("joan_the_wad", 1) as JoanTheWadBoss
+	var at: Vector2 = _player.position
+	joan.signature(4.1)
+	assert_eq(joan.led, 1)
+	joan.signature(1.0)
+	assert_ne(_player.position, at, "drawn after the light")
+	joan.signature(2.1)
+	assert_eq(joan.light, Vector2.INF, "the light goes out")
+
+
+func test_the_spriggan_swells_when_his_gold_is_taken() -> void:
+	_start("knockers_deep")
+	var guard: GreatSprigganBoss = _bosses.spawn_boss("great_spriggan", 2) as GreatSprigganBoss
+	guard.signature(0.1)
+	assert_eq(guard.state, "normal")
+	var gold: float = GameAuthority.run.gold
+	_player.position = guard.cairn
+	guard.signature(0.6)
+	guard.signature(0.6)
+	assert_eq(guard.gold_taken, 1)
+	assert_gt(GameAuthority.run.gold, gold, "the gold is yours")
+	assert_eq(guard.state, "swollen", "and he swells")
+	assert_eq(guard.art_id(), "great_spriggan_swollen")
+	assert_almost_eq(guard.modify_hit(10.0, _player, Vector2.ZERO), 4.0, 0.01, "hard to hurt")
+	guard.signature(5.0)
+	assert_eq(guard.state, "spent")
+	assert_almost_eq(guard.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "spent")
+	guard.signature(3.0)
+	assert_eq(guard.state, "normal")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

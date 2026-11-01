@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.24
+Date: 11/01/2026
+Time: 2:07 AM
+
+### Changes
+- **The Knockers' Deep, the haunted tin mines, is built and open** (Pack 12, `docs/PACK_12_PLAN.md`). It opens when you beat the Herald of the Void. With it, all four realms of Otherworlds are built. Sources: Robert Hunt's Popular Romances of the West of England (1865) and William Bottrell's Cornish collections (1870-73).
+  - **Hazard, the cave-ins:** rock falls from the roof of the old workings.
+  - **Monsters:** spriggans, knockers (swarms) and piskies (flyers).
+  - **10:00, the Old Knocker:** every 3 s he knocks, and the roof falls on marked spots under the Heroes. Crusts of pasty turn up: take one to leave him his share, and he is pleased (6 s without knocking, taking double damage).
+  - **20:00, Joan the Wad:** every 8 s her wandering light leads the farthest Hero astray, drawing them after it for 3 s.
+  - **30:00, the Spriggan** (the design's boss): every 10 s he swells to a giant's size for 5 s (bigger, taking only 40% damage, stamping out rings), then is spent for 3 s (double damage). Take gold from his cairn and he swells at once.
+  - Dark old tin workings of rock, spoil and lodes, with granite tors; toads and bats.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (453 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 12; this is its last realm. Its secrets come next.
+
 ## Version 00.03.23
 Date: 11/01/2026
 Time: 1:58 AM

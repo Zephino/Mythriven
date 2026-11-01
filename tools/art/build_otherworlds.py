@@ -244,6 +244,92 @@ def the_shadow(c, step):
 THE_SHADOW_PAL = {"o": "#05040a", "k": "#14101c", "d": "#2e2838", "w": "#e8e4f0", "p": "#a888e0", "y": "#e8c040"}
 
 
+# --- The Knockers' Deep (Hunt, 1865; Bottrell, 1870-73) --------------------------------------------------------------
+
+def spriggan(c, f):
+    """A spriggan (Hunt, 1865: the ugliest of the Cornish fairies, guarding buried treasure): a squat, grey-brown,
+    big-headed little man with a scowl."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 18, x + 1 + d, 22, "k")
+    c.rect(5, 10, 14, 18, "b")
+    ellipse(c, 9, 6, 5, 4.5, "s")
+    c.px(7, 5, "k"); c.px(11, 5, "k"); c.row(8, 7, 11, "k")
+    c.rect(3, 11, 4, 16, "s"); c.rect(15, 11, 16, 16, "s")
+
+
+SPRIGGAN_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "s": "#8a7a6a"}
+
+
+def knocker(c, f):
+    """A knocker (Hunt, 1865: the little folk of the tin mines): a tiny miner-imp with a hammer, mid-knock."""
+    up = f % 2
+    c.rect(4, 6, 8, 10, "b"); ellipse(c, 6, 4, 2.5, 2, "s"); c.px(5, 4, "k"); c.px(7, 4, "k")
+    c.rect(9, 2 + up, 9, 7, "w"); c.rect(8, 1 + up, 11, 2 + up, "i")
+    c.px(4, 11, "k"); c.px(8, 11, "k")
+
+
+KNOCKER_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#6a5a42", "s": "#a8907a", "w": "#7a5a3a", "i": "#8a8e96"}
+
+
+def piskie(c, f):
+    """A piskie (Hunt, 1865: the little laughing folk who lead people astray): a tiny green-clad sprite, laughing,
+    with a spark of light."""
+    up = f % 2
+    c.rect(4, 6 - up, 7, 10 - up, "g"); ellipse(c, 5, 3 - up, 2, 2, "s"); c.px(5, 3 - up, "k")
+    poly(c, [(4, 1 - up), (6, -2 - up), (7, 1 - up)], "g")
+    c.px(10, 2 + up, "y"); c.px(11, 3 + up, "y")
+
+
+PISKIE_PAL = {"o": "#10180a", "k": "#1e1814", "g": "#5a9a3a", "s": "#e0c0a0", "y": "#f8e080"}
+
+
+def old_knocker(c, step):
+    """The Old Knocker (Hunt, 1865): the oldest knocker of the mine, a gnarled little old man in a tinner's hat with a
+    candle stuck on it, and a pick in his hand."""
+    figure(c, step, "b", "s", "w", x0=15, top=22)
+    c.rect(15, 5, 29, 7, "h"); c.rect(18, 2, 26, 5, "h"); c.rect(21, 0, 22, 2, "y")
+    poly(c, [(18, 26), (26, 26), (24, 38), (20, 38)], "w")
+    c.rect(33, 16, 34, 44, "t"); poly(c, [(28, 16), (40, 14), (40, 17), (28, 18)], "i")
+
+
+OLD_KNOCKER_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "s": "#c8a888", "w": "#e8e4dc", "h": "#4a3a2a",
+                   "y": "#f8d060", "t": "#6a4a2a", "i": "#8a8e96"}
+
+
+def joan_the_wad(c, step):
+    """Joan the Wad (Hunt, 1865: "Jack o' the lantern, Joan the wad"): a little piskie woman in green and brown, holding
+    up a burning wad of straw that lights her laughing face."""
+    figure(c, step, "g", "s", "h", x0=14, top=24, bottom=50)
+    c.rect(30, 14, 31, 30, "t")
+    ellipse(c, 30, 11, 4, 5, "r"); ellipse(c, 30, 12, 2, 3, "y")
+    c.row(19, 18, 23, "k")
+
+
+JOAN_PAL = {"o": "#10140a", "k": "#1e1814", "g": "#4a7a3a", "s": "#e0c0a0", "h": "#6a4a2a", "t": "#c8a860",
+            "r": "#e8702a", "y": "#ffd060"}
+
+
+def great_spriggan(scale):
+    """The Spriggan (Hunt, 1865; Bottrell, 1870-73: the treasure guard who can swell to a giant's size): an ugly,
+    knotted grey-brown fairy with long arms, small in his own shape and huge when swollen."""
+    def draw(c, step):
+        k = scale
+        for i, d in enumerate((-step, step)):
+            c.rect(int((14 + i * 12) * k) + d, int(40 * k), int((20 + i * 12) * k) + d, int(52 * k), "b")
+        ellipse(c, int(23 * k), int(30 * k), 14 * k, 12 * k, "b")
+        ellipse(c, int(23 * k), int(12 * k), 9 * k, 8 * k, "s")
+        c.px(int(19 * k), int(11 * k), "e"); c.px(int(27 * k), int(11 * k), "e")
+        c.row(int(16 * k), int(19 * k), int(27 * k), "k")
+        c.rect(int(4 * k), int(22 * k), int(9 * k), int(44 * k), "s"); c.rect(int(37 * k), int(22 * k), int(42 * k), int(44 * k), "s")
+        for x, y in ((16, 26), (28, 34), (20, 38)):
+            c.px(int(x * k), int(y * k), "B")
+    return draw
+
+
+SPRIGGAN_BOSS_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "B": "#3a2e22", "s": "#8a7a6a", "e": "#e8c040"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_otherworlds.py."
@@ -264,4 +350,11 @@ if __name__ == "__main__":
     kit.build_boss("learned_man", learned_man, LEARNED_MAN_PAL, doc(learned_man.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
     kit.build_boss("clear_sighted_princess", clear_sighted_princess, PRINCESS_PAL, doc(clear_sighted_princess.__doc__), (44, 56), (21, 54), [0, 1, 0, -1, 0])
     kit.build_boss("the_shadow", the_shadow, THE_SHADOW_PAL, doc(the_shadow.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("spriggan", spriggan, SPRIGGAN_PAL, doc(spriggan.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("knocker", knocker, KNOCKER_PAL, doc(knocker.__doc__), (13, 13), (6, 12), walk, folder="enemies")
+    kit.build_boss("piskie", piskie, PISKIE_PAL, doc(piskie.__doc__), (13, 12), (6, 11), walk, folder="enemies")
+    kit.build_boss("old_knocker", old_knocker, OLD_KNOCKER_PAL, doc(old_knocker.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("joan_the_wad", joan_the_wad, JOAN_PAL, doc(joan_the_wad.__doc__), (38, 56), (19, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("great_spriggan", great_spriggan(1.0), SPRIGGAN_BOSS_PAL, doc(great_spriggan.__doc__), (46, 56), (23, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("great_spriggan_swollen", great_spriggan(1.8), SPRIGGAN_BOSS_PAL, doc(great_spriggan.__doc__ + " Here, swollen."), (82, 100), (41, 98), [0, 1, 0, -1, 0])
     print("wrote Otherworlds' art")

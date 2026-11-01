@@ -3091,5 +3091,46 @@
     "text_key": "BANTER_THE_SHADOW_HECATE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "old_knocker_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "old_knocker",
+    "hero": "",
+    "god": "old_knocker",
+    "text_key": "BANTER_OLD_KNOCKER_ENTRANCE",
+    "lore_source": "Robert Hunt, Popular Romances of the West of England (1865)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "joan_the_wad_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "joan_the_wad",
+    "hero": "",
+    "god": "joan_the_wad",
+    "text_key": "BANTER_JOAN_THE_WAD_ENTRANCE",
+    "lore_source": "Robert Hunt, Popular Romances of the West of England (1865)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "great_spriggan_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "great_spriggan",
+    "hero": "",
+    "god": "great_spriggan",
+    "text_key": "BANTER_GREAT_SPRIGGAN_ENTRANCE",
+    "lore_source": "Robert Hunt, Popular Romances of the West of England (1865)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "great_spriggan_thor",
+    "trigger": "boss_meets_god",
+    "speaker": "great_spriggan",
+    "hero": "",
+    "god": "great_spriggan",
+    "with_god": "thor",
+    "text_key": "BANTER_GREAT_SPRIGGAN_THOR",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

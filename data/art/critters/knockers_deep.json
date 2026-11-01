@@ -1,0 +1,83 @@
+{
+ "_doc": "Critters of knockers_deep (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#4a4a3a",
+  "b": "#8a8a6a",
+  "c": "#3a3440",
+  "d": "#24202a"
+ },
+ "frames": {
+  "toad": [
+   [
+    ".........",
+    ".....oo..",
+    "..oooako.",
+    ".oaaaaao.",
+    "oaaaaaaao",
+    "oaabbbao."
+   ],
+   [
+    ".....oo..",
+    "..oooako.",
+    ".oaaaaao.",
+    "oaaaaaaao",
+    "oobbbbao.",
+    "aaooooo..",
+    "aao......"
+   ]
+  ],
+  "bat": [
+   [
+    ".......oo.",
+    "o..oooocko",
+    "dooccccccd",
+    "odddddccoo",
+    ".occcccco.",
+    "..occcco..",
+    "...ododo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "doocccccko",
+    "odddddcccd",
+    ".occccccoo",
+    "..occcco..",
+    "...ododo.."
+   ]
+  ],
+  "bat_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...occcccocd",
+    "...occdccooo",
+    "....odddo...",
+    "...odoodo..."
+   ],
+   [
+    "....o..o....",
+    "...odoodoo..",
+    "....odddokoo",
+    "...occdccocd",
+    "...occcccooo",
+    "....ooooo...",
+    "............"
+   ]
+  ]
+ },
+ "critters": {
+  "toad": {
+   "kind": "ground"
+  },
+  "bat": {
+   "kind": "bird"
+  }
+ }
+}

@@ -11916,5 +11916,255 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Knockers' Deep bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "old_knocker",
+    "name_key": "BOSS_OLD_KNOCKER_NAME",
+    "tradition": "cornish",
+    "lore_source": "Robert Hunt, Popular Romances of the West of England (1865) (the knockers knock where the lodes lie; the tinners leave them a bit of pasty, and angering them brings bad luck)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "old_knocker",
+    "move_speed": 44,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "knocking",
+      "knock_every_s": 3.0,
+      "telegraph_s": 1.2,
+      "cave_radius_px": 32,
+      "cave_damage": 13,
+      "crust_every_s": 8.0,
+      "max_crusts": 2,
+      "crust_reach_px": 14,
+      "pleased_s": 6.0,
+      "pleased_damage_taken": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Knockers' Deep bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "joan_the_wad",
+    "name_key": "BOSS_JOAN_THE_WAD_NAME",
+    "tradition": "cornish",
+    "lore_source": "Robert Hunt, Popular Romances of the West of England (1865) (\"Jack o' the lantern, Joan the wad\": the piskie lights that lead people astray)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "joan_the_wad",
+    "move_speed": 46,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "led_astray",
+      "lead_every_s": 8.0,
+      "lead_s": 3.0,
+      "light_px_s": 60,
+      "pull_px_s": 70
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Knockers' Deep bosses (docs/PACK_12_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "great_spriggan",
+    "name_key": "BOSS_GREAT_SPRIGGAN_NAME",
+    "tradition": "cornish",
+    "lore_source": "Robert Hunt, Popular Romances of the West of England (1865) (the spriggans guard buried treasure and can swell to the size of giants); William Bottrell, Traditions and Hearthside Stories of West Cornwall (1870-73); GAME_DESIGN.md (the Spriggan)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "great_spriggan",
+    "move_speed": 40,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "swelling",
+      "normal_s": 10.0,
+      "swell_s": 5.0,
+      "spent_s": 3.0,
+      "swollen_damage_taken": 0.4,
+      "spent_damage_taken": 2.0,
+      "stomp_every_s": 1.5,
+      "stomp_radius_px": 100,
+      "stomp_damage": 14,
+      "swollen_radius_mult": 1.8,
+      "cairn_px": 130,
+      "cairn_reach_px": 20,
+      "take_s": 1.0,
+      "gold": 10.0,
+      "regold_s": 15.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "spriggan"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "spriggan"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

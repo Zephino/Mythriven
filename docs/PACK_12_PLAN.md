@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 12). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Tír na nÓg built and released 11/01/2026 (00.03.21); Hy-Brasil (00.03.22); the Shadow's Court (00.03.23).
+it. Tír na nÓg built and released 11/01/2026 (00.03.21); Hy-Brasil (00.03.22); the Shadow's Court (00.03.23); the Knockers' Deep (00.03.24). **All four realms are built.**
 
 Realms work like Packs 5-11: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -86,7 +86,7 @@ a princess who suffers from seeing too clearly, and has the learned man put to d
 | 20:00 | **The Princess Who Saw Too Clearly** | Her sight is too sharp: her gaze sweeps round her in a wide cone, hurting and Shocking every Hero it falls on. She can't see behind her: blows from behind hurt her more |
 | 30:00 | **The Shadow** (the design's) | He who became his master's master. He tears the shadows off the Heroes: each Hero's shadow rises as a monster and hunts its owner, and while any stolen shadow stands, he takes half damage |
 
-## Realm 48: the Knockers' Deep
+## Realm 48: the Knockers' Deep: **done and released 11/01/2026 (00.03.24)**
 *Sources: Robert Hunt, Popular Romances of the West of England (1865: the knockers who knock where the rich lodes lie,
 and must be left a bit of the miner's pasty; the spriggans who guard the treasure buried in the cairns and can swell
 to a giant's size; the piskies who lead people astray, and "Jack o' the lantern, Joan the wad"); William Bottrell,

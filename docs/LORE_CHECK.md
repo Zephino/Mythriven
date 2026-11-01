@@ -1076,6 +1076,25 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_shadow_entrance | boss entrance | the_shadow | I was once a shadow. Now I have one. Would you like to be mine? | Hans Christian Andersen, "The Shadow" (1847) | no |
 | the_shadow_hecate | boss meets god (with hecate) | the_shadow | A goddess of the dark, and torches. You'll make me shorter. | Original line written for Mythriven | no |
 
+### The Knockers' Deep
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | knockers_deep | The Knockers' Deep | Robert Hunt, Popular Romances of the West of England (1865); William Bottrell, Traditions and Hearthside Stories of West Cornwall (1870-73) | no |
+| enemy | spriggan | Spriggan | Robert Hunt, Popular Romances of the West of England (1865) (the spriggans, ugly guardians of the fairies' treasure) | no |
+| enemy | knocker | Knocker | Robert Hunt, Popular Romances of the West of England (1865) (the knockers of the tin mines) | no |
+| enemy | piskie | Piskie | Robert Hunt, Popular Romances of the West of England (1865) (the piskies, who lead travellers astray) | no |
+| boss | old_knocker | The Old Knocker | Robert Hunt, Popular Romances of the West of England (1865) (the knockers knock where the lodes lie; the tinners leave them a bit of pasty, and angering them brings bad luck) | no |
+| boss | joan_the_wad | Joan the Wad | Robert Hunt, Popular Romances of the West of England (1865) ("Jack o' the lantern, Joan the wad": the piskie lights that lead people astray) | no |
+| boss | great_spriggan | The Spriggan | Robert Hunt, Popular Romances of the West of England (1865) (the spriggans guard buried treasure and can swell to the size of giants); William Bottrell, Traditions and Hearthside Stories of West Cornwall (1870-73); GAME_DESIGN.md (the Spriggan) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| old_knocker_entrance | boss entrance | old_knocker | (Tap. Tap. Tap. Somewhere above you, the rock creaks.) | Robert Hunt, Popular Romances of the West of England (1865) | no |
+| joan_the_wad_entrance | boss entrance | joan_the_wad | This way! No, this way! Hee hee! | Robert Hunt, Popular Romances of the West of England (1865) | no |
+| great_spriggan_entrance | boss entrance | great_spriggan | Dig here, would you? Let me get a little bigger. | Robert Hunt, Popular Romances of the West of England (1865) | no |
+| great_spriggan_thor | boss meets god (with thor) | great_spriggan | You're big. I can be bigger. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

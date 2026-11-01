@@ -1,0 +1,100 @@
+{
+ "_doc": "A knocker (Hunt, 1865: the little folk of the tin mines): a tiny miner-imp with a hammer, mid-knock. Built by tools/art/build_otherworlds.py.",
+ "size": [
+  13,
+  13
+ ],
+ "anchor": [
+  6,
+  12
+ ],
+ "palette": {
+  "o": "#120e0a",
+  "k": "#1e1814",
+  "b": "#6a5a42",
+  "s": "#a8907a",
+  "w": "#7a5a3a",
+  "i": "#8a8e96"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........oooo.",
+    "......ooiiiio",
+    "....oosoiiiio",
+    "...ossssswoo.",
+    "...oskskswo..",
+    "...ossssswo..",
+    "...obbsbbwo..",
+    "...obbbbbwo..",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...okoooko...",
+    "....o...o...."
+   ]
+  ],
+  "walk": [
+   [
+    ".............",
+    "......o.oooo.",
+    "....oosoiiiio",
+    "...ossssiiiio",
+    "...oskskswoo.",
+    "...ossssswo..",
+    "...obbsbbwo..",
+    "...obbbbbwo..",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...okoooko...",
+    "....o...o...."
+   ],
+   [
+    "........oooo.",
+    "......ooiiiio",
+    "....oosoiiiio",
+    "...ossssswoo.",
+    "...oskskswo..",
+    "...ossssswo..",
+    "...obbsbbwo..",
+    "...obbbbbwo..",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...okoooko...",
+    "....o...o...."
+   ],
+   [
+    ".............",
+    "......o.oooo.",
+    "....oosoiiiio",
+    "...ossssiiiio",
+    "...oskskswoo.",
+    "...ossssswo..",
+    "...obbsbbwo..",
+    "...obbbbbwo..",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...okoooko...",
+    "....o...o...."
+   ],
+   [
+    "........oooo.",
+    "......ooiiiio",
+    "....oosoiiiio",
+    "...ossssswoo.",
+    "...oskskswo..",
+    "...ossssswo..",
+    "...obbsbbwo..",
+    "...obbbbbwo..",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...obbbbbo...",
+    "...okoooko...",
+    "....o...o...."
+   ]
+  ]
+ }
+}

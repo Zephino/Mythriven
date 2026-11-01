@@ -5743,5 +5743,114 @@
       "edge": "#2e2a36",
       "stones": "#6a6672"
     }
+  },
+  {
+    "_doc": "The Knockers' Deep, Pack 12 realm 4, the haunted tin mines (docs/PACK_12_PLAN.md). Sources: Robert Hunt, Popular Romances of the West of England (1865); William Bottrell, Traditions and Hearthside Stories of West Cornwall (1870-73). A realm: no local gods.",
+    "id": "knockers_deep",
+    "name_key": "LEVEL_KNOCKERS_DEEP_NAME",
+    "region": "realm_mine",
+    "act": 14,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "knockers_deep",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "rock",
+          "max": -0.3,
+          "placeholder_color": "#3a3634",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "spoil",
+          "max": 0.15,
+          "placeholder_color": "#4a423a",
+          "placeholder_dots": "#8a7a5a"
+        },
+        {
+          "id": "tin_lode",
+          "max": 0.6,
+          "placeholder_color": "#3e3a38",
+          "placeholder_dots": "#a8a8b0"
+        },
+        {
+          "id": "wet_rock",
+          "max": 1.0,
+          "placeholder_color": "#2e2c2e",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "granite_tor",
+      "anvil"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "granite_tor": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          20
+        ],
+        "placeholder_color": "#6a6460",
+        "weight": 1
+      },
+      "anvil": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          10
+        ],
+        "placeholder_color": "#4a4a50",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "old_knocker",
+      "20": "joan_the_wad",
+      "30": "great_spriggan"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "ginnungagap",
+      "boss": "void_herald"
+    },
+    "waves": "waves_knockers_deep.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 16,
+      "strikes_per_s": 0.9,
+      "radius_px": 34,
+      "telegraph_s": 1.3,
+      "damage": 15,
+      "element": "earth",
+      "range_px": 230,
+      "color": "#5a5450",
+      "look": "rockslide",
+      "name_key": "HAZARD_CAVE_INS_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#c4beb8",
+    "flora": {
+      "density": 0.05,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#5a524a",
+      "edge": "#3a342e",
+      "stones": "#7a7268"
+    }
   }
 ]

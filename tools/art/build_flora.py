@@ -515,6 +515,11 @@ LEVELS = {
         "trees": {"black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"box": ("X", "x", "C", None)},
         "rock": ("n", "N", "O", None)},
+    # The Knockers' Deep: old tin workings under the Cornish moor; bare rock, a little gorse at the shafts' mouths.
+    "knockers_deep": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"gorse": ("M", "m", "y", "f")},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

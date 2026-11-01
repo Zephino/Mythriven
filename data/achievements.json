@@ -1814,5 +1814,35 @@
       "id": "the_shadow"
     },
     "persists": true
+  },
+  {
+    "id": "boss_old_knocker",
+    "name_key": "ACH_BOSS_OLD_KNOCKER_NAME",
+    "desc_key": "ACH_BOSS_OLD_KNOCKER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "old_knocker"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_joan_the_wad",
+    "name_key": "ACH_BOSS_JOAN_THE_WAD_NAME",
+    "desc_key": "ACH_BOSS_JOAN_THE_WAD_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "joan_the_wad"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_great_spriggan",
+    "name_key": "ACH_BOSS_GREAT_SPRIGGAN_NAME",
+    "desc_key": "ACH_BOSS_GREAT_SPRIGGAN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "great_spriggan"
+    },
+    "persists": true
   }
 ]
