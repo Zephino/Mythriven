@@ -66,6 +66,15 @@ def hoofed_leg(c, x, y0, y1, col, shade, hoof, bend=0, paw=False):
         c.rect(x - 1 + bend, y1 - 2, x + 2 + bend, y1, hoof)
 
 
+def horse_hind_leg(c, x, col, shade):
+    """A horse's hind leg: the thigh under the rump, the gaskin slanting back to the hock, then the cannon straight
+    down to the hoof."""
+    poly(c, [(x - 4, 30), (x + 4, 30), (x + 3, 40), (x - 1, 46), (x - 4, 44), (x - 3, 38)], col)   # thigh and gaskin
+    c.rect(x - 3, 44, x - 1, 46, col); c.px(x - 3, 45, shade)                             # the hock
+    c.rect(x - 2, 46, x - 1, 56, col); c.px(x - 2, 50, shade)                             # the cannon
+    c.rect(x - 3, 56, x, 58, shade)                                                      # the hoof
+
+
 def horn(c, pts, col, rim_col):
     """A hunting horn along a curve: thin at the mouthpiece, widening to the bell."""
     n = len(pts)
@@ -160,15 +169,18 @@ def wild_hunt(c, step):
     hounds all black and wide-eyed and ugly, and they rode on black horses"): a huge black huntsman in a streaming hooded
     cloak, eyes burning, holding up his hunting horn, on a black horse at the gallop."""
     # Far legs of the horse, in shadow
-    hoofed_leg(c, 22 - step * 2, 38, 58, "K", "K", "K", bend=-2)
+    horse_hind_leg(c, 20 - step * 2, "K", "K")
     hoofed_leg(c, 52 + step * 2, 38, 58, "K", "K", "K", bend=1)
-    # The tail streaming out behind
-    for i in range(14):
-        t = i / 13
-        ellipse(c, 12 - t * 9, 28 + t * 8 - t * t * 6, 3 - t, 2.2, "k")
-    # The horse's body: a deep chest, a long back, round quarters
-    poly(c, [(12, 28), (20, 24), (44, 24), (54, 22), (58, 30), (56, 40), (46, 42), (26, 42), (14, 40)], "k")
-    ellipse(c, 18, 33, 7, 8, "k")
+    # The tail: a full tail falling from the top of the rump and streaming back
+    pts = [(15, 25), (12, 26), (9, 28), (7, 31), (6, 35), (6, 39), (7, 43), (8, 46)]
+    for i, (x, y) in enumerate(pts):
+        r = 2.8 - i * 0.2
+        ellipse(c, x - step, y, r, r, "k")
+    for i, (x, y) in enumerate(pts[2:]):
+        c.px(x - step + 1, y, "m")                                                       # a strand of it
+    # The horse's body: a deep chest, a long back, the rump rounding over the top of the hind legs
+    poly(c, [(15, 26), (20, 23), (44, 24), (54, 22), (58, 30), (56, 40), (46, 42), (28, 42), (20, 40), (15, 34)], "k")
+    ellipse(c, 21, 29, 7, 6, "k")                                                        # the quarters
     # The arched neck rising to a long head, held forward
     poly(c, [(50, 24), (58, 12), (64, 10), (66, 14), (60, 26), (56, 32)], "k")
     poly(c, [(62, 10), (72, 18), (73, 22), (69, 23), (60, 16)], "k")
@@ -207,7 +219,7 @@ def wild_hunt(c, step):
     c.rect(38, 27, 40, 33, "t"); c.px(38, 28, "T")                                       # the lower leg
     c.rect(37, 33, 42, 35, "B"); c.row(36, 36, 42, "y")                                  # boot in the stirrup
     # Near legs of the horse
-    hoofed_leg(c, 26 + step * 2, 40, 58, "k", "K", "K", bend=-2)
+    horse_hind_leg(c, 24 + step * 2, "k", "K")
     hoofed_leg(c, 48 - step * 2, 40, 58, "k", "K", "K", bend=1)
     rim(c, "kK", "l")
     # A light grey line round the huntsman (not the horse), so he stands out from the dark and from his horse

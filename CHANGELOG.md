@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.41
+Date: 11/01/2026
+Time: 3:17 PM
+
+### Changes
+- **The Wild Hunt's horse has a proper back end** (owner: something looked wrong with its rear). The tail used to stick straight out of the rump like a stick, over a sagging bulge. Now the rump rounds over the top of the hind legs, a full tail falls from the top of it and streams back, and the hind legs have a horse's shape: the thigh, the gaskin slanting back to the hock, then straight down to the hoof.
+
+### Reason
+The owner said the horse looked like something was wrong with its rear.
+
 ## Version 00.03.40
 Date: 11/01/2026
 Time: 3:09 PM
