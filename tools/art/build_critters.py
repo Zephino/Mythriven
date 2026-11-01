@@ -405,6 +405,11 @@ LEVELS = {
         "birds": {"gull": ("#e8ecec", "#9aa4ac", "#e0b030", True)},
         "insects": {"cicada": (cicada, "#6a7a3a")},
         "large": {}},
+    "ginnungagap": {
+        "ground": {},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

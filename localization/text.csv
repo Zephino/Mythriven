@@ -3032,3 +3032,31 @@ BANTER_POSEIDONS_BULL_ENTRANCE,(The sacred bull paws the temple floor. You have 
 BANTER_GADEIRUS_ENTRANCE,My brother rules the island. I rule the way to it.
 BANTER_ATLAS_KING_ENTRANCE,"Brass, tin, orichalcum. Atlantis has never fallen. Not yet."
 BANTER_ATLAS_KING_POSEIDON,Father? You let the sea take us.
+LEVEL_GINNUNGAGAP_NAME,Ginnungagap
+HAZARD_YAWNING_GAP_NAME,The gap yawns open beneath you!
+ENEMY_VENOM_RIME_NAME,Venom rime
+ENEMY_VENOM_RIME_MYTH,"The rivers called Élivágar flowed so far from their source that the venom in them hardened like slag into ice, and the rime spread over it, layer on layer, out into Ginnungagap."
+ENEMY_RIME_DROP_NAME,Rime drop
+ENEMY_RIME_DROP_MYTH,"Where the rime of Niflheim met the hot air of Muspelheim it thawed and dripped, and by the power of what sent the heat the drops quickened into life."
+BOSS_AUDHUMLA_NAME,Auðumbla
+ENEMY_AUDHUMLA_NAME,Auðumbla
+ENEMY_AUDHUMLA_MYTH,"The first cow, made from the dripping rime. Four rivers of milk ran from her udder, and Ymir fed on them; she fed by licking the salty blocks of rime, and on the third day of her licking a man's whole head came out of the ice."
+BOSS_AUDHUMLA_LICKS,Auðumbla licks the salt-rime and heals! Break the blocks by standing at them!
+BOSS_BERGELMIR_NAME,Bergelmir
+ENEMY_BERGELMIR_NAME,Bergelmir
+ENEMY_BERGELMIR_MYTH,"The one frost giant who lived through the flood of Ymir's blood, when all the rest were drowned. He climbed on to his lúðr, a word that may mean a boat or the box of a mill, and from him came the families of the frost giants."
+BOSS_BERGELMIR_FLOOD,Ymir's blood floods the gap! Bergelmir rides it in his lúðr!
+BOSS_VOID_HERALD_NAME,The Herald of the Void
+ENEMY_VOID_HERALD_NAME,The Herald of the Void
+ENEMY_VOID_HERALD_MYTH,"A herald of the yawning void, standing where Niflheim's rime meets Muspelheim's fire, now one and now the other. (Mythriven's own creature, in the Eddas' Ginnungagap.)"
+BOSS_VOID_HERALD_SHATTER,Rime meets fire: the Herald's form shatters!
+ACH_BOSS_AUDHUMLA_NAME,Defeat Auðumbla
+ACH_BOSS_AUDHUMLA_DESC,The 10:00 boss of Ginnungagap.
+ACH_BOSS_BERGELMIR_NAME,Defeat Bergelmir
+ACH_BOSS_BERGELMIR_DESC,The 20:00 boss of Ginnungagap.
+ACH_BOSS_VOID_HERALD_NAME,Defeat The Herald of the Void
+ACH_BOSS_VOID_HERALD_DESC,The 30:00 boss of Ginnungagap.
+BANTER_AUDHUMLA_ENTRANCE,(A vast cow lifts her head from the salt-rime and lows.)
+BANTER_BERGELMIR_ENTRANCE,All my kin drowned. I did not. Think on that.
+BANTER_VOID_HERALD_ENTRANCE,"Before the world, there was the gap. After it, the gap."
+BANTER_VOID_HERALD_ODIN,"Ymir's killer. You built your world from his body, over my emptiness."

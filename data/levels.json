@@ -5298,5 +5298,114 @@
       "edge": "#a89c80",
       "stones": "#e0d8c0"
     }
+  },
+  {
+    "_doc": "Ginnungagap, Pack 11 realm 4, the yawning void (docs/PACK_11_PLAN.md). Sources: the Poetic Edda, Völuspá 3 and Vafþrúðnismál 35; Snorri, Gylfaginning 4-7. Ymir is already in the game, so he is not here. A realm: no local gods.",
+    "id": "ginnungagap",
+    "name_key": "LEVEL_GINNUNGAGAP_NAME",
+    "region": "realm_void",
+    "act": 13,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "ginnungagap",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "rime",
+          "max": -0.3,
+          "placeholder_color": "#c8d4e0",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "void",
+          "max": 0.15,
+          "placeholder_color": "#1a1a24",
+          "placeholder_dots": "#3a3a5a"
+        },
+        {
+          "id": "salt",
+          "max": 0.6,
+          "placeholder_color": "#d8d4cc",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cinders",
+          "max": 1.0,
+          "placeholder_color": "#2e2224",
+          "placeholder_dots": "#e86a2a"
+        }
+      ]
+    },
+    "decorations": [
+      "ice_shard",
+      "smoking_vent"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "ice_shard": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          22
+        ],
+        "placeholder_color": "#c8e0f0",
+        "weight": 2
+      },
+      "smoking_vent": {
+        "shape": "rect",
+        "size_px": [
+          18,
+          14
+        ],
+        "placeholder_color": "#5a4a44",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "audhumla",
+      "20": "bergelmir",
+      "30": "void_herald"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "demos_oneiron",
+      "boss": "phobetor"
+    },
+    "waves": "waves_ginnungagap.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 14,
+      "strikes_per_s": 0.9,
+      "radius_px": 36,
+      "telegraph_s": 1.4,
+      "damage": 16,
+      "element": "dark",
+      "range_px": 230,
+      "color": "#5a4a8a",
+      "look": "chasm",
+      "name_key": "HAZARD_YAWNING_GAP_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#b8bcd0",
+    "flora": {
+      "density": 0.05,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#3a3a48",
+      "edge": "#24242e",
+      "stones": "#5a5a6a"
+    }
   }
 ]

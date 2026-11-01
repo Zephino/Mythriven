@@ -2927,5 +2927,46 @@
     "text_key": "BANTER_ATLAS_KING_POSEIDON",
     "lore_source": "Plato, Critias 113c-114a (Atlas, Poseidon's son)",
     "needs_owner_review": true
+  },
+  {
+    "id": "audhumla_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "audhumla",
+    "hero": "",
+    "god": "audhumla",
+    "text_key": "BANTER_AUDHUMLA_ENTRANCE",
+    "lore_source": "Snorri, Gylfaginning 4-7 (6)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "bergelmir_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "bergelmir",
+    "hero": "",
+    "god": "bergelmir",
+    "text_key": "BANTER_BERGELMIR_ENTRANCE",
+    "lore_source": "Vafþrúðnismál 35",
+    "needs_owner_review": true
+  },
+  {
+    "id": "void_herald_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "void_herald",
+    "hero": "",
+    "god": "void_herald",
+    "text_key": "BANTER_VOID_HERALD_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "void_herald_odin",
+    "trigger": "boss_meets_god",
+    "speaker": "void_herald",
+    "hero": "",
+    "god": "void_herald",
+    "with_god": "odin",
+    "text_key": "BANTER_VOID_HERALD_ODIN",
+    "lore_source": "Original line written for Mythriven; Gylfaginning 8 (Odin and his brothers make the world from Ymir)",
+    "needs_owner_review": true
   }
 ]

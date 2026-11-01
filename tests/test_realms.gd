@@ -1465,6 +1465,60 @@ func test_atlas_stands_behind_three_walls() -> void:
 	assert_gt(king.marks.size(), 0)
 
 
+func test_audhumla_licks_the_salt_rime() -> void:
+	_start("ginnungagap")
+	assert_eq(str(_level("ginnungagap")["unlock"]["boss"]), "phobetor")
+	var cow: AudhumlaBoss = _bosses.spawn_boss("audhumla", 0) as AudhumlaBoss
+	assert_eq(cow.blocks.size(), 3)
+	_enemies.hp[cow.slot] -= 200.0
+	_enemies.positions[cow.slot] = cow.blocks[0]
+	_player.position = Vector2(9999, 9999)
+	var hp: float = _enemies.hp[cow.slot]
+	cow.signature(1.0)
+	assert_true(cow.licking)
+	assert_gt(_enemies.hp[cow.slot], hp, "the salt heals her")
+	_player.position = cow.blocks[1]
+	cow.signature(1.0)
+	cow.signature(1.1)
+	assert_eq(cow.broken, 1, "a block broken")
+	assert_eq(cow.blocks.size(), 2)
+
+
+func test_bergelmir_rides_the_flood_of_blood() -> void:
+	_start("ginnungagap")
+	var giant: BergelmirBoss = _bosses.spawn_boss("bergelmir", 1) as BergelmirBoss
+	giant.signature(6.1)
+	assert_eq(giant.floods, 1)
+	assert_eq(giant.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "in his lúðr, out of reach")
+	giant.signature(0.3)
+	assert_gt(giant.marks.size(), 0, "blood wells up under the Hero")
+	var hp: float = _player.hp
+	giant.signature(0.9)
+	assert_lt(_player.hp, hp)
+	assert_true(_player.statuses.has("soaked"))
+	giant.signature(5.0)
+	assert_almost_eq(giant.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "the flood is over")
+
+
+func test_the_herald_of_the_void_shatters_between_rime_and_fire() -> void:
+	_start("ginnungagap")
+	var herald: VoidHeraldBoss = _bosses.spawn_boss("void_herald", 2) as VoidHeraldBoss
+	herald.signature(0.1)
+	assert_eq(herald.art_id(), "void_herald_rime")
+	herald.on_element_hit("ice")
+	assert_eq(herald.shatters, 0, "ice does not shatter rime")
+	herald.on_element_hit("fire")
+	assert_eq(herald.shatters, 1, "fire shatters rime")
+	assert_almost_eq(herald.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01)
+	herald.on_element_hit("fire")
+	assert_eq(herald.shatters, 1, "once per form")
+	herald.signature(8.0)
+	assert_eq(herald.art_id(), "void_herald_fire")
+	herald.on_element_hit("ice")
+	assert_eq(herald.shatters, 2, "ice shatters fire")
+	assert_gt(herald.marks.size(), 0, "the gap opens under the farthest Hero")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

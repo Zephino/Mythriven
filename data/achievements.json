@@ -1694,5 +1694,35 @@
       "id": "atlas_king"
     },
     "persists": true
+  },
+  {
+    "id": "boss_audhumla",
+    "name_key": "ACH_BOSS_AUDHUMLA_NAME",
+    "desc_key": "ACH_BOSS_AUDHUMLA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "audhumla"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_bergelmir",
+    "name_key": "ACH_BOSS_BERGELMIR_NAME",
+    "desc_key": "ACH_BOSS_BERGELMIR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "bergelmir"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_void_herald",
+    "name_key": "ACH_BOSS_VOID_HERALD_NAME",
+    "desc_key": "ACH_BOSS_VOID_HERALD_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "void_herald"
+    },
+    "persists": true
   }
 ]

@@ -10945,5 +10945,253 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Ginnungagap bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "audhumla",
+    "name_key": "BOSS_AUDHUMLA_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri, Gylfaginning 4-7 (6: the cow Auðumbla, made from the dripping rime; four rivers of milk flowed from her udder, and she licked the salty rime-blocks)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "audhumla",
+    "move_speed": 30,
+    "keep_distance_px": 30,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "salt_licks",
+      "blocks": 3,
+      "block_px": 130,
+      "reach_px": 22,
+      "lick_px": 30,
+      "walk_px_s": 40,
+      "heal_per_s": 0.02,
+      "break_s": 2.0,
+      "regrow_s": 15.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ginnungagap bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "bergelmir",
+    "name_key": "BOSS_BERGELMIR_NAME",
+    "tradition": "norse",
+    "lore_source": "Vafþrúðnismál 35 (Bergelmir laid on a lúðr); Snorri, Gylfaginning 4-7 (7: so much blood ran from Ymir's wounds that all the frost giants drowned but Bergelmir, who climbed with his wife on to his lúðr)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "bergelmir",
+    "move_speed": 40,
+    "keep_distance_px": 50,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_lur",
+      "flood_every_s": 12.0,
+      "flood_s": 5.0,
+      "ride_px_s": 110,
+      "band_every_s": 1.0,
+      "band_radius_px": 44,
+      "band_telegraph_s": 0.8,
+      "band_damage": 9
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ginnungagap bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "void_herald",
+    "name_key": "BOSS_VOID_HERALD_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: an invented herald of the void, in the Eddas' Ginnungagap); Gylfaginning 4-5 (Niflheim's rime and Muspelheim's fire meeting in the gap)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "void_herald",
+    "move_speed": 40,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "rime_and_fire",
+      "form_s": 8.0,
+      "aura_every_s": 2.0,
+      "aura_radius_px": 70,
+      "aura_damage": 6,
+      "shatter_s": 2.0,
+      "shatter_damage_taken": 2.0,
+      "gap_every_s": 5.0,
+      "gap_telegraph_s": 1.2,
+      "gap_radius_px": 34,
+      "gap_damage": 16
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "rime_drop"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "rime_drop"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

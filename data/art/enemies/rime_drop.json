@@ -1,0 +1,93 @@
+{
+ "_doc": "A rime drop (Gylfaginning 5: the drops of thawing rime that quickened with life): a falling drop of meltwater with a glint of life in it. Built by tools/art/build_abyss.py.",
+ "size": [
+  11,
+  12
+ ],
+ "anchor": [
+  5,
+  11
+ ],
+ "palette": {
+  "o": "#2a3a4a",
+  "w": "#c8e4f8",
+  "W": "#ffffff",
+  "y": "#ffd060"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...........",
+    "....oo.....",
+    "...owwo....",
+    "...owwo....",
+    "..owwwwo...",
+    "..owwwwo...",
+    ".owwWwwwo..",
+    ".owwwywo...",
+    "..owwwo....",
+    "...owo.....",
+    "....o......",
+    "..........."
+   ]
+  ],
+  "walk": [
+   [
+    "...........",
+    "...........",
+    "....oo.....",
+    "...owwo....",
+    "..owwwo....",
+    "..owwwwo...",
+    ".owwWwwwo..",
+    ".owwwywo...",
+    "..owwwo....",
+    "...owo.....",
+    "....o......",
+    "..........."
+   ],
+   [
+    "...........",
+    "....oo.....",
+    "...owwo....",
+    "...owwo....",
+    "..owwwwo...",
+    "..owwwwo...",
+    ".owwWwwwo..",
+    ".owwwywo...",
+    "..owwwo....",
+    "...owo.....",
+    "....o......",
+    "..........."
+   ],
+   [
+    "...........",
+    "...........",
+    "....oo.....",
+    "...owwo....",
+    "..owwwo....",
+    "..owwwwo...",
+    ".owwWwwwo..",
+    ".owwwywo...",
+    "..owwwo....",
+    "...owo.....",
+    "....o......",
+    "..........."
+   ],
+   [
+    "...........",
+    "....oo.....",
+    "...owwo....",
+    "...owwo....",
+    "..owwwwo...",
+    "..owwwwo...",
+    ".owwWwwwo..",
+    ".owwwywo...",
+    "..owwwo....",
+    "...owo.....",
+    "....o......",
+    "..........."
+   ]
+  ]
+ }
+}

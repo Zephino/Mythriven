@@ -989,6 +989,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | atlas_king_entrance | boss entrance | atlas_king | Brass, tin, orichalcum. Atlantis has never fallen. Not yet. | Plato, Critias 113b-121c 116a-c | no |
 | atlas_king_poseidon | boss meets god (with poseidon) | atlas_king | Father? You let the sea take us. | Plato, Critias 113c-114a (Atlas, Poseidon's son) | no |
 
+### Ginnungagap
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | ginnungagap | Ginnungagap | Völuspá 3; Vafþrúðnismál 35; Snorri, Gylfaginning 4-7 | no |
+| enemy | venom_rime | Venom rime | Snorri, Gylfaginning 4-7 (5: the venom of the Élivágar rivers hardened like slag, and rime grew over it) | no |
+| enemy | rime_drop | Rime drop | Snorri, Gylfaginning 4-7 (5: where the rime met the warm air from Muspelheim, it thawed and dripped, and the drops quickened with life) | no |
+| boss | audhumla | Auðumbla | Snorri, Gylfaginning 4-7 (6: the cow Auðumbla, made from the dripping rime; four rivers of milk flowed from her udder, and she licked the salty rime-blocks) | no |
+| boss | bergelmir | Bergelmir | Vafþrúðnismál 35 (Bergelmir laid on a lúðr); Snorri, Gylfaginning 4-7 (7: so much blood ran from Ymir's wounds that all the frost giants drowned but Bergelmir, who climbed with his wife on to his lúðr) | no |
+| boss | void_herald | The Herald of the Void | Invented for Mythriven (GAME_DESIGN.md: an invented herald of the void, in the Eddas' Ginnungagap); Gylfaginning 4-5 (Niflheim's rime and Muspelheim's fire meeting in the gap) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| audhumla_entrance | boss entrance | audhumla | (A vast cow lifts her head from the salt-rime and lows.) | Snorri, Gylfaginning 4-7 (6) | no |
+| bergelmir_entrance | boss entrance | bergelmir | All my kin drowned. I did not. Think on that. | Vafþrúðnismál 35 | no |
+| void_herald_entrance | boss entrance | void_herald | Before the world, there was the gap. After it, the gap. | Original line written for Mythriven | no |
+| void_herald_odin | boss meets god (with odin) | void_herald | Ymir's killer. You built your world from his body, over my emptiness. | Original line written for Mythriven; Gylfaginning 8 (Odin and his brothers make the world from Ymir) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

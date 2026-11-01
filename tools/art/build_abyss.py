@@ -247,6 +247,90 @@ ATLAS_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#1e3a6a", "s": "#c8946a", "h"
              "r": "#d86a3a"}
 
 
+# --- Ginnungagap (Völuspá 3; Vafþrúðnismál 35; Gylfaginning 4-7) ---------------------------------------------------
+
+def venom_rime(c, f):
+    """Venom rime (Gylfaginning 5: the Élivágar's venom hardened like slag, and rime grew over it): a crawling heap of
+    pale green-white ice with dark venom showing through."""
+    s = STEP[f]
+    ellipse(c, 10, 14, 8, 7, "w")
+    ellipse(c, 10, 15, 5, 4, "g")
+    for x, y in ((6, 9), (13, 8), (10, 6), (15, 12)):
+        c.px(x, y, "W")
+    c.px(8, 12, "k"); c.px(12, 12, "k")
+    c.rect(3 + s, 20, 5 + s, 21, "W"); c.rect(15 - s, 20, 17 - s, 21, "W")
+
+
+VENOM_RIME_PAL = {"o": "#1a2a24", "w": "#d0e8e0", "W": "#f4fcff", "g": "#4a7a5a", "k": "#102018"}
+
+
+def rime_drop(c, f):
+    """A rime drop (Gylfaginning 5: the drops of thawing rime that quickened with life): a falling drop of meltwater
+    with a glint of life in it."""
+    up = f % 2
+    poly(c, [(5, 1 + up), (2, 7), (5, 10), (8, 7)], "w")
+    c.px(4, 6, "W"); c.px(5, 7, "y")
+
+
+RIME_DROP_PAL = {"o": "#2a3a4a", "w": "#c8e4f8", "W": "#ffffff", "y": "#ffd060"}
+
+
+def audhumla(c, step):
+    """Auðumbla (Gylfaginning 6: the first cow, made from the dripping rime): a vast, pale, hornless cow with frost in
+    her coat and four streams of milk."""
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(12 + k * 9 + d, 34, 16 + k * 9 + d, 46, "W"); c.rect(12 + k * 9 + d, 45, 16 + k * 9 + d, 46, "k")
+    ellipse(c, 28, 26, 20, 11, "w")
+    for x, y in ((18, 22), (26, 18), (34, 24), (22, 30), (38, 30)):
+        c.px(x, y, "i"); c.px(x + 1, y, "i")
+    ellipse(c, 50, 22, 7, 7, "w"); c.rect(52, 25, 57, 29, "p"); c.px(51, 20, "k")
+    poly(c, [(46, 16), (44, 12), (48, 15)], "W")
+    c.rect(24, 36, 30, 38, "p")
+    for k in range(4):
+        c.px(24 + k * 2, 39 + k % 2, "m")
+    for k in range(8):
+        c.px(8 - k // 2, 24 + k, "W")
+
+
+AUDHUMLA_PAL = {"o": "#2a2a34", "w": "#ece8e0", "W": "#c8ccd4", "i": "#c8e4f8", "p": "#d8a8a8", "k": "#2a2a34",
+                "m": "#ffffff"}
+
+
+def bergelmir(c, step):
+    """Bergelmir (Vafþrúðnismál 35; Gylfaginning 7: the frost giant who lived through the flood of Ymir's blood on his
+    lúðr): a frost giant with a rime-white beard, grey-blue skin, his furs dark with blood at the hem, an oar in his
+    hand."""
+    figure(c, step, "f", "s", "w", legs="F")
+    poly(c, [(16, 15), (27, 15), (24, 30), (19, 30)], "w"); c.row(48, 11, 31, "r"); c.row(49, 11, 31, "r")
+    c.rect(33, 4, 34, 44, "b"); c.rect(32, 38, 35, 48, "b")
+
+
+BERGELMIR_PAL = {"o": "#0e1218", "k": "#1e2430", "f": "#5a6a7a", "F": "#3a4654", "s": "#8aa0b8", "w": "#eef4fa",
+                 "r": "#8a1a1a", "b": "#6a4a2a"}
+
+
+def void_herald(form):
+    """The Herald of the Void (Mythriven's own, in the Eddas' Ginnungagap): a tall, faceless shape of darkness standing
+    between rime and fire, one or the other burning along its edges."""
+    def draw(c, step):
+        edge, glow = ("i", "w") if form == "rime" else ("r", "y")
+        for k, d in enumerate((-step, step)):
+            c.rect(16 + k * 6 + d, 46, 18 + k * 6 + d, 52, "k")
+        poly(c, [(20, 2), (26, 2), (36, 48), (10, 48)], "k")
+        poly(c, [(21, 6), (25, 6), (32, 46), (14, 46)], "K")
+        for y in range(4, 48, 4):
+            w = 3 + y // 4
+            c.px(23 - w, y, edge); c.px(23 + w, y, edge)
+        c.px(21, 10, glow); c.px(25, 10, glow)
+        for k in range(5):
+            c.px(8 + k * 7, 50 - (k % 2) * 2, edge)
+    return draw
+
+
+VOID_HERALD_PAL = {"o": "#05050a", "k": "#0e0e18", "K": "#1e1a30", "i": "#c8e4f8", "w": "#ffffff", "r": "#e8602a",
+                   "y": "#ffd060"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_abyss.py."
@@ -266,4 +350,12 @@ if __name__ == "__main__":
     kit.build_boss("poseidons_bull", poseidons_bull, POSEIDON_BULL_PAL, doc(poseidons_bull.__doc__), (58, 48), (28, 46), [0, 1, 0, -1, 0])
     kit.build_boss("gadeirus", gadeirus, GADEIRUS_PAL, doc(gadeirus.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("atlas_king", atlas_king, ATLAS_PAL, doc(atlas_king.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("venom_rime", venom_rime, VENOM_RIME_PAL, doc(venom_rime.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("rime_drop", rime_drop, RIME_DROP_PAL, doc(rime_drop.__doc__), (11, 12), (5, 11), walk, folder="enemies")
+    kit.build_boss("audhumla", audhumla, AUDHUMLA_PAL, doc(audhumla.__doc__), (60, 48), (30, 46), [0, 1, 0, -1, 0])
+    kit.build_boss("bergelmir", bergelmir, BERGELMIR_PAL, doc(bergelmir.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("void_herald", void_herald("rime"), VOID_HERALD_PAL, doc(void_herald.__doc__), (46, 56), (23, 54), [0, 1, 0, -1, 0])
+    for form in ("rime", "fire"):
+        kit.build_boss("void_herald_" + form, void_herald(form), VOID_HERALD_PAL, doc(void_herald.__doc__ + " Here, as %s." % form),
+                       (46, 56), (23, 54), [0, 1, 0, -1, 0])
     print("wrote the Abyss's art")

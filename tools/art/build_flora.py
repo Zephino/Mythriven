@@ -494,6 +494,11 @@ LEVELS = {
         "trees": {"olive": (olive, 26, 30), "cypress": (cypress, 12, 38)},
         "bushes": {"myrtle": ("V", "v", "w", "h")},
         "rock": ("a", "A", "B", None)},
+    # Ginnungagap: "a yawning gap, and grass nowhere" (Völuspá 3); rime, salt and cinders, almost nothing growing.
+    "ginnungagap": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

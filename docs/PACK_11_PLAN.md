@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 11). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Ashkarrow built and released 11/01/2026 (00.03.16); Dinas Emrys (00.03.17); Atlantis (00.03.18).
+it. Ashkarrow built and released 11/01/2026 (00.03.16); Dinas Emrys (00.03.17); Atlantis (00.03.18); Ginnungagap (00.03.19). **All four realms are built.**
 
 Realms work like Packs 5-10: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -87,7 +87,7 @@ Plato's first king, not the Titan. Poseidon, a god in the game, is not a boss.
 | 20:00 | **Gadeirus** | Atlas' twin, king of the land toward the Pillars of Heracles. He raises Poseidon's rings of sea round himself: rings of water spread out from him, hurting and Soaking whoever they pass |
 | 30:00 | **Atlas** (the design's; Plato's king) | He stands behind the city's three walls — brass, tin and orichalcum — and each must be broken before he can be hurt. They rise again after a while. In his last phase the island sinks: the ground falls in under the Heroes (marked spots) |
 
-## Realm 44: Ginnungagap (the yawning void)
+## Realm 44: Ginnungagap (the yawning void): **done and released 11/01/2026 (00.03.19)**
 *Sources: the Poetic Edda, Völuspá 3 ("there was a yawning gap, and grass nowhere") and Vafþrúðnismál 35 (Bergelmir
 on his lúðr); Snorri, Gylfaginning 4-7 (Niflheim's rime and Muspelheim's fire meeting in the gap; the venom of the
 Élivágar rivers hardening into rime; the cow Auðumbla licking the salty rime-blocks; the flood of Ymir's blood that
@@ -105,5 +105,5 @@ drowned all the frost giants but Bergelmir).* Ymir is already in the game, so he
 | Time | Boss | Mechanic |
 | --- | --- | --- |
 | 10:00 | **Auðumbla** | The first cow, who fed on the salty rime-blocks. She goes to lick them, and every lick heals her; break the blocks first by standing at them |
-| 20:00 | **Bergelmir** | The one frost giant who lived through the flood of Ymir's blood, in his lúðr. Every so often the blood floods the arena (bands that slow) and he rides it in his lúðr, fast and out of reach |
+| 20:00 | **Bergelmir** | The one frost giant who lived through the flood of Ymir's blood, in his lúðr. Every so often the blood floods the arena: he rides it in his lúðr, fast and out of reach, while blood wells up in pools under the Heroes (hurting and Soaking) |
 | 30:00 | **The Herald of the Void** (the design's, invented: plain name) | He stands between rime and fire, turning from one to the other. In rime he Chills, in fire he Burns; a blow of the other element shatters his form (stunned, double damage). The gap opens under the farthest Hero |

@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.19
+Date: 11/01/2026
+Time: 1:02 AM
+
+### Changes
+- **Ginnungagap, the yawning void, is built and open** (Pack 11, `docs/PACK_11_PLAN.md`). It opens when you beat Phobetor. With it, all four realms of The Abyss are built. Sources: the Poetic Edda (Völuspá: "a yawning gap, and grass nowhere"; Vafþrúðnismál) and Snorri's Gylfaginning (the rime of Niflheim and the fire of Muspelheim meeting in the gap). Ymir is already in the game (Jotunheim), so he is not here.
+  - **Hazard, the yawning gap:** chasms open under the ground.
+  - **Monsters:** venom rime, rime drops (swarms), Muspell sparks, rime wraiths, and frost thursar from 10:00.
+  - **10:00, Auðumbla** (the first cow): she walks to the salty rime-blocks and heals while she licks them. Stand at a block for 2 s to break it; the blocks grow again after 15 s.
+  - **20:00, Bergelmir:** every 12 s the flood of Ymir's blood pours in. For 5 s he rides it in his lúðr, fast and out of reach, and blood wells up under the Heroes (marked first), hurting and Soaking them.
+  - **30:00, the Herald of the Void** (the design's invented herald, so a plain name): every 8 s he turns from rime to fire and back, Chilling or Burning whoever is near. A Fire blow on rime, or an Ice blow on fire, shatters his form: stunned for 2 s and taking double damage (once per form). Every 5 s the gap opens under the farthest Hero.
+  - A dark void of rime, salt and cinders, with ice shards and smoking vents.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (439 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 11; this is its last realm. Its secrets come next.
+
 ## Version 00.03.18
 Date: 11/01/2026
 Time: 1:50 AM
