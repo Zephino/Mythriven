@@ -2365,3 +2365,33 @@ COSMETIC_PIKE_SCALE,Pike Scale
 COSMETIC_DAWN_LIGHT,Dawn Light
 COSMETIC_SPORE_CLOUD,Spore Cloud
 COSMETIC_GOLD_DUST,Gold Dust
+LEVEL_ALFHEIM_NAME,Alfheim
+HAZARD_ELF_SHOT_NAME,Elf-shot! Unseen arrows fly from the trees!
+ENEMY_LIGHT_ELF_NAME,Light elf
+ENEMY_LIGHT_ELF_MYTH,"There is a place called Álfheimr, Snorri says, where the people called light elves live; they are fairer to look upon than the sun."
+ENEMY_ELF_KNIGHT_NAME,Elf-knight
+ENEMY_ELF_KNIGHT_MYTH,"In the old ballads the elf-knight rides out of the greenwood blowing his horn, and whoever hears it is drawn after him."
+ENEMY_ELF_MAIDEN_NAME,Elf-maiden
+ENEMY_ELF_MAIDEN_MYTH,"The Erlking's daughters, who dance in the night mist by the willows. ""My daughters shall wait on you,"" the Erlking promises the child, ""and rock you and dance you and sing you to sleep."""
+BOSS_ERLKING_DAUGHTER_NAME,The Erlking's Daughter
+ENEMY_ERLKING_DAUGHTER_NAME,The Erlking's Daughter
+ENEMY_ERLKING_DAUGHTER_MYTH,"On the night before his wedding Sir Oluf rode out and found the elves dancing. The Erlking's daughter held out her hand and asked him to dance; he would not, and she struck him over the heart, and he was dead by morning."
+BOSS_ERLKING_DAUGHTER_DANCE,"""Dance with me!"" Stay in the ring until the dance ends!"
+BOSS_VOLUNDR_NAME,Völundr
+ENEMY_VOLUNDR_NAME,Völundr
+ENEMY_VOLUNDR_MYTH,"The great smith the poem calls prince of elves. King Níðuðr lamed him and set him on an island to forge for him; Völundr took his revenge, forged himself wings, and rose laughing into the air."
+BOSS_ERLKING_NAME,The Erlking
+ENEMY_ERLKING_NAME,The Erlking
+ENEMY_ERLKING_MYTH,"The king of the elves who comes to a child riding through the wind and the night in his father's arms. He promises games and flowers and his daughters' dancing; and if the child is not willing, he will use force."
+BOSS_ERLKING_LURE,The Erlking beckons... you're drawn toward him!
+ACH_BOSS_ERLKING_DAUGHTER_NAME,Defeat The Erlking's Daughter
+ACH_BOSS_ERLKING_DAUGHTER_DESC,The 10:00 boss of Alfheim.
+ACH_BOSS_VOLUNDR_NAME,Defeat Völundr
+ACH_BOSS_VOLUNDR_DESC,The 20:00 boss of Alfheim.
+ACH_BOSS_ERLKING_NAME,Defeat The Erlking
+ACH_BOSS_ERLKING_DESC,The 30:00 boss of Alfheim.
+BANTER_ERLKING_DAUGHTER_ENTRANCE,"Welcome! Come, step into the ring and dance with me."
+BANTER_VOLUNDR_ENTRANCE,They lamed me so I could not run. So I made wings.
+BANTER_ERLKING_ENTRANCE,"And if you're not willing, I'll use force."
+BANTER_ERLKING_FREYJA,"Lady of the Vanir, your brother's realm is mine tonight."
+PACK_9_NAME,Pack 7: The Wild Green

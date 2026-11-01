@@ -519,3 +519,46 @@ func test_pack_6_boss_secrets() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
+func test_alfheim_is_pack_7_with_elf_shot() -> void:
+	var level: Dictionary = _level("alfheim")
+	assert_eq(int(level["act"]), 9)
+	assert_eq(str(level["unlock"]["boss"]), "andvari")
+	assert_eq(str(level["hazard"]["player_status"]), "shock")
+	assert_eq(tr("PACK_9_NAME"), "Pack 7: The Wild Green")
+
+
+func test_the_erlkings_daughter_strikes_who_leaves_the_dance() -> void:
+	_start("alfheim")
+	var daughter: ErlkingDaughterBoss = _bosses.spawn_boss("erlking_daughter", 0) as ErlkingDaughterBoss
+	daughter.invite(_player)
+	daughter.signature(3.1)
+	assert_eq(daughter.danced, 1, "a whole dance: no harm")
+	daughter.invite(_player)
+	var hp: float = _player.hp
+	_player.position += Vector2(200, 0)
+	daughter.signature(0.1)
+	assert_eq(daughter.struck, 1, "stepped out")
+	assert_lt(_player.hp, hp)
+
+
+func test_volundr_flies_out_of_reach_and_drops_strikes() -> void:
+	_start("alfheim")
+	var smith: VolundrBoss = _bosses.spawn_boss("volundr", 1) as VolundrBoss
+	smith.take_wing()
+	assert_eq(smith.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "out of reach")
+	smith.signature(0.4)
+	assert_gt(smith.marks.size(), 0, "a strike is marked under the Hero")
+	var hp: float = _player.hp
+	smith.signature(1.1)
+	assert_lt(_player.hp, hp, "and lands")
+
+
+func test_the_erlking_draws_a_hero_to_him() -> void:
+	_start("alfheim")
+	var king: ErlkingBoss = _bosses.spawn_boss("erlking", 2) as ErlkingBoss
+	_player.position = king.position_now() + Vector2(200, 0)
+	king.lure(_player)
+	king.signature(1.0)
+	assert_lt(_player.position.distance_to(king.position_now()), 200.0, "drawn toward him")

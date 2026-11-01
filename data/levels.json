@@ -3156,5 +3156,116 @@
       "edge": "#8a6a40",
       "stones": "#c8aa7a"
     }
+  },
+  {
+    "_doc": "Alfheim, Pack 7 realm 1, the realm of the elves (docs/PACK_7_PLAN.md). Sources: Grimnismal 5; Volundarkvida; Gylfaginning 17; the Old English charm Wid faerstice; Herder, Erlkonigs Tochter (1778); Goethe, Erlkonig (1782). Freyr is not a boss. A realm: no local gods.",
+    "id": "alfheim",
+    "name_key": "LEVEL_ALFHEIM_NAME",
+    "region": "realm_elf",
+    "act": 9,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "alfheim",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "flowers",
+          "max": -0.25,
+          "placeholder_color": "#5a8a3a",
+          "placeholder_dots": "#f0e080"
+        },
+        {
+          "id": "grass",
+          "max": 0.25,
+          "placeholder_color": "#4e7a34",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.65,
+          "placeholder_color": "#3e6a2e",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "heather",
+          "max": 1.0,
+          "placeholder_color": "#6a5a6a",
+          "placeholder_dots": "#b88ab0"
+        }
+      ]
+    },
+    "decorations": [
+      "elf_mill",
+      "standing_stone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "elf_mill": {
+        "shape": "rect",
+        "size_px": [
+          22,
+          12
+        ],
+        "placeholder_color": "#8a8c88",
+        "weight": 2
+      },
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          22
+        ],
+        "placeholder_color": "#9a9c98",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "erlking_daughter",
+      "20": "volundr",
+      "30": "erlking"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "nidavellir",
+      "boss": "andvari"
+    },
+    "waves": "waves_alfheim.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 16,
+      "strikes_per_s": 0.9,
+      "radius_px": 26,
+      "telegraph_s": 1.0,
+      "damage": 9,
+      "element": "holy",
+      "range_px": 230,
+      "color": "#f0e0a0",
+      "player_status": "shock",
+      "name_key": "HAZARD_ELF_SHOT_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#e8ecd4",
+    "flora": {
+      "density": 0.8,
+      "trees": {
+        "birch": 3,
+        "alder": 2,
+        "oak": 1
+      }
+    },
+    "road": {
+      "color": "#a89870",
+      "edge": "#7a6a48",
+      "stones": "#c8b890"
+    }
   }
 ]

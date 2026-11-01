@@ -2152,5 +2152,46 @@
     "text_key": "BANTER_MYRMEX_PERSEPHONE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "erlking_daughter_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "erlking_daughter",
+    "hero": "",
+    "god": "erlking_daughter",
+    "text_key": "BANTER_ERLKING_DAUGHTER_ENTRANCE",
+    "lore_source": "Herder, Erlkonigs Tochter (her invitation to Oluf)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "volundr_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "volundr",
+    "hero": "",
+    "god": "volundr",
+    "text_key": "BANTER_VOLUNDR_ENTRANCE",
+    "lore_source": "Volundarkvida",
+    "needs_owner_review": true
+  },
+  {
+    "id": "erlking_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "erlking",
+    "hero": "",
+    "god": "erlking",
+    "text_key": "BANTER_ERLKING_ENTRANCE",
+    "lore_source": "Goethe, Erlkonig (1782)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "erlking_freyja",
+    "trigger": "boss_meets_god",
+    "speaker": "erlking",
+    "hero": "",
+    "god": "erlking",
+    "with_god": "freyja",
+    "text_key": "BANTER_ERLKING_FREYJA",
+    "lore_source": "Original line written for Mythriven (Alfheim was given to Freyr, Freyja's brother)",
+    "needs_owner_review": true
   }
 ]

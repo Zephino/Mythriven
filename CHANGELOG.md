@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.96
+Date: 10/31/2026
+Time: 9:10 PM
+
+### Changes
+- **Pack 7, The Wild Green, is planned** (`docs/PACK_7_PLAN.md`): Alfheim, Elfame, Arcadia and Lerna, each with three bosses, monsters and a hazard from the old texts. Claude made the choices with the owner's trust; any can be changed.
+- **Alfheim, the realm of the elves, is built and open.** It opens when you beat Andvari, under a new "Pack 7: The Wild Green" heading.
+  - **Hazard, elf-shot:** unseen elves' arrows strike out of the air (telegraphed) and leave whoever they hit Shocked, as in the old charm against "elf-shot".
+  - **Monsters:** elf-knights, light elves (casters), elf-maidens (the Erlking's dancing daughters, in swarms) and will-o'-the-wisps.
+  - **10:00, the Erlking's Daughter** (Herder, 1778): a dance ring appears round a Hero. Stay in it until the dance ends; step out and her elf-shot strikes you, as she struck Sir Oluf when he wouldn't dance.
+  - **20:00, Völundr** (Völundarkviða): every 12 s he rises on the wings he forged; he can't be reached while he flies, and he drops strikes on the spots where the Heroes stand.
+  - **30:00, the Erlking** (the design's boss; Goethe, 1782): every 8 s he beckons, and the nearest Hero is drawn toward him for a few seconds. His daughters dance round him.
+  - Bright birch, alder and oak woods with flowers, elf-mill stones and standing stones; hares, squirrels, swallows, butterflies, fireflies and roe deer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (372 tests pass).
+
+### Reason
+The owner said "go ahead" with Pack 7 after Pack 6 was finished.
+
 ## Version 00.02.95
 Date: 10/31/2026
 Time: 8:59 PM

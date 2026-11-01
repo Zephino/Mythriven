@@ -1,0 +1,54 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. An elf-mill stone (Scandinavian folklore: boulders with cup-shaped hollows where offerings were left for the elves): a low mossy boulder pitted with small round cups.",
+ "size": [
+  25,
+  12
+ ],
+ "anchor": [
+  12,
+  11
+ ],
+ "palette": {
+  "a": "#3c3c3c",
+  "b": "#2a2a2a",
+  "c": "#8a8a90",
+  "d": "#545454",
+  "e": "#243618",
+  "f": "#7e7e7e",
+  "g": "#84848a",
+  "h": "#6c6c6c",
+  "i": "#5a5a60",
+  "j": "#666666",
+  "k": "#4e6c36",
+  "l": "#727266",
+  "m": "#72726c",
+  "n": "#485a30",
+  "o": "#606066",
+  "p": "#546c3c",
+  "q": "#727272",
+  "r": "#787878",
+  "s": "#54545a",
+  "t": "#5a5a54",
+  "u": "#66666c",
+  "v": "#48484e",
+  "w": "#4e5454"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...........ab............",
+    "......aaaaacdbaaabb......",
+    "...eaacfgcccghgfcijeb....",
+    "..ekgcgfggjlgfcgfimnobb..",
+    ".bogpqjlggcfcgggffggkoib.",
+    ".bgggfcffcggqgomqggfgijb.",
+    "biorffgfrgggrfrfffffodisb",
+    ".boirfrffitfufrrrfgioisb.",
+    ".biiiiffgfffrffffsiiiiib.",
+    "..bbooisoooriisssiioobb..",
+    "....bbsvvswiswssiswbb....",
+    "......bbbbbbbbbbbbb......"
+   ]
+  ]
+ }
+}

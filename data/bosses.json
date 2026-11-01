@@ -6388,5 +6388,243 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Alfheim bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "erlking_daughter",
+    "name_key": "BOSS_ERLKING_DAUGHTER_NAME",
+    "tradition": "danish",
+    "lore_source": "J. G. Herder, \"Erlkonigs Tochter\" (1778, from the Danish ballad of Sir Oluf); the charm Wid faerstice (elf-shot)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "erlking_daughter",
+    "move_speed": 44,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_dance",
+      "dance_every_s": 9.0,
+      "dance_s": 3.0,
+      "ring_radius_px": 50,
+      "shot_damage": 18
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Alfheim bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "volundr",
+    "name_key": "BOSS_VOLUNDR_NAME",
+    "tradition": "norse",
+    "lore_source": "The Poetic Edda, Volundarkvida (Volundr, prince of elves, forges wings and flies from King Nidud)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "volundr",
+    "move_speed": 44,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_forged_wings",
+      "fly_every_s": 12.0,
+      "fly_s": 4.0,
+      "drop_every_s": 1.0,
+      "telegraph_s": 1.0,
+      "strike_radius_px": 34,
+      "strike_damage": 14
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Alfheim bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "erlking",
+    "name_key": "BOSS_ERLKING_NAME",
+    "tradition": "german",
+    "lore_source": "Goethe, \"Erlkonig\" (1782); Herder, \"Erlkonigs Tochter\" (1778)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "erlking",
+    "move_speed": 40,
+    "keep_distance_px": 110,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_lure",
+      "lure_every_s": 8.0,
+      "lure_s": 2.5,
+      "pull_px_s": 90
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "elf_maiden"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "elf_maiden"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

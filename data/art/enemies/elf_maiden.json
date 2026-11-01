@@ -1,0 +1,113 @@
+{
+ "_doc": "An elf-maiden, one of the Erlking's daughters (Goethe: \"my daughters shall dance with you at night\"): a pale dancing girl in a misty white dress. Built by tools/art/build_wild.py.",
+ "size": [
+  16,
+  16
+ ],
+ "anchor": [
+  7,
+  15
+ ],
+ "palette": {
+  "o": "#2a3040",
+  "w": "#e8eef8",
+  "s": "#f8ecdc",
+  "y": "#e8d870"
+ },
+ "frames": {
+  "idle": [
+   [
+    "....oyyyyyo.....",
+    "....oyyyyyo.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    ".o...ossso...o..",
+    "owo.owwwwo..owo.",
+    ".o.owwwwwwo..o..",
+    "...owwwwwwo.....",
+    "...owwwwwwo.....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwo....",
+    ".owwwwwwwwwwo...",
+    "..oooooooooo....",
+    "................"
+   ]
+  ],
+  "walk": [
+   [
+    "....oyyyyyo.....",
+    "....oyyyyyo.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    ".o..ossssso.....",
+    "owo..ossso......",
+    ".o..owwwwo...o..",
+    "...owwwwwwo.owo.",
+    "...owwwwwwo..o..",
+    "...owwwwwwo.....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwwo...",
+    ".owwwwwwwooo....",
+    ".owwooooo.......",
+    "..oo............"
+   ],
+   [
+    "....oyyyyyo.....",
+    "....oyyyyyo.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    ".o...ossso...o..",
+    "owo.owwwwo..owo.",
+    ".o.owwwwwwo..o..",
+    "...owwwwwwo.....",
+    "...owwwwwwo.....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwo....",
+    ".owwwwwwwwwwo...",
+    "..oooooooooo....",
+    "................"
+   ],
+   [
+    "....oyyyyyo.....",
+    "....oyyyyyo.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    "....ossssso..o..",
+    ".....ossso..owo.",
+    ".o..owwwwo...o..",
+    "owoowwwwwo......",
+    ".o.owwwwwwo.....",
+    "..owwwwwwwo.....",
+    "..owwwwwwwo.....",
+    "..owwwwwwwwo....",
+    ".owwwwwwwwwo....",
+    "..oowwwwwwwo....",
+    "....ooooowwwo...",
+    ".........ooo...."
+   ],
+   [
+    "....oyyyyyo.....",
+    "....oyyyyyo.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    "....ossssso.....",
+    ".o...ossso...o..",
+    "owo.owwwwo..owo.",
+    ".o.owwwwwwo..o..",
+    "...owwwwwwo.....",
+    "...owwwwwwo.....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwo....",
+    "..owwwwwwwwo....",
+    ".owwwwwwwwwwo...",
+    "..oooooooooo....",
+    "................"
+   ]
+  ]
+ }
+}

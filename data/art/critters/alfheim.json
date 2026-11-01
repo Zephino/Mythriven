@@ -1,0 +1,157 @@
+{
+ "_doc": "Critters of alfheim (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#8a6a48",
+  "b": "#e8e0d0",
+  "c": "#b05a2a",
+  "d": "#c86a30",
+  "e": "#24283a",
+  "f": "#c84030",
+  "g": "#f0d860",
+  "h": "#3a3020"
+ },
+ "frames": {
+  "hare": [
+   [
+    ".......oaao.",
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    "..oaaaaao...",
+    "..oaaoaao..."
+   ],
+   [
+    ".......oaao.",
+    "....ooooaaao",
+    ".oooaaaoaako",
+    "obaaaaaaaaao",
+    ".oaaaaaaaoo.",
+    ".oaaaaaaao..",
+    ".oaaaaaoo...",
+    ".oaaoooaao..",
+    "..oo..oaao.."
+   ]
+  ],
+  "red_squirrel": [
+   [
+    ".oo.........",
+    "oddo.....o..",
+    "oddo....oco.",
+    "odddoooocco.",
+    "odddocccckco",
+    "odddcccccco.",
+    "oddoccccco..",
+    "oddoccccco..",
+    ".oo.occco...",
+    "....ococo..."
+   ],
+   [
+    "oddo.....o..",
+    "oddo....oco.",
+    "odddoooocco.",
+    "odddocccckco",
+    "odddcccccco.",
+    "oddoccccco..",
+    "oddoccccco..",
+    ".oo.occco...",
+    "....ococo...",
+    "....ocoo...."
+   ]
+  ],
+  "swallow": [
+   [
+    ".......oo.",
+    "o..ooooeko",
+    "booeeeeeef",
+    "obbbbbeeoo",
+    ".oeeeeeeo.",
+    "..oeeeeo..",
+    "...ofofo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "booeeeeeko",
+    "obbbbbeeef",
+    ".oeeeeeeoo",
+    "..oeeeeo..",
+    "...ofofo.."
+   ]
+  ],
+  "swallow_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...oeeeeeoef",
+    "...oeebeeooo",
+    "....obbbo...",
+    "...oboobo..."
+   ],
+   [
+    "....o..o....",
+    "...obooboo..",
+    "....obbbokoo",
+    "...oeebeeoef",
+    "...oeeeeeooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".ggkgg.",
+    ".ggkgg.",
+    "..hkh..",
+    "...k...",
+    "......."
+   ],
+   [
+    "ggg.ggg",
+    "gggkggg",
+    "gggkggg",
+    ".hhkhh.",
+    ".hhkhh.",
+    "......."
+   ]
+  ],
+  "firefly": [
+   [
+    "...",
+    ".L.",
+    "..."
+   ],
+   [
+    ".l.",
+    "lLl",
+    ".l."
+   ]
+  ]
+ },
+ "critters": {
+  "hare": {
+   "kind": "ground"
+  },
+  "red_squirrel": {
+   "kind": "ground"
+  },
+  "swallow": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  },
+  "firefly": {
+   "kind": "firefly"
+  }
+ }
+}

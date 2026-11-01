@@ -393,6 +393,12 @@ LEVELS = {
         "trees": {"olive": (olive, 26, 30), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"scorched_scrub": ("d", "D", "E", None)},
         "rock": ("d", "D", "E", None)},
+    # Alfheim: bright birch and alder woods (Herder's Erlkonig is the alder-king) and old oaks, flowers in the grass.
+    "alfheim": {
+        "trees": {"birch": (birch, 18, 38), "alder": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y"), 26, 34),
+                  "oak": (broadleaf, 30, 34)},
+        "bushes": {"fern": ("fern",), "heather": ("r", "R", "r", None)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

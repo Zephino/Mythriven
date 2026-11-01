@@ -1124,5 +1124,35 @@
       "id": "ant_queen"
     },
     "persists": true
+  },
+  {
+    "id": "boss_erlking_daughter",
+    "name_key": "ACH_BOSS_ERLKING_DAUGHTER_NAME",
+    "desc_key": "ACH_BOSS_ERLKING_DAUGHTER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "erlking_daughter"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_volundr",
+    "name_key": "ACH_BOSS_VOLUNDR_NAME",
+    "desc_key": "ACH_BOSS_VOLUNDR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "volundr"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_erlking",
+    "name_key": "ACH_BOSS_ERLKING_NAME",
+    "desc_key": "ACH_BOSS_ERLKING_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "erlking"
+    },
+    "persists": true
   }
 ]

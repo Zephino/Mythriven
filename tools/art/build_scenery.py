@@ -575,12 +575,22 @@ def anthill():
     return p
 
 
+def elf_mill():
+    """An elf-mill stone (Scandinavian folklore: boulders with cup-shaped hollows where offerings were left for the
+    elves): a low mossy boulder pitted with small round cups."""
+    p = Pic(24, 14, (12, 13))
+    blob(p, 12, 9, 11, 5, "G"); blob(p, 11, 8, 9, 4, "g")
+    for x, y in ((6, 7), (10, 6), (14, 8), (17, 6), (9, 10)): p.px(x, y, "G"); p.px(x + 1, y, "I")
+    for x in (3, 19): p.px(x, 6, "l"); p.px(x + 1, 7, "l")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

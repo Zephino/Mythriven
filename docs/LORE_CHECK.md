@@ -581,6 +581,27 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_gold_thief | The Gold Thief | The Indians came for the gold on their swiftest camels. Be swift. | Herodotus, Histories 3.102-105 (the Indians steal the ants' gold) | no |
 | the_starved_queen | The Starved Queen | Her workers bring her gold. Let none arrive. | Herodotus, Histories 3.102-105 (the gold-digging ants) | no |
 
+## Pack 7: The Wild Green
+
+### Alfheim
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | alfheim | Alfheim | Grimnismal 5 (Alfheimr, given to Freyr); Gylfaginning 17 (the light elves) | no |
+| enemy | light_elf | Light elf | Snorri, Gylfaginning 17 (the light elves, fairer than the sun) | no |
+| enemy | elf_knight | Elf-knight | The ballad of Lady Isabel and the Elf-Knight (Child 4) | no |
+| enemy | elf_maiden | Elf-maiden | Goethe, Erlkonig (1782): the Erlking's daughters, who dance at night | no |
+| boss | erlking_daughter | The Erlking's Daughter | J. G. Herder, "Erlkonigs Tochter" (1778, from the Danish ballad of Sir Oluf); the charm Wid faerstice (elf-shot) | no |
+| boss | volundr | Völundr | The Poetic Edda, Volundarkvida (Volundr, prince of elves, forges wings and flies from King Nidud) | no |
+| boss | erlking | The Erlking | Goethe, "Erlkonig" (1782); Herder, "Erlkonigs Tochter" (1778) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| erlking_daughter_entrance | boss entrance | erlking_daughter | Welcome! Come, step into the ring and dance with me. | Herder, Erlkonigs Tochter (her invitation to Oluf) | no |
+| volundr_entrance | boss entrance | volundr | They lamed me so I could not run. So I made wings. | Volundarkvida | no |
+| erlking_entrance | boss entrance | erlking | And if you're not willing, I'll use force. | Goethe, Erlkonig (1782) | no |
+| erlking_freyja | boss meets god (with freyja) | erlking | Lady of the Vanir, your brother's realm is mine tonight. | Original line written for Mythriven (Alfheim was given to Freyr, Freyja's brother) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.
