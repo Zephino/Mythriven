@@ -1334,5 +1334,35 @@
       "id": "utgarda_loki"
     },
     "persists": true
+  },
+  {
+    "id": "boss_questing_beast",
+    "name_key": "ACH_BOSS_QUESTING_BEAST_NAME",
+    "desc_key": "ACH_BOSS_QUESTING_BEAST_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "questing_beast"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_morgan_le_fay",
+    "name_key": "ACH_BOSS_MORGAN_LE_FAY_NAME",
+    "desc_key": "ACH_BOSS_MORGAN_LE_FAY_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "morgan_le_fay"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_vortigern",
+    "name_key": "ACH_BOSS_VORTIGERN_NAME",
+    "desc_key": "ACH_BOSS_VORTIGERN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "vortigern"
+    },
+    "persists": true
   }
 ]

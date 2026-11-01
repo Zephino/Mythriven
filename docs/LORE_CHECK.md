@@ -726,6 +726,23 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | utgarda_loki_entrance | boss entrance | utgarda_loki | Welcome to Utgard, little ones. Nothing here is what it seems. | Gylfaginning 47 | no |
 | utgarda_loki_thor | boss meets god (with thor) | utgarda_loki | Thor! Did you ever finish that horn? The sea is still lower for it. | Gylfaginning 47 (the horn joined to the sea; the ebb tide) | no |
 
+### Logres
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | logres | Logres | Geoffrey of Monmouth, Historia Regum Britanniae (1136); Malory, Le Morte d'Arthur (1485) | no |
+| enemy | man_at_arms | Man-at-arms | Geoffrey of Monmouth, Historia Regum Britanniae 6 (Vortigern's soldiers) | no |
+| boss | questing_beast | The Questing Beast | Thomas Malory, Le Morte d'Arthur (1485), 1.19-20 (the Questing Beast, hunted by King Pellinore) | no |
+| boss | morgan_le_fay | Morgan le Fay | Thomas Malory, Le Morte d'Arthur (1485), 4.14 (Morgan steals Excalibur's scabbard and throws it into a lake) | no |
+| boss | vortigern | Vortigern | Geoffrey of Monmouth, Historia Regum Britanniae (1136) 6.17-8.2 (the tower that fell each night; Vortigern burned in his tower) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| questing_beast_entrance | boss entrance | questing_beast | (From its belly comes a noise like thirty couple of hounds questing.) | Malory 1.19 | no |
+| morgan_le_fay_entrance | boss entrance | morgan_le_fay | The scabbard is worth ten of the sword. And it is mine. | Malory 1.25, 4.14 (Merlin on the scabbard) | no |
+| vortigern_entrance | boss entrance | vortigern | This time the tower will stand. | Geoffrey of Monmouth 6.17 | no |
+| morgan_le_fay_king_arthur | boss entrance (as king_arthur) | morgan_le_fay | Brother! Looking for your scabbard? | Malory 4.14 | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

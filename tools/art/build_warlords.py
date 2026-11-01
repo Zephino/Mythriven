@@ -251,6 +251,71 @@ def hugi(c, step):
 HUGI_PAL = {"o": "#2a3040", "s": "#e8dcd0", "w": "#e8eef8", "W": "#a8b8d8", "k": "#1a2030", "h": "#d8d0b0"}
 
 
+# --- Logres (Geoffrey of Monmouth 6.17-8.2; Malory, Le Morte d'Arthur 1.19-20, 4.14) ----------------------------------
+
+def man_at_arms(c, f):
+    """A man-at-arms of Vortigern's Britain (Geoffrey of Monmouth): a soldier in a mail shirt and conical helm with a
+    round shield and a spear."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 18, x + 1 + d, 22, "k")
+    c.rect(5, 8, 14, 18, "m"); c.row(12, 5, 14, "M"); c.rect(5, 16, 14, 18, "r")
+    ellipse(c, 9, 5, 3, 3, "s"); poly(c, [(6, 3), (9, -1), (12, 3)], "M"); c.rect(9, 3, 9, 6, "M")
+    ellipse(c, 4, 13, 3, 4, "r"); c.px(4, 13, "y")
+    c.rect(16, 0, 16, 20, "b")
+
+
+MAN_AT_ARMS_PAL = {"o": "#0e0c0a", "k": "#2a2420", "m": "#8a8e96", "M": "#5a5e66", "r": "#7a2a2a", "s": "#d8b090",
+                   "y": "#e0b040", "b": "#6a4a2a"}
+
+
+def questing_beast(c, step):
+    """The Questing Beast (Malory 1.19): "the head like a serpent's head, and a body like a leopard, buttocks like a
+    lion, and footed like an hart", with a noise in its belly like thirty couple of hounds questing."""
+    ellipse(c, 30, 30, 16, 8, "y")
+    for x, y in ((20, 27), (26, 31), (32, 27), (38, 31), (24, 34), (34, 34)):
+        c.px(x, y, "k"); c.px(x + 1, y, "k")                                                     # leopard spots
+    ellipse(c, 16, 30, 7, 8, "l")                                                                # lion's haunches
+    for k, d in enumerate((-step, step, step, -step)):
+        x = 12 + k * 9 + d * 2
+        c.rect(x, 34, x + 1, 46, "y" if k > 1 else "l"); c.rect(x, 46, x + 1, 48, "k")          # hart's feet
+    for t in range(14):
+        c.rect(44 + t // 2, 26 - t, 46 + t // 2, 28 - t, "g")                                    # serpent neck
+    ellipse(c, 52, 11, 5, 3, "g"); c.px(54, 10, "r"); c.row(12, 55, 58, "r")
+    for k in range(6):
+        c.px(8 - k, 26 + k, "l")
+
+
+QUESTING_PAL = {"o": "#120a04", "y": "#d8a848", "k": "#2a1a0a", "l": "#b07a3a", "g": "#4a7a4a", "r": "#e83a2a"}
+
+
+def morgan_le_fay(c, step):
+    """Morgan le Fay (Malory 4.14): King Arthur's sister, a great sorceress, who stole Excalibur's scabbard and threw it
+    into a lake. A queen in dark green and black, holding the jewelled scabbard."""
+    figure(c, step, "v", "s", "h")
+    c.rect(16, 18, 26, 26, "V"); c.rect(13, 6, 15, 24, "h"); c.rect(26, 6, 28, 24, "h")
+    c.rect(14, 1, 27, 3, "y")
+    c.rect(31, 18, 33, 40, "r"); c.px(32, 22, "y"); c.px(32, 28, "w"); c.px(32, 34, "y")            # the scabbard
+
+
+MORGAN_PAL = {"o": "#0a0a0c", "k": "#14121a", "v": "#1e4a2e", "V": "#14301e", "s": "#ecdcd0", "h": "#1a1418",
+              "y": "#e0b840", "r": "#6a1a24", "w": "#d8e8f0"}
+
+
+def vortigern(c, step):
+    """Vortigern (Geoffrey of Monmouth 6.6-8.2): the usurper king of the Britons, who built a tower on Snowdon that
+    fell down every night, and was burned in another tower by Aurelius. A crowned king in a red cloak, grim and grey."""
+    figure(c, step, "r", "s", "h")
+    c.rect(16, 18, 26, 30, "m"); c.row(24, 16, 26, "M")
+    c.rect(16, 13, 25, 17, "h")
+    c.rect(14, 1, 27, 3, "y"); c.px(15, 0, "y"); c.px(21, 0, "y"); c.px(26, 0, "y")
+    c.rect(33, 10, 34, 44, "M"); c.rect(31, 10, 36, 11, "y")
+
+
+VORTIGERN_PAL = {"o": "#0e0a08", "k": "#1a1410", "r": "#8a2020", "s": "#d8b090", "h": "#7a7470", "m": "#7a7e86",
+                 "M": "#5a5e66", "y": "#d8b040"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_warlords.py."
@@ -275,4 +340,8 @@ if __name__ == "__main__":
     kit.build_boss("logi", logi, LOGI_PAL, doc(logi.__doc__), (42, 60), (21, 58), [0, 1, 0, 1, 0])
     kit.build_boss("hugi", hugi, HUGI_PAL, doc(hugi.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("utgarda_loki", utgarda_loki(False), UTGARD_PAL, doc(utgarda_loki.__doc__), (42, 60), (21, 58), [0, 1, 0, -1, 0])
+    kit.build_boss("man_at_arms", man_at_arms, MAN_AT_ARMS_PAL, doc(man_at_arms.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("questing_beast", questing_beast, QUESTING_PAL, doc(questing_beast.__doc__), (62, 52), (30, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("morgan_le_fay", morgan_le_fay, MORGAN_PAL, doc(morgan_le_fay.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("vortigern", vortigern, VORTIGERN_PAL, doc(vortigern.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     print("wrote the Warlords' art")

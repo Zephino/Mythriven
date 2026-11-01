@@ -851,3 +851,43 @@ func test_utgarda_lokis_illusions_shield_him() -> void:
 		_enemies.remove_quietly(slot)
 	assert_eq(king.copies_standing(), 0)
 	assert_almost_eq(king.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)
+
+
+func test_the_questing_beast_drives_heroes_back() -> void:
+	_start("logres")
+	assert_eq(str(_level("logres")["unlock"]["boss"]), "queen_of_elfame")
+	var beast: QuestingBeastBoss = _bosses.spawn_boss("questing_beast", 0) as QuestingBeastBoss
+	_player.position = beast.position_now() + Vector2(60, 0)
+	beast.bay()
+	beast.signature(0.3)
+	assert_gt(_player.position.distance_to(beast.position_now()), 60.0, "driven back")
+
+
+func test_morgan_heals_until_her_scabbard_is_taken() -> void:
+	_start("logres")
+	var morgan: MorganLeFayBoss = _bosses.spawn_boss("morgan_le_fay", 1) as MorganLeFayBoss
+	_enemies.hp[morgan.slot] = _enemies.max_hp[morgan.slot] * 0.5
+	morgan.signature(1.0)
+	assert_gt(_enemies.hp[morgan.slot], _enemies.max_hp[morgan.slot] * 0.5, "she heals")
+	assert_eq(morgan.cap_lethal(50.0), 0.0, "no blood lost")
+	morgan.drop()
+	_player.position = morgan.scabbard
+	morgan.signature(0.1)
+	assert_eq(morgan.taken, 1)
+	var hp: float = _enemies.hp[morgan.slot]
+	morgan.signature(1.0)
+	assert_eq(_enemies.hp[morgan.slot], hp, "no more healing")
+	assert_eq(morgan.cap_lethal(50.0), 50.0)
+
+
+func test_vortigerns_tower_shelters_him_until_it_falls() -> void:
+	_start("logres")
+	var king: VortigernBoss = _bosses.spawn_boss("vortigern", 2) as VortigernBoss
+	king.signature(0.1)
+	_enemies.positions[king.slot] = king.tower
+	assert_almost_eq(king.modify_hit(100.0, _player, Vector2.ZERO), 40.0, 0.01, "sheltered by the tower")
+	king.on_element_hit("fire")
+	assert_eq(king.falls, 1, "fire brings it down")
+	assert_almost_eq(king.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)
+	king.signature(6.1)
+	assert_true(king.standing, "rebuilt")

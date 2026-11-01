@@ -2436,5 +2436,45 @@
     "text_key": "BANTER_UTGARDA_LOKI_THOR",
     "lore_source": "Gylfaginning 47 (the horn joined to the sea; the ebb tide)",
     "needs_owner_review": true
+  },
+  {
+    "id": "questing_beast_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "questing_beast",
+    "hero": "",
+    "god": "questing_beast",
+    "text_key": "BANTER_QUESTING_BEAST_ENTRANCE",
+    "lore_source": "Malory 1.19",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morgan_le_fay_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "morgan_le_fay",
+    "hero": "",
+    "god": "morgan_le_fay",
+    "text_key": "BANTER_MORGAN_LE_FAY_ENTRANCE",
+    "lore_source": "Malory 1.25, 4.14 (Merlin on the scabbard)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "vortigern_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "vortigern",
+    "hero": "",
+    "god": "vortigern",
+    "text_key": "BANTER_VORTIGERN_ENTRANCE",
+    "lore_source": "Geoffrey of Monmouth 6.17",
+    "needs_owner_review": true
+  },
+  {
+    "id": "morgan_le_fay_king_arthur",
+    "trigger": "boss_entrance",
+    "speaker": "morgan_le_fay",
+    "hero": "king_arthur",
+    "god": "morgan_le_fay",
+    "text_key": "BANTER_MORGAN_LE_FAY_KING_ARTHUR",
+    "lore_source": "Malory 4.14",
+    "needs_owner_review": true
   }
 ]

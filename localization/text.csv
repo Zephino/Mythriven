@@ -2595,3 +2595,29 @@ BANTER_LOGI_ENTRANCE,"Meat, bones, trough... and now you."
 BANTER_HUGI_ENTRANCE,"Run, if you like. I'll be there before you."
 BANTER_UTGARDA_LOKI_ENTRANCE,"Welcome to Utgard, little ones. Nothing here is what it seems."
 BANTER_UTGARDA_LOKI_THOR,Thor! Did you ever finish that horn? The sea is still lower for it.
+LEVEL_LOGRES_NAME,Logres
+HAZARD_FALLING_TOWER_NAME,"The walls shake, and stones fall!"
+ENEMY_MAN_AT_ARMS_NAME,Man-at-arms
+ENEMY_MAN_AT_ARMS_MYTH,"The soldiers of the usurper Vortigern, in mail shirts and conical helms, who held Britain for him while his tower fell and fell again."
+BOSS_QUESTING_BEAST_NAME,The Questing Beast
+ENEMY_QUESTING_BEAST_NAME,The Questing Beast
+ENEMY_QUESTING_BEAST_MYTH,"A strange beast Arthur saw drinking at a well: a serpent's head, a leopard's body, a lion's haunches and a hart's feet, and from its belly came a noise like thirty couple of hounds questing. King Pellinore had hunted it for twelve months and never caught it."
+BOSS_QUESTING_BEAST_BAYS,The noise of thirty couple of hounds drives you back!
+BOSS_MORGAN_LE_FAY_NAME,Morgan le Fay
+ENEMY_MORGAN_LE_FAY_NAME,Morgan le Fay
+ENEMY_MORGAN_LE_FAY_MYTH,"Arthur's sister, a great sorceress. Merlin told Arthur the scabbard of Excalibur was worth ten of the sword, for while he wore it he would lose no blood. Morgan stole it, and when she was pursued she threw it far into a lake."
+BOSS_MORGAN_SCABBARD,"The scabbard has fallen! Take it, and she will bleed!"
+BOSS_VORTIGERN_NAME,Vortigern
+ENEMY_VORTIGERN_NAME,Vortigern
+ENEMY_VORTIGERN_MYTH,"The usurper king of the Britons. The tower he built on Snowdon fell down every night, until the boy Merlin showed him why. In the end Aurelius Ambrosius besieged him in another tower and burned it down around him."
+BOSS_VORTIGERN_TOWER_FALLS,Vortigern's tower falls!
+ACH_BOSS_QUESTING_BEAST_NAME,Defeat The Questing Beast
+ACH_BOSS_QUESTING_BEAST_DESC,The 10:00 boss of Logres.
+ACH_BOSS_MORGAN_LE_FAY_NAME,Defeat Morgan le Fay
+ACH_BOSS_MORGAN_LE_FAY_DESC,The 20:00 boss of Logres.
+ACH_BOSS_VORTIGERN_NAME,Defeat Vortigern
+ACH_BOSS_VORTIGERN_DESC,The 30:00 boss of Logres.
+BANTER_QUESTING_BEAST_ENTRANCE,(From its belly comes a noise like thirty couple of hounds questing.)
+BANTER_MORGAN_LE_FAY_ENTRANCE,The scabbard is worth ten of the sword. And it is mine.
+BANTER_VORTIGERN_ENTRANCE,This time the tower will stand.
+BANTER_MORGAN_LE_FAY_KING_ARTHUR,Brother! Looking for your scabbard?

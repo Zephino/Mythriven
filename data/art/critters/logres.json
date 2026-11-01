@@ -1,0 +1,180 @@
+{
+ "_doc": "Critters of logres (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#6a5a48",
+  "b": "#c8a888",
+  "c": "#c8642a",
+  "d": "#f0ece4",
+  "e": "#24222a",
+  "f": "#3a3844",
+  "g": "#8a6a4a",
+  "h": "#5a4430",
+  "i": "#c8a040",
+  "j": "#f0d860",
+  "m": "#3a3020"
+ },
+ "frames": {
+  "hedgehog": [
+   [
+    "..o.ooo.o..",
+    ".obobabobo.",
+    ".oaaaaaaaoo",
+    "oaaaaaaaabk",
+    "oaaaaaaaabb",
+    ".oaaaaaaaoo",
+    "..ookakoo.."
+   ],
+   [
+    "..o.ooo.o..",
+    ".obobabobo.",
+    ".oaaaaaaaoo",
+    "oaaaaaaaabk",
+    "oaaaaaaaabb",
+    ".oaaaaaaaoo",
+    "..okaaako.."
+   ]
+  ],
+  "red_fox": [
+   [
+    "............oo..",
+    "......ooo..occo.",
+    ".ooooocccoockcco",
+    "occcccccccccccco",
+    "dccccccccccccdck",
+    "ooocccccccccoooo",
+    "...oockcckoo....",
+    "....ockocko.....",
+    "....ockocko....."
+   ],
+   [
+    "............oo..",
+    "......ooo..occo.",
+    ".ooooocccoockcco",
+    "occcccccccccccco",
+    "dccccccccccccdck",
+    "ooocccccccccoooo",
+    "...ocockccko....",
+    "...ocookocko....",
+    "...ocookocko...."
+   ]
+  ],
+  "raven": [
+   [
+    ".......oo.",
+    "o..ooooeko",
+    "fooeeeeeee",
+    "offfffeeoo",
+    ".oeeeeeeo.",
+    "..oeeeeo..",
+    "...oeoeo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "fooeeeeeko",
+    "offfffeeee",
+    ".oeeeeeeoo",
+    "..oeeeeo..",
+    "...oeoeo.."
+   ]
+  ],
+  "raven_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...oeeeeeoee",
+    "...oeefeeooo",
+    "....offfo...",
+    "...ofoofo..."
+   ],
+   [
+    "....o..o....",
+    "...ofoofoo..",
+    "....offfokoo",
+    "...oeefeeoee",
+    "...oeeeeeooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "sparrow": [
+   [
+    ".....oo.",
+    "o.ooogko",
+    "hogggggi",
+    "ohhhhggo",
+    ".oggggo.",
+    "..oioio."
+   ],
+   [
+    "........",
+    "o.ooooo.",
+    "hoggggko",
+    "ohhhhggi",
+    ".oggggoo",
+    "..oioio."
+   ]
+  ],
+  "sparrow_fly": [
+   [
+    "..........",
+    ".......o..",
+    "...ooookoo",
+    "..oggggggi",
+    "..ogghggoo",
+    "...ohhho..",
+    "....ooo..."
+   ],
+   [
+    "..........",
+    "....oooo..",
+    "...ohhhkoo",
+    "..ogghgggi",
+    "..ogggggoo",
+    "...ooooo..",
+    ".........."
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".jjkjj.",
+    ".jjkjj.",
+    "..mkm..",
+    "...k...",
+    "......."
+   ],
+   [
+    "jjj.jjj",
+    "jjjkjjj",
+    "jjjkjjj",
+    ".mmkmm.",
+    ".mmkmm.",
+    "......."
+   ]
+  ]
+ },
+ "critters": {
+  "hedgehog": {
+   "kind": "ground"
+  },
+  "red_fox": {
+   "kind": "ground"
+  },
+  "raven": {
+   "kind": "bird"
+  },
+  "sparrow": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  }
+ }
+}

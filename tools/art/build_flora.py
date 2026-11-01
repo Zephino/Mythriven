@@ -431,6 +431,12 @@ LEVELS = {
         "trees": {"spruce": (spruce, 22, 40), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"juniper": ("P", "p", "q", None)},
         "rock": ("g", "G", "H", "l")},
+    # Logres: the old kingdom of Britain; oak woods, ash and yew, bracken and gorse.
+    "logres": {
+        "trees": {"oak": (broadleaf, 30, 34), "ash": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y"), 26, 36),
+                  "yew": (lambda c, r, s: broadleaf(c, r, s, "P", "P", "p"), 26, 28)},
+        "bushes": {"fern": ("fern",), "gorse": ("M", "m", "y", "f")},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

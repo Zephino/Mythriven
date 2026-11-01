@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.04
+Date: 10/31/2026
+Time: 10:19 PM
+
+### Changes
+- **Logres, the kingdom of Britain, is built and open** (Pack 8, `docs/PACK_8_PLAN.md`). It opens when you beat the Queen of Elfame. With it, all four Warlords realms are built.
+  - **Hazard, the falling tower:** the walls shake and stones fall (telegraphed), as Vortigern's tower fell every night.
+  - **Monsters:** men-at-arms, enchanted hounds, ravens, and from 10:00 black knights.
+  - **10:00, the Questing Beast** (Malory): serpent's head, leopard's body, lion's haunches and hart's feet; every 7 s the noise of thirty couple of hounds from its belly drives every nearby Hero back.
+  - **20:00, Morgan le Fay** (Malory): she wears Excalibur's stolen scabbard, so she heals all the time and Burn and Poison do nothing to her. Every 12 s it falls in the arena for 5 s; take it and she stops healing (and can be Burned and Poisoned) for 10 s.
+  - **30:00, Vortigern** (the design's boss; Geoffrey of Monmouth): near his tower he takes only 40% damage. Every 15 s the tower falls, hurting whoever is close, and is rebuilt 6 s later; a Fire hit on him by the tower brings it down at once.
+  - Oak, ash and yew woods with castle ruins and standing stones; hedgehogs, foxes, ravens, sparrows, butterflies and deer.
+  - 3 achievements, 4 banter lines (Morgan teases her brother, King Arthur) and the realm's rows on the lore check.
+- 3 new tests (396 tests pass).
+
+### Reason
+Pack 8, realm 4 of 4 (owner: "go ahead").
+
 ## Version 00.03.03
 Date: 10/31/2026
 Time: 10:12 PM

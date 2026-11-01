@@ -8061,5 +8061,245 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Logres bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "questing_beast",
+    "name_key": "BOSS_QUESTING_BEAST_NAME",
+    "tradition": "arthurian",
+    "lore_source": "Thomas Malory, Le Morte d'Arthur (1485), 1.19-20 (the Questing Beast, hunted by King Pellinore)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "questing_beast",
+    "move_speed": 56,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_questing",
+      "bay_every_s": 7.0,
+      "bay_radius_px": 140,
+      "push_s": 0.4,
+      "push_px_s": 260
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Logres bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "morgan_le_fay",
+    "name_key": "BOSS_MORGAN_LE_FAY_NAME",
+    "tradition": "arthurian",
+    "lore_source": "Thomas Malory, Le Morte d'Arthur (1485), 4.14 (Morgan steals Excalibur's scabbard and throws it into a lake)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "morgan_le_fay",
+    "move_speed": 42,
+    "keep_distance_px": 110,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_scabbard",
+      "heal_per_s": 0.008,
+      "drop_every_s": 12.0,
+      "drop_px": 110,
+      "lies_s": 5.0,
+      "scabbard_reach_px": 16,
+      "lost_s": 10.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Logres bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "vortigern",
+    "name_key": "BOSS_VORTIGERN_NAME",
+    "tradition": "arthurian",
+    "lore_source": "Geoffrey of Monmouth, Historia Regum Britanniae (1136) 6.17-8.2 (the tower that fell each night; Vortigern burned in his tower)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "vortigern",
+    "move_speed": 34,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_tower",
+      "tower_offset_px": 120,
+      "tower_reach_px": 100,
+      "tower_damage_taken": 0.4,
+      "fall_every_s": 15.0,
+      "rebuild_s": 6.0,
+      "rubble_radius_px": 90,
+      "rubble_damage": 16
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "man_at_arms"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "man_at_arms"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

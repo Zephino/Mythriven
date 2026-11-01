@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 8). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
-boss idea; everything else was chosen by Claude from old public-domain texts only. Ghorvast built and released 11/01/2026 (00.03.01); Knossos (00.03.02); Utgard (00.03.03). Logi reuses the Mycelium's spreading ground, as fire that Burns. The owner can change or veto any of
+boss idea; everything else was chosen by Claude from old public-domain texts only. Ghorvast built and released 11/01/2026 (00.03.01); Knossos (00.03.02); Utgard (00.03.03). Logi reuses the Mycelium's spreading ground, as fire that Burns. Logres (00.03.04). **All four realms are built.** The owner can change or veto any of
 it.
 
 Realms work like Packs 5-7: endless map, a hazard, monster families, three bosses, no local gods.
@@ -80,7 +80,7 @@ rockslide look), as the "mountain" Thor struck was really Skrýmir's illusion.
 | 20:00 | **Hugi** | "Thought", who outran Thjálfi: nothing is faster than thought. He keeps appearing ahead of a Hero, wherever they are heading |
 | 30:00 | **Útgarða-Loki** (the design's) | The king of illusions: he raises copies of himself, and while any copy stands, most blows meant for him strike only air |
 
-## Realm 32: Logres (the kingdom of Britain)
+## Realm 32: Logres (the kingdom of Britain): **done and released 11/01/2026 (00.03.04)**
 *Sources: Geoffrey of Monmouth, Historia Regum Britanniae (1136), 6.17-8.2 (Vortigern's tower that would not stand;
 Vortigern burned in his tower); Thomas Malory, Le Morte d'Arthur (1485), 1.19-20 (the Questing Beast) and 4.14
 (Morgan le Fay steals Excalibur's scabbard and throws it in a lake).* The dragons under Vortigern's tower are left for
