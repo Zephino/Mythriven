@@ -1,0 +1,106 @@
+# The Abyss's art (Pack 11, docs/PACK_11_PLAN.md; docs/ART_RULES.md), one realm at a time. Ashkarrow is the game's own
+# invented city (nothing from any religion); the rest is drawn only from the old texts (the Historia Brittonum, "Lludd
+# and Llefelys", Plato's Timaeus and Critias, the Eddas), never later versions.
+# Run: python3 build_abyss.py from tools/art/.
+import math
+import hero_kit as kit
+from hero_kit import ellipse, poly
+
+STEP = [0, -1, 0, 1, 0]
+
+
+def figure(c, step, robe, skin, hair, legs="k", x0=14, top=18, bottom=50):
+    """A standing figure in a long robe (shared by the boss figures)."""
+    for k, d in enumerate((-step, step)):
+        c.rect(x0 + 2 + k * 6 + d, bottom - 2, x0 + 4 + k * 6 + d, bottom + 4, legs)
+    poly(c, [(x0, top), (x0 + 14, top), (x0 + 17, bottom), (x0 - 3, bottom)], robe)
+    c.rect(x0 + 2, top - 12, x0 + 11, top - 2, skin)
+    c.rect(x0, top - 15, x0 + 13, top - 11, hair)
+    c.px(x0 + 4, top - 8, "o"); c.px(x0 + 9, top - 8, "o")
+
+
+# --- Ashkarrow (invented for Mythriven) ----------------------------------------------------------------------------
+
+def ash_fiend(c, f):
+    """An ash fiend (Mythriven's own): a grey, hunched figure of packed ash, embers glowing through its cracks."""
+    s = STEP[f]
+    for x, d in ((6, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 22, "a")
+    ellipse(c, 9, 12, 5, 6, "g")
+    ellipse(c, 11, 5, 3.5, 3, "g")
+    c.px(10, 5, "e"); c.px(13, 5, "e")
+    for x, y in ((7, 10), (10, 14), (12, 11), (8, 15)):
+        c.px(x, y, "e")
+    c.rect(3, 10, 4, 15, "a"); c.rect(15, 9, 16, 14, "a")
+
+
+ASH_FIEND_PAL = {"o": "#120c0a", "g": "#5a5250", "a": "#3e3634", "e": "#f07a2a"}
+
+
+def cinder_imp(c, f):
+    """A cinder imp (Mythriven's own): a little spark of Ashkarrow with arms and legs, flickering."""
+    up = f % 2
+    ellipse(c, 6, 6, 3, 3, "r"); ellipse(c, 6, 6 - up, 1.5, 1.5, "y")
+    c.px(4, 5, "k"); c.px(8, 5, "k")
+    c.px(2, 6 + up, "r"); c.px(10, 6 - up, "r"); c.px(5, 10, "r"); c.px(7, 10, "r")
+    c.px(6, 1 + up, "y")
+
+
+CINDER_IMP_PAL = {"o": "#2a0e06", "r": "#e8502a", "y": "#ffd060", "k": "#1a0a06"}
+
+
+def chain_warden(c, step):
+    """The Chain Warden (Mythriven's own): the gatekeeper of Ashkarrow, a broad grey figure wound about with red-hot
+    chains, a loop of chain hanging from his fist."""
+    figure(c, step, "g", "a", "a", legs="a")
+    for y in range(20, 48, 5):
+        c.row(y, 13, 30, "r"); c.px(15, y + 1, "R"); c.px(25, y + 1, "R")
+    c.px(18, 10, "e"); c.px(23, 10, "e")
+    for k in range(8):
+        c.px(33 + (k % 2), 22 + k * 3, "r"); c.px(34 + (k % 2), 23 + k * 3, "R")
+
+
+WARDEN_PAL = {"o": "#120c0a", "k": "#1e1816", "g": "#4a4240", "a": "#363030", "r": "#e8602a", "R": "#a83a1a",
+              "e": "#ffb040"}
+
+
+def ash_colossus(c, step):
+    """The Ash Colossus (Mythriven's own): a giant heaped up out of hot grey ash, embers showing in its seams."""
+    for k, d in enumerate((-step, step)):
+        c.rect(16 + k * 18 + d, 40, 23 + k * 18 + d, 52, "a")
+    ellipse(c, 30, 30, 18, 14, "g")
+    ellipse(c, 30, 12, 9, 8, "g")
+    c.rect(6, 22, 12, 40, "a"); c.rect(48, 22, 54, 40, "a")
+    c.px(26, 11, "e"); c.px(34, 11, "e"); c.row(16, 27, 33, "e")
+    for x, y in ((20, 26), (24, 34), (34, 28), (38, 36), (29, 40), (16, 32), (44, 30)):
+        c.px(x, y, "e"); c.px(x + 1, y + 1, "E")
+
+
+COLOSSUS_PAL = {"o": "#120c0a", "g": "#6a6260", "a": "#4a4240", "e": "#f07a2a", "E": "#ffc060"}
+
+
+def lord_of_ashkarrow(c, step):
+    """The Lord of Ashkarrow (Mythriven's own): the master of the city of ash, tall in a charcoal robe, crowned with
+    cinders."""
+    figure(c, step, "k", "g", "k", legs="K")
+    c.rect(12, 22, 32, 24, "r"); c.rect(20, 24, 23, 48, "r")
+    for x in range(15, 29, 3):
+        c.rect(x, 0, x + 1, 3, "e"); c.px(x, 0, "y")
+    c.px(18, 10, "y"); c.px(23, 10, "y")
+    c.rect(34, 10, 35, 48, "K"); ellipse(c, 34, 8, 3, 3, "e")
+
+
+LORD_PAL = {"o": "#0e0a0a", "k": "#2a2426", "K": "#1a1416", "g": "#6a6260", "r": "#a8321a", "e": "#f07a2a",
+            "y": "#ffd060"}
+
+
+if __name__ == "__main__":
+    def doc(text):
+        return " ".join(text.split()) + " Built by tools/art/build_abyss.py."
+    walk = [0, 1, 2, 3, 4]
+    kit.build_boss("ash_fiend", ash_fiend, ASH_FIEND_PAL, doc(ash_fiend.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("cinder_imp", cinder_imp, CINDER_IMP_PAL, doc(cinder_imp.__doc__), (13, 12), (6, 11), walk, folder="enemies")
+    kit.build_boss("chain_warden", chain_warden, WARDEN_PAL, doc(chain_warden.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("ash_colossus", ash_colossus, COLOSSUS_PAL, doc(ash_colossus.__doc__), (60, 56), (30, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("lord_of_ashkarrow", lord_of_ashkarrow, LORD_PAL, doc(lord_of_ashkarrow.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
+    print("wrote the Abyss's art")

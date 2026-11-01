@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.16
+Date: 11/01/2026
+Time: 1:33 AM
+
+### Changes
+- **Pack 11, The Abyss, is planned** (`docs/PACK_11_PLAN.md`): Ashkarrow, Dinas Emrys, Atlantis and Ginnungagap, each opened by a Pack 10 30:00 boss.
+- **Ashkarrow, the city of ash, is built and open.** It opens when you beat the Griffin Matriarch. It is the design's invented realm: nothing in it comes from any religion, and every name is plain, for the owner to approve or rename.
+  - **Hazard, the burning streets:** the streets crack open and bands of fire well up, Burning whoever stands in them.
+  - **Monsters:** ash fiends, cinder imps (swarms), Muspell sparks and night bats.
+  - **10:00, the Chain Warden:** every 6 s he marks a line toward the farthest Hero and hurls his chain along it; a Hero caught is hurt and dragged to him.
+  - **20:00, the Ash Colossus:** Fire heals it instead of hurting it; Ice or Water cracks its crust, so it takes double damage for 3 s. It sends out rings of hot ash.
+  - **30:00, the Lord of Ashkarrow:** four braziers burn round the arena; each one lit cuts the damage he takes by 18%. Stand at one for 1.5 s to put it out; he lights one again every 10 s.
+  - A burnt city of ash and cinders, with smoking vents and black spires; lizards and ravens.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (430 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 11, the next of the nine packs, built one realm at a time.
+
 ## Version 00.03.15
 Date: 11/01/2026
 Time: 12:09 AM

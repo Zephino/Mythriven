@@ -1,0 +1,93 @@
+{
+ "_doc": "A cinder imp (Mythriven's own): a little spark of Ashkarrow with arms and legs, flickering. Built by tools/art/build_abyss.py.",
+ "size": [
+  13,
+  12
+ ],
+ "anchor": [
+  6,
+  11
+ ],
+ "palette": {
+  "o": "#2a0e06",
+  "r": "#e8502a",
+  "y": "#ffd060",
+  "k": "#1a0a06"
+ },
+ "frames": {
+  "idle": [
+   [
+    "......o......",
+    ".....oyo.....",
+    "......o......",
+    "....ooroo....",
+    "...orrrrro...",
+    "..ookyyykoo..",
+    ".orrryyyrrro.",
+    "..ooryyyroo..",
+    "...orrrrro...",
+    "....ooroo....",
+    "....ororo....",
+    ".....o.o....."
+   ]
+  ],
+  "walk": [
+   [
+    ".............",
+    "......o......",
+    ".....oyo.....",
+    "....ooroo....",
+    "...oryyyroo..",
+    "...okyyykoro.",
+    "..orryyyrro..",
+    ".ororrrrro...",
+    "..oorrrrro...",
+    "....ooroo....",
+    "....ororo....",
+    ".....o.o....."
+   ],
+   [
+    "......o......",
+    ".....oyo.....",
+    "......o......",
+    "....ooroo....",
+    "...orrrrro...",
+    "..ookyyykoo..",
+    ".orrryyyrrro.",
+    "..ooryyyroo..",
+    "...orrrrro...",
+    "....ooroo....",
+    "....ororo....",
+    ".....o.o....."
+   ],
+   [
+    ".............",
+    "......o......",
+    ".....oyo.....",
+    "....ooroo....",
+    "...oryyyroo..",
+    "...okyyykoro.",
+    "..orryyyrro..",
+    ".ororrrrro...",
+    "..oorrrrro...",
+    "....ooroo....",
+    "....ororo....",
+    ".....o.o....."
+   ],
+   [
+    "......o......",
+    ".....oyo.....",
+    "......o......",
+    "....ooroo....",
+    "...orrrrro...",
+    "..ookyyykoo..",
+    ".orrryyyrrro.",
+    "..ooryyyroo..",
+    "...orrrrro...",
+    "....ooroo....",
+    "....ororo....",
+    ".....o.o....."
+   ]
+  ]
+ }
+}

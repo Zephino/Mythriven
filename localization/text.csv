@@ -2830,6 +2830,7 @@ BANTER_SIX_MONTH_SLEEPER_ENTRANCE,Mmh... is it spring already?
 BANTER_GRIFFIN_MATRIARCH_ENTRANCE,(A great griffin rises from her nest of gold and screams.)
 BANTER_GRIFFIN_MATRIARCH_SKADI,"(The griffin bows her head to the huntress of the snows, and then attacks anyway.)"
 PACK_12_NAME,Pack 10: The Heavens
+PACK_13_NAME,Pack 11: The Abyss
 LEVEL_EMPYREAN_NAME,The Empyrean
 HAZARD_FALLING_STARS_NAME,The stars are falling!
 ENEMY_STAR_HOUND_NAME,Star hound
@@ -2945,3 +2946,32 @@ COSMETIC_GRIFFIN_GOLD,Griffin Gold
 COSMETIC_STARLIGHT,Starlight
 COSMETIC_RAVEN_BLACK,Raven Black
 COSMETIC_DREAM_VIOLET,Dream Violet
+LEVEL_ASHKARROW_NAME,Ashkarrow
+HAZARD_BURNING_STREETS_NAME,The streets crack open and fire wells up!
+ENEMY_ASH_FIEND_NAME,Ash fiend
+ENEMY_ASH_FIEND_MYTH,"The grey, hunched dwellers of Ashkarrow, made of ash with embers glowing through the cracks. (Mythriven's own creature.)"
+ENEMY_CINDER_IMP_NAME,Cinder imp
+ENEMY_CINDER_IMP_MYTH,"Little sparks of Ashkarrow with arms and legs, which swarm out of the cracks in the streets. (Mythriven's own creature.)"
+BOSS_CHAIN_WARDEN_NAME,The Chain Warden
+ENEMY_CHAIN_WARDEN_NAME,The Chain Warden
+ENEMY_CHAIN_WARDEN_MYTH,"The keeper of Ashkarrow's gate, wrapped in the red-hot chains he throws at anyone who tries to leave. (Mythriven's own creature.)"
+BOSS_CHAIN_WARDEN_CAUGHT,The chain catches you and drags you in!
+BOSS_ASH_COLOSSUS_NAME,The Ash Colossus
+ENEMY_ASH_COLOSSUS_NAME,The Ash Colossus
+ENEMY_ASH_COLOSSUS_MYTH,A giant heaped up out of the hot ash of Ashkarrow. Fire only feeds it; cold cracks its crust. (Mythriven's own creature.)
+BOSS_ASH_COLOSSUS_FED,Fire only feeds the Ash Colossus!
+BOSS_ASH_COLOSSUS_CRACKED,The cold cracks its crust!
+BOSS_LORD_OF_ASHKARROW_NAME,The Lord of Ashkarrow
+ENEMY_LORD_OF_ASHKARROW_NAME,The Lord of Ashkarrow
+ENEMY_LORD_OF_ASHKARROW_MYTH,"The master of the city of ash, crowned with cinders, ruling from a throne between four great braziers. (Mythriven's own creature.)"
+BOSS_LORD_OF_ASHKARROW_BRAZIERS,Each lit brazier shields him. Stand at one to put it out!
+ACH_BOSS_CHAIN_WARDEN_NAME,Defeat The Chain Warden
+ACH_BOSS_CHAIN_WARDEN_DESC,The 10:00 boss of Ashkarrow.
+ACH_BOSS_ASH_COLOSSUS_NAME,Defeat The Ash Colossus
+ACH_BOSS_ASH_COLOSSUS_DESC,The 20:00 boss of Ashkarrow.
+ACH_BOSS_LORD_OF_ASHKARROW_NAME,Defeat The Lord of Ashkarrow
+ACH_BOSS_LORD_OF_ASHKARROW_DESC,The 30:00 boss of Ashkarrow.
+BANTER_CHAIN_WARDEN_ENTRANCE,No one leaves Ashkarrow.
+BANTER_ASH_COLOSSUS_ENTRANCE,"(The ash heaps up, and up, and stands.)"
+BANTER_LORD_OF_ASHKARROW_ENTRANCE,"Kneel in the ash. Everyone does, in the end."
+BANTER_LORD_OF_ASHKARROW_SEKHMET,A lioness of the burning sun? My city has room for one more fire.

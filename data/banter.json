@@ -2804,5 +2804,46 @@
     "text_key": "BANTER_PHOBETOR_HECATE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "chain_warden_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "chain_warden",
+    "hero": "",
+    "god": "chain_warden",
+    "text_key": "BANTER_CHAIN_WARDEN_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ash_colossus_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ash_colossus",
+    "hero": "",
+    "god": "ash_colossus",
+    "text_key": "BANTER_ASH_COLOSSUS_ENTRANCE",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "lord_of_ashkarrow_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "lord_of_ashkarrow",
+    "hero": "",
+    "god": "lord_of_ashkarrow",
+    "text_key": "BANTER_LORD_OF_ASHKARROW_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "lord_of_ashkarrow_sekhmet",
+    "trigger": "boss_meets_god",
+    "speaker": "lord_of_ashkarrow",
+    "hero": "",
+    "god": "lord_of_ashkarrow",
+    "with_god": "sekhmet",
+    "text_key": "BANTER_LORD_OF_ASHKARROW_SEKHMET",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

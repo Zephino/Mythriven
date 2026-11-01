@@ -933,6 +933,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | your_own_face | Your Own Face | He gives back what you give him. Give him less, and more surely. | Ovid, Metamorphoses 11.633-638 (Morpheus the imitator) | no |
 | the_gate_of_horn | The Gate of Horn | Wake before the nightmare finds its worst shape. | Homer, Odyssey 19.560-569 (true dreams come through the gate of horn) | no |
 
+## Pack 11: The Abyss
+
+### Ashkarrow
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | ashkarrow | Ashkarrow | Invented for Mythriven (GAME_DESIGN.md marks Ashkarrow invented) | no |
+| enemy | ash_fiend | Ash fiend | Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious) | no |
+| enemy | cinder_imp | Cinder imp | Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious) | no |
+| boss | chain_warden | The Chain Warden | Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious) | no |
+| boss | ash_colossus | The Ash Colossus | Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious) | no |
+| boss | lord_of_ashkarrow | The Lord of Ashkarrow | Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious); GAME_DESIGN.md (the realm's lord) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| chain_warden_entrance | boss entrance | chain_warden | No one leaves Ashkarrow. | Original line written for Mythriven | no |
+| ash_colossus_entrance | boss entrance | ash_colossus | (The ash heaps up, and up, and stands.) | Original description written for Mythriven | no |
+| lord_of_ashkarrow_entrance | boss entrance | lord_of_ashkarrow | Kneel in the ash. Everyone does, in the end. | Original line written for Mythriven | no |
+| lord_of_ashkarrow_sekhmet | boss meets god (with sekhmet) | lord_of_ashkarrow | A lioness of the burning sun? My city has room for one more fire. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

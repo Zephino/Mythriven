@@ -141,7 +141,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | **Released 11/01/2026** (`docs/PACK_8_PLAN.md`) |
 | 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | **Released 11/01/2026** (`docs/PACK_9_PLAN.md`) |
 | 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | **Released 11/01/2026** (`docs/PACK_10_PLAN.md`) |
-| 11 | The Abyss | 41 Ashkarrow · 42 Dinas Emrys · 43 Atlantis · 44 Ginnungagap | Later |
+| 11 | The Abyss | 41 Ashkarrow · 42 Dinas Emrys · 43 Atlantis · 44 Ginnungagap | **Building** (`docs/PACK_11_PLAN.md`; Ashkarrow released 11/01/2026) |
 | 12 | Otherworlds | 45 Tír na nÓg · 46 Hy-Brasil · 47 The Shadow's Court · 48 The Knockers' Deep | Later |
 | 13 | Wild Frontiers | 49 Mount Pelion · 50 Dovrefjell · 51 The City of Brass · 52 The Sea King's Hall | Later |
 | Extra | Bonus and finale | 53 Realm of the Ten Suns · 54 The Crossroads (finale) | **Released 10/31/2026** (`docs/BONUS_LEVELS_PLAN.md`) |
@@ -335,6 +335,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 *(11/01/2026: **the Glass Mountain** is built and released (00.03.13), opened by beating the Goblin Merchant-Men: falling icicles (strikes that Chill) on slippery glass slopes; white bees, snowflake guards, frost wisps, ravens, frost giants; the Seven Ravens (scatter into seven ravens and can't be hurt; each raven killed takes 3% of its health; they gather after 6 s), Old Rinkrank (climbs his ladder out of reach for 3 s, throwing glass down on marked spots), the Snow Queen (her kiss freezes the nearest Hero for 1.5 s; gathering four pieces of ice makes the word and breaks her guard).)*
 
 *(11/01/2026: **Demos Oneiron** is built and released (00.03.14), opened by beating the Nome King: the dream lights (wandering lights that draw monsters toward them); dreams, nightmare beasts, night bats; Phantasos (by turns a rock, still and taking a quarter of the damage, and water, fast), Morpheus (15% of each blow struck at him comes back on the striker, up to 8), Phobetor (beast: charges; bird: out of reach, strikes from above; serpent: rings of venom; each for 6 s). Pack 10's four realms are all built.)*
+
+*(11/01/2026: owner: "go ahead" (Pack 11). Pack 11, **The Abyss**, is designed by Claude (`docs/PACK_11_PLAN.md`), from the old texts only (the Red Dragon never appears; Atlas is Plato's king). **Ashkarrow** (invented, plain names only, nothing from any religion) is built and released (00.03.16), opened by beating the Griffin Matriarch: the burning streets (bands of fire that Burn); ash fiends, cinder imps, Muspell sparks, night bats; the Chain Warden (hurls a chain along a marked line at the farthest Hero and drags them in), the Ash Colossus (Fire heals it; Ice or Water cracks it for 3 s, double damage; rings of hot ash), the Lord of Ashkarrow (four braziers, each lit one cuts his damage taken by 18%; stand at one 1.5 s to put it out; he relights one every 10 s).)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

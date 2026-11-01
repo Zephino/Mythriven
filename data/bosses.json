@@ -10218,5 +10218,245 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Ashkarrow bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "chain_warden",
+    "name_key": "BOSS_CHAIN_WARDEN_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "chain_warden",
+    "move_speed": 40,
+    "keep_distance_px": 80,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_chain",
+      "throw_every_s": 6.0,
+      "telegraph_s": 0.9,
+      "reach_px": 320,
+      "width_px": 14,
+      "damage": 12
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ashkarrow bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "ash_colossus",
+    "name_key": "BOSS_ASH_COLOSSUS_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "ash_colossus",
+    "move_speed": 34,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "ash_crust",
+      "fire_heal": 0.5,
+      "crack_s": 3.0,
+      "crack_damage_taken": 2.0,
+      "ring_every_s": 5.0,
+      "ring_radius_px": 90,
+      "ring_damage": 10
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ashkarrow bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "lord_of_ashkarrow",
+    "name_key": "BOSS_LORD_OF_ASHKARROW_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Ashkarrow is invented, as public demon lore is religious); GAME_DESIGN.md (the realm's lord)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "lord_of_ashkarrow",
+    "move_speed": 40,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "four_braziers",
+      "brazier_px": 130,
+      "per_brazier_cut": 0.18,
+      "douse_s": 1.5,
+      "reach_px": 18,
+      "relight_every_s": 10.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "ash_fiend"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "ash_fiend"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

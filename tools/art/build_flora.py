@@ -479,6 +479,11 @@ LEVELS = {
                   "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30)},
         "bushes": {"asphodel": ("I", "i", "L", "h")},
         "rock": ("n", "N", "O", None)},
+    # Ashkarrow (the game's own): a city of ash; charred trees and burnt scrub among the cinders.
+    "ashkarrow": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"burnt_scrub": ("n", "N", "O", None)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

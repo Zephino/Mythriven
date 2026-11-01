@@ -1317,6 +1317,57 @@ func test_phobetor_takes_nightmare_shapes() -> void:
 	assert_eq(dread.art_id(), "phobetor_serpent")
 
 
+func test_ashkarrow_is_pack_11() -> void:
+	var level: Dictionary = _level("ashkarrow")
+	assert_eq(int(level["act"]), 13)
+	assert_eq(str(level["unlock"]["boss"]), "griffin_matriarch")
+	assert_eq(tr("PACK_13_NAME"), "Pack 11: The Abyss")
+	assert_true((level["local_gods"] as Array).is_empty(), "a realm has no local gods")
+
+
+func test_the_chain_warden_drags_a_hero_in() -> void:
+	_start("ashkarrow")
+	var warden: ChainWardenBoss = _bosses.spawn_boss("chain_warden", 0) as ChainWardenBoss
+	var far: float = _player.position.distance_to(warden.position_now())
+	warden.signature(3.1)
+	assert_ne(warden.aim, Vector2.INF, "the line is marked")
+	var hp: float = _player.hp
+	warden.signature(1.0)
+	assert_eq(warden.caught, 1)
+	assert_lt(_player.hp, hp)
+	assert_lt(_player.position.distance_to(warden.position_now()), far, "dragged in")
+
+
+func test_the_ash_colossus_feeds_on_fire_and_cracks_in_the_cold() -> void:
+	_start("ashkarrow")
+	var giant: AshColossusBoss = _bosses.spawn_boss("ash_colossus", 1) as AshColossusBoss
+	_enemies.hp[giant.slot] -= 100.0
+	var hp: float = _enemies.hp[giant.slot]
+	giant.on_element_hit("fire")
+	assert_eq(giant.modify_hit(40.0, _player, Vector2.ZERO), 0.0, "fire does no harm")
+	assert_gt(_enemies.hp[giant.slot], hp, "it feeds it")
+	giant.on_element_hit("ice")
+	assert_almost_eq(giant.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "cracked by the cold")
+	giant.signature(3.1)
+	giant.on_element_hit("")
+	assert_almost_eq(giant.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "the crack closes")
+
+
+func test_the_lord_of_ashkarrows_braziers() -> void:
+	_start("ashkarrow")
+	var lord: LordOfAshkarrowBoss = _bosses.spawn_boss("lord_of_ashkarrow", 2) as LordOfAshkarrowBoss
+	assert_eq(lord.lit_count(), 4)
+	assert_almost_eq(lord.modify_hit(100.0, _player, Vector2.ZERO), 28.0, 0.01, "four braziers shield him")
+	_player.position = lord.braziers[0]["pos"]
+	lord.signature(0.8)
+	lord.signature(0.8)
+	assert_eq(lord.lit_count(), 3, "put out")
+	assert_eq(lord.doused, 1)
+	_player.position = Vector2(9999, 9999)
+	lord.signature(10.1)
+	assert_eq(lord.lit_count(), 4, "lit again")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

@@ -1604,5 +1604,35 @@
       "id": "phobetor"
     },
     "persists": true
+  },
+  {
+    "id": "boss_chain_warden",
+    "name_key": "ACH_BOSS_CHAIN_WARDEN_NAME",
+    "desc_key": "ACH_BOSS_CHAIN_WARDEN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "chain_warden"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_ash_colossus",
+    "name_key": "ACH_BOSS_ASH_COLOSSUS_NAME",
+    "desc_key": "ACH_BOSS_ASH_COLOSSUS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ash_colossus"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_lord_of_ashkarrow",
+    "name_key": "ACH_BOSS_LORD_OF_ASHKARROW_NAME",
+    "desc_key": "ACH_BOSS_LORD_OF_ASHKARROW_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "lord_of_ashkarrow"
+    },
+    "persists": true
   }
 ]

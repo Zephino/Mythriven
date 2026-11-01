@@ -4959,5 +4959,117 @@
       "edge": "#3e3452",
       "stones": "#8a7ea0"
     }
+  },
+  {
+    "_doc": "Ashkarrow, Pack 11 realm 1, the city of ash (docs/PACK_11_PLAN.md). The design's invented realm: nothing from any religion, plain descriptive names only. A realm: no local gods.",
+    "id": "ashkarrow",
+    "name_key": "LEVEL_ASHKARROW_NAME",
+    "region": "realm_ash",
+    "act": 13,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "ashkarrow",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "ash",
+          "max": -0.3,
+          "placeholder_color": "#3a3432",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cinders",
+          "max": 0.15,
+          "placeholder_color": "#2e2826",
+          "placeholder_dots": "#c8502a"
+        },
+        {
+          "id": "cracked",
+          "max": 0.6,
+          "placeholder_color": "#342a26",
+          "placeholder_dots": "#e06a2a"
+        },
+        {
+          "id": "basalt",
+          "max": 1.0,
+          "placeholder_color": "#2a2628",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "smoking_vent",
+      "obsidian_spire"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "smoking_vent": {
+        "shape": "rect",
+        "size_px": [
+          18,
+          14
+        ],
+        "placeholder_color": "#5a4a44",
+        "weight": 2
+      },
+      "obsidian_spire": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          30
+        ],
+        "placeholder_color": "#1e1a24",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "chain_warden",
+      "20": "ash_colossus",
+      "30": "lord_of_ashkarrow"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "hyperborea",
+      "boss": "griffin_matriarch"
+    },
+    "waves": "waves_ashkarrow.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.5,
+      "radius_px": 52,
+      "telegraph_s": 1.6,
+      "damage": 6,
+      "element": "fire",
+      "range_px": 240,
+      "color": "#e8502a",
+      "look": "heat",
+      "flood_s": 6,
+      "heat_dps": 8,
+      "player_status": "burn",
+      "name_key": "HAZARD_BURNING_STREETS_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#d4bcb0",
+    "flora": {
+      "density": 0.1,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#4a4240",
+      "edge": "#2e2826",
+      "stones": "#6a5e58"
+    }
   }
 ]
