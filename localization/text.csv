@@ -2299,3 +2299,33 @@ BANTER_GREAT_PUFFBALL_ENTRANCE,(It wheezes. Spores puff from its cracks with eve
 BANTER_MYCELIUM_ENTRANCE,"(The ground itself heaves, pale threads reaching for your feet.)"
 BANTER_SPORE_MOTHER_ENTRANCE,"Grow, my children. Grow, and burst."
 BANTER_SPORE_MOTHER_PERSEPHONE,"Spring goddess, everything that rots comes back to me."
+LEVEL_MYRMIDON_HIVE_NAME,The Myrmidon Hive
+HAZARD_TUNNELS_GIVE_WAY_NAME,The hive's tunnels are giving way!
+ENEMY_MYRMIDON_NAME,Myrmidon
+ENEMY_MYRMIDON_MYTH,"When plague emptied Aegina, King Aeacus prayed to Zeus beneath an oak full of ants and asked for as many subjects. That night the ants became men, the Myrmidons: thrifty, hard-working and tireless, as ants are."
+ENEMY_GOLD_DIGGING_ANT_NAME,Gold-digging ant
+ENEMY_GOLD_DIGGING_ANT_MYTH,"In the desert of India, Herodotus says, live ants smaller than dogs but bigger than foxes, which throw up gold-bearing sand as they dig their burrows; they are swift and fierce, and chase whoever steals the gold."
+ENEMY_WINGED_ANT_NAME,Winged ant
+ENEMY_WINGED_ANT_MYTH,"Ants of the hive on their swarming flight, streaming over the sand in long lines."
+ENEMY_GOLD_CARRIER_ANT_NAME,Gold-carrier ant
+ENEMY_GOLD_CARRIER_ANT_MYTH,A worker ant carrying a lump of gold sand back to its queen. Kill it before it gets there.
+BOSS_GREAT_GOLD_ANT_NAME,The Gold-Digging Ant
+ENEMY_GREAT_GOLD_ANT_NAME,The Gold-Digging Ant
+ENEMY_GREAT_GOLD_ANT_MYTH,"The greatest of the gold-digging ants of India. The Indians came for the gold sand it threw up at the hottest hour, on their swiftest camels, and fled at once, because the ants smelled them and gave chase, faster than any other creature."
+BOSS_GOLD_ANT_CHASE,The ant smells the thief! Run!
+BOSS_MYRMEX_NAME,Myrmex
+ENEMY_MYRMEX_NAME,Myrmex
+ENEMY_MYRMEX_MYTH,"An Attic girl, a favourite of Athena. When the goddess invented the plough, Myrmex told everyone it was her own idea, and Athena turned her into an ant, which ever since has gathered the grain the plough sows."
+BOSS_ANT_QUEEN_NAME,The Queen of the Gold-Digging Ants
+ENEMY_ANT_QUEEN_NAME,The Queen of the Gold-Digging Ants
+ENEMY_ANT_QUEEN_MYTH,"The mother of the gold-digging ants, vast and winged, lying at the heart of the hive. All the gold her workers dig up is carried to her."
+ACH_BOSS_GREAT_GOLD_ANT_NAME,Defeat The Gold-Digging Ant
+ACH_BOSS_GREAT_GOLD_ANT_DESC,The 10:00 boss of The Myrmidon Hive.
+ACH_BOSS_MYRMEX_NAME,Defeat Myrmex
+ACH_BOSS_MYRMEX_DESC,The 20:00 boss of The Myrmidon Hive.
+ACH_BOSS_ANT_QUEEN_NAME,Defeat The Queen of the Gold-Digging Ants
+ACH_BOSS_ANT_QUEEN_DESC,The 30:00 boss of The Myrmidon Hive.
+BANTER_GREAT_GOLD_ANT_ENTRANCE,(It lifts its head from the sand. It can smell gold on you.)
+BANTER_MYRMEX_ENTRANCE,The plough was my idea! Well... it should have been.
+BANTER_ANT_QUEEN_ENTRANCE,"Bring me the gold, my children. All of it."
+BANTER_MYRMEX_PERSEPHONE,"Daughter of the grain-mother! Every seed the plough sows, we ants gather."

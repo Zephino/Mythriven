@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.93
+Date: 10/31/2026
+Time: 8:32 PM
+
+### Changes
+- **The Myrmidon Hive, the ant-warriors' city, is built and open** (Pack 6, `docs/PACK_6_PLAN.md`). It opens when you beat Black Annis (the Brocken's 30:00 boss). With it, all four realms of The Deep Below are built.
+  - **Hazard, the tunnels give way:** the ground over the hive's tunnels cracks and collapses (telegraphed).
+  - **Monsters:** Myrmidons (Ovid: ants turned into men), gold-digging ants (Herodotus), winged ants, and from 10:00 the Spartoi brutes.
+  - **10:00, the Gold-Digging Ant** (Herodotus): it digs up heaps of gold sand. Take one and you get the gold, but the ant smells the thief and runs you down, much faster, for 5 s.
+  - **20:00, Myrmex** (Servius): the girl turned into an ant for claiming Athena's plough. She ploughs straight furrows across the arena that slow whoever crosses them for 10 s.
+  - **30:00, the Queen of the Gold-Digging Ants** (the design's boss): carrier ants keep walking in from the edge of the arena with gold; each that reaches her heals her. Kill the carriers first.
+  - Sandy ground with ant-hills, broken columns and olives; lizards, sparrows and cicadas.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (366 tests pass).
+
+### Reason
+Pack 6, realm 4 of 4 (owner: "go ahead").
+
 ## Version 00.02.92
 Date: 10/31/2026
 Time: 8:25 PM

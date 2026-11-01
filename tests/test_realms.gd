@@ -425,3 +425,43 @@ func test_the_spore_mothers_mushrooms_burst_unless_stamped() -> void:
 	assert_eq(mother.stamped, 1, "stamped out")
 	mother.signature(5.0)
 	assert_gt(mother.burst_count, 0, "the other one burst")
+
+
+func test_the_gold_digging_ant_chases_the_thief() -> void:
+	_start("the_myrmidon_hive")
+	assert_eq(str(_level("the_myrmidon_hive")["unlock"]["boss"]), "black_annis")
+	var ant: GoldAntBoss = _bosses.spawn_boss("great_gold_ant", 0) as GoldAntBoss
+	ant.dig()
+	var gold: float = GameAuthority.run.gold
+	_player.position = ant.heaps[0]
+	ant.signature(0.1)
+	assert_gt(GameAuthority.run.gold, gold, "the gold is yours")
+	assert_eq(ant.thief, _player, "and so is the ant")
+	var far: float = ant.position_now().distance_to(_player.position)
+	ant.signature(0.5)
+	assert_lt(ant.position_now().distance_to(_player.position), far, "it runs you down")
+
+
+func test_myrmex_ploughs_furrows() -> void:
+	_start("the_myrmidon_hive")
+	var girl: MorvarchBoss = _bosses.spawn_boss("myrmex", 1) as MorvarchBoss
+	girl.target = _player
+	girl.signature(2.6)
+	girl.signature(0.3)
+	assert_gt(girl.foam.size(), 0, "a furrow")
+
+
+func test_the_ant_queen_is_fed_by_her_carriers() -> void:
+	_start("the_myrmidon_hive")
+	var queen: AntQueenBoss = _bosses.spawn_boss("ant_queen", 2) as AntQueenBoss
+	_enemies.hp[queen.slot] = _enemies.max_hp[queen.slot] * 0.5
+	var hp: float = _enemies.hp[queen.slot]
+	queen.send_carriers()
+	assert_eq(queen.carriers.size(), 3)
+	_enemies.remove_quietly(queen.carriers[0])
+	for k: int in 60:
+		queen.signature(0.25)
+		if queen.delivered >= 2:
+			break
+	assert_eq(queen.delivered, 2, "two carriers reach her (one was killed)")
+	assert_gt(_enemies.hp[queen.slot], hp, "and the gold heals her")

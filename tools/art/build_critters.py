@@ -305,6 +305,11 @@ LEVELS = {
         "birds": {},
         "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {}},
+    "the_myrmidon_hive": {
+        "ground": {"grey_lizard": (lizard, "#a8885a", "#6a5030")},
+        "birds": {"sparrow": ("#8a6a4a", "#5a4430", "#c8a040", False)},
+        "insects": {"cicada": (cicada, "#6a7a3a")},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

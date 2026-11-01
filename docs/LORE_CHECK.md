@@ -548,6 +548,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | spore_mother_entrance | boss entrance | spore_mother | Grow, my children. Grow, and burst. | Original line written for Mythriven | no |
 | spore_mother_persephone | boss meets god (with persephone) | spore_mother | Spring goddess, everything that rots comes back to me. | Original line written for Mythriven | no |
 
+### The Myrmidon Hive
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | the_myrmidon_hive | The Myrmidon Hive | Ovid, Metamorphoses 7.614-660 (Zeus turns the ants of Aegina into the Myrmidons) | no |
+| enemy | myrmidon | Myrmidon | Ovid, Metamorphoses 7.614-660 (the ants of Aegina turned into the Myrmidons) | no |
+| enemy | gold_digging_ant | Gold-digging ant | Herodotus, Histories 3.102-105 (the gold-digging ants of India) | no |
+| enemy | winged_ant | Winged ant | Herodotus 3.102 (the ants of the hive); the swarming flight of ants | no |
+| enemy | gold_carrier_ant | Gold-carrier ant | Herodotus, Histories 3.102 (the ants bring up the gold) | no |
+| boss | great_gold_ant | The Gold-Digging Ant | Herodotus, Histories 3.102-105 (the ants of India throw up gold sand and chase the thieves) | no |
+| boss | myrmex | Myrmex | Servius, commentary on Virgil, Aeneid 4.402 (Myrmex claims Athena's plough and is turned into an ant) | no |
+| boss | ant_queen | The Queen of the Gold-Digging Ants | Herodotus, Histories 3.102-105 (the gold-digging ants of India); GAME_DESIGN.md (the queen of the hive) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| great_gold_ant_entrance | boss entrance | great_gold_ant | (It lifts its head from the sand. It can smell gold on you.) | Herodotus 3.105 (the ants find the thieves by smell) | no |
+| myrmex_entrance | boss entrance | myrmex | The plough was my idea! Well... it should have been. | Servius on Aeneid 4.402 (her false claim) | no |
+| ant_queen_entrance | boss entrance | ant_queen | Bring me the gold, my children. All of it. | Original line written for Mythriven | no |
+| myrmex_persephone | boss meets god (with persephone) | myrmex | Daughter of the grain-mother! Every seed the plough sows, we ants gather. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

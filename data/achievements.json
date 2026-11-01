@@ -1094,5 +1094,35 @@
       "id": "spore_mother"
     },
     "persists": true
+  },
+  {
+    "id": "boss_great_gold_ant",
+    "name_key": "ACH_BOSS_GREAT_GOLD_ANT_NAME",
+    "desc_key": "ACH_BOSS_GREAT_GOLD_ANT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "great_gold_ant"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_myrmex",
+    "name_key": "ACH_BOSS_MYRMEX_NAME",
+    "desc_key": "ACH_BOSS_MYRMEX_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "myrmex"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_ant_queen",
+    "name_key": "ACH_BOSS_ANT_QUEEN_NAME",
+    "desc_key": "ACH_BOSS_ANT_QUEEN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ant_queen"
+    },
+    "persists": true
   }
 ]

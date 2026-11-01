@@ -6146,5 +6146,247 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "The Myrmidon Hive bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "great_gold_ant",
+    "name_key": "BOSS_GREAT_GOLD_ANT_NAME",
+    "tradition": "greek",
+    "lore_source": "Herodotus, Histories 3.102-105 (the ants of India throw up gold sand and chase the thieves)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "great_gold_ant",
+    "move_speed": 46,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "gold_sand",
+      "dig_every_s": 6.0,
+      "max_heaps": 2,
+      "heap_reach_px": 16,
+      "heap_gold": 15.0,
+      "chase_s": 5.0,
+      "chase_px_s": 130
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Myrmidon Hive bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "myrmex",
+    "name_key": "BOSS_MYRMEX_NAME",
+    "tradition": "greek",
+    "lore_source": "Servius, commentary on Virgil, Aeneid 4.402 (Myrmex claims Athena's plough and is turned into an ant)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "myrmex",
+    "move_speed": 42,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_plough",
+      "gallop_every_s": 5.0,
+      "gallop_px": 260,
+      "gallop_s": 0.9,
+      "foam_s": 10.0,
+      "foam_radius_px": 16,
+      "foam_slow": 0.5,
+      "foam_color": "#6a4a28"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "The Myrmidon Hive bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "ant_queen",
+    "name_key": "BOSS_ANT_QUEEN_NAME",
+    "tradition": "greek",
+    "lore_source": "Herodotus, Histories 3.102-105 (the gold-digging ants of India); GAME_DESIGN.md (the queen of the hive)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "ant_queen",
+    "move_speed": 24,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_carriers",
+      "send_every_s": 7.0,
+      "carriers": 3,
+      "carrier": "gold_carrier_ant",
+      "carrier_px_s": 60,
+      "edge_px": 260,
+      "heal_each": 0.03
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "gold_digging_ant"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "gold_digging_ant"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

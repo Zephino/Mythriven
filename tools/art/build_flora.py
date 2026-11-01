@@ -388,6 +388,11 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"fern": ("fern",)},
         "rock": ("n", "N", "O", None)},
+    # The Myrmidon Hive: the sandy hill of Aegina round the ants' city; a few olives and dead trees, dry scrub.
+    "the_myrmidon_hive": {
+        "trees": {"olive": (olive, 26, 30), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("d", "D", "E", None)},
+        "rock": ("d", "D", "E", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

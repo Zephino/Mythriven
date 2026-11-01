@@ -1,0 +1,57 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. An ant-hill of the Myrmidon Hive (Ovid, Metamorphoses 7: the ants' hill under Aeacus' oak): a great mound of sand with dark tunnel mouths.",
+ "size": [
+  31,
+  14
+ ],
+ "anchor": [
+  15,
+  13
+ ],
+ "palette": {
+  "a": "#4e4236",
+  "b": "#a89678",
+  "c": "#baa884",
+  "d": "#b49c7e",
+  "e": "#deccae",
+  "f": "#a29072",
+  "g": "#ae9c84",
+  "h": "#d2c0a2",
+  "i": "#c6ba9c",
+  "j": "#c0ae96",
+  "k": "#241e12",
+  "l": "#2a1e18",
+  "m": "#a2967e",
+  "n": "#b4a88a",
+  "o": "#908466",
+  "p": "#968a6c",
+  "q": "#241812",
+  "r": "#8a7860",
+  "s": "#9c9078",
+  "t": "#96846c",
+  "u": "#907e66",
+  "v": "#baae90",
+  "w": "#a89c84",
+  "x": "#5a5442"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...............a...............",
+    ".........aaaaaabaaaaaa.........",
+    "......aaabcdbceddbbddcaaa......",
+    ".....adfghhijhhiiiihjdbbda.....",
+    "...aadhhjijiijjiikkiiiibffaa...",
+    "..abbiiiiijjiihihllmhihmbbbfa..",
+    "..adjhjiihhnihjjjihihihgiddoa..",
+    ".appmnjjikqijjjijjjinnnnjfrpba.",
+    ".afijijjsqqjjinijjjjjijjjifppa.",
+    "apprnjgninmsijjnjjijjkqmjffpfpa",
+    ".afbijjjjjjjjjinjjjnjqqjnfffba.",
+    ".atutnnvnnnnnnwwwnnnwnnnfuttta.",
+    "..attunnnswnwnnvvwvnnvnututta..",
+    "...aaaxxxxxxxxxxxxxxxxxaaaaa..."
+   ]
+  ]
+ }
+}

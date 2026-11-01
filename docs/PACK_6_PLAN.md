@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead"). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one boss idea;
-everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of it. Nidavellir built and released 11/01/2026 (00.02.90); Svartalfheim (00.02.91); Mycendra (00.02.92). Gullinbursti reuses Morvarc'h's gallop (a golden trail).
+everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of it. Nidavellir built and released 11/01/2026 (00.02.90); Svartalfheim (00.02.91); Mycendra (00.02.92); the Myrmidon Hive (00.02.93). **All four realms are built.** Myrmex reuses the gallop too (her furrows last 10 s). Athena is not a god in the game, so Myrmex's god line is for Persephone. Gullinbursti reuses Morvarc'h's gallop (a golden trail).
 
 Realms work like Pack 5's: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -75,7 +75,7 @@ Fungi themselves, fairy rings and puffballs are ordinary nature and folklore.*
 | 20:00 | **The Mycelium** | Its threads spread over the ground around it, slowing and Poisoning whoever stands on them; they keep growing while it lives |
 | 30:00 | **The Spore Mother** | Mushrooms sprout around the arena and burst into spore clouds after a few seconds; stamp them out first by standing on them |
 
-## Realm 24: the Myrmidon Hive (the ant-warriors)
+## Realm 24: the Myrmidon Hive (the ant-warriors): **done and released 11/01/2026 (00.02.93)**
 *Sources: Ovid, Metamorphoses 7.614-660 (Zeus turns the ants of Aegina into the Myrmidons); Herodotus, Histories
 3.102-105 (the gold-digging ants of India, smaller than dogs and bigger than foxes, who chase the gold-gatherers);
 Servius, commentary on Virgil's Aeneid 4.402 (Myrmex, the Attic girl turned into an ant).*

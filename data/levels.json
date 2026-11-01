@@ -3044,5 +3044,115 @@
       "edge": "#2e2630",
       "stones": "#6a5a6a"
     }
+  },
+  {
+    "_doc": "The Myrmidon Hive, Pack 6 realm 4, the insect-warrior city (docs/PACK_6_PLAN.md). Sources: Ovid, Metamorphoses 7.614-660; Herodotus 3.102-105; Servius on Aeneid 4.402. A realm: no local gods.",
+    "id": "the_myrmidon_hive",
+    "name_key": "LEVEL_MYRMIDON_HIVE_NAME",
+    "region": "realm_hive",
+    "act": 8,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_myrmidon_hive",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "dune",
+          "max": -0.3,
+          "placeholder_color": "#c8a060",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "sand",
+          "max": 0.2,
+          "placeholder_color": "#b88c50",
+          "placeholder_dots": "#e0b860"
+        },
+        {
+          "id": "dirt",
+          "max": 0.6,
+          "placeholder_color": "#8a6a40",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cracked",
+          "max": 1.0,
+          "placeholder_color": "#6a5034",
+          "placeholder_dots": "#d0a040"
+        }
+      ]
+    },
+    "decorations": [
+      "anthill",
+      "broken_column"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "anthill": {
+        "shape": "rect",
+        "size_px": [
+          28,
+          16
+        ],
+        "placeholder_color": "#c8a060",
+        "weight": 2
+      },
+      "broken_column": {
+        "shape": "rect",
+        "size_px": [
+          12,
+          26
+        ],
+        "placeholder_color": "#ece7da",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "great_gold_ant",
+      "20": "myrmex",
+      "30": "ant_queen"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_brocken",
+      "boss": "black_annis"
+    },
+    "waves": "waves_the_myrmidon_hive.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 14,
+      "strikes_per_s": 0.9,
+      "radius_px": 36,
+      "telegraph_s": 1.4,
+      "damage": 16,
+      "element": "earth",
+      "range_px": 230,
+      "color": "#d0a040",
+      "look": "chasm",
+      "name_key": "HAZARD_TUNNELS_GIVE_WAY_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#e0ccb0",
+    "flora": {
+      "density": 0.3,
+      "trees": {
+        "olive": 2,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#a88a5a",
+      "edge": "#8a6a40",
+      "stones": "#c8aa7a"
+    }
   }
 ]

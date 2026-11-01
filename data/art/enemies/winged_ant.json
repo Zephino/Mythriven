@@ -1,0 +1,105 @@
+{
+ "_doc": "A winged ant of the hive on its swarming flight. Built by tools/art/build_deep.py.",
+ "size": [
+  20,
+  14
+ ],
+ "anchor": [
+  10,
+  13
+ ],
+ "palette": {
+  "o": "#120804",
+  "a": "#8a4a1a",
+  "d": "#c88a2a",
+  "k": "#2a1408",
+  "w": "#e8e4d8",
+  "y": "#f0c840"
+ },
+ "frames": {
+  "idle": [
+   [
+    "....................",
+    "....................",
+    ".....oo.......o.....",
+    "....owwooo...owo....",
+    ".o.o.owwwwooowo.....",
+    "okokooowwwwkwoaoo...",
+    ".okaaaoowwooaaaaao..",
+    ".oaaaaaoaaaaaaaaaao.",
+    "oaaaaaaaaaaaaaaaaao.",
+    ".oaaaaaoaaaaaaaaaao.",
+    "..oaaaoooaooaaaaao..",
+    "...ooookokokooaoo...",
+    ".......o.o.o..o.....",
+    "...................."
+   ]
+  ],
+  "walk": [
+   [
+    ".....o..............",
+    "....owoo............",
+    ".....owwo....o......",
+    "......owwoo.owo.....",
+    ".o.o..owwwwowwo.....",
+    "okokookowwwwwoaoo...",
+    ".okaaao.owwoaaaaao..",
+    ".oaaaaaoaaaaaaaaaao.",
+    "oaaaaaaaaaaaaaaaaao.",
+    ".oaaaaaoaaaaaaaaaao.",
+    "..oaaao.oaooaaaaao..",
+    "...ooo.oko.okoaoo...",
+    "........o...o.o.....",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    ".....oo.......o.....",
+    "....owwooo...owo....",
+    ".o.o.owwwwooowo.....",
+    "okokooowwwwkwoaoo...",
+    ".okaaaoowwooaaaaao..",
+    ".oaaaaaoaaaaaaaaaao.",
+    "oaaaaaaaaaaaaaaaaao.",
+    ".oaaaaaoaaaaaaaaaao.",
+    "..oaaaoooaooaaaaao..",
+    "...ooookokokooaoo...",
+    ".......o.o.o..o.....",
+    "...................."
+   ],
+   [
+    ".....o..............",
+    "....owoo............",
+    ".....owwo....o......",
+    "......owwoo.owo.....",
+    ".o.o..owwwwowwo.....",
+    "okokoo.owwwwwoaoo...",
+    ".okaaao.owwoaaaaao..",
+    ".oaaaaaoaaaaaaaaaao.",
+    "oaaaaaaaaaaaaaaaaao.",
+    ".oaaaaaoaaaaaaaaaao.",
+    "..oaaao.oaooaaaaao..",
+    "...oooko.okoooaoo...",
+    "......o...o...o.....",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    ".....oo.......o.....",
+    "....owwooo...owo....",
+    ".o.o.owwwwooowo.....",
+    "okokooowwwwkwoaoo...",
+    ".okaaaoowwooaaaaao..",
+    ".oaaaaaoaaaaaaaaaao.",
+    "oaaaaaaaaaaaaaaaaao.",
+    ".oaaaaaoaaaaaaaaaao.",
+    "..oaaaoooaooaaaaao..",
+    "...ooookokokooaoo...",
+    ".......o.o.o..o.....",
+    "...................."
+   ]
+  ]
+ }
+}

@@ -2111,5 +2111,46 @@
     "text_key": "BANTER_SPORE_MOTHER_PERSEPHONE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "great_gold_ant_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "great_gold_ant",
+    "hero": "",
+    "god": "great_gold_ant",
+    "text_key": "BANTER_GREAT_GOLD_ANT_ENTRANCE",
+    "lore_source": "Herodotus 3.105 (the ants find the thieves by smell)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "myrmex_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "myrmex",
+    "hero": "",
+    "god": "myrmex",
+    "text_key": "BANTER_MYRMEX_ENTRANCE",
+    "lore_source": "Servius on Aeneid 4.402 (her false claim)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ant_queen_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ant_queen",
+    "hero": "",
+    "god": "ant_queen",
+    "text_key": "BANTER_ANT_QUEEN_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "myrmex_persephone",
+    "trigger": "boss_meets_god",
+    "speaker": "myrmex",
+    "hero": "",
+    "god": "myrmex",
+    "with_god": "persephone",
+    "text_key": "BANTER_MYRMEX_PERSEPHONE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

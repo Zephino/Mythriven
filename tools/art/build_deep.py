@@ -270,6 +270,98 @@ MOTHER_PAL = {"o": "#120a10", "s": "#e0d4b8", "S": "#b8a888", "k": "#2a1a10", "v
               "g": "#b8c858", "w": "#e8d8f0"}
 
 
+# --- The Myrmidon Hive (Ovid, Metamorphoses 7.614-660; Herodotus 3.102-105; Servius on Aeneid 4.402) -------------------
+
+def myrmidon(c, f):
+    """A Myrmidon (Ovid, Metamorphoses 7: the ants of Aegina turned into men for King Aeacus): a hoplite in dark
+    bronze-red armour with an ant's feelers on his helmet, a spear and round shield."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 18, x + 1 + d, 22, "k")
+    c.rect(5, 8, 14, 18, "r"); c.row(12, 5, 14, "R")
+    ellipse(c, 9, 5, 3, 3, "b"); c.rect(6, 1, 12, 4, "b"); c.px(10, 4, "k")
+    c.px(7, 0, "k"); c.px(6, -1 if False else 0, "k"); c.px(12, 0, "k")
+    ellipse(c, 4, 13, 3, 4, "b"); c.px(4, 13, "y")
+    c.rect(16, 0, 16, 20, "w"); c.px(16, 0, "b")
+
+
+MYRM_PAL = {"o": "#0a0604", "k": "#1a0e0a", "r": "#7a2a1a", "R": "#5a1a10", "b": "#a8743a", "y": "#e0b040",
+            "w": "#6a4a2a"}
+
+
+def ant(colour, wings=False, load=False):
+    def draw(c, f):
+        s = STEP[f]
+        ellipse(c, 4, 8, 3, 2.5, colour); ellipse(c, 9, 8, 2, 2, colour); ellipse(c, 14, 8, 3.5, 3, colour)
+        c.px(2, 6, "k"); c.px(1, 5, "k"); c.px(3, 5, "k")
+        for k, d in enumerate((-s, s, -s)):
+            c.px(7 + k * 2 + d, 11, "k"); c.px(7 + k * 2 - d, 5, "k")
+        if wings:
+            up = f % 2
+            poly(c, [(9, 7), (5, 1 if up else 3), (12, 5)], "w"); poly(c, [(10, 7), (15, 1 if up else 3), (13, 6)], "w")
+        if load:
+            ellipse(c, 4, 4, 3, 2, "y")                                                     # the gold it carries
+    return draw
+
+
+ANT_PAL = {"o": "#120804", "a": "#8a4a1a", "d": "#c88a2a", "k": "#2a1408", "w": "#e8e4d8", "y": "#f0c840"}
+
+
+def great_gold_ant(c, step):
+    """The Gold-Digging Ant (Herodotus 3.102: ants smaller than dogs but bigger than foxes, which throw up gold-bearing
+    sand as they burrow): a huge tawny ant with gold dust on its jaws."""
+    ellipse(c, 12, 26, 10, 8, "d"); ellipse(c, 28, 26, 7, 6, "d"); ellipse(c, 46, 26, 13, 10, "d")
+    c.px(9, 22, "k"); c.px(14, 22, "k")
+    for k in range(6):
+        c.px(4 - k, 20 - k, "k"); c.px(8 - k // 2, 19 - k, "k")                          # feelers
+    for k, d in enumerate((-step, step, -step)):
+        x = 22 + k * 7
+        for t in range(10):
+            c.px(x - t // 2 + d, 32 + t, "k"); c.px(x - t // 2 - d, 20 - t, "k")
+    c.rect(2, 28, 6, 30, "y"); c.px(3, 27, "y")
+
+
+GREATANT_PAL = {"o": "#120804", "d": "#c88a2a", "k": "#2a1408", "y": "#f0d040"}
+
+
+def myrmex(c, step):
+    """Myrmex (Servius on Virgil, Aeneid 4.402): an Attic girl, a favourite of Athena, who claimed she had invented the
+    plough the goddess made, and was turned into an ant. A girl with an ant's feelers and dark shining limbs, pushing
+    a plough."""
+    for k, d in enumerate((-step, step)):
+        c.rect(16 + k * 6 + d, 44, 18 + k * 6 + d, 54, "k")
+    poly(c, [(14, 18), (28, 18), (31, 46), (11, 46)], "p")
+    c.rect(16, 6, 25, 16, "s"); c.px(19, 10, "k"); c.px(23, 10, "k")
+    c.rect(14, 3, 27, 7, "h")
+    for k in range(5):
+        c.px(17 - k, 2 - k // 2, "k"); c.px(24 + k, 2 - k // 2, "k")                       # feelers
+    c.rect(32, 30, 34, 50, "b"); poly(c, [(33, 48), (44, 54), (34, 54)], "i")                # the plough
+
+
+MYRMEX_PAL = {"o": "#0e0806", "k": "#1e140e", "p": "#b8a070", "s": "#5a3a24", "h": "#2a1a10", "b": "#7a5430",
+              "i": "#9aa0a8"}
+
+
+def ant_queen(c, step):
+    """The Queen of the Gold-Digging Ants (the design's; Herodotus 3.102): a vast winged queen ant, her swollen body
+    ringed with gold."""
+    ellipse(c, 12, 28, 9, 8, "d"); ellipse(c, 26, 28, 7, 6, "d"); ellipse(c, 50, 30, 20, 14, "D")
+    for x in range(36, 68, 5):
+        c.rect(x, 18, x, 42, "y")                                                            # gold rings
+    poly(c, [(24, 24), (10, 4 + step), (34, 20)], "w"); poly(c, [(28, 24), (44, 2 - step), (36, 22)], "w")
+    c.px(9, 24, "k"); c.px(14, 24, "k")
+    for k in range(6):
+        c.px(5 - k, 22 - k, "k"); c.px(9 - k // 2, 21 - k, "k")
+    c.rect(6, 18, 18, 20, "y"); c.px(8, 17, "y"); c.px(12, 16, "y"); c.px(16, 17, "y")      # a crown
+    for k, d in enumerate((-step, step, -step)):
+        x = 18 + k * 6
+        for t in range(10):
+            c.px(x - t // 2 + d, 34 + t, "k")
+
+
+QUEEN_PAL = {"o": "#120804", "d": "#a86a2a", "D": "#c88a3a", "k": "#2a1408", "y": "#f0c840", "w": "#e8e4d8"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_deep.py."
@@ -292,4 +384,14 @@ if __name__ == "__main__":
     kit.build_boss("great_puffball", great_puffball, GREATPUFF_PAL, doc(great_puffball.__doc__), (56, 54), (28, 52), [0, 1, 0, 1, 0])
     kit.build_boss("mycelium", mycelium, MYCELIUM_PAL, doc(mycelium.__doc__), (60, 52), (30, 50), [0, 1, 0, -1, 0])
     kit.build_boss("spore_mother", spore_mother, MOTHER_PAL, doc(spore_mother.__doc__), (58, 64), (29, 62), [0, 1, 0, -1, 0])
+    kit.build_boss("myrmidon", myrmidon, MYRM_PAL, doc(myrmidon.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    ant_doc = "A gold-digging ant (Herodotus, Histories 3.102: smaller than a dog, bigger than a fox)."
+    kit.build_boss("gold_digging_ant", ant("d"), ANT_PAL, doc(ant_doc), (20, 14), (10, 13), walk, folder="enemies")
+    kit.build_boss("winged_ant", ant("a", wings=True), ANT_PAL, doc("A winged ant of the hive on its swarming flight."),
+                   (20, 14), (10, 13), walk, folder="enemies")
+    kit.build_boss("gold_carrier_ant", ant("d", load=True), ANT_PAL, doc(ant_doc + " This one carries gold to its queen."),
+                   (20, 14), (10, 13), walk, folder="enemies")
+    kit.build_boss("great_gold_ant", great_gold_ant, GREATANT_PAL, doc(great_gold_ant.__doc__), (62, 44), (30, 42), [0, 1, 0, -1, 0])
+    kit.build_boss("myrmex", myrmex, MYRMEX_PAL, doc(myrmex.__doc__), (46, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("ant_queen", ant_queen, QUEEN_PAL, doc(ant_queen.__doc__), (72, 48), (36, 46), [0, 1, 0, -1, 0])
     print("wrote the Deep Below's art")

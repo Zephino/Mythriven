@@ -566,12 +566,21 @@ def glow_caps():
     return p
 
 
+def anthill():
+    """An ant-hill of the Myrmidon Hive (Ovid, Metamorphoses 7: the ants' hill under Aeacus' oak): a great mound of
+    sand with dark tunnel mouths."""
+    p = Pic(30, 18, (15, 17))
+    blob(p, 15, 14, 14, 8, "E"); blob(p, 14, 13, 11, 6, "e")
+    for x, y in ((9, 12), (17, 9), (21, 14)): p.rect(x, y, x + 1, y + 1, "z")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

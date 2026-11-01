@@ -136,7 +136,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 3 | Distant Legends | 9 Pohjola · 10 Mazandaran · 11 The Slavic Wilds · 12 The Land of Legends | **Approved and released 10/31/2026** (`docs/PACK_3_PLAN.md`) |
 | 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | **Approved and released 10/31/2026** (`docs/PACK_4_PLAN.md`) |
 | 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | **Released 10/31/2026** (`docs/PACK_5_PLAN.md`) |
-| 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | **Building** (`docs/PACK_6_PLAN.md`; Nidavellir, Svartalfheim and Mycendra released 11/01/2026) |
+| 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | **Building** (`docs/PACK_6_PLAN.md`; all four realms released 11/01/2026) |
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | Later |
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | Later |
 | 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | Later |
@@ -299,6 +299,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 *(11/01/2026: **Svartalfheim** is built and released (00.02.91), opened by beating the Wild Hunt: the dark below (the view closes in); svartálfar, Nibelungs, night bats, dwarf hammer-bearers; Alvíss (drifting sunbeams turn him to stone for 4 s, taking double damage, when he stands in one), Fjalar and Galar (three mead vats heal them while they stand; stand at a vat for 1 s to tip it; they brew new ones), Alberich (puts on the Tarnkappe and can't be hurt; walk into him to tear it off and break his guard).)*
 
 *(11/01/2026: **Mycendra** (the design's invented realm) is built and released (00.02.92), opened by beating Carmilla; every name in it is plain and descriptive, for the owner to approve or rename: spore clouds (hide the view and Poison); cap walkers, spore puffs, glow-flies; the Great Puffball (bursts in a lingering Poison cloud each time it loses a tenth of its health), the Mycelium (spreads threads over the ground that slow and Poison, staying while it lives), the Spore Mother (mushrooms sprout and burst after 5 s unless a Hero stamps them out).)*
+
+*(11/01/2026: **the Myrmidon Hive** is built and released (00.02.93), opened by beating Black Annis: the tunnels give way (collapsing ground); Myrmidons, gold-digging ants, winged ants, Spartoi brutes; the Gold-Digging Ant (digs up heaps of gold sand; whoever takes one gets run gold and is chased down for 5 s), Myrmex (ploughs furrows across the arena that slow for 10 s), the Queen of the Gold-Digging Ants (carrier ants walk in from the arena's edge, each that reaches her heals her 3%). Pack 6's four realms are all built.)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

@@ -1,0 +1,105 @@
+{
+ "_doc": "A gold-digging ant (Herodotus, Histories 3.102: smaller than a dog, bigger than a fox). Built by tools/art/build_deep.py.",
+ "size": [
+  20,
+  14
+ ],
+ "anchor": [
+  10,
+  13
+ ],
+ "palette": {
+  "o": "#120804",
+  "a": "#8a4a1a",
+  "d": "#c88a2a",
+  "k": "#2a1408",
+  "w": "#e8e4d8",
+  "y": "#f0c840"
+ },
+ "frames": {
+  "idle": [
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....................",
+    ".o.o...o.o.o..o.....",
+    "okokoookokokoodoo...",
+    ".okdddooodoodddddo..",
+    ".odddddoddddddddddo.",
+    "odddddddddddddddddo.",
+    ".odddddoddddddddddo.",
+    "..odddooodoodddddo..",
+    "...ooookokokoodoo...",
+    ".......o.o.o..o.....",
+    "...................."
+   ]
+  ],
+  "walk": [
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....................",
+    ".o.o..o...o...o.....",
+    "okokooko.okooodoo...",
+    ".okdddo.odoodddddo..",
+    ".odddddoddddddddddo.",
+    "odddddddddddddddddo.",
+    ".odddddoddddddddddo.",
+    "..odddo.odoodddddo..",
+    "...ooo.oko.okodoo...",
+    "........o...o.o.....",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....................",
+    ".o.o...o.o.o..o.....",
+    "okokoookokokoodoo...",
+    ".okdddooodoodddddo..",
+    ".odddddoddddddddddo.",
+    "odddddddddddddddddo.",
+    ".odddddoddddddddddo.",
+    "..odddooodoodddddo..",
+    "...ooookokokoodoo...",
+    ".......o.o.o..o.....",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....................",
+    ".o.o....o...o.o.....",
+    "okokoo.oko.okodoo...",
+    ".okdddo.odoodddddo..",
+    ".odddddoddddddddddo.",
+    "odddddddddddddddddo.",
+    ".odddddoddddddddddo.",
+    "..odddo.odoodddddo..",
+    "...oooko.okooodoo...",
+    "......o...o...o.....",
+    "...................."
+   ],
+   [
+    "....................",
+    "....................",
+    "....................",
+    "....................",
+    ".o.o...o.o.o..o.....",
+    "okokoookokokoodoo...",
+    ".okdddooodoodddddo..",
+    ".odddddoddddddddddo.",
+    "odddddddddddddddddo.",
+    ".odddddoddddddddddo.",
+    "..odddooodoodddddo..",
+    "...ooookokokoodoo...",
+    ".......o.o.o..o.....",
+    "...................."
+   ]
+  ]
+ }
+}
