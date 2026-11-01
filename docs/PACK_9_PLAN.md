@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 9). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only, never their modern adaptations (the
-design's note on Libertalia and the Nome King). The owner can change or veto any of it. Lemnos built and released 11/01/2026 (00.03.06); the Goblin Market (00.03.07); Libertalia (00.03.08).
+design's note on Libertalia and the Nome King). The owner can change or veto any of it. Lemnos built and released 11/01/2026 (00.03.06); the Goblin Market (00.03.07); Libertalia (00.03.08); the Hollow Hills (00.03.09). **All four realms are built.**
 
 Realms work like Packs 5-8: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -80,7 +80,7 @@ The Natural History of Norway (1752-53: the Kraken, so vast it is mistaken for i
 | 20:00 | **Captain Misson** | The founder of Libertalia. His ship fires broadsides: rows of cannon-balls cross the arena from one side, port and starboard by turns |
 | 30:00 | **The Kraken** (the design's) | Its arms rise and slam down on marked spots round the Heroes, and when it sinks it makes a whirlpool that drags every Hero toward it |
 
-## Realm 36: the Hollow Hills (the gnomes' earth realm)
+## Realm 36: the Hollow Hills (the gnomes' earth realm): **done and released 11/01/2026 (00.03.09)**
 *Sources: Paracelsus, Liber de Nymphis (1566: the gnomes, spirits of earth, who move through rock as we move through
 air); British fairy-hill folklore (time runs differently under the hill); L. Frank Baum, Ozma of Oz (1907; the book,
 not later films): the Nome King and his underground kingdom, the Giant with the Hammer, the Nome chamberlain Kaliko,

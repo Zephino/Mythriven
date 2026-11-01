@@ -4397,5 +4397,118 @@
       "edge": "#a89060",
       "stones": "#e0c8a0"
     }
+  },
+  {
+    "_doc": "The Hollow Hills, Pack 9 realm 4, the gnomes' earth realm (docs/PACK_9_PLAN.md). Sources: Paracelsus, Liber de Nymphis (1566); British fairy-hill folklore; L. Frank Baum, Ozma of Oz (1907; the book only). A realm: no local gods.",
+    "id": "the_hollow_hills",
+    "name_key": "LEVEL_HOLLOW_HILLS_NAME",
+    "region": "realm_gnome",
+    "act": 11,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_hollow_hills",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "rock",
+          "max": -0.3,
+          "placeholder_color": "#4a4440",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cracked",
+          "max": 0.15,
+          "placeholder_color": "#3e3834",
+          "placeholder_dots": "#c8a040"
+        },
+        {
+          "id": "stone",
+          "max": 0.55,
+          "placeholder_color": "#5a524a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dark_grass",
+          "max": 1.0,
+          "placeholder_color": "#2e3a2a",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "gem_cluster",
+      "fairy_knowe"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "gem_cluster": {
+        "shape": "rect",
+        "size_px": [
+          16,
+          14
+        ],
+        "placeholder_color": "#4ae0c8",
+        "weight": 2
+      },
+      "fairy_knowe": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          16
+        ],
+        "placeholder_color": "#3a7a2a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "kaliko",
+      "20": "hammer_giant",
+      "30": "nome_king"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "utgard",
+      "boss": "utgarda_loki"
+    },
+    "waves": "waves_the_hollow_hills.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 22,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 8,
+      "vision_screens": 0.65,
+      "pulse": 0.15,
+      "pulse_hz": 0.3,
+      "veil_color": "#3a3420",
+      "particles": "mist",
+      "particle_color": "#f0d870",
+      "fade_s": 2.5,
+      "player_status": "chill",
+      "status_every_s": 4.0,
+      "name_key": "HAZARD_HILL_TIME_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#d8d0bc",
+    "flora": {
+      "density": 0.1,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#5a5048",
+      "edge": "#3a3430",
+      "stones": "#7a7068"
+    }
   }
 ]

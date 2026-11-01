@@ -271,6 +271,87 @@ KRAKEN_PAL = {"o": "#120608", "r": "#8a3a4a", "R": "#6a2a3a", "p": "#c87a8a", "y
               "b": "#3a6a9a"}
 
 
+# --- The Hollow Hills (Paracelsus 1566; British fairy-hill folklore; Baum, Ozma of Oz, 1907) --------------------------
+
+def nome(c, f):
+    """A Nome (Baum, Ozma of Oz): one of the little rock-coloured people of the underground kingdom, round and
+    knobbly, with a pick."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 16, x + 1 + d, 20, "G")
+    ellipse(c, 9, 11, 5, 5, "g"); ellipse(c, 9, 5, 3.5, 3, "g"); c.px(8, 5, "k"); c.px(10, 5, "k")
+    c.px(6, 9, "G"); c.px(12, 13, "G")
+    c.rect(15, 4, 15, 15, "b"); c.rect(13, 3, 17, 4, "i")
+
+
+NOME_PAL = {"o": "#0e0c0a", "g": "#8a7a68", "G": "#5a4e42", "k": "#1a1410", "b": "#6a4a2a", "i": "#9aa0a8"}
+
+
+def gnome(c, f):
+    """A gnome (Paracelsus, Liber de Nymphis, 1566: the spirits of earth, who pass through rock and stone as we pass
+    through air): a small bearded earth-spirit in a pointed hood, glowing faintly."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 20, "k")
+    poly(c, [(5, 9), (13, 9), (14, 17), (4, 17)], "v")
+    ellipse(c, 9, 7, 3, 2.5, "s"); poly(c, [(6, 9), (12, 9), (9, 14)], "w")
+    poly(c, [(5, 5), (9, -1), (13, 5)], "r")
+    c.px(15, 9 + s, "y"); c.px(16, 8 + s, "y")
+
+
+GNOME_PAL = {"o": "#0e0a08", "k": "#2a1e14", "v": "#5a6a3a", "s": "#d8a888", "w": "#e8e4dc", "r": "#a83a2a",
+             "y": "#c8f080"}
+
+
+def kaliko(c, step):
+    """Kaliko (Baum, Ozma of Oz): the Nome King's chief steward, a Nome in a fine robe with a great ring of keys, who
+    knows every tunnel of the kingdom."""
+    figure(c, step, "p", "g", "G", legs="G")
+    c.rect(16, 18, 26, 26, "P")
+    for a in range(10):
+        c.px(30 + round(3 * math.cos(a / 10 * 6.28)), 32 + round(3 * math.sin(a / 10 * 6.28)), "y")
+    c.px(32, 36, "y"); c.px(33, 37, "y")
+
+
+KALIKO_PAL = {"o": "#0e0a08", "k": "#1e1814", "p": "#6a3a7a", "P": "#4a2a5a", "g": "#8a7a68", "G": "#5a4e42",
+              "y": "#e8c040"}
+
+
+def hammer_giant(c, step):
+    """The Giant with the Hammer (Baum, Ozma of Oz, ch. 13): a huge man of cast iron who stands beside the narrow road
+    to the Nome King's kingdom and pounds it with his iron hammer without ever stopping."""
+    for k in range(2):
+        c.rect(14 + k * 16, 50, 21 + k * 16, 70, "I")
+    c.rect(10, 22, 44, 50, "i"); c.row(30, 10, 44, "I"); c.row(40, 10, 44, "I")
+    for x in (14, 22, 32, 40):
+        c.px(x, 26, "y"); c.px(x, 46, "y")                                                          # rivets
+    c.rect(18, 4, 36, 21, "i"); c.rect(21, 10, 33, 12, "k"); c.px(24, 11, "r"); c.px(30, 11, "r")
+    c.rect(4, 24, 9, 44, "I"); c.rect(45, 24 - step * 6, 50, 44, "I")
+    c.rect(47, 2 - step * 6, 48, 24 - step * 6, "b"); c.rect(41, -2 - step * 6, 54, 6 - step * 6, "I")       # the hammer
+
+
+HAMMER_GIANT_PAL = {"o": "#0a0a0c", "i": "#5a5e66", "I": "#3a3e46", "y": "#9aa0a8", "k": "#14161a", "r": "#e83a2a",
+                    "b": "#4a3a2a"}
+
+
+def nome_king(c, step):
+    """The Nome King (Baum, Ozma of Oz): Roquat, a round, fat little king of the Nomes with a long white beard and a
+    jolly-looking face that hid a cruel heart, in a robe of rich colours and a jewelled crown, who turned his visitors
+    into ornaments."""
+    for k, d in enumerate((-step, step)):
+        c.rect(15 + k * 8 + d, 46, 18 + k * 8 + d, 54, "G")
+    ellipse(c, 21, 34, 14, 13, "r"); ellipse(c, 21, 36, 10, 9, "R")
+    for x, y in ((12, 30), (30, 30), (16, 42), (26, 42)):
+        c.px(x, y, "j")
+    ellipse(c, 21, 14, 7, 7, "g"); c.px(18, 13, "k"); c.px(24, 13, "k")
+    poly(c, [(15, 16), (27, 16), (24, 30), (18, 30)], "w")
+    c.rect(14, 4, 28, 7, "y"); c.px(15, 3, "y"); c.px(21, 2, "j"); c.px(27, 3, "y")
+
+
+NOME_KING_PAL = {"o": "#0e0a08", "r": "#8a2a6a", "R": "#a83a8a", "j": "#4ae0c8", "g": "#a89078", "G": "#5a4e42",
+                 "k": "#1a1410", "w": "#f0ece4", "y": "#e8c040"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_gears.py."
@@ -293,4 +374,9 @@ if __name__ == "__main__":
     kit.build_boss("sea_serpent", sea_serpent, SERPENT_PAL, doc(sea_serpent.__doc__), (70, 50), (34, 48), [0, 1, 0, -1, 0])
     kit.build_boss("misson", misson, MISSON_PAL, doc(misson.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("kraken", kraken, KRAKEN_PAL, doc(kraken.__doc__), (82, 58), (40, 56), [0, 1, 0, -1, 0])
+    kit.build_boss("nome", nome, NOME_PAL, doc(nome.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("gnome", gnome, GNOME_PAL, doc(gnome.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("kaliko", kaliko, KALIKO_PAL, doc(kaliko.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("hammer_giant", hammer_giant, HAMMER_GIANT_PAL, doc(hammer_giant.__doc__), (58, 74), (27, 72), [0, 1, 0, 1, 0])
+    kit.build_boss("nome_king", nome_king, NOME_KING_PAL, doc(nome_king.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])
     print("wrote Gears and Plunder's art")

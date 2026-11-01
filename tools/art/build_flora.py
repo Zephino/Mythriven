@@ -453,6 +453,11 @@ LEVELS = {
         "trees": {"palm": (lambda c, r, s: palm(c, r, s, False), 26, 40), "acacia": (acacia, 34, 30)},
         "bushes": {"reeds": ("papyrus",)},
         "rock": ("d", "D", "E", None)},
+    # The Hollow Hills: caverns and tunnels under the fairy hills; only a few roots hang down.
+    "the_hollow_hills": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"fern": ("fern",)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

@@ -2599,5 +2599,46 @@
     "text_key": "BANTER_KRAKEN_POSEIDON",
     "lore_source": "Original description written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "kaliko_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "kaliko",
+    "hero": "",
+    "god": "kaliko",
+    "text_key": "BANTER_KALIKO_ENTRANCE",
+    "lore_source": "Ozma of Oz (Kaliko, the steward)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hammer_giant_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "hammer_giant",
+    "hero": "",
+    "god": "hammer_giant",
+    "text_key": "BANTER_HAMMER_GIANT_ENTRANCE",
+    "lore_source": "Ozma of Oz, ch. 13",
+    "needs_owner_review": true
+  },
+  {
+    "id": "nome_king_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "nome_king",
+    "hero": "",
+    "god": "nome_king",
+    "text_key": "BANTER_NOME_KING_ENTRANCE",
+    "lore_source": "Ozma of Oz (his game of ornaments)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "nome_king_mokosh",
+    "trigger": "boss_meets_god",
+    "speaker": "nome_king",
+    "hero": "",
+    "god": "nome_king",
+    "with_god": "mokosh",
+    "text_key": "BANTER_NOME_KING_MOKOSH",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

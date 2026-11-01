@@ -1454,5 +1454,35 @@
       "id": "kraken"
     },
     "persists": true
+  },
+  {
+    "id": "boss_kaliko",
+    "name_key": "ACH_BOSS_KALIKO_NAME",
+    "desc_key": "ACH_BOSS_KALIKO_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "kaliko"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_hammer_giant",
+    "name_key": "ACH_BOSS_HAMMER_GIANT_NAME",
+    "desc_key": "ACH_BOSS_HAMMER_GIANT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "hammer_giant"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_nome_king",
+    "name_key": "ACH_BOSS_NOME_KING_NAME",
+    "desc_key": "ACH_BOSS_NOME_KING_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "nome_king"
+    },
+    "persists": true
   }
 ]

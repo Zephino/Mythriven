@@ -365,6 +365,11 @@ LEVELS = {
         "birds": {"gull": ("#e8ecec", "#9aa4ac", "#e0b030", True)},
         "insects": {"butterfly": (butterfly, "#f0a040", "#3a3020")},
         "large": {}},
+    "the_hollow_hills": {
+        "ground": {"toad": (frog, "#4a4a3a", "#8a8a6a")},
+        "birds": {"bat": ("#3a3440", "#24202a", "#24202a", True)},
+        "insects": {"firefly": (lambda *a: firefly(a[-1]),)},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

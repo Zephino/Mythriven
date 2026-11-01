@@ -708,12 +708,23 @@ def beached_boat():
     return p
 
 
+def gem_cluster():
+    """A cluster of gems growing from the rock under the hollow hills (Ozma of Oz: the Nome King's caverns, lit by the
+    glow of jewels)."""
+    p = Pic(18, 16, (9, 15))
+    blob(p, 9, 13, 8, 3, "G")
+    for x, h, col in ((4, 7, "r"), (8, 11, "u"), (12, 8, "y"), (15, 5, "c")):
+        for y in range(15 - h, 14):
+            p.rect(x - (1 if y > 15 - h + 1 else 0), y, x + (1 if y > 15 - h + 1 else 0), y, col)
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall, ship_cannon, beached_boat)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall, ship_cannon, beached_boat, gem_cluster)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

@@ -1,0 +1,58 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A cluster of gems growing from the rock under the hollow hills (Ozma of Oz: the Nome King's caverns, lit by the glow of jewels).",
+ "size": [
+  19,
+  14
+ ],
+ "anchor": [
+  9,
+  13
+ ],
+ "palette": {
+  "a": "#243618",
+  "b": "#5a723c",
+  "c": "#546c3c",
+  "d": "#4e6c36",
+  "e": "#664e18",
+  "f": "#481812",
+  "g": "#d8b448",
+  "h": "#8a3630",
+  "i": "#e4ba4e",
+  "j": "#2a3c18",
+  "k": "#84362a",
+  "l": "#4e6636",
+  "m": "#c0a242",
+  "n": "#cca848",
+  "o": "#60783c",
+  "p": "#963c30",
+  "q": "#5a5a60",
+  "r": "#545454",
+  "s": "#2a2a2a",
+  "t": "#54545a",
+  "u": "#486030",
+  "v": "#667e42",
+  "w": "#4e5454",
+  "x": "#4e4e4e",
+  "y": "#48484e"
+ },
+ "frames": {
+  "idle": [
+   [
+    "........a..........",
+    ".......aba.........",
+    ".......aba.........",
+    "......acdca.e......",
+    "....f.abddaege.....",
+    "...fhfadbbaege.....",
+    "...fhfadccagigej...",
+    "..fkhkacdlamnmjoj..",
+    "..fkppqdcdrnnnqbj..",
+    ".stpphtdclqnnnoobj.",
+    "sqthhkquddtnmmvvbqs",
+    ".sttwtwtttqtqtxtqs.",
+    "..sstttyqttttqwss..",
+    "....sssssssssss...."
+   ]
+  ]
+ }
+}

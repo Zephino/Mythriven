@@ -813,6 +813,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | kraken_entrance | boss entrance | kraken | (The islands in the bay begin to move.) | Pontoppidan (the Kraken mistaken for islands) | no |
 | kraken_poseidon | boss meets god (with poseidon) | kraken | (The sea-beast rolls an eye the size of a cartwheel toward the Earth-shaker.) | Original description written for Mythriven | no |
 
+### The Hollow Hills
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | the_hollow_hills | The Hollow Hills | Paracelsus, Liber de Nymphis (1566: the gnomes); L. Frank Baum, Ozma of Oz (1907: the Nome kingdom) | no |
+| enemy | nome | Nome | L. Frank Baum, Ozma of Oz (1907): the Nomes of the underground kingdom | no |
+| enemy | gnome | Gnome | Paracelsus, Liber de Nymphis, Sylphis, Pygmaeis et Salamandris (1566): the gnomes | no |
+| boss | kaliko | Kaliko | L. Frank Baum, Ozma of Oz (1907): Kaliko, the Nome King's chief steward | no |
+| boss | hammer_giant | The Giant with the Hammer | L. Frank Baum, Ozma of Oz (1907), ch. 13: the giant of cast iron who pounds the road to the Nome King's kingdom | no |
+| boss | nome_king | The Nome King | L. Frank Baum, Ozma of Oz (1907; the book only): the Nome King, his ornaments, and the Nomes' fear of eggs | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| kaliko_entrance | boss entrance | kaliko | His Majesty is busy. I know every tunnel here, and you don't. | Ozma of Oz (Kaliko, the steward) | no |
+| hammer_giant_entrance | boss entrance | hammer_giant | (BANG. BANG. BANG. The hammer never stops.) | Ozma of Oz, ch. 13 | no |
+| nome_king_entrance | boss entrance | nome_king | Welcome, welcome! You'll make a lovely ornament. | Ozma of Oz (his game of ornaments) | no |
+| nome_king_mokosh | boss meets god (with mokosh) | nome_king | Mother of the damp earth! All that is under it is mine. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

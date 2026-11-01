@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.09
+Date: 10/31/2026
+Time: 11:22 PM
+
+### Changes
+- **The Hollow Hills, the gnomes' earth realm, is built and open** (Pack 9, `docs/PACK_9_PLAN.md`). It opens when you beat Útgarða-Loki (Utgard's 30:00 boss). With it, all four realms of Gears and Plunder are built. Sources: Paracelsus' gnomes, British fairy-hill folklore and L. Frank Baum's Ozma of Oz (1907; the book only).
+  - **Hazard, the hill's time:** time runs strangely under the hill; while the glamour lies thick the view closes in and every Hero is Chilled (slowed).
+  - **Monsters:** Nomes (Baum's rock-folk), gnomes (Paracelsus' earth spirits, casters) and bats.
+  - **10:00, Kaliko** (the Nome King's steward): he fights for 4 s, then drops down one of three holes (he can't be hurt below) and pops up out of another with a burst of rock.
+  - **20:00, the Giant with the Hammer** (Ozma of Oz, ch. 13): every 1.5 s his iron hammer falls on a marked strip toward a Hero. Pass between the blows.
+  - **30:00, the Nome King** (the design's boss): every 9 s he turns the nearest Hero into an ornament for 2 s (you can't move). But Nomes fear eggs: take one of the eggs that appear and he is terrified, stunned for 3 s and taking double damage.
+  - Caverns with gem clusters and fairy knowes; toads, bats and fireflies.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (410 tests pass).
+
+### Reason
+Pack 9, realm 4 of 4 (owner: "go ahead").
+
 ## Version 00.03.08
 Date: 10/31/2026
 Time: 11:14 PM

@@ -2739,3 +2739,30 @@ BANTER_SEA_SERPENT_ENTRANCE,(A row of great humps breaks the surface of the bay.
 BANTER_MISSON_ENTRANCE,"Welcome to Libertalia, where every man is free. Now surrender."
 BANTER_KRAKEN_ENTRANCE,(The islands in the bay begin to move.)
 BANTER_KRAKEN_POSEIDON,(The sea-beast rolls an eye the size of a cartwheel toward the Earth-shaker.)
+LEVEL_HOLLOW_HILLS_NAME,The Hollow Hills
+HAZARD_HILL_TIME_NAME,Time runs strangely under the hill...
+ENEMY_NOME_NAME,Nome
+ENEMY_NOME_MYTH,"The rock-coloured little people of the kingdom under the mountains, who work in the caverns among the jewels and metals for their king. (Baum spelled them ""Nomes""; the book, not the films.)"
+ENEMY_GNOME_NAME,Gnome
+ENEMY_GNOME_MYTH,"Paracelsus wrote that the gnomes are the spirits of earth, who move through solid rock and stone as easily as we move through air, guarding the treasures of the earth."
+BOSS_KALIKO_NAME,Kaliko
+ENEMY_KALIKO_NAME,Kaliko
+ENEMY_KALIKO_MYTH,"The Nome King's chief steward, who carries the keys of the underground palace and knows every tunnel of the kingdom."
+BOSS_HAMMER_GIANT_NAME,The Giant with the Hammer
+ENEMY_HAMMER_GIANT_NAME,The Giant with the Hammer
+ENEMY_HAMMER_GIANT_MYTH,"A huge man made of cast iron, standing beside the narrow road to the Nome King's kingdom and pounding it with his great iron hammer without ever stopping, so that no one can get past."
+BOSS_NOME_KING_NAME,The Nome King
+ENEMY_NOME_KING_NAME,The Nome King
+ENEMY_NOME_KING_MYTH,"The ruler of the Nomes, a fat jolly-looking little king with a white beard and a cruel heart, who turned the royal family of Ev into ornaments for his palace. The Nomes fear nothing so much as eggs."
+BOSS_NOME_KING_ORNAMENT,The Nome King turns you into an ornament!
+BOSS_NOME_KING_EGG,An egg! The Nome King shrieks in terror!
+ACH_BOSS_KALIKO_NAME,Defeat Kaliko
+ACH_BOSS_KALIKO_DESC,The 10:00 boss of The Hollow Hills.
+ACH_BOSS_HAMMER_GIANT_NAME,Defeat The Giant with the Hammer
+ACH_BOSS_HAMMER_GIANT_DESC,The 20:00 boss of The Hollow Hills.
+ACH_BOSS_NOME_KING_NAME,Defeat The Nome King
+ACH_BOSS_NOME_KING_DESC,The 30:00 boss of The Hollow Hills.
+BANTER_KALIKO_ENTRANCE,"His Majesty is busy. I know every tunnel here, and you don't."
+BANTER_HAMMER_GIANT_ENTRANCE,(BANG. BANG. BANG. The hammer never stops.)
+BANTER_NOME_KING_ENTRANCE,"Welcome, welcome! You'll make a lovely ornament."
+BANTER_NOME_KING_MOKOSH,Mother of the damp earth! All that is under it is mine.

@@ -1045,3 +1045,40 @@ func test_the_krakens_arms_and_whirlpool() -> void:
 	beast.whirlpool()
 	beast.signature(1.0)
 	assert_lt(_player.position.distance_to(beast.position_now()), 300.0, "dragged in")
+
+
+func test_kaliko_pops_up_out_of_his_tunnels() -> void:
+	_start("the_hollow_hills")
+	assert_eq(str(_level("the_hollow_hills")["unlock"]["boss"]), "utgarda_loki")
+	var steward: KalikoBoss = _bosses.spawn_boss("kaliko", 0) as KalikoBoss
+	steward.signature(4.1)
+	assert_eq(steward.holes.size(), 3)
+	assert_gt(steward.below_s, 0.0, "down a hole")
+	assert_eq(steward.modify_hit(50.0, _player, Vector2.ZERO), 0.0, "can't be hurt below")
+	steward.signature(2.1)
+	assert_eq(steward.pops, 1, "and up again")
+	assert_true(steward.holes.has(steward.position_now()), "out of a hole")
+
+
+func test_the_giant_with_the_hammer_keeps_the_beat() -> void:
+	_start("the_hollow_hills")
+	var giant: HammerGiantBoss = _bosses.spawn_boss("hammer_giant", 1) as HammerGiantBoss
+	giant.aim = Vector2.RIGHT
+	_player.position = giant.position_now() + Vector2(100, 0)
+	assert_true(giant.on_strip(_player.position))
+	var hp: float = _player.hp
+	giant.hammer_falls()
+	assert_lt(_player.hp, hp, "the hammer falls")
+	assert_false(giant.on_strip(giant.position_now() + Vector2(0, 100)), "beside the strip is safe")
+
+
+func test_the_nome_king_makes_ornaments_and_fears_eggs() -> void:
+	_start("the_hollow_hills")
+	var king: NomeKingBoss = _bosses.spawn_boss("nome_king", 2) as NomeKingBoss
+	king.make_ornament(_player)
+	assert_gt(_player.rooted_s, 0.0, "an ornament")
+	king.lay_egg()
+	_player.position = king.eggs[0]
+	king.signature(0.1)
+	assert_eq(king.frights, 1, "an egg!")
+	assert_almost_eq(king.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01)
