@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.37
+Date: 11/01/2026
+Time: 2:47 PM
+
+### Changes
+- **The Wild Hunt's grey outline is now on the huntsman only** (owner: "the guy, not the horse too"). The horse is back to its dark outline; a light grey line runs round the huntsman, including where he sits on the horse, so he stands out from the dark ground and from his horse.
+
+### Reason
+The owner wanted only the rider outlined in grey.
+
 ## Version 00.03.36
 Date: 11/01/2026
 Time: 2:42 PM

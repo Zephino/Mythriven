@@ -177,11 +177,11 @@ def wild_hunt(c, step):
     for i in range(10):                                                                  # the mane, flying back
         c.px(57 - i, 13 + i, "m"); c.px(56 - i, 15 + i, "m")
     # The huntsman: a huge cloaked shape on the horse's back
-    poly(c, [(30, 8), (40, 6), (44, 14), (44, 28), (28, 28)], "K")
-    poly(c, [(30, 10), (24, 18), (18, 30), (22, 34), (30, 30)], "K")                     # the cloak, hanging over the horse's back
-    poly(c, [(33, 2), (40, 0), (44, 4), (44, 10), (36, 12), (32, 8)], "K")              # the hood
+    poly(c, [(30, 8), (40, 6), (44, 14), (44, 28), (28, 28)], "R")
+    poly(c, [(30, 10), (24, 18), (18, 30), (22, 34), (30, 30)], "R")                     # the cloak, hanging over the horse's back
+    poly(c, [(33, 2), (40, 0), (44, 4), (44, 10), (36, 12), (32, 8)], "R")              # the hood
     c.px(40, 6, "y"); c.px(42, 6, "y")                                                   # eyes burning in the hood
-    poly(c, [(40, 16), (48, 10), (50, 12), (42, 19)], "K")                               # arm raised high
+    poly(c, [(40, 16), (48, 10), (50, 12), (42, 19)], "R")                               # arm raised high
     for i in range(9):                                                                   # the hunting horn held up in his fist
         t = i / 8
         x, y = 49 + t * 7, 10 - t * 9 + t * t * 3
@@ -189,16 +189,29 @@ def wild_hunt(c, step):
         ellipse(c, x, y, r, r, "h")
     c.row(6, 51, 53, "H")                                                                # its gold band
     c.rect(55, 1, 58, 3, "H")                                                            # the open bell
-    c.rect(30, 26, 34, 34, "K")                                                          # his leg down the horse's side
+    c.rect(30, 26, 34, 34, "R")                                                          # his leg down the horse's side
     # Near legs of the horse
     hoofed_leg(c, 26 + step * 2, 40, 58, "k", "K", "K", bend=-2)
     hoofed_leg(c, 48 - step * 2, 40, 58, "k", "K", "K", bend=1)
     rim(c, "kK", "l")
+    # A light grey line round the huntsman (not the horse), so he stands out from the dark and from his horse
+    edge = []
+    for y in range(c.h):
+        for x in range(c.w):
+            if c.g[y][x] in "RhHy":
+                for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    nx, ny = x + dx, y + dy
+                    if not (0 <= nx < c.w and 0 <= ny < c.h) or c.g[ny][nx] not in "RhHy":
+                        edge.append((x, y))
+                        break
+    for x, y in edge:
+        if c.g[y][x] == "R":
+            c.px(x, y, "q")
     for x in range(4, 74, 4):
         c.px(x, 59, "g")                                                                 # a pale ghost-light underfoot
 
 
-HUNT_PAL = {"o": "#a8b0c4", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
+HUNT_PAL = {"o": "#2a3040", "R": "#0e0c12", "q": "#a8b0c4", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
             "H": "#6a4420", "l": "#4a4a62", "g": "#8a9ab8"}
 
 
