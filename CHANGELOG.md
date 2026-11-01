@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.46
+Date: 11/01/2026
+Time: 5:26 PM
+
+### Changes
+- **The Erlking made clearly a king** (owner: he looked like a woman). His long hair is now cut to the shoulders; he has a long full grey beard with a moustache down his chest, heavy brows, deep-set eyes, hollow cheeks and a long nose; broad shoulders under a fur-trimmed mantle; and a warmer pale skin, so his face no longer disappears into his white hair.
+
+### Reason
+The owner said the reworked Erlking looked female.
+
 ## Version 00.03.45
 Date: 11/01/2026
 Time: 5:21 PM

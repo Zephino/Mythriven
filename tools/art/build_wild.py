@@ -119,17 +119,30 @@ VOLUNDR_PAL = {"o": "#120c08", "k": "#1a1008", "m": "#a85a4a", "a": "#6a4a2a", "
 
 def erlking(c, step):
     """The Erlking (Goethe, 1782): "the Erlking with crown and train", who woos the child riding through the night with
-    his father. A tall, gaunt, pale king with long silver hair and a misty beard, a gold crown, a dark grey-green robe,
-    a long train sweeping behind him, beckoning."""
+    his father. A tall, gaunt old king: silver hair to his shoulders, a long full beard, heavy brows and hollow cheeks,
+    a gold crown, broad shoulders under a fur-trimmed mantle, a grey-green robe with a long train trailing in mist,
+    one hand reaching out to beckon."""
     poly(c, [(12, 26), (28, 26), (40, 56), (0, 56)], "G")                                # the long train behind him
     for x in range(4, 38, 5):
         c.px(x, 54, "w")                                                                 # mist at its hem
-    person(c, step, cx=20, head_y=10, hair="w", hair_d="W", hair_style="long", beard="w", garment="robe",
-           robe="g", robe_d="G", robe_l=None, belt="y", crown="y", eye="e", arm_forward=True, boots="G",
+    person(c, step, cx=20, head_y=10, hair="w", hair_d="W", hair_style="shoulder", garment="robe",
+           robe="g", robe_d="G", belt="y", crown="y", eye="e", arm_forward=True, boots="G",
            skin="s", skin_d="S")
+    poly(c, [(10, 17), (30, 17), (31, 22), (9, 22)], "G")                                # broad shoulders: the mantle
+    c.row(17, 11, 29, "W"); c.row(18, 10, 30, "w")                                       # its fur trim
+    poly(c, [(15, 13), (25, 13), (25, 20), (23, 27), (20, 31), (17, 27), (15, 20)], "b")  # long full beard
+    for x in (17, 20, 23):
+        for y in range(15, 28, 2):
+            if c.g[y][x] == "b":
+                c.px(x, y, "B")
+    c.row(13, 17, 23, "B"); c.px(17, 14, "B"); c.px(23, 14, "B")                         # moustache
+    c.row(8, 16, 19, "B"); c.row(8, 21, 24, "B")                                         # heavy brows
+    c.px(18, 10, "e"); c.px(22, 10, "e"); c.px(18, 9, "S"); c.px(22, 9, "S")             # deep-set eyes
+    c.px(16, 11, "S"); c.px(24, 11, "S"); c.px(16, 12, "S"); c.px(24, 12, "S")           # hollow cheeks
+    c.px(20, 11, "S"); c.px(20, 12, "S")                                                 # a long nose
 
 
-ERLKING_PAL = {"o": "#0a0c14", "k": "#1a1e28", "g": "#4a5a58", "G": "#323e3e", "s": "#d8dce4", "S": "#a8acb8",
+ERLKING_PAL = {"b": "#b0b4bc", "B": "#80848e", "o": "#0a0c14", "k": "#1a1e28", "g": "#4a5a58", "G": "#323e3e", "s": "#d8c0ae", "S": "#9a8070",
                "e": "#7ab0d8", "w": "#d8dce4", "W": "#a8aeb8", "y": "#d8c060", "m": "#8a8a98"}
 
 
