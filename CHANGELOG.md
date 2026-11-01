@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.44
+Date: 11/01/2026
+Time: 4:06 PM
+
+### Changes
+- **Mycendra and the Myrmidon Hive remade** (owner: keep the Spore Mother, cap walker, glow-fly and spore puff; remake the rest a little better).
+  - **The Great Puffball:** its pale skin cracked into patches, a light top and a shadowed underside, split open at the top with a dusty cloud of spores puffing out, sitting on its stub in the soil.
+  - **The Mycelium:** a heaving mound of lumps woven over with threads, tendrils creeping out across the ground, and a knot of five mushrooms with gills at its heart.
+  - **The ants** (the Gold-Digging Ant boss and the small gold-digging, winged and gold-carrier ants): proper ants, with a head, jaws and a big eye, elbowed feelers, a narrow thorax and waist, a big shining banded abdomen, and six bent legs that step. The boss has gold dust on its jaws and in the sand.
+  - **The Queen of the Gold-Digging Ants:** the same ant body with a vast swollen abdomen ringed with gold, two veined wings, and her crown on her head.
+  - **Myrmex:** a girl in a pale Greek peplos with folds and a girdle, her dark hair bound up, an ant's feelers rising from her head, her arms turning dark and shining, pushing a wooden plough with an iron share.
+  - **The Myrmidon:** a hoplite in a bronze cuirass and helmet with an ant's feelers, a red cloak, a spear, and a round shield with an ant on it.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for these to be remade a little better.
+
 ## Version 00.03.43
 Date: 11/01/2026
 Time: 3:43 PM

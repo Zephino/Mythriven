@@ -300,31 +300,56 @@ GLOWFLY_PAL = {"o": "#0e140a", "k": "#1e2a14", "g": "#c8f060", "y": "#a8f048", "
 
 
 def great_puffball(c, step):
-    """The Great Puffball (Mycendra, the game's own): a puffball as big as an ox, its skin cracked, spores leaking."""
-    ellipse(c, 28, 30, 24, 20 - step, "p"); ellipse(c, 24, 24, 16, 12, "P")
-    for x, y in ((14, 20), (36, 18), (30, 36), (20, 38), (40, 30)):
-        c.px(x, y, "k"); c.px(x + 1, y + 1, "k"); c.px(x + 2, y + 1, "k")
-    for k in range(6):
-        c.px(10 + k * 7, 6 + (k % 3) * 2, "g")
-    c.rect(18, 48, 38, 50, "s")
+    """The Great Puffball (Mycendra, the game's own): a puffball as big as an ox, its pale skin cracked into patches,
+    split open at the top with spores puffing out."""
+    ellipse(c, 28, 49, 14, 3, "s")                                                       # the soil it sits on
+    c.rect(22, 44, 34, 48, "k")                                                          # its stub
+    ellipse(c, 28, 30, 24, 18 - step, "p")
+    ellipse(c, 23, 25, 15, 10, "P")                                                      # the light side
+    ellipse(c, 34, 38, 16, 8, "q")                                                       # the shadowed underside
+    for y in range(14, 47, 6):                                                           # cracked into patches
+        for x in range(6, 52, 7):
+            ox = 3 if (y // 6) % 2 else 0
+            if c.g[y][x + ox] in "pPq":
+                c.px(x + ox, y, "k"); c.px(x + ox + 1, y, "k"); c.px(x + ox + 3, y + 3, "k")
+    poly(c, [(22, 12), (34, 12), (31, 16), (25, 16)], "k")                               # the split at the top
+    for k, (dx, dy, r) in enumerate(((0, 9, 2.5), (-4, 6, 2), (4, 5, 2.2), (-7, 2, 1.6), (1, 2, 2.4), (7, 1, 1.5),
+                                     (-2, -1 + 1, 1.2), (10, 6, 1), (-10, 7, 1))):
+        ellipse(c, 28 + dx, dy - step, r, r * 0.8, "g" if k % 2 else "G")               # a dusty cloud of spores
 
 
-GREATPUFF_PAL = {"o": "#2a2410", "p": "#d8cc98", "P": "#ece4c0", "k": "#8a7a50", "g": "#a8b848", "s": "#6a5a3a"}
+GREATPUFF_PAL = {"o": "#2a2410", "p": "#d8cc98", "P": "#ece4c0", "q": "#b8a878", "k": "#8a7a50", "g": "#a89a6a",
+                 "G": "#c8bc90", "s": "#4a3a24"}
 
 
 def mycelium(c, step):
-    """The Mycelium (Mycendra, the game's own): a heaving mass of pale fungus threads with a knot of mushrooms at its
-    heart."""
-    ellipse(c, 30, 34, 26, 14, "w")
-    for k in range(22):
-        a = k / 22 * math.tau
-        for r in range(10, 28, 2):
-            c.px(round(30 + math.cos(a + r * 0.05 + step * 0.1) * r), round(34 + math.sin(a) * r * 0.55), "W")
-    for x, h in ((22, 10), (30, 14), (37, 9)):
-        c.rect(x, 30 - h, x + 1, 30, "s"); ellipse(c, x + 0.5, 30 - h, 4, 2.5, "b")
+    """The Mycelium (Mycendra, the game's own): a heaving mound of pale fungus threads, tendrils creeping out over the
+    ground, with a knot of mushrooms at its heart."""
+    for k in range(10):                                                                  # tendrils reaching out
+        a = math.pi + k / 9 * math.pi
+        x, y = 30.0, 42.0
+        for t in range(18):
+            x += math.cos(a) * 1.6; y += 0.15 + math.sin(t * 0.6 + k) * 0.3
+            c.px(round(x), min(51, round(y + 6)), "W")
+            if t == 10:
+                c.px(round(x + math.cos(a + 0.6) * 2), min(51, round(y + 5)), "W")
+    for cx, cy, rx, ry in ((18, 38, 12, 8), (40, 38, 13, 8), (30, 32, 15, 10), (24, 26, 9, 6), (36, 27, 8, 6)):
+        ellipse(c, cx, cy + (step if cx < 30 else -step) * 0.5, rx, ry, "w")             # heaving lumps
+    for k in range(40):                                                                  # threads woven over it
+        a = k * 0.9
+        x0 = 30 + math.cos(a) * 14; y0 = 34 + math.sin(a) * 8
+        for t in range(6):
+            x, y = round(x0 + t * math.cos(a + 1.3)), round(y0 + t * math.sin(a + 1.3) * 0.6)
+            if 0 <= y < c.h and 0 <= x < c.w and c.g[y][x] == "w":
+                c.px(x, y, "W")
+    for x, h, r in ((22, 10, 4), (28, 15, 5), (34, 12, 4), (39, 8, 3), (25, 6, 2.5)):   # the knot of mushrooms
+        c.rect(x, 30 - h, x + 1, 30, "s")
+        ellipse(c, x + 0.5, 30 - h, r, r * 0.6, "b"); c.row(30 - h + 1, round(x - r + 1), round(x + r), "B")
+        c.px(round(x - r / 2), 30 - h - 1, "l")
 
 
-MYCELIUM_PAL = {"o": "#2a2620", "w": "#e8e4d4", "W": "#c8c2b0", "s": "#e0d4b8", "b": "#8a5a3a"}
+MYCELIUM_PAL = {"o": "#2a2620", "w": "#e8e4d4", "W": "#b8b2a0", "s": "#e0d4b8", "b": "#8a5a3a", "B": "#5a3a24",
+                "l": "#c8946a"}
 
 
 def spore_mother(c, step):
@@ -348,93 +373,150 @@ MOTHER_PAL = {"o": "#120a10", "s": "#e0d4b8", "S": "#b8a888", "k": "#2a1a10", "v
 # --- The Myrmidon Hive (Ovid, Metamorphoses 7.614-660; Herodotus 3.102-105; Servius on Aeneid 4.402) -------------------
 
 def myrmidon(c, f):
-    """A Myrmidon (Ovid, Metamorphoses 7: the ants of Aegina turned into men for King Aeacus): a hoplite in dark
-    bronze-red armour with an ant's feelers on his helmet, a spear and round shield."""
+    """A Myrmidon (Ovid, Metamorphoses 7: the ants of Aegina turned into men for King Aeacus): a hoplite in bronze with
+    an ant's feelers rising from his helmet, a red cloak, a spear, and a round shield with an ant on it."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "k")
-    c.rect(5, 8, 14, 18, "r"); c.row(12, 5, 14, "R")
-    ellipse(c, 9, 5, 3, 3, "b"); c.rect(6, 1, 12, 4, "b"); c.px(10, 4, "k")
-    c.px(7, 0, "k"); c.px(6, -1 if False else 0, "k"); c.px(12, 0, "k")
-    ellipse(c, 4, 13, 3, 4, "b"); c.px(4, 13, "y")
-    c.rect(16, 0, 16, 20, "w"); c.px(16, 0, "b")
+        c.rect(x + d, 17, x + 1 + d, 21, "s"); c.rect(x + d, 21, x + 2 + d, 22, "k")
+    poly(c, [(5, 8), (12, 8), (15, 17), (3, 17)], "r")                                   # cloak behind
+    c.rect(6, 8, 13, 16, "b"); c.row(12, 6, 13, "B"); c.px(9, 10, "B")                   # bronze cuirass
+    c.rect(6, 15, 13, 17, "R")                                                           # kilt
+    ellipse(c, 9, 4, 3.5, 3.5, "b"); c.rect(7, 5, 8, 7, "s"); c.px(8, 5, "k")            # helmet, face
+    c.px(10, 1, "k"); c.px(11, 0, "k"); c.px(8, 1, "k"); c.px(7, 0, "k")                 # an ant's feelers
+    c.rect(16, 0, 16, 20, "w"); c.px(16, 0, "i")                                         # spear
+    ellipse(c, 4, 12, 3.5, 4.5, "b"); ellipse(c, 4, 12, 2.5, 3.5, "B")                   # round shield
+    c.px(3, 11, "k"); c.px(4, 12, "k"); c.px(5, 13, "k"); c.px(2, 12, "k"); c.px(6, 12, "k")   # the ant on it
 
 
-MYRM_PAL = {"o": "#0a0604", "k": "#1a0e0a", "r": "#7a2a1a", "R": "#5a1a10", "b": "#a8743a", "y": "#e0b040",
-            "w": "#6a4a2a"}
+MYRM_PAL = {"o": "#0a0604", "k": "#1a0e0a", "r": "#8a2a1a", "R": "#5a1a10", "b": "#c08a3a", "B": "#8a5a1e",
+            "s": "#c8946a", "y": "#e0b040", "w": "#6a4a2a", "i": "#c8ccd4"}
+
+
+def ant_body(c, x0, y0, k, step, col, dark, light, eye="k"):
+    """An ant in side view, facing left, scaled by k: head with jaws and a big eye, elbowed feelers, a narrow thorax, a
+    small waist node, a big shining abdomen, and six bent legs (three on the far side in shadow)."""
+    X = lambda v: round(x0 + v * k)
+    Y = lambda v: round(y0 + v * k)
+    def leg(xa, out, d, colr):
+        knee = (X(xa + out * 5 + d), Y(4))
+        foot = (X(xa + out * 7 + d * 1.5), Y(10))
+        for t in range(6):
+            c.px(round(X(xa) + (knee[0] - X(xa)) * t / 5), round(Y(1) + (knee[1] - Y(1)) * t / 5), colr)
+        for t in range(7):
+            c.px(round(knee[0] + (foot[0] - knee[0]) * t / 6), round(knee[1] + (foot[1] - knee[1]) * t / 6), colr)
+    for i, (xa, out) in enumerate(((9, -1), (13, 0), (16, 1))):                          # far legs, in shadow
+        leg(xa + 1, out, step if i % 2 else -step, dark)
+    ellipse(c, X(33), Y(-1), 11 * k, 8 * k, col)                                         # the abdomen
+    ellipse(c, X(31), Y(-4), 7 * k, 3.5 * k, light)                                      # its shine
+    for bx in (27, 32, 37):
+        for t in range(-6, 6):
+            yy = Y(-1 + t)
+            xx = X(bx) + round(abs(t) * 0.3 * k)
+            if 0 <= yy < c.h and c.g[yy][xx] in (col, light):
+                c.px(xx, yy, dark)                                                       # its bands
+    ellipse(c, X(20.5), Y(0), 2.2 * k, 2.2 * k, col)                                     # the waist node
+    ellipse(c, X(13), Y(-1), 6 * k, 3.4 * k, col); c.px(X(12), Y(-3), light)             # the thorax
+    ellipse(c, X(4), Y(-2), 4.5 * k, 4 * k, col)                                         # the head
+    ellipse(c, X(4), Y(-3), 1.4 * k, 1.4 * k, eye)                                       # big eye
+    c.px(X(-1), Y(1), dark); c.px(X(-2), Y(0), dark); c.px(X(-1), Y(2), dark)            # jaws
+    for t in range(5):                                                                   # elbowed feelers
+        c.px(X(4 - t * 0.4), Y(-6 - t), dark)
+    for t in range(6):
+        c.px(X(2 - t), Y(-10 + t * 0.2), dark)
+    for i, (xa, out) in enumerate(((9, -1), (13, 0), (16, 1))):                          # near legs
+        leg(xa, out, -step if i % 2 else step, dark)
 
 
 def ant(colour, wings=False, load=False):
+    """A small ant of the hive in side view: head with jaws and an eye, elbowed feelers, a narrow thorax, a waist node,
+    a banded shining abdomen, and bent legs that step."""
     def draw(c, f):
         s = STEP[f]
-        ellipse(c, 4, 8, 3, 2.5, colour); ellipse(c, 9, 8, 2, 2, colour); ellipse(c, 14, 8, 3.5, 3, colour)
-        c.px(2, 6, "k"); c.px(1, 5, "k"); c.px(3, 5, "k")
-        for k, d in enumerate((-s, s, -s)):
-            c.px(7 + k * 2 + d, 11, "k"); c.px(7 + k * 2 - d, 5, "k")
         if wings:
             up = f % 2
-            poly(c, [(9, 7), (5, 1 if up else 3), (12, 5)], "w"); poly(c, [(10, 7), (15, 1 if up else 3), (13, 6)], "w")
+            poly(c, [(8, 6), (12, 0 if up else 2), (16, 1 if up else 3), (10, 6)], "W")
+        for k, (x, d) in enumerate(((6, s), (8, -s), (10, s))):                             # bent legs
+            kx = x - 2 + k * 2
+            c.px(x, 9, "k"); c.px(kx + d, 10, "k"); c.px(kx + d - (1 if k == 0 else 0) + (1 if k == 2 else 0), 11, "k")
+            c.px(kx + d - (1 if k == 0 else 0) + (1 if k == 2 else 0), 12, "k")
+        ellipse(c, 15, 7, 4, 3, colour); c.px(14, 5, "l"); c.px(15, 5, "l")              # abdomen, its shine
+        c.rect(16, 5, 16, 9, "k")                                                        # its band
+        c.px(11, 8, colour)                                                              # waist node
+        ellipse(c, 8, 7, 2.6, 1.6, colour)                                               # thorax
+        ellipse(c, 3, 7, 2.4, 2.2, colour); c.px(2, 6, "k")                             # head, eye
+        c.px(0, 8, "k"); c.px(0, 9, "k")                                                 # jaws
+        c.px(4, 4, "k"); c.px(4, 3, "k"); c.px(3, 2, "k"); c.px(2, 2, "k"); c.px(1, 2, "k")   # elbowed feeler
+        if wings:
+            poly(c, [(7, 6), (10, 0 if up else 2), (13, 1 if up else 3), (9, 6)], "w")
         if load:
-            ellipse(c, 4, 4, 3, 2, "y")                                                     # the gold it carries
+            ellipse(c, 3, 2, 2.5, 1.8, "y"); c.px(2, 1, "Y")                             # the gold it carries
     return draw
 
 
-ANT_PAL = {"o": "#120804", "a": "#8a4a1a", "d": "#c88a2a", "k": "#2a1408", "w": "#e8e4d8", "y": "#f0c840"}
+ANT_PAL = {"o": "#120804", "a": "#8a4a1a", "d": "#c88a2a", "k": "#2a1408", "l": "#f0c070", "w": "#e8e4d8",
+           "W": "#c8c4b8", "y": "#f0c840", "Y": "#fff0a0"}
 
 
 def great_gold_ant(c, step):
     """The Gold-Digging Ant (Herodotus 3.102: ants smaller than dogs but bigger than foxes, which throw up gold-bearing
     sand as they burrow): a huge tawny ant with gold dust on its jaws."""
-    ellipse(c, 12, 26, 10, 8, "d"); ellipse(c, 28, 26, 7, 6, "d"); ellipse(c, 46, 26, 13, 10, "d")
-    c.px(9, 22, "k"); c.px(14, 22, "k")
-    for k in range(6):
-        c.px(4 - k, 20 - k, "k"); c.px(8 - k // 2, 19 - k, "k")                          # feelers
-    for k, d in enumerate((-step, step, -step)):
-        x = 22 + k * 7
-        for t in range(10):
-            c.px(x - t // 2 + d, 32 + t, "k"); c.px(x - t // 2 - d, 20 - t, "k")
-    c.rect(2, 28, 6, 30, "y"); c.px(3, 27, "y")
+    ant_body(c, 6, 28, 1.25, step, "d", "k", "l")
+    for x, y in ((2, 30), (4, 31), (1, 32), (3, 33), (6, 32)):
+        c.px(x, y, "y")                                                                  # gold dust on its jaws
+    for x in range(0, 60, 5):
+        c.px(x, 43, "y")                                                                 # gold-bearing sand
 
 
-GREATANT_PAL = {"o": "#120804", "d": "#c88a2a", "k": "#2a1408", "y": "#f0d040"}
+GREATANT_PAL = {"o": "#120804", "d": "#c88a2a", "k": "#2a1408", "l": "#f0c070", "y": "#f0d040"}
 
 
 def myrmex(c, step):
     """Myrmex (Servius on Virgil, Aeneid 4.402): an Attic girl, a favourite of Athena, who claimed she had invented the
-    plough the goddess made, and was turned into an ant. A girl with an ant's feelers and dark shining limbs, pushing
-    a plough."""
+    plough the goddess made, and was turned into an ant. A girl in a pale peplos, her dark hair bound up, an ant's
+    feelers rising from her head and her arms turning dark and shining, pushing a wooden plough."""
     for k, d in enumerate((-step, step)):
-        c.rect(16 + k * 6 + d, 44, 18 + k * 6 + d, 54, "k")
-    poly(c, [(14, 18), (28, 18), (31, 46), (11, 46)], "p")
-    c.rect(16, 6, 25, 16, "s"); c.px(19, 10, "k"); c.px(23, 10, "k")
-    c.rect(14, 3, 27, 7, "h")
-    for k in range(5):
-        c.px(17 - k, 2 - k // 2, "k"); c.px(24 + k, 2 - k // 2, "k")                       # feelers
-    c.rect(32, 30, 34, 50, "b"); poly(c, [(33, 48), (44, 54), (34, 54)], "i")                # the plough
+        c.rect(16 + k * 6 + d, 46, 18 + k * 6 + d, 52, "s"); c.rect(15 + k * 6 + d, 52, 19 + k * 6 + d, 54, "k")
+    poly(c, [(14, 18), (26, 18), (30, 47), (10, 47)], "p")                               # the peplos
+    for x in (14, 18, 22, 26):
+        c.rect(x, 26, x, 46, "P")                                                        # its folds
+    c.row(25, 13, 27, "b")                                                               # girdle
+    c.rect(16, 6, 24, 15, "s"); c.px(17, 10, "S")                                        # face
+    c.px(19, 10, "k"); c.px(23, 10, "k"); c.row(13, 20, 22, "r")                         # eyes, mouth
+    c.rect(15, 3, 25, 6, "h"); c.rect(15, 6, 16, 12, "h"); ellipse(c, 14, 6, 3, 3, "h")  # hair bound up
+    for t in range(6):
+        c.px(18 - t // 2, 2 - t, "a"); c.px(22 + t // 2, 2 - t, "a")                     # an ant's feelers
+    c.px(15, -3 + 4, "a")
+    poly(c, [(26, 19), (30, 19), (34, 30), (31, 31)], "a"); c.px(29, 21, "A")            # dark shining arm
+    poly(c, [(13, 19), (11, 30), (14, 31), (16, 21)], "a")
+    c.rect(32, 30, 35, 33, "a")                                                          # hand on the plough
+    c.rect(33, 28, 34, 46, "w"); poly(c, [(33, 46), (44, 52), (44, 54), (32, 54)], "w")  # the wooden plough
+    poly(c, [(40, 51), (45, 54), (40, 54)], "i")                                         # its share
 
 
-MYRMEX_PAL = {"o": "#0e0806", "k": "#1e140e", "p": "#b8a070", "s": "#5a3a24", "h": "#2a1a10", "b": "#7a5430",
+MYRMEX_PAL = {"o": "#0e0806", "k": "#1e140e", "p": "#e8dcc0", "P": "#c8b894", "s": "#d8a880", "S": "#b0805a",
+              "h": "#2a1a10", "r": "#a84a3a", "b": "#a87a3a", "a": "#2a1a14", "A": "#6a5040", "w": "#7a5430",
               "i": "#9aa0a8"}
 
 
 def ant_queen(c, step):
     """The Queen of the Gold-Digging Ants (the design's; Herodotus 3.102): a vast winged queen ant, her swollen body
-    ringed with gold."""
-    ellipse(c, 12, 28, 9, 8, "d"); ellipse(c, 26, 28, 7, 6, "d"); ellipse(c, 50, 30, 20, 14, "D")
-    for x in range(36, 68, 5):
-        c.rect(x, 18, x, 42, "y")                                                            # gold rings
-    poly(c, [(24, 24), (10, 4 + step), (34, 20)], "w"); poly(c, [(28, 24), (44, 2 - step), (36, 22)], "w")
-    c.px(9, 24, "k"); c.px(14, 24, "k")
-    for k in range(6):
-        c.px(5 - k, 22 - k, "k"); c.px(9 - k // 2, 21 - k, "k")
-    c.rect(6, 18, 18, 20, "y"); c.px(8, 17, "y"); c.px(12, 16, "y"); c.px(16, 17, "y")      # a crown
-    for k, d in enumerate((-step, step, -step)):
-        x = 18 + k * 6
-        for t in range(10):
-            c.px(x - t // 2 + d, 34 + t, "k")
+    ringed with gold, a crown on her head."""
+    poly(c, [(28, 20), (40, 2 - step), (56, 0 - step), (46, 12), (32, 22)], "w")         # far wing
+    ant_body(c, 4, 30, 1.0, step, "d", "k", "l")
+    ellipse(c, 50, 28, 20, 14, "D")                                                      # the vast swollen abdomen
+    ellipse(c, 46, 22, 12, 5, "l")
+    for x in range(36, 70, 5):
+        for y in range(14, 43):
+            if c.g[y][x] in "Dl":
+                c.px(x, y, "y")                                                          # rings of gold
+    poly(c, [(26, 22), (34, 4 + step), (48, 6 + step), (38, 16), (30, 24)], "W")         # near wing
+    for t in range(10):
+        c.px(30 + t, 20 - t, "v"); c.px(34 + t, 16 - t // 2, "v")                        # veins in it
+    c.rect(4, 22, 12, 24, "y"); c.px(4, 21, "y"); c.px(8, 20, "y"); c.px(12, 21, "y"); c.px(8, 23, "r")  # crown on her head
 
 
-QUEEN_PAL = {"o": "#120804", "d": "#a86a2a", "D": "#c88a3a", "k": "#2a1408", "y": "#f0c840", "w": "#e8e4d8"}
+QUEEN_PAL = {"o": "#120804", "d": "#a86a2a", "D": "#c88a3a", "k": "#2a1408", "l": "#f0c070", "y": "#f0c840",
+             "w": "#d8d4c8", "W": "#ece8dc", "v": "#b8b4a8", "r": "#c83030"}
 
 
 if __name__ == "__main__":
