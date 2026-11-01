@@ -147,7 +147,7 @@ def lay_out(title, tiles):
 # Sheet name -> (first version, last version, heading).
 PACKS = {"pack2": ("00.02.53", "00.02.69", "Pack 2"), "pack3": ("00.02.70", "00.02.75", "Pack 3"),
          "pack4": ("00.02.77", "00.02.81", "Pack 4"), "bonus": ("00.02.82", "00.02.84", "Bonus levels"),
-         "pack5": ("00.02.85", "99.99.99", "Pack 5")}
+         "pack5": ("00.02.85", "00.02.89", "Pack 5"), "pack6": ("00.02.90", "99.99.99", "Pack 6")}
 
 
 def first_version(path):

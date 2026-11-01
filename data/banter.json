@@ -1988,5 +1988,46 @@
     "text_key": "BANTER_BLACK_ANNIS_HECATE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "gullinbursti_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "gullinbursti",
+    "hero": "",
+    "god": "gullinbursti",
+    "text_key": "BANTER_GULLINBURSTI_ENTRANCE",
+    "lore_source": "Skaldskaparmal 35 (its bristles light the night)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "brokkr_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "brokkr",
+    "hero": "",
+    "god": "brokkr",
+    "text_key": "BANTER_BROKKR_ENTRANCE",
+    "lore_source": "Skaldskaparmal 35 (Brokkr's wager)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "andvari_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "andvari",
+    "hero": "",
+    "god": "andvari",
+    "text_key": "BANTER_ANDVARI_ENTRANCE",
+    "lore_source": "Reginsmal (Andvari's curse)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "brokkr_thor",
+    "trigger": "boss_meets_god",
+    "speaker": "brokkr",
+    "hero": "",
+    "god": "brokkr",
+    "with_god": "thor",
+    "text_key": "BANTER_BROKKR_THOR",
+    "lore_source": "Skaldskaparmal 35 (Mjolnir's short handle)",
+    "needs_owner_review": true
   }
 ]

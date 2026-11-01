@@ -2709,5 +2709,116 @@
       "edge": "#4a4642",
       "stones": "#8a8480"
     }
+  },
+  {
+    "_doc": "Nidavellir, Pack 6 realm 1, the dwarven forge-halls (docs/PACK_6_PLAN.md). Sources: Voluspa 37; Reginsmal; Skaldskaparmal 35 and 39. Loki is not a character. A realm: no local gods.",
+    "id": "nidavellir",
+    "name_key": "LEVEL_NIDAVELLIR_NAME",
+    "region": "realm_dwarf",
+    "act": 8,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "nidavellir",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "cracked",
+          "max": -0.4,
+          "placeholder_color": "#3a3236",
+          "placeholder_dots": "#c8602a"
+        },
+        {
+          "id": "stone",
+          "max": 0.2,
+          "placeholder_color": "#4a4448",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "ash",
+          "max": 0.6,
+          "placeholder_color": "#3e3a3a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#342e30",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "anvil",
+      "forge_hearth"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "anvil": {
+        "shape": "rect",
+        "size_px": [
+          18,
+          14
+        ],
+        "placeholder_color": "#6a6a70",
+        "weight": 2
+      },
+      "forge_hearth": {
+        "shape": "rect",
+        "size_px": [
+          24,
+          24
+        ],
+        "placeholder_color": "#c8602a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "gullinbursti",
+      "20": "brokkr",
+      "30": "andvari"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "ossory",
+      "boss": "gevaudan"
+    },
+    "waves": "waves_nidavellir.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.5,
+      "radius_px": 52,
+      "telegraph_s": 1.6,
+      "damage": 6,
+      "element": "fire",
+      "range_px": 240,
+      "color": "#f08a2a",
+      "look": "heat",
+      "flood_s": 6,
+      "heat_dps": 8,
+      "name_key": "HAZARD_MOLTEN_RUNS_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#d8c4b4",
+    "flora": {
+      "density": 0.05,
+      "trees": {
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#5a5254",
+      "edge": "#3a3436",
+      "stones": "#7a7274"
+    }
   }
 ]

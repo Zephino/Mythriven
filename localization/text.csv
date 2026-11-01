@@ -2214,3 +2214,33 @@ COSMETIC_BONE_WHITE,Bone White
 COSMETIC_MOONLIGHT,Moonlight
 COSMETIC_WOLF_GREY,Wolf Grey
 COSMETIC_GLORY,Glory
+LEVEL_NIDAVELLIR_NAME,Nidavellir
+HAZARD_MOLTEN_RUNS_NAME,Molten metal spills from the forges!
+ENEMY_DWARF_SMITH_NAME,Dwarf smith
+ENEMY_DWARF_SMITH_MYTH,"The Völuspá names the dwarves the gods shaped from the blood of Brimir and the bones of Bláinn; in the rocks and under the earth they became the finest smiths in the worlds, makers of the gods' treasures."
+ENEMY_DWARF_HAMMERER_NAME,Dwarf hammer-bearer
+ENEMY_DWARF_HAMMERER_MYTH,"A broad dwarf in mail carrying a great forge hammer, guarding the halls where the treasures of the gods were made."
+BOSS_GULLINBURSTI_NAME,Gullinbursti
+ENEMY_GULLINBURSTI_NAME,Gullinbursti
+ENEMY_GULLINBURSTI_MYTH,"The boar with golden bristles that the dwarf Sindri forged in the fire while his brother Brokkr worked the bellows, and that they gave to Freyr. It runs over the sky and the sea faster than any horse, and its bristles shine so that the darkest night is as bright as day."
+BOSS_BROKKR_NAME,Brokkr
+ENEMY_BROKKR_NAME,Brokkr
+ENEMY_BROKKR_MYTH,"The dwarf who wagered his head with Loki that his brother Sindri could forge better treasures than the sons of Ívaldi. While he worked the bellows a fly stung him again and again; at the last sting he paused, and Mjölnir came out short in the handle."
+BOSS_BROKKR_BELLOWS,Brokkr works the bellows! Sting him before the treasure is made!
+BOSS_BROKKR_SPOILED,The forging is spoiled!
+BOSS_BROKKR_HAMMER,The hammer is forged! Brokkr strikes harder!
+BOSS_ANDVARI_NAME,Andvari
+ENEMY_ANDVARI_NAME,Andvari
+ENEMY_ANDVARI_MYTH,"A dwarf who lived as a pike in the waterfall Andvarafors and guarded a hoard of gold. When he was caught and robbed of it, down to the little ring Andvaranaut, he laid a curse on the ring: it would be the death of whoever owned it."
+BOSS_ANDVARI_RING,"Andvari's ring lies there. Take it, and take its curse."
+ACH_BOSS_GULLINBURSTI_NAME,Defeat Gullinbursti
+ACH_BOSS_GULLINBURSTI_DESC,The 10:00 boss of Nidavellir.
+ACH_BOSS_BROKKR_NAME,Defeat Brokkr
+ACH_BOSS_BROKKR_DESC,The 20:00 boss of Nidavellir.
+ACH_BOSS_ANDVARI_NAME,Defeat Andvari
+ACH_BOSS_ANDVARI_DESC,The 30:00 boss of Nidavellir.
+BANTER_GULLINBURSTI_ENTRANCE,(The golden boar's bristles light the hall like day.)
+BANTER_BROKKR_ENTRANCE,"Keep back! A wager's a wager, and I'm at the bellows."
+BANTER_ANDVARI_ENTRANCE,"Take the gold, then. Take the ring. It will be the death of you."
+BANTER_BROKKR_THOR,"Thor! How's the handle on that hammer? A little short, I'd say."
+PACK_8_NAME,Pack 6: The Deep Below

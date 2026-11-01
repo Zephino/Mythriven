@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.90
+Date: 10/31/2026
+Time: 8:11 PM
+
+### Changes
+- **Pack 6, The Deep Below, is planned** (`docs/PACK_6_PLAN.md`): Nidavellir, Svartalfheim, Mycendra and the Myrmidon Hive, each with three bosses, monsters and a hazard from the old texts. Mycendra is the design's invented realm, so it only gets plain descriptive names. Claude made the choices with the owner's trust; any can be changed.
+- **Nidavellir, the dwarven forge-halls, is built and open.** It opens when you beat the Beast of Gévaudan, under a new "Pack 6: The Deep Below" heading.
+  - **Hazard, molten runs:** bands of molten metal spill across the floor from the forges and burn whoever stands in them.
+  - **Monsters:** dwarf smiths, Muspell sparks (swarms and divers), and from 10:00 dwarf hammer-bearers.
+  - **10:00, Gullinbursti** (Skáldskaparmál 35): the golden-bristled boar gallops across the arena, leaving a trail of golden light that slows.
+  - **20:00, Brokkr** (Skáldskaparmál 35): every 12 s he works the bellows for 4 s. Hurt him enough while he works (as the fly stung him) and the forging fails; leave him be and the hammer is made, and his blows are 50% stronger for 8 s.
+  - **30:00, Andvari** (the design's boss; Reginsmál): his cursed ring falls somewhere in the arena. Taking it breaks his guard (he's stunned and takes extra damage), but its curse Hexes you.
+  - Stone halls with anvils and forge hearths; lizards and bats.
+  - 3 achievements, 4 banter lines (Brokkr teases Thor about Mjölnir's short handle) and the realm's rows on the lore check.
+- 4 new tests (356 tests pass).
+
+### Reason
+The owner said "go ahead" with Pack 6 after Pack 5 was finished.
+
 ## Version 00.02.89
 Date: 10/31/2026
 Time: 7:47 PM

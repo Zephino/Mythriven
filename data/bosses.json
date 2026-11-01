@@ -5430,5 +5430,243 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Nidavellir bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "gullinbursti",
+    "name_key": "BOSS_GULLINBURSTI_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri, Skaldskaparmal 35 (the golden-bristled boar forged by Brokkr and Sindri for Freyr)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "gullinbursti",
+    "move_speed": 52,
+    "keep_distance_px": 90,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "golden_gallop",
+      "gallop_every_s": 4.0,
+      "gallop_px": 300,
+      "gallop_s": 0.6,
+      "foam_s": 4.0,
+      "foam_radius_px": 22,
+      "foam_slow": 0.6,
+      "foam_color": "#ffe070"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Nidavellir bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "brokkr",
+    "name_key": "BOSS_BROKKR_NAME",
+    "tradition": "norse",
+    "lore_source": "Snorri, Skaldskaparmal 35 (Brokkr works the bellows and is stung by a fly; Mjolnir comes out short in the handle)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "brokkr",
+    "move_speed": 44,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_bellows",
+      "work_every_s": 12.0,
+      "work_s": 4.0,
+      "sting_fraction": 0.05,
+      "hammer_s": 8.0,
+      "hammer_mult": 1.5
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Nidavellir bosses (docs/PACK_6_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "andvari",
+    "name_key": "BOSS_ANDVARI_NAME",
+    "tradition": "norse",
+    "lore_source": "The Poetic Edda, Reginsmal (Andvari, his gold and the cursed ring Andvaranaut); Skaldskaparmal 39",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "andvari",
+    "move_speed": 42,
+    "keep_distance_px": 80,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_cursed_ring",
+      "ring_every_s": 14.0,
+      "drop_px": 200,
+      "ring_reach_px": 16
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "dwarf_smith"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "dwarf_smith"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

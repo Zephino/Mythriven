@@ -1,0 +1,63 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A dwarf's anvil in the forge-halls of Nidavellir (Skaldskaparmal 35), on its stump, a hammer resting on it.",
+ "size": [
+  18,
+  18
+ ],
+ "anchor": [
+  10,
+  17
+ ],
+ "palette": {
+  "a": "#3c3c3c",
+  "b": "#84848a",
+  "c": "#8a8a90",
+  "d": "#909096",
+  "e": "#2a2418",
+  "f": "#665442",
+  "g": "#5a483c",
+  "h": "#2a2a2a",
+  "i": "#484848",
+  "j": "#604e42",
+  "k": "#606066",
+  "l": "#5a5a60",
+  "m": "#a8a8ae",
+  "n": "#a2a2a8",
+  "o": "#969c9c",
+  "p": "#666666",
+  "q": "#545a5a",
+  "r": "#7e7e7e",
+  "s": "#787878",
+  "t": "#1e1812",
+  "u": "#42362a",
+  "v": "#5a4e3c",
+  "w": "#3c3024",
+  "x": "#362a24",
+  "y": "#544836",
+  "z": "#544236"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".......aaaaaa.....",
+    "......abcbdcca....",
+    "......adcbbcba....",
+    ".......aefgea.....",
+    ".hhiiiiiejfeiiiii.",
+    "hklmnnnnmonnmomnni",
+    "hpkkpkkqkppklplkkh",
+    ".hhlpklkkklqlpplph",
+    "..hklcrcbccrbbrklh",
+    "...hhsrbrsrbbrrhh.",
+    ".....tuujvvjvve...",
+    ".....twuvvjjvje...",
+    ".....tuxjjvgvje...",
+    ".....txuvvvvgve...",
+    ".....tuuvgjvgve...",
+    ".....tuwyzyyzye...",
+    ".....twwyygzyze...",
+    "......tteeeeee...."
+   ]
+  ]
+ }
+}

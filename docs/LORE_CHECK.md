@@ -491,6 +491,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_glory | The Glory | It is only your own shadow; walk straight through the mist to meet it. | Silberschlag (1780): the ring of coloured light round the Brocken spectre | no |
 | the_empty_bower | The Empty Bower | She hides in her bower to mend. Don't give her the time. | Leicestershire folklore (Black Annis' Bower in the Dane Hills) | no |
 
+## Pack 6: The Deep Below
+
+### Nidavellir
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | nidavellir | Nidavellir | Voluspa 37 (the golden hall of Sindri's kin in Nidavellir) | no |
+| enemy | dwarf_smith | Dwarf smith | Voluspa 10-16 (the dwarves); Skaldskaparmal 35 (the dwarf smiths) | no |
+| enemy | dwarf_hammerer | Dwarf hammer-bearer | Skaldskaparmal 35 (the dwarves' forge) | no |
+| boss | gullinbursti | Gullinbursti | Snorri, Skaldskaparmal 35 (the golden-bristled boar forged by Brokkr and Sindri for Freyr) | no |
+| boss | brokkr | Brokkr | Snorri, Skaldskaparmal 35 (Brokkr works the bellows and is stung by a fly; Mjolnir comes out short in the handle) | no |
+| boss | andvari | Andvari | The Poetic Edda, Reginsmal (Andvari, his gold and the cursed ring Andvaranaut); Skaldskaparmal 39 | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| gullinbursti_entrance | boss entrance | gullinbursti | (The golden boar's bristles light the hall like day.) | Skaldskaparmal 35 (its bristles light the night) | no |
+| brokkr_entrance | boss entrance | brokkr | Keep back! A wager's a wager, and I'm at the bellows. | Skaldskaparmal 35 (Brokkr's wager) | no |
+| andvari_entrance | boss entrance | andvari | Take the gold, then. Take the ring. It will be the death of you. | Reginsmal (Andvari's curse) | no |
+| brokkr_thor | boss meets god (with thor) | brokkr | Thor! How's the handle on that hammer? A little short, I'd say. | Skaldskaparmal 35 (Mjolnir's short handle) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

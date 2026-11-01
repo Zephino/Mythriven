@@ -302,3 +302,46 @@ func test_pack_5_boss_secrets() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
+func test_nidavellir_is_pack_6_with_molten_runs() -> void:
+	var level: Dictionary = _level("nidavellir")
+	assert_eq(int(level["act"]), 8)
+	assert_eq(str(level["unlock"]["boss"]), "gevaudan")
+	assert_eq(str(level["hazard"]["look"]), "heat")
+	assert_eq(tr("PACK_8_NAME"), "Pack 6: The Deep Below")
+
+
+func test_gullinbursti_gallops_leaving_golden_light() -> void:
+	_start("nidavellir")
+	var boar: MorvarchBoss = _bosses.spawn_boss("gullinbursti", 0) as MorvarchBoss
+	boar.target = _player
+	var at: Vector2 = boar.position_now()
+	boar.signature(2.6)
+	boar.signature(0.3)
+	assert_ne(boar.position_now(), at, "it runs")
+	assert_gt(boar.foam.size(), 0, "a trail of golden light")
+
+
+func test_brokkr_at_the_bellows() -> void:
+	_start("nidavellir")
+	var smith: BrokkrBoss = _bosses.spawn_boss("brokkr", 1) as BrokkrBoss
+	smith.start_work()
+	smith.signature(4.1)
+	assert_eq(smith.forged, 1, "left alone, the hammer is made")
+	assert_gt(smith.hammer_s, 0.0)
+	smith.start_work()
+	smith.modify_hit(_enemies.max_hp[smith.slot] * 0.06, _player, Vector2.ZERO)
+	assert_eq(smith.spoiled, 1, "stung, the forging fails")
+	assert_eq(smith.working_s, 0.0)
+
+
+func test_andvaris_ring_breaks_his_guard_and_curses() -> void:
+	_start("nidavellir")
+	var dwarf: AndvariBoss = _bosses.spawn_boss("andvari", 2) as AndvariBoss
+	dwarf.drop_ring()
+	_player.position = dwarf.ring
+	dwarf.signature(0.1)
+	assert_eq(dwarf.taken, 1)
+	assert_gt(dwarf.broken_s, 0.0, "his guard breaks")
+	assert_true(_player.statuses.has("hex"), "the curse")

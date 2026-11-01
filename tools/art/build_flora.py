@@ -373,6 +373,11 @@ LEVELS = {
         "trees": {"spruce": (spruce, 22, 40), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"heather": ("r", "R", "r", None), "bilberry": ("M", "m", "y", "B")},
         "rock": ("g", "G", "H", "l")},
+    # Nidavellir: halls under the mountains; almost nothing grows, a few dead roots and stones.
+    "nidavellir": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

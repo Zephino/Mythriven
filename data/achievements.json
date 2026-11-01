@@ -1004,5 +1004,35 @@
       "id": "black_annis"
     },
     "persists": true
+  },
+  {
+    "id": "boss_gullinbursti",
+    "name_key": "ACH_BOSS_GULLINBURSTI_NAME",
+    "desc_key": "ACH_BOSS_GULLINBURSTI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "gullinbursti"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_brokkr",
+    "name_key": "ACH_BOSS_BROKKR_NAME",
+    "desc_key": "ACH_BOSS_BROKKR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "brokkr"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_andvari",
+    "name_key": "ACH_BOSS_ANDVARI_NAME",
+    "desc_key": "ACH_BOSS_ANDVARI_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "andvari"
+    },
+    "persists": true
   }
 ]

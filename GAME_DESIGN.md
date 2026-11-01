@@ -294,6 +294,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 
 *(10/31/2026: **the Brocken** is built and released (00.02.88), opened by beating the Roc: the witches' ride (telegraphed strikes that Hex whoever they hit); witches, black goats, will-o'-the-wisps; the Brocken Spectre (always stands opposite the nearest Hero across the arena's middle, a glory round its head), Baubo (charges on her sow, two witches following each charge), Black Annis (goes back to her bower to heal, taking half damage there, then springs on the nearest Hero; her claws Poison). Pack 5's four realms are all built.)*
 
+*(11/01/2026: owner: "go ahead" (Pack 6). Pack 6, **the Deep Below**, is designed by Claude (`docs/PACK_6_PLAN.md`); Mycendra stays the design's invented realm, with plain descriptive names only. **Nidavellir** is built and released (00.02.90), opened by beating the Beast of Gévaudan: molten runs (bands of molten metal that burn); dwarf smiths, dwarf hammer-bearers, Muspell sparks; Gullinbursti (gallops across leaving a golden trail that slows), Brokkr (works the bellows; hurt him enough while he works and the forging fails, otherwise his blows are 50% stronger for a while), Andvari (his cursed ring falls in the arena: taking it breaks his guard but Hexes the taker).)*
+
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 
 **Notes**

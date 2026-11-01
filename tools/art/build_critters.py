@@ -290,6 +290,11 @@ LEVELS = {
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True), "owl": ("#8a7a68", "#5a4a3a", "#d8b040", False)},
         "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650")},
         "large": {}},
+    "nidavellir": {
+        "ground": {"grey_lizard": (lizard, "#7a7680", "#4a4650")},
+        "birds": {"bat": ("#3a3440", "#24202a", "#24202a", True)},
+        "insects": {},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

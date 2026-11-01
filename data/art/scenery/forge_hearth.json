@@ -1,0 +1,76 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A forge hearth in Nidavellir: a stone hearth with glowing coals and a hood over it.",
+ "size": [
+  22,
+  28
+ ],
+ "anchor": [
+  11,
+  27
+ ],
+ "palette": {
+  "a": "#2a2a2a",
+  "b": "#5a5a60",
+  "c": "#66666c",
+  "d": "#606066",
+  "e": "#6c6c6c",
+  "f": "#545454",
+  "g": "#666666",
+  "h": "#241e12",
+  "i": "#2a1e18",
+  "j": "#545a5a",
+  "k": "#484848",
+  "l": "#1e1812",
+  "m": "#241812",
+  "n": "#84848a",
+  "o": "#9ca2a2",
+  "p": "#96969c",
+  "q": "#909096",
+  "r": "#3c3c3c",
+  "s": "#7e7e7e",
+  "t": "#787878",
+  "u": "#c0a242",
+  "v": "#cca848",
+  "w": "#d8ae48",
+  "x": "#963c30",
+  "y": "#8a3630",
+  "z": "#84362a",
+  "A": "#7e302a",
+  "B": "#787e7e",
+  "C": "#727272"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".......aaaaaaaa.......",
+    "......abcdddceda......",
+    "...aaaadddcdcdcaaaa...",
+    "..adedcccdedccccccca..",
+    "..acdccfceecdccddcea..",
+    "..agddddgdddbbdgbgda..",
+    "..adgdgbfddfbddggdda..",
+    "..adbgddggddgbddbbda..",
+    "...aadghhhhhhhhbgaa...",
+    "....addhhhihhhhgda....",
+    "....abdhhihhhhidda....",
+    "....agdhhiihhhhdfa....",
+    "....abghhhhhhhibja....",
+    "....adghhiihhhhbfa....",
+    ".kkkabflmmmhmmmdbakkk.",
+    "knoopppppnpqqpqppqpppk",
+    "kpopqpppoqpqnpooqooppk",
+    "rstnmmmlhmmmhhmmlmsnsr",
+    "rssslmhmmmmmmhmmhhtnsr",
+    "rnscmmlhhmmhmmmhmhsntr",
+    "rssshhmmhmmhmmlmmmnntr",
+    "rntnmmumvmwlwmumvhttsr",
+    "rtsthxhxmymzhAmymmsnsr",
+    "rBCClllmmlmmllmmlmttBr",
+    "rtCCBCBtCtCBtBBttBBCBr",
+    "rBtttttBCCCtCtBBtttCCr",
+    "rCBCttttBttCtttBBtCttr",
+    ".rrrrrrrrrrrrrrrrrrrr."
+   ]
+  ]
+ }
+}

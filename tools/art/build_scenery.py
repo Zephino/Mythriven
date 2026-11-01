@@ -509,12 +509,30 @@ def walpurgis_fire():
     return p
 
 
+def anvil():
+    """A dwarf's anvil in the forge-halls of Nidavellir (Skaldskaparmal 35), on its stump, a hammer resting on it."""
+    p = Pic(20, 16, (10, 15))
+    p.rect(6, 9, 13, 15, "b"); p.rect(6, 9, 7, 15, "B")
+    p.rect(3, 4, 16, 7, "G"); p.rect(1, 4, 3, 5, "G"); p.rect(5, 7, 14, 8, "g"); p.rect(3, 4, 16, 4, "h")
+    p.rect(9, 1, 10, 3, "b"); p.rect(7, 0, 12, 1, "g")
+    return p
+
+
+def forge_hearth():
+    """A forge hearth in Nidavellir: a stone hearth with glowing coals and a hood over it."""
+    p = Pic(26, 26, (13, 25))
+    p.rect(3, 14, 22, 25, "g"); p.rect(3, 14, 22, 15, "h"); p.rect(6, 16, 19, 22, "z")
+    for x in range(7, 19, 2): p.px(x, 21, "r"); p.px(x + 1, 20, "y")
+    p.rect(5, 2, 20, 6, "G"); p.rect(9, 0, 16, 2, "G"); p.rect(7, 6, 18, 13, "G"); p.rect(9, 7, 16, 13, "z")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")
