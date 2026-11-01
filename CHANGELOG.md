@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.18
+Date: 11/01/2026
+Time: 1:50 AM
+
+### Changes
+- **Atlantis, the sunken city, is built and open** (Pack 11, `docs/PACK_11_PLAN.md`). It opens when you beat the Snow Queen. Source: Plato's Timaeus and Critias only (not any film). Its Atlas is Plato's first king of Atlantis, not the Titan.
+  - **Hazard, the sinking:** earthquakes shake the island and bands of sea water flood in, slowing and Soaking whoever they reach.
+  - **Monsters:** Atlantean hoplites, Atlantean slingers, gulls, storm gusts, and the drowned from 10:00.
+  - **10:00, Poseidon's Bull:** it charges along a marked line every 3 s. Two nooses lie about (as the kings hunted it "with staves and nooses"); a Hero who takes one holds it fast for 3 s, and it takes double damage.
+  - **20:00, Gadeirus** (Atlas' twin): every 6 s a ring of sea spreads out from him, hurting and Soaking each Hero it passes over.
+  - **30:00, Atlas** (the design's boss): he stands behind three walls, brass, tin and orichalcum; every blow strikes the outermost wall still standing until all three fall. They rise again 20 s later. In his last phase the island sinks: the ground falls in on marked spots under the Heroes.
+  - A sunny island of olives and cypresses, red, white and black stone (as Plato describes), with columns and marble ruins; lizards, gulls and cicadas.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- **Test fix:** the Spore Mother test could fail now and then, when its two mushrooms sprouted close enough together to be stamped out at once; the test now keeps them apart.
+- 3 new tests (436 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 11; the realms are built one at a time.
+
 ## Version 00.03.17
 Date: 11/01/2026
 Time: 1:41 AM

@@ -2886,5 +2886,46 @@
     "text_key": "BANTER_WHITE_DRAGON_RHIANNON",
     "lore_source": "Original description written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "poseidons_bull_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "poseidons_bull",
+    "hero": "",
+    "god": "poseidons_bull",
+    "text_key": "BANTER_POSEIDONS_BULL_ENTRANCE",
+    "lore_source": "Plato, Critias 113b-121c 119d",
+    "needs_owner_review": true
+  },
+  {
+    "id": "gadeirus_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "gadeirus",
+    "hero": "",
+    "god": "gadeirus",
+    "text_key": "BANTER_GADEIRUS_ENTRANCE",
+    "lore_source": "Plato, Critias 113b-121c 114b",
+    "needs_owner_review": true
+  },
+  {
+    "id": "atlas_king_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "atlas_king",
+    "hero": "",
+    "god": "atlas_king",
+    "text_key": "BANTER_ATLAS_KING_ENTRANCE",
+    "lore_source": "Plato, Critias 113b-121c 116a-c",
+    "needs_owner_review": true
+  },
+  {
+    "id": "atlas_king_poseidon",
+    "trigger": "boss_meets_god",
+    "speaker": "atlas_king",
+    "hero": "",
+    "god": "atlas_king",
+    "with_god": "poseidon",
+    "text_key": "BANTER_ATLAS_KING_POSEIDON",
+    "lore_source": "Plato, Critias 113c-114a (Atlas, Poseidon's son)",
+    "needs_owner_review": true
   }
 ]

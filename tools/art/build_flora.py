@@ -489,6 +489,11 @@ LEVELS = {
         "trees": {"oak": (broadleaf, 30, 34), "rowan": (lambda c, r, s: broadleaf(c, r, s, "V", "v", "w", "r"), 24, 32)},
         "bushes": {"fern": ("fern",), "gorse": ("M", "m", "y", "f")},
         "rock": ("g", "G", "H", "l")},
+    # Atlantis: Plato's rich island of groves and orchards, hot and cold springs; olives and cypresses.
+    "atlantis": {
+        "trees": {"olive": (olive, 26, 30), "cypress": (cypress, 12, 38)},
+        "bushes": {"myrtle": ("V", "v", "w", "h")},
+        "rock": ("a", "A", "B", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

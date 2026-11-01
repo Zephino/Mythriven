@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 11). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Ashkarrow built and released 11/01/2026 (00.03.16); Dinas Emrys (00.03.17).
+it. Ashkarrow built and released 11/01/2026 (00.03.16); Dinas Emrys (00.03.17); Atlantis (00.03.18).
 
 Realms work like Packs 5-10: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -65,7 +65,7 @@ weather veil, pale, with Hex).
 | 20:00 | **The Magician of the Feast** | The "mighty man of magic" who played sweet music until the whole court slept, then carried off the feast. Every so often he plays: a Hero who isn't standing in one of the tubs of cold water falls asleep for a moment (Lludd kept awake in cold water) |
 | 30:00 | **The White Dragon** (the design's) | It takes to the air (out of reach) and breathes frost on marked spots. A vat of mead under a silk cloth stands in the arena: a Hero who uncovers it lures the dragon down to drink; it falls asleep and takes double damage |
 
-## Realm 43: Atlantis (the sunken city)
+## Realm 43: Atlantis (the sunken city): **done and released 11/01/2026 (00.03.18)**
 *Sources: Plato, Timaeus 24e-25d (Atlantis, beyond the Pillars of Heracles, swallowed by the sea in a single day and
 night of earthquakes and floods) and Critias 113b-121c (Poseidon and Cleito; the rings of sea and land round the
 island; the twin kings Atlas and Gadeirus; the walls coated in brass, tin and orichalcum; the army's heavy infantry,

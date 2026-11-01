@@ -971,6 +971,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | white_dragon_entrance | boss entrance | white_dragon | (A white dragon heaves itself out of the hill, shaking off the dirt of centuries.) | Historia Brittonum 42 | no |
 | white_dragon_rhiannon | boss meets god (with rhiannon) | white_dragon | (The dragon sniffs the air: horse and birdsong. It does not like it.) | Original description written for Mythriven | no |
 
+### Atlantis
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | atlantis | Atlantis | Plato, Timaeus 24e-25d; Critias 113b-121c | no |
+| enemy | atlantean_hoplite | Atlantean hoplite | Plato, Critias 113b-121c (119a: the heavy-armed soldiers of Atlantis) | no |
+| enemy | atlantean_slinger | Atlantean slinger | Plato, Critias 113b-121c (119b: the slingers and stone-throwers of Atlantis) | no |
+| boss | poseidons_bull | Poseidon's Bull | Plato, Critias 113b-121c 119d-e (the bulls in Poseidon's temple, hunted by the ten kings without weapons, with staves and nooses) | no |
+| boss | gadeirus | Gadeirus | Plato, Critias 113b-121c 113d-114b (Poseidon makes rings of sea and land round Cleito's hill; Gadeirus, Atlas' twin, rules the end of the island toward the Pillars of Heracles) | no |
+| boss | atlas_king | Atlas | Plato, Critias 113b-121c 114a (Atlas, first king), 116a-c (the walls coated in brass, tin and orichalcum); Timaeus 25c-d (the island sinks in a single day and night); GAME_DESIGN.md (Atlas, Plato's king, not the Titan) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| poseidons_bull_entrance | boss entrance | poseidons_bull | (The sacred bull paws the temple floor. You have no noose.) | Plato, Critias 113b-121c 119d | no |
+| gadeirus_entrance | boss entrance | gadeirus | My brother rules the island. I rule the way to it. | Plato, Critias 113b-121c 114b | no |
+| atlas_king_entrance | boss entrance | atlas_king | Brass, tin, orichalcum. Atlantis has never fallen. Not yet. | Plato, Critias 113b-121c 116a-c | no |
+| atlas_king_poseidon | boss meets god (with poseidon) | atlas_king | Father? You let the sea take us. | Plato, Critias 113c-114a (Atlas, Poseidon's son) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

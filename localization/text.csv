@@ -3004,3 +3004,31 @@ BANTER_CORANIAID_ENTRANCE,We heard you coming. We heard you thinking of coming.
 BANTER_FEAST_MAGICIAN_ENTRANCE,"(Somewhere, a harp begins to play. Your eyes grow heavy.)"
 BANTER_WHITE_DRAGON_ENTRANCE,"(A white dragon heaves itself out of the hill, shaking off the dirt of centuries.)"
 BANTER_WHITE_DRAGON_RHIANNON,(The dragon sniffs the air: horse and birdsong. It does not like it.)
+LEVEL_ATLANTIS_NAME,Atlantis
+HAZARD_THE_SINKING_NAME,The earth quakes and the sea floods in!
+ENEMY_ATLANTEAN_HOPLITE_NAME,Atlantean hoplite
+ENEMY_ATLANTEAN_HOPLITE_MYTH,"One of the heavy-armed soldiers of Atlantis. Each of the island's sixty thousand districts had to send two of them to the army, Plato says."
+ENEMY_ATLANTEAN_SLINGER_NAME,Atlantean slinger
+ENEMY_ATLANTEAN_SLINGER_MYTH,"One of the light-armed slingers of Atlantis's great army, which once marched on Athens and all the lands inside the Pillars of Heracles."
+BOSS_POSEIDONS_BULL_NAME,Poseidon's Bull
+ENEMY_POSEIDONS_BULL_NAME,Poseidon's Bull
+ENEMY_POSEIDONS_BULL_MYTH,"One of the bulls that ranged free in Poseidon's temple on Atlantis. The ten kings hunted them alone, praying to the god, without iron, with staves and nooses, and sacrificed the one they caught at the pillar of orichalcum."
+BOSS_POSEIDONS_BULL_NOOSED,Noosed! The bull is held fast!
+BOSS_GADEIRUS_NAME,Gadeirus
+ENEMY_GADEIRUS_NAME,Gadeirus
+ENEMY_GADEIRUS_MYTH,"Atlas' twin brother, the second of Poseidon's ten sons by Cleito, king of the end of Atlantis toward the Pillars of Heracles, the land called Gadeira after him. Poseidon ringed the island's hill with rings of sea and land, so no man could reach it."
+BOSS_ATLAS_KING_NAME,Atlas
+ENEMY_ATLAS_KING_NAME,Atlas
+ENEMY_ATLAS_KING_MYTH,"The eldest of Poseidon's ten sons, the first king of Atlantis, after whom the island and the Atlantic are named. His city was ringed by three walls: the outer coated with brass, the next with tin, and the citadel's with orichalcum that gleamed like fire. In one terrible day and night the island sank into the sea."
+BOSS_ATLAS_KING_WALLS,"Atlas stands behind three walls: brass, tin and orichalcum!"
+BOSS_ATLAS_KING_SINKING,The island is sinking!
+ACH_BOSS_POSEIDONS_BULL_NAME,Defeat Poseidon's Bull
+ACH_BOSS_POSEIDONS_BULL_DESC,The 10:00 boss of Atlantis.
+ACH_BOSS_GADEIRUS_NAME,Defeat Gadeirus
+ACH_BOSS_GADEIRUS_DESC,The 20:00 boss of Atlantis.
+ACH_BOSS_ATLAS_KING_NAME,Defeat Atlas
+ACH_BOSS_ATLAS_KING_DESC,The 30:00 boss of Atlantis.
+BANTER_POSEIDONS_BULL_ENTRANCE,(The sacred bull paws the temple floor. You have no noose.)
+BANTER_GADEIRUS_ENTRANCE,My brother rules the island. I rule the way to it.
+BANTER_ATLAS_KING_ENTRANCE,"Brass, tin, orichalcum. Atlantis has never fallen. Not yet."
+BANTER_ATLAS_KING_POSEIDON,Father? You let the sea take us.

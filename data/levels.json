@@ -5185,5 +5185,118 @@
       "edge": "#5a584a",
       "stones": "#9a988a"
     }
+  },
+  {
+    "_doc": "Atlantis, Pack 11 realm 3, the sunken city (docs/PACK_11_PLAN.md). Sources: Plato, Timaeus 24e-25d and Critias 113b-121c (Plato's, not any film's; Atlas is Plato's first king, not the Titan). A realm: no local gods.",
+    "id": "atlantis",
+    "name_key": "LEVEL_ATLANTIS_NAME",
+    "region": "realm_atlantis",
+    "act": 13,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "atlantis",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "sand",
+          "max": -0.3,
+          "placeholder_color": "#c8b890",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "paving",
+          "max": 0.15,
+          "placeholder_color": "#b8b0a0",
+          "placeholder_dots": "#d8cc9a"
+        },
+        {
+          "id": "red_stone",
+          "max": 0.6,
+          "placeholder_color": "#9a5a4a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "black_stone",
+          "max": 1.0,
+          "placeholder_color": "#3e3a3a",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "broken_column",
+      "marble_ruin"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "broken_column": {
+        "shape": "rect",
+        "size_px": [
+          12,
+          24
+        ],
+        "placeholder_color": "#d8d0c0",
+        "weight": 2
+      },
+      "marble_ruin": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          20
+        ],
+        "placeholder_color": "#d8d0c0",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "poseidons_bull",
+      "20": "gadeirus",
+      "30": "atlas_king"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_glass_mountain",
+      "boss": "snow_queen"
+    },
+    "waves": "waves_atlantis.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.5,
+      "radius_px": 50,
+      "telegraph_s": 1.6,
+      "damage": 8,
+      "element": "water",
+      "range_px": 240,
+      "color": "#3a7ab0",
+      "look": "flood",
+      "flood_s": 6,
+      "flood_slow": 0.5,
+      "player_status": "soaked",
+      "name_key": "HAZARD_THE_SINKING_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#d8dce0",
+    "flora": {
+      "density": 0.4,
+      "trees": {
+        "olive": 2,
+        "cypress": 1
+      }
+    },
+    "road": {
+      "color": "#c8bca0",
+      "edge": "#a89c80",
+      "stones": "#e0d8c0"
+    }
   }
 ]

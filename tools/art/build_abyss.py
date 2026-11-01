@@ -165,6 +165,88 @@ def white_dragon(c, step):
 WHITE_DRAGON_PAL = {"o": "#2a2a38", "w": "#f0f0ec", "W": "#c8ccd8", "b": "#4a8ad0", "i": "#c8e8ff"}
 
 
+# --- Atlantis (Plato, Timaeus 24e-25d; Critias 113b-121c) ----------------------------------------------------------
+
+def atlantean_hoplite(c, f):
+    """An Atlantean hoplite (Critias 119a: the heavy-armed soldiers): a soldier in a bronze helmet with a round shield
+    and spear."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 22, "k")
+    c.rect(6, 8, 13, 17, "t"); c.rect(7, 2, 12, 7, "s")
+    c.rect(6, 0, 13, 3, "b"); c.rect(8, 0, 11, 0, "r")
+    ellipse(c, 4, 12, 3.5, 4.5, "b"); c.px(4, 12, "B")
+    c.rect(16, 0, 16, 20, "w"); c.px(16, 0, "b")
+
+
+HOPLITE_PAL = {"o": "#120e0a", "k": "#2a1e14", "t": "#c8b890", "s": "#c8946a", "b": "#c8963a", "B": "#8a5a1a",
+               "r": "#a83a2a", "w": "#7a5a3a"}
+
+
+def atlantean_slinger(c, f):
+    """An Atlantean slinger (Critias 119b): a light-armed soldier in a short tunic, whirling his sling."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 22, "k")
+    c.rect(6, 8, 13, 16, "t"); c.rect(7, 2, 12, 7, "s"); c.rect(7, 1, 12, 2, "h")
+    a = f * 1.2
+    c.px(14, 5, "s"); c.px(15 + round(2 * math.cos(a)), 3 + round(2 * math.sin(a)), "g")
+
+
+SLINGER_PAL = {"o": "#120e0a", "k": "#2a1e14", "t": "#3a6a9a", "s": "#c8946a", "h": "#2a1a10", "g": "#8a8a8a"}
+
+
+def poseidons_bull(c, step):
+    """Poseidon's Bull (Critias 119d-e: the bulls that ranged free in Poseidon's temple): a great white bull with
+    gilded horns, head lowered to charge."""
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(12 + k * 9 + d, 34, 16 + k * 9 + d, 45, "W"); c.rect(12 + k * 9 + d, 44, 16 + k * 9 + d, 45, "k")
+    ellipse(c, 26, 28, 18, 9, "w")
+    ellipse(c, 36, 22, 10, 9, "w")
+    c.row(36, 12, 42, "W"); c.row(35, 14, 40, "W")
+    ellipse(c, 48, 30, 6, 7, "w"); c.rect(46, 34, 52, 37, "p"); c.px(48, 36, "k"); c.px(51, 36, "k")
+    poly(c, [(44, 25), (40, 18), (38, 14), (42, 17), (46, 24)], "y")
+    poly(c, [(52, 25), (56, 18), (58, 14), (56, 19), (53, 26)], "y")
+    c.px(46, 28, "k"); c.px(51, 28, "k")
+    for k in range(8):
+        c.px(8 - k // 2, 26 + k, "W")
+    c.rect(4, 33, 5, 35, "k")
+
+
+POSEIDON_BULL_PAL = {"o": "#1a1a20", "w": "#f0ece4", "W": "#c8c4bc", "p": "#d8a8a0", "y": "#e8c040", "k": "#1a1a20"}
+
+
+def gadeirus(c, step):
+    """Gadeirus (Critias 114b: Atlas' twin, king of the land toward the Pillars of Heracles): a king in a sea-blue robe
+    with a gold diadem and a trident-headed staff."""
+    figure(c, step, "b", "s", "h")
+    c.row(3, 15, 26, "y"); c.px(20, 2, "y")
+    c.rect(13, 24, 29, 25, "y")
+    c.rect(33, 4, 34, 48, "w")
+    for x in (31, 33, 36):
+        c.rect(x, 0, x, 5, "y")
+    c.row(5, 31, 36, "y")
+
+
+GADEIRUS_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#2a5a8a", "s": "#c8946a", "h": "#3a2a1a", "y": "#e8c040",
+                "w": "#7a5a3a"}
+
+
+def atlas_king(c, step):
+    """Atlas (Critias 114a, 116: the first king of Atlantis, not the Titan): a tall king in deep blue, a cloak of
+    gleaming orichalcum red-gold, and a crown."""
+    figure(c, step, "b", "s", "h")
+    poly(c, [(12, 18), (30, 18), (34, 50), (8, 50)], "r")
+    c.rect(15, 18, 27, 50, "b")
+    for x in range(15, 28, 3):
+        c.rect(x, 1, x + 1, 4, "y")
+    c.row(4, 15, 28, "y"); c.row(16, 18, 23, "h")
+
+
+ATLAS_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#1e3a6a", "s": "#c8946a", "h": "#e8e4dc", "y": "#e8c040",
+             "r": "#d86a3a"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_abyss.py."
@@ -179,4 +261,9 @@ if __name__ == "__main__":
     kit.build_boss("coraniaid", coraniaid, CORANIAID_PAL, doc(coraniaid.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("feast_magician", feast_magician, MAGICIAN_PAL, doc(feast_magician.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("white_dragon", white_dragon, WHITE_DRAGON_PAL, doc(white_dragon.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("atlantean_hoplite", atlantean_hoplite, HOPLITE_PAL, doc(atlantean_hoplite.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("atlantean_slinger", atlantean_slinger, SLINGER_PAL, doc(atlantean_slinger.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("poseidons_bull", poseidons_bull, POSEIDON_BULL_PAL, doc(poseidons_bull.__doc__), (58, 48), (28, 46), [0, 1, 0, -1, 0])
+    kit.build_boss("gadeirus", gadeirus, GADEIRUS_PAL, doc(gadeirus.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("atlas_king", atlas_king, ATLAS_PAL, doc(atlas_king.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     print("wrote the Abyss's art")

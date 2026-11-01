@@ -10705,5 +10705,245 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Atlantis bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "poseidons_bull",
+    "name_key": "BOSS_POSEIDONS_BULL_NAME",
+    "tradition": "greek",
+    "lore_source": "Plato, Critias 113b-121c 119d-e (the bulls in Poseidon's temple, hunted by the ten kings without weapons, with staves and nooses)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "poseidons_bull",
+    "move_speed": 46,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "staves_and_nooses",
+      "charge_every_s": 3.0,
+      "telegraph_s": 0.8,
+      "charge_px": 170,
+      "charge_damage": 14,
+      "nooses": 2,
+      "noose_every_s": 9.0,
+      "reach_px": 14,
+      "held_s": 3.0,
+      "held_damage_taken": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.45,
+            "damage": 15
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Atlantis bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "gadeirus",
+    "name_key": "BOSS_GADEIRUS_NAME",
+    "tradition": "greek",
+    "lore_source": "Plato, Critias 113b-121c 113d-114b (Poseidon makes rings of sea and land round Cleito's hill; Gadeirus, Atlas' twin, rules the end of the island toward the Pillars of Heracles)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "gadeirus",
+    "move_speed": 38,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "rings_of_sea",
+      "ring_every_s": 6.0,
+      "ring_px_s": 110,
+      "ring_max_px": 260,
+      "band_px": 14,
+      "ring_damage": 10
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 30,
+            "damage": 13
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 32,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 11
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 15
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Atlantis bosses (docs/PACK_11_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "atlas_king",
+    "name_key": "BOSS_ATLAS_KING_NAME",
+    "tradition": "greek",
+    "lore_source": "Plato, Critias 113b-121c 114a (Atlas, first king), 116a-c (the walls coated in brass, tin and orichalcum); Timaeus 25c-d (the island sinks in a single day and night); GAME_DESIGN.md (Atlas, Plato's king, not the Titan)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "atlas_king",
+    "move_speed": 40,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "three_walls",
+      "wall_hp_fraction": 0.05,
+      "rebuild_s": 20.0,
+      "sink_every_s": 1.5,
+      "telegraph_s": 1.2,
+      "sink_radius_px": 30,
+      "sink_damage": 14
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "atlantean_hoplite"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "atlantean_hoplite"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

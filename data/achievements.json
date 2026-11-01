@@ -1664,5 +1664,35 @@
       "id": "white_dragon"
     },
     "persists": true
+  },
+  {
+    "id": "boss_poseidons_bull",
+    "name_key": "ACH_BOSS_POSEIDONS_BULL_NAME",
+    "desc_key": "ACH_BOSS_POSEIDONS_BULL_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "poseidons_bull"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_gadeirus",
+    "name_key": "ACH_BOSS_GADEIRUS_NAME",
+    "desc_key": "ACH_BOSS_GADEIRUS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "gadeirus"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_atlas_king",
+    "name_key": "ACH_BOSS_ATLAS_KING_NAME",
+    "desc_key": "ACH_BOSS_ATLAS_KING_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "atlas_king"
+    },
+    "persists": true
   }
 ]

@@ -420,6 +420,8 @@ func test_the_spore_mothers_mushrooms_burst_unless_stamped() -> void:
 	var mother: SporeMotherBoss = _bosses.spawn_boss("spore_mother", 2) as SporeMotherBoss
 	mother.sprout()
 	mother.sprout()
+	# Random spots can fall close together: keep the second mushroom well away from the first.
+	mother.sprouts[1]["pos"] = Vector2(mother.sprouts[0]["pos"]) + Vector2(150, 0)
 	_player.position = mother.sprouts[0]["pos"]
 	mother.signature(0.7)
 	assert_eq(mother.stamped, 1, "stamped out")
@@ -1413,6 +1415,54 @@ func test_the_white_dragon_drinks_the_mead_and_sleeps() -> void:
 	assert_eq(dragon.sleeps, 1, "down to drink")
 	assert_false(dragon.flying)
 	assert_almost_eq(dragon.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "asleep, hurt double")
+
+
+func test_poseidons_bull_charges_and_is_noosed() -> void:
+	_start("atlantis")
+	assert_eq(str(_level("atlantis")["unlock"]["boss"]), "snow_queen")
+	var bull: PoseidonsBullBoss = _bosses.spawn_boss("poseidons_bull", 0) as PoseidonsBullBoss
+	bull.signature(0.1)
+	assert_eq(bull.nooses.size(), 2, "nooses lie about")
+	bull.signature(2.0)
+	assert_ne(bull.aim, Vector2.INF, "a charge is marked")
+	_player.position = bull.nooses[0]
+	bull.signature(0.1)
+	assert_eq(bull.noosed, 1)
+	assert_eq(bull.aim, Vector2.INF, "held fast, no charge")
+	assert_almost_eq(bull.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01)
+
+
+func test_gadeirus_raises_rings_of_sea() -> void:
+	_start("atlantis")
+	var twin: GadeirusBoss = _bosses.spawn_boss("gadeirus", 1) as GadeirusBoss
+	twin.signature(2.1)
+	assert_eq(twin.rings.size(), 1)
+	var hp: float = _player.hp
+	for k: int in 30:
+		twin.signature(0.1)
+	assert_eq(twin.caught, 1, "the ring passed over the Hero once")
+	assert_lt(_player.hp, hp)
+	assert_true(_player.statuses.has("soaked"))
+
+
+func test_atlas_stands_behind_three_walls() -> void:
+	_start("atlantis")
+	var king: AtlasKingBoss = _bosses.spawn_boss("atlas_king", 2) as AtlasKingBoss
+	assert_eq(king.walls_up(), 3)
+	var wall: float = king.walls[0]
+	assert_eq(king.modify_hit(wall + 1.0, _player, Vector2.ZERO), 0.0, "the brass wall takes it")
+	assert_eq(king.walls_up(), 2)
+	king.modify_hit(wall + 1.0, _player, Vector2.ZERO)
+	king.modify_hit(wall + 1.0, _player, Vector2.ZERO)
+	assert_eq(king.walls_up(), 0, "all three down")
+	assert_almost_eq(king.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "now he can be hurt")
+	king.signature(20.1)
+	assert_eq(king.walls_up(), 3, "they rise again")
+	_enemies.hp[king.slot] = _enemies.max_hp[king.slot] * 0.1
+	king._update_phase()
+	assert_true(king.sinking, "the island sinks")
+	king.signature(1.6)
+	assert_gt(king.marks.size(), 0)
 
 
 func test_every_boss_has_a_picture_under_its_own_name() -> void:

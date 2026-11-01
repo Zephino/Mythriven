@@ -44,6 +44,7 @@ ROCK = {   # top, top shade, face light, face, face dark, accent (snow, moss)
     "demos_oneiron": ("#4a4060", "#3e3452", "#5a5070", "#463c5a", "#2a2438", None),
     "ashkarrow": ("#4a4040", "#3a3232", "#5a4e4c", "#443a3a", "#2a2222", None),
     "dinas_emrys": ("#7a7e72", "#6a6e62", "#8a8e82", "#74786c", "#4e5248", None),
+    "atlantis": ("#a89c8c", "#9a5a4a", "#c0b4a4", "#3e3a3a", "#6a5e50", None),
     "niflheim": ("#e4eaf2", "#c8d0dc", "#7a7e88", "#5e6068", "#42444a", "#f2f6fa"),
     "muspelheim": ("#3a3234", "#2a2426", "#4a3a36", "#3a2c28", "#241c1a", "#c8501a"),
     "the_land_of_legends": ("#567a3e", "#42642e", "#8a8680", "#6a6660", "#4c4a46", "#6a8a48"),
