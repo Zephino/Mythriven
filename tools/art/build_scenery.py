@@ -688,12 +688,32 @@ def fruit_stall():
     return p
 
 
+def ship_cannon():
+    """A ship's cannon dragged up on the beach at Libertalia, on its wooden carriage."""
+    p = Pic(26, 14, (13, 13))
+    p.rect(3, 8, 20, 11, "b"); p.rect(3, 8, 20, 8, "B")
+    for x in (5, 17):
+        blob(p, x, 12, 2, 2, "B")
+    p.rect(6, 4, 24, 7, "G"); p.rect(6, 4, 24, 4, "g"); p.rect(22, 3, 25, 8, "G"); p.rect(4, 5, 6, 6, "G")
+    return p
+
+
+def beached_boat():
+    """A ship's boat drawn up on the sand, oars across it."""
+    p = Pic(32, 14, (16, 13))
+    for y in range(5, 13):
+        half = 15 - abs(y - 9) * 2
+        p.rect(16 - half, y, 15 + half, y, "b" if y % 3 else "B")
+    p.rect(4, 4, 27, 5, "e"); p.rect(10, 2, 11, 9, "e")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall, ship_cannon, beached_boat)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

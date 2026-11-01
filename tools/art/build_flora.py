@@ -448,6 +448,11 @@ LEVELS = {
                   "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30)},
         "bushes": {"fern": ("fern",), "reeds": ("papyrus",)},
         "rock": ("g", "G", "H", "l")},
+    # Libertalia: the shore of Madagascar; palms and acacias above the beach, tall grasses.
+    "libertalia": {
+        "trees": {"palm": (lambda c, r, s: palm(c, r, s, False), 26, 40), "acacia": (acacia, 34, 30)},
+        "bushes": {"reeds": ("papyrus",)},
+        "rock": ("d", "D", "E", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

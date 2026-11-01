@@ -1009,3 +1009,39 @@ func test_the_goblin_merchants_crowd_round() -> void:
 	_start("the_goblin_market")
 	var merchants: GoblinMerchantsBoss = _bosses.spawn_boss("goblin_merchants", 2) as GoblinMerchantsBoss
 	assert_eq(merchants.surround(_player), 10, "a ring of goblins")
+
+
+func test_the_sea_serpent_rises_in_humps() -> void:
+	_start("libertalia")
+	assert_eq(str(_level("libertalia")["unlock"]["boss"]), "warlord")
+	var serpent: SeaSerpentBoss = _bosses.spawn_boss("sea_serpent", 0) as SeaSerpentBoss
+	serpent.rise_across(_player.position)
+	assert_eq(serpent.humps.size(), 7)
+	var hp: float = _player.hp
+	serpent.signature(1.7)
+	assert_lt(_player.hp, hp, "a hump rises under you")
+
+
+func test_missons_broadside_fires_down_lanes() -> void:
+	_start("libertalia")
+	var captain: MissonBoss = _bosses.spawn_boss("misson", 1) as MissonBoss
+	captain.broadside()
+	assert_eq(captain.lanes.size(), 4)
+	_player.position = captain.lanes[0]["pos"]
+	var hp: float = _player.hp
+	captain.signature(1.5)
+	assert_lt(_player.hp, hp, "caught in a lane")
+
+
+func test_the_krakens_arms_and_whirlpool() -> void:
+	_start("libertalia")
+	var beast: KrakenBoss = _bosses.spawn_boss("kraken", 2) as KrakenBoss
+	beast.raise_arms()
+	assert_eq(beast.slams.size(), 3, "one under the Hero, two near")
+	var hp: float = _player.hp
+	beast.signature(1.3)
+	assert_lt(_player.hp, hp, "an arm slams down")
+	_player.position = beast.position_now() + Vector2(300, 0)
+	beast.whirlpool()
+	beast.signature(1.0)
+	assert_lt(_player.position.distance_to(beast.position_now()), 300.0, "dragged in")

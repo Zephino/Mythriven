@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 9). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only, never their modern adaptations (the
-design's note on Libertalia and the Nome King). The owner can change or veto any of it. Lemnos built and released 11/01/2026 (00.03.06); the Goblin Market (00.03.07).
+design's note on Libertalia and the Nome King). The owner can change or veto any of it. Lemnos built and released 11/01/2026 (00.03.06); the Goblin Market (00.03.07); Libertalia (00.03.08).
 
 Realms work like Packs 5-8: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -61,7 +61,7 @@ splashes that slow, the flood bands in fruit colours).
 | 20:00 | **The Snail Goblin** | "Crawled like a snail": very slow and very tough, leaving a trail of slime that slows |
 | 30:00 | **The Goblin Merchant-Men** (the design's) | They crowd round a Hero, crying "Come buy!": every so often a ring of goblins springs up round a Hero and closes in; break out of it |
 
-## Realm 35: Libertalia (the pirate haven)
+## Realm 35: Libertalia (the pirate haven): **done and released 11/01/2026 (00.03.08)**
 *Sources: A General History of the Pyrates (1724), "Of Captain Misson" (Libertalia on Madagascar); Erik Pontoppidan,
 The Natural History of Norway (1752-53: the Kraken, so vast it is mistaken for islands, and the great sea serpent).*
 

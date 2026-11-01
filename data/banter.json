@@ -2558,5 +2558,46 @@
     "text_key": "BANTER_GOBLIN_MERCHANTS_PERSEPHONE",
     "lore_source": "Original line written for Mythriven (Persephone's pomegranate)",
     "needs_owner_review": true
+  },
+  {
+    "id": "sea_serpent_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "sea_serpent",
+    "hero": "",
+    "god": "sea_serpent",
+    "text_key": "BANTER_SEA_SERPENT_ENTRANCE",
+    "lore_source": "Pontoppidan (the sea serpent's coils)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "misson_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "misson",
+    "hero": "",
+    "god": "misson",
+    "text_key": "BANTER_MISSON_ENTRANCE",
+    "lore_source": "A General History of the Pyrates (1724)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "kraken_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "kraken",
+    "hero": "",
+    "god": "kraken",
+    "text_key": "BANTER_KRAKEN_ENTRANCE",
+    "lore_source": "Pontoppidan (the Kraken mistaken for islands)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "kraken_poseidon",
+    "trigger": "boss_meets_god",
+    "speaker": "kraken",
+    "hero": "",
+    "god": "kraken",
+    "with_god": "poseidon",
+    "text_key": "BANTER_KRAKEN_POSEIDON",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
   }
 ]

@@ -1424,5 +1424,35 @@
       "id": "goblin_merchants"
     },
     "persists": true
+  },
+  {
+    "id": "boss_sea_serpent",
+    "name_key": "ACH_BOSS_SEA_SERPENT_NAME",
+    "desc_key": "ACH_BOSS_SEA_SERPENT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "sea_serpent"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_misson",
+    "name_key": "ACH_BOSS_MISSON_NAME",
+    "desc_key": "ACH_BOSS_MISSON_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "misson"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_kraken",
+    "name_key": "ACH_BOSS_KRAKEN_NAME",
+    "desc_key": "ACH_BOSS_KRAKEN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "kraken"
+    },
+    "persists": true
   }
 ]

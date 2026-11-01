@@ -1,0 +1,129 @@
+{
+ "_doc": "Critters of libertalia (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#c8502a",
+  "b": "#7a2a10",
+  "c": "#6a5a3a",
+  "d": "#8a7a5a",
+  "e": "#e8ecec",
+  "f": "#9aa4ac",
+  "g": "#e0b030",
+  "h": "#f0a040",
+  "i": "#3a3020"
+ },
+ "frames": {
+  "crab": [
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "o..oboboo....."
+   ],
+   [
+    "...oooooo.ooo.",
+    ".ooaaaabaoakao",
+    "oaaaabaaaaaaao",
+    "booaaaaaaoooo.",
+    "oobooooobo...."
+   ]
+  ],
+  "tortoise": [
+   [
+    "...oooooo...",
+    "..occcccco..",
+    ".occdcccccoo",
+    "occcccdcccdk",
+    ".occccccccdd",
+    ".oddcccddooo",
+    ".oddoooddo.."
+   ],
+   [
+    "...oooooo...",
+    "..occcccco..",
+    ".occdcccccoo",
+    "occcccdcccck",
+    ".occccccccdd",
+    ".oddcccddodd",
+    ".oddoooddooo"
+   ]
+  ],
+  "gull": [
+   [
+    ".......oo.",
+    "o..ooooeko",
+    "fooeeeeeeg",
+    "offfffeeoo",
+    ".oeeeeeeo.",
+    "..oeeeeo..",
+    "...ogogo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "fooeeeeeko",
+    "offfffeeeg",
+    ".oeeeeeeoo",
+    "..oeeeeo..",
+    "...ogogo.."
+   ]
+  ],
+  "gull_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...oeeeeeoeg",
+    "...oeefeeooo",
+    "....offfo...",
+    "...ofoofo..."
+   ],
+   [
+    "....o..o....",
+    "...ofoofoo..",
+    "....offfokoo",
+    "...oeefeeoeg",
+    "...oeeeeeooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".hhkhh.",
+    ".hhkhh.",
+    "..iki..",
+    "...k...",
+    "......."
+   ],
+   [
+    "hhh.hhh",
+    "hhhkhhh",
+    "hhhkhhh",
+    ".iikii.",
+    ".iikii.",
+    "......."
+   ]
+  ]
+ },
+ "critters": {
+  "crab": {
+   "kind": "ground"
+  },
+  "tortoise": {
+   "kind": "ground"
+  },
+  "gull": {
+   "kind": "bird"
+  },
+  "butterfly": {
+   "kind": "insect"
+  }
+ }
+}

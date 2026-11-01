@@ -794,6 +794,25 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | goblin_merchants_entrance | boss entrance | goblin_merchants | Come buy our orchard fruits, come buy, come buy! | Rossetti, Goblin Market (the goblins' cry) | no |
 | goblin_merchants_persephone | boss meets god (with persephone) | goblin_merchants | A lady who knows what fruit can cost! Just one seed, my queen? | Original line written for Mythriven (Persephone's pomegranate) | no |
 
+### Libertalia
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | libertalia | Libertalia | A General History of the Pyrates (1724), "Of Captain Misson" (Libertalia on Madagascar) | no |
+| enemy | buccaneer | Buccaneer | A General History of the Pyrates (1724): the crews of Libertalia | no |
+| enemy | musketeer | Musketeer | A General History of the Pyrates (1724) | no |
+| enemy | gull | Gull | The gulls of the shore | no |
+| boss | sea_serpent | The Sea Serpent | Erik Pontoppidan, The Natural History of Norway (1752-53): the great sea serpent | no |
+| boss | misson | Captain Misson | A General History of the Pyrates (1724), "Of Captain Misson" (the founder of Libertalia, a figure of the book) | no |
+| boss | kraken | The Kraken | Erik Pontoppidan, The Natural History of Norway (1752-53): the Kraken, its arms and its whirlpool | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| sea_serpent_entrance | boss entrance | sea_serpent | (A row of great humps breaks the surface of the bay.) | Pontoppidan (the sea serpent's coils) | no |
+| misson_entrance | boss entrance | misson | Welcome to Libertalia, where every man is free. Now surrender. | A General History of the Pyrates (1724) | no |
+| kraken_entrance | boss entrance | kraken | (The islands in the bay begin to move.) | Pontoppidan (the Kraken mistaken for islands) | no |
+| kraken_poseidon | boss meets god (with poseidon) | kraken | (The sea-beast rolls an eye the size of a cartwheel toward the Earth-shaker.) | Original description written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

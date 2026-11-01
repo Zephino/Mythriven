@@ -179,6 +179,98 @@ def goblin_merchants(c, step):
 MERCHANTS_PAL = dict(GOBLIN_PAL, g="#7a8a5a", q="#e88a2a")
 
 
+# --- Libertalia (A General History of the Pyrates, 1724; Pontoppidan, Natural History of Norway, 1752-53) -------------
+
+def buccaneer(c, f):
+    """A buccaneer of Libertalia (the General History of the Pyrates): a sailor in a striped shirt and head-scarf with a
+    cutlass."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 21, "k")
+    for y in range(8, 17):
+        c.row(y, 5, 13, "w" if y % 2 else "u")
+    ellipse(c, 9, 5, 3, 3, "s"); c.rect(6, 1, 12, 3, "r"); c.px(13, 2, "r")
+    c.rect(15, 6, 15, 14, "i"); c.rect(14, 14, 16, 15, "y")
+
+
+BUCCANEER_PAL = {"o": "#0e0a08", "k": "#2a2420", "w": "#ece4d4", "u": "#3a5a8a", "s": "#c8946a", "r": "#b02a2a",
+                 "i": "#c8ccd4", "y": "#d8b040"}
+
+
+def musketeer(c, f):
+    """A pirate musketeer of Libertalia: a sailor in a long coat and tricorne hat with a long musket."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 17, x + 1 + d, 21, "k")
+    poly(c, [(5, 8), (13, 8), (15, 18), (3, 18)], "c")
+    ellipse(c, 9, 5, 3, 3, "s"); poly(c, [(4, 2), (14, 2), (12, 4), (6, 4)], "k")
+    c.rect(14, 4, 15, 18, "b"); c.rect(14, 2, 15, 4, "i")
+
+
+MUSKETEER_PAL = {"o": "#0e0a08", "k": "#1e1a18", "c": "#6a2a2a", "s": "#c8946a", "b": "#5a3a1a", "i": "#8a8e96"}
+
+
+def gull(c, f):
+    """A gull over the bay of Libertalia."""
+    up = f % 2
+    poly(c, [(9, 7), (1, 3 if up else 9), (5, 8)], "w"); poly(c, [(11, 7), (19, 3 if up else 9), (15, 8)], "w")
+    c.px(1, 3 if up else 9, "k"); c.px(19, 3 if up else 9, "k")
+    ellipse(c, 10, 8, 3, 2, "w"); c.px(13, 7, "y")
+
+
+GULL_PAL = {"o": "#4a5058", "w": "#ecf0f0", "k": "#2a2a2a", "y": "#e0b030"}
+
+
+def sea_serpent(c, step):
+    """The great sea serpent (Pontoppidan, 1752-53): a vast serpent with a horse-like head and a mane, rising from the
+    sea in great coils, each coil like a hump above the waves."""
+    for k in range(4):
+        x = 4 + k * 13
+        for t in range(10):
+            ellipse(c, x + t, 36 - round(10 * math.sin(t / 9 * math.pi)) + step, 3, 3, "g" if t % 3 else "G")
+    poly(c, [(56, 18), (66, 22), (66, 28), (56, 30)], "g"); c.px(61, 21, "r")
+    for k in range(6):
+        c.px(55 - k, 16 + k, "m"); c.px(54 - k, 17 + k, "m")                                    # the mane
+    for x in range(0, 70, 4):
+        c.px(x, 46, "w"); c.px(x + 1, 45, "b")                                                    # the waves
+
+
+SERPENT_PAL = {"o": "#08140e", "g": "#3a6a5a", "G": "#2a4a40", "r": "#e83a2a", "m": "#8a3a2a", "w": "#e8f0f4",
+               "b": "#3a6a9a"}
+
+
+def misson(c, step):
+    """Captain Misson (the General History of the Pyrates, 1724): the gentleman-captain who founded Libertalia, in a fine
+    blue coat and tricorne, a sword at his side and a spyglass in hand."""
+    figure(c, step, "u", "s", "k")
+    c.rect(16, 18, 26, 30, "w"); c.rect(20, 18, 22, 30, "y")
+    poly(c, [(11, 3), (31, 3), (28, 6), (14, 6)], "k")
+    c.rect(32, 20, 37, 22, "y")
+    c.rect(6, 30, 7, 46, "i"); c.rect(5, 30, 8, 31, "y")
+
+
+MISSON_PAL = {"o": "#0a0a10", "k": "#1a1a22", "u": "#2a3a7a", "w": "#ece4d4", "s": "#d8b090", "y": "#d8b040",
+              "i": "#c8ccd4"}
+
+
+def kraken(c, step):
+    """The Kraken (Pontoppidan, 1752-53): a sea-beast so vast that its back, rising out of the sea, was taken for a
+    cluster of small islands; its arms could pull down the greatest ship."""
+    ellipse(c, 40, 38, 30, 14, "r"); ellipse(c, 40, 34, 22, 8, "R")
+    c.px(32, 30, "y"); c.px(48, 30, "y")
+    for k in range(6):
+        ax = 6 + k * 13
+        for t in range(16):
+            x = ax + round(4 * math.sin(t / 3 + k + step * 0.6))
+            c.rect(x, 40 - t * 2, x + 2, 42 - t * 2, "r" if t % 3 else "p")
+    for x in range(0, 82, 4):
+        c.px(x, 54, "w"); c.px(x + 1, 53, "b")
+
+
+KRAKEN_PAL = {"o": "#120608", "r": "#8a3a4a", "R": "#6a2a3a", "p": "#c87a8a", "y": "#f0d040", "w": "#e8f0f4",
+              "b": "#3a6a9a"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_gears.py."
@@ -195,4 +287,10 @@ if __name__ == "__main__":
     kit.build_boss("ratel_goblin", ratel_goblin, RATEL_PAL, doc(ratel_goblin.__doc__), (50, 46), (24, 44), [0, 1, 0, -1, 0])
     kit.build_boss("snail_goblin", snail_goblin, SNAIL_PAL, doc(snail_goblin.__doc__), (50, 50), (24, 48), [0, 1, 0, -1, 0])
     kit.build_boss("goblin_merchants", goblin_merchants, MERCHANTS_PAL, doc(goblin_merchants.__doc__), (50, 54), (24, 52), [0, 1, 0, -1, 0])
+    kit.build_boss("buccaneer", buccaneer, BUCCANEER_PAL, doc(buccaneer.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("musketeer", musketeer, MUSKETEER_PAL, doc(musketeer.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("gull", gull, GULL_PAL, doc(gull.__doc__), (20, 12), (10, 11), walk, folder="enemies")
+    kit.build_boss("sea_serpent", sea_serpent, SERPENT_PAL, doc(sea_serpent.__doc__), (70, 50), (34, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("misson", misson, MISSON_PAL, doc(misson.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("kraken", kraken, KRAKEN_PAL, doc(kraken.__doc__), (82, 58), (40, 56), [0, 1, 0, -1, 0])
     print("wrote Gears and Plunder's art")

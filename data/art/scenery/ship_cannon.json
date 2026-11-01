@@ -1,0 +1,56 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A ship's cannon dragged up on the beach at Libertalia, on its wooden carriage.",
+ "size": [
+  25,
+  13
+ ],
+ "anchor": [
+  11,
+  12
+ ],
+ "palette": {
+  "a": "#2a2a2a",
+  "b": "#3c3c3c",
+  "c": "#66666c",
+  "d": "#606066",
+  "e": "#909096",
+  "f": "#8a8a90",
+  "g": "#84848a",
+  "h": "#6c6c6c",
+  "i": "#5a5a60",
+  "j": "#666666",
+  "k": "#545454",
+  "l": "#1e1812",
+  "m": "#545a5a",
+  "n": "#4e4e54",
+  "o": "#42362a",
+  "p": "#3c3024",
+  "q": "#362a1e",
+  "r": "#362a24",
+  "s": "#54545a",
+  "t": "#2a2418",
+  "u": "#604e42",
+  "v": "#5a483c",
+  "w": "#5a4e3c",
+  "x": "#4e3c30"
+ },
+ "frames": {
+  "idle": [
+   [
+    "....................aaaa.",
+    "....bbbbbbbbbbbbbbbacccda",
+    "..aaefefgeffgffgffffcchda",
+    ".aijdiijddkddijidddddddda",
+    ".ajjiiidddjdddjddiiddjjja",
+    ".lllijdjjiidjidmddnidddda",
+    "lopopopqoooorooopoplisiia",
+    "tuvvwwuvwuwwuxwwvvutaaaa.",
+    "twvouwwwwwwvwuvowvxt.....",
+    "tuorowvvwuwwwwpoouvt.....",
+    "loopopltttttloooopl......",
+    ".lpppl.......lpppl.......",
+    "..lll.........lll........"
+   ]
+  ]
+ }
+}

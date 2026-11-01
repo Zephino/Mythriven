@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.08
+Date: 10/31/2026
+Time: 11:14 PM
+
+### Changes
+- **Libertalia, the pirate haven, is built and open** (Pack 9, `docs/PACK_9_PLAN.md`). It opens when you beat the Warlord (Ghorvast's 30:00 boss). It comes from the old book A General History of the Pyrates (1724) and Pontoppidan's Natural History of Norway (1752-53); no real pirates are characters and nothing is taken from modern pirate films.
+  - **Hazard, cannon fire:** the ships in the bay fire on the shore (telegraphed shots).
+  - **Monsters:** buccaneers, musketeers, gulls, storm gusts, and from 10:00 drowned sailors.
+  - **10:00, the Sea Serpent** (Pontoppidan): every 6 s it rises in a line of seven humps through a Hero (each marked first).
+  - **20:00, Captain Misson** (the founder of Libertalia in the old book): every 8 s his ship fires a broadside down four marked lanes across the arena, the other way each time. Stand between the lanes.
+  - **30:00, the Kraken** (the design's boss; Pontoppidan): its arms slam down on marked spots round each Hero, and every 14 s it sinks and a whirlpool drags every Hero toward it for 3 s.
+  - A sandy shore with palms, acacias, cannons and beached boats; crabs, tortoises, gulls and butterflies.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (407 tests pass).
+
+### Reason
+Pack 9, realm 3 of 4 (owner: "go ahead").
+
 ## Version 00.03.07
 Date: 10/31/2026
 Time: 11:07 PM

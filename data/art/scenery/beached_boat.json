@@ -1,0 +1,51 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A ship's boat drawn up on the sand, oars across it.",
+ "size": [
+  32,
+  13
+ ],
+ "anchor": [
+  16,
+  12
+ ],
+ "palette": {
+  "a": "#5a5442",
+  "b": "#c6ba9c",
+  "c": "#d2c0a2",
+  "d": "#deccae",
+  "e": "#c0ae96",
+  "f": "#ae9c84",
+  "g": "#b4a88a",
+  "h": "#2a2418",
+  "i": "#1e1812",
+  "j": "#483c2a",
+  "k": "#362a24",
+  "l": "#42362a",
+  "m": "#5a483c",
+  "n": "#604e42",
+  "o": "#5a4e3c",
+  "p": "#544236",
+  "q": "#3c3024",
+  "r": "#4e4236",
+  "s": "#302a1e"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..........aa....................",
+    ".........abca...................",
+    "....aaaaaadcaaaaaaaaaaaaaaaa....",
+    "...abbebbfbccbgebbbcbbbebbbca...",
+    "...abebbbbbfbfbccbeceebeebbba...",
+    "....ahijkleelljlljlljlllliha....",
+    "...hhmnnongeommooonmomomnnnhh...",
+    ".iiopomomngeoommonnmononooommii.",
+    "iqqqllqlqlbbllllqqlllllllqllllli",
+    ".iiommoonmoopoomnnmmmomnnooooii.",
+    "...hhnomnonnnnnpomnmorommonhh...",
+    ".....hiqqqqqqsqqqqqqqqqqqih.....",
+    ".......iiiiiiiiiiiiiiiiii......."
+   ]
+  ]
+ }
+}

@@ -139,7 +139,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | **Released 11/01/2026** (`docs/PACK_6_PLAN.md`) |
 | 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | **Released 11/01/2026** (`docs/PACK_7_PLAN.md`) |
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | **Released 11/01/2026** (`docs/PACK_8_PLAN.md`) |
-| 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | **Building** (`docs/PACK_9_PLAN.md`; Lemnos and the Goblin Market released 11/01/2026) |
+| 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | **Building** (`docs/PACK_9_PLAN.md`; Lemnos, the Goblin Market and Libertalia released 11/01/2026) |
 | 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | Later |
 | 11 | The Abyss | 41 Ashkarrow · 42 Dinas Emrys · 43 Atlantis · 44 Ginnungagap | Later |
 | 12 | Otherworlds | 45 Tír na nÓg · 46 Hy-Brasil · 47 The Shadow's Court · 48 The Knockers' Deep | Later |
@@ -323,6 +323,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 *(11/01/2026: owner: "go ahead" (Pack 9). Pack 9, **Gears and Plunder**, is designed by Claude (`docs/PACK_9_PLAN.md`), from the old texts only (no modern adaptations; no real historical pirates as characters). **Lemnos** is built and released (00.03.06), opened by beating Asterion: the smoke of the forge (hides the view and Burns); bronze automatons, golden handmaidens, bronze sparks, the bronze bulls; the Bulls of Aeëtes (breathe a cone of fire that leaves the ground burning), the Gold and Silver Hounds (swap every 6 s: gold resists Fire and fears Lightning, silver the reverse), Talos (hurls boulders at the Heroes; heats red-hot every 14 s, burning whoever is near; then the nail in his ankle shows and he takes 2.5 times the damage).)*
 
 *(11/01/2026: **the Goblin Market** is built and released (00.03.07), opened by beating Vortigern: the goblins' fruit (juice splashes that slow); goblin men, rat-paced goblins, night bats; the Ratel Goblin (tumbles off in wild directions every 2 s, bowling Heroes over), the Snail Goblin (slow and tough, leaving slime that slows for 10 s), the Goblin Merchant-Men (every 10 s a ring of ten goblins springs up round a Hero and closes in).)*
+
+*(11/01/2026: **Libertalia** is built and released (00.03.08), opened by beating the Warlord: cannon fire from the ships in the bay (telegraphed); buccaneers, musketeers, gulls, storm gusts, drowned sailors; the Sea Serpent (rises in a line of seven humps through a Hero), Captain Misson (broadsides: four marked lanes across the arena, the other way each time), the Kraken (arms slam down on marked spots round each Hero; every 14 s a whirlpool drags every Hero toward it for 3 s).)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

@@ -2710,3 +2710,32 @@ BANTER_RATEL_GOBLIN_ENTRANCE,(It comes tumbling hurry skurry down the glen.)
 BANTER_SNAIL_GOBLIN_ENTRANCE,Come buy... come... buy...
 BANTER_GOBLIN_MERCHANTS_ENTRANCE,"Come buy our orchard fruits, come buy, come buy!"
 BANTER_GOBLIN_MERCHANTS_PERSEPHONE,"A lady who knows what fruit can cost! Just one seed, my queen?"
+LEVEL_LIBERTALIA_NAME,Libertalia
+HAZARD_CANNON_FIRE_NAME,The ships in the bay open fire!
+ENEMY_BUCCANEER_NAME,Buccaneer
+ENEMY_BUCCANEER_MYTH,"The free crews of Libertalia, who, the old book says, called themselves Liberi and lived under laws of their own making on the coast of Madagascar."
+ENEMY_MUSKETEER_NAME,Musketeer
+ENEMY_MUSKETEER_MYTH,"Pirates of Libertalia with long muskets, who fire from the beach and the rigging."
+ENEMY_GULL_NAME,Gull
+ENEMY_GULL_MYTH,Screaming flocks of gulls over the bay of Libertalia.
+BOSS_SEA_SERPENT_NAME,The Sea Serpent
+ENEMY_SEA_SERPENT_NAME,The Sea Serpent
+ENEMY_SEA_SERPENT_MYTH,"Bishop Pontoppidan collected the Norwegian sailors' accounts of the great sea serpent: a creature many fathoms long that lay on the water in great coils like a row of casks, with a head like a horse's and a long mane."
+BOSS_MISSON_NAME,Captain Misson
+ENEMY_MISSON_NAME,Captain Misson
+ENEMY_MISSON_MYTH,"The gentleman-captain of the General History of the Pyrates, who sailed under a white flag and founded on Madagascar the free colony of Libertalia, where all goods were held in common. Whether he ever lived, no one knows."
+BOSS_MISSON_BROADSIDE,Broadside! Get out of the lanes!
+BOSS_KRAKEN_NAME,The Kraken
+ENEMY_KRAKEN_NAME,The Kraken
+ENEMY_KRAKEN_MYTH,"The largest creature in the world, Pontoppidan wrote: its back rising out of the sea looked like a cluster of small islands, its arms could pull down the largest man-of-war, and when it sank it made a whirlpool that dragged everything down with it."
+BOSS_KRAKEN_WHIRLPOOL,The Kraken sinks... a whirlpool drags you in!
+ACH_BOSS_SEA_SERPENT_NAME,Defeat The Sea Serpent
+ACH_BOSS_SEA_SERPENT_DESC,The 10:00 boss of Libertalia.
+ACH_BOSS_MISSON_NAME,Defeat Captain Misson
+ACH_BOSS_MISSON_DESC,The 20:00 boss of Libertalia.
+ACH_BOSS_KRAKEN_NAME,Defeat The Kraken
+ACH_BOSS_KRAKEN_DESC,The 30:00 boss of Libertalia.
+BANTER_SEA_SERPENT_ENTRANCE,(A row of great humps breaks the surface of the bay.)
+BANTER_MISSON_ENTRANCE,"Welcome to Libertalia, where every man is free. Now surrender."
+BANTER_KRAKEN_ENTRANCE,(The islands in the bay begin to move.)
+BANTER_KRAKEN_POSEIDON,(The sea-beast rolls an eye the size of a cartwheel toward the Earth-shaker.)

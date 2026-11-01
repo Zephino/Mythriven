@@ -8773,5 +8773,250 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Libertalia bosses (docs/PACK_9_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "sea_serpent",
+    "name_key": "BOSS_SEA_SERPENT_NAME",
+    "tradition": "norwegian",
+    "lore_source": "Erik Pontoppidan, The Natural History of Norway (1752-53): the great sea serpent",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "sea_serpent",
+    "move_speed": 40,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_humps",
+      "rise_every_s": 6.0,
+      "humps": 7,
+      "hump_gap_px": 44,
+      "hump_radius_px": 24,
+      "hump_damage": 14,
+      "telegraph_s": 1.2
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 240,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Libertalia bosses (docs/PACK_9_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "misson",
+    "name_key": "BOSS_MISSON_NAME",
+    "tradition": "english",
+    "lore_source": "A General History of the Pyrates (1724), \"Of Captain Misson\" (the founder of Libertalia, a figure of the book)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "misson",
+    "move_speed": 40,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "broadsides",
+      "broadside_every_s": 8.0,
+      "lanes": 4,
+      "lane_gap_px": 90,
+      "lane_width_px": 32,
+      "ball_damage": 16,
+      "telegraph_s": 1.4
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Libertalia bosses (docs/PACK_9_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "kraken",
+    "name_key": "BOSS_KRAKEN_NAME",
+    "tradition": "norwegian",
+    "lore_source": "Erik Pontoppidan, The Natural History of Norway (1752-53): the Kraken, its arms and its whirlpool",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "kraken",
+    "move_speed": 24,
+    "keep_distance_px": 140,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "arms_and_whirlpool",
+      "arms_every_s": 5.0,
+      "extra_arms": 2,
+      "telegraph_s": 1.2,
+      "slam_radius_px": 30,
+      "slam_damage": 15,
+      "whirl_every_s": 14.0,
+      "whirl_s": 3.0,
+      "pull_px_s": 80
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "gull"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "gull"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

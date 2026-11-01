@@ -360,6 +360,11 @@ LEVELS = {
         "birds": {"owl": ("#8a7a68", "#5a4a3a", "#d8b040", False)},
         "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {}},
+    "libertalia": {
+        "ground": {"crab": (lizard, "#c8502a", "#7a2a10"), "tortoise": (tortoise, "#6a5a3a", "#8a7a5a")},
+        "birds": {"gull": ("#e8ecec", "#9aa4ac", "#e0b030", True)},
+        "insects": {"butterfly": (butterfly, "#f0a040", "#3a3020")},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
