@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.38
+Date: 11/01/2026
+Time: 2:52 PM
+
+### Changes
+- **The Wild Hunt's huntsman has more detail** (owner: "now you just need to make it look better"). A deep hood with a dark opening and burning eyes inside, a lit edge along the hood, folds in his cloak, a gold clasp, a belt with a buckle, light along his raised sleeve, a gloved fist gripping the horn, and his boot in a gold stirrup. He keeps the grey outline.
+
+### Reason
+The rider was a flat black shape; the owner asked for him to look better.
+
 ## Version 00.03.37
 Date: 11/01/2026
 Time: 2:47 PM

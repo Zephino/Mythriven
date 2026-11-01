@@ -177,19 +177,30 @@ def wild_hunt(c, step):
     for i in range(10):                                                                  # the mane, flying back
         c.px(57 - i, 13 + i, "m"); c.px(56 - i, 15 + i, "m")
     # The huntsman: a huge cloaked shape on the horse's back
-    poly(c, [(30, 8), (40, 6), (44, 14), (44, 28), (28, 28)], "R")
+    poly(c, [(30, 8), (40, 6), (45, 14), (45, 28), (28, 28)], "R")                       # body under the cloak
     poly(c, [(30, 10), (24, 18), (18, 30), (22, 34), (30, 30)], "R")                     # the cloak, hanging over the horse's back
-    poly(c, [(33, 2), (40, 0), (44, 4), (44, 10), (36, 12), (32, 8)], "R")              # the hood
-    c.px(40, 6, "y"); c.px(42, 6, "y")                                                   # eyes burning in the hood
+    for x0, y0, y1 in ((25, 22, 31), (29, 13, 29), (34, 14, 27), (39, 15, 26)):         # folds in the cloak
+        for y in range(y0, y1 + 1):
+            c.px(x0 + (y - y0) // 6, y, "r")
+    c.row(23, 31, 44, "b"); c.px(38, 23, "y")                                            # belt and buckle
+    poly(c, [(33, 2), (40, 0), (45, 4), (45, 11), (36, 12), (32, 8)], "R")              # the hood
+    for y in range(1, 11):
+        c.px(min(45, 40 + y // 2), y, "r")                                               # the hood's lit edge
+    poly(c, [(40, 4), (44, 5), (44, 10), (40, 10)], "v")                                 # the dark opening of the hood
+    c.px(41, 6, "y"); c.px(43, 6, "y"); c.px(41, 7, "Y"); c.px(43, 7, "Y")              # eyes burning in the hood
+    c.px(42, 12, "y"); c.px(43, 12, "Y")                                                 # the cloak's clasp
     poly(c, [(40, 16), (48, 10), (50, 12), (42, 19)], "R")                               # arm raised high
+    c.row(15, 41, 46, "r")                                                               # light along the sleeve
+    c.rect(47, 8, 50, 11, "b"); c.px(47, 8, "B")                                         # gloved fist
     for i in range(9):                                                                   # the hunting horn held up in his fist
         t = i / 8
         x, y = 49 + t * 7, 10 - t * 9 + t * t * 3
         r = 0.8 + 1.8 * t
         ellipse(c, x, y, r, r, "h")
-    c.row(6, 51, 53, "H")                                                                # its gold band
+    c.row(6, 51, 53, "H")                                                                # its band
     c.rect(55, 1, 58, 3, "H")                                                            # the open bell
-    c.rect(30, 26, 34, 34, "R")                                                          # his leg down the horse's side
+    c.rect(31, 27, 34, 33, "R"); c.px(34, 28, "r")                                       # his leg down the horse's side
+    c.rect(30, 33, 35, 36, "B"); c.row(36, 29, 36, "y")                                  # boot in the stirrup
     # Near legs of the horse
     hoofed_leg(c, 26 + step * 2, 40, 58, "k", "K", "K", bend=-2)
     hoofed_leg(c, 48 - step * 2, 40, 58, "k", "K", "K", bend=1)
@@ -198,20 +209,21 @@ def wild_hunt(c, step):
     edge = []
     for y in range(c.h):
         for x in range(c.w):
-            if c.g[y][x] in "RhHy":
+            if c.g[y][x] in "RrbBvhHyY":
                 for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
                     nx, ny = x + dx, y + dy
-                    if not (0 <= nx < c.w and 0 <= ny < c.h) or c.g[ny][nx] not in "RhHy":
+                    if not (0 <= nx < c.w and 0 <= ny < c.h) or c.g[ny][nx] not in "RrbBvhHyY":
                         edge.append((x, y))
                         break
     for x, y in edge:
-        if c.g[y][x] == "R":
+        if c.g[y][x] in "Rr":
             c.px(x, y, "q")
     for x in range(4, 74, 4):
         c.px(x, 59, "g")                                                                 # a pale ghost-light underfoot
 
 
-HUNT_PAL = {"o": "#2a3040", "R": "#0e0c12", "q": "#a8b0c4", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
+HUNT_PAL = {"o": "#2a3040", "R": "#141218", "r": "#3a3848", "v": "#050408", "b": "#4a3422", "B": "#2a1c12",
+            "Y": "#b8781a", "q": "#a8b0c4", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#c89a50",
             "H": "#6a4420", "l": "#4a4a62", "g": "#8a9ab8"}
 
 
