@@ -650,6 +650,48 @@ def poppy_seed():
     return p
 
 
+def cold_ash():
+    """Cold Ash (Ashkarrow, the game's own): a grey heap of dead ash with one last ember."""
+    p = icon()
+    for y in range(8, 15):
+        w = (y - 7) + 1
+        p.rect(8 - w, y, 8 + w, y, "c" if (y + w) % 3 else "C")
+    p.px(8, 9, "p"); p.px(9, 9, "f"); p.px(7, 11, "k")
+    return p
+
+
+def lludds_vigil():
+    """Lludd's Vigil ("Lludd and Llefelys": he kept awake in a vessel of cold water): a wooden tub of cold water."""
+    p = icon()
+    p.rect(3, 6, 13, 14, "b"); p.rect(4, 6, 12, 8, "u"); p.rect(4, 7, 12, 7, "m")
+    for x in (3, 13):
+        p.rect(x, 5, x, 14, "B")
+    p.rect(3, 10, 13, 10, "B")
+    return p
+
+
+def orichalcum_plate():
+    """Orichalcum Plate (Plato, Critias 116: the citadel's wall of orichalcum that gleamed like fire): a red-gold plate."""
+    p = icon()
+    for y in range(3, 14):
+        w = 5 if y < 10 else 5 - (y - 9)
+        p.rect(8 - w, y, 8 + w, y, "F" if y % 3 else "f")
+    p.rect(8, 3, 8, 12, "y")
+    return p
+
+
+def muspell_ember():
+    """Ember of Muspell (Gylfaginning 4-5: the sparks of Muspelheim): a glowing ember throwing sparks."""
+    p = icon()
+    for y in range(7, 14):
+        for x in range(4, 13):
+            if math.hypot(x - 8, y - 10) <= 3.6:
+                p.px(x, y, "y" if math.hypot(x - 8, y - 10) < 1.8 else "p")
+    for x, y in ((4, 4), (9, 2), (13, 5), (6, 6)):
+        p.px(x, y, "y")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
@@ -662,7 +704,8 @@ ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hou
          "elf_arrow": elf_arrow, "rhymers_tongue": rhymers_tongue, "thunderstone": thunderstone, "iolaus_brand": iolaus_brand,
          "torn_banner": torn_banner, "ariadne_thread": ariadne_thread, "drinking_horn": drinking_horn, "scabbard_strap": scabbard_strap,
          "talos_nail": talos_nail, "silver_penny": silver_penny, "kraken_ink": kraken_ink, "billinas_egg": billinas_egg,
-         "griffin_feather": griffin_feather, "orions_belt": orions_belt, "gerdas_tears": gerdas_tears, "poppy_seed": poppy_seed}
+         "griffin_feather": griffin_feather, "orions_belt": orions_belt, "gerdas_tears": gerdas_tears, "poppy_seed": poppy_seed,
+         "cold_ash": cold_ash, "lludds_vigil": lludds_vigil, "orichalcum_plate": orichalcum_plate, "muspell_ember": muspell_ember}
 
 
 def outlined(p):

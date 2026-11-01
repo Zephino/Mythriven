@@ -3060,3 +3060,39 @@ BANTER_AUDHUMLA_ENTRANCE,(A vast cow lifts her head from the salt-rime and lows.
 BANTER_BERGELMIR_ENTRANCE,All my kin drowned. I did not. Think on that.
 BANTER_VOID_HERALD_ENTRANCE,"Before the world, there was the gap. After it, the gap."
 BANTER_VOID_HERALD_ODIN,"Ymir's killer. You built your world from his body, over my emptiness."
+SECRET_UNCHAINED_NAME,Unchained
+SECRET_UNCHAINED_DESC,Defeat the Chain Warden without his chain ever catching you. A cinder-glow aura.
+SECRET_UNCHAINED_HINT,"No one leaves Ashkarrow, he says. Don't let him catch you."
+SECRET_COLD_HEARTH_NAME,The Cold Hearth
+SECRET_COLD_HEARTH_DESC,"Put out all four of the Lord of Ashkarrow's braziers at once, then defeat him. Adds the Cold Ash passive."
+SECRET_COLD_HEARTH_HINT,Four fires guard the lord of ash. Let all four go out together.
+SECRET_WIDE_AWAKE_NAME,Wide Awake
+SECRET_WIDE_AWAKE_DESC,Defeat the Magician of the Feast without anyone falling asleep. Adds Lludd's Vigil passive.
+SECRET_WIDE_AWAKE_HINT,Lludd kept awake in cold water. Do the same.
+SECRET_DRAGONS_SLEEP_NAME,The Dragon's Sleep
+SECRET_DRAGONS_SLEEP_DESC,"Put the White Dragon to sleep with the mead three times, then defeat it. A dragon-white aura."
+SECRET_DRAGONS_SLEEP_HINT,Lludd caught the dragons with mead under a silk cloth. Uncover it.
+SECRET_STAVES_NOOSES_NAME,Staves and Nooses
+SECRET_STAVES_NOOSES_DESC,"Noose Poseidon's Bull three times, then defeat it. An orichalcum aura."
+SECRET_STAVES_NOOSES_HINT,The kings of Atlantis hunted without iron.
+SECRET_THREE_WALLS_NAME,The Three Walls
+SECRET_THREE_WALLS_DESC,"Break all three of Atlas' walls twice over, then defeat him. Adds the Orichalcum Plate passive."
+SECRET_THREE_WALLS_HINT,"Brass, tin, orichalcum. Then again."
+SECRET_HUNGRY_COW_NAME,The Hungry Cow
+SECRET_HUNGRY_COW_DESC,Defeat Auðumbla while she licks back less than 5% of her health. A rime-blue aura.
+SECRET_HUNGRY_COW_HINT,The first cow lives on salt. Take it from her.
+SECRET_RIME_MEETS_FIRE_NAME,Where Rime Meets Fire
+SECRET_RIME_MEETS_FIRE_DESC,"Shatter the Herald of the Void four times, then defeat him. Adds the Ember of Muspell passive."
+SECRET_RIME_MEETS_FIRE_HINT,"Bring fire to his rime, and rime to his fire."
+PASSIVE_COLD_ASH_NAME,Cold Ash
+PASSIVE_COLD_ASH_DESC,+4% damage per level.
+PASSIVE_LLUDDS_VIGIL_NAME,Lludd's Vigil
+PASSIVE_LLUDDS_VIGIL_DESC,God meters fill 5% faster per level.
+PASSIVE_ORICHALCUM_PLATE_NAME,Orichalcum Plate
+PASSIVE_ORICHALCUM_PLATE_DESC,+1 Armor per level.
+PASSIVE_MUSPELL_EMBER_NAME,Ember of Muspell
+PASSIVE_MUSPELL_EMBER_DESC,Statuses you cause last 6% longer per level.
+COSMETIC_CINDER_GLOW,Cinder Glow
+COSMETIC_DRAGON_WHITE,Dragon White
+COSMETIC_ORICHALCUM_RED,Orichalcum
+COSMETIC_RIME_BLUE,Rime Blue

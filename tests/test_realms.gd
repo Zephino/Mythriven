@@ -1170,6 +1170,50 @@ func test_pack_10_boss_secrets() -> void:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
 
 
+func test_pack_11_boss_secrets() -> void:
+	_start("ashkarrow")
+	var warden: ChainWardenBoss = _bosses.spawn_boss("chain_warden", 0) as ChainWardenBoss
+	assert_eq(warden.secret_earned(), "unchained")
+	warden.caught = 1
+	assert_eq(warden.secret_earned(), "")
+	var lord: LordOfAshkarrowBoss = _bosses.spawn_boss("lord_of_ashkarrow", 2) as LordOfAshkarrowBoss
+	assert_eq(lord.secret_earned(), "")
+	for i: int in 4:
+		lord.douse(i)
+	assert_eq(lord.secret_earned(), "the_cold_hearth", "all four out at once")
+	GameAuthority.end_scene()
+	_start("dinas_emrys")
+	var magician: FeastMagicianBoss = _bosses.spawn_boss("feast_magician", 1) as FeastMagicianBoss
+	assert_eq(magician.secret_earned(), "wide_awake")
+	var dragon: WhiteDragonBoss = _bosses.spawn_boss("white_dragon", 2) as WhiteDragonBoss
+	dragon.sleeps = 3
+	assert_eq(dragon.secret_earned(), "the_dragons_sleep")
+	GameAuthority.end_scene()
+	_start("atlantis")
+	var bull: PoseidonsBullBoss = _bosses.spawn_boss("poseidons_bull", 0) as PoseidonsBullBoss
+	bull.noosed = 3
+	assert_eq(bull.secret_earned(), "staves_and_nooses")
+	var king: AtlasKingBoss = _bosses.spawn_boss("atlas_king", 2) as AtlasKingBoss
+	king.walls_broken = 6
+	assert_eq(king.secret_earned(), "the_three_walls")
+	GameAuthority.end_scene()
+	_start("ginnungagap")
+	var cow: AudhumlaBoss = _bosses.spawn_boss("audhumla", 0) as AudhumlaBoss
+	assert_eq(cow.secret_earned(), "the_hungry_cow")
+	cow.licked = _enemies.max_hp[cow.slot] * 0.06
+	assert_eq(cow.secret_earned(), "")
+	var herald: VoidHeraldBoss = _bosses.spawn_boss("void_herald", 2) as VoidHeraldBoss
+	herald.shatters = 4
+	assert_eq(herald.secret_earned(), "where_rime_meets_fire")
+	for secret: String in ["unchained", "the_cold_hearth", "wide_awake", "the_dragons_sleep", "staves_and_nooses",
+			"the_three_walls", "the_hungry_cow", "where_rime_meets_fire"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
 func test_hyperborea_is_pack_10() -> void:
 	var level: Dictionary = _level("hyperborea")
 	assert_eq(int(level["act"]), 12)

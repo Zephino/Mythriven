@@ -75,3 +75,8 @@ func _draw() -> void:
 		for k: int in links:
 			draw_circle(from.lerp(aim - global_position, float(k) / maxf(links, 1)), 2.0, Color(0.9, 0.35, 0.15))
 	super._draw()
+
+
+## Unchained secret: beaten without his chain catching anyone.
+func secret_earned() -> String:
+	return "unchained" if caught == 0 else ""

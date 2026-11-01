@@ -760,7 +760,11 @@
       { "id": "griffin_gold", "name_key": "COSMETIC_GRIFFIN_GOLD", "color": "#d8a830" },
       { "id": "starlight", "name_key": "COSMETIC_STARLIGHT", "color": "#e8eeff" },
       { "id": "raven_black", "name_key": "COSMETIC_RAVEN_BLACK", "color": "#1e1e24" },
-      { "id": "dream_violet", "name_key": "COSMETIC_DREAM_VIOLET", "color": "#b090e0" }
+      { "id": "dream_violet", "name_key": "COSMETIC_DREAM_VIOLET", "color": "#b090e0" },
+      { "id": "cinder_glow", "name_key": "COSMETIC_CINDER_GLOW", "color": "#e8602a" },
+      { "id": "dragon_white", "name_key": "COSMETIC_DRAGON_WHITE", "color": "#f4f0e0" },
+      { "id": "orichalcum_red", "name_key": "COSMETIC_ORICHALCUM_RED", "color": "#d86a3a" },
+      { "id": "rime_blue", "name_key": "COSMETIC_RIME_BLUE", "color": "#a8d0f0" }
     ]
   },
 

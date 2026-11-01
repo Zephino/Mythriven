@@ -103,3 +103,9 @@ func _draw() -> void:
 			if _held[i] > 0.0:
 				draw_arc(p, 20.0, -PI / 2, -PI / 2 + TAU * _held[i] / float(_sig().get("break_s", 2.0)), 24, Color(1.0, 0.9, 0.5), 2.0)
 	super._draw()
+
+
+## The Hungry Cow secret: beaten while she licked back less than 5% of her health.
+func secret_earned() -> String:
+	var whole: float = GameAuthority.enemies.max_hp[slot] if slot != -1 and GameAuthority.enemies != null else 1.0
+	return "the_hungry_cow" if licked < whole * 0.05 else ""

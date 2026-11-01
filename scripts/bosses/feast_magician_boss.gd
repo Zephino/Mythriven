@@ -80,3 +80,8 @@ func _draw() -> void:
 				draw_circle(at, 2.0, Color(1.0, 0.95, 0.6))
 				draw_line(at + Vector2(2, 0), at + Vector2(2, -7), Color(1.0, 0.95, 0.6), 1.0)
 	super._draw()
+
+
+## Wide Awake secret: beaten without anyone falling asleep to his music.
+func secret_earned() -> String:
+	return "wide_awake" if sleepers == 0 else ""

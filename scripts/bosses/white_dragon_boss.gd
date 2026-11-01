@@ -139,3 +139,8 @@ func _draw() -> void:
 		draw_set_transform(Vector2.ZERO)
 		return
 	super._draw()
+
+
+## The Dragon's Sleep secret: put to sleep with the mead three times, then beaten.
+func secret_earned() -> String:
+	return "the_dragons_sleep" if sleeps >= 3 else ""

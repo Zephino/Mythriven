@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.20
+Date: 11/01/2026
+Time: 1:07 AM
+
+### Changes
+- **Pack 11, The Abyss, is complete: eight new secrets**, two per realm (`docs/PACK_11_PLAN.md`).
+  - **Ashkarrow:** *Unchained* (beat the Chain Warden without his chain ever catching you: cinder-glow aura); *The Cold Hearth* (put out all four of the Lord of Ashkarrow's braziers at once, then beat him: Cold Ash passive, +4% damage per level).
+  - **Dinas Emrys:** *Wide Awake* (beat the Magician of the Feast without anyone falling asleep: Lludd's Vigil passive, god meters fill 5% faster per level); *The Dragon's Sleep* (put the White Dragon to sleep three times, then beat it: dragon-white aura).
+  - **Atlantis:** *Staves and Nooses* (noose Poseidon's Bull three times, then beat it: orichalcum aura); *The Three Walls* (break all three of Atlas' walls twice over, then beat him: Orichalcum Plate passive, +1 Armor per level).
+  - **Ginnungagap:** *The Hungry Cow* (beat Auðumbla while she licks back less than 5% of her health: rime-blue aura); *Where Rime Meets Fire* (shatter the Herald of the Void four times, then beat him: Ember of Muspell passive, statuses last 6% longer per level).
+  - Four new passive icons, the Oracle hints, and the secrets' rows on the lore check (for the owner to check).
+- 1 new test.
+
+### Reason
+The owner asked for all nine packs, one at a time, each realm with two secrets. This finishes Pack 11.
+
 ## Version 00.03.19
 Date: 11/01/2026
 Time: 1:02 AM

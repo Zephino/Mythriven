@@ -111,3 +111,8 @@ func _draw() -> void:
 		var aura := Color(0.7, 0.85, 1.0, 0.25) if FORMS[form] == "rime" else Color(1.0, 0.45, 0.15, 0.25)
 		draw_arc(position_now() - global_position, float(_sig().get("aura_radius_px", 70.0)), 0.0, TAU, 40, aura, 3.0)
 	super._draw()
+
+
+## Where Rime Meets Fire secret: his form shattered four times, then beaten.
+func secret_earned() -> String:
+	return "where_rime_meets_fire" if shatters >= 4 else ""

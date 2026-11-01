@@ -1007,6 +1007,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | void_herald_entrance | boss entrance | void_herald | Before the world, there was the gap. After it, the gap. | Original line written for Mythriven | no |
 | void_herald_odin | boss meets god (with odin) | void_herald | Ymir's killer. You built your world from his body, over my emptiness. | Original line written for Mythriven; Gylfaginning 8 (Odin and his brothers make the world from Ymir) | no |
 
+### Pack 11 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| unchained | Unchained | No one leaves Ashkarrow, he says. Don't let him catch you. | Invented for Mythriven (Ashkarrow) | no |
+| the_cold_hearth | The Cold Hearth | Four fires guard the lord of ash. Let all four go out together. | Invented for Mythriven (Ashkarrow) | no |
+| wide_awake | Wide Awake | Lludd kept awake in cold water. Do the same. | "Lludd and Llefelys" (Lludd keeps awake in a vessel of cold water) | no |
+| the_dragons_sleep | The Dragon's Sleep | Lludd caught the dragons with mead under a silk cloth. Uncover it. | Historia Brittonum 42; "Lludd and Llefelys" (the dragons drink the mead and sleep) | no |
+| staves_and_nooses | Staves and Nooses | The kings of Atlantis hunted without iron. | Plato, Critias 119d-e (the bulls hunted with staves and nooses) | no |
+| the_three_walls | The Three Walls | Brass, tin, orichalcum. Then again. | Plato, Critias 116a-c (the walls of brass, tin and orichalcum) | no |
+| the_hungry_cow | The Hungry Cow | The first cow lives on salt. Take it from her. | Snorri, Gylfaginning 6 (Auðumbla licks the salty rime-blocks) | no |
+| where_rime_meets_fire | Where Rime Meets Fire | Bring fire to his rime, and rime to his fire. | Snorri, Gylfaginning 5 (where the rime met the heat, life quickened) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

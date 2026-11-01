@@ -112,3 +112,8 @@ func _draw() -> void:
 		for i: int in walls.size():
 			if walls[i] > 0.0:
 				draw_arc(me, r + 18.0 - i * 6.0, 0.0, TAU, 32, WALL_COLORS[i], 3.0)
+
+
+## The Three Walls secret: all three walls broken twice over (six walls), then beaten.
+func secret_earned() -> String:
+	return "the_three_walls" if walls_broken >= 6 else ""

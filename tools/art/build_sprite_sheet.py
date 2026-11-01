@@ -187,7 +187,8 @@ def icon_packs():
                       ("pack7", ["home_before_dawn", "true_thomas", "zeus_judgement", "iolaus_brands"]),
                       ("pack8", ["the_fallen_banner", "ariadnes_thread", "seeing_through", "the_scabbard_regained"]),
                       ("pack9", ["the_nail", "no_thanks", "not_an_island", "billinas_eggs"]),
-                      ("pack10", ["the_unrobbed_nest", "the_sunrise", "eternity", "the_gate_of_horn"])):
+                      ("pack10", ["the_unrobbed_nest", "the_sunrise", "eternity", "the_gate_of_horn"]),
+                      ("pack11", ["the_cold_hearth", "wide_awake", "the_three_walls", "where_rime_meets_fire"])):
         for sid in ids:
             by_secret[sid] = pack
     out = {}

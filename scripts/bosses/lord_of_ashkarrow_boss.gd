@@ -96,3 +96,8 @@ func _draw() -> void:
 			if _held[i] > 0.0:
 				draw_arc(at, 18.0, -PI / 2, -PI / 2 + TAU * _held[i] / float(_sig().get("douse_s", 1.5)), 24, Color(0.7, 0.85, 1.0), 2.0)
 	super._draw()
+
+
+## The Cold Hearth secret: all four braziers out at once at some point, then beaten.
+func secret_earned() -> String:
+	return "the_cold_hearth" if most_out >= 4 else ""

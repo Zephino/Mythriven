@@ -607,5 +607,57 @@
       "secret": "the_gate_of_horn"
     },
     "persists": false
+  },
+  {
+    "id": "cold_ash",
+    "name_key": "PASSIVE_COLD_ASH_NAME",
+    "desc_key": "PASSIVE_COLD_ASH_DESC",
+    "stat": "might",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_cold_hearth"
+    },
+    "persists": false
+  },
+  {
+    "id": "lludds_vigil",
+    "name_key": "PASSIVE_LLUDDS_VIGIL_NAME",
+    "desc_key": "PASSIVE_LLUDDS_VIGIL_DESC",
+    "stat": "god_charge",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "wide_awake"
+    },
+    "persists": false
+  },
+  {
+    "id": "orichalcum_plate",
+    "name_key": "PASSIVE_ORICHALCUM_PLATE_NAME",
+    "desc_key": "PASSIVE_ORICHALCUM_PLATE_DESC",
+    "stat": "armor",
+    "per_level": 1,
+    "max_level": 3,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_three_walls"
+    },
+    "persists": false
+  },
+  {
+    "id": "muspell_ember",
+    "name_key": "PASSIVE_MUSPELL_EMBER_NAME",
+    "desc_key": "PASSIVE_MUSPELL_EMBER_DESC",
+    "stat": "status_duration",
+    "per_level": 0.06,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "where_rime_meets_fire"
+    },
+    "persists": false
   }
 ]

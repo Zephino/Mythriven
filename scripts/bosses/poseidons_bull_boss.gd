@@ -101,3 +101,8 @@ func _draw() -> void:
 		if held_s > 0.0:
 			draw_arc(position_now() - global_position, float(data.get("radius", 22.0)) + 4.0, 0.0, TAU, 24, Color(0.75, 0.62, 0.38), 2.0)
 	super._draw()
+
+
+## Staves and Nooses secret: noosed three times, then beaten.
+func secret_earned() -> String:
+	return "staves_and_nooses" if noosed >= 3 else ""

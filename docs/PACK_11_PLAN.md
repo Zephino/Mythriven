@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 11). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only. The owner can change or veto any of
-it. Ashkarrow built and released 11/01/2026 (00.03.16); Dinas Emrys (00.03.17); Atlantis (00.03.18); Ginnungagap (00.03.19). **All four realms are built.**
+it. Ashkarrow built and released 11/01/2026 (00.03.16); Dinas Emrys (00.03.17); Atlantis (00.03.18); Ginnungagap (00.03.19). **All four realms are built.** The eight secrets (00.03.20).
 
 Realms work like Packs 5-10: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -107,3 +107,17 @@ drowned all the frost giants but Bergelmir).* Ymir is already in the game, so he
 | 10:00 | **Auðumbla** | The first cow, who fed on the salty rime-blocks. She goes to lick them, and every lick heals her; break the blocks first by standing at them |
 | 20:00 | **Bergelmir** | The one frost giant who lived through the flood of Ymir's blood, in his lúðr. Every so often the blood floods the arena: he rides it in his lúðr, fast and out of reach, while blood wells up in pools under the Heroes (hurting and Soaking) |
 | 30:00 | **The Herald of the Void** (the design's, invented: plain name) | He stands between rime and fire, turning from one to the other. In rime he Chills, in fire he Burns; a blow of the other element shatters his form (stunned, double damage). The gap opens under the farthest Hero |
+
+## Secrets (00.03.20, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Ashkarrow | Unchained | Beat the Chain Warden without his chain ever catching you | Cinder-glow aura |
+| Ashkarrow | The Cold Hearth | Put out all four of the Lord of Ashkarrow's braziers at once, then beat him | Cold Ash passive (+4% damage per level) |
+| Dinas Emrys | Wide Awake | Beat the Magician of the Feast without anyone falling asleep | Lludd's Vigil passive (god meters fill 5% faster per level) |
+| Dinas Emrys | The Dragon's Sleep | Put the White Dragon to sleep with the mead three times, then beat it | Dragon-white aura |
+| Atlantis | Staves and Nooses | Noose Poseidon's Bull three times, then beat it | Orichalcum aura |
+| Atlantis | The Three Walls | Break all three of Atlas' walls twice over, then beat him | Orichalcum Plate passive (+1 Armor per level, 3 levels) |
+| Ginnungagap | The Hungry Cow | Beat Auðumbla while she licks back less than 5% of her health | Rime-blue aura |
+| Ginnungagap | Where Rime Meets Fire | Shatter the Herald of the Void four times, then beat him | Ember of Muspell passive (statuses last 6% longer per level) |
+
+**Pack 11 is complete.**
