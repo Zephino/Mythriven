@@ -435,6 +435,11 @@ LEVELS = {
         "birds": {"swallow": ("#24283a", "#e8e0d0", "#c84030", True)},
         "insects": {"cicada": (cicada, "#6a7a3a")},
         "large": {"red_deer": ("#a8724a", "#e8d4b8", "#4a3020", "antlers", 28, 26)}},
+    "dovrefjell": {
+        "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {},
+        "large": {"reindeer": ("#c8b8a0", "#f0ece4", "#6a5a48", "antlers", 28, 26)}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

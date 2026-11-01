@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.27
+Date: 11/01/2026
+Time: 8:06 AM
+
+### Changes
+- **Dovrefjell, the trolls' mountain, is built and open** (Pack 13, `docs/PACK_13_PLAN.md`). It opens when you beat the Flying Dutchman. Sources: Henrik Ibsen's Peer Gynt (1867) and Asbjørnsen and Moe's Norwegian Folktales (1841-44), not later versions.
+  - **Hazard, the trolls' boulders:** trolls hurl boulders down the fells.
+  - **Monsters:** Dovre trolls, troll brats (swarms), ravens, and big trolls from 10:00.
+  - **10:00, the Hedal Trolls** (three trolls with one eye between them): every 5 s they pass the eye, and for 1.5 s none of them can see: they stumble and take double damage.
+  - **20:00, the Great Bøyg** ("Go round about"): it can't be beaten by standing and fighting. A Hero who keeps moving round it hurts it fully; one standing still does only a fifth of the damage.
+  - **30:00, the Mountain King** (the design's boss, the Dovre-King): every 9 s he gives the nearest Hero the troll's eye (Hexed). A church bell stands in the arena: stand at it for 2 s to ring it, and the hall falls in on him (stunned 3 s, double damage). It can be rung again after 15 s.
+  - High Norwegian fells of heather, moss, snow and rock, with spruce, birch and stone circles; mountain hares, ravens and reindeer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (461 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 13; the realms are built one at a time.
+
 ## Version 00.03.26
 Date: 11/01/2026
 Time: 7:56 AM

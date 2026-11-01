@@ -5963,5 +5963,115 @@
       "edge": "#887c60",
       "stones": "#c8bca0"
     }
+  },
+  {
+    "_doc": "Dovrefjell, Pack 13 realm 2, the trolls' mountain (docs/PACK_13_PLAN.md). Sources: Henrik Ibsen, Peer Gynt (1867); Asbjørnsen and Moe, Norwegian Folktales (1841-44). Not later versions. A realm: no local gods.",
+    "id": "dovrefjell",
+    "name_key": "LEVEL_DOVREFJELL_NAME",
+    "region": "realm_troll",
+    "act": 15,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "dovrefjell",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "heather",
+          "max": -0.3,
+          "placeholder_color": "#5a5a4a",
+          "placeholder_dots": "#8a6a8a"
+        },
+        {
+          "id": "moss",
+          "max": 0.15,
+          "placeholder_color": "#5a6a4a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "snow",
+          "max": 0.6,
+          "placeholder_color": "#dce4ec",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#6a6e70",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "granite_tor",
+      "stone_circle"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "granite_tor": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          20
+        ],
+        "placeholder_color": "#7a7e80",
+        "weight": 2
+      },
+      "stone_circle": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          18
+        ],
+        "placeholder_color": "#8a8e90",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "hedal_trolls",
+      "20": "great_boyg",
+      "30": "mountain_king"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "hy_brasil",
+      "boss": "flying_dutchman"
+    },
+    "waves": "waves_dovrefjell.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 16,
+      "strikes_per_s": 0.9,
+      "radius_px": 36,
+      "telegraph_s": 1.3,
+      "damage": 16,
+      "element": "earth",
+      "range_px": 230,
+      "color": "#6a6e70",
+      "look": "rockslide",
+      "name_key": "HAZARD_TROLLS_BOULDERS_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#d4d8dc",
+    "flora": {
+      "density": 0.4,
+      "trees": {
+        "spruce": 2,
+        "birch": 2
+      }
+    },
+    "road": {
+      "color": "#8a8a80",
+      "edge": "#6a6a60",
+      "stones": "#aaaaa0"
+    }
   }
 ]

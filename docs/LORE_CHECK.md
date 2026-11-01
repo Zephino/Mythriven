@@ -1128,6 +1128,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | nessus_entrance | boss entrance | nessus | Need a ride across? I'll carry you. I always carry the pretty ones. | Ovid, Metamorphoses 9.98-133 | no |
 | nessus_hecate | boss meets god (with hecate) | nessus | Keep your torches, goddess. I know a fire that never goes out. | Original line written for Mythriven | no |
 
+### Dovrefjell
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | dovrefjell | Dovrefjell | Henrik Ibsen, Peer Gynt (1867) (the Dovre-King's hall; the Great Bøyg); Asbjørnsen and Moe, Norwegian Folktales (1841-44) (the Hedal trolls) | no |
+| enemy | dovre_troll | Dovre troll | Henrik Ibsen, Peer Gynt (1867) (the Dovre-King's courtiers, with their tails) | no |
+| enemy | troll_brat | Troll brat | Henrik Ibsen, Peer Gynt (1867) (the troll brats in the Dovre-King's hall) | no |
+| boss | hedal_trolls | The Hedal Trolls | Asbjørnsen and Moe, Norwegian Folktales (1841-44) ("The Boys Who Met the Trolls in the Hedal Woods": three trolls with only one eye between them) | no |
+| boss | great_boyg | The Great Bøyg | Henrik Ibsen, Peer Gynt (1867) (Act II: the Great Bøyg in the dark, which can't be fought and says only "Go round about") | no |
+| boss | mountain_king | The Mountain King | Henrik Ibsen, Peer Gynt (1867) (Act II: the Dovre-King's hall; he would slit Peer's eye so he sees as a troll; the church bells ring and the hall falls); GAME_DESIGN.md (the Mountain King) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| hedal_trolls_entrance | boss entrance | hedal_trolls | Give me the eye! No, give ME the eye! | Asbjørnsen and Moe, Norwegian Folktales (1841-44) | no |
+| great_boyg_entrance | boss entrance | great_boyg | Go round about. | Henrik Ibsen, Peer Gynt (1867) | no |
+| mountain_king_entrance | boss entrance | mountain_king | Troll, to thyself be enough! Will you take my daughter, and a tail? | Henrik Ibsen, Peer Gynt (1867) | no |
+| mountain_king_thor | boss meets god (with thor) | mountain_king | The troll-slayer! Ring no bells in my hall, thunderer. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

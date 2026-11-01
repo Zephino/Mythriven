@@ -1874,5 +1874,35 @@
       "id": "nessus"
     },
     "persists": true
+  },
+  {
+    "id": "boss_hedal_trolls",
+    "name_key": "ACH_BOSS_HEDAL_TROLLS_NAME",
+    "desc_key": "ACH_BOSS_HEDAL_TROLLS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "hedal_trolls"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_great_boyg",
+    "name_key": "ACH_BOSS_GREAT_BOYG_NAME",
+    "desc_key": "ACH_BOSS_GREAT_BOYG_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "great_boyg"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_mountain_king",
+    "name_key": "ACH_BOSS_MOUNTAIN_KING_NAME",
+    "desc_key": "ACH_BOSS_MOUNTAIN_KING_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "mountain_king"
+    },
+    "persists": true
   }
 ]

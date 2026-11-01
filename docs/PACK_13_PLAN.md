@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 13, the last of the nine). The design (`GAME_DESIGN.md`: Fantasy realms) names each
 realm, its source and one boss idea; everything else was chosen by Claude from old public-domain texts only. The owner
-can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26).
+can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26); Dovrefjell (00.03.27).
 
 Realms work like Packs 5-12: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -44,7 +44,7 @@ strikes, the rockslide look in wood and stone).
 | 20:00 | **Rhoetus** | He snatched a burning brand from the altar. He swings it in arcs round him and flings brands that leave the ground burning |
 | 30:00 | **Nessus** (the design's) | The ferryman centaur. He gallops at the Heroes and every so often carries the nearest off across the arena, Poisoned by his venomed blood. Heracles shot him from across the river: blows struck from far away hurt him twice as much |
 
-## Realm 50: Dovrefjell (the trolls' mountain)
+## Realm 50: Dovrefjell (the trolls' mountain): **done and released 11/01/2026 (00.03.27)**
 *Sources: Henrik Ibsen, Peer Gynt (1867; not later versions): the hall of the Dovre-King, his trolls and their tails,
 the troll motto "Troll, to thyself be enough", the Great Bøyg in the dark that says "Go round about", and the church
 bells that save Peer as the hall falls; Peter Christen Asbjørnsen and Jørgen Moe, Norwegian Folktales (1841-44): "The

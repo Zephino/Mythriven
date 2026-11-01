@@ -526,6 +526,11 @@ LEVELS = {
                   "spruce": (spruce, 22, 40)},
         "bushes": {"broom": ("m", "M", "y", "f"), "fern": ("fern",)},
         "rock": ("a", "A", "B", None)},
+    # Dovrefjell: the high fells of Norway; spruce and birch below, heather, moss and snow above.
+    "dovrefjell": {
+        "trees": {"spruce": (spruce, 22, 40), "birch": (birch, 18, 38)},
+        "bushes": {"juniper": ("P", "p", "q", None)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

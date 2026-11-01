@@ -12411,5 +12411,240 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Dovrefjell bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "hedal_trolls",
+    "name_key": "BOSS_HEDAL_TROLLS_NAME",
+    "tradition": "norwegian",
+    "lore_source": "Asbjørnsen and Moe, Norwegian Folktales (1841-44) (\"The Boys Who Met the Trolls in the Hedal Woods\": three trolls with only one eye between them)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "hedal_trolls",
+    "move_speed": 40,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "one_eye",
+      "pass_every_s": 5.0,
+      "blind_s": 1.5,
+      "blind_damage_taken": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 6,
+            "damage": 12
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 18,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Dovrefjell bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "great_boyg",
+    "name_key": "BOSS_GREAT_BOYG_NAME",
+    "tradition": "norwegian",
+    "lore_source": "Henrik Ibsen, Peer Gynt (1867) (Act II: the Great Bøyg in the dark, which can't be fought and says only \"Go round about\")",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "great_boyg",
+    "move_speed": 26,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "go_round_about",
+      "still_damage_taken": 0.2,
+      "circling_px_s": 30.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Dovrefjell bosses (docs/PACK_13_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "mountain_king",
+    "name_key": "BOSS_MOUNTAIN_KING_NAME",
+    "tradition": "norwegian",
+    "lore_source": "Henrik Ibsen, Peer Gynt (1867) (Act II: the Dovre-King's hall; he would slit Peer's eye so he sees as a troll; the church bells ring and the hall falls); GAME_DESIGN.md (the Mountain King)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "mountain_king",
+    "move_speed": 38,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_hall",
+      "eye_every_s": 9.0,
+      "bell_px": 130,
+      "bell_reach_px": 20,
+      "ring_s": 2.0,
+      "rung_s": 3.0,
+      "rung_damage_taken": 2.0,
+      "bell_again_s": 15.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "dovre_troll"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "dovre_troll"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

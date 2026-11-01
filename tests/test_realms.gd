@@ -1844,6 +1844,48 @@ func test_nessus_carries_heroes_and_fears_far_blows() -> void:
 	assert_true(_player.statuses.has("poison"))
 
 
+func test_the_hedal_trolls_pass_their_eye() -> void:
+	_start("dovrefjell")
+	assert_eq(str(_level("dovrefjell")["unlock"]["boss"]), "flying_dutchman")
+	var trolls: HedalTrollsBoss = _bosses.spawn_boss("hedal_trolls", 0) as HedalTrollsBoss
+	trolls.signature(0.1)
+	assert_almost_eq(trolls.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01)
+	trolls.signature(5.0)
+	assert_eq(trolls.passes, 1, "the eye is passed")
+	assert_almost_eq(trolls.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "nobody can see")
+	trolls.signature(1.6)
+	assert_eq(trolls.holder, 1, "the next troll has it")
+
+
+func test_the_great_boyg_must_be_gone_round() -> void:
+	_start("dovrefjell")
+	var boyg: GreatBoygBoss = _bosses.spawn_boss("great_boyg", 1) as GreatBoygBoss
+	var centre: Vector2 = boyg.position_now()
+	_player.position = centre + Vector2(100, 0)
+	for k: int in 10:
+		boyg.signature(0.1)
+	assert_almost_eq(boyg.modify_hit(10.0, _player, Vector2.ZERO), 2.0, 0.01, "standing still: barely touched")
+	for k: int in 20:
+		_player.position = centre + Vector2.from_angle((k + 1) * 0.1) * 100.0
+		_enemies.positions[boyg.slot] = centre
+		boyg.signature(0.1)
+	assert_true(boyg.is_circling(_player))
+	assert_almost_eq(boyg.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "going round about")
+
+
+func test_the_mountain_kings_hall_falls_to_the_bell() -> void:
+	_start("dovrefjell")
+	var king: MountainKingBoss = _bosses.spawn_boss("mountain_king", 2) as MountainKingBoss
+	king.signature(5.1)
+	assert_eq(king.eyes, 1)
+	assert_true(_player.statuses.has("hex"), "the troll's eye")
+	_player.position = king.bell
+	king.signature(1.0)
+	king.signature(1.1)
+	assert_eq(king.rung, 1, "the bell rings")
+	assert_almost_eq(king.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "the hall falls on him")
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

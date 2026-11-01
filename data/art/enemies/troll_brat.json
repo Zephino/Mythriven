@@ -1,0 +1,98 @@
+{
+ "_doc": "A troll brat (Peer Gynt: the Dovre-King's troll children): a small, big-headed troll child, pinching. Built by tools/art/build_frontiers.py.",
+ "size": [
+  13,
+  13
+ ],
+ "anchor": [
+  6,
+  12
+ ],
+ "palette": {
+  "o": "#10140e",
+  "k": "#1a1e14",
+  "g": "#6a7a5a",
+  "G": "#4a5a3a"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".............",
+    ".............",
+    ".............",
+    "....ooooo....",
+    "...ogggggo...",
+    "..ogggggggo..",
+    "..oggkggkgo..",
+    ".ogggggggGGo.",
+    "..oggggggGGo.",
+    "..ogggggggo..",
+    "...oGGGGGo...",
+    "...oGGGGGo...",
+    "...oGGGGGo..."
+   ]
+  ],
+  "walk": [
+   [
+    ".............",
+    ".............",
+    "....ooooo....",
+    "...ogggggo...",
+    "..ogggggggo..",
+    "..oggkggkgo..",
+    ".ogggggggGGo.",
+    "..oggggggGGo.",
+    "..ogggggggo..",
+    "...ogggggo...",
+    "...oGGGGGo...",
+    "...oGGGGGo...",
+    "...oGGGGGo..."
+   ],
+   [
+    ".............",
+    ".............",
+    ".............",
+    "....ooooo....",
+    "...ogggggo...",
+    "..ogggggggo..",
+    "..oggkggkgo..",
+    ".ogggggggGGo.",
+    "..oggggggGGo.",
+    "..ogggggggo..",
+    "...oGGGGGo...",
+    "...oGGGGGo...",
+    "...oGGGGGo..."
+   ],
+   [
+    ".............",
+    ".............",
+    "....ooooo....",
+    "...ogggggo...",
+    "..ogggggggo..",
+    "..oggkggkgo..",
+    ".ogggggggGGo.",
+    "..oggggggGGo.",
+    "..ogggggggo..",
+    "...ogggggo...",
+    "...oGGGGGo...",
+    "...oGGGGGo...",
+    "...oGGGGGo..."
+   ],
+   [
+    ".............",
+    ".............",
+    ".............",
+    "....ooooo....",
+    "...ogggggo...",
+    "..ogggggggo..",
+    "..oggkggkgo..",
+    ".ogggggggGGo.",
+    "..oggggggGGo.",
+    "..ogggggggo..",
+    "...oGGGGGo...",
+    "...oGGGGGo...",
+    "...oGGGGGo..."
+   ]
+  ]
+ }
+}

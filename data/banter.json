@@ -3173,5 +3173,46 @@
     "text_key": "BANTER_NESSUS_HECATE",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "hedal_trolls_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "hedal_trolls",
+    "hero": "",
+    "god": "hedal_trolls",
+    "text_key": "BANTER_HEDAL_TROLLS_ENTRANCE",
+    "lore_source": "Asbjørnsen and Moe, Norwegian Folktales (1841-44)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "great_boyg_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "great_boyg",
+    "hero": "",
+    "god": "great_boyg",
+    "text_key": "BANTER_GREAT_BOYG_ENTRANCE",
+    "lore_source": "Henrik Ibsen, Peer Gynt (1867)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "mountain_king_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "mountain_king",
+    "hero": "",
+    "god": "mountain_king",
+    "text_key": "BANTER_MOUNTAIN_KING_ENTRANCE",
+    "lore_source": "Henrik Ibsen, Peer Gynt (1867)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "mountain_king_thor",
+    "trigger": "boss_meets_god",
+    "speaker": "mountain_king",
+    "hero": "",
+    "god": "mountain_king",
+    "with_god": "thor",
+    "text_key": "BANTER_MOUNTAIN_KING_THOR",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

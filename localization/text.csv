@@ -3277,3 +3277,32 @@ BANTER_EURYTUS_ENTRANCE,More wine! And who's the bride?
 BANTER_RHOETUS_ENTRANCE,(The centaur waves a blazing log over his head.)
 BANTER_NESSUS_ENTRANCE,Need a ride across? I'll carry you. I always carry the pretty ones.
 BANTER_NESSUS_HECATE,"Keep your torches, goddess. I know a fire that never goes out."
+LEVEL_DOVREFJELL_NAME,Dovrefjell
+HAZARD_TROLLS_BOULDERS_NAME,Trolls hurl boulders down the fells!
+ENEMY_DOVRE_TROLL_NAME,Dovre troll
+ENEMY_DOVRE_TROLL_MYTH,"One of the trolls of the Dovre-King's hall, with a cow's tail under its coat. ""Troll, to thyself be enough"" is their motto."
+ENEMY_TROLL_BRAT_NAME,Troll brat
+ENEMY_TROLL_BRAT_MYTH,"The Dovre-King's troll children, who pinch and bite and want to tear Peer to pieces."
+BOSS_HEDAL_TROLLS_NAME,The Hedal Trolls
+ENEMY_HEDAL_TROLLS_NAME,The Hedal Trolls
+ENEMY_HEDAL_TROLLS_MYTH,Three huge trolls of the Hedal woods who had only one eye between them and passed it from one to another. Two boys snatched it while it was being passed and made them give up their gold to get it back.
+BOSS_HEDAL_TROLLS_PASS,They're passing the eye! None of them can see!
+BOSS_GREAT_BOYG_NAME,The Great Bøyg
+ENEMY_GREAT_BOYG_NAME,The Great Bøyg
+ENEMY_GREAT_BOYG_MYTH,"The great, slimy, shapeless thing Peer meets in the dark. He strikes and strikes and hits nothing: ""Go round about,"" it says. It can't be beaten by force, only gone round."
+BOSS_GREAT_BOYG_ROUND,"""Go round about."" Keep moving round it!"
+BOSS_MOUNTAIN_KING_NAME,The Mountain King
+ENEMY_MOUNTAIN_KING_NAME,The Mountain King
+ENEMY_MOUNTAIN_KING_MYTH,"The old Dovre-King, lord of the trolls under the mountain. He offered Peer his daughter and his kingdom if Peer would become a troll, and would have slit his eye to make him see like one. Far off, church bells rang, and the hall fell in."
+BOSS_MOUNTAIN_KING_EYE,The Mountain King gives you the troll's eye!
+BOSS_MOUNTAIN_KING_BELL,Church bells ring! The hall falls in round him!
+ACH_BOSS_HEDAL_TROLLS_NAME,Defeat The Hedal Trolls
+ACH_BOSS_HEDAL_TROLLS_DESC,The 10:00 boss of Dovrefjell.
+ACH_BOSS_GREAT_BOYG_NAME,Defeat The Great Bøyg
+ACH_BOSS_GREAT_BOYG_DESC,The 20:00 boss of Dovrefjell.
+ACH_BOSS_MOUNTAIN_KING_NAME,Defeat The Mountain King
+ACH_BOSS_MOUNTAIN_KING_DESC,The 30:00 boss of Dovrefjell.
+BANTER_HEDAL_TROLLS_ENTRANCE,"Give me the eye! No, give ME the eye!"
+BANTER_GREAT_BOYG_ENTRANCE,Go round about.
+BANTER_MOUNTAIN_KING_ENTRANCE,"Troll, to thyself be enough! Will you take my daughter, and a tail?"
+BANTER_MOUNTAIN_KING_THOR,"The troll-slayer! Ring no bells in my hall, thunderer."
