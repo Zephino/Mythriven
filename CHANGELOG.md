@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.01
+Date: 10/31/2026
+Time: 9:54 PM
+
+### Changes
+- **Pack 8, Warlords, is planned** (`docs/PACK_8_PLAN.md`): Ghorvast, Knossos, Utgard and Logres, each with three bosses, monsters and a hazard. Knossos, Utgard and Logres come from the old texts and are kept clearly apart from the Aegean Shore, Jotunheim and Avalon's Shadow; Ghorvast is the design's invented realm. Claude made the choices with the owner's trust; any can be changed.
+- **Ghorvast, the orc stronghold, is built and open.** It opens when you beat the Hydra, under a new "Pack 8: Warlords" heading. Everything in it has plain, descriptive names for the owner to approve or rename, and nothing is borrowed from modern fantasy.
+  - **Hazard, fire-arrow volleys:** burning arrows fall from the walls (telegraphed) and set whoever they hit alight (Burn).
+  - **Monsters:** orc warriors, orc archers, carrion crows, ravens, and from 10:00 orc brutes.
+  - **10:00, the War Drummer:** each drumbeat calls three more orcs to the fight, and he beats faster the more he is hurt.
+  - **20:00, the Pit Champion:** every blow fills his rage; when it's full he goes berserk for 5 s (faster, hitting twice as hard), then he's spent for 3 s and takes double damage.
+  - **30:00, the Warlord:** he plants his war banner, and while it stands he takes only 30% damage. Stand at it to tear it down; he plants a new one after a while.
+  - Burned earth, palisades and forges; lizards and ravens.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check (marked as invented).
+- 4 new tests (387 tests pass).
+
+### Reason
+The owner said "go ahead" with Pack 8 after Pack 7 was finished.
+
 ## Version 00.03.00
 Date: 10/31/2026
 Time: 9:35 PM

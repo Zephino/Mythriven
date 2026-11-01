@@ -1,0 +1,57 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A stretch of Ghorvast's palisade (the game's own): sharpened stakes lashed together.",
+ "size": [
+  34,
+  21
+ ],
+ "anchor": [
+  17,
+  20
+ ],
+ "palette": {
+  "a": "#2a2418",
+  "b": "#665442",
+  "c": "#6c5a48",
+  "d": "#604e42",
+  "e": "#5a483c",
+  "f": "#5a4e3c",
+  "g": "#1e1812",
+  "h": "#483c2a",
+  "i": "#42362a",
+  "j": "#483c30",
+  "k": "#3c3024",
+  "l": "#544236",
+  "m": "#4e4236",
+  "n": "#362a24",
+  "o": "#362a1e",
+  "p": "#4e3c30",
+  "q": "#544836"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...a...a...a...a...a...a...a...a..",
+    "..aba.aca.aba.ada.ada.aca.aba.aba.",
+    ".aebcaccdafbbabdbacedabbcacbcaddba",
+    ".ghddgidbgiccgjbcgibbgkbbgjbcghcba",
+    ".giddghddgidfghbbghdeghdfgidlgkbfa",
+    ".ghfbghffgibbgiddgibfgidbgiddgibba",
+    ".giblghddgibdgibdgibfghdfgibfgibda",
+    ".giddgibfgimdghbdgnbfgiflgiddgidda",
+    ".giffgkdfgibdgidlgiddgifbgifdghdda",
+    ".giddgibdgibdgilbgidlgidfghddghdfa",
+    "giiiikiniiikikiikkoikikiiikiikikig",
+    ".giffgidfgnemgifpgkefgiefgifegiffa",
+    ".gifdgidfgidmgiemgkddgiffgifdgkeea",
+    ".gidfgnffgiedgieegkffgifdgiefgifea",
+    ".giffgiedgkedgkflgiefgidfgkefgiffa",
+    "giiiikiiiiiiiiniiikiiiiikiikiikiig",
+    ".giefgiffgifdgifdgidegiedgiedgiffa",
+    ".gilqgilegkqegklqgkeqgkllgoelgiqla",
+    ".goeqgkqqgklegklqgiqlgkllgklmgilqa",
+    ".gkjqgilqgoqqgkqqgkeqgkeqgkqqgiqqa",
+    "..gaa.gaa.gaa.gaa.gaa.gaa.gaa.gaa."
+   ]
+  ]
+ }
+}

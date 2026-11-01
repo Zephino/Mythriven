@@ -667,6 +667,28 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_thrown_stone | The Thrown Stone | Cadmus didn't fight the sown men. He let them fight each other. | Apollodorus, Library 3.4.1 (Cadmus throws a stone among the Spartoi) | no |
 | iolaus_brands | Iolaus' Brands | Every head you cut grows two. Every head you burn stays gone. | Apollodorus, Library 2.5.2 (Iolaus sears the Hydra's necks) | no |
 
+## Pack 8: Warlords
+
+### Ghorvast
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | ghorvast | Ghorvast | Invented for Mythriven (GAME_DESIGN.md marks Ghorvast invented) | no |
+| enemy | orc_warrior | Orc warrior | Invented for Mythriven (GAME_DESIGN.md: Ghorvast; "orc" from Old English orcneas, Latin Orcus) | no |
+| enemy | orc_archer | Orc archer | Invented for Mythriven (GAME_DESIGN.md: Ghorvast; "orc" from Old English orcneas, Latin Orcus) | no |
+| enemy | orc_brute | Orc brute | Invented for Mythriven (GAME_DESIGN.md: Ghorvast; "orc" from Old English orcneas, Latin Orcus) | no |
+| enemy | carrion_crow | Carrion crow | Carrion crows, ordinary birds round a battlefield | no |
+| boss | war_drummer | The War Drummer | Invented for Mythriven (GAME_DESIGN.md: Ghorvast; "orc" from Old English orcneas, Latin Orcus) | no |
+| boss | pit_champion | The Pit Champion | Invented for Mythriven (GAME_DESIGN.md: Ghorvast; "orc" from Old English orcneas, Latin Orcus) | no |
+| boss | warlord | The Warlord | Invented for Mythriven (GAME_DESIGN.md: Ghorvast; "orc" from Old English orcneas, Latin Orcus) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| war_drummer_entrance | boss entrance | war_drummer | (BOOM. BOOM. BOOM. The whole stronghold answers the drum.) | Original description written for Mythriven | no |
+| pit_champion_entrance | boss entrance | pit_champion | Hit me. Go on. Hit me harder. | Original line written for Mythriven | no |
+| warlord_entrance | boss entrance | warlord | Under my banner, no one runs. | Original line written for Mythriven | no |
+| warlord_odin | boss meets god (with odin) | warlord | A war god? Good. Mine is a war without gods. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

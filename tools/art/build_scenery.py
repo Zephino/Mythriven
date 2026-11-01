@@ -618,12 +618,22 @@ def dragons_teeth():
     return p
 
 
+def palisade():
+    """A stretch of Ghorvast's palisade (the game's own): sharpened stakes lashed together."""
+    p = Pic(32, 22, (16, 21))
+    for x in range(1, 31, 4):
+        p.rect(x, 5, x + 2, 21, "b"); p.rect(x, 5, x, 21, "B")
+        p.px(x + 1, 3, "b"); p.rect(x, 4, x + 2, 4, "b")
+    p.rect(0, 12, 31, 12, "B"); p.rect(0, 17, 31, 17, "B")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

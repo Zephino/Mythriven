@@ -2509,3 +2509,35 @@ COSMETIC_ELF_LIGHT,Elf Light
 COSMETIC_MILK_WHITE,Milk White
 COSMETIC_GOLDEN_HORN,Golden Horn
 COSMETIC_SOWN_BRONZE,Sown Bronze
+LEVEL_GHORVAST_NAME,Ghorvast
+HAZARD_FIRE_ARROWS_NAME,Fire-arrows rain from the walls!
+ENEMY_ORC_WARRIOR_NAME,Orc warrior
+ENEMY_ORC_WARRIOR_MYTH,"The warriors of Ghorvast, broad and grey-skinned, in crude leather and iron. (Mythriven's own creature; the old word ""orc"" comes from Old English orcneas and Latin Orcus.)"
+ENEMY_ORC_ARCHER_NAME,Orc archer
+ENEMY_ORC_ARCHER_MYTH,Orcs of Ghorvast who shoot from the walls with crude bows. (Mythriven's own creature.)
+ENEMY_ORC_BRUTE_NAME,Orc brute
+ENEMY_ORC_BRUTE_MYTH,"The biggest orcs of Ghorvast, swinging great axes. (Mythriven's own creature.)"
+ENEMY_CARRION_CROW_NAME,Carrion crow
+ENEMY_CARRION_CROW_MYTH,Carrion crows wheeling in black clouds over the walls of Ghorvast.
+BOSS_WAR_DRUMMER_NAME,The War Drummer
+ENEMY_WAR_DRUMMER_NAME,The War Drummer
+ENEMY_WAR_DRUMMER_MYTH,A huge orc with a great war drum slung before him. Every beat calls more of Ghorvast to the fight. (Mythriven's own creature.)
+BOSS_PIT_CHAMPION_NAME,The Pit Champion
+ENEMY_PIT_CHAMPION_NAME,The Pit Champion
+ENEMY_PIT_CHAMPION_MYTH,"The undefeated champion of Ghorvast's fighting pit, scarred all over. Every blow he takes only makes him angrier. (Mythriven's own creature.)"
+BOSS_PIT_CHAMPION_BERSERK,The Pit Champion goes berserk!
+BOSS_WARLORD_NAME,The Warlord
+ENEMY_WARLORD_NAME,The Warlord
+ENEMY_WARLORD_MYTH,"The master of Ghorvast in black iron, horned and terrible. Where his war banner flies, his warriors will not break. (Mythriven's own creature.)"
+BOSS_WARLORD_BANNER,The Warlord plants his banner! Tear it down!
+ACH_BOSS_WAR_DRUMMER_NAME,Defeat The War Drummer
+ACH_BOSS_WAR_DRUMMER_DESC,The 10:00 boss of Ghorvast.
+ACH_BOSS_PIT_CHAMPION_NAME,Defeat The Pit Champion
+ACH_BOSS_PIT_CHAMPION_DESC,The 20:00 boss of Ghorvast.
+ACH_BOSS_WARLORD_NAME,Defeat The Warlord
+ACH_BOSS_WARLORD_DESC,The 30:00 boss of Ghorvast.
+BANTER_WAR_DRUMMER_ENTRANCE,(BOOM. BOOM. BOOM. The whole stronghold answers the drum.)
+BANTER_PIT_CHAMPION_ENTRANCE,Hit me. Go on. Hit me harder.
+BANTER_WARLORD_ENTRANCE,"Under my banner, no one runs."
+BANTER_WARLORD_ODIN,A war god? Good. Mine is a war without gods.
+PACK_10_NAME,Pack 8: Warlords

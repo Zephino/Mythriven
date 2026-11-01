@@ -330,6 +330,11 @@ LEVELS = {
         "birds": {"heron": ("#9aa4ac", "#e8ecec", "#e0b030", True)},
         "insects": {"dragonfly": (dragonfly, "#3a8ab0", "#c8e0f0")},
         "large": {}},
+    "ghorvast": {
+        "ground": {"grey_lizard": (lizard, "#7a7680", "#4a4650")},
+        "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},
+        "insects": {},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

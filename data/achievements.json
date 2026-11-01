@@ -1244,5 +1244,35 @@
       "id": "hydra"
     },
     "persists": true
+  },
+  {
+    "id": "boss_war_drummer",
+    "name_key": "ACH_BOSS_WAR_DRUMMER_NAME",
+    "desc_key": "ACH_BOSS_WAR_DRUMMER_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "war_drummer"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_pit_champion",
+    "name_key": "ACH_BOSS_PIT_CHAMPION_NAME",
+    "desc_key": "ACH_BOSS_PIT_CHAMPION_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "pit_champion"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_warlord",
+    "name_key": "ACH_BOSS_WARLORD_NAME",
+    "desc_key": "ACH_BOSS_WARLORD_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "warlord"
+    },
+    "persists": true
   }
 ]

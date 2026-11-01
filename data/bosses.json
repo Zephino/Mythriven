@@ -7341,5 +7341,243 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Ghorvast bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "war_drummer",
+    "name_key": "BOSS_WAR_DRUMMER_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Ghorvast; \"orc\" from Old English orcneas, Latin Orcus)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "war_drummer",
+    "move_speed": 36,
+    "keep_distance_px": 120,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "war_drums",
+      "beat_every_s": 8.0,
+      "callers": 3,
+      "call": "orc_warrior"
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 10
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 10
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ghorvast bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "pit_champion",
+    "name_key": "BOSS_PIT_CHAMPION_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Ghorvast; \"orc\" from Old English orcneas, Latin Orcus)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "pit_champion",
+    "move_speed": 46,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "rage",
+      "rage_fraction": 0.08,
+      "berserk_s": 5.0,
+      "berserk_speed_mult": 1.8,
+      "berserk_damage_mult": 2.0,
+      "spent_s": 3.0,
+      "spent_damage_taken": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Ghorvast bosses (docs/PACK_8_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "warlord",
+    "name_key": "BOSS_WARLORD_NAME",
+    "tradition": "invented",
+    "lore_source": "Invented for Mythriven (GAME_DESIGN.md: Ghorvast; \"orc\" from Old English orcneas, Latin Orcus)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "warlord",
+    "move_speed": 40,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "war_banner",
+      "plant_px": 90,
+      "banner_reach_px": 18,
+      "tear_s": 1.5,
+      "replant_s": 12.0,
+      "banner_damage_taken": 0.3
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "orc_warrior"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "orc_warrior"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -2314,5 +2314,46 @@
     "text_key": "BANTER_HYDRA_HERACLES",
     "lore_source": "Apollodorus 2.5.2 (the second labour)",
     "needs_owner_review": true
+  },
+  {
+    "id": "war_drummer_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "war_drummer",
+    "hero": "",
+    "god": "war_drummer",
+    "text_key": "BANTER_WAR_DRUMMER_ENTRANCE",
+    "lore_source": "Original description written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "pit_champion_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "pit_champion",
+    "hero": "",
+    "god": "pit_champion",
+    "text_key": "BANTER_PIT_CHAMPION_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "warlord_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "warlord",
+    "hero": "",
+    "god": "warlord",
+    "text_key": "BANTER_WARLORD_ENTRANCE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
+  },
+  {
+    "id": "warlord_odin",
+    "trigger": "boss_meets_god",
+    "speaker": "warlord",
+    "hero": "",
+    "god": "warlord",
+    "with_god": "odin",
+    "text_key": "BANTER_WARLORD_ODIN",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

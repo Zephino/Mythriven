@@ -416,6 +416,11 @@ LEVELS = {
                   "black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"reeds": ("papyrus",)},
         "rock": ("g", "G", "H", "l")},
+    # Ghorvast (the game's own): a burned-out land round the stronghold; dead trees and scorched scrub.
+    "ghorvast": {
+        "trees": {"dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"scorched_scrub": ("n", "N", "O", None)},
+        "rock": ("n", "N", "O", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

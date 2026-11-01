@@ -3618,5 +3618,114 @@
       "edge": "#5a4a30",
       "stones": "#9a8a6a"
     }
+  },
+  {
+    "_doc": "Ghorvast, Pack 8 realm 1, the orc stronghold (docs/PACK_8_PLAN.md). The design's invented realm: plain descriptive names only, nothing from modern fantasy. A realm: no local gods.",
+    "id": "ghorvast",
+    "name_key": "LEVEL_GHORVAST_NAME",
+    "region": "realm_orc",
+    "act": 10,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "ghorvast",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "dirt",
+          "max": -0.3,
+          "placeholder_color": "#4a3a2a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "ash",
+          "max": 0.15,
+          "placeholder_color": "#3e3834",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "cracked",
+          "max": 0.6,
+          "placeholder_color": "#3a3028",
+          "placeholder_dots": "#8a4a2a"
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#4a4440",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "palisade",
+      "forge_hearth"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "palisade": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          20
+        ],
+        "placeholder_color": "#5a3a1a",
+        "weight": 2
+      },
+      "forge_hearth": {
+        "shape": "rect",
+        "size_px": [
+          24,
+          24
+        ],
+        "placeholder_color": "#c8602a",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "war_drummer",
+      "20": "pit_champion",
+      "30": "warlord"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "lerna",
+      "boss": "hydra"
+    },
+    "waves": "waves_ghorvast.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 16,
+      "strikes_per_s": 1.0,
+      "radius_px": 24,
+      "telegraph_s": 1.0,
+      "damage": 8,
+      "element": "fire",
+      "range_px": 230,
+      "color": "#f07a2a",
+      "player_status": "burn",
+      "name_key": "HAZARD_FIRE_ARROWS_NAME"
+    },
+    "seal": "norse_band",
+    "tint": "#d8c4b0",
+    "flora": {
+      "density": 0.2,
+      "trees": {
+        "dead_tree": 2
+      }
+    },
+    "road": {
+      "color": "#5a4a3a",
+      "edge": "#3a2e22",
+      "stones": "#7a6a58"
+    }
   }
 ]

@@ -737,3 +737,44 @@ func test_pack_7_boss_secrets() -> void:
 			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
 		else:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
+func test_ghorvast_is_pack_8_with_fire_arrows() -> void:
+	var level: Dictionary = _level("ghorvast")
+	assert_eq(int(level["act"]), 10)
+	assert_eq(str(level["unlock"]["boss"]), "hydra")
+	assert_eq(str(level["hazard"]["player_status"]), "burn")
+	assert_eq(tr("PACK_10_NAME"), "Pack 8: Warlords")
+
+
+func test_the_war_drummer_calls_orcs_faster_when_hurt() -> void:
+	_start("ghorvast")
+	var drummer: WarDrummerBoss = _bosses.spawn_boss("war_drummer", 0) as WarDrummerBoss
+	var whole: float = drummer.beat_every()
+	var before: int = _enemies.active_count()
+	drummer.beat()
+	assert_eq(_enemies.active_count(), before + 3, "orcs come to the drum")
+	_enemies.hp[drummer.slot] = _enemies.max_hp[drummer.slot] * 0.2
+	assert_lt(drummer.beat_every(), whole, "faster when hurt")
+
+
+func test_the_pit_champion_rages_then_is_spent() -> void:
+	_start("ghorvast")
+	var champ: PitChampionBoss = _bosses.spawn_boss("pit_champion", 1) as PitChampionBoss
+	champ.modify_hit(_enemies.max_hp[champ.slot] * 0.09, _player, Vector2.ZERO)
+	assert_gt(champ.berserk_s, 0.0, "berserk")
+	champ.signature(5.1)
+	assert_gt(champ.spent_s, 0.0, "then spent")
+	assert_almost_eq(champ.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "and takes double damage")
+
+
+func test_the_warlords_banner_shields_him_until_torn_down() -> void:
+	_start("ghorvast")
+	var lord: WarlordBoss = _bosses.spawn_boss("warlord", 2) as WarlordBoss
+	lord.plant()
+	assert_almost_eq(lord.modify_hit(100.0, _player, Vector2.ZERO), 30.0, 0.01, "the banner shields him")
+	_player.position = lord.banner
+	lord.signature(0.8)
+	lord.signature(0.8)
+	assert_eq(lord.torn, 1)
+	assert_almost_eq(lord.modify_hit(100.0, _player, Vector2.ZERO), 100.0, 0.01)
