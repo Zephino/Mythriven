@@ -1,0 +1,51 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A shepherd's sheepfold in the Arcadian hills (Pausanias 8: a land of herdsmen): a low ring of dry-stone wall.",
+ "size": [
+  32,
+  15
+ ],
+ "anchor": [
+  15,
+  14
+ ],
+ "palette": {
+  "a": "#2a2a2a",
+  "b": "#3c3c3c",
+  "c": "#66666c",
+  "d": "#8a8a90",
+  "e": "#909096",
+  "f": "#84848a",
+  "g": "#787878",
+  "h": "#606066",
+  "i": "#6c6c6c",
+  "j": "#7e7e7e",
+  "k": "#5a5a60",
+  "l": "#666666",
+  "m": "#545454",
+  "n": "#54545a",
+  "o": "#4e5454",
+  "p": "#787e7e",
+  "q": "#727272"
+ },
+ "frames": {
+  "idle": [
+   [
+    "...........abbbabbbaa...........",
+    ".......abbacdefcgdghiabaa.......",
+    "....abaifgeifddidddhcddccaaa....",
+    "...ahjfhjfjabbbabbbaaffkddlha...",
+    "..bjkdjgbbb..........bbadfhdfa..",
+    ".bjfdbbb................bbafmla.",
+    "bfjdb......................ahddb",
+    "bjjb........................ajgb",
+    "akna........................bjfb",
+    "bjjna.......................bjfb",
+    ".aknfabb................bbb..bb.",
+    "..ajjkgjabb..........bbbjjjb....",
+    "...annggoggaabbbabbbapgqkggb....",
+    "....aaannggoogggngggngqqkab.....",
+    ".......aabbaabbbabbbabbba......."
+   ]
+  ]
+ }
+}

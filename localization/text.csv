@@ -2421,3 +2421,30 @@ BANTER_TAM_LIN_ENTRANCE,Hold me fast and fear me not. I'll do you no harm.
 BANTER_THE_ELF_KNIGHT_ENTRANCE,Hear my horn? Come away with me to the greenwood.
 BANTER_QUEEN_OF_ELFAME_ENTRANCE,"I'm but the queen of fair Elfland, come here to visit you."
 BANTER_QUEEN_OF_ELFAME_RHIANNON,Lady of the otherworld! Your horse is slow; mine has fifty silver bells.
+LEVEL_ARCADIA_NAME,Arcadia
+HAZARD_STAMPEDE_NAME,A herd stampedes across the hills!
+ENEMY_CENTAUR_NAME,Centaur
+ENEMY_CENTAUR_MYTH,"When Pholus opened the centaurs' common jar of wine for Heracles, the other centaurs smelled it and came running to the cave, armed with rocks and pine trees."
+ENEMY_STYMPHALIAN_DIVER_NAME,Stymphalian bird
+ENEMY_STYMPHALIAN_DIVER_MYTH,"Birds beyond counting nested in the woods by the Stymphalian lake in Arcadia, until Heracles scared them up with a bronze rattle and shot them down."
+BOSS_CERYNEIAN_HIND_NAME,The Ceryneian Hind
+ENEMY_CERYNEIAN_HIND_NAME,The Ceryneian Hind
+ENEMY_CERYNEIAN_HIND_MYTH,"A hind with golden horns, sacred to Artemis. Eurystheus ordered Heracles to bring it back alive, and he chased it for a whole year before he caught it, wearied, at the river Ladon."
+BOSS_ERYMANTHIAN_BOAR_NAME,The Erymanthian Boar
+ENEMY_ERYMANTHIAN_BOAR_NAME,The Erymanthian Boar
+ENEMY_ERYMANTHIAN_BOAR_MYTH,"A huge boar that ravaged the land from Mount Erymanthus. Heracles chased it out of a thicket with shouts, drove it, worn out, into the deep snow, and caught it in a snare."
+BOSS_ERYMANTHIAN_STUCK,The boar is stuck fast in the snow!
+BOSS_LYCAON_NAME,Lycaon
+ENEMY_LYCAON_NAME,Lycaon
+ENEMY_LYCAON_MYTH,"The savage king of Arcadia, who served human flesh at his table to test whether his guest was truly Zeus. Zeus brought his house down with a thunderbolt; Lycaon fled into the silent fields and, howling, became a wolf."
+BOSS_LYCAON_WOLF,Lycaon howls... and becomes a wolf!
+ACH_BOSS_CERYNEIAN_HIND_NAME,Defeat The Ceryneian Hind
+ACH_BOSS_CERYNEIAN_HIND_DESC,The 10:00 boss of Arcadia.
+ACH_BOSS_ERYMANTHIAN_BOAR_NAME,Defeat The Erymanthian Boar
+ACH_BOSS_ERYMANTHIAN_BOAR_DESC,The 20:00 boss of Arcadia.
+ACH_BOSS_LYCAON_NAME,Defeat Lycaon
+ACH_BOSS_LYCAON_DESC,The 30:00 boss of Arcadia.
+BANTER_CERYNEIAN_HIND_ENTRANCE,"(A flash of gold antlers between the trees, and it's gone again.)"
+BANTER_ERYMANTHIAN_BOAR_ENTRANCE,(It snorts steam into the cold air and lowers its tusks.)
+BANTER_LYCAON_ENTRANCE,"Sit, guest, and eat. You won't ask what the meat is."
+BANTER_CERYNEIAN_HIND_HERACLES,(The hind looks at you. It remembers a whole year of running.)

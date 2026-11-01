@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.98
+Date: 10/31/2026
+Time: 9:25 PM
+
+### Changes
+- **Arcadia, the beastfolk wilds, is built and open** (Pack 7, `docs/PACK_7_PLAN.md`). It opens when you beat the Spore Mother (Mycendra's 30:00 boss).
+  - **Hazard, the stampede:** herds of wild beasts stampede across the hills in long bands that slow whoever is caught in them.
+  - **Monsters:** satyrs and wolves, Stymphalian birds (swarms and divers), and from 10:00 centaurs.
+  - **10:00, the Ceryneian Hind** (Apollodorus): the golden-horned hind barely fights; whenever a Hero comes close it bounds far away across the arena. Keep after it.
+  - **20:00, the Erymanthian Boar** (Apollodorus): it charges across the arena, but four snowdrifts lie about; if it charges into one it sticks fast for 3 s, as Heracles drove it into the deep snow.
+  - **30:00, Lycaon** (the design's boss; Ovid): Zeus' thunderbolts fall on marked spots under each Hero and under Lycaon himself, hurting him too; in his last phase he becomes a wolf and runs faster.
+  - Shepherds' hill country with oaks, umbrella pines, cypresses, olives and sheepfolds; tortoises, hares, swallows, cicadas and deer.
+  - 3 achievements, 4 banter lines (the Hind remembers Heracles) and the realm's rows on the lore check.
+- 3 new tests (379 tests pass).
+
+### Reason
+Pack 7, realm 3 of 4 (owner: "go ahead").
+
 ## Version 00.02.97
 Date: 10/31/2026
 Time: 9:17 PM

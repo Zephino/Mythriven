@@ -3391,5 +3391,118 @@
       "edge": "#6a6a40",
       "stones": "#aaa878"
     }
+  },
+  {
+    "_doc": "Arcadia, Pack 7 realm 3, the beastfolk wilds (docs/PACK_7_PLAN.md). Sources: Ovid, Metamorphoses 1.163-243; Apollodorus 2.5.3-6; Pausanias, Book 8. A realm: no local gods.",
+    "id": "arcadia",
+    "name_key": "LEVEL_ARCADIA_NAME",
+    "region": "realm_beast",
+    "act": 9,
+    "order": 3,
+    "care_tier": "A",
+    "tileset": {
+      "id": "arcadia",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "grass",
+          "max": -0.25,
+          "placeholder_color": "#6a8a3a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "flowers",
+          "max": 0.15,
+          "placeholder_color": "#7a9a44",
+          "placeholder_dots": "#f0e080"
+        },
+        {
+          "id": "dirt",
+          "max": 0.55,
+          "placeholder_color": "#8a7048",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#8a8478",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "sheepfold",
+      "olive_tree"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "sheepfold": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          14
+        ],
+        "placeholder_color": "#8a8c88",
+        "weight": 1
+      },
+      "olive_tree": {
+        "shape": "rect",
+        "size_px": [
+          24,
+          26
+        ],
+        "placeholder_color": "#8a9a6a",
+        "weight": 2
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "ceryneian_hind",
+      "20": "erymanthian_boar",
+      "30": "lycaon"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "mycendra",
+      "boss": "spore_mother"
+    },
+    "waves": "waves_arcadia.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.5,
+      "radius_px": 50,
+      "telegraph_s": 1.6,
+      "damage": 8,
+      "element": "earth",
+      "range_px": 240,
+      "color": "#a8804a",
+      "look": "flood",
+      "flood_s": 5,
+      "flood_slow": 0.5,
+      "name_key": "HAZARD_STAMPEDE_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#ecdcc0",
+    "flora": {
+      "density": 0.7,
+      "trees": {
+        "oak": 2,
+        "umbrella_pine": 2,
+        "cypress": 1
+      }
+    },
+    "road": {
+      "color": "#b09a70",
+      "edge": "#8a7650",
+      "stones": "#c8b890"
+    }
   }
 ]

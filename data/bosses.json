@@ -6862,5 +6862,239 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Arcadia bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "ceryneian_hind",
+    "name_key": "BOSS_CERYNEIAN_HIND_NAME",
+    "tradition": "greek",
+    "lore_source": "Apollodorus, Library 2.5.3 (the golden-horned hind of Ceryneia, chased by Heracles for a year)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "ceryneian_hind",
+    "move_speed": 70,
+    "keep_distance_px": 180,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_endless_chase",
+      "shy_px": 90,
+      "bound_px": 220,
+      "bound_cooldown_s": 2.5,
+      "arena_px": 230
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 3,
+            "spread_deg": 24,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 12,
+            "damage": 9
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 9
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Arcadia bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "erymanthian_boar",
+    "name_key": "BOSS_ERYMANTHIAN_BOAR_NAME",
+    "tradition": "greek",
+    "lore_source": "Apollodorus, Library 2.5.4 (Heracles drives the boar of Mount Erymanthus into deep snow and snares it)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "erymanthian_boar",
+    "move_speed": 46,
+    "keep_distance_px": 70,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_deep_snow",
+      "gallop_every_s": 4.0,
+      "gallop_px": 300,
+      "gallop_s": 0.6,
+      "foam_s": 0.5,
+      "foam_radius_px": 1,
+      "foam_slow": 1.0,
+      "foam_color": "#f4f8fc",
+      "drifts": 4,
+      "drift_radius_px": 30,
+      "stuck_s": 3.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Arcadia bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "lycaon",
+    "name_key": "BOSS_LYCAON_NAME",
+    "tradition": "greek",
+    "lore_source": "Ovid, Metamorphoses 1.163-243 (Lycaon's feast; Zeus' thunderbolt; he becomes a wolf)",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "lycaon",
+    "move_speed": 40,
+    "keep_distance_px": 60,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "zeus_wrath",
+      "bolt_every_s": 7.0,
+      "telegraph_s": 1.2,
+      "bolt_radius_px": 40,
+      "bolt_damage": 16,
+      "self_damage_fraction": 0.04,
+      "wolf_speed_mult": 1.6
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "wolf"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "wolf"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

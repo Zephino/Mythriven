@@ -610,3 +610,41 @@ func test_the_fruit_of_elfland_heals_and_binds() -> void:
 	queen.signature(0.1)
 	assert_eq(queen.eaten, 1)
 	assert_gt(_player.hp, _player.max_hp * 0.5, "healed")
+
+
+func test_arcadia_stampede_and_the_hind_bounds_away() -> void:
+	_start("arcadia")
+	assert_eq(str(_level("arcadia")["unlock"]["boss"]), "spore_mother")
+	var hind: CeryneianHindBoss = _bosses.spawn_boss("ceryneian_hind", 0) as CeryneianHindBoss
+	_player.position = hind.position_now() + Vector2(30, 0)
+	hind.signature(0.1)
+	assert_eq(hind.bounds, 1)
+	assert_gt(hind.position_now().distance_to(_player.position), 90.0, "it bounds far away")
+
+
+func test_the_erymanthian_boar_sticks_in_the_snow() -> void:
+	_start("arcadia")
+	var boar: ErymanthianBoarBoss = _bosses.spawn_boss("erymanthian_boar", 1) as ErymanthianBoarBoss
+	boar.target = _player
+	boar.signature(0.1)
+	assert_eq(boar.drifts.size(), 4)
+	boar.drifts[0] = boar.position_now()
+	boar.gallop_s = 0.5
+	boar.signature(0.05)
+	assert_eq(boar.stuck_count, 1, "stuck fast")
+	assert_gt(boar.stuck_s, 0.0)
+
+
+func test_zeus_strikes_lycaon_too() -> void:
+	_start("arcadia")
+	var king: LycaonBoss = _bosses.spawn_boss("lycaon", 2) as LycaonBoss
+	_player.position = king.position_now() + Vector2(300, 0)
+	var his: float = _enemies.hp[king.slot]
+	var mine: float = _player.hp
+	king.call_down()
+	king.signature(1.3)
+	assert_eq(king.self_struck, 1, "the bolt under him")
+	assert_lt(_enemies.hp[king.slot], his)
+	assert_lt(_player.hp, mine, "and the bolt under the Hero")
+	king._on_phase_started(2)
+	assert_eq(king.art_id(), "lycaon_wolf")

@@ -405,6 +405,11 @@ LEVELS = {
                   "rowan": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "u"), 22, 30), "oak": (broadleaf, 30, 34)},
         "bushes": {"fern": ("fern",), "bramble": ("M", "P", "m", "B")},
         "rock": ("g", "G", "H", "l")},
+    # Arcadia: the shepherds' hill country of the Peloponnese; oaks, pines and cypresses, myrtle and broom.
+    "arcadia": {
+        "trees": {"oak": (broadleaf, 30, 34), "umbrella_pine": (umbrella_pine, 28, 30), "cypress": (cypress, 12, 38)},
+        "bushes": {"myrtle": ("V", "v", "w", "h"), "broom": ("m", "M", "y", "f")},
+        "rock": ("a", "A", "B", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

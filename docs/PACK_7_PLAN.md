@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 7). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
-boss idea; everything else was chosen by Claude from old public-domain texts only. Alfheim built and released 11/01/2026 (00.02.96); Elfame (00.02.97). The owner can change or veto any of
+boss idea; everything else was chosen by Claude from old public-domain texts only. Alfheim built and released 11/01/2026 (00.02.96); Elfame (00.02.97); Arcadia (00.02.98). The owner can change or veto any of
 it.
 
 Realms work like Packs 5 and 6: endless map, a hazard, monster families, three bosses, no local gods.
@@ -58,7 +58,7 @@ the land (the weather veil with petals, and the teleport rings).
 | 20:00 | **The Elf-Knight** | He blows his horn and draws the Heroes toward him; but Lady Isabel lulled him to sleep: if no one hurts him for a few seconds he dozes off and takes extra damage |
 | 30:00 | **The Queen of Elfame** (the design's) | The queen who took Thomas the Rhymer for seven years and warned him not to eat the fruit of her garden. Fruit appears in the arena: eating it heals you, but it binds your tongue (both god meters empty) |
 
-## Realm 27: Arcadia (the beastfolk wilds)
+## Realm 27: Arcadia (the beastfolk wilds): **done and released 11/01/2026 (00.02.98)**
 *Sources: Ovid, Metamorphoses 1.163-243 (Lycaon, turned into a wolf when Zeus struck his house); Apollodorus,
 Library 2.5.3-4 (the Ceryneian Hind; the Erymanthian Boar, driven into the snow; the centaurs of Pholoe); Pausanias,
 Book 8 (Arcadia).*

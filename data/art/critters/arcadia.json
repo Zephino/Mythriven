@@ -1,0 +1,154 @@
+{
+ "_doc": "Critters of arcadia (docs/WORLD_PLAN.md: 2), built by tools/art/build_critters.py: only for looks; they can't be hurt. Two frames each (a step, a peck, a wing beat); birds also fly.",
+ "palette": {
+  "o": "#24160e",
+  "k": "#140c08",
+  "W": "#d8e8e0",
+  "L": "#f8ff90",
+  "l": "#c8e060",
+  "a": "#6a5a3a",
+  "b": "#8a7a5a",
+  "c": "#8a6a48",
+  "d": "#e8e0d0",
+  "e": "#24283a",
+  "f": "#c84030",
+  "g": "#6a7a3a",
+  "h": "#f0d860",
+  "i": "#3a3020"
+ },
+ "frames": {
+  "tortoise": [
+   [
+    "...oooooo...",
+    "..oaaaaaao..",
+    ".oaabaaaaaoo",
+    "oaaaaabaaabk",
+    ".oaaaaaaaabb",
+    ".obbaaabbooo",
+    ".obbooobbo.."
+   ],
+   [
+    "...oooooo...",
+    "..oaaaaaao..",
+    ".oaabaaaaaoo",
+    "oaaaaabaaaak",
+    ".oaaaaaaaabb",
+    ".obbaaabbobb",
+    ".obbooobbooo"
+   ]
+  ],
+  "hare": [
+   [
+    ".......occo.",
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    "..occccco...",
+    "..occocco..."
+   ],
+   [
+    ".......occo.",
+    "....ooooccco",
+    ".ooocccoccko",
+    "odccccccccco",
+    ".occcccccoo.",
+    ".occccccco..",
+    ".occcccoo...",
+    ".occooocco..",
+    "..oo..occo.."
+   ]
+  ],
+  "swallow": [
+   [
+    ".......oo.",
+    "o..ooooeko",
+    "dooeeeeeef",
+    "odddddeeoo",
+    ".oeeeeeeo.",
+    "..oeeeeo..",
+    "...ofofo.."
+   ],
+   [
+    "..........",
+    "o..oooooo.",
+    "dooeeeeeko",
+    "odddddeeef",
+    ".oeeeeeeoo",
+    "..oeeeeo..",
+    "...ofofo.."
+   ]
+  ],
+  "swallow_fly": [
+   [
+    "............",
+    ".........o..",
+    "....oooookoo",
+    "...oeeeeeoef",
+    "...oeedeeooo",
+    "....odddo...",
+    "...odoodo..."
+   ],
+   [
+    "....o..o....",
+    "...odoodoo..",
+    "....odddokoo",
+    "...oeedeeoef",
+    "...oeeeeeooo",
+    "....ooooo...",
+    "............"
+   ]
+  ],
+  "cicada": [
+   [
+    "......",
+    "gggggk",
+    "ggggg.",
+    ".WWW.."
+   ],
+   [
+    ".WWW..",
+    "gggggk",
+    "ggggg.",
+    "......"
+   ]
+  ],
+  "butterfly": [
+   [
+    ".......",
+    ".hhkhh.",
+    ".hhkhh.",
+    "..iki..",
+    "...k...",
+    "......."
+   ],
+   [
+    "hhh.hhh",
+    "hhhkhhh",
+    "hhhkhhh",
+    ".iikii.",
+    ".iikii.",
+    "......."
+   ]
+  ]
+ },
+ "critters": {
+  "tortoise": {
+   "kind": "ground"
+  },
+  "hare": {
+   "kind": "ground"
+  },
+  "swallow": {
+   "kind": "bird"
+  },
+  "cicada": {
+   "kind": "insect"
+  },
+  "butterfly": {
+   "kind": "insect"
+  }
+ }
+}

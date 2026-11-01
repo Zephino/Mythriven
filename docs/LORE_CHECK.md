@@ -619,6 +619,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | queen_of_elfame_entrance | boss entrance | queen_of_elfame | I'm but the queen of fair Elfland, come here to visit you. | Thomas the Rhymer (Child 37): her words to Thomas | no |
 | queen_of_elfame_rhiannon | boss meets god (with rhiannon) | queen_of_elfame | Lady of the otherworld! Your horse is slow; mine has fifty silver bells. | Original line written for Mythriven | no |
 
+### Arcadia
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | arcadia | Arcadia | Pausanias, Description of Greece, Book 8 (Arcadia); Ovid, Metamorphoses 1 (Lycaon) | no |
+| enemy | centaur | Centaur | Apollodorus, Library 2.5.4 (the centaurs of Pholoe attack Heracles) | no |
+| enemy | stymphalian_diver | Stymphalian bird | Apollodorus, Library 2.5.6 (the birds of the Stymphalian lake in Arcadia) | no |
+| boss | ceryneian_hind | The Ceryneian Hind | Apollodorus, Library 2.5.3 (the golden-horned hind of Ceryneia, chased by Heracles for a year) | no |
+| boss | erymanthian_boar | The Erymanthian Boar | Apollodorus, Library 2.5.4 (Heracles drives the boar of Mount Erymanthus into deep snow and snares it) | no |
+| boss | lycaon | Lycaon | Ovid, Metamorphoses 1.163-243 (Lycaon's feast; Zeus' thunderbolt; he becomes a wolf) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| ceryneian_hind_entrance | boss entrance | ceryneian_hind | (A flash of gold antlers between the trees, and it's gone again.) | Apollodorus 2.5.3 (the year-long chase) | no |
+| erymanthian_boar_entrance | boss entrance | erymanthian_boar | (It snorts steam into the cold air and lowers its tusks.) | Apollodorus 2.5.4 | no |
+| lycaon_entrance | boss entrance | lycaon | Sit, guest, and eat. You won't ask what the meat is. | Ovid, Metamorphoses 1 (Lycaon's feast) | no |
+| ceryneian_hind_heracles | boss entrance (as heracles) | ceryneian_hind | (The hind looks at you. It remembers a whole year of running.) | Apollodorus 2.5.3 (the third labour) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

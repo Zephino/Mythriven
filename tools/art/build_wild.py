@@ -181,6 +181,91 @@ QUEEN_ELF_PAL = {"o": "#0a120a", "k": "#1a2a1a", "v": "#3a9a3a", "V": "#2a7a2a",
                  "i": "#e0e4ec", "b": "#5a3a1a", "r": "#d02a3a"}
 
 
+# --- Arcadia (Ovid, Metamorphoses 1.163-243; Apollodorus 2.5.3-6; Pausanias 8) ---------------------------------------
+
+def centaur(c, f):
+    """A centaur of Pholoe (Apollodorus 2.5.4: the centaurs who smelled Pholus' wine and attacked Heracles with rocks and
+    pine trees): a horse's body and a man's chest, carrying a pine branch."""
+    s = STEP[f]
+    ellipse(c, 12, 16, 8, 4, "b")
+    for k, d in enumerate((-s, s, s, -s)):
+        c.rect(6 + k * 4 + d, 18, 6 + k * 4 + d, 24, "B")
+    c.rect(17, 6, 21, 15, "s"); ellipse(c, 19, 4, 2.5, 2.5, "s"); c.rect(17, 1, 21, 2, "h"); c.px(20, 4, "k")
+    c.rect(22, 0, 23, 14, "t"); c.px(21, 1, "p"); c.px(24, 2, "p"); c.px(21, 4, "p"); c.px(24, 5, "p")
+    for k in range(4):
+        c.px(3 - k // 2, 15 + k, "B")
+
+
+CENTAUR_PAL = {"o": "#120c08", "b": "#8a5a34", "B": "#6a4024", "s": "#d8a880", "h": "#3a2414", "k": "#1a0e08",
+               "t": "#5a3a1a", "p": "#3a6a3a"}
+
+
+def stymphalian_diver(c, f):
+    """A Stymphalian bird (Apollodorus 2.5.6: the man-eating birds of the Stymphalian lake in Arcadia, with bronze
+    feathers): a dark bird with bronze wings, diving."""
+    up = f % 2
+    poly(c, [(9, 7), (1, 2 if up else 10), (5, 9)], "z"); poly(c, [(11, 7), (19, 2 if up else 10), (15, 9)], "z")
+    ellipse(c, 10, 8, 3, 3, "k"); poly(c, [(12, 6), (16, 8), (12, 9)], "y"); c.px(11, 7, "r")
+
+
+DIVER_PAL = {"o": "#1a0e04", "z": "#b07a3a", "k": "#3a2a1a", "y": "#d8a040", "r": "#e83a2a"}
+
+
+def ceryneian_hind(c, step):
+    """The Ceryneian Hind (Apollodorus 2.5.3; Pindar: golden-horned): a swift hind with antlers of gold and hooves of
+    bronze, sacred to Artemis."""
+    ellipse(c, 24, 26, 15, 7, "b"); ellipse(c, 22, 23, 10, 3, "B")
+    for k, d in enumerate((-step, step, step, -step)):
+        x = 12 + k * 8 + d * 2
+        c.rect(x, 30, x + 1, 44, "b"); c.rect(x, 44, x + 1, 46, "z")                       # bronze hooves
+    poly(c, [(36, 18), (44, 20), (44, 24), (36, 26)], "b"); c.px(40, 20, "k")
+    for k in range(7):
+        c.px(37 - k // 2, 17 - k, "y"); c.px(40 + k // 3, 16 - k, "y")                      # golden antlers
+    c.px(34, 12, "y"); c.px(43, 11, "y"); c.rect(8, 22, 10, 24, "w")
+
+
+HIND_PAL = {"o": "#1a0e04", "b": "#c88a4a", "B": "#a86a34", "k": "#1a0e08", "y": "#f0c840", "z": "#b07a3a",
+            "w": "#f0e8d8"}
+
+
+def erymanthian_boar(c, step):
+    """The Erymanthian Boar (Apollodorus 2.5.4): the huge wild boar of Mount Erymanthus, which Heracles drove out of a
+    thicket into the deep snow and snared. A massive dark boar, snow on its bristles."""
+    ellipse(c, 28, 28, 22, 12, "b")
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(12 + k * 10 + d, 36, 16 + k * 10 + d, 48, "B")
+    poly(c, [(46, 20), (60, 24), (60, 32), (46, 36)], "b"); c.rect(58, 26, 61, 30, "B"); c.px(51, 24, "k")
+    poly(c, [(56, 30), (60, 36), (57, 30)], "w")
+    for x in range(10, 46, 2):
+        c.px(x, 16 + abs(x - 28) // 5, "B"); c.px(x, 15 + abs(x - 28) // 5, "s" if x % 6 == 0 else "B")
+
+
+ERY_PAL = {"o": "#0e0806", "b": "#4a3a2e", "B": "#2e241c", "k": "#e83a2a", "w": "#f0ece0", "s": "#f4f8fc"}
+
+
+def lycaon(wolf):
+    """Lycaon (Ovid, Metamorphoses 1.163-243): the savage king of Arcadia who served Zeus human flesh to test him; Zeus
+    struck his house with lightning, and as he fled into the fields he became a wolf, still grey, still savage-eyed."""
+    def draw(c, step):
+        if wolf:
+            ellipse(c, 24, 30, 16, 8, "g")
+            for k, d in enumerate((-step, step, step, -step)):
+                c.rect(11 + k * 8 + d, 34, 13 + k * 8 + d, 48, "G")
+            poly(c, [(36, 20), (50, 22), (50, 28), (36, 30)], "g"); c.px(41, 22, "y"); c.row(28, 46, 50, "k")
+            c.px(37, 17, "g"); c.px(38, 16, "g"); c.rect(16, 24, 30, 25, "r")             # a torn royal cloak
+            for k in range(8):
+                c.px(8 - k // 2, 28 + k // 3, "G")
+            return
+        figure(c, step, "r", "s", "h")
+        c.rect(16, 18, 26, 30, "R"); c.px(18, 9, "y"); c.px(23, 9, "y")
+        c.rect(14, 1, 27, 3, "y"); c.rect(16, 13, 25, 16, "h")                              # crown and beard
+    return draw
+
+
+LYCAON_PAL = {"o": "#0e0806", "k": "#1a1010", "r": "#7a1a2a", "R": "#5a1020", "s": "#d8a880", "h": "#4a4440",
+              "y": "#e8c040", "g": "#6a645e", "G": "#4a4640"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_wild.py."
@@ -197,4 +282,10 @@ if __name__ == "__main__":
                        (60, 52), (28, 50), [0, 1, 0, -1, 0])
     kit.build_boss("the_elf_knight", the_elf_knight, ELF_KNIGHT_BOSS_PAL, doc(the_elf_knight.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("queen_of_elfame", queen_of_elfame, QUEEN_ELF_PAL, doc(queen_of_elfame.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("centaur", centaur, CENTAUR_PAL, doc(centaur.__doc__), (26, 26), (12, 25), walk, folder="enemies")
+    kit.build_boss("stymphalian_diver", stymphalian_diver, DIVER_PAL, doc(stymphalian_diver.__doc__), (20, 14), (10, 13), walk, folder="enemies")
+    kit.build_boss("ceryneian_hind", ceryneian_hind, HIND_PAL, doc(ceryneian_hind.__doc__), (48, 48), (24, 46), [0, 1, 0, -1, 0])
+    kit.build_boss("erymanthian_boar", erymanthian_boar, ERY_PAL, doc(erymanthian_boar.__doc__), (64, 50), (30, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("lycaon", lycaon(False), LYCAON_PAL, doc(lycaon.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("lycaon_wolf", lycaon(True), LYCAON_PAL, doc(lycaon.__doc__ + " Here, as the wolf."), (54, 50), (25, 48), [0, 1, 0, -1, 0])
     print("wrote the Wild Green's art")

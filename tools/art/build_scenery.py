@@ -596,12 +596,23 @@ def fairy_knowe():
     return p
 
 
+def sheepfold():
+    """A shepherd's sheepfold in the Arcadian hills (Pausanias 8: a land of herdsmen): a low ring of dry-stone wall."""
+    p = Pic(32, 16, (16, 15))
+    for a in range(60):
+        t = a / 60 * 2 * math.pi
+        x, y = round(16 + 14 * math.cos(t)), round(9 + 6 * math.sin(t))
+        if not (0.2 < t < 0.7):
+            p.rect(x, y, x + 1, y + 1, "g" if a % 3 else "G")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

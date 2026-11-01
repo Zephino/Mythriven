@@ -2234,5 +2234,45 @@
     "text_key": "BANTER_QUEEN_OF_ELFAME_RHIANNON",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "ceryneian_hind_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ceryneian_hind",
+    "hero": "",
+    "god": "ceryneian_hind",
+    "text_key": "BANTER_CERYNEIAN_HIND_ENTRANCE",
+    "lore_source": "Apollodorus 2.5.3 (the year-long chase)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "erymanthian_boar_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "erymanthian_boar",
+    "hero": "",
+    "god": "erymanthian_boar",
+    "text_key": "BANTER_ERYMANTHIAN_BOAR_ENTRANCE",
+    "lore_source": "Apollodorus 2.5.4",
+    "needs_owner_review": true
+  },
+  {
+    "id": "lycaon_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "lycaon",
+    "hero": "",
+    "god": "lycaon",
+    "text_key": "BANTER_LYCAON_ENTRANCE",
+    "lore_source": "Ovid, Metamorphoses 1 (Lycaon's feast)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "ceryneian_hind_heracles",
+    "trigger": "boss_entrance",
+    "speaker": "ceryneian_hind",
+    "hero": "heracles",
+    "god": "ceryneian_hind",
+    "text_key": "BANTER_CERYNEIAN_HIND_HERACLES",
+    "lore_source": "Apollodorus 2.5.3 (the third labour)",
+    "needs_owner_review": true
   }
 ]

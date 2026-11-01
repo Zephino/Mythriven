@@ -1184,5 +1184,35 @@
       "id": "queen_of_elfame"
     },
     "persists": true
+  },
+  {
+    "id": "boss_ceryneian_hind",
+    "name_key": "ACH_BOSS_CERYNEIAN_HIND_NAME",
+    "desc_key": "ACH_BOSS_CERYNEIAN_HIND_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ceryneian_hind"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_erymanthian_boar",
+    "name_key": "ACH_BOSS_ERYMANTHIAN_BOAR_NAME",
+    "desc_key": "ACH_BOSS_ERYMANTHIAN_BOAR_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "erymanthian_boar"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_lycaon",
+    "name_key": "ACH_BOSS_LYCAON_NAME",
+    "desc_key": "ACH_BOSS_LYCAON_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "lycaon"
+    },
+    "persists": true
   }
 ]
