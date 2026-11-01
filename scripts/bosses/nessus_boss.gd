@@ -87,3 +87,9 @@ func _draw() -> void:
 		draw_line(position_now() - global_position, aim - global_position, area_color, 3.0)
 		draw_arc(aim - global_position, 40.0, 0.0, TAU, 24, area_color, 1.5)
 	super._draw()
+
+
+## From Across the River secret: a third of his health struck from far away, then beaten.
+func secret_earned() -> String:
+	var whole: float = GameAuthority.enemies.max_hp[slot] if slot != -1 and GameAuthority.enemies != null else 1.0
+	return "from_across_the_river" if far_damage >= whole / 3.0 else ""

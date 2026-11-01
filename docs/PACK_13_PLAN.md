@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 13, the last of the nine). The design (`GAME_DESIGN.md`: Fantasy realms) names each
 realm, its source and one boss idea; everything else was chosen by Claude from old public-domain texts only. The owner
-can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26); Dovrefjell (00.03.27); the City of Brass (00.03.28); the Sea King's Hall (00.03.29). **All four realms are built.**
+can change or veto any of it. Mount Pelion built and released 11/01/2026 (00.03.26); Dovrefjell (00.03.27); the City of Brass (00.03.28); the Sea King's Hall (00.03.29). **All four realms are built.** The eight secrets (00.03.30).
 
 Realms work like Packs 5-12: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -109,3 +109,17 @@ veil, sea-blue, with a push and Soak).
 | 10:00 | **The Polyp Wood** | The grasping polyps round the witch's house. Their arms shoot out to marked spots and seize whoever is there (held fast for a moment) |
 | 20:00 | **The Witch's Water Snakes** | They coil round the arena: a ring of coils closes in round the Heroes, hurting whoever is caught outside it, then loosens again |
 | 30:00 | **The Sea Witch** (the design's; Andersen's) | She brews in her cauldron, healing while it bubbles; a Hero who stands at the cauldron spills it (she is stunned). Every so often she takes a Hero's voice (Hexed and held for a moment) |
+
+## Secrets (00.03.30, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Mount Pelion | The Old Wine-Bowl | Beat Eurytus without any of his wine-bowls landing on you | Wine-dark aura |
+| Mount Pelion | From Across the River | Strike away a third of Nessus' health from far away, then beat him | Hydra Arrow passive (+4% damage per level) |
+| Dovrefjell | Go Round About | Strike the Great Bøyg fifty times while going round it, then beat it | Peer's Onion passive (+4% max HP per level) |
+| Dovrefjell | Church Bells | Ring the church bell three times, then beat the Mountain King | Bell-bronze aura |
+| The City of Brass | The Queen Untouched | Beat the Queen's Guardians without anyone taking the queen's jewels | Brass aura |
+| The City of Brass | Turned Three Times | Turn the Brass Horseman three times, then beat him | The Way Pointed passive (+8% pickup range per level) |
+| The Sea King's Hall | Out of the Wood | Beat the Polyp Wood without its arms ever seizing anyone | Pearl aura |
+| The Sea King's Hall | The Spilled Cauldron | Spill the Sea Witch's cauldron three times, then beat her | The Mermaid's Voice passive (god meters fill 5% faster per level) |
+
+**Pack 13 is complete, and with it all nine packs.**

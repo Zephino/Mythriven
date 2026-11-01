@@ -59,3 +59,8 @@ func _draw() -> void:
 			var t: float = 1.0 - float(m["left"]) / float(_sig().get("telegraph_s", 1.0))
 			draw_line(me, me.lerp(p, t), Color(0.45, 0.65, 0.4, 0.7), 3.0)
 	super._draw()
+
+
+## Out of the Wood secret: beaten without the polyps ever seizing anyone.
+func secret_earned() -> String:
+	return "out_of_the_wood" if seized == 0 else ""

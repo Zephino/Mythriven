@@ -93,3 +93,8 @@ func _draw() -> void:
 		if _held > 0.0:
 			draw_arc(p, 22.0, -PI / 2, -PI / 2 + TAU * _held / float(_sig().get("ring_s", 2.0)), 24, Color(1.0, 0.9, 0.5), 2.0)
 	super._draw()
+
+
+## Church Bells secret: the bell rung three times, then the king beaten.
+func secret_earned() -> String:
+	return "church_bells" if rung >= 3 else ""

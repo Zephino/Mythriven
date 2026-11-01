@@ -735,6 +735,49 @@ def tinners_candle():
     return p
 
 
+def hydra_arrow():
+    """Hydra Arrow (Ovid, Met. 9: Heracles' arrows, dipped in the Hydra's venom): an arrow with a green-dripping head."""
+    p = icon()
+    for k in range(11):
+        p.px(3 + k, 13 - k, "b")
+    p.rect(12, 2, 14, 4, "v"); p.px(14, 2, "l"); p.px(13, 5, "l"); p.px(14, 6, "l")
+    p.px(2, 13, "e"); p.px(3, 14, "e"); p.px(2, 12, "e"); p.px(4, 14, "e")
+    return p
+
+
+def peers_onion():
+    """Peer's Onion (Ibsen, Peer Gynt, Act V: Peer peels a wild onion, layer after layer, and finds no heart): an onion
+    with its layers showing."""
+    p = icon()
+    for y in range(4, 15):
+        for x in range(2, 15):
+            d = math.hypot(x - 8, (y - 9) * 1.1)
+            if d <= 5.5:
+                p.px(x, y, "e" if int(d) % 2 else "E")
+    p.rect(8, 1, 8, 4, "v"); p.px(7, 2, "v")
+    return p
+
+
+def the_way_pointed():
+    """The Way Pointed ("The City of Brass": the brass horseman's spear points the way): a brass spear pointing."""
+    p = icon()
+    p.rect(1, 8, 11, 8, "R"); p.rect(1, 9, 11, 9, "G")
+    for k in range(4):
+        p.rect(11 + k, 8 - (3 - k), 11 + k, 9 + (3 - k), "r")
+    return p
+
+
+def mermaids_voice():
+    """The Mermaid's Voice (Andersen, 1837: the voice the Sea Witch took as her price): a pale shell with a note
+    rising from it."""
+    p = icon()
+    for y in range(8, 15):
+        w = 6 - abs(y - 11)
+        p.rect(7 - w, y, 7 + w, y, "h" if y % 2 else "f")
+    p.rect(11, 2, 11, 7, "m"); p.rect(9, 6, 11, 7, "m"); p.rect(11, 2, 13, 3, "m")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
@@ -749,7 +792,8 @@ ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hou
          "talos_nail": talos_nail, "silver_penny": silver_penny, "kraken_ink": kraken_ink, "billinas_egg": billinas_egg,
          "griffin_feather": griffin_feather, "orions_belt": orions_belt, "gerdas_tears": gerdas_tears, "poppy_seed": poppy_seed,
          "cold_ash": cold_ash, "lludds_vigil": lludds_vigil, "orichalcum_plate": orichalcum_plate, "muspell_ember": muspell_ember,
-         "ethnas_girdle": ethnas_girdle, "cape_wind": cape_wind, "poetrys_light": poetrys_light, "tinners_candle": tinners_candle}
+         "ethnas_girdle": ethnas_girdle, "cape_wind": cape_wind, "poetrys_light": poetrys_light, "tinners_candle": tinners_candle,
+         "hydra_arrow": hydra_arrow, "peers_onion": peers_onion, "the_way_pointed": the_way_pointed, "mermaids_voice": mermaids_voice}
 
 
 def outlined(p):

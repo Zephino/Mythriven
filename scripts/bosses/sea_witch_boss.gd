@@ -98,3 +98,8 @@ func _draw() -> void:
 		if _held > 0.0:
 			draw_arc(p, 20.0, -PI / 2, -PI / 2 + TAU * _held / float(_sig().get("spill_s", 1.5)), 24, Color(1.0, 0.9, 0.5), 2.0)
 	super._draw()
+
+
+## The Spilled Cauldron secret: her cauldron spilled three times, then beaten.
+func secret_earned() -> String:
+	return "the_spilled_cauldron" if spilled >= 3 else ""

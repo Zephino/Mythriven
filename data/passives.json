@@ -711,5 +711,57 @@
       "secret": "the_tinners_manners"
     },
     "persists": false
+  },
+  {
+    "id": "hydra_arrow",
+    "name_key": "PASSIVE_HYDRA_ARROW_NAME",
+    "desc_key": "PASSIVE_HYDRA_ARROW_DESC",
+    "stat": "might",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "from_across_the_river"
+    },
+    "persists": false
+  },
+  {
+    "id": "peers_onion",
+    "name_key": "PASSIVE_PEERS_ONION_NAME",
+    "desc_key": "PASSIVE_PEERS_ONION_DESC",
+    "stat": "max_hp",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "go_round_about"
+    },
+    "persists": false
+  },
+  {
+    "id": "the_way_pointed",
+    "name_key": "PASSIVE_WAY_POINTED_NAME",
+    "desc_key": "PASSIVE_WAY_POINTED_DESC",
+    "stat": "pickup_radius",
+    "per_level": 0.08,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "turned_three_times"
+    },
+    "persists": false
+  },
+  {
+    "id": "mermaids_voice",
+    "name_key": "PASSIVE_MERMAIDS_VOICE_NAME",
+    "desc_key": "PASSIVE_MERMAIDS_VOICE_DESC",
+    "stat": "god_charge",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "the_spilled_cauldron"
+    },
+    "persists": false
   }
 ]

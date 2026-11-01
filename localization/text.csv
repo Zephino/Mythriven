@@ -3362,3 +3362,39 @@ BANTER_POLYP_WOOD_ENTRANCE,"(Slimy arms rise from the sea floor, reaching for an
 BANTER_WITCH_SNAKES_ENTRANCE,(The witch's fat water-snakes uncoil and slide toward you.)
 BANTER_SEA_WITCH_ENTRANCE,I know what you want. It will cost you. Everything costs something.
 BANTER_SEA_WITCH_POSEIDON,Another king of the sea? I've buried better in my wood.
+SECRET_OLD_WINE_BOWL_NAME,The Old Wine-Bowl
+SECRET_OLD_WINE_BOWL_DESC,Defeat Eurytus without any of his wine-bowls landing on you. A wine-dark aura.
+SECRET_OLD_WINE_BOWL_HINT,He throws bowls when he's drunk. Don't be under them.
+SECRET_ACROSS_RIVER_NAME,From Across the River
+SECRET_ACROSS_RIVER_DESC,"Strike away a third of Nessus' health from far away, then defeat him. Adds the Hydra Arrow passive."
+SECRET_ACROSS_RIVER_HINT,Heracles never came near him. He shot from the far bank.
+SECRET_ROUND_ABOUT_NAME,Go Round About
+SECRET_ROUND_ABOUT_DESC,"Strike the Great Bøyg fifty times while going round it, then defeat it. Adds the Peer's Onion passive."
+SECRET_ROUND_ABOUT_HINT,"""Go round about,"" it says. Do as it says."
+SECRET_CHURCH_BELLS_NAME,Church Bells
+SECRET_CHURCH_BELLS_DESC,"Ring the church bell three times, then defeat the Mountain King. A bell-bronze aura."
+SECRET_CHURCH_BELLS_HINT,Trolls cannot bear the sound of bells.
+SECRET_TURNED_THREE_NAME,Turned Three Times
+SECRET_TURNED_THREE_DESC,"Turn the Brass Horseman on his pillar three times, then defeat him. Adds The Way Pointed passive."
+SECRET_TURNED_THREE_HINT,"Turn him, and he will point the way."
+SECRET_QUEEN_UNTOUCHED_NAME,The Queen Untouched
+SECRET_QUEEN_UNTOUCHED_DESC,Defeat the Queen's Guardians without anyone taking the queen's jewels. A brass aura.
+SECRET_QUEEN_UNTOUCHED_HINT,The man who took her jewels lost his head.
+SECRET_OUT_OF_WOOD_NAME,Out of the Wood
+SECRET_OUT_OF_WOOD_DESC,Defeat the Polyp Wood without its arms ever seizing anyone. A pearl aura.
+SECRET_OUT_OF_WOOD_HINT,"Whatever the polyps catch, they never let go."
+SECRET_SPILLED_CAULDRON_NAME,The Spilled Cauldron
+SECRET_SPILLED_CAULDRON_DESC,"Spill the Sea Witch's cauldron three times, then defeat her. Adds The Mermaid's Voice passive."
+SECRET_SPILLED_CAULDRON_HINT,Her potions always cost too much. Spill them.
+PASSIVE_HYDRA_ARROW_NAME,Hydra Arrow
+PASSIVE_HYDRA_ARROW_DESC,+4% damage per level.
+PASSIVE_PEERS_ONION_NAME,Peer's Onion
+PASSIVE_PEERS_ONION_DESC,+4% max HP per level.
+PASSIVE_WAY_POINTED_NAME,The Way Pointed
+PASSIVE_WAY_POINTED_DESC,+8% pickup range per level.
+PASSIVE_MERMAIDS_VOICE_NAME,The Mermaid's Voice
+PASSIVE_MERMAIDS_VOICE_DESC,God meters fill 5% faster per level.
+COSMETIC_WINE_DARK,Wine-Dark
+COSMETIC_BELL_BRONZE,Bell Bronze
+COSMETIC_BRASS_GOLD,Brass
+COSMETIC_PEARL_WHITE,Pearl

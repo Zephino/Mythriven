@@ -1182,6 +1182,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | sea_witch_entrance | boss entrance | sea_witch | I know what you want. It will cost you. Everything costs something. | Hans Christian Andersen, "The Little Mermaid" (1837) | no |
 | sea_witch_poseidon | boss meets god (with poseidon) | sea_witch | Another king of the sea? I've buried better in my wood. | Original line written for Mythriven | no |
 
+### Pack 13 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| the_old_wine_bowl | The Old Wine-Bowl | He throws bowls when he's drunk. Don't be under them. | Ovid, Metamorphoses 12.219-240 (Eurytus and the old wine-bowl) | no |
+| from_across_the_river | From Across the River | Heracles never came near him. He shot from the far bank. | Ovid, Metamorphoses 9.98-133 (Heracles shoots Nessus from the far bank) | no |
+| go_round_about | Go Round About | "Go round about," it says. Do as it says. | Ibsen, Peer Gynt (1867), Act II (the Bøyg: "Go round about") | no |
+| church_bells | Church Bells | Trolls cannot bear the sound of bells. | Ibsen, Peer Gynt (1867), Act II (the church bells that save Peer) | no |
+| turned_three_times | Turned Three Times | Turn him, and he will point the way. | "The City of Brass", One Thousand and One Nights (turn the horseman and he points the way) | no |
+| the_queen_untouched | The Queen Untouched | The man who took her jewels lost his head. | "The City of Brass", One Thousand and One Nights (the guardians who kill the jewel-thief) | no |
+| out_of_the_wood | Out of the Wood | Whatever the polyps catch, they never let go. | Andersen, "The Little Mermaid" (1837: the polyps that never let go) | no |
+| the_spilled_cauldron | The Spilled Cauldron | Her potions always cost too much. Spill them. | Andersen, "The Little Mermaid" (1837: the Sea Witch's cauldron and the price of a voice) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

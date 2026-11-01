@@ -84,3 +84,8 @@ func _draw() -> void:
 			draw_colored_polygon(PackedVector2Array([p + Vector2(0, -5), p + Vector2(4, 0), p + Vector2(0, 5), p + Vector2(-4, 0)]), Color(0.3, 0.85, 0.6))
 			draw_circle(p + Vector2(-1, -1), 1.0, Color.WHITE)
 	super._draw()
+
+
+## The Queen Untouched secret: beaten without anyone taking the queen's jewels.
+func secret_earned() -> String:
+	return "the_queen_untouched" if jewels_taken == 0 else ""

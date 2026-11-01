@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.30
+Date: 11/01/2026
+Time: 8:34 AM
+
+### Changes
+- **Pack 13, Wild Frontiers, is complete: eight new secrets**, two per realm (`docs/PACK_13_PLAN.md`). With it, **all nine packs (Packs 5-13) are built.**
+  - **Mount Pelion:** *The Old Wine-Bowl* (beat Eurytus without any of his wine-bowls landing on you: wine-dark aura); *From Across the River* (strike away a third of Nessus' health from far away, then beat him: Hydra Arrow passive, +4% damage per level).
+  - **Dovrefjell:** *Go Round About* (strike the Great Bøyg fifty times while going round it, then beat it: Peer's Onion passive, +4% max HP per level); *Church Bells* (ring the bell three times, then beat the Mountain King: bell-bronze aura).
+  - **The City of Brass:** *The Queen Untouched* (beat the Queen's Guardians without anyone taking a jewel: brass aura); *Turned Three Times* (turn the Brass Horseman three times, then beat him: The Way Pointed passive, +8% pickup range per level).
+  - **The Sea King's Hall:** *Out of the Wood* (beat the Polyp Wood without anyone being seized: pearl aura); *The Spilled Cauldron* (spill the Sea Witch's cauldron three times, then beat her: The Mermaid's Voice passive, god meters fill 5% faster per level).
+  - Four new passive icons, the Oracle hints, and the secrets' rows on the lore check (for the owner to check).
+- **Test fix:** the Poseidon's Bull test could fail now and then, when its two nooses fell close enough together to be taken at once; the test now keeps them apart.
+- 1 new test (468 tests pass).
+
+### Reason
+The owner asked for all nine packs, one at a time, each realm with two secrets. This finishes Pack 13, the last of them.
+
 ## Version 00.03.29
 Date: 11/01/2026
 Time: 8:28 AM

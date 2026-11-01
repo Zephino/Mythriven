@@ -82,3 +82,8 @@ func _draw() -> void:
 	for b: Dictionary in bowls:
 		draw_arc(Vector2(b["pos"]) - global_position, float(_sig().get("bowl_radius_px", 30.0)), 0.0, TAU, 20, area_color, 1.5)
 	super._draw()
+
+
+## The Old Wine-Bowl secret: beaten without a wine-bowl ever landing on anyone.
+func secret_earned() -> String:
+	return "the_old_wine_bowl" if bowl_hits == 0 else ""

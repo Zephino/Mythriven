@@ -51,3 +51,8 @@ func _draw() -> void:
 		draw_circle(me, float(data.get("radius", 28.0)) + 26.0, Color(0.05, 0.05, 0.08, 0.35))
 		draw_arc(me, float(data.get("radius", 28.0)) + 26.0, 0.0, TAU, 40, Color(0.25, 0.3, 0.25, 0.5), 2.0)
 	super._draw()
+
+
+## Go Round About secret: fifty full blows struck while going round it, then beaten.
+func secret_earned() -> String:
+	return "go_round_about" if full_hits >= 50 else ""

@@ -104,3 +104,8 @@ func _draw() -> void:
 	if _behind > 0.0 and is_alive():
 		draw_arc(position_now() - global_position, float(data.get("radius", 26.0)) + 10.0, -PI / 2, -PI / 2 + TAU * _behind / float(_sig().get("turn_s", 1.0)), 24, Color(1.0, 0.9, 0.5), 2.0)
 	super._draw()
+
+
+## Turned Three Times secret: turned on his pillar three times, then beaten.
+func secret_earned() -> String:
+	return "turned_three_times" if turned >= 3 else ""

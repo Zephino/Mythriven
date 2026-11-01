@@ -1259,6 +1259,46 @@ func test_pack_12_boss_secrets() -> void:
 			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
 
 
+func test_pack_13_boss_secrets() -> void:
+	_start("pelion")
+	var drunk: EurytusBoss = _bosses.spawn_boss("eurytus", 0) as EurytusBoss
+	assert_eq(drunk.secret_earned(), "the_old_wine_bowl")
+	drunk.bowl_hits = 1
+	assert_eq(drunk.secret_earned(), "")
+	var ferry: NessusBoss = _bosses.spawn_boss("nessus", 2) as NessusBoss
+	ferry.far_damage = _enemies.max_hp[ferry.slot] * 0.4
+	assert_eq(ferry.secret_earned(), "from_across_the_river")
+	GameAuthority.end_scene()
+	_start("dovrefjell")
+	var boyg: GreatBoygBoss = _bosses.spawn_boss("great_boyg", 1) as GreatBoygBoss
+	boyg.full_hits = 50
+	assert_eq(boyg.secret_earned(), "go_round_about")
+	var king: MountainKingBoss = _bosses.spawn_boss("mountain_king", 2) as MountainKingBoss
+	king.rung = 3
+	assert_eq(king.secret_earned(), "church_bells")
+	GameAuthority.end_scene()
+	_start("city_of_brass")
+	var guards: QueensGuardiansBoss = _bosses.spawn_boss("queens_guardians", 1) as QueensGuardiansBoss
+	assert_eq(guards.secret_earned(), "the_queen_untouched")
+	var rider: BrassHorsemanBoss = _bosses.spawn_boss("brass_horseman", 2) as BrassHorsemanBoss
+	rider.turned = 3
+	assert_eq(rider.secret_earned(), "turned_three_times")
+	GameAuthority.end_scene()
+	_start("sea_kings_hall")
+	var wood: PolypWoodBoss = _bosses.spawn_boss("polyp_wood", 0) as PolypWoodBoss
+	assert_eq(wood.secret_earned(), "out_of_the_wood")
+	var witch: SeaWitchBoss = _bosses.spawn_boss("sea_witch", 2) as SeaWitchBoss
+	witch.spilled = 3
+	assert_eq(witch.secret_earned(), "the_spilled_cauldron")
+	for secret: String in ["the_old_wine_bowl", "from_across_the_river", "go_round_about", "church_bells",
+			"turned_three_times", "the_queen_untouched", "out_of_the_wood", "the_spilled_cauldron"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
+
+
 func test_hyperborea_is_pack_10() -> void:
 	var level: Dictionary = _level("hyperborea")
 	assert_eq(int(level["act"]), 12)
@@ -1514,6 +1554,8 @@ func test_poseidons_bull_charges_and_is_noosed() -> void:
 	assert_eq(bull.nooses.size(), 2, "nooses lie about")
 	bull.signature(2.0)
 	assert_ne(bull.aim, Vector2.INF, "a charge is marked")
+	# Random spots can fall close together: keep the second noose well away from the first.
+	bull.nooses[1] = bull.nooses[0] + Vector2(150, 0)
 	_player.position = bull.nooses[0]
 	bull.signature(0.1)
 	assert_eq(bull.noosed, 1)
