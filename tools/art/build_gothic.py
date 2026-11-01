@@ -39,6 +39,43 @@ def hunt_hound(c, f):
 HOUND_PAL = {"o": "#2a2830", "k": "#141218", "K": "#0a080c", "y": "#f0c040"}
 
 
+def rim(c, body, light):
+    """Edge-light: every pixel of the given colours with empty space just above or in front becomes the light colour,
+    so a dark shape still reads against dark ground."""
+    w, h = c.w, c.h
+    hits = []
+    for y in range(1, h):
+        for x in range(w - 1):
+            if c.g[y][x] in body and (c.g[y - 1][x] == "." or c.g[y][x + 1] == "."):
+                hits.append((x, y))
+    for x, y in hits:
+        c.px(x, y, light)
+
+
+def hoofed_leg(c, x, y0, y1, col, shade, hoof, bend=0, paw=False):
+    """A slim jointed leg from inside the body (y0) to the ground (y1): a muscled upper leg tapering to the knee or hock,
+    a thin lower leg, and a hoof (or a paw)."""
+    knee = y0 + (y1 - y0) * 5 // 9
+    poly(c, [(x - 2, y0), (x + 3, y0), (x + 2 + bend, knee), (x + bend, knee)], col)    # upper leg, tapering
+    c.px(x + bend, knee, shade); c.px(x + 1 + bend, knee + 1, col)                       # the joint
+    c.rect(x + bend, knee + 1, x + 1 + bend, y1 - 2, col)                                # the thin lower leg
+    c.px(x + bend, knee + 2, shade)
+    if paw:
+        c.rect(x + bend, y1 - 1, x + 2 + bend, y1, shade)
+    else:
+        c.rect(x - 1 + bend, y1 - 2, x + 2 + bend, y1, hoof)
+
+
+def horn(c, pts, col, rim_col):
+    """A hunting horn along a curve: thin at the mouthpiece, widening to the bell."""
+    n = len(pts)
+    for i, (x, y) in enumerate(pts):
+        r = 0.6 + 2.6 * (i / (n - 1)) ** 2
+        ellipse(c, x, y, r, r, col)
+    bx, by = pts[-1]
+    c.px(bx, by, rim_col); c.px(bx + 1, by, rim_col)
+
+
 def empusa(shape):
     """Empusa (Aristophanes, The Frogs 285-295): the shape-shifting spectre of the dark road, "now a bull, now a mule,
     now a lovely woman, now a dog", one leg of bronze."""
@@ -52,22 +89,46 @@ def empusa(shape):
             c.rect(30, 22, 33, 26, "y")                                                 # a glowing hand
             return
         if shape == "bull":
-            ellipse(c, 22, 30, 16, 10, "k")
-            for k, d in enumerate((-step, step, step, -step)):
-                c.rect(10 + k * 8 + d, 38, 13 + k * 8 + d, 52, "b" if k == 3 else "K")
-            ellipse(c, 36, 24, 7, 7, "k"); c.px(38, 22, "y")
-            poly(c, [(34, 18), (30, 10), (36, 17)], "h"); poly(c, [(40, 18), (44, 10), (40, 17)], "h")
+            # A spectral black bull, head lowered to charge; its near foreleg is bronze.
+            hoofed_leg(c, 12 - step, 38, 54, "K", "K", "K", bend=-1)                     # far hind leg
+            hoofed_leg(c, 37 + step, 38, 54, "K", "K", "K")                               # far foreleg
+            poly(c, [(6, 28), (12, 22), (26, 22), (32, 14), (40, 13), (46, 20), (47, 34), (42, 42), (30, 44),
+                     (16, 44), (7, 40)], "k")                                            # body: the great shoulder hump
+            ellipse(c, 12, 34, 7, 9, "k")                                                # round haunch
+            poly(c, [(42, 22), (49, 25), (52, 34), (50, 39), (44, 38), (41, 32)], "k")   # the lowered head
+            c.rect(49, 35, 52, 38, "K"); c.px(51, 36, "o")                               # muzzle and nostril
+            poly(c, [(44, 24), (41, 19), (42, 15), (44, 14), (44, 18), (46, 23)], "h")  # near horn, curving up and forward
+            poly(c, [(47, 24), (49, 19), (52, 16), (53, 17), (50, 21), (49, 25)], "H")  # far horn
+            c.px(47, 29, "y"); c.px(48, 29, "y")                                         # burning eye
+            for i in range(10):
+                c.px(6 - i // 3, 30 + i, "K")                                            # the tail
+            c.rect(3, 39, 5, 41, "K")
+            hoofed_leg(c, 16 + step, 40, 54, "k", "K", "K", bend=-1)                     # near hind leg
+            hoofed_leg(c, 41 - step, 40, 54, "b", "B", "B")                              # near foreleg: bronze
+            rim(c, "k", "l")
+            for x, y in ((10, 18), (24, 14), (38, 8), (2, 30), (54, 44)):
+                c.px(x, y, "g")                                                          # spectral glints
             return
-        ellipse(c, 20, 34, 13, 6, "k")                                                  # the dog
-        for k, d in enumerate((-step, step, step, -step)):
-            c.rect(10 + k * 6 + d, 38, 11 + k * 6 + d, 50, "b" if k == 3 else "K")
-        poly(c, [(30, 26), (40, 28), (40, 33), (30, 33)], "k"); c.px(34, 28, "y"); c.px(31, 23, "k"); c.px(31, 24, "k")
-        c.row(33, 4, 8, "K")
+        # The dog: a lean black hound, ears up, one bronze foreleg.
+        hoofed_leg(c, 12 - step, 34, 54, "K", "K", "K", bend=-1, paw=True)
+        hoofed_leg(c, 34 + step, 34, 54, "K", "K", "K", paw=True)
+        poly(c, [(8, 30), (16, 27), (34, 27), (40, 24), (42, 32), (36, 37), (22, 36), (10, 37)], "k")
+        poly(c, [(36, 26), (40, 18), (46, 18), (49, 23), (44, 28), (40, 30)], "k")      # neck and head
+        poly(c, [(46, 21), (53, 24), (52, 27), (46, 27)], "k"); c.px(52, 24, "o")       # muzzle and nose
+        poly(c, [(40, 19), (40, 12), (43, 18)], "k"); poly(c, [(43, 18), (45, 11), (46, 18)], "k")   # pricked ears
+        c.px(45, 21, "y"); c.row(26, 47, 51, "y")                                       # burning eye, glowing mouth
+        for i in range(8):
+            c.px(8 - i, 30 - i // 2, "k")                                                # the tail
+        hoofed_leg(c, 16 + step, 35, 54, "k", "K", "K", bend=-1, paw=True)
+        hoofed_leg(c, 38 - step, 33, 54, "b", "B", "B", paw=True)                        # bronze foreleg
+        rim(c, "k", "l")
+        for x, y in ((14, 22), (30, 20), (4, 40)):
+            c.px(x, y, "g")
     return draw
 
 
-EMPUSA_PAL = {"o": "#0e0a10", "k": "#2a2430", "K": "#1a1620", "b": "#b07a3a", "s": "#d8c8b8", "v": "#4a2a4a",
-              "h": "#1a1418", "y": "#f05a3a"}
+EMPUSA_PAL = {"o": "#0e0a10", "k": "#2a2430", "K": "#1a1620", "b": "#c8883a", "B": "#8a5a22", "s": "#d8c8b8",
+              "v": "#4a2a4a", "h": "#e0d4c0", "H": "#a89c88", "y": "#f05a3a", "l": "#6a5a7a", "g": "#b89ad8"}
 
 
 def eurynomos(c, step):
@@ -96,25 +157,43 @@ EURY_PAL = {"o": "#06080e", "b": "#2a3448", "B": "#1a2232", "k": "#0a0a10", "w":
 
 def wild_hunt(c, step):
     """The Wild Hunt (the Anglo-Saxon Chronicle for 1127: "the huntsmen were black, and big, and loathsome, and their
-    hounds all black and wide-eyed and ugly, and they rode on black horses"): a black huntsman with a horn on a black
-    horse, a pale ghost-light round them."""
-    for x in range(4, 66, 3):
-        c.px(x, 54, "g")
-    ellipse(c, 32, 34, 20, 9, "k")
-    for k, d in enumerate((-step, step, step, -step)):
-        x = 16 + k * 10 + d * 2
-        c.rect(x, 40, x + 3, 52, "K")
-    poly(c, [(48, 24), (60, 20), (62, 28), (50, 32)], "k"); c.px(56, 23, "y")
-    for k in range(6):
-        c.px(46 - k, 22 + k, "m")                                                       # the mane
-    c.rect(26, 10, 34, 28, "K")                                                          # the huntsman
-    ellipse(c, 30, 7, 4, 4, "K"); c.px(31, 6, "y")
-    poly(c, [(24, 12), (12, 6), (14, 4), (26, 10)], "h")                                  # his horn, raised
-    c.rect(4, 32, 12, 34, "k")                                                           # the tail
+    hounds all black and wide-eyed and ugly, and they rode on black horses"): a huge black huntsman in a streaming hooded
+    cloak, eyes burning, blowing his horn, on a black horse at the gallop."""
+    # Far legs of the horse, in shadow
+    hoofed_leg(c, 22 - step * 2, 38, 58, "K", "K", "K", bend=-2)
+    hoofed_leg(c, 52 + step * 2, 38, 58, "K", "K", "K", bend=1)
+    # The tail streaming out behind
+    for i in range(14):
+        t = i / 13
+        ellipse(c, 12 - t * 9, 28 + t * 8 - t * t * 6, 3 - t, 2.2, "k")
+    # The horse's body: a deep chest, a long back, round quarters
+    poly(c, [(12, 28), (20, 24), (44, 24), (54, 22), (58, 30), (56, 40), (46, 42), (26, 42), (14, 40)], "k")
+    ellipse(c, 18, 33, 7, 8, "k")
+    # The arched neck rising to a long head, held forward
+    poly(c, [(50, 24), (58, 12), (64, 10), (66, 14), (60, 26), (56, 32)], "k")
+    poly(c, [(62, 10), (72, 18), (73, 22), (69, 23), (60, 16)], "k")
+    poly(c, [(61, 8), (62, 3), (64, 8)], "k")                                            # ear
+    c.px(66, 13, "y"); c.px(71, 21, "o")                                                 # burning eye, nostril
+    for i in range(10):                                                                  # the mane, flying back
+        c.px(57 - i, 13 + i, "m"); c.px(56 - i, 15 + i, "m")
+    # The huntsman: a huge cloaked shape on the horse's back, his cloak streaming behind him
+    poly(c, [(30, 8), (40, 6), (44, 14), (44, 28), (28, 28)], "K")
+    poly(c, [(30, 10), (14, 6), (6, 12), (18, 16), (26, 24)], "K")                       # the cloak, blown back
+    poly(c, [(33, 2), (40, 0), (44, 4), (44, 10), (36, 12), (32, 8)], "K")              # the hood
+    c.px(40, 6, "y"); c.px(42, 6, "y")                                                   # eyes burning in the hood
+    poly(c, [(40, 14), (46, 10), (48, 12), (42, 17)], "K")                               # arm raised
+    horn(c, [(44, 8), (47, 6), (50, 4), (53, 3), (56, 3), (58, 4)], "h", "H")            # the hunting horn at his lips
+    c.rect(30, 26, 34, 34, "K")                                                          # his leg down the horse's side
+    # Near legs of the horse
+    hoofed_leg(c, 26 + step * 2, 40, 58, "k", "K", "K", bend=-2)
+    hoofed_leg(c, 48 - step * 2, 40, 58, "k", "K", "K", bend=1)
+    rim(c, "kK", "l")
+    for x in range(4, 74, 4):
+        c.px(x, 59, "g")                                                                 # a pale ghost-light underfoot
 
 
-HUNT_PAL = {"o": "#2a3040", "k": "#141218", "K": "#0a080c", "y": "#f0c040", "m": "#2a2830", "h": "#c8b890",
-            "g": "#8a9ab8"}
+HUNT_PAL = {"o": "#2a3040", "k": "#1a1820", "K": "#0e0c12", "y": "#f0c040", "m": "#2e2c36", "h": "#d8c8a0",
+            "H": "#a8946a", "l": "#4a4a62", "g": "#8a9ab8"}
 
 
 # --- Karnstein (Le Fanu, Carmilla 1872; Polidori, The Vampyre 1819; Varney the Vampire 1845-47; Calmet 1746) ---------
@@ -387,9 +466,9 @@ if __name__ == "__main__":
     kit.build_boss("empusa", empusa("woman"), EMPUSA_PAL, doc(empusa.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     for shape in ("bull", "dog"):
         kit.build_boss("empusa_" + shape, empusa(shape), EMPUSA_PAL, doc(empusa.__doc__ + " Here, as a %s." % shape),
-                       (52, 56), (24, 54), [0, 1, 0, -1, 0])
+                       (56, 56), (26, 54), [0, 1, 0, -1, 0])
     kit.build_boss("eurynomos", eurynomos, EURY_PAL, doc(eurynomos.__doc__), (52, 54), (26, 52), [0, 1, 0, -1, 0])
-    kit.build_boss("wild_hunt", wild_hunt, HUNT_PAL, doc(wild_hunt.__doc__), (70, 56), (34, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("wild_hunt", wild_hunt, HUNT_PAL, doc(wild_hunt.__doc__), (76, 61), (37, 59), [0, 1, 0, -1, 0])
     kit.build_boss("revenant", revenant, REVENANT_PAL, doc(revenant.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     for bat in ("night_bat", "night_bat_flyer"):
         kit.build_boss(bat, night_bat, BAT_PAL, doc(night_bat.__doc__), (18, 12), (9, 11), walk, folder="enemies")

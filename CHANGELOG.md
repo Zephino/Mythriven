@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.34
+Date: 11/01/2026
+Time: 2:29 PM
+
+### Changes
+- **The Wild Hunt redrawn** (owner's request). A huge black huntsman in a hooded cloak streaming behind him, eyes burning, blowing a curved hunting horn, on a black horse at the gallop: an arched neck and long head, flying mane and tail, slim jointed legs with hooves, and a pale edge-light so the black shapes read against the dark ground.
+- **Empusa's bull and dog shapes redrawn** (owner's request). A heavy spectral bull with a great shoulder hump, head lowered, curving horns and a burning eye; a lean black hound with pricked ears and a glowing mouth. Both have slim jointed legs, the edge-light, faint spectral glints, and her one bronze leg.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time (Erebus and Karnstein first), and asked for these three to be redone.
+
 ## Version 00.03.33
 Date: 11/01/2026
 Time: 2:06 PM
