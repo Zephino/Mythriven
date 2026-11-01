@@ -562,3 +562,51 @@ func test_the_erlking_draws_a_hero_to_him() -> void:
 	king.lure(_player)
 	king.signature(1.0)
 	assert_lt(_player.position.distance_to(king.position_now()), 200.0, "drawn toward him")
+
+
+func test_elfame_has_glamour_and_fairy_rings() -> void:
+	var level: Dictionary = _level("elfame")
+	assert_eq(str(level["unlock"]["boss"]), "alberich")
+	assert_eq(str(level["ground_patches"]["kind"]), "teleport")
+
+
+func test_hold_tam_lin_fast_to_free_him() -> void:
+	_start("elfame")
+	var knight: TamLinBoss = _bosses.spawn_boss("tam_lin", 0) as TamLinBoss
+	var first: String = knight.art_id()
+	_player.position = knight.position_now()
+	var hp: float = _player.hp
+	for k: int in 9:
+		knight.signature(0.5)
+	assert_ne(knight.art_id(), first, "he changes shape")
+	assert_lt(_player.hp, hp, "his shapes burn")
+	assert_eq(knight.freed, 1, "held through a whole change")
+	assert_gt(knight.broken_s, 0.0)
+
+
+func test_the_elf_knights_horn_and_lullaby() -> void:
+	_start("elfame")
+	var knight: ElfKnightBoss = _bosses.spawn_boss("the_elf_knight", 1) as ElfKnightBoss
+	_player.position = knight.position_now() + Vector2(200, 0)
+	knight.modify_hit(1.0, _player, Vector2.ZERO)
+	knight.signature(3.0)
+	knight.modify_hit(1.0, _player, Vector2.ZERO)
+	knight.signature(2.1)
+	assert_eq(knight.horns, 1)
+	knight.signature(0.5)
+	assert_lt(_player.position.distance_to(knight.position_now()), 200.0, "the horn draws you")
+	knight.signature(4.1)
+	assert_true(knight.asleep, "lulled to sleep")
+	assert_almost_eq(knight.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "the waking blow")
+	assert_false(knight.asleep)
+
+
+func test_the_fruit_of_elfland_heals_and_binds() -> void:
+	_start("elfame")
+	var queen: QueenOfElfameBoss = _bosses.spawn_boss("queen_of_elfame", 2) as QueenOfElfameBoss
+	queen.grow_fruit()
+	_player.hp = _player.max_hp * 0.5
+	_player.position = queen.fruit[0]
+	queen.signature(0.1)
+	assert_eq(queen.eaten, 1)
+	assert_gt(_player.hp, _player.max_hp * 0.5, "healed")

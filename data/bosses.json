@@ -6626,5 +6626,241 @@
         ]
       }
     ]
+  },
+  {
+    "_doc": "Elfame bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "tam_lin",
+    "name_key": "BOSS_TAM_LIN_NAME",
+    "tradition": "scottish",
+    "lore_source": "The ballad Tam Lin (Child 39): Janet holds him fast through his changes and wins him from the fairies",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 10,
+    "enemy": "tam_lin",
+    "move_speed": 40,
+    "keep_distance_px": 40,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 725,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "hold_him_fast",
+      "shape_s": 4.0,
+      "hold_radius_px": 50,
+      "burn_damage": 4
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "radial_burst",
+            "count": 14,
+            "damage": 10
+          },
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.5,
+            "damage": 14
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 3,
+            "duration_s": 2.0,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 7,
+            "spread_deg": 44,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Elfame bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "the_elf_knight",
+    "name_key": "BOSS_THE_ELF_KNIGHT_NAME",
+    "tradition": "scottish",
+    "lore_source": "The ballad Lady Isabel and the Elf-Knight (Child 4): his horn draws her away; she lulls him to sleep",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 20,
+    "enemy": "the_elf_knight",
+    "move_speed": 44,
+    "keep_distance_px": 80,
+    "attack_every_s": 2.3,
+    "guard_gauge": {
+      "max": 1129,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "horn_and_lullaby",
+      "horn_every_s": 10.0,
+      "horn_s": 1.5,
+      "pull_px_s": 70,
+      "lull_s": 4.0,
+      "wake_damage_mult": 2.0
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "aimed_fan",
+            "count": 5,
+            "spread_deg": 36,
+            "damage": 10
+          },
+          {
+            "pattern": "line_sweep",
+            "length_px": 260,
+            "width_px": 28,
+            "damage": 13
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 0.6,
+            "damage": 14
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 16,
+            "damage": 9
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.8,
+        "patterns": [
+          {
+            "pattern": "spiral",
+            "arms": 4,
+            "duration_s": 2.2,
+            "damage": 8
+          },
+          {
+            "pattern": "aimed_fan",
+            "count": 8,
+            "spread_deg": 50,
+            "damage": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_doc": "Elfame bosses (docs/PACK_7_PLAN.md). Pack difficulty as Pack 4. Numbers are placeholders.",
+    "id": "queen_of_elfame",
+    "name_key": "BOSS_QUEEN_OF_ELFAME_NAME",
+    "tradition": "scottish",
+    "lore_source": "The ballad Thomas the Rhymer (Child 37); the romance of Thomas of Erceldoune (15th c.): the queen and the fruit of her garden",
+    "care_tier": "A",
+    "lore_verified": false,
+    "time_min": 30,
+    "enemy": "queen_of_elfame",
+    "move_speed": 40,
+    "keep_distance_px": 100,
+    "attack_every_s": 2.4,
+    "guard_gauge": {
+      "max": 1775,
+      "break_s": 4,
+      "damage_taken_mult": 1.5,
+      "refill_growth": 1.25
+    },
+    "signature": {
+      "type": "the_fruit",
+      "fruit_every_s": 8.0,
+      "max_fruit": 3,
+      "fruit_reach_px": 14,
+      "heal_fraction": 0.3
+    },
+    "phases": [
+      {
+        "hp_above": 0.6,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.0,
+            "damage": 15
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 6,
+            "enemy": "fae_rider"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.25,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.2,
+            "damage": 16
+          },
+          {
+            "pattern": "ground_circles",
+            "count": 8,
+            "damage": 12
+          },
+          {
+            "pattern": "summon_adds",
+            "count": 8,
+            "enemy": "fae_rider"
+          }
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "attack_every_s": 1.9,
+        "patterns": [
+          {
+            "pattern": "charge_trail",
+            "charge_s": 1.4,
+            "damage": 17
+          },
+          {
+            "pattern": "radial_burst",
+            "count": 20,
+            "damage": 9
+          }
+        ]
+      }
+    ]
   }
 ]

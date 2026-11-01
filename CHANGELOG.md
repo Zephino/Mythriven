@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.97
+Date: 10/31/2026
+Time: 9:17 PM
+
+### Changes
+- **Elfame, the Fae Court, is built and open** (Pack 7, `docs/PACK_7_PLAN.md`). It opens when you beat Alberich (Svartalfheim's 30:00 boss).
+  - **Hazard, the elfin glamour:** a glittering glamour hides the view, and fairy rings on the ground carry whoever steps in one across the land.
+  - **Monsters:** fairy riders (the fairy rade of Tam Lin), redcaps and the sluagh.
+  - **10:00, Tam Lin** (the ballad): the fairies change him every 4 s (an adder, a bear, burning iron) and his shapes burn whoever is close. But stay beside him through a whole change, as Janet held him, and you free him for a moment: his guard breaks.
+  - **20:00, the Elf-Knight** (Lady Isabel and the Elf-Knight): every 10 s he blows his horn and every Hero is drawn toward him. If nobody hurts him for 4 s he falls asleep, as Lady Isabel lulled him; the blow that wakes him does double damage.
+  - **30:00, the Queen of Elfame** (the design's boss; Thomas the Rhymer): fruit grows in the arena. Eating it heals you 30%, but binds your tongue: both your god meters empty.
+  - Green fairy country with hawthorns, rowans, fairy knowes and standing stones; white hares, jays, butterflies, fireflies and white deer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (376 tests pass).
+
+### Reason
+Pack 7, realm 2 of 4 (owner: "go ahead").
+
 ## Version 00.02.96
 Date: 10/31/2026
 Time: 9:10 PM

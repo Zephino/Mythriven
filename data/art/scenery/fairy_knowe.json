@@ -1,0 +1,62 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. A fairy knowe (Scottish folklore: the green hill the fairy folk live under, as in Thomas the Rhymer): a round grassy hill with a ring of white mushrooms at its foot.",
+ "size": [
+  33,
+  14
+ ],
+ "anchor": [
+  16,
+  13
+ ],
+ "palette": {
+  "a": "#182412",
+  "b": "#3c5430",
+  "c": "#36542a",
+  "d": "#3c5a30",
+  "e": "#304824",
+  "f": "#607842",
+  "g": "#3c542a",
+  "h": "#546c3c",
+  "i": "#5a723c",
+  "j": "#4e6c36",
+  "k": "#485a30",
+  "l": "#364e2a",
+  "m": "#4e6636",
+  "n": "#304224",
+  "o": "#2a3c24",
+  "p": "#486030",
+  "q": "#425430",
+  "r": "#908a84",
+  "s": "#b4ae9c",
+  "t": "#bab4a8",
+  "u": "#a8a296",
+  "v": "#544e48",
+  "w": "#2a3c1e",
+  "x": "#d2ccc6",
+  "y": "#c6c6ba",
+  "z": "#babaae",
+  "A": "#b4aea8",
+  "B": "#66605a",
+  "C": "#243618"
+ },
+ "frames": {
+  "idle": [
+   [
+    "................a................",
+    "..........aaaaaabaaaaaa..........",
+    ".......aaaccdebfdddbbdcaaa.......",
+    "......agcghhhhhhijhijcgccca......",
+    "....aaccihhkhihhhhijihiccclaa....",
+    "...alcjiihiijkhhhkhhjjhjmclcna...",
+    "...aehijhjhhjihjihjihjhhiillca...",
+    "..aomjmkjmjjhjhhmjmmjpjjjjjllla..",
+    ".alljjjjjjhjhmjqhhjmmjjjhjmlllea.",
+    ".allmmjmmqhhmjmjjjjjmmjkjhmlllla.",
+    ".alrjhhsmhmsjjjthjjthmjumjjsenosv",
+    "awexmpmymmmymmpzmmmympmxmmpAeeexB",
+    ".aelqmpmpmmmpmmpmmpmmppmmmmeelea.",
+    "..aaCCCCCCCCCCCCCCCCCCCCCCCaaaa.."
+   ]
+  ]
+ }
+}

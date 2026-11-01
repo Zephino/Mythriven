@@ -602,6 +602,23 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | erlking_entrance | boss entrance | erlking | And if you're not willing, I'll use force. | Goethe, Erlkonig (1782) | no |
 | erlking_freyja | boss meets god (with freyja) | erlking | Lady of the Vanir, your brother's realm is mine tonight. | Original line written for Mythriven (Alfheim was given to Freyr, Freyja's brother) | no |
 
+### Elfame
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | elfame | Elfame | The Scottish ballads Thomas the Rhymer (Child 37) and Tam Lin (Child 39) | no |
+| enemy | fae_rider | Fairy rider | The ballad Tam Lin (Child 39): the fairy rade at Halloween | no |
+| boss | tam_lin | Tam Lin | The ballad Tam Lin (Child 39): Janet holds him fast through his changes and wins him from the fairies | no |
+| boss | the_elf_knight | The Elf-Knight | The ballad Lady Isabel and the Elf-Knight (Child 4): his horn draws her away; she lulls him to sleep | no |
+| boss | queen_of_elfame | The Queen of Elfame | The ballad Thomas the Rhymer (Child 37); the romance of Thomas of Erceldoune (15th c.): the queen and the fruit of her garden | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| tam_lin_entrance | boss entrance | tam_lin | Hold me fast and fear me not. I'll do you no harm. | Tam Lin (Child 39): his words to Janet | no |
+| the_elf_knight_entrance | boss entrance | the_elf_knight | Hear my horn? Come away with me to the greenwood. | Lady Isabel and the Elf-Knight (Child 4) | no |
+| queen_of_elfame_entrance | boss entrance | queen_of_elfame | I'm but the queen of fair Elfland, come here to visit you. | Thomas the Rhymer (Child 37): her words to Thomas | no |
+| queen_of_elfame_rhiannon | boss meets god (with rhiannon) | queen_of_elfame | Lady of the otherworld! Your horse is slow; mine has fifty silver bells. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

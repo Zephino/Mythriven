@@ -1154,5 +1154,35 @@
       "id": "erlking"
     },
     "persists": true
+  },
+  {
+    "id": "boss_tam_lin",
+    "name_key": "ACH_BOSS_TAM_LIN_NAME",
+    "desc_key": "ACH_BOSS_TAM_LIN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "tam_lin"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_the_elf_knight",
+    "name_key": "ACH_BOSS_THE_ELF_KNIGHT_NAME",
+    "desc_key": "ACH_BOSS_THE_ELF_KNIGHT_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "the_elf_knight"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_queen_of_elfame",
+    "name_key": "ACH_BOSS_QUEEN_OF_ELFAME_NAME",
+    "desc_key": "ACH_BOSS_QUEEN_OF_ELFAME_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "queen_of_elfame"
+    },
+    "persists": true
   }
 ]

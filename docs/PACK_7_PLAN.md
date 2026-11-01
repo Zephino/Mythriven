@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 7). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
-boss idea; everything else was chosen by Claude from old public-domain texts only. Alfheim built and released 11/01/2026 (00.02.96). The owner can change or veto any of
+boss idea; everything else was chosen by Claude from old public-domain texts only. Alfheim built and released 11/01/2026 (00.02.96); Elfame (00.02.97). The owner can change or veto any of
 it.
 
 Realms work like Packs 5 and 6: endless map, a hazard, monster families, three bosses, no local gods.
@@ -39,7 +39,7 @@ they hit Shocked (the next hit hurts more), as the old charm's "sudden stitch".
 | 20:00 | **Völundr** | The elf-smith takes to the air on the wings he forged: while flying he can't be reached, and he drops strikes on marked spots before landing |
 | 30:00 | **The Erlking** (the design's) | "And if you're not willing, I'll use force." He draws the nearest Hero toward him with his lure, and his daughters dance round him |
 
-## Realm 26: Elfame (the Fae Court)
+## Realm 26: Elfame (the Fae Court): **done and released 11/01/2026 (00.02.97)**
 *Sources: the Scottish ballads Thomas the Rhymer (Child 37) and Tam Lin (Child 39); Lady Isabel and the Elf-Knight
 (Child 4); the romance of Thomas of Erceldoune (15th c.).* The ballads' "teind to hell" is left out.
 

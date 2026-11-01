@@ -2395,3 +2395,29 @@ BANTER_VOLUNDR_ENTRANCE,They lamed me so I could not run. So I made wings.
 BANTER_ERLKING_ENTRANCE,"And if you're not willing, I'll use force."
 BANTER_ERLKING_FREYJA,"Lady of the Vanir, your brother's realm is mine tonight."
 PACK_9_NAME,Pack 7: The Wild Green
+LEVEL_ELFAME_NAME,Elfame
+HAZARD_ELFIN_GLAMOUR_NAME,An elfin glamour falls over everything...
+ENEMY_FAE_RIDER_NAME,Fairy rider
+ENEMY_FAE_RIDER_MYTH,"At Halloween, Tam Lin tells Janet, the fairy folk will ride: first the black steeds, then the brown, and then the milk-white, with bells ringing on their bridles."
+BOSS_TAM_LIN_NAME,Tam Lin
+ENEMY_TAM_LIN_NAME,Tam Lin
+ENEMY_TAM_LIN_MYTH,"A young knight stolen by the Queen of the Fairies. On Halloween Janet pulled him from his milk-white steed and held him while they turned him in her arms into an adder, a bear, a lion and a burning iron. She held on, and won him back."
+BOSS_TAM_LIN_HELD,You held him fast! Tam Lin is free for a moment!
+BOSS_THE_ELF_KNIGHT_NAME,The Elf-Knight
+ENEMY_THE_ELF_KNIGHT_NAME,The Elf-Knight
+ENEMY_THE_ELF_KNIGHT_MYTH,"An elf-knight whose horn drew Lady Isabel from her bed to follow him. He meant to drown her as he had drowned seven king's daughters before her, but she lulled him to sleep with his head in her lap, and killed him with his own dagger."
+BOSS_ELF_KNIGHT_HORN,The Elf-Knight blows his horn... you follow the sound!
+BOSS_QUEEN_OF_ELFAME_NAME,The Queen of Elfame
+ENEMY_QUEEN_OF_ELFAME_NAME,The Queen of Elfame
+ENEMY_QUEEN_OF_ELFAME_MYTH,"The queen who met Thomas under the Eildon Tree, in grass-green silk, fifty silver bells and nine on her horse's mane. She took him to Elfland for seven years, and warned him not to touch the fruit of her garden."
+BOSS_QUEEN_OF_ELFAME_FRUIT,"You ate the fruit of Elfland: your tongue is bound, your gods fall silent!"
+ACH_BOSS_TAM_LIN_NAME,Defeat Tam Lin
+ACH_BOSS_TAM_LIN_DESC,The 10:00 boss of Elfame.
+ACH_BOSS_THE_ELF_KNIGHT_NAME,Defeat The Elf-Knight
+ACH_BOSS_THE_ELF_KNIGHT_DESC,The 20:00 boss of Elfame.
+ACH_BOSS_QUEEN_OF_ELFAME_NAME,Defeat The Queen of Elfame
+ACH_BOSS_QUEEN_OF_ELFAME_DESC,The 30:00 boss of Elfame.
+BANTER_TAM_LIN_ENTRANCE,Hold me fast and fear me not. I'll do you no harm.
+BANTER_THE_ELF_KNIGHT_ENTRANCE,Hear my horn? Come away with me to the greenwood.
+BANTER_QUEEN_OF_ELFAME_ENTRANCE,"I'm but the queen of fair Elfland, come here to visit you."
+BANTER_QUEEN_OF_ELFAME_RHIANNON,Lady of the otherworld! Your horse is slow; mine has fifty silver bells.

@@ -3267,5 +3267,129 @@
       "edge": "#7a6a48",
       "stones": "#c8b890"
     }
+  },
+  {
+    "_doc": "Elfame, Pack 7 realm 2, the Fae Court (docs/PACK_7_PLAN.md). Sources: Thomas the Rhymer (Child 37); Tam Lin (Child 39); Lady Isabel and the Elf-Knight (Child 4); Thomas of Erceldoune. The teind to hell is left out. A realm: no local gods.",
+    "id": "elfame",
+    "name_key": "LEVEL_ELFAME_NAME",
+    "region": "realm_fae",
+    "act": 9,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "elfame",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "flowers",
+          "max": -0.3,
+          "placeholder_color": "#4a7a44",
+          "placeholder_dots": "#f0c8e0"
+        },
+        {
+          "id": "grass",
+          "max": 0.2,
+          "placeholder_color": "#3e6e3a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.6,
+          "placeholder_color": "#2e5a30",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "heather",
+          "max": 1.0,
+          "placeholder_color": "#5a4a62",
+          "placeholder_dots": "#a87ab0"
+        }
+      ]
+    },
+    "decorations": [
+      "fairy_knowe",
+      "standing_stone"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "fairy_knowe": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          16
+        ],
+        "placeholder_color": "#3a7a2a",
+        "weight": 2
+      },
+      "standing_stone": {
+        "shape": "rect",
+        "size_px": [
+          10,
+          22
+        ],
+        "placeholder_color": "#9a9c98",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "tam_lin",
+      "20": "the_elf_knight",
+      "30": "queen_of_elfame"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "svartalfheim",
+      "boss": "alberich"
+    },
+    "waves": "waves_elfame.json",
+    "hazard": {
+      "type": "weather",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 20,
+      "push_px_s": 0,
+      "enemy_push_px_s": 0,
+      "wind_turn_s": 7,
+      "vision_screens": 0.6,
+      "pulse": 0.15,
+      "pulse_hz": 0.25,
+      "veil_color": "#e0f0c8",
+      "particles": "petals",
+      "particle_color": "#f8e8a8",
+      "fade_s": 2.5,
+      "name_key": "HAZARD_ELFIN_GLAMOUR_NAME"
+    },
+    "ground_patches": {
+      "kind": "teleport",
+      "count": 6,
+      "radius_px": [
+        22,
+        30
+      ],
+      "color": "#e8f0a0",
+      "teleport_cooldown_s": 4,
+      "pair_distance_screens": 1.0
+    },
+    "seal": "celtic_knot",
+    "tint": "#dcecd0",
+    "flora": {
+      "density": 0.8,
+      "trees": {
+        "hawthorn": 3,
+        "rowan": 2,
+        "oak": 1
+      }
+    },
+    "road": {
+      "color": "#8a8a5a",
+      "edge": "#6a6a40",
+      "stones": "#aaa878"
+    }
   }
 ]

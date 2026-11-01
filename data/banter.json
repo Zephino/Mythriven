@@ -2193,5 +2193,46 @@
     "text_key": "BANTER_ERLKING_FREYJA",
     "lore_source": "Original line written for Mythriven (Alfheim was given to Freyr, Freyja's brother)",
     "needs_owner_review": true
+  },
+  {
+    "id": "tam_lin_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "tam_lin",
+    "hero": "",
+    "god": "tam_lin",
+    "text_key": "BANTER_TAM_LIN_ENTRANCE",
+    "lore_source": "Tam Lin (Child 39): his words to Janet",
+    "needs_owner_review": true
+  },
+  {
+    "id": "the_elf_knight_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "the_elf_knight",
+    "hero": "",
+    "god": "the_elf_knight",
+    "text_key": "BANTER_THE_ELF_KNIGHT_ENTRANCE",
+    "lore_source": "Lady Isabel and the Elf-Knight (Child 4)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "queen_of_elfame_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "queen_of_elfame",
+    "hero": "",
+    "god": "queen_of_elfame",
+    "text_key": "BANTER_QUEEN_OF_ELFAME_ENTRANCE",
+    "lore_source": "Thomas the Rhymer (Child 37): her words to Thomas",
+    "needs_owner_review": true
+  },
+  {
+    "id": "queen_of_elfame_rhiannon",
+    "trigger": "boss_meets_god",
+    "speaker": "queen_of_elfame",
+    "hero": "",
+    "god": "queen_of_elfame",
+    "with_god": "rhiannon",
+    "text_key": "BANTER_QUEEN_OF_ELFAME_RHIANNON",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]

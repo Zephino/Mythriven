@@ -137,7 +137,7 @@ All the world's myths are threads in one great tapestry, and something is pullin
 | 4 | Elemental Planes | 13 Muspelheim · 14 Niflheim · 15 Ys · 16 Cloud-Cuckoo-Land | **Approved and released 10/31/2026** (`docs/PACK_4_PLAN.md`) |
 | 5 | Gothic Night | 17 Erebus · 18 Karnstein · 19 Ossory · 20 The Brocken | **Released 10/31/2026** (`docs/PACK_5_PLAN.md`) |
 | 6 | The Deep Below | 21 Nidavellir · 22 Svartalfheim · 23 Mycendra · 24 The Myrmidon Hive | **Released 11/01/2026** (`docs/PACK_6_PLAN.md`) |
-| 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | **Building** (`docs/PACK_7_PLAN.md`; Alfheim released 11/01/2026) |
+| 7 | The Wild Green | 25 Alfheim · 26 Elfame · 27 Arcadia · 28 Lerna | **Building** (`docs/PACK_7_PLAN.md`; Alfheim and Elfame released 11/01/2026) |
 | 8 | Warlords | 29 Ghorvast · 30 Knossos · 31 Utgard · 32 Logres | Later |
 | 9 | Gears and Plunder | 33 Lemnos · 34 The Goblin Market · 35 Libertalia · 36 The Hollow Hills | Later |
 | 10 | The Heavens | 37 Hyperborea · 38 The Empyrean · 39 The Glass Mountain · 40 Demos Oneiron | Later |
@@ -305,6 +305,8 @@ Beyond the 14 myth levels, the Unweaving also tears open fantasy realms: elves, 
 *(11/01/2026: owner: "bonus level and the finale should be on the bottom of the list under the packs". The level select (and the co-op level picker) now lists every pack first, then the Realm of the Ten Suns and the Crossroads (levels.json "listed_last"); how they unlock and how hard they are is unchanged.)*
 
 *(11/01/2026: owner: "go ahead" (Pack 7). Pack 7, **the Wild Green**, is designed by Claude (`docs/PACK_7_PLAN.md`). **Alfheim** is built and released (00.02.96), opened by beating Andvari: elf-shot (telegraphed strikes that Shock); light elves, elf-knights, elf-maidens, will-o'-the-wisps; the Erlking's Daughter (a dance ring appears round a Hero: leave it before the dance ends and her elf-shot strikes), Völundr (flies out of reach on his forged wings and drops strikes on marked spots), the Erlking (draws the nearest Hero toward him for a few seconds; his daughters dance round him).)*
+
+*(11/01/2026: **Elfame** is built and released (00.02.97), opened by beating Alberich: the elfin glamour (the view closes in, petals) with fairy rings that carry Heroes across the land; fairy riders, redcaps, the sluagh; Tam Lin (changes shape every 4 s and burns whoever is close; a Hero who stays beside him through a whole shape breaks his guard), the Elf-Knight (his horn draws every Hero toward him; left unhurt for 4 s he falls asleep and the waking blow does double damage), the Queen of Elfame (fruit appears: eating it heals 30% but empties both god meters).)*
 
 **Race and creature names** (all public unless noted): elves, svartálfar (dark elves), dwarves, fae, gnomes, undines, sylphs, salamanders, goblins, orcs, trolls, giants, vampires, werewolves, witches, Myrmidons, Spartoi, Hyperboreans, griffins, automatons, centaurs, merfolk, spriggans, knockers. The Hyperboreans replace the earlier "angelic" idea, avoiding religious angels entirely.
 

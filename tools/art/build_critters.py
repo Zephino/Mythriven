@@ -315,6 +315,11 @@ LEVELS = {
         "birds": {"swallow": ("#24283a", "#e8e0d0", "#c84030", True)},
         "insects": {"butterfly": (butterfly, "#f0d860", "#3a3020"), "firefly": (lambda *a: firefly(a[-1]),)},
         "large": {"roe_deer": ("#a8724a", "#e8d4b8", "#4a3020", "antlers", 24, 22)}},
+    "elfame": {
+        "ground": {"hare": (hare, "#c8c0b0", "#f0ece4")},
+        "birds": {"jay": ("#c8a888", "#3a6ab0", "#24222a", False)},
+        "insects": {"butterfly": (butterfly, "#c8f0a0", "#3a3020"), "firefly": (lambda *a: firefly(a[-1]),)},
+        "large": {"red_deer": ("#e8e4dc", "#f0ece4", "#8a8070", "antlers", 28, 26)}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

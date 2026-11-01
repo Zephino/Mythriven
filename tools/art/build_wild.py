@@ -105,6 +105,82 @@ ERLKING_PAL = {"o": "#0a0c14", "g": "#4a5468", "G": "#5a6478", "s": "#d8dce4", "
                "y": "#d8c060"}
 
 
+# --- Elfame (Thomas the Rhymer, Child 37; Tam Lin, Child 39; Lady Isabel and the Elf-Knight, Child 4) -----------------
+
+def fae_rider(c, f):
+    """A rider of the fairy rade (Tam Lin: the fairies ride out at Halloween, on black, brown and milk-white steeds): a
+    small fairy rider in green on a white horse."""
+    s = STEP[f]
+    ellipse(c, 11, 11, 7, 3.5, "w")
+    for k, d in enumerate((-s, s, s, -s)):
+        c.rect(5 + k * 4 + d, 13, 5 + k * 4 + d, 18, "W")
+    poly(c, [(16, 7), (21, 9), (21, 11), (16, 11)], "w"); c.px(18, 8, "k")
+    c.rect(9, 3, 13, 9, "v"); ellipse(c, 11, 2, 2, 2, "s"); c.rect(9, 0, 13, 0, "y")
+    for k in range(4):
+        c.px(3 - k // 2, 10 + k, "W")
+
+
+RIDER_PAL = {"o": "#1a2018", "w": "#f0f0ea", "W": "#c8c8c0", "k": "#1a1a1a", "v": "#3a8a3a", "s": "#f0dcc8",
+             "y": "#e8c840"}
+
+
+def tam_lin(shape):
+    """Tam Lin (Child 39): the young knight the fairies stole. On Halloween Janet pulled him from his milk-white steed
+    and held him fast while they changed him in her arms: to an adder, a bear, a lion, a burning iron; she did not let
+    go, and he was hers."""
+    def draw(c, step):
+        if shape == "adder":
+            for k in range(14):
+                ellipse(c, 6 + k * 3, 30 + round(5 * math.sin(k / 1.8 + step * 0.5)), 4, 3, "a" if k % 2 else "A")
+            ellipse(c, 50, 28, 5, 4, "a"); c.px(52, 27, "y"); c.row(30, 54, 57, "r")
+            return
+        if shape == "bear":
+            ellipse(c, 28, 30, 18, 12, "b")
+            for k, d in enumerate((-step, step, step, -step)):
+                c.rect(14 + k * 9 + d, 38, 18 + k * 9 + d, 48, "B")
+            ellipse(c, 44, 22, 8, 7, "b"); c.px(47, 20, "k"); c.px(40, 15, "b"); c.px(47, 15, "b")
+            return
+        ellipse(c, 28, 30, 10, 18, "r")                                                   # a bar of burning iron
+        c.rect(24, 12, 32, 48, "R"); c.rect(26, 16, 30, 44, "y")
+        for k in range(6):
+            c.px(22 + k * 3, 8 - (k + step) % 3, "y")
+    return draw
+
+
+TAMLIN_PAL = {"o": "#120808", "a": "#4a6a3a", "A": "#3a5a2a", "y": "#ffe060", "r": "#e8501a", "R": "#c83a10",
+              "b": "#5a3a24", "B": "#3a2414", "k": "#100a08"}
+
+
+def the_elf_knight(c, step):
+    """The Elf-Knight (Child 4): he blew his horn, and Lady Isabel heard it and followed him; he meant to drown her as
+    he had drowned seven king's daughters, but she lulled him to sleep and killed him with his own dagger. A knight in
+    green with a long silver horn."""
+    figure(c, step, "v", "s", "y")
+    c.rect(16, 20, 26, 30, "V")
+    for k in range(10):
+        c.px(30 + k // 2, 18 + k, "i"); c.px(31 + k // 2, 18 + k, "I")                     # the horn
+    c.rect(34, 27, 38, 30, "i")
+
+
+ELF_KNIGHT_BOSS_PAL = dict(ELF_KNIGHT_PAL, i="#d8dce4", I="#a8acb4", y="#d8c060", V="#2a5a2a")
+
+
+def queen_of_elfame(c, step):
+    """The Queen of Elfame (Thomas the Rhymer): "her skirt was of the grass-green silk, her mantle of the velvet fine;
+    at every tett of her horse's mane hung fifty silver bells and nine". A queen in grass-green with a silver crown and
+    a branch of fruit."""
+    figure(c, step, "v", "s", "h")
+    c.rect(16, 18, 26, 26, "V")
+    for x in range(12, 32, 3):
+        c.px(x, 40, "i"); c.px(x + 1, 44, "i")                                             # silver bells
+    c.rect(14, 1, 27, 3, "i"); c.px(15, 0, "i"); c.px(21, 0, "i"); c.px(26, 0, "i")
+    c.rect(30, 22, 31, 34, "b"); c.px(32, 24, "r"); c.px(29, 28, "r"); c.px(32, 30, "r")
+
+
+QUEEN_ELF_PAL = {"o": "#0a120a", "k": "#1a2a1a", "v": "#3a9a3a", "V": "#2a7a2a", "s": "#f4e0d0", "h": "#c87a3a",
+                 "i": "#e0e4ec", "b": "#5a3a1a", "r": "#d02a3a"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_wild.py."
@@ -115,4 +191,10 @@ if __name__ == "__main__":
     kit.build_boss("erlking_daughter", erlking_daughter, DAUGHTER_PAL, doc(erlking_daughter.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("volundr", volundr, VOLUNDR_PAL, doc(volundr.__doc__), (44, 54), (21, 52), [0, 1, 0, -1, 0])
     kit.build_boss("erlking", erlking, ERLKING_PAL, doc(erlking.__doc__), (44, 58), (21, 56), [0, 1, 0, -1, 0])
+    kit.build_boss("fae_rider", fae_rider, RIDER_PAL, doc(fae_rider.__doc__), (24, 20), (11, 19), walk, folder="enemies")
+    for shape in ("adder", "bear", "iron"):
+        kit.build_boss("tam_lin_" + shape, tam_lin(shape), TAMLIN_PAL, doc(tam_lin.__doc__ + " Here, as %s." % shape),
+                       (60, 52), (28, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("the_elf_knight", the_elf_knight, ELF_KNIGHT_BOSS_PAL, doc(the_elf_knight.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("queen_of_elfame", queen_of_elfame, QUEEN_ELF_PAL, doc(queen_of_elfame.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     print("wrote the Wild Green's art")

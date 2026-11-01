@@ -399,6 +399,12 @@ LEVELS = {
                   "oak": (broadleaf, 30, 34)},
         "bushes": {"fern": ("fern",), "heather": ("r", "R", "r", None)},
         "rock": ("g", "G", "H", "l")},
+    # Elfame: the green fairy country of the ballads; hawthorns (the fairy thorn), rowans, oaks, ferns and flowers.
+    "elfame": {
+        "trees": {"hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26),
+                  "rowan": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "u"), 22, 30), "oak": (broadleaf, 30, 34)},
+        "bushes": {"fern": ("fern",), "bramble": ("M", "P", "m", "B")},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},
