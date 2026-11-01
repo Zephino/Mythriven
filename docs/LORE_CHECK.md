@@ -1108,6 +1108,26 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | the_tinners_manners | The Tinner's Manners | A good tinner always leaves the knockers a bit of his pasty. | Robert Hunt, Popular Romances of the West of England (1865): the pasty left for the knockers | no |
 | let_it_lie | Let It Lie | Leave the spriggan's treasure where it lies. | Robert Hunt, Popular Romances of the West of England (1865): the spriggans punish treasure-seekers | no |
 
+## Pack 13: Wild Frontiers
+
+### Mount Pelion
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | pelion | Mount Pelion | Ovid, Metamorphoses 9.98-133; Ovid, Metamorphoses 12.210-535; Apollodorus 2.5.4, 2.7.6 | no |
+| enemy | centaur_raider | Centaur raider | Ovid, Metamorphoses 12.210-535 (the centaurs at the wedding of Pirithous) | no |
+| enemy | centaur_slinger | Centaur slinger | Ovid, Metamorphoses 12.210-535 (the centaurs hurl rocks, tree trunks and altars) | no |
+| boss | eurytus | Eurytus | Ovid, Metamorphoses 12.210-535 (219-240: Eurytus, wildest of the wild centaurs, seizes the bride; Theseus strikes him down with an old wine-bowl) | no |
+| boss | rhoetus | Rhoetus | Ovid, Metamorphoses 12.210-535 (271-290: Rhoetus snatches a burning brand from the altar and swings it) | no |
+| boss | nessus | Nessus | Ovid, Metamorphoses 9.98-133 (Nessus ferries Deianira over the Evenus; Heracles shoots him from the far bank with a Hydra-venomed arrow); Apollodorus 2.7.6; GAME_DESIGN.md (Nessus) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| eurytus_entrance | boss entrance | eurytus | More wine! And who's the bride? | Ovid, Metamorphoses 12.210-535 | no |
+| rhoetus_entrance | boss entrance | rhoetus | (The centaur waves a blazing log over his head.) | Ovid, Metamorphoses 12.210-535 | no |
+| nessus_entrance | boss entrance | nessus | Need a ride across? I'll carry you. I always carry the pretty ones. | Ovid, Metamorphoses 9.98-133 | no |
+| nessus_hecate | boss meets god (with hecate) | nessus | Keep your torches, goddess. I know a fire that never goes out. | Original line written for Mythriven | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

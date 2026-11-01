@@ -5852,5 +5852,116 @@
       "edge": "#3a342e",
       "stones": "#7a7268"
     }
+  },
+  {
+    "_doc": "Mount Pelion, Pack 13 realm 1, the centaurs' mountain (docs/PACK_13_PLAN.md). Sources: Ovid, Metamorphoses 9.98-133; Ovid, Metamorphoses 12.210-535; Apollodorus 2.5.4, 2.7.6. Chiron is not an enemy. A realm: no local gods.",
+    "id": "pelion",
+    "name_key": "LEVEL_PELION_NAME",
+    "region": "realm_centaur",
+    "act": 15,
+    "order": 1,
+    "care_tier": "A",
+    "tileset": {
+      "id": "pelion",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "grass",
+          "max": -0.3,
+          "placeholder_color": "#6a8a4a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "meadow",
+          "max": 0.15,
+          "placeholder_color": "#7a9a5a",
+          "placeholder_dots": "#e0d070"
+        },
+        {
+          "id": "scree",
+          "max": 0.6,
+          "placeholder_color": "#8a8478",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "rock",
+          "max": 1.0,
+          "placeholder_color": "#7a766c",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "fallen_log",
+      "granite_tor"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "fallen_log": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          10
+        ],
+        "placeholder_color": "#6a4a2a",
+        "weight": 2
+      },
+      "granite_tor": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          20
+        ],
+        "placeholder_color": "#8a8478",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "eurytus",
+      "20": "rhoetus",
+      "30": "nessus"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "tir_na_nog",
+      "boss": "finvarra"
+    },
+    "waves": "waves_pelion.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 100,
+      "duration_s": 16,
+      "strikes_per_s": 0.9,
+      "radius_px": 34,
+      "telegraph_s": 1.3,
+      "damage": 15,
+      "element": "earth",
+      "range_px": 230,
+      "color": "#6a4a2a",
+      "look": "rockslide",
+      "name_key": "HAZARD_UPROOTED_TREES_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#e0e4d0",
+    "flora": {
+      "density": 0.7,
+      "trees": {
+        "ash": 2,
+        "oak": 2,
+        "spruce": 1
+      }
+    },
+    "road": {
+      "color": "#a89c80",
+      "edge": "#887c60",
+      "stones": "#c8bca0"
+    }
   }
 ]

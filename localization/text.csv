@@ -2832,6 +2832,7 @@ BANTER_GRIFFIN_MATRIARCH_SKADI,"(The griffin bows her head to the huntress of th
 PACK_12_NAME,Pack 10: The Heavens
 PACK_13_NAME,Pack 11: The Abyss
 PACK_14_NAME,Pack 12: Otherworlds
+PACK_15_NAME,Pack 13: Wild Frontiers
 LEVEL_EMPYREAN_NAME,The Empyrean
 HAZARD_FALLING_STARS_NAME,The stars are falling!
 ENEMY_STAR_HOUND_NAME,Star hound
@@ -3248,3 +3249,31 @@ COSMETIC_FAIRY_GOLD,Fairy Gold
 COSMETIC_SEA_MIST,Sea Mist
 COSMETIC_LAMPLIGHT,Lamplight
 COSMETIC_CORNISH_TIN,Cornish Tin
+LEVEL_PELION_NAME,Mount Pelion
+HAZARD_UPROOTED_TREES_NAME,The centaurs tear up trees and hurl them down the slopes!
+ENEMY_CENTAUR_RAIDER_NAME,Centaur raider
+ENEMY_CENTAUR_RAIDER_MYTH,"One of the wild centaurs of Pelion, who came drunk to Pirithous' wedding and tried to carry off the bride and the women."
+ENEMY_CENTAUR_SLINGER_NAME,Centaur slinger
+ENEMY_CENTAUR_SLINGER_MYTH,"A centaur who fights from afar, hurling stones and anything else to hand, as the centaurs threw rocks and whole tree trunks in the great battle."
+BOSS_EURYTUS_NAME,Eurytus
+ENEMY_EURYTUS_NAME,Eurytus
+ENEMY_EURYTUS_MYTH,"""Wildest of the wild centaurs"", who, drunk at Pirithous' wedding, seized the bride Hippodamia and began the battle of the Lapiths and centaurs. Theseus struck him down with an old embossed wine-bowl."
+BOSS_EURYTUS_WINE,Wine everywhere! You reel in the pool...
+BOSS_RHOETUS_NAME,Rhoetus
+ENEMY_RHOETUS_NAME,Rhoetus
+ENEMY_RHOETUS_MYTH,"The centaur who snatched a burning log from the wedding altar and swung it about him, setting the Lapiths' hair alight."
+BOSS_NESSUS_NAME,Nessus
+ENEMY_NESSUS_NAME,Nessus
+ENEMY_NESSUS_MYTH,"The centaur who carried travellers over the river Evenus. When he tried to carry off Deianira, Heracles shot him from the far bank with an arrow dipped in the Hydra's venom; dying, Nessus gave her his poisoned blood, which would one day kill Heracles."
+BOSS_NESSUS_CARRIED,Nessus carries you off across the river!
+BOSS_NESSUS_FAR,"Strike him from afar, as Heracles did!"
+ACH_BOSS_EURYTUS_NAME,Defeat Eurytus
+ACH_BOSS_EURYTUS_DESC,The 10:00 boss of Mount Pelion.
+ACH_BOSS_RHOETUS_NAME,Defeat Rhoetus
+ACH_BOSS_RHOETUS_DESC,The 20:00 boss of Mount Pelion.
+ACH_BOSS_NESSUS_NAME,Defeat Nessus
+ACH_BOSS_NESSUS_DESC,The 30:00 boss of Mount Pelion.
+BANTER_EURYTUS_ENTRANCE,More wine! And who's the bride?
+BANTER_RHOETUS_ENTRANCE,(The centaur waves a blazing log over his head.)
+BANTER_NESSUS_ENTRANCE,Need a ride across? I'll carry you. I always carry the pretty ones.
+BANTER_NESSUS_HECATE,"Keep your torches, goddess. I know a fire that never goes out."

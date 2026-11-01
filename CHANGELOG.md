@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.26
+Date: 11/01/2026
+Time: 7:56 AM
+
+### Changes
+- **Pack 13, Wild Frontiers, is planned** (`docs/PACK_13_PLAN.md`): Mount Pelion, Dovrefjell, the City of Brass and the Sea King's Hall, each opened by a Pack 12 30:00 boss. It is the last of the nine packs.
+- **Mount Pelion, the centaurs' mountain, is built and open.** It opens when you beat Finvarra. Sources: Ovid's Metamorphoses (Nessus; the battle of the Lapiths and the centaurs) and Apollodorus. Chiron, the wise centaur, is not an enemy.
+  - **Hazard, the uprooted trees:** the centaurs tear up trees and boulders and hurl them down the slopes.
+  - **Monsters:** centaur raiders, centaur slingers (casters), grey wolves, ravens, and centaurs from 10:00.
+  - **10:00, Eurytus** ("wildest of the wild centaurs"): every 4 s he hurls a wine-bowl at a marked spot near a Hero; it leaves a pool of wine for 6 s that makes you reel (Chilled).
+  - **20:00, Rhoetus:** every 3 s he swings his burning brand round him, Burning whoever is close; every 6 s he flings a brand that leaves the ground burning for 5 s.
+  - **30:00, Nessus** (the design's boss, the ferryman): he charges along marked lines, and every 10 s carries the nearest Hero off across the arena, Poisoned. As Heracles shot him from across the river, blows from a Hero far from him do double damage.
+  - A green wooded mountain of ash, oak and fir, meadows and scree, with fallen logs and granite tors; hares, swallows, cicadas and red deer.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 4 new tests (458 tests pass).
+
+### Reason
+The owner said "go ahead" for Pack 13, the last of the nine packs, built one realm at a time.
+
 ## Version 00.03.25
 Date: 11/01/2026
 Time: 2:14 AM

@@ -1793,6 +1793,57 @@ func test_the_spriggan_swells_when_his_gold_is_taken() -> void:
 	assert_eq(guard.state, "normal")
 
 
+func test_pelion_is_pack_13() -> void:
+	var level: Dictionary = _level("pelion")
+	assert_eq(int(level["act"]), 15)
+	assert_eq(str(level["unlock"]["boss"]), "finvarra")
+	assert_eq(tr("PACK_15_NAME"), "Pack 13: Wild Frontiers")
+
+
+func test_eurytus_throws_wine_bowls() -> void:
+	_start("pelion")
+	var drunk: EurytusBoss = _bosses.spawn_boss("eurytus", 0) as EurytusBoss
+	drunk.signature(2.1)
+	assert_eq(drunk.bowls.size(), 1, "a bowl in the air")
+	var hp: float = _player.hp
+	drunk.signature(1.0)
+	assert_eq(drunk.bowl_hits, 1)
+	assert_lt(_player.hp, hp)
+	assert_true(drunk.in_pool(_player.position), "a pool of wine")
+	drunk.signature(1.0)
+	assert_true(_player.statuses.has("chill"), "reeling")
+
+
+func test_rhoetus_swings_and_throws_his_brand() -> void:
+	_start("pelion")
+	var brand: RhoetusBoss = _bosses.spawn_boss("rhoetus", 1) as RhoetusBoss
+	_player.position = brand.position_now() + Vector2(30, 0)
+	brand.signature(2.1)
+	assert_eq(brand.burned, 1, "the brand swung round")
+	assert_true(_player.statuses.has("burn"))
+	brand.signature(2.0)
+	assert_eq(brand.brands.size(), 1)
+	var hp: float = _player.hp
+	brand.signature(1.0)
+	assert_eq(brand.fires.size(), 1, "the ground burns")
+	brand.signature(0.5)
+	assert_lt(_player.hp, hp)
+
+
+func test_nessus_carries_heroes_and_fears_far_blows() -> void:
+	_start("pelion")
+	var ferry: NessusBoss = _bosses.spawn_boss("nessus", 2) as NessusBoss
+	_player.position = ferry.position_now() + Vector2(200, 0)
+	assert_almost_eq(ferry.modify_hit(10.0, _player, Vector2.ZERO), 20.0, 0.01, "shot from across the river")
+	_player.position = ferry.position_now() + Vector2(40, 0)
+	assert_almost_eq(ferry.modify_hit(10.0, _player, Vector2.ZERO), 10.0, 0.01, "close by")
+	var at: Vector2 = _player.position
+	ferry.signature(6.1)
+	assert_eq(ferry.carried, 1)
+	assert_ne(_player.position, at, "carried across")
+	assert_true(_player.statuses.has("poison"))
+
+
 func test_every_boss_has_a_picture_under_its_own_name() -> void:
 	# The banter portrait and the codex use the boss's own name, even for bosses whose look changes.
 	for entry: Variant in Data.get_file(BossManager.FILE):

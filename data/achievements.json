@@ -1844,5 +1844,35 @@
       "id": "great_spriggan"
     },
     "persists": true
+  },
+  {
+    "id": "boss_eurytus",
+    "name_key": "ACH_BOSS_EURYTUS_NAME",
+    "desc_key": "ACH_BOSS_EURYTUS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "eurytus"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_rhoetus",
+    "name_key": "ACH_BOSS_RHOETUS_NAME",
+    "desc_key": "ACH_BOSS_RHOETUS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "rhoetus"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_nessus",
+    "name_key": "ACH_BOSS_NESSUS_NAME",
+    "desc_key": "ACH_BOSS_NESSUS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "nessus"
+    },
+    "persists": true
   }
 ]

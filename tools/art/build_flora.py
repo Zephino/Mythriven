@@ -520,6 +520,12 @@ LEVELS = {
         "trees": {"dead_tree": (dead_tree, 24, 32)},
         "bushes": {"gorse": ("M", "m", "y", "f")},
         "rock": ("n", "N", "O", None)},
+    # Mount Pelion: the wooded centaurs' mountain; ash trees (Peleus' spear was cut there), oaks and firs.
+    "pelion": {
+        "trees": {"ash": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y"), 26, 36), "oak": (broadleaf, 30, 34),
+                  "spruce": (spruce, 22, 40)},
+        "bushes": {"broom": ("m", "M", "y", "f"), "fern": ("fern",)},
+        "rock": ("a", "A", "B", None)},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

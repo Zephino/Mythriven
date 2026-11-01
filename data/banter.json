@@ -3132,5 +3132,46 @@
     "text_key": "BANTER_GREAT_SPRIGGAN_THOR",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "eurytus_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "eurytus",
+    "hero": "",
+    "god": "eurytus",
+    "text_key": "BANTER_EURYTUS_ENTRANCE",
+    "lore_source": "Ovid, Metamorphoses 12.210-535",
+    "needs_owner_review": true
+  },
+  {
+    "id": "rhoetus_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "rhoetus",
+    "hero": "",
+    "god": "rhoetus",
+    "text_key": "BANTER_RHOETUS_ENTRANCE",
+    "lore_source": "Ovid, Metamorphoses 12.210-535",
+    "needs_owner_review": true
+  },
+  {
+    "id": "nessus_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "nessus",
+    "hero": "",
+    "god": "nessus",
+    "text_key": "BANTER_NESSUS_ENTRANCE",
+    "lore_source": "Ovid, Metamorphoses 9.98-133",
+    "needs_owner_review": true
+  },
+  {
+    "id": "nessus_hecate",
+    "trigger": "boss_meets_god",
+    "speaker": "nessus",
+    "hero": "",
+    "god": "nessus",
+    "with_god": "hecate",
+    "text_key": "BANTER_NESSUS_HECATE",
+    "lore_source": "Original line written for Mythriven",
+    "needs_owner_review": true
   }
 ]
