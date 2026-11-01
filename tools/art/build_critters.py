@@ -325,6 +325,11 @@ LEVELS = {
         "birds": {"swallow": ("#24283a", "#e8e0d0", "#c84030", True)},
         "insects": {"cicada": (cicada, "#6a7a3a"), "butterfly": (butterfly, "#f0d860", "#3a3020")},
         "large": {"red_deer": ("#a8724a", "#e8d4b8", "#4a3020", "antlers", 28, 26)}},
+    "lerna": {
+        "ground": {"common_frog": (frog, "#6a8a3a", "#c8c08a"), "crab": (lizard, "#8a5a3a", "#5a3a20")},
+        "birds": {"heron": ("#9aa4ac", "#e8ecec", "#e0b030", True)},
+        "insects": {"dragonfly": (dragonfly, "#3a8ab0", "#c8e0f0")},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

@@ -2274,5 +2274,45 @@
     "text_key": "BANTER_CERYNEIAN_HIND_HERACLES",
     "lore_source": "Apollodorus 2.5.3 (the third labour)",
     "needs_owner_review": true
+  },
+  {
+    "id": "karkinos_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "karkinos",
+    "hero": "",
+    "god": "karkinos",
+    "text_key": "BANTER_KARKINOS_ENTRANCE",
+    "lore_source": "Apollodorus 2.5.2",
+    "needs_owner_review": true
+  },
+  {
+    "id": "echion_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "echion",
+    "hero": "",
+    "god": "echion",
+    "text_key": "BANTER_ECHION_ENTRANCE",
+    "lore_source": "Apollodorus 3.4.1",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hydra_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "hydra",
+    "hero": "",
+    "god": "hydra",
+    "text_key": "BANTER_HYDRA_ENTRANCE",
+    "lore_source": "Hesiod, Theogony 313-318",
+    "needs_owner_review": true
+  },
+  {
+    "id": "hydra_heracles",
+    "trigger": "boss_entrance",
+    "speaker": "hydra",
+    "hero": "heracles",
+    "god": "hydra",
+    "text_key": "BANTER_HYDRA_HERACLES",
+    "lore_source": "Apollodorus 2.5.2 (the second labour)",
+    "needs_owner_review": true
   }
 ]

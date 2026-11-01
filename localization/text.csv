@@ -2448,3 +2448,28 @@ BANTER_CERYNEIAN_HIND_ENTRANCE,"(A flash of gold antlers between the trees, and 
 BANTER_ERYMANTHIAN_BOAR_ENTRANCE,(It snorts steam into the cold air and lowers its tusks.)
 BANTER_LYCAON_ENTRANCE,"Sit, guest, and eat. You won't ask what the meat is."
 BANTER_CERYNEIAN_HIND_HERACLES,(The hind looks at you. It remembers a whole year of running.)
+LEVEL_LERNA_NAME,Lerna
+HAZARD_RISING_SWAMP_NAME,"The swamp rises, thick and foul!"
+ENEMY_SPARTOI_NAME,Spartos
+ENEMY_SPARTOI_MYTH,"On Athena's advice Cadmus sowed the teeth of the dragon he had killed, and armed men sprang up out of the earth: the Spartoi, the sown men."
+BOSS_KARKINOS_NAME,Karkinos
+ENEMY_KARKINOS_NAME,Karkinos
+ENEMY_KARKINOS_MYTH,"While Heracles fought the Hydra, Hera sent a huge crab out of the marsh to help it, and it bit his foot. He killed it; Hera set it among the stars as the Crab."
+BOSS_ECHION_NAME,Echion
+ENEMY_ECHION_NAME,Echion
+ENEMY_ECHION_MYTH,"One of the sown men who sprang from the dragon's teeth. When Cadmus threw a stone among them they turned on one another, each thinking another had thrown it, until only five were left. Echion was one of the five."
+BOSS_ECHION_STONE,You throw the stone among the sown men: they turn on each other!
+BOSS_HYDRA_NAME,The Lernaean Hydra
+ENEMY_HYDRA_NAME,The Lernaean Hydra
+ENEMY_HYDRA_MYTH,"The water-serpent of the Lerna marsh, child of Typhon and Echidna, with nine heads, the middle one immortal. For every head Heracles cut off, two grew back, until Iolaus seared the necks with burning brands; the immortal head Heracles buried under a heavy rock."
+BOSS_HYDRA_IMMORTAL,The last head is immortal! Bury it under the rock!
+ACH_BOSS_KARKINOS_NAME,Defeat Karkinos
+ACH_BOSS_KARKINOS_DESC,The 10:00 boss of Lerna.
+ACH_BOSS_ECHION_NAME,Defeat Echion
+ACH_BOSS_ECHION_DESC,The 20:00 boss of Lerna.
+ACH_BOSS_HYDRA_NAME,Defeat The Lernaean Hydra
+ACH_BOSS_HYDRA_DESC,The 30:00 boss of Lerna.
+BANTER_KARKINOS_ENTRANCE,"(It raises both claws and scuttles sideways, never turning its back.)"
+BANTER_ECHION_ENTRANCE,"I rose from a dragon's tooth, and I'm still standing. Who threw that stone?"
+BANTER_HYDRA_ENTRANCE,(Nine heads hiss at once.)
+BANTER_HYDRA_HERACLES,(The heads remember the club and the torches. They hiss louder.)

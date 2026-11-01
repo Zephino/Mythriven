@@ -648,3 +648,50 @@ func test_zeus_strikes_lycaon_too() -> void:
 	assert_lt(_player.hp, mine, "and the bolt under the Hero")
 	king._on_phase_started(2)
 	assert_eq(king.art_id(), "lycaon_wolf")
+
+
+func test_karkinos_shell_turns_blows_from_the_front() -> void:
+	_start("lerna")
+	assert_eq(str(_level("lerna")["unlock"]["boss"]), "ant_queen")
+	var crab: KarkinosBoss = _bosses.spawn_boss("karkinos", 0) as KarkinosBoss
+	crab.facing = Vector2.RIGHT
+	_player.position = crab.position_now() + Vector2(40, 0)
+	var front: float = crab.modify_hit(100.0, _player, Vector2.ZERO)
+	_player.position = crab.position_now() + Vector2(-40, 0)
+	var back: float = crab.modify_hit(100.0, _player, Vector2.ZERO)
+	assert_lt(front, back, "the shell turns frontal blows")
+
+
+func test_echions_stone_turns_the_sown_men_on_each_other() -> void:
+	_start("lerna")
+	var sown: EchionBoss = _bosses.spawn_boss("echion", 1) as EchionBoss
+	sown.raise_sown_men()
+	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
+	sown.place_stone()
+	_player.position = sown.stone
+	sown.signature(0.1)
+	assert_eq(sown.thrown, 1)
+	var charmed: int = 0
+	for slot: int in _enemies.active.size():
+		if _enemies.active[slot] != 0 and _enemies.charmed[slot] != 0:
+			charmed += 1
+	assert_eq(charmed, 4, "every sown man turns")
+
+
+func test_the_hydra_grows_heads_fire_sears_and_the_last_head_must_be_buried() -> void:
+	_start("lerna")
+	var hydra: HydraBoss = _bosses.spawn_boss("hydra", 2) as HydraBoss
+	hydra.signature(0.1)
+	assert_eq(hydra.heads, 9)
+	hydra.signature(8.0)
+	assert_eq(hydra.heads, 10, "a head grows back")
+	hydra.on_element_hit("fire")
+	assert_eq(hydra.heads, 9, "fire sears a neck")
+	var hp: float = _enemies.hp[hydra.slot]
+	assert_almost_eq(hydra.modify_hit(hp * 3.0, _player, Vector2.ZERO), hp - 1.0, 0.01, "the immortal head")
+	assert_ne(hydra.rock, Vector2.INF, "the rock appears")
+	_player.position = hydra.rock
+	hydra.signature(0.8)
+	hydra.signature(0.8)
+	assert_true(hydra.buried)
+	assert_false(hydra.is_alive(), "buried, it dies")

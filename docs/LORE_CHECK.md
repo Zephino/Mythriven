@@ -637,6 +637,23 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | lycaon_entrance | boss entrance | lycaon | Sit, guest, and eat. You won't ask what the meat is. | Ovid, Metamorphoses 1 (Lycaon's feast) | no |
 | ceryneian_hind_heracles | boss entrance (as heracles) | ceryneian_hind | (The hind looks at you. It remembers a whole year of running.) | Apollodorus 2.5.3 (the third labour) | no |
 
+### Lerna
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | lerna | Lerna | Hesiod, Theogony 313-318 (the Hydra of Lerna); Pausanias 2.37 (the Lernaean marsh) | no |
+| enemy | spartoi | Spartos | Apollodorus, Library 3.4.1 (the armed men sprung from the dragon's teeth) | no |
+| boss | karkinos | Karkinos | Apollodorus, Library 2.5.2 (the giant crab that bit Heracles' foot as he fought the Hydra) | no |
+| boss | echion | Echion | Apollodorus, Library 3.4.1 (the Spartoi kill each other; Echion is one of the five who survive) | no |
+| boss | hydra | The Lernaean Hydra | Hesiod, Theogony 313-318; Apollodorus, Library 2.5.2 (nine heads, the necks seared by Iolaus, the immortal head buried under a rock) | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| karkinos_entrance | boss entrance | karkinos | (It raises both claws and scuttles sideways, never turning its back.) | Apollodorus 2.5.2 | no |
+| echion_entrance | boss entrance | echion | I rose from a dragon's tooth, and I'm still standing. Who threw that stone? | Apollodorus 3.4.1 | no |
+| hydra_entrance | boss entrance | hydra | (Nine heads hiss at once.) | Hesiod, Theogony 313-318 | no |
+| hydra_heracles | boss entrance (as heracles) | hydra | (The heads remember the club and the torches. They hiss louder.) | Apollodorus 2.5.2 (the second labour) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

@@ -1214,5 +1214,35 @@
       "id": "lycaon"
     },
     "persists": true
+  },
+  {
+    "id": "boss_karkinos",
+    "name_key": "ACH_BOSS_KARKINOS_NAME",
+    "desc_key": "ACH_BOSS_KARKINOS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "karkinos"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_echion",
+    "name_key": "ACH_BOSS_ECHION_NAME",
+    "desc_key": "ACH_BOSS_ECHION_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "echion"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_hydra",
+    "name_key": "ACH_BOSS_HYDRA_NAME",
+    "desc_key": "ACH_BOSS_HYDRA_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "hydra"
+    },
+    "persists": true
   }
 ]

@@ -1,0 +1,52 @@
+{
+ "_doc": "Scenery picture (docs/ART_RULES.md: Scenery), built by tools/art/build_scenery.py, weathered by tools/art/weathering.py. Dragon's teeth in a furrow (Apollodorus 3.4.1: Cadmus sowed the teeth of the dragon he killed, and armed men sprang up): white fangs sticking up out of a ploughed strip of earth.",
+ "size": [
+  28,
+  13
+ ],
+ "anchor": [
+  14,
+  12
+ ],
+ "palette": {
+  "a": "#66605a",
+  "b": "#f6f0e4",
+  "c": "#eae4d8",
+  "d": "#ded8d2",
+  "e": "#d2d2c6",
+  "f": "#ded8cc",
+  "g": "#d2ccc6",
+  "h": "#c6c6ba",
+  "i": "#1e1812",
+  "j": "#b4b4a8",
+  "k": "#42362a",
+  "l": "#3c3024",
+  "m": "#2a2418",
+  "n": "#5a4e3c",
+  "o": "#604e42",
+  "p": "#5a483c",
+  "q": "#544236",
+  "r": "#4e4236",
+  "s": "#544836",
+  "t": "#483c30"
+ },
+ "frames": {
+  "idle": [
+   [
+    ".........a..................",
+    "........aba........a........",
+    "....a...aca.......aba..a....",
+    "...ada..ada...a...aca.aea...",
+    "...ada..acda.aea..aca.ada...",
+    "...aca..adca.aea..adcaada...",
+    "...afga.agfa.aha..aggaahfa..",
+    ".iiihhiiighfiihfiiighiigjii.",
+    "ikkkkkkkkkkklllkkllllklkkkli",
+    "mnnnnnoooonopnopnppnnonnopnm",
+    "mooopooppnpoppnnooqppnnoorpm",
+    "mpstptqsssptqssqssspqpsqspsm",
+    ".mmmmmmmmmmmmmmmmmmmmmmmmmm."
+   ]
+  ]
+ }
+}

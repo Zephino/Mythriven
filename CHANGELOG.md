@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.02.99
+Date: 10/31/2026
+Time: 9:32 PM
+
+### Changes
+- **Lerna, the serpent-marsh of the Spartoi, is built and open** (Pack 7, `docs/PACK_7_PLAN.md`). It opens when you beat the Queen of the Gold-Digging Ants (the Myrmidon Hive's 30:00 boss). With it, all four realms of The Wild Green are built.
+  - **Hazard, the rising swamp:** bands of foul swamp water spread over the marsh, slowing and Poisoning whoever they reach.
+  - **Monsters:** Spartoi (the sown men), water snakes, shades up from the bottomless lake, and from 10:00 Spartoi brutes.
+  - **10:00, Karkinos** (Apollodorus): the giant crab. Blows from in front glance off its shell (a quarter of the damage); hit it from the side or behind. It scuttles sideways.
+  - **20:00, Echion** (Apollodorus): every 8 s he raises four Spartoi from the ground. A stone lies in the arena: take it and you throw it among them, and every sown man turns on the others for 6 s.
+  - **30:00, the Lernaean Hydra** (the design's boss): it starts with nine heads and grows another every 8 s, attacking faster the more it has; a Fire hit sears a neck and a head is lost. At the end its immortal head keeps it alive at 1 HP until a Hero buries it under the rock that appears.
+  - A marsh of reeds, willows and black poplars, with furrows of dragon's teeth; frogs, crabs, herons and dragonflies.
+  - 3 achievements, 4 banter lines (the Hydra remembers Heracles) and the realm's rows on the lore check.
+- 3 new tests (382 tests pass).
+
+### Reason
+Pack 7, realm 4 of 4 (owner: "go ahead").
+
 ## Version 00.02.98
 Date: 10/31/2026
 Time: 9:25 PM

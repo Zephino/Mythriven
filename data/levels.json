@@ -3504,5 +3504,119 @@
       "edge": "#8a7650",
       "stones": "#c8b890"
     }
+  },
+  {
+    "_doc": "Lerna, Pack 7 realm 4, the serpent-marsh of the Spartoi (docs/PACK_7_PLAN.md). Sources: Hesiod, Theogony 313-318; Apollodorus 2.5.2 and 3.4.1; Pausanias 2.37. A realm: no local gods.",
+    "id": "lerna",
+    "name_key": "LEVEL_LERNA_NAME",
+    "region": "realm_marsh",
+    "act": 9,
+    "order": 4,
+    "care_tier": "A",
+    "tileset": {
+      "id": "lerna",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "bog",
+          "max": -0.2,
+          "placeholder_color": "#3a4a34",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "reeds",
+          "max": 0.2,
+          "placeholder_color": "#4a5a3a",
+          "placeholder_dots": "#8a9a5a"
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.6,
+          "placeholder_color": "#3a5232",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dirt",
+          "max": 1.0,
+          "placeholder_color": "#5a4a36",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "nile_reeds",
+      "dragons_teeth"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "nile_reeds": {
+        "shape": "rect",
+        "size_px": [
+          14,
+          20
+        ],
+        "placeholder_color": "#6a8a3a",
+        "weight": 2
+      },
+      "dragons_teeth": {
+        "shape": "rect",
+        "size_px": [
+          26,
+          10
+        ],
+        "placeholder_color": "#ece7da",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "karkinos",
+      "20": "echion",
+      "30": "hydra"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "the_myrmidon_hive",
+      "boss": "ant_queen"
+    },
+    "waves": "waves_lerna.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.5,
+      "radius_px": 50,
+      "telegraph_s": 1.6,
+      "damage": 6,
+      "element": "water",
+      "range_px": 240,
+      "color": "#5a7a3a",
+      "look": "flood",
+      "flood_s": 6,
+      "flood_slow": 0.5,
+      "player_status": "poison",
+      "name_key": "HAZARD_RISING_SWAMP_NAME"
+    },
+    "seal": "greek_meander",
+    "tint": "#cfdcc4",
+    "flora": {
+      "density": 0.6,
+      "trees": {
+        "willow": 3,
+        "black_poplar": 1,
+        "dead_tree": 1
+      }
+    },
+    "road": {
+      "color": "#7a6a4a",
+      "edge": "#5a4a30",
+      "stones": "#9a8a6a"
+    }
   }
 ]

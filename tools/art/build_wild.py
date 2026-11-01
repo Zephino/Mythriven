@@ -266,6 +266,74 @@ LYCAON_PAL = {"o": "#0e0806", "k": "#1a1010", "r": "#7a1a2a", "R": "#5a1020", "s
               "y": "#e8c040", "g": "#6a645e", "G": "#4a4640"}
 
 
+# --- Lerna (Hesiod, Theogony 313-318; Apollodorus 2.5.2, 3.4.1; Pausanias 2.37) ---------------------------------------
+
+def spartoi(c, f):
+    """One of the Spartoi (Apollodorus 3.4.1: armed men who sprang up from the dragon's teeth Cadmus sowed): a warrior
+    rising half out of the earth, bronze-helmed, with spear and shield."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 18, x + 1 + d, 22, "d")
+    c.rect(5, 8, 14, 18, "z"); c.row(12, 5, 14, "Z")
+    ellipse(c, 9, 5, 3, 3, "s"); c.rect(6, 1, 12, 4, "z"); c.rect(8, 0, 10, 0, "r")
+    ellipse(c, 4, 13, 3, 4, "z"); c.px(4, 13, "Z")
+    c.rect(16, 0, 16, 20, "b")
+    c.row(21, 2, 16, "d"); c.row(22, 3, 15, "D")                                          # the earth he rises from
+
+
+SPARTOI_PAL = {"o": "#120c06", "z": "#b0803a", "Z": "#8a5a24", "s": "#c8a080", "r": "#c83a2a", "b": "#6a4a2a",
+               "d": "#6a5034", "D": "#4a3824"}
+
+
+def karkinos(c, step):
+    """Karkinos (Apollodorus 2.5.2): the giant crab Hera sent from the marsh to bite Heracles' foot as he fought the
+    Hydra. A great red-brown crab, claws raised."""
+    ellipse(c, 30, 30, 18, 11, "r"); ellipse(c, 30, 28, 14, 7, "R")
+    c.px(25, 20, "k"); c.px(35, 20, "k"); c.rect(25, 18, 25, 20, "r"); c.rect(35, 18, 35, 20, "r")
+    for side in (-1, 1):
+        for k in range(4):
+            x = 30 + side * (14 + k * 2)
+            c.rect(min(x, x + side * 4), 34 + k * 2 + (step if k % 2 else -step), max(x, x + side * 4), 35 + k * 2, "R")
+        cx = 30 + side * 22
+        for t in range(9):
+            c.rect(30 + side * (12 + t), 26 - t, 30 + side * (12 + t) + 1, 27 - t, "R")      # the arm
+        ellipse(c, cx, 16, 6, 5, "r"); poly(c, [(cx, 12), (cx + side * 6, 6), (cx + side * 2, 13)], "R")
+
+
+KARKINOS_PAL = {"o": "#120604", "r": "#b0442a", "R": "#80301a", "k": "#100808"}
+
+
+def echion(c, step):
+    """Echion (Apollodorus 3.4.1): one of the five Spartoi left standing after the sown men killed each other; he
+    married Cadmus' daughter Agave. A bronze-armoured warrior, earth still on his greaves."""
+    figure(c, step, "z", "s", "Z", legs="d")
+    c.rect(16, 18, 26, 32, "Z"); c.row(24, 16, 26, "z")
+    c.rect(14, 1, 27, 6, "z"); c.rect(19, 0, 22, 1, "r")
+    ellipse(c, 8, 30, 6, 8, "z"); c.px(8, 30, "Z")
+    c.rect(32, 4, 32, 50, "b")
+
+
+ECHION_PAL = dict(SPARTOI_PAL, k="#1a1008")
+
+
+def hydra(c, step):
+    """The Lernaean Hydra (Hesiod, Theogony 313; Apollodorus 2.5.2): the water-serpent of the Lerna marsh with nine
+    heads, the middle one immortal; cut one off and two grow back."""
+    ellipse(c, 34, 46, 20, 10, "g"); ellipse(c, 34, 44, 16, 7, "G")
+    for k in range(9):
+        a = math.pi * (0.15 + 0.7 * k / 8)
+        for t in range(18 if k != 4 else 22):
+            x = round(34 - math.cos(a) * t * 1.4 + math.sin(t / 3 + k + step * 0.5))
+            y = round(42 - math.sin(a) * t * 1.6)
+            c.rect(x - 1, y - 1, x + 1, y + 1, "g" if t % 4 else "G")
+        L = 18 if k != 4 else 22
+        hx, hy = round(34 - math.cos(a) * L * 1.4), round(42 - math.sin(a) * L * 1.6)
+        ellipse(c, hx, hy, 3, 2.5, "y" if k == 4 else "g"); c.px(hx + 1, hy - 1, "r")
+
+
+HYDRA_PAL = {"o": "#08100a", "g": "#3a7a4a", "G": "#2a5a3a", "y": "#d8c050", "r": "#e83a2a"}
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_wild.py."
@@ -288,4 +356,8 @@ if __name__ == "__main__":
     kit.build_boss("erymanthian_boar", erymanthian_boar, ERY_PAL, doc(erymanthian_boar.__doc__), (64, 50), (30, 48), [0, 1, 0, -1, 0])
     kit.build_boss("lycaon", lycaon(False), LYCAON_PAL, doc(lycaon.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("lycaon_wolf", lycaon(True), LYCAON_PAL, doc(lycaon.__doc__ + " Here, as the wolf."), (54, 50), (25, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("spartoi", spartoi, SPARTOI_PAL, doc(spartoi.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("karkinos", karkinos, KARKINOS_PAL, doc(karkinos.__doc__), (62, 48), (30, 46), [0, 1, 0, -1, 0])
+    kit.build_boss("echion", echion, ECHION_PAL, doc(echion.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("hydra", hydra, HYDRA_PAL, doc(hydra.__doc__), (70, 60), (34, 58), [0, 1, 0, -1, 0])
     print("wrote the Wild Green's art")

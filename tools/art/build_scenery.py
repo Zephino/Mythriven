@@ -607,12 +607,23 @@ def sheepfold():
     return p
 
 
+def dragons_teeth():
+    """Dragon's teeth in a furrow (Apollodorus 3.4.1: Cadmus sowed the teeth of the dragon he killed, and armed men
+    sprang up): white fangs sticking up out of a ploughed strip of earth."""
+    p = Pic(28, 12, (14, 11))
+    p.rect(1, 8, 26, 11, "b"); p.rect(1, 8, 26, 8, "B")
+    for x, h in ((4, 5), (9, 7), (14, 4), (19, 6), (23, 5)):
+        for y in range(8 - h, 8):
+            p.rect(x, y, x + max(0, (y - (8 - h)) // 3), y, "m")
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

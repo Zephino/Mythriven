@@ -2,7 +2,7 @@
 
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 7). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
-boss idea; everything else was chosen by Claude from old public-domain texts only. Alfheim built and released 11/01/2026 (00.02.96); Elfame (00.02.97); Arcadia (00.02.98). The owner can change or veto any of
+boss idea; everything else was chosen by Claude from old public-domain texts only. Alfheim built and released 11/01/2026 (00.02.96); Elfame (00.02.97); Arcadia (00.02.98); Lerna (00.02.99). **All four realms are built.** The owner can change or veto any of
 it.
 
 Realms work like Packs 5 and 6: endless map, a hazard, monster families, three bosses, no local gods.
@@ -79,7 +79,7 @@ slowing whoever is caught in them.
 | 20:00 | **The Erymanthian Boar** | It charges across the arena; snowdrifts lie about, and if it charges into one it sticks fast for a few seconds (as Heracles drove it into the deep snow) |
 | 30:00 | **Lycaon** (the design's) | The king who served Zeus human flesh. Zeus's thunderbolts fall around the arena, hurting whoever they strike, Lycaon too; in his last phase he is a wolf, faster |
 
-## Realm 28: Lerna (the serpent-marsh of the Spartoi)
+## Realm 28: Lerna (the serpent-marsh of the Spartoi): **done and released 11/01/2026 (00.02.99)**
 *Sources: Hesiod, Theogony 313-318 (the Hydra of Lerna); Apollodorus, Library 2.5.2 (the Hydra's nine heads, the
 immortal head buried under a rock; Iolaus searing the necks; the crab Hera sent) and 3.4.1 (Cadmus sows the dragon's
 teeth; the Spartoi fight each other when he throws a stone among them; Echion is one of the five who survive);

@@ -410,6 +410,12 @@ LEVELS = {
         "trees": {"oak": (broadleaf, 30, 34), "umbrella_pine": (umbrella_pine, 28, 30), "cypress": (cypress, 12, 38)},
         "bushes": {"myrtle": ("V", "v", "w", "h"), "broom": ("m", "M", "y", "f")},
         "rock": ("a", "A", "B", None)},
+    # Lerna: the marsh by the Argolic gulf; willows and black poplars at the water's edge, reeds and dead trees.
+    "lerna": {
+        "trees": {"willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30),
+                  "black_poplar": (lambda c, r, s: broadleaf(c, r, s, "X", "x", "C"), 22, 40), "dead_tree": (dead_tree, 24, 32)},
+        "bushes": {"reeds": ("papyrus",)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},
