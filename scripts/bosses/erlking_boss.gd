@@ -52,3 +52,8 @@ func _draw() -> void:
 		for k: int in 3:
 			var bend: Vector2 = (to - from).orthogonal().normalized() * (k - 1) * 6.0
 			draw_polyline(PackedVector2Array([from, from.lerp(to, 0.5) + bend, to]), Color(0.8, 0.85, 0.95, 0.5), 1.0)
+
+
+## Home Before Dawn secret: beaten before he lures anyone a fourth time.
+func secret_earned() -> String:
+	return "home_before_dawn" if lures < 4 else ""

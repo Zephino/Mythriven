@@ -65,3 +65,8 @@ func _draw() -> void:
 	draw_arc(at, reach, 0.0, TAU, 32, Color(1.0, 0.6, 0.3, 0.35), 1.0)
 	if held_s > 0.0:
 		draw_arc(at, reach, -PI / 2, -PI / 2 + TAU * minf(held_s / float(_sig().get("shape_s", 4.0)), 1.0), 32, Color(1.0, 0.85, 0.5), 2.5)
+
+
+## Janet's Hold secret: freed three times.
+func secret_earned() -> String:
+	return "janets_hold" if freed >= 3 else ""

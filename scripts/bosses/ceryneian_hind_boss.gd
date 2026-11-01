@@ -42,3 +42,8 @@ func bound_away(from: Player) -> void:
 	if effects != null:
 		effects.spawn_ring(position_now(), 24.0, Color(0.95, 0.85, 0.4), true)
 	enemies.positions[slot] = to
+
+
+## The Year's Chase secret: caught before it bounds away ten times.
+func secret_earned() -> String:
+	return "the_years_chase" if bounds < 10 else ""

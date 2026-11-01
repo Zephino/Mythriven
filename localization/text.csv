@@ -2473,3 +2473,39 @@ BANTER_KARKINOS_ENTRANCE,"(It raises both claws and scuttles sideways, never tur
 BANTER_ECHION_ENTRANCE,"I rose from a dragon's tooth, and I'm still standing. Who threw that stone?"
 BANTER_HYDRA_ENTRANCE,(Nine heads hiss at once.)
 BANTER_HYDRA_HERACLES,(The heads remember the club and the torches. They hiss louder.)
+SECRET_FULL_DANCE_NAME,The Full Dance
+SECRET_FULL_DANCE_DESC,"Dance three of the Erlking's Daughter's dances to the end without ever stepping out, then defeat her. An elf-light aura."
+SECRET_FULL_DANCE_HINT,"Sir Oluf would not dance, and died of it. Dance."
+SECRET_HOME_BEFORE_DAWN_NAME,Home Before Dawn
+SECRET_HOME_BEFORE_DAWN_DESC,Defeat the Erlking before he lures anyone a fourth time. Adds the Elf-arrow passive.
+SECRET_HOME_BEFORE_DAWN_HINT,The father rode hard through the night. Ride harder.
+SECRET_JANETS_HOLD_NAME,Janet's Hold
+SECRET_JANETS_HOLD_DESC,"Free Tam Lin three times by holding on through his changes, then defeat him. A milk-white aura."
+SECRET_JANETS_HOLD_HINT,"Hold him fast and fear him not, whatever shape he takes."
+SECRET_TRUE_THOMAS_NAME,True Thomas
+SECRET_TRUE_THOMAS_DESC,Defeat the Queen of Elfame without anyone eating the fruit of Elfland. Adds the Rhymer's Tongue passive.
+SECRET_TRUE_THOMAS_HINT,Thomas was warned not to touch the fruit. Heed the warning.
+SECRET_YEARS_CHASE_NAME,The Year's Chase
+SECRET_YEARS_CHASE_DESC,Defeat the Ceryneian Hind before it bounds away ten times. A golden-horn aura.
+SECRET_YEARS_CHASE_HINT,Heracles needed a whole year. You don't have one.
+SECRET_ZEUS_JUDGEMENT_NAME,Zeus' Judgement
+SECRET_ZEUS_JUDGEMENT_DESC,"Let Zeus' thunderbolts strike Lycaon three times, then defeat him. Adds the Thunderstone passive."
+SECRET_ZEUS_JUDGEMENT_HINT,Keep the host where the god's anger falls.
+SECRET_THROWN_STONE_NAME,The Thrown Stone
+SECRET_THROWN_STONE_DESC,"Throw the stone among Echion's sown men three times, then defeat him. A sown-bronze aura."
+SECRET_THROWN_STONE_HINT,Cadmus didn't fight the sown men. He let them fight each other.
+SECRET_IOLAUS_BRANDS_NAME,Iolaus' Brands
+SECRET_IOLAUS_BRANDS_DESC,"Sear five of the Hydra's necks with Fire, then defeat it. Adds Iolaus' Brand passive."
+SECRET_IOLAUS_BRANDS_HINT,Every head you cut grows two. Every head you burn stays gone.
+PASSIVE_ELF_ARROW_NAME,Elf-arrow
+PASSIVE_ELF_ARROW_DESC,+2% critical chance per level.
+PASSIVE_RHYMERS_TONGUE_NAME,Rhymer's Tongue
+PASSIVE_RHYMERS_TONGUE_DESC,God meters fill 5% faster per level.
+PASSIVE_THUNDERSTONE_NAME,Thunderstone
+PASSIVE_THUNDERSTONE_DESC,Statuses you cause last 6% longer per level.
+PASSIVE_IOLAUS_BRAND_NAME,Iolaus' Brand
+PASSIVE_IOLAUS_BRAND_DESC,+4% move speed per level.
+COSMETIC_ELF_LIGHT,Elf Light
+COSMETIC_MILK_WHITE,Milk White
+COSMETIC_GOLDEN_HORN,Golden Horn
+COSMETIC_SOWN_BRONZE,Sown Bronze

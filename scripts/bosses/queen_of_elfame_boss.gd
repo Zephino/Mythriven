@@ -64,3 +64,8 @@ func _draw() -> void:
 		draw_circle(p + Vector2(-1.5, -1.5), 2.0, Color(1.0, 0.6, 0.65))
 		draw_line(p + Vector2(0, -5), p + Vector2(2, -8), Color(0.3, 0.6, 0.25), 1.5)
 	super._draw()
+
+
+## True Thomas secret: beaten without anyone eating the fruit of Elfland.
+func secret_earned() -> String:
+	return "true_thomas" if eaten == 0 else ""

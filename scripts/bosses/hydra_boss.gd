@@ -117,3 +117,8 @@ func _draw() -> void:
 		draw_circle(at + Vector2(-3, -3), 7.0, Color(0.66, 0.64, 0.6))
 		if _bury_held > 0.0:
 			draw_arc(at, 20.0, -PI / 2, -PI / 2 + TAU * _bury_held / float(_sig().get("bury_s", 1.5)), 24, Color(1.0, 0.9, 0.5), 2.0)
+
+
+## Iolaus' Brands secret: five necks seared with Fire.
+func secret_earned() -> String:
+	return "iolaus_brands" if seared >= 5 else ""

@@ -399,5 +399,57 @@
       "secret": "the_starved_queen"
     },
     "persists": false
+  },
+  {
+    "id": "elf_arrow",
+    "name_key": "PASSIVE_ELF_ARROW_NAME",
+    "desc_key": "PASSIVE_ELF_ARROW_DESC",
+    "stat": "crit",
+    "per_level": 0.02,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "home_before_dawn"
+    },
+    "persists": false
+  },
+  {
+    "id": "rhymers_tongue",
+    "name_key": "PASSIVE_RHYMERS_TONGUE_NAME",
+    "desc_key": "PASSIVE_RHYMERS_TONGUE_DESC",
+    "stat": "god_charge",
+    "per_level": 0.05,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "true_thomas"
+    },
+    "persists": false
+  },
+  {
+    "id": "thunderstone",
+    "name_key": "PASSIVE_THUNDERSTONE_NAME",
+    "desc_key": "PASSIVE_THUNDERSTONE_DESC",
+    "stat": "status_duration",
+    "per_level": 0.06,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "zeus_judgement"
+    },
+    "persists": false
+  },
+  {
+    "id": "iolaus_brand",
+    "name_key": "PASSIVE_IOLAUS_BRAND_NAME",
+    "desc_key": "PASSIVE_IOLAUS_BRAND_DESC",
+    "stat": "move_speed",
+    "per_level": 0.04,
+    "max_level": 5,
+    "unlock": {
+      "type": "secret",
+      "secret": "iolaus_brands"
+    },
+    "persists": false
   }
 ]

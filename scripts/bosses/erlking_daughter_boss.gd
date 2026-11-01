@@ -79,3 +79,8 @@ func _draw() -> void:
 			var spot: Vector2 = at + Vector2.from_angle(TAU * k / 8.0 + Time.get_ticks_msec() * 0.002) * reach
 			draw_circle(spot, 2.0, Color(0.95, 1.0, 0.85, 0.8))
 	super._draw()
+
+
+## The Full Dance secret: three dances danced to the end, and never stepped out of one.
+func secret_earned() -> String:
+	return "the_full_dance" if danced >= 3 and struck == 0 else ""

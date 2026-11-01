@@ -677,6 +677,11 @@ func test_wandering_lights_draw_monsters_in() -> void:
 	_world.add_child(lights)
 	lights.begin(_level("the_slavic_wilds")["hazard"])
 	assert_eq(lights.lights.size(), 3)
+	# One light, so another light nearby can't pull the wolf its own way (this made the test fail now and then).
+	lights.end()
+	var one: Dictionary = (_level("the_slavic_wilds")["hazard"] as Dictionary).duplicate()
+	one["lights"] = 1
+	lights.begin(one)
 	var slot: int = _enemies.spawn("grey_wolf", lights.lights[0] + Vector2(80, 0))
 	_enemies.hash_grid.rebuild(_enemies.positions, _enemies.active)
 	var before: float = _enemies.positions[slot].distance_to(lights.lights[0])

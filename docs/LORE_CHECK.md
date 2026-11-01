@@ -654,6 +654,19 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | hydra_entrance | boss entrance | hydra | (Nine heads hiss at once.) | Hesiod, Theogony 313-318 | no |
 | hydra_heracles | boss entrance (as heracles) | hydra | (The heads remember the club and the torches. They hiss louder.) | Apollodorus 2.5.2 (the second labour) | no |
 
+### Pack 7 secrets (Oracle hints are original drafts)
+
+| Id | Name | Hint | Source | OK? |
+| --- | --- | --- | --- | --- |
+| the_full_dance | The Full Dance | Sir Oluf would not dance, and died of it. Dance. | Herder, Erlkonigs Tochter (1778): Sir Oluf would not dance | no |
+| home_before_dawn | Home Before Dawn | The father rode hard through the night. Ride harder. | Goethe, Erlkonig (1782): the father rides home with the child | no |
+| janets_hold | Janet's Hold | Hold him fast and fear him not, whatever shape he takes. | The ballad Tam Lin (Child 39): Janet holds him fast | no |
+| true_thomas | True Thomas | Thomas was warned not to touch the fruit. Heed the warning. | The ballad Thomas the Rhymer (Child 37): the fruit of Elfland | no |
+| the_years_chase | The Year's Chase | Heracles needed a whole year. You don't have one. | Apollodorus, Library 2.5.3 (Heracles chases the hind for a year) | no |
+| zeus_judgement | Zeus' Judgement | Keep the host where the god's anger falls. | Ovid, Metamorphoses 1.163-243 (Zeus' thunderbolt on Lycaon's house) | no |
+| the_thrown_stone | The Thrown Stone | Cadmus didn't fight the sown men. He let them fight each other. | Apollodorus, Library 3.4.1 (Cadmus throws a stone among the Spartoi) | no |
+| iolaus_brands | Iolaus' Brands | Every head you cut grows two. Every head you burn stays gone. | Apollodorus, Library 2.5.2 (Iolaus sears the Hydra's necks) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

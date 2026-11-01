@@ -481,6 +481,50 @@ def ant_strength():
     return p
 
 
+def elf_arrow():
+    """Elf-arrow (the charm "Wid faerstice": the elves' arrows): a small flint arrowhead, as the old "elf-shot" stones."""
+    p = icon()
+    for y in range(2, 13):
+        w = (y - 2) // 2
+        p.rect(8 - w, y, 8 + w, y, "S" if y % 3 else "s")
+    p.rect(7, 13, 9, 15, "b")
+    return p
+
+
+def rhymers_tongue():
+    """Rhymer's Tongue (Thomas the Rhymer: given a tongue that cannot lie): a harp of Elfland, small and green-gold."""
+    p = icon()
+    for k in range(10):
+        p.px(3 + k // 3, 13 - k, "r"); p.px(4 + k, 3 + k // 4, "r")
+    for x in range(5, 13, 2):
+        p.rect(x, 5 + (x - 5) // 4, x, 12, "y")
+    p.rect(3, 13, 13, 14, "l")
+    return p
+
+
+def thunderstone():
+    """Thunderstone (Ovid: Zeus' thunderbolt on Lycaon's house): a dark stone crackling with a jagged bolt."""
+    p = icon()
+    for y in range(4, 15):
+        for x in range(2, 14):
+            if math.hypot(x - 8, (y - 10) * 1.3) <= 5.5:
+                p.px(x, y, "C")
+    for x, y in ((9, 1), (8, 3), (10, 4), (8, 6), (9, 8)):
+        p.px(x, y, "y"); p.px(x, y + 1, "y")
+    return p
+
+
+def iolaus_brand():
+    """Iolaus' Brand (Apollodorus 2.5.2: the brands that seared the Hydra's necks): a burning torch."""
+    p = icon()
+    for k in range(9):
+        p.px(4 + k, 14 - k, "b"); p.px(5 + k, 14 - k, "B")
+    for x, y in ((12, 2), (13, 3), (11, 3), (12, 4), (14, 1)):
+        p.px(x, y, "y")
+    p.rect(11, 4, 13, 6, "r")
+    return p
+
+
 ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hourglass": hourglass, "seers_eye": eye,
          "lodestone": lodestone, "bronze_aegis": aegis, "ferrymans_coin": obol, "golden_apple": apple,
          "votive_bell": bell, "mirrored_shield": mirror_shield, "tyrs_oath": hand,
@@ -489,7 +533,8 @@ ICONS = {"crit": crit, "belt_of_strength": belt, "winged_sandals": sandals, "hou
          "laevateinn_shard": flame_blade, "yggdrasil_dew": dew, "golden_key": golden_key, "roc_feather": roc_feather,
          "sun_crow_feather": crow_feather, "loose_thread": loose_thread,
          "hunters_horn": hunters_horn, "mountebanks_charm": pedlar_charm, "wolf_tooth": wolf_tooth, "iron_claw": iron_claw,
-         "draupnir": draupnir_ring, "tarnkappe_thread": tarnkappe_thread, "glow_cap": glow_cap, "ant_strength": ant_strength}
+         "draupnir": draupnir_ring, "tarnkappe_thread": tarnkappe_thread, "glow_cap": glow_cap, "ant_strength": ant_strength,
+         "elf_arrow": elf_arrow, "rhymers_tongue": rhymers_tongue, "thunderstone": thunderstone, "iolaus_brand": iolaus_brand}
 
 
 def outlined(p):

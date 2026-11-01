@@ -76,3 +76,8 @@ func _draw() -> void:
 		draw_circle(at + Vector2(-2, -2), 3.0, Color(0.75, 0.75, 0.72))
 		draw_arc(at, 14.0, 0.0, TAU, 20, Color(1, 1, 1, 0.4), 1.0)
 	super._draw()
+
+
+## The Thrown Stone secret: the stone thrown three times.
+func secret_earned() -> String:
+	return "the_thrown_stone" if thrown >= 3 else ""

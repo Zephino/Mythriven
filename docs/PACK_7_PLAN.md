@@ -99,3 +99,17 @@ Pausanias 2.37 (Lerna's bottomless lake, a way down to the underworld).*
 | 10:00 | **Karkinos** | The giant crab Hera sent against Heracles. Its shell turns blows from the front; strike it from the side or behind |
 | 20:00 | **Echion** | One of the sown men. He raises Spartoi from the ground; a stone lies in the arena, and a Hero who takes it throws it among them, so they fight each other for a while |
 | 30:00 | **The Lernaean Hydra** (the design's) | Its heads grow back, more each time (more attacks); Fire sears a neck and keeps a head from growing. Its last head is immortal: at the end it can't die until a Hero buries the head under the rock that appears |
+
+## Secrets (00.03.00, two per realm; Claude's choices)
+| Realm | Secret | How | Reward |
+| --- | --- | --- | --- |
+| Alfheim | The Full Dance | Dance three of the Erlking's Daughter's dances to the end, never stepping out | Elf-light aura |
+| Alfheim | Home Before Dawn | Beat the Erlking before he lures anyone a fourth time | Elf-arrow passive (+2% crit per level) |
+| Elfame | Janet's Hold | Free Tam Lin three times, then beat him | Milk-white aura |
+| Elfame | True Thomas | Beat the Queen of Elfame without anyone eating her fruit | Rhymer's Tongue passive (god meters fill 5% faster per level) |
+| Arcadia | The Year's Chase | Beat the Ceryneian Hind before it bounds away ten times | Golden-horn aura |
+| Arcadia | Zeus' Judgement | Let Zeus' bolts strike Lycaon three times, then beat him | Thunderstone passive (statuses last 6% longer per level) |
+| Lerna | The Thrown Stone | Throw the stone among Echion's sown men three times, then beat him | Sown-bronze aura |
+| Lerna | Iolaus' Brands | Sear five of the Hydra's necks with Fire, then beat it | Iolaus' Brand passive (+4% move speed per level) |
+
+**Pack 7 is complete.**

@@ -81,3 +81,8 @@ func _draw() -> void:
 		draw_arc(at, reach, 0.0, TAU, 24, area_color, 1.5)
 		draw_circle(at, reach * (1.0 - float(b["left"]) / float(_sig().get("telegraph_s", 1.2))), Color(area_color, 0.3))
 	super._draw()
+
+
+## Zeus' Judgement secret: his own thunderbolts struck him three times.
+func secret_earned() -> String:
+	return "zeus_judgement" if self_struck >= 3 else ""

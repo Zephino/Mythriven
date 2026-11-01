@@ -2,6 +2,27 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.00
+Date: 10/31/2026
+Time: 9:35 PM
+
+### Changes
+- **Eight Pack 7 secrets**, two for each realm of The Wild Green (`docs/PACK_7_PLAN.md`):
+  - **The Full Dance:** dance three of the Erlking's Daughter's dances to the end without ever stepping out, then beat her. An elf-light aura.
+  - **Home Before Dawn:** beat the Erlking before he lures anyone a fourth time. The **Elf-arrow** passive (+2% critical chance per level).
+  - **Janet's Hold:** free Tam Lin three times by holding on through his changes, then beat him. A milk-white aura.
+  - **True Thomas:** beat the Queen of Elfame without anyone eating the fruit of Elfland. The **Rhymer's Tongue** passive (god meters fill 5% faster per level).
+  - **The Year's Chase:** beat the Ceryneian Hind before it bounds away ten times. A golden-horn aura.
+  - **Zeus' Judgement:** let Zeus' thunderbolts strike Lycaon three times, then beat him. The **Thunderstone** passive (statuses you cause last 6% longer per level).
+  - **The Thrown Stone:** throw the stone among Echion's sown men three times, then beat him. A sown-bronze aura.
+  - **Iolaus' Brands:** sear five of the Hydra's necks with Fire, then beat it. **Iolaus' Brand** passive (+4% move speed per level).
+- Four new passive icons. The secrets are on the lore check (their Oracle hints are original drafts). **Pack 7 is complete.**
+- **Test fix:** the Slavic Wilds' wandering-lights test failed now and then, because one of the other two lights could land close enough to pull the wolf its own way. It now tests with a single light. (This was the test that failed once before the 00.02.93 push.)
+- 1 new test (383 tests pass).
+
+### Reason
+Every level gets two secrets; this finishes Pack 7 (owner: "go ahead").
+
 ## Version 00.02.99
 Date: 10/31/2026
 Time: 9:32 PM

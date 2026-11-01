@@ -695,3 +695,45 @@ func test_the_hydra_grows_heads_fire_sears_and_the_last_head_must_be_buried() ->
 	hydra.signature(0.8)
 	assert_true(hydra.buried)
 	assert_false(hydra.is_alive(), "buried, it dies")
+
+
+func test_pack_7_boss_secrets() -> void:
+	_start("alfheim")
+	var daughter: ErlkingDaughterBoss = _bosses.spawn_boss("erlking_daughter", 0) as ErlkingDaughterBoss
+	daughter.danced = 3
+	assert_eq(daughter.secret_earned(), "the_full_dance")
+	daughter.struck = 1
+	assert_eq(daughter.secret_earned(), "", "stepped out once")
+	var king: ErlkingBoss = _bosses.spawn_boss("erlking", 2) as ErlkingBoss
+	assert_eq(king.secret_earned(), "home_before_dawn")
+	GameAuthority.end_scene()
+	_start("elfame")
+	var knight: TamLinBoss = _bosses.spawn_boss("tam_lin", 0) as TamLinBoss
+	knight.freed = 3
+	assert_eq(knight.secret_earned(), "janets_hold")
+	var queen: QueenOfElfameBoss = _bosses.spawn_boss("queen_of_elfame", 2) as QueenOfElfameBoss
+	assert_eq(queen.secret_earned(), "true_thomas")
+	queen.eaten = 1
+	assert_eq(queen.secret_earned(), "")
+	GameAuthority.end_scene()
+	_start("arcadia")
+	var hind: CeryneianHindBoss = _bosses.spawn_boss("ceryneian_hind", 0) as CeryneianHindBoss
+	assert_eq(hind.secret_earned(), "the_years_chase")
+	var wolf_king: LycaonBoss = _bosses.spawn_boss("lycaon", 2) as LycaonBoss
+	wolf_king.self_struck = 3
+	assert_eq(wolf_king.secret_earned(), "zeus_judgement")
+	GameAuthority.end_scene()
+	_start("lerna")
+	var sown: EchionBoss = _bosses.spawn_boss("echion", 1) as EchionBoss
+	sown.thrown = 3
+	assert_eq(sown.secret_earned(), "the_thrown_stone")
+	var hydra: HydraBoss = _bosses.spawn_boss("hydra", 2) as HydraBoss
+	hydra.seared = 5
+	assert_eq(hydra.secret_earned(), "iolaus_brands")
+	for secret: String in ["the_full_dance", "home_before_dawn", "janets_hold", "true_thomas", "the_years_chase",
+			"zeus_judgement", "the_thrown_stone", "iolaus_brands"]:
+		var reward: Dictionary = SecretRules.find(secret)["reward"]
+		if str(reward["type"]) == "passive":
+			assert_false(LevelUpRules.passive_data(str(reward["id"])).is_empty(), secret)
+		else:
+			assert_false(Rewards.cosmetic(str(reward["id"])).is_empty(), secret)
