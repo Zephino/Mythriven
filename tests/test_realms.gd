@@ -983,3 +983,29 @@ func test_talos_throws_heats_and_shows_his_nail() -> void:
 	giant.signature(4.1)
 	assert_gt(giant.nail_s, 0.0, "the nail shows")
 	assert_almost_eq(giant.modify_hit(10.0, _player, Vector2.ZERO), 25.0, 0.01)
+
+
+func test_the_ratel_goblin_tumbles_hurry_skurry() -> void:
+	_start("the_goblin_market")
+	assert_eq(str(_level("the_goblin_market")["unlock"]["boss"]), "vortigern")
+	var ratel: RatelGoblinBoss = _bosses.spawn_boss("ratel_goblin", 0) as RatelGoblinBoss
+	var at: Vector2 = ratel.position_now()
+	ratel.tumble()
+	ratel.signature(0.4)
+	assert_gt(ratel.position_now().distance_to(at), 60.0, "off it tumbles")
+
+
+func test_the_snail_goblin_leaves_slime() -> void:
+	_start("the_goblin_market")
+	var snail: SnailGoblinBoss = _bosses.spawn_boss("snail_goblin", 1) as SnailGoblinBoss
+	snail.signature(0.5)
+	assert_gt(snail.slime.size(), 0)
+	_player.position = snail.slime[0]["pos"]
+	snail.signature(0.05)
+	assert_lt(_player.slow_zone_mult, 1.0, "the slime slows")
+
+
+func test_the_goblin_merchants_crowd_round() -> void:
+	_start("the_goblin_market")
+	var merchants: GoblinMerchantsBoss = _bosses.spawn_boss("goblin_merchants", 2) as GoblinMerchantsBoss
+	assert_eq(merchants.surround(_player), 10, "a ring of goblins")

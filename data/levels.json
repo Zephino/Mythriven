@@ -4174,5 +4174,118 @@
       "edge": "#4a4038",
       "stones": "#8a7e70"
     }
+  },
+  {
+    "_doc": "The Goblin Market, Pack 9 realm 2, the goblin bazaar (docs/PACK_9_PLAN.md). Source: Christina Rossetti, Goblin Market (1862). A realm: no local gods.",
+    "id": "the_goblin_market",
+    "name_key": "LEVEL_GOBLIN_MARKET_NAME",
+    "region": "realm_goblin",
+    "act": 11,
+    "order": 2,
+    "care_tier": "A",
+    "tileset": {
+      "id": "the_goblin_market",
+      "noise_frequency": 0.032,
+      "variant_shade": 0.05,
+      "ground": [
+        {
+          "id": "flowers",
+          "max": -0.25,
+          "placeholder_color": "#4a6a3a",
+          "placeholder_dots": "#c890c8"
+        },
+        {
+          "id": "grass",
+          "max": 0.2,
+          "placeholder_color": "#3e5e34",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dark_grass",
+          "max": 0.6,
+          "placeholder_color": "#2e4a2a",
+          "placeholder_dots": ""
+        },
+        {
+          "id": "dirt",
+          "max": 1.0,
+          "placeholder_color": "#4a3a2a",
+          "placeholder_dots": ""
+        }
+      ]
+    },
+    "decorations": [
+      "fruit_stall",
+      "fallen_log"
+    ],
+    "decorations_per_chunk": [
+      2,
+      4
+    ],
+    "decoration_art": {
+      "fruit_stall": {
+        "shape": "rect",
+        "size_px": [
+          24,
+          22
+        ],
+        "placeholder_color": "#a8302a",
+        "weight": 2
+      },
+      "fallen_log": {
+        "shape": "rect",
+        "size_px": [
+          30,
+          10
+        ],
+        "placeholder_color": "#5a4430",
+        "weight": 1
+      }
+    },
+    "local_gods": [],
+    "local_shrine_chance": 0.0,
+    "bosses": {
+      "10": "ratel_goblin",
+      "20": "snail_goblin",
+      "30": "goblin_merchants"
+    },
+    "unlock": {
+      "type": "boss",
+      "level": "logres",
+      "boss": "vortigern"
+    },
+    "waves": "waves_the_goblin_market.json",
+    "hazard": {
+      "type": "strikes",
+      "first_s": 120,
+      "interval_s": 95,
+      "duration_s": 16,
+      "strikes_per_s": 0.7,
+      "radius_px": 32,
+      "telegraph_s": 1.2,
+      "damage": 5,
+      "element": "water",
+      "range_px": 230,
+      "color": "#a03a8a",
+      "look": "flood",
+      "flood_s": 5,
+      "flood_slow": 0.6,
+      "name_key": "HAZARD_GOBLIN_FRUIT_NAME"
+    },
+    "seal": "celtic_knot",
+    "tint": "#d0c4dc",
+    "flora": {
+      "density": 0.7,
+      "trees": {
+        "oak": 1,
+        "hawthorn": 2,
+        "willow": 2
+      }
+    },
+    "road": {
+      "color": "#6a5a44",
+      "edge": "#4a3e2e",
+      "stones": "#8a7a62"
+    }
   }
 ]

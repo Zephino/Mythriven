@@ -355,6 +355,11 @@ LEVELS = {
         "birds": {"gull": ("#e8ecec", "#9aa4ac", "#e0b030", True)},
         "insects": {},
         "large": {}},
+    "the_goblin_market": {
+        "ground": {"hedgehog": (hedgehog, "#6a5a48", "#c8a888"), "common_frog": (frog, "#6a8a3a", "#c8c08a")},
+        "birds": {"owl": ("#8a7a68", "#5a4a3a", "#d8b040", False)},
+        "insects": {"moth": (butterfly, "#c8c4b8", "#4a4650"), "firefly": (lambda *a: firefly(a[-1]),)},
+        "large": {}},
     "niflheim": {
         "ground": {"mountain_hare": (hare, "#e8e8ec", "#ffffff")},
         "birds": {"raven": ("#24222a", "#3a3844", "#24222a", True)},

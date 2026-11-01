@@ -776,6 +776,24 @@ Also written for Pack 2 and worth checking: the boss lines shown as banners (`BO
 | talos_entrance | boss entrance | talos | Three times round the island every day. Nothing lands that I don't see. | Argonautica 4.1638-1688 | no |
 | talos_poseidon | boss meets god (with poseidon) | talos | Earth-shaker, your ships do not land here. | Original line written for Mythriven | no |
 
+### The Goblin Market
+
+| Kind | Id | Name | Source in data | Verified |
+| --- | --- | --- | --- | --- |
+| level | the_goblin_market | The Goblin Market | Christina Rossetti, Goblin Market (1862) | no |
+| enemy | goblin_man | Goblin man | Christina Rossetti, Goblin Market (1862): the goblin merchant-men | no |
+| enemy | rat_goblin | Rat-paced goblin | Christina Rossetti, Goblin Market (1862): "one tramped at a rat's pace" | no |
+| boss | ratel_goblin | The Ratel Goblin | Christina Rossetti, Goblin Market (1862): "one like a ratel tumbled hurry skurry" | no |
+| boss | snail_goblin | The Snail Goblin | Christina Rossetti, Goblin Market (1862): "one crawled like a snail" | no |
+| boss | goblin_merchants | The Goblin Merchant-Men | Christina Rossetti, Goblin Market (1862): the goblins crowd round Lizzie trying to make her eat | no |
+
+| Banter id | When | Speaker | Line | Source | OK? |
+| --- | --- | --- | --- | --- | --- |
+| ratel_goblin_entrance | boss entrance | ratel_goblin | (It comes tumbling hurry skurry down the glen.) | Rossetti, Goblin Market | no |
+| snail_goblin_entrance | boss entrance | snail_goblin | Come buy... come... buy... | Rossetti, Goblin Market (the goblins' cry) | no |
+| goblin_merchants_entrance | boss entrance | goblin_merchants | Come buy our orchard fruits, come buy, come buy! | Rossetti, Goblin Market (the goblins' cry) | no |
+| goblin_merchants_persephone | boss meets god (with persephone) | goblin_merchants | A lady who knows what fruit can cost! Just one seed, my queen? | Original line written for Mythriven (Persephone's pomegranate) | no |
+
 ## Not checked here
 
 - Enemy fodder, events, and Words of Legend lines: listed sources are in their data files; check them the same way before release.

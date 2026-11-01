@@ -102,6 +102,83 @@ TALOS_PAL = {"o": "#1a0a04", "z": "#c08a3a", "Z": "#8a5a24", "r": "#f06a2a", "R"
              "k": "#2a1408", "v": "#a83a2a"}
 
 
+# --- The Goblin Market (Christina Rossetti, Goblin Market, 1862) -------------------------------------------------------
+
+def goblin_man(c, f):
+    """A goblin merchant-man (Rossetti: "one had a cat's face, one whisked a tail"): a small cat-faced goblin in a brown
+    coat, a basket of fruit on his arm."""
+    s = STEP[f]
+    for x, d in ((7, -s), (11, s)):
+        c.rect(x + d, 16, x + 1 + d, 20, "k")
+    c.rect(5, 8, 13, 16, "b")
+    ellipse(c, 9, 5, 3.5, 3, "c"); c.px(6, 2, "c"); c.px(12, 2, "c"); c.px(8, 5, "y"); c.px(10, 5, "y")
+    ellipse(c, 15, 13, 3, 2, "B"); c.px(14, 11, "r"); c.px(16, 11, "p"); c.px(15, 10, "y")
+
+
+GOBLIN_PAL = {"o": "#120a06", "k": "#2a1a10", "b": "#6a4a2a", "B": "#8a6a3a", "c": "#8a7a5a", "y": "#e8d040",
+              "r": "#c82a2a", "p": "#7a2a8a"}
+
+
+def rat_goblin(c, f):
+    """A rat-paced goblin (Rossetti: "one tramped at a rat's pace"): a small grey goblin scurrying like a rat."""
+    s = STEP[f]
+    ellipse(c, 8, 8, 5, 3, "g"); poly(c, [(12, 6), (15, 8), (12, 10)], "g"); c.px(13, 7, "r")
+    for k, d in enumerate((-s, s, s, -s)):
+        c.px(5 + k * 2 + d, 11, "G")
+    for k in range(5):
+        c.px(3 - k, 8 + k // 2, "p")
+
+
+RAT_PAL = {"o": "#120c0a", "g": "#7a7068", "G": "#4a4440", "r": "#e8203a", "p": "#c89a8a"}
+
+
+def ratel_goblin(c, step):
+    """The Ratel Goblin (Rossetti: "one like a ratel tumbled hurry skurry"): a squat goblin like a honey badger, black
+    below and grey-white along its back, tumbling head over heels."""
+    ellipse(c, 24, 28, 18, 11, "k"); ellipse(c, 24, 22, 16, 6, "w")
+    for k, d in enumerate((-step, step, step, -step)):
+        c.rect(12 + k * 7 + d, 34, 14 + k * 7 + d, 42, "k")
+    ellipse(c, 40, 26, 6, 5, "k"); c.px(42, 24, "y"); c.rect(44, 27, 46, 28, "w")
+    for k in range(6):
+        c.px(8 + k, 36 + (k + step) % 2, "y")                                                       # dust as it tumbles
+
+
+RATEL_PAL = {"o": "#0a0806", "k": "#1e1a18", "w": "#d8d4cc", "y": "#e8c040"}
+
+
+def snail_goblin(c, step):
+    """The Snail Goblin (Rossetti: "one crawled like a snail"): a fat goblin crawling under a great spiral shell, its
+    trail glistening behind it."""
+    for x in range(0, 44, 3):
+        c.px(x, 46, "s")                                                                              # the slime trail
+    poly(c, [(4, 40), (44, 40), (48, 46), (2, 46)], "b")
+    for r in range(14, 2, -3):
+        ellipse(c, 24, 26, r, r, "h" if r % 2 else "H")
+    c.rect(40, 30, 46, 40, "b"); ellipse(c, 44, 30, 4, 4, "b"); c.px(45, 29, "k")
+    c.px(46, 24, "b"); c.px(47, 22, "b"); c.px(43, 24, "b"); c.px(43, 22, "b")
+
+
+SNAIL_PAL = {"o": "#120c08", "b": "#8a7a5a", "h": "#a8703a", "H": "#7a4a24", "k": "#1a1008", "s": "#a8d8a0"}
+
+
+def goblin_merchants(c, step):
+    """The Goblin Merchant-Men (Rossetti: "Come buy our orchard fruits, come buy, come buy"): a crowd of little goblin
+    merchants with laden trays and baskets of fruit, crying their wares."""
+    for k, (x, face) in enumerate(((8, "c"), (24, "g"), (40, "c"))):
+        dy = (step if k % 2 else -step)
+        for d in (-1, 1):
+            c.rect(x + d * 2, 44 + dy, x + d * 2 + 1, 50, "k")
+        c.rect(x - 5, 30 + dy, x + 5, 44 + dy, "b")
+        ellipse(c, x, 26 + dy, 4, 4, face); c.px(x - 1, 25 + dy, "y"); c.px(x + 2, 25 + dy, "y")
+        c.px(x - 3, 22 + dy, face); c.px(x + 3, 22 + dy, face)
+    poly(c, [(2, 18), (48, 18), (44, 24), (6, 24)], "B")                                              # a laden tray
+    for x, col in ((8, "r"), (14, "p"), (20, "y"), (26, "r"), (32, "o2"), (38, "p"), (44, "y")):
+        ellipse(c, x, 16, 2.5, 2.5, col if col != "o2" else "q")
+
+
+MERCHANTS_PAL = dict(GOBLIN_PAL, g="#7a8a5a", q="#e88a2a")
+
+
 if __name__ == "__main__":
     def doc(text):
         return " ".join(text.split()) + " Built by tools/art/build_gears.py."
@@ -113,4 +190,9 @@ if __name__ == "__main__":
     kit.build_boss("gold_silver_hounds_silver", gold_silver_hound(False), HOUNDS_PAL, doc(gold_silver_hound.__doc__ + " The silver hound."), (52, 46), (24, 44), [0, 1, 0, -1, 0])
     kit.build_boss("talos", talos(False), TALOS_PAL, doc(talos.__doc__), (54, 68), (26, 66), [0, 1, 0, -1, 0])
     kit.build_boss("talos_hot", talos(True), TALOS_PAL, doc(talos.__doc__ + " Here, red-hot."), (54, 68), (26, 66), [0, 1, 0, -1, 0])
+    kit.build_boss("goblin_man", goblin_man, GOBLIN_PAL, doc(goblin_man.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("rat_goblin", rat_goblin, RAT_PAL, doc(rat_goblin.__doc__), (18, 14), (9, 13), walk, folder="enemies")
+    kit.build_boss("ratel_goblin", ratel_goblin, RATEL_PAL, doc(ratel_goblin.__doc__), (50, 46), (24, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("snail_goblin", snail_goblin, SNAIL_PAL, doc(snail_goblin.__doc__), (50, 50), (24, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("goblin_merchants", goblin_merchants, MERCHANTS_PAL, doc(goblin_merchants.__doc__), (50, 54), (24, 52), [0, 1, 0, -1, 0])
     print("wrote Gears and Plunder's art")

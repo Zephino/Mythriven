@@ -1,0 +1,104 @@
+{
+ "_doc": "A rat-paced goblin (Rossetti: \"one tramped at a rat's pace\"): a small grey goblin scurrying like a rat. Built by tools/art/build_gears.py.",
+ "size": [
+  18,
+  14
+ ],
+ "anchor": [
+  9,
+  13
+ ],
+ "palette": {
+  "o": "#120c0a",
+  "g": "#7a7068",
+  "G": "#4a4440",
+  "r": "#e8203a",
+  "p": "#c89a8a"
+ },
+ "frames": {
+  "idle": [
+   [
+    "..................",
+    "..................",
+    "..................",
+    "..................",
+    "........o.........",
+    ".....ooogoooo.....",
+    "....oggggggggo....",
+    "..oogggggggggro...",
+    "ooppggggggggggo...",
+    "ppoogggggggggo....",
+    "oo..ogggggggo.....",
+    "....oGoGgGoGo.....",
+    ".....o.ooo.o......",
+    ".................."
+   ]
+  ],
+  "walk": [
+   [
+    "..................",
+    "..................",
+    "..................",
+    "..................",
+    "........o.........",
+    ".....ooogoooo.....",
+    "....oggggggggo....",
+    "..oogggggggggro...",
+    "ooppggggggggggo...",
+    "ppoogggggggggo....",
+    "oo..ogggggggo.....",
+    ".....oGoGoooGo....",
+    "......o.o...o.....",
+    ".................."
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "..................",
+    "........o.........",
+    ".....ooogoooo.....",
+    "....oggggggggo....",
+    "..oogggggggggro...",
+    "ooppggggggggggo...",
+    "ppoogggggggggo....",
+    "oo..ogggggggo.....",
+    "....oGoGgGoGo.....",
+    ".....o.ooo.o......",
+    ".................."
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "..................",
+    "........o.........",
+    ".....ooogoooo.....",
+    "....oggggggggo....",
+    "..oogggggggggro...",
+    "ooppggggggggggo...",
+    "ppoogggggggggo....",
+    "oo..ogggggggo.....",
+    "...oGoooGoGo......",
+    "....o...o.o.......",
+    ".................."
+   ],
+   [
+    "..................",
+    "..................",
+    "..................",
+    "..................",
+    "........o.........",
+    ".....ooogoooo.....",
+    "....oggggggggo....",
+    "..oogggggggggro...",
+    "ooppggggggggggo...",
+    "ppoogggggggggo....",
+    "oo..ogggggggo.....",
+    "....oGoGgGoGo.....",
+    ".....o.ooo.o......",
+    ".................."
+   ]
+  ]
+ }
+}

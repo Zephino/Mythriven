@@ -2684,3 +2684,29 @@ BANTER_GOLD_SILVER_HOUNDS_ENTRANCE,"(Two hounds of gold and silver, immortal and
 BANTER_TALOS_ENTRANCE,Three times round the island every day. Nothing lands that I don't see.
 BANTER_TALOS_POSEIDON,"Earth-shaker, your ships do not land here."
 PACK_11_NAME,Pack 9: Gears and Plunder
+LEVEL_GOBLIN_MARKET_NAME,The Goblin Market
+HAZARD_GOBLIN_FRUIT_NAME,"""Come buy, come buy!"" The goblins pelt you with fruit!"
+ENEMY_GOBLIN_MAN_NAME,Goblin man
+ENEMY_GOBLIN_MAN_MYTH,"Morning and evening the maids heard the goblins crying ""Come buy, come buy"": little merchant-men with cats' faces and whisking tails, trailing baskets and plates of fruit."
+ENEMY_RAT_GOBLIN_NAME,Rat-paced goblin
+ENEMY_RAT_GOBLIN_MYTH,"Small goblins that scurry at a rat's pace through the rushes, in a hurry to the market."
+BOSS_RATEL_GOBLIN_NAME,The Ratel Goblin
+ENEMY_RATEL_GOBLIN_NAME,The Ratel Goblin
+ENEMY_RATEL_GOBLIN_MYTH,"One of the goblin merchant-men, like a ratel (a honey badger), that tumbles hurry-skurry head over heels down the glen."
+BOSS_SNAIL_GOBLIN_NAME,The Snail Goblin
+ENEMY_SNAIL_GOBLIN_NAME,The Snail Goblin
+ENEMY_SNAIL_GOBLIN_MYTH,"One of the goblin merchant-men, who crawls like a snail under its shell, slow and slimy and very hard to stop."
+BOSS_GOBLIN_MERCHANTS_NAME,The Goblin Merchant-Men
+ENEMY_GOBLIN_MERCHANTS_NAME,The Goblin Merchant-Men
+ENEMY_GOBLIN_MERCHANTS_MYTH,"The merchant-men of the glen, crying their fruits. When Lizzie came to buy fruit for her sister and would not eat it herself, they crowded round her, mocking and pinching, and squeezed their fruits against her mouth; she held it shut, and came home dripping with juice."
+BOSS_GOBLIN_MERCHANTS_COME_BUY,"""Come buy, come buy!"" The goblins crowd round you!"
+ACH_BOSS_RATEL_GOBLIN_NAME,Defeat The Ratel Goblin
+ACH_BOSS_RATEL_GOBLIN_DESC,The 10:00 boss of The Goblin Market.
+ACH_BOSS_SNAIL_GOBLIN_NAME,Defeat The Snail Goblin
+ACH_BOSS_SNAIL_GOBLIN_DESC,The 20:00 boss of The Goblin Market.
+ACH_BOSS_GOBLIN_MERCHANTS_NAME,Defeat The Goblin Merchant-Men
+ACH_BOSS_GOBLIN_MERCHANTS_DESC,The 30:00 boss of The Goblin Market.
+BANTER_RATEL_GOBLIN_ENTRANCE,(It comes tumbling hurry skurry down the glen.)
+BANTER_SNAIL_GOBLIN_ENTRANCE,Come buy... come... buy...
+BANTER_GOBLIN_MERCHANTS_ENTRANCE,"Come buy our orchard fruits, come buy, come buy!"
+BANTER_GOBLIN_MERCHANTS_PERSEPHONE,"A lady who knows what fruit can cost! Just one seed, my queen?"

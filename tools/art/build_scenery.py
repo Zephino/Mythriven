@@ -675,12 +675,25 @@ def bronze_tripod():
     return p
 
 
+def fruit_stall():
+    """A goblin fruit stall (Rossetti, Goblin Market: "apples and quinces, lemons and oranges, plump unpecked cherries,
+    melons and raspberries..."): a little awninged stall heaped with fruit."""
+    p = Pic(26, 24, (13, 23))
+    p.rect(2, 12, 23, 23, "b"); p.rect(2, 12, 23, 13, "B")
+    for x in range(2, 24, 4):
+        p.rect(x, 0, x + 1, 4, "r"); p.rect(x + 2, 0, x + 3, 4, "m")
+    p.rect(3, 4, 4, 12, "B"); p.rect(21, 4, 22, 12, "B")
+    for x, col in ((5, "r"), (8, "y"), (11, "R"), (14, "f"), (17, "r"), (20, "y")):
+        p.rect(x, 9, x + 1, 11, col)
+    return p
+
+
 SCENERY = {f.__name__: f for f in (olive_tree, broken_column, marble_ruin, pine_tree, runestone, longhouse_ruin, obelisk,
                                    tomb_entrance, nile_reeds, standing_stone, stone_circle, gorse, grave_stele, lekythos, giant_steps, castle_ruin,
                                    ziggurat_ruin, boundary_stone, log_hut_ruin, div_palace_ruin, well_sweep, bamboo_clump,
                                    castle_wall_ruin, smoking_vent, obsidian_spire, ice_shard,
                                    frozen_root, drowned_arch, sea_gate, birds_wall,
-                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod)}
+                                   nest_tower, pagoda_ruin, barrow_mound, stone_tomb, fallen_log, granite_tor, walpurgis_fire, anvil, forge_hearth, stalagmite, hoard_heap, giant_mushroom, glow_caps, anthill, elf_mill, fairy_knowe, sheepfold, dragons_teeth, palisade, minoan_column, labyrinth_wall, giant_glove, bronze_tripod, fruit_stall)}
 
 if __name__ == "__main__":
     out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data", "art", "scenery")

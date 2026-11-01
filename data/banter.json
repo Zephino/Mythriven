@@ -2517,5 +2517,46 @@
     "text_key": "BANTER_TALOS_POSEIDON",
     "lore_source": "Original line written for Mythriven",
     "needs_owner_review": true
+  },
+  {
+    "id": "ratel_goblin_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "ratel_goblin",
+    "hero": "",
+    "god": "ratel_goblin",
+    "text_key": "BANTER_RATEL_GOBLIN_ENTRANCE",
+    "lore_source": "Rossetti, Goblin Market",
+    "needs_owner_review": true
+  },
+  {
+    "id": "snail_goblin_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "snail_goblin",
+    "hero": "",
+    "god": "snail_goblin",
+    "text_key": "BANTER_SNAIL_GOBLIN_ENTRANCE",
+    "lore_source": "Rossetti, Goblin Market (the goblins' cry)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "goblin_merchants_entrance",
+    "trigger": "boss_entrance",
+    "speaker": "goblin_merchants",
+    "hero": "",
+    "god": "goblin_merchants",
+    "text_key": "BANTER_GOBLIN_MERCHANTS_ENTRANCE",
+    "lore_source": "Rossetti, Goblin Market (the goblins' cry)",
+    "needs_owner_review": true
+  },
+  {
+    "id": "goblin_merchants_persephone",
+    "trigger": "boss_meets_god",
+    "speaker": "goblin_merchants",
+    "hero": "",
+    "god": "goblin_merchants",
+    "with_god": "persephone",
+    "text_key": "BANTER_GOBLIN_MERCHANTS_PERSEPHONE",
+    "lore_source": "Original line written for Mythriven (Persephone's pomegranate)",
+    "needs_owner_review": true
   }
 ]

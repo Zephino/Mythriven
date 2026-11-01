@@ -442,6 +442,12 @@ LEVELS = {
         "trees": {"olive": (olive, 26, 30), "dead_tree": (dead_tree, 24, 32)},
         "bushes": {"scorched_scrub": ("n", "N", "O", None)},
         "rock": ("n", "N", "O", None)},
+    # The Goblin Market: the glen by the brook at twilight, among the rushes; willows, hawthorns and an oak, ferns.
+    "the_goblin_market": {
+        "trees": {"oak": (broadleaf, 30, 34), "hawthorn": (lambda c, r, s: broadleaf(c, r, s, "M", "m", "y", "h"), 22, 26),
+                  "willow": (lambda c, r, s: broadleaf(c, r, s, "I", "i", "L"), 30, 30)},
+        "bushes": {"fern": ("fern",), "reeds": ("papyrus",)},
+        "rock": ("g", "G", "H", "l")},
     "niflheim": {
         "trees": {"dead_tree": (dead_tree, 24, 32), "spruce": (spruce, 22, 40)},
         "bushes": {"juniper": ("P", "p", "q", None)},

@@ -3,7 +3,7 @@
 Status: **decided by Claude with the owner's trust** (10/31/2026: "i trust you"; "program all 9 packs 1 at a time";
 11/01/2026: "go ahead" for Pack 9). The design (`GAME_DESIGN.md`: Fantasy realms) names each realm, its source and one
 boss idea; everything else was chosen by Claude from old public-domain texts only, never their modern adaptations (the
-design's note on Libertalia and the Nome King). The owner can change or veto any of it. Lemnos built and released 11/01/2026 (00.03.06).
+design's note on Libertalia and the Nome King). The owner can change or veto any of it. Lemnos built and released 11/01/2026 (00.03.06); the Goblin Market (00.03.07).
 
 Realms work like Packs 5-8: endless map, a hazard, monster families, three bosses, no local gods.
 
@@ -41,7 +41,7 @@ Burning whoever is caught in them (the weather veil, with Burn).
 | 20:00 | **The Gold and Silver Hounds** | Alcinous' immortal watchdogs take turns: the gold hound shrugs off Fire and fears Lightning, the silver one the reverse; they change every few seconds |
 | 30:00 | **Talos** (the design's) | The bronze giant who guarded Crete. He hurls boulders at the Heroes, and every so often heats himself red-hot, burning whoever is near; at the end of it the nail in his ankle shows and he takes far more damage |
 
-## Realm 34: the Goblin Market
+## Realm 34: the Goblin Market: **done and released 11/01/2026 (00.03.07)**
 *Source: Christina Rossetti, Goblin Market (1862): the goblin merchant-men ("one had a cat's face, one whisked a tail,
 one tramped at a rat's pace, one crawled like a snail, one like a wombat prowled obtuse and furry, one like a ratel
 tumbled hurry skurry"), their cry "Come buy, come buy", and Lizzie, who would not open her mouth.*

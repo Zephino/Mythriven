@@ -1394,5 +1394,35 @@
       "id": "talos"
     },
     "persists": true
+  },
+  {
+    "id": "boss_ratel_goblin",
+    "name_key": "ACH_BOSS_RATEL_GOBLIN_NAME",
+    "desc_key": "ACH_BOSS_RATEL_GOBLIN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "ratel_goblin"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_snail_goblin",
+    "name_key": "ACH_BOSS_SNAIL_GOBLIN_NAME",
+    "desc_key": "ACH_BOSS_SNAIL_GOBLIN_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "snail_goblin"
+    },
+    "persists": true
+  },
+  {
+    "id": "boss_goblin_merchants",
+    "name_key": "ACH_BOSS_GOBLIN_MERCHANTS_NAME",
+    "desc_key": "ACH_BOSS_GOBLIN_MERCHANTS_DESC",
+    "condition": {
+      "type": "boss",
+      "id": "goblin_merchants"
+    },
+    "persists": true
   }
 ]

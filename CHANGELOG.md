@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.07
+Date: 10/31/2026
+Time: 11:07 PM
+
+### Changes
+- **The Goblin Market is built and open** (Pack 9, `docs/PACK_9_PLAN.md`). It opens when you beat Vortigern (Logres' 30:00 boss). Everything comes from Christina Rossetti's poem (1862).
+  - **Hazard, the goblins' fruit:** the goblins pelt you with their fruit, and the juice splashes and clings, slowing you.
+  - **Monsters:** goblin men (cat-faced merchants with baskets of fruit), rat-paced goblins (swarms) and night bats.
+  - **10:00, the Ratel Goblin** ("tumbled hurry skurry"): every 2 s it tumbles off at speed in a wild direction, bowling over whoever is in its way.
+  - **20:00, the Snail Goblin** ("crawled like a snail"): very slow and very tough, leaving a trail of slime that slows for 10 s.
+  - **30:00, the Goblin Merchant-Men** (the design's boss): every 10 s a ring of ten goblins springs up round a Hero, crying "Come buy!", and closes in. Break out.
+  - A twilight glen of willows, hawthorns and ferns with goblin fruit stalls; hedgehogs, frogs, owls, moths and fireflies.
+  - 3 achievements, 4 banter lines and the realm's rows on the lore check.
+- 3 new tests (404 tests pass).
+
+### Reason
+Pack 9, realm 2 of 4 (owner: "go ahead").
+
 ## Version 00.03.06
 Date: 10/31/2026
 Time: 11:00 PM
