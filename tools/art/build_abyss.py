@@ -474,8 +474,8 @@ def bergelmir(c, step):
         c.rect(x + d, 44, x + 6 + d, 54, "s"); c.rect(x + d, 44, x + 1 + d, 54, "S")
         c.rect(x - 1 + d, 52, x + 7 + d, 57, "F"); c.row(52, x - 1 + d, x + 7 + d, "W")   # fur boots
         c.row(58, x - 1 + d, x + 7 + d, "k")
-    c.rect(40, 2, 41, 46, "n"); c.rect(40, 2, 40, 46, "B")                               # the long oar, upright
-    poly(c, [(38, 44), (43, 44), (44, 58), (37, 58)], "n"); c.rect(37, 46, 37, 58, "B")
+    c.rect(40, 14, 41, 56, "n"); c.rect(40, 14, 40, 56, "B"); c.rect(39, 56, 42, 57, "B")   # the long oar, upright
+    ellipse(c, 41, 8, 3.4, 7.5, "n"); c.rect(41, 2, 41, 14, "B"); c.px(39, 4, "u"); c.px(39, 8, "u")   # its blade, held high
     poly(c, [(8, 20), (40, 20), (37, 38), (11, 38)], "s")                                # huge torso
     poly(c, [(8, 20), (14, 20), (15, 38), (11, 38)], "S")
     c.row(29, 15, 22, "S"); c.row(29, 27, 34, "S"); c.px(24, 33, "S"); c.px(24, 35, "S")   # chest and belly
@@ -512,7 +512,7 @@ def bergelmir(c, step):
 
 
 BERGELMIR_PAL = {"o": "#0e1218", "k": "#1e2430", "s": "#7a94b4", "S": "#5a7496", "D": "#2e3a50", "f": "#5e5248",
-                 "F": "#3e342c", "w": "#eef4fa", "W": "#c0ccd8", "i": "#e0f6ff", "b": "#8ac8ec", "n": "#6a4a2a", "B": "#4a3018",
+                 "F": "#3e342c", "w": "#eef4fa", "W": "#c0ccd8", "i": "#e0f6ff", "b": "#8ac8ec", "n": "#7a5a34", "u": "#9a7a50", "B": "#4a3018",
                  "r": "#8a1a1a", "R": "#5a1a1a"}
 
 

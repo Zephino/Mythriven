@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.74
+Date: 11/02/2026
+Time: 8:14 AM
+
+### Changes
+- **Bergelmir's oar fixed.** He now holds it with its long, rounded wooden blade up high and its handle resting on the ground, so it reads as an oar instead of a broom.
+
+### Reason
+The owner said Bergelmir looked like he was carrying a broom.
+
 ## Version 00.03.73
 Date: 11/02/2026
 Time: 8:09 AM
