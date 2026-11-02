@@ -4,6 +4,8 @@
 import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
+from figure_kit import person
+from build_gothic import raven as raven_body, empusa as gothic_beast
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -21,155 +23,240 @@ def figure(c, step, robe, skin, hair, legs="k", x0=14, top=18, bottom=50):
 # --- Ghorvast (the game's own invented orc stronghold) ----------------------------------------------------------------
 
 def orc(kind):
-    """An orc of Ghorvast (the game's own; the word is old English "orcneas"): a broad grey-skinned warrior with small
-    tusks in crude leather and iron."""
+    """An orc of Ghorvast (the game's own; the word is old English "orcneas"): a broad, hunched, grey-green warrior with
+    a heavy jaw and tusks, a thick brow and small yellow eyes, in crude leather and iron."""
     def draw(c, f):
         s = STEP[f]
         big = kind == "brute"
         w = 3 if big else 0
-        for x, d in ((7, -s), (12 + w, s)):
-            c.rect(x + d, 18 + w, x + 1 + d, 23 + w, "k")
-        c.rect(5, 8, 15 + w, 18 + w, "l"); c.row(13, 5, 15 + w, "L")
-        ellipse(c, 10 + w // 2, 5, 3.5 + w / 2, 3, "g"); c.px(9, 4, "r"); c.px(12 + w // 2, 4, "r")
-        c.px(9, 7, "w"); c.px(12 + w // 2, 7, "w")                                           # tusks
+        H = 24 + w
+        for x, d in ((6, -s), (12 + w, s)):                                              # short bowed legs
+            c.rect(x + d, H - 7, x + 2 + d, H - 2, "L"); c.rect(x - 1 + d, H - 2, x + 3 + d, H - 1, "k")
+        poly(c, [(4, 9), (16 + w, 9), (17 + w, H - 7), (3, H - 7)], "l")                 # broad hunched body
+        c.row(H - 10, 3, 17 + w, "b"); c.px(10 + w // 2, H - 10, "r")                    # belt
+        c.rect(4, 11, 5, H - 9, "L")
+        ellipse(c, 3, 10, 2.5, 2, "i"); ellipse(c, 17 + w, 10, 2.5, 2, "i")              # iron shoulder plates
+        ellipse(c, 10 + w // 2, 6, 4 + w / 2, 3.5, "g")                                  # big head, low between the shoulders
+        c.rect(7, 7, 13 + w, 9, "g")                                                     # heavy jaw
+        c.row(4, 7, 13 + w, "G")                                                         # thick brow
+        c.px(8, 5, "r"); c.px(12 + w, 5, "r")                                            # small yellow eyes
+        c.px(8, 8, "w"); c.px(12 + w, 8, "w"); c.px(8, 7, "w"); c.px(12 + w, 7, "w")    # tusks
+        c.px(5, 4, "g"); c.px(15 + w, 4, "g")                                            # pointed ears
         if kind == "archer":
-            for k in range(9):
-                c.px(18 + round(math.sin(k / 8 * math.pi) * 2), 5 + k * 2 // 2 + k, "b")
-            c.rect(17, 5, 17, 18, "W")
+            for k in range(13):
+                c.px(19 + round(math.sin(k / 12 * math.pi) * 2), 3 + k, "b")             # bow
+            c.rect(18, 3, 18, 15, "W"); c.px(17, 9, "g")
         elif kind == "brute":
-            c.rect(21, 2, 22, 20, "b"); c.rect(19, 0, 25, 4, "i")
+            c.rect(22, 3, 23, 22, "b"); c.rect(20, 0, 26, 5, "i"); c.row(5, 20, 26, "I")   # great maul
+            c.px(21, 12, "g"); c.px(21, 13, "g")
         else:
-            c.rect(17, 4, 18, 16, "i"); c.rect(16, 15, 19, 16, "b")
+            c.rect(18, 4, 19, 15, "i"); c.rect(17, 14, 20, 15, "b"); c.px(18, 3, "I")    # cleaver-sword
+            c.px(17, 12, "g")
     return draw
 
 
-ORC_PAL = {"o": "#0e0c08", "k": "#1e1a14", "l": "#5a4430", "L": "#3e2e20", "g": "#7a8070", "r": "#e8b030",
-           "w": "#ece4d0", "b": "#5a3a1a", "i": "#8a8e96", "W": "#c8c4bc"}
+ORC_PAL = {"o": "#0e0c08", "k": "#1e1a14", "l": "#5a4430", "L": "#3e2e20", "g": "#7a8a68", "G": "#5a6a4a",
+           "r": "#e8b030", "w": "#ece4d0", "b": "#5a3a1a", "i": "#8a8e96", "I": "#5a5e66", "W": "#c8c4bc"}
 
 
 def carrion_crow(c, f):
-    """A carrion crow over the walls of Ghorvast."""
-    up = f % 2
-    poly(c, [(9, 7), (1, 2 if up else 10), (5, 9)], "k"); poly(c, [(11, 7), (19, 2 if up else 10), (15, 9)], "k")
-    ellipse(c, 10, 8, 3, 3, "K"); poly(c, [(12, 6), (16, 8), (12, 9)], "b"); c.px(11, 7, "w")
+    """A carrion crow over the walls of Ghorvast: a black crow flying, wedge tail, heavy beak, wings beating (drawn on
+    the raven body)."""
+    raven_body(c, f)
 
 
-CROW_PAL = {"o": "#2a2a30", "k": "#121216", "K": "#1e1e24", "b": "#2a2a2a", "w": "#c8c8d0"}
+CROW_PAL = {"o": "#2a2a30", "k": "#121216", "K": "#22222a", "B": "#3a3a40", "w": "#c8c8d0"}
+
+
+def orc_head(c, cx, hy, helm=None):
+    """Turns the figure's head into an orc's: a heavy jaw, tusks jutting up from the lower lip, a thick brow, small
+    glowing eyes, a flat nose and pointed ears. helm: None (a topknot), "horned" (black iron with horns)."""
+    ellipse(c, cx, hy + 1, 5.5, 5.5, "g")
+    c.rect(cx - 5, hy + 2, cx + 5, hy + 6, "g"); c.row(hy + 6, cx - 4, cx + 4, "G")      # heavy jaw
+    c.row(hy - 2, cx - 4, cx + 4, "G"); c.row(hy - 1, cx - 4, cx + 4, "G")               # thick brow
+    c.px(cx - 2, hy, "r"); c.px(cx + 2, hy, "r")                                         # small glowing eyes
+    c.px(cx - 1, hy + 2, "G"); c.px(cx + 1, hy + 2, "G")                                 # flat nose
+    c.row(hy + 4, cx - 2, cx + 2, "k")                                                   # mouth
+    c.rect(cx - 3, hy + 2, cx - 3, hy + 4, "w"); c.rect(cx + 3, hy + 2, cx + 3, hy + 4, "w")   # tusks
+    poly(c, [(cx - 5, hy), (cx - 9, hy - 3), (cx - 5, hy + 2)], "g")                     # pointed ears
+    poly(c, [(cx + 5, hy), (cx + 9, hy - 3), (cx + 5, hy + 2)], "g")
+    if helm == "horned":
+        ellipse(c, cx, hy - 4, 6.5, 3.5, "a"); c.row(hy - 2, cx - 6, cx + 6, "A")
+        poly(c, [(cx - 5, hy - 4), (cx - 10, hy - 11), (cx - 8, hy - 4)], "w")
+        poly(c, [(cx + 5, hy - 4), (cx + 10, hy - 11), (cx + 8, hy - 4)], "w")
+    else:
+        ellipse(c, cx, hy - 5, 4.5, 2, "G"); c.rect(cx - 1, hy - 9, cx + 1, hy - 6, "k")  # shaved head, topknot
+        c.px(cx, hy - 10, "k")
+
+
+def orc_shoulders(c, cx, top, col, shade, spikes=False):
+    """Great broad shoulders with iron plates over them."""
+    poly(c, [(cx - 12, top + 1), (cx + 12, top + 1), (cx + 9, top + 8), (cx - 9, top + 8)], col)
+    ellipse(c, cx - 10, top + 2, 4, 3, "i"); ellipse(c, cx + 10, top + 2, 4, 3, "i")
+    c.row(top + 4, cx - 13, cx - 7, "I"); c.row(top + 4, cx + 7, cx + 13, "I")
+    if spikes:
+        for x in (cx - 12, cx - 9, cx + 9, cx + 12):
+            c.px(x, top - 2, "w"); c.px(x, top - 1, "w")
 
 
 def war_drummer(c, step):
-    """The War Drummer (the game's own): a huge orc beating a great war drum slung before him."""
-    figure(c, step, "l", "g", "k", x0=14, top=18, bottom=50)
-    c.px(18, 15, "w"); c.px(23, 15, "w")
-    ellipse(c, 21, 34, 12, 8, "d"); ellipse(c, 21, 31, 12, 4, "D")                          # the drum
+    """The War Drummer (the game's own): a huge orc with a topknot and tusks, in a leather jerkin, beating a great war
+    drum slung before him, his sticks rising and falling."""
+    person(c, step, cx=21, skin="g", skin_d="G", hair_style="none", garment="tunic", robe="l", robe_d="L",
+           legs="L", boots="k", belt="b")
+    orc_shoulders(c, 21, 17, "l", "L")
+    orc_head(c, 21, 10)
+    ellipse(c, 21, 36, 12, 8, "d"); ellipse(c, 21, 32, 12, 4, "D"); ellipse(c, 21, 32, 9, 2.5, "E")   # the drum
     for x in range(10, 33, 4):
-        c.rect(x, 33, x, 40, "b")
-    c.rect(6, 22 - step * 3, 8, 30, "b"); c.rect(34, 22 + step * 3, 36, 30, "b")              # the sticks
+        c.rect(x, 34, x, 42, "b")
+    c.row(28, 11, 31, "b")                                                               # its strap
+    for side, d in ((-1, step), (1, -step)):
+        x = 21 + side * 9
+        c.rect(x, 22 + d * 3, x + side, 30 + d * 3, "g")                                 # thick arm
+        c.rect(x + side * 2, 18 + d * 3, x + side * 3, 26 + d * 3, "b")                  # drumstick
+        ellipse(c, x + side * 2, 17 + d * 3, 1.5, 1.5, "D")
 
 
-DRUM_PAL = dict(ORC_PAL, d="#8a5a34", D="#d8c8a8")
+DRUM_PAL = dict(ORC_PAL, d="#8a5a34", D="#d8c8a8", E="#c8b898", a="#2a2a30", A="#3a3a44", s="#7a8a68",
+                S="#5a6a4a", m="#1e1a14")
 
 
 def pit_champion(c, step):
-    """The Pit Champion (the game's own): a scarred orc fighter, bare-chested, with an iron collar and two axes."""
-    figure(c, step, "L", "g", "k", x0=14, top=18, bottom=50)
-    c.rect(14, 18, 28, 28, "g"); c.row(22, 15, 27, "s"); c.row(25, 16, 24, "s")              # bare chest, scars
-    c.rect(16, 16, 26, 17, "i"); c.px(18, 15, "w"); c.px(23, 15, "w")
+    """The Pit Champion (the game's own): a scarred, bare-chested orc fighter with an iron collar, a topknot and tusks,
+    a leather kilt, an axe in each hand."""
+    person(c, step, cx=22, skin="g", skin_d="G", hair_style="none", garment="tunic", robe="g", robe_d="G",
+           legs="L", boots="k", belt="b")
+    orc_shoulders(c, 22, 17, "g", "G")
+    poly(c, [(16, 31), (28, 31), (30, 40), (14, 40)], "l"); c.rect(16, 33, 16, 39, "L"); c.rect(24, 33, 24, 39, "L")   # kilt
+    c.row(22, 17, 26, "G"); c.row(26, 18, 26, "G")                                       # muscles
+    c.px(18, 21, "s"); c.px(19, 22, "s"); c.px(20, 23, "s"); c.px(24, 25, "s"); c.px(25, 26, "s")   # scars
+    c.rect(17, 16, 27, 17, "i")                                                          # iron collar
+    orc_head(c, 22, 10)
     for side in (-1, 1):
-        x = 21 + side * 14
-        c.rect(x, 18, x, 36, "b"); poly(c, [(x, 18), (x + side * 6, 16), (x + side * 6, 24), (x, 22)], "i")
+        x = 22 + side * 13
+        c.rect(x, 18, x, 38, "b")
+        poly(c, [(x, 18), (x + side * 6, 15), (x + side * 7, 20), (x + side * 6, 25), (x, 23)], "i")
+        c.row(20, min(x, x + side * 6), max(x, x + side * 6), "I")
+        ellipse(c, x - side, 30, 2, 2, "g")                                              # fist
 
 
-CHAMP_PAL = dict(ORC_PAL, s="#b05a4a")
+CHAMP_PAL = dict(ORC_PAL, s="#b05a4a", a="#2a2a30", A="#3a3a44", m="#1e1a14")
 
 
 def warlord(c, step):
-    """The Warlord (the game's own): a great orc in black iron armour with a horned helm and a heavy cleaver."""
-    figure(c, step, "a", "g", "a", x0=14, top=18, bottom=50)
-    c.rect(14, 18, 28, 32, "A"); c.row(24, 14, 28, "a")
-    c.rect(13, 2, 28, 7, "a")
-    poly(c, [(13, 4), (8, -2), (14, 2)], "w"); poly(c, [(28, 4), (33, -2), (27, 2)], "w")     # horns
-    c.px(18, 10, "r"); c.px(23, 10, "r"); c.px(18, 15, "w"); c.px(23, 15, "w")
-    c.rect(34, 14, 35, 40, "b"); poly(c, [(35, 14), (42, 14), (42, 26), (35, 24)], "i")
+    """The Warlord (the game's own): a great orc in black iron armour with spiked shoulder-plates, a horned helm, a red
+    war-cloak and a heavy cleaver."""
+    person(c, step, cx=21, skin="g", skin_d="G", hair_style="none", garment="tunic", robe="a", robe_d="A",
+           legs="A", boots="k", belt="b", cloak=("c", "C"))
+    orc_shoulders(c, 21, 17, "a", "A", spikes=True)
+    for y in (22, 26, 30):
+        c.row(y, 15, 27, "A")                                                            # plates of the armour
+    c.px(21, 30, "r")
+    orc_head(c, 21, 10, helm="horned")
+    c.rect(35, 12, 36, 42, "b"); poly(c, [(36, 12), (44, 12), (45, 26), (36, 24)], "i")  # the heavy cleaver
+    c.row(13, 37, 43, "I"); ellipse(c, 34, 30, 2, 2, "g")
 
 
-WARLORD_PAL = dict(ORC_PAL, a="#2a2a30", A="#3a3a44")
+WARLORD_PAL = dict(ORC_PAL, a="#2a2a30", A="#3a3a44", c="#8a1a1a", C="#5a1010", m="#1e1a14")
 
 
 # --- Knossos (Apollodorus 2.5.7, 3.1.3-4, Epitome 1.7-9; Plutarch, Theseus 15-19; Odyssey 11.568) ---------------------
 
 def cretan_guard(c, f):
-    """A guard of Minos' palace (Plutarch, Theseus 19: Minos' general Taurus and his men): a Cretan soldier with a tall
-    figure-of-eight shield and a spear, long dark hair."""
+    """A guard of Minos' palace (Plutarch, Theseus 19: Minos' general Taurus and his men): a Cretan soldier with long
+    dark hair, a white kilt with a red border, a tall figure-of-eight shield of hide and a spear."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "s")
-    c.rect(6, 9, 13, 18, "w"); c.rect(6, 15, 13, 18, "r")
-    ellipse(c, 9, 5, 3, 3, "s"); c.rect(6, 1, 12, 3, "h"); c.rect(5, 3, 6, 10, "h")
-    ellipse(c, 3, 9, 3, 3, "d"); ellipse(c, 3, 15, 3, 3, "d")                                  # figure-of-eight shield
-    c.rect(16, 0, 16, 20, "b")
+        c.rect(x + d, 16, x + 1 + d, 21, "s"); c.rect(x + d, 22, x + 2 + d, 22, "b")
+    c.rect(6, 8, 13, 13, "s"); c.px(9, 10, "S")                                          # bare chest
+    poly(c, [(6, 13), (13, 13), (14, 17), (5, 17)], "w"); c.row(17, 5, 14, "r")          # kilt, red border
+    c.row(13, 6, 13, "y")                                                                # belt
+    ellipse(c, 9, 4, 3, 3.2, "s"); c.px(10, 4, "k")
+    ellipse(c, 9, 1, 3.4, 1.8, "h"); c.rect(5, 1, 7, 11, "h")                            # long dark hair
+    ellipse(c, 3, 8, 3, 3.5, "d"); ellipse(c, 3, 15, 3, 3.5, "d")                        # figure-of-eight shield
+    c.px(3, 8, "D"); c.px(3, 15, "D"); c.px(2, 10, "D"); c.px(4, 13, "D")                # dappled hide
+    c.rect(16, 0, 16, 20, "b"); c.px(16, 0, "i"); c.px(15, 9, "s")
 
 
-GUARD_PAL = {"o": "#120c08", "s": "#c88a5a", "w": "#ece4d0", "r": "#b03a2a", "h": "#1a1410", "d": "#c8a878",
-             "b": "#6a4a2a"}
+GUARD_PAL = {"o": "#120c08", "k": "#1a1008", "s": "#c88a5a", "S": "#a06a3e", "w": "#ece4d0", "r": "#b03a2a",
+             "h": "#1a1410", "d": "#c8a878", "D": "#6a4a2a", "b": "#6a4a2a", "y": "#e0b040", "i": "#c8ccd4"}
 
 
 def young_bull(c, f):
-    """A young Cretan bull (the bulls of the bull-leaping games): a lean dappled bull with long horns."""
+    """A young Cretan bull (the bulls of the bull-leaping games): a lean dappled bull with long horns, head lowered."""
     s = STEP[f]
-    ellipse(c, 10, 9, 7, 3.5, "w"); c.px(7, 8, "b"); c.px(11, 10, "b"); c.px(13, 8, "b")
-    for k, d in enumerate((-s, s, s, -s)):
-        c.rect(4 + k * 4 + d, 11, 4 + k * 4 + d, 15, "W")
-    poly(c, [(15, 6), (20, 8), (20, 11), (15, 11)], "w"); c.px(18, 8, "k")
-    c.px(16, 4, "h"); c.px(15, 3, "h"); c.px(19, 4, "h"); c.px(20, 3, "h")
+    for k, (x, d) in enumerate(((5, -s), (8, s), (14, s), (17, -s))):                    # slim legs and hooves
+        c.rect(x + d, 11, x + d, 14, "W"); c.px(x + d, 15, "k")
+    ellipse(c, 10, 9, 7, 3.2, "w"); ellipse(c, 13, 7, 4, 2.5, "w")                       # body, shoulder hump
+    for x, y in ((6, 8), (10, 10), (12, 7), (8, 9)):
+        c.px(x, y, "b")                                                                  # dapples
+    poly(c, [(16, 7), (20, 9), (21, 12), (18, 12), (16, 10)], "w"); c.px(21, 11, "p")    # lowered head, muzzle
+    c.px(18, 8, "k")
+    c.px(17, 6, "h"); c.px(16, 5, "h"); c.px(16, 4, "h"); c.px(19, 6, "h"); c.px(20, 5, "h"); c.px(21, 4, "h")   # long horns
+    c.px(3, 8, "W"); c.px(2, 9, "W"); c.px(2, 10, "b")                                   # tail
 
 
-YOUNG_BULL_PAL = {"o": "#120a06", "w": "#e8dcc8", "W": "#b8a890", "b": "#4a3020", "k": "#100808", "h": "#f0e8d8"}
+YOUNG_BULL_PAL = {"o": "#120a06", "w": "#e8dcc8", "W": "#b8a890", "b": "#4a3020", "k": "#100808", "h": "#f0e8d8",
+                  "p": "#c8988a"}
 
 
 def cretan_bull(c, step):
     """The Cretan Bull (Apollodorus 2.5.7): the white bull Poseidon sent from the sea, which Minos would not sacrifice;
-    Poseidon maddened it, and it ravaged Crete until Heracles caught it."""
-    ellipse(c, 28, 28, 22, 12, "w"); ellipse(c, 26, 24, 16, 6, "W")
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(12 + k * 10 + d, 36, 16 + k * 10 + d, 50, "W")
-    poly(c, [(46, 18), (60, 22), (60, 32), (46, 34)], "w"); c.px(52, 22, "r")
-    c.rect(56, 28, 60, 31, "p")
-    for k in range(7):
-        c.px(48 - k // 2, 17 - k, "h"); c.px(55 + k // 2, 17 - k, "h")                         # horns
-    c.rect(6, 22, 8, 32, "W")
+    Poseidon maddened it, and it ravaged Crete until Heracles caught it. A great white bull, head lowered to charge, a
+    red maddened eye, sea-spray about it (drawn on the bull body of Empusa)."""
+    gothic_beast("bull")(c, step)
 
 
-CRETAN_BULL_PAL = {"o": "#1a0e08", "w": "#f4f0e8", "W": "#c8c0b0", "r": "#e83a2a", "p": "#d8a8a0", "h": "#e8d8b0"}
+CRETAN_BULL_PAL = {"o": "#2a2218", "k": "#f0ece4", "K": "#c0b8a8", "b": "#f0ece4", "B": "#c0b8a8", "h": "#e8d8b0",
+                   "H": "#b8a888", "y": "#e83a2a", "l": "#ffffff", "g": "#9ad0f0", "s": "#f0ece4", "v": "#f0ece4"}
 
 
 def minos(c, step):
     """Minos (Odyssey 11.568: "Minos, the glorious son of Zeus, a golden sceptre in his hand, giving judgement to the
-    dead"): a bearded king in a long robe with a golden sceptre."""
-    figure(c, step, "r", "s", "h")
-    c.rect(16, 18, 26, 26, "R"); c.rect(16, 13, 25, 16, "h")
-    c.rect(14, 1, 27, 3, "y"); c.px(15, 0, "y"); c.px(21, 0, "y"); c.px(26, 0, "y")
-    c.rect(32, 6, 32, 48, "y"); ellipse(c, 32, 5, 2, 2, "y")
+    dead"): a stern king with a dark curling beard and long dark hair, a gold crown, a deep blue robe with a border of
+    Cretan spirals, a purple cloak, and a golden sceptre."""
+    person(c, step, cx=20, hair="h", hair_d="H", hair_style="shoulder", beard="h", garment="robe", robe="r",
+           robe_d="R", belt="y", crown="y", cloak=("p", "P"), arm_forward=True, boots="k")
+    for x in range(14, 27, 3):
+        c.px(x, 50, "y"); c.px(x + 1, 51, "y")                                           # spiral border at the hem
+    for y in range(13, 19, 2):
+        c.px(18, y, "H"); c.px(22, y, "H")                                               # curls in the beard
+    c.rect(35, 6, 35, 48, "y"); ellipse(c, 35, 5, 2, 2, "y"); c.px(35, 5, "Y")           # the golden sceptre
 
 
-MINOS_PAL = {"o": "#120808", "k": "#1a1010", "r": "#2a3a7a", "R": "#1a2a5a", "s": "#c88a5a", "h": "#2a1a10",
-             "y": "#e8c040"}
+MINOS_PAL = {"o": "#120808", "k": "#1a1010", "m": "#8a4a3a", "r": "#2a3a7a", "R": "#1a2a5a", "s": "#c88a5a",
+             "S": "#a06a3e", "h": "#2a1a10", "H": "#140c06", "y": "#e8c040", "Y": "#fff0a0", "p": "#5a2a5a",
+             "P": "#3a1a3a"}
 
 
 def asterion(c, step):
-    """Asterion, the Minotaur (Apollodorus 3.1.4: "he had the face of a bull, but the rest of him was human"): a huge
-    man with a bull's head and horns, naked to the waist, in the Labyrinth's dark."""
-    for k, d in enumerate((-step, step)):
-        c.rect(16 + k * 10 + d, 44, 20 + k * 10 + d, 56, "s")
-    c.rect(14, 20, 36, 34, "s"); c.rect(14, 34, 36, 44, "l")
-    c.rect(8, 22, 13, 38, "s"); c.rect(37, 22, 42, 38, "s")
-    ellipse(c, 25, 12, 8, 8, "b"); c.rect(21, 14, 29, 19, "B"); c.px(22, 10, "r"); c.px(28, 10, "r")
-    for k in range(8):
-        c.px(17 - k, 8 - k // 2, "h"); c.px(33 + k, 8 - k // 2, "h")                          # horns
+    """Asterion, the Minotaur (Apollodorus 3.1.4: "he had the face of a bull, but the rest of him was human"): a huge,
+    heavily muscled man with a bull's head, long curved horns and red eyes, naked but for a dark kilt, in the
+    Labyrinth's dark."""
+    for k, d in enumerate((-step, step)):                                                # thick legs, bare feet
+        x = 17 + k * 9 + d
+        poly(c, [(x, 42), (x + 5, 42), (x + 5, 54), (x, 54)], "s"); c.rect(x, 52, x + 5, 55, "S")
+    poly(c, [(13, 22), (37, 22), (33, 38), (17, 38)], "s")                               # massive chest
+    c.row(28, 18, 32, "S"); c.rect(25, 24, 25, 37, "S")                                  # chest and belly muscles
+    c.row(32, 19, 31, "S"); c.row(35, 20, 30, "S")
+    poly(c, [(16, 38), (34, 38), (36, 46), (14, 46)], "l"); c.row(38, 16, 34, "y")       # dark kilt, gold belt
+    for side in (-1, 1):                                                                 # great arms
+        x = 25 + side * 14
+        poly(c, [(x - 3, 21), (x + 3, 21), (x + 3 * side + 1, 36), (x - 2 + side * 2, 36)], "s")
+        c.px(x, 26, "S"); c.px(x, 27, "S")
+        ellipse(c, x + side * 2, 38, 3, 3, "s")
+    ellipse(c, 25, 21, 8, 3, "b")                                                        # thick bull's neck
+    ellipse(c, 25, 13, 7, 7, "b")                                                        # the bull's head
+    ellipse(c, 25, 18, 4.5, 3.5, "B"); c.px(23, 19, "k"); c.px(27, 19, "k")              # muzzle and nostrils
+    c.px(21, 11, "r"); c.px(29, 11, "r")                                                 # red eyes
+    c.row(9, 20, 30, "B")                                                                # brow
+    poly(c, [(19, 9), (12, 7), (8, 2), (10, 1), (14, 5), (20, 7)], "h")                  # long curved horns
+    poly(c, [(31, 9), (38, 7), (42, 2), (40, 1), (36, 5), (30, 7)], "h")
+    poly(c, [(17, 11), (14, 12), (17, 14)], "b"); poly(c, [(33, 11), (36, 12), (33, 14)], "b")   # ears
 
 
-ASTERION_PAL = {"o": "#0e0806", "s": "#a86a44", "l": "#5a3a24", "b": "#3a2418", "B": "#5a3a28", "r": "#e83a2a",
-                "h": "#e8dcc0"}
+ASTERION_PAL = {"o": "#0e0806", "s": "#a86a44", "S": "#7a4a2a", "l": "#3a2418", "b": "#3a2418", "B": "#5a3a28",
+                "r": "#e83a2a", "h": "#e8dcc0", "k": "#0e0806", "y": "#c8a040"}
 
 
 # --- Utgard (Snorri, Gylfaginning 44-47) ------------------------------------------------------------------------------

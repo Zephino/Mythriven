@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.50
+Date: 11/02/2026
+Time: 7:23 PM
+
+### Changes
+- **Ghorvast and Knossos remade** (owner: all of them).
+  - **The orc bosses** are on the new figure body, made brutish: great broad shoulders with iron plates, a heavy jaw with tusks jutting up, a thick brow, small glowing eyes, a flat nose and pointed ears. **The War Drummer** has a topknot and a leather jerkin and beats a great strapped drum, his sticks rising and falling; **the Pit Champion** is bare-chested and scarred with an iron collar, a leather kilt and an axe in each hand; **the Warlord** wears black plate armour with spiked shoulder-plates, a horned helm and a red war-cloak, and carries a heavy cleaver.
+  - **The orc warriors, archers and brutes:** hunched and broad, with heavy jaws and tusks, iron shoulder plates and belts, carrying a cleaver-sword, a bow or a great maul.
+  - **The carrion crow:** drawn on the raven body (wedge tail, heavy beak, beating wings).
+  - **The Cretan Bull:** a great white bull with a shoulder hump, head lowered to charge, curving horns, a red maddened eye and sea-spray about it (Poseidon sent it from the sea), drawn on the bull body of Empusa.
+  - **Minos:** a stern king with a dark curling beard and long hair, a gold crown, a deep blue robe with a border of Cretan spirals, a purple cloak and his golden sceptre.
+  - **Asterion, the Minotaur:** a huge, heavily muscled man (chest and belly muscles, great arms) with a bull's head on a thick neck: a muzzle with nostrils, red eyes, ears and long curved horns, a dark kilt with a gold belt.
+  - **The Cretan guard:** long dark hair, a white kilt with a red border, a tall figure-of-eight shield of dappled hide and a spear.
+  - **The young bull:** a lean dappled bull with a shoulder hump, its head lowered, long horns and slim legs.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for everything in Ghorvast and Knossos to be remade.
+
 ## Version 00.03.49
 Date: 11/01/2026
 Time: 6:46 PM
