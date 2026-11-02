@@ -207,13 +207,20 @@ def flying_dutchman(pal_phantom):
                 c.px(x0 + (x1 - x0) * t // n, 4 + t * 26 // n, "r")
         for x in (20, 34, 48):
             c.rect(x, 3, x + 1, 36, "m")                                                 # masts
-        for x, top, wide in ((20, 5, 8), (34, 3, 9), (48, 7, 7)):                        # torn, billowing sails
+        for x, top, wide in ((20, 5, 5), (34, 3, 6), (48, 7, 5)):                        # billowing sails, torn at the foot
             for k, (y0, y1, w) in enumerate(((top, top + 9, wide - 2), (top + 11, top + 23, wide))):
                 c.row(y0, x - w - 1, x + w + 2, "m")                                     # the yard
-                poly(c, [(x - w, y0 + 1), (x + w + 1, y0 + 1), (x + w + 3 + step, y1), (x + 2, y1 + 2), (x - w + 2 + step, y1)], "s")
-                for yy in range(y0 + 2, y1, 3):
-                    c.px(x - w + 2 + (yy % 4), yy, "S")                                  # its folds
-                c.px(x + w - 1, y1 - 1, "."); c.px(x + w - 2, y1 - 2, "."); c.px(x - 2, y0 + 4 + k, ".")   # torn holes
+                for xx in range(x - w, x + w + 2):
+                    u = (xx - (x - w)) / (2 * w + 1)
+                    belly = round(math.sin(u * math.pi) * (2 + step * 0.5))              # the sail bellies out below
+                    for yy in range(y0 + 1, y1 + belly + 1):
+                        c.px(xx + (1 if yy > y0 + (y1 - y0) // 2 else 0), yy, "s")
+                    c.px(xx + 1, y1 + belly, "S")                                        # its curved foot
+                for yy in range(y0 + 1, y1 + 1):
+                    c.px(x - w + 1, yy, "S"); c.px(x - w + 2, yy, "S")                   # shade on its far side
+                    c.px(x + 1, yy, "S")                                                 # a seam down the middle
+                for xx in (x - w + 3, x + w - 1):
+                    c.px(xx + 1, y1 + 2, "."); c.px(xx + 2, y1 + 1, ".")                 # ragged tears at the foot
         poly(c, [(20, 3), (13, 1), (16, 3 + step), (12, 5)], "f")                         # tattered flag at the mast-head
         for t in range(10):
             c.px(58 + t, 35 - t // 2, "m")                                               # bowsprit

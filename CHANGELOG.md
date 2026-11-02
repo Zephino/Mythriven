@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.76
+Date: 11/02/2026
+Time: 8:32 AM
+
+### Changes
+- **The Flying Dutchman's sails redrawn**, on the ship and the phantom. Each mast now carries two clean square sails of its own that belly out in a curve, with shade on the far side, a seam down the middle and ragged tears only at the foot, in place of the cluttered sails spotted with holes. The sails are a little narrower, so each one stands apart.
+
+### Reason
+The owner loved the ship but not the sails.
+
 ## Version 00.03.75
 Date: 11/02/2026
 Time: 8:21 AM
