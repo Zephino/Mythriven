@@ -681,23 +681,40 @@ def phobetor(form):
             ellipse(c, x, y, 1.6, 1.6, col)
 
     def bird(c, step):
-        wing(c, (30, 24), (24, 8 - step), (10, 2 - step), "K", "q")                      # far wing, raised back
-        poly(c, [(22, 30), (8, 38), (10, 42), (14, 40), (15, 44), (19, 41), (21, 44), (25, 34)], "k")   # fanned tail
-        c.px(12, 40, "q"); c.px(17, 41, "q")
-        ellipse(c, 30, 29, 9, 6, "k"); ellipse(c, 33, 31, 5, 3, "q")                     # body, ragged breast
-        for x, y in ((31, 30), (34, 32), (29, 33), (36, 30)):
-            c.px(x, y, "K")
-        for x0 in (31, 35):                                                              # talons reaching forward
+        for side in (-1, 1):                                                             # wings spread wide
+            sh = (32 + side * 4, 21)
+            wr = (32 + side * 18, 12 - step * 2)
+            tip = (32 + side * 30, 7 - step * 3)
+            poly(c, [sh, wr, tip, (32 + side * 26, 16 - step * 2), (32 + side * 14, 26), (32 + side * 4, 28)], "k")
+            for k in range(5):                                                           # fingered flight feathers
+                t = k / 4
+                x = wr[0] + (tip[0] - wr[0]) * t
+                y = wr[1] + (tip[1] - wr[1]) * t
+                feather(c, x, y + 2, side * (0.35 + t * 0.35), 1, 10 + t * 4 + (k % 2) * 2, "k", "K")
+            for k in range(4):                                                           # shorter feathers below
+                t = (k + 0.5) / 4
+                x = sh[0] + (wr[0] - sh[0]) * t
+                y = sh[1] + (wr[1] - sh[1]) * t
+                feather(c, x, y + 4, side * 0.2, 1, 9 + (k % 2) * 2, "K", "q")
+            for t in range(12):                                                          # the leading edge
+                x = sh[0] + (wr[0] - sh[0]) * t / 11; y = sh[1] + (wr[1] - sh[1]) * t / 11
+                c.px(round(x), round(y) - 1, "q")
+        poly(c, [(28, 33), (36, 33), (41, 44), (36, 46), (32, 44), (28, 46), (23, 44)], "k")   # fanned tail
+        for x in (26, 30, 34, 38):
+            c.rect(x, 37, x, 44, "K")
+        for x0, d in ((28, -1), (36, 1)):                                                # legs, talons spread
             for t in range(6):
-                c.px(x0 + t // 2, 34 + t, "K")
-            c.px(x0 + 2, 40, "w"); c.px(x0 + 4, 40, "w"); c.px(x0, 41, "w")
-        poly(c, [(34, 26), (39, 18), (44, 18), (40, 28)], "k")                           # neck
-        ellipse(c, 43, 17, 4.5, 4, "k"); poly(c, [(40, 14), (37, 9), (42, 13)], "k")    # head, ragged crest
-        poly(c, [(46, 15), (55, 17), (55, 21), (52, 19), (46, 20)], "p")                 # long hooked beak
-        c.px(54, 22, "p"); c.px(53, 22, "p")
-        c.px(44, 16, "r"); c.px(42, 16, "r"); c.px(43, 17, "m")                          # glowing eyes
-        wing(c, (33, 23), (30, 6 + step), (22, 0 + step), "k", "K")                      # near wing, raised back
+                c.px(x0 + d * (t // 2), 33 + t, "K")
+            c.px(x0 + d * 3, 39, "w"); c.px(x0 + d * 4, 38, "w"); c.px(x0 + d * 2, 40, "w")
+        ellipse(c, 32, 26, 6, 9, "k")                                                    # body
+        for y in range(22, 33, 3):
+            c.px(31, y, "q"); c.px(33, y, "q"); c.px(32, y + 1, "q")                     # ragged breast feathers
+        ellipse(c, 32, 14, 4.5, 4, "k")                                                  # head, turned to the side
+        c.px(29, 10, "k"); c.px(28, 9, "k"); c.px(31, 9, "k"); c.px(30, 8, "k")          # ragged crest
         rim(c, "kK", "p")
+        poly(c, [(35, 12), (43, 14), (42, 18), (40, 16), (35, 17)], "b")                 # pale hooked beak
+        c.px(42, 19, "b"); c.px(41, 19, "B"); c.row(15, 37, 41, "B")
+        c.px(34, 13, "r"); c.px(31, 13, "r")                                             # glowing eyes
 
     def serpent(c, step):
         def bez(p0, p1, p2, p3, t):
@@ -726,7 +743,7 @@ def phobetor(form):
     return {"beast": beast, "bird": bird, "serpent": serpent}[form]
 
 
-PHOBETOR_PAL = {"o": "#0a0612", "k": "#2a1a3a", "K": "#1a1028", "q": "#3a2650", "p": "#6a3a9a", "r": "#f04a8a",
+PHOBETOR_PAL = {"o": "#0a0612", "k": "#2a1a3a", "K": "#1a1028", "q": "#3a2650", "b": "#d0c8b8", "B": "#9a9080", "p": "#6a3a9a", "r": "#f04a8a",
                 "w": "#e8e0f0", "m": "#5a0a2a"}
 PHOBETOR_BEAST_PAL = {"o": "#0a0612", "k": "#0a0612", "f": "#2e1e40", "F": "#20142e", "D": "#160c22", "l": "#4a3262",
                       "w": "#e8e0f0", "r": "#f04a8a", "y": "#f04a8a", "g": "#6a3a9a", "p": "#6a3a9a", "P": "#4a2a72"}

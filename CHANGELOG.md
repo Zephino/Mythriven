@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.70
+Date: 11/02/2026
+Time: 7:32 AM
+
+### Changes
+- **Phobetor's bird form redrawn again, seen from the front.** Its wings are spread wide to both sides, beating, with long fingered flight feathers and shorter ones below. It has a fanned tail, legs with talons spread, ragged breast feathers, and its head turned to show glowing eyes and a pale bone-coloured hooked beak.
+
+### Reason
+The owner asked for Phobetor's bird form to be redone again.
+
 ## Version 00.03.69
 Date: 11/02/2026
 Time: 7:24 AM
