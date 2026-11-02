@@ -1,5 +1,5 @@
 {
- "_doc": "A cinder imp (Mythriven's own): a little spark of Ashkarrow with arms and legs, flickering. Built by tools/art/build_abyss.py.",
+ "_doc": "A cinder imp (Ashkarrow, the game's own): a little spark of the city with arms and legs, a flame for a body, swarming out of the cracks in the streets. Built by tools/art/build_abyss.py.",
  "size": [
   13,
   12
@@ -11,82 +11,84 @@
  "palette": {
   "o": "#2a0e06",
   "r": "#e8502a",
+  "R": "#a83018",
   "y": "#ffd060",
+  "Y": "#fff4c0",
   "k": "#1a0a06"
  },
  "frames": {
   "idle": [
    [
-    "......o......",
-    ".....oyo.....",
-    "......o......",
-    "....ooroo....",
-    "...orrrrro...",
-    "..ookyyykoo..",
-    ".orrryyyrrro.",
-    "..ooryyyroo..",
-    "...orrrrro...",
-    "....ooroo....",
-    "....ororo....",
-    ".....o.o....."
+    "....o.....o..",
+    "...orooo.oyo.",
+    "..orrrrro.o..",
+    "..orrrrrro...",
+    "o.orrrrrro..o",
+    "yoorryyyro.oy",
+    "orrrykykyooro",
+    ".orryyyyyroo.",
+    ".orryyYyyro..",
+    "..oooyyyoo...",
+    "...oRoooRo...",
+    "...oko.oko..."
    ]
   ],
   "walk": [
    [
+    ".........oyo.",
+    "...oo.o...o..",
+    "..orroro.....",
+    "..orrrrro...o",
+    "..orrrrrro.oy",
+    "o.orryyyrooro",
+    "yorrykykyo.o.",
+    "orrryyyyyro..",
+    ".orryyYyyro..",
+    "..oooyyyoo...",
+    "....oRoRo....",
+    "....okoko...."
+   ],
+   [
+    "....o.....o..",
+    "...orooo.oyo.",
+    "..orrrrro.o..",
+    "..orrrrrro...",
+    "o.orrrrrro..o",
+    "yoorryyyro.oy",
+    "orrrykykyooro",
+    ".orryyyyyroo.",
+    ".orryyYyyro..",
+    "..oooyyyoo...",
+    "...oRoooRo...",
+    "...oko.oko..."
+   ],
+   [
     ".............",
-    "......o......",
-    ".....oyo.....",
-    "....ooroo....",
-    "...oryyyroo..",
-    "...okyyykoro.",
-    "..orryyyrro..",
-    ".ororrrrro...",
-    "..oorrrrro...",
-    "....ooroo....",
-    "....ororo....",
-    ".....o.o....."
+    "...oo.o...o..",
+    "..orroro.oyo.",
+    "o.orrrrro.o..",
+    "yoorrrrrro...",
+    "ororryyyro..o",
+    ".orrykykyo.oy",
+    ".orryyyyyroro",
+    ".orryyYyyroo.",
+    "..oooyyyoo...",
+    "..oRoooooRo..",
+    "..oko...oko.."
    ],
    [
-    "......o......",
-    ".....oyo.....",
-    "......o......",
-    "....ooroo....",
-    "...orrrrro...",
-    "..ookyyykoo..",
-    ".orrryyyrrro.",
-    "..ooryyyroo..",
-    "...orrrrro...",
-    "....ooroo....",
-    "....ororo....",
-    ".....o.o....."
-   ],
-   [
-    ".............",
-    "......o......",
-    ".....oyo.....",
-    "....ooroo....",
-    "...oryyyroo..",
-    "...okyyykoro.",
-    "..orryyyrro..",
-    ".ororrrrro...",
-    "..oorrrrro...",
-    "....ooroo....",
-    "....ororo....",
-    ".....o.o....."
-   ],
-   [
-    "......o......",
-    ".....oyo.....",
-    "......o......",
-    "....ooroo....",
-    "...orrrrro...",
-    "..ookyyykoo..",
-    ".orrryyyrrro.",
-    "..ooryyyroo..",
-    "...orrrrro...",
-    "....ooroo....",
-    "....ororo....",
-    ".....o.o....."
+    "....o.....o..",
+    "...orooo.oyo.",
+    "..orrrrro.o..",
+    "..orrrrrro...",
+    "o.orrrrrro..o",
+    "yoorryyyro.oy",
+    "orrrykykyooro",
+    ".orryyyyyroo.",
+    ".orryyYyyro..",
+    "..oooyyyoo...",
+    "...oRoooRo...",
+    "...oko.oko..."
    ]
   ]
  }

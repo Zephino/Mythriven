@@ -1,5 +1,5 @@
 {
- "_doc": "A wyrmling (Historia Brittonum 42: the dragons are called \"worms\"): a little white dragon on beating wings. Built by tools/art/build_abyss.py.",
+ "_doc": "A wyrmling (Historia Brittonum 42: the dragons under Vortigern's tower, called \"worms\"): a little white dragon with tiny wings beating, a long tail and a pale blue eye. Built by tools/art/build_abyss.py.",
  "size": [
   16,
   12
@@ -11,8 +11,8 @@
  "palette": {
   "o": "#3a3a48",
   "w": "#f0f0ec",
-  "W": "#c8ccd8",
-  "r": "#c83a2a"
+  "W": "#b8c4d8",
+  "b": "#4a8ad0"
  },
  "frames": {
   "idle": [
@@ -20,73 +20,73 @@
     "................",
     "................",
     "................",
-    "................",
-    "..o.......ooo...",
-    ".oWooo.o.owwro..",
-    "..oWWWowowwwwwo.",
-    "...oWwwwwwwwwo..",
-    "...owwwwwwwoo...",
-    "..owowwwwwo.....",
-    ".oWo.oowoo......",
-    "..o....o........"
+    ".....o.....o....",
+    "....oWo...oWoo..",
+    "...oWWWo..owbwo.",
+    "....oWWWoowwwwwo",
+    "o.oowwwwwwwwwwoW",
+    "WoWowwwwwwwooo.o",
+    "oWoWwwwwwwwo....",
+    ".o.ooWowoWo.....",
+    ".....o.o.o......"
    ]
   ],
   "walk": [
    [
-    ".............o..",
-    "............oWo.",
-    "..o........oWo..",
-    ".oWo......oWWo..",
-    "..oWo....oWWo...",
-    "...oWo.ooWwwro..",
-    "...oWWowowwwwwo.",
-    "....owwwwwwwwo..",
-    "...owwwwwwwoo...",
-    "..owowwwwwo.....",
-    ".oWo.oowoo......",
-    "..o....o........"
+    ".....o..........",
+    "....oWo.........",
+    "...oWWWo........",
+    "....oWWo...o....",
+    "....oWWWo.oWoo..",
+    "....oWWWo.owbwo.",
+    "....ooWWWowwwwwo",
+    "o.oowwwwwwwwwwoW",
+    "WoWowwwwwwwooo.o",
+    "oWoWwwwwwwwo....",
+    ".o.ooWowoWo.....",
+    ".....o.o.o......"
    ],
    [
     "................",
     "................",
     "................",
-    "................",
-    "..o.......ooo...",
-    ".oWooo.o.owwro..",
-    "..oWWWowowwwwwo.",
-    "...oWwwwwwwwwo..",
-    "...owwwwwwwoo...",
-    "..owowwwwwo.....",
-    ".oWo.oowoo......",
-    "..o....o........"
+    ".....o.....o....",
+    "....oWo...oWoo..",
+    "...oWWWo..owbwo.",
+    "....oWWWoowwwwwo",
+    "o.oowwwwwwwwwwoW",
+    "WoWowwwwwwwooo.o",
+    "oWoWwwwwwwwo....",
+    ".o.ooWowoWo.....",
+    ".....o.o.o......"
    ],
    [
-    ".............o..",
-    "............oWo.",
-    "..o........oWo..",
-    ".oWo......oWWo..",
-    "..oWo....oWWo...",
-    "...oWo.ooWwwro..",
-    "...oWWowowwwwwo.",
-    "....owwwwwwwwo..",
-    "...owwwwwwwoo...",
-    "..owowwwwwo.....",
-    ".oWo.oowoo......",
-    "..o....o........"
+    ".....o..........",
+    "....oWo.........",
+    "...oWWWo........",
+    "....oWWo...o....",
+    "....oWWWo.oWoo..",
+    "....oWWWo.owbwo.",
+    "....ooWWWowwwwwo",
+    "o.oowwwwwwwwwwoW",
+    "WoWowwwwwwwooo.o",
+    "oWoWwwwwwwwo....",
+    ".o.ooWowoWo.....",
+    ".....o.o.o......"
    ],
    [
     "................",
     "................",
     "................",
-    "................",
-    "..o.......ooo...",
-    ".oWooo.o.owwro..",
-    "..oWWWowowwwwwo.",
-    "...oWwwwwwwwwo..",
-    "...owwwwwwwoo...",
-    "..owowwwwwo.....",
-    ".oWo.oowoo......",
-    "..o....o........"
+    ".....o.....o....",
+    "....oWo...oWoo..",
+    "...oWWWo..owbwo.",
+    "....oWWWoowwwwwo",
+    "o.oowwwwwwwwwwoW",
+    "WoWowwwwwwwooo.o",
+    "oWoWwwwwwwwo....",
+    ".o.ooWowoWo.....",
+    ".....o.o.o......"
    ]
   ]
  }

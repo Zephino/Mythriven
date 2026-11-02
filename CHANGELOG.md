@@ -2,6 +2,25 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.71
+Date: 11/02/2026
+Time: 7:55 AM
+
+### Changes
+Remade every sprite in Ashkarrow and Dinas Emrys (owner's request):
+- **Ash fiend:** a hunched grey figure of ash with glowing cracks, long clawed arms, ember eyes and sparks rising off it.
+- **Cinder imp:** a little flame with a bright core, eyes, tiny legs and arms flung out.
+- **The Chain Warden:** a hulking gaoler in a charred hood with ember eyes, red-hot chains crossed over his chest, and a chain with a great hook hanging from his hand.
+- **The Ash Colossus:** a giant heaped up out of ash, lumpy and broad-shouldered, with a small head sunk between its shoulders, huge arms to the ground, glowing cracks all over it, and smoke and embers rising off it.
+- **The Lord of Ashkarrow:** tall and ash-grey, crowned with glowing cinders, in charcoal robes under an ember-red mantle with a high collar, holding a sceptre topped with a burning brazier.
+- **The Coraniaid and the Coraniad:** lean, sly figures in grey-blue cloaks with long pointed ears; the boss cups a hand to its ear, with the sound reaching it.
+- **The Magician of the Feast:** a tall bearded man in a deep purple robe playing a harp, with a hamper of stolen food on his back (a ham, a loaf and a flagon) and sleepy sparkles drifting from the harp.
+- **The White Dragon:** a great white dragon on four clawed legs, with bat-like wings raised, a long curving neck with spines down it, a horned head with a glowing blue eye, teeth and frost on its breath, and a long tail ending in a point.
+- **Wyrmling:** a little white dragon with tiny beating wings, a horn and a blue eye.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for every sprite in Ashkarrow and Dinas Emrys to be remade.
+
 ## Version 00.03.70
 Date: 11/02/2026
 Time: 7:32 AM
