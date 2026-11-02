@@ -2,6 +2,28 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.59
+Date: 11/02/2026
+Time: 11:28 PM
+
+### Changes
+Remade every sprite in Hyperborea and the Empyrean (owner's request):
+- **Arimaspian:** a fur hood and fur coat with a white fur hem, a single great blue eye in the middle of his face, a beard, a pouch of stolen gold and an axe.
+- **The Arimaspian Chieftain:** the same one-eyed raider, bigger, in a fur hood, collar and cloak, hung with stolen gold (a torc, arm rings and a bulging sack), with a broad axe.
+- **The Six-Month Sleeper:** a huge stooping old northerner in a shaggy bearskin, frost on his shoulders and snow in his long white hair and beard, heavy-lidded and yawning, leaning on a staff.
+- **Young griffin:** a white eagle's head with a hooked golden beak, a tawny lion's body and tufted tail, flying on golden wings.
+- **The Griffin Matriarch:** a lion's body with an eagle's taloned forelegs, a white eagle's head with a crest and a hooked golden beak, a tufted tail, and great golden wings raised high, with feather lines and gold flecks.
+- **Flurry of feathers:** little white feathers and flakes tumbling round in the wind.
+- **The star creatures** are now night-blue figures edged with starlight, so they read against dark ground:
+  - **Star hound:** a lean hound with bright stars on it.
+  - **The Scorpion:** seen from the side, with great pincers, braced legs and a jointed tail arched over its back, its sting glowing red and red Antares at its heart.
+  - **The Great Bear:** humped at the shoulder, with a broad head, small round ears and a long starry tail as the old sky maps drew it, with her seven bright stars.
+  - **Orion:** the giant hunter raising his club, a pelt over his arm, the three stars of his belt with his sword hanging from it, and red Betelgeuse at his shoulder.
+- **Star mote** and **Comet:** a softly glowing twinkling star, and a blazing head trailing long streaming hair of light.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for every sprite in Hyperborea and the Empyrean to be remade.
+
 ## Version 00.03.58
 Date: 11/02/2026
 Time: 11:20 PM

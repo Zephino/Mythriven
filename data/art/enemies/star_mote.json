@@ -1,5 +1,5 @@
 {
- "_doc": "A star mote: a small bright point of the sky, twinkling. Built by tools/art/build_heavens.py.",
+ "_doc": "A star mote (Aratus: the countless lesser stars no one has named): a small bright star with a soft glow, twinkling. Built by tools/art/build_heavens.py.",
  "size": [
   11,
   11
@@ -11,7 +11,8 @@
  "palette": {
   "o": "#1a1a30",
   "w": "#ffffff",
-  "y": "#f0e080"
+  "y": "#f0e080",
+  "g": "#a08a40"
  },
  "frames": {
   "idle": [
@@ -20,9 +21,9 @@
     "...........",
     ".....o.....",
     "....oyo....",
-    "...ooyoo...",
-    "..oyywyyo..",
-    "...ooyoo...",
+    "...ogwgo...",
+    "..oywwwyo..",
+    "...ogwgo...",
     "....oyo....",
     ".....o.....",
     "...........",
@@ -31,52 +32,52 @@
   ],
   "walk": [
    [
-    "...........",
-    "...........",
-    "...o.o.o...",
-    "..oyoyoyo..",
-    "...ooyoo...",
-    "..oyywyyo..",
-    "...ooyoo...",
-    "..oyoyoyo..",
-    "...o.o.o...",
-    "...........",
-    "..........."
+    "....oyo....",
+    ".....o.....",
+    ".....o.....",
+    "....oyo....",
+    "o..ogwgo..o",
+    "yooywwwyooy",
+    "o..ogwgo..o",
+    "....oyo....",
+    ".....o.....",
+    ".....o.....",
+    "....oyo...."
    ],
    [
     "...........",
     "...........",
     ".....o.....",
     "....oyo....",
-    "...ooyoo...",
-    "..oyywyyo..",
-    "...ooyoo...",
+    "...ogwgo...",
+    "..oywwwyo..",
+    "...ogwgo...",
     "....oyo....",
     ".....o.....",
     "...........",
     "..........."
    ],
    [
-    "...........",
-    "...........",
-    "...o.o.o...",
-    "..oyoyoyo..",
-    "...ooyoo...",
-    "..oyywyyo..",
-    "...ooyoo...",
-    "..oyoyoyo..",
-    "...o.o.o...",
-    "...........",
-    "..........."
+    "....oyo....",
+    ".....o.....",
+    ".....o.....",
+    "....oyo....",
+    "o..ogwgo..o",
+    "yooywwwyooy",
+    "o..ogwgo..o",
+    "....oyo....",
+    ".....o.....",
+    ".....o.....",
+    "....oyo...."
    ],
    [
     "...........",
     "...........",
     ".....o.....",
     "....oyo....",
-    "...ooyoo...",
-    "..oyywyyo..",
-    "...ooyoo...",
+    "...ogwgo...",
+    "..oywwwyo..",
+    "...ogwgo...",
     "....oyo....",
     ".....o.....",
     "...........",

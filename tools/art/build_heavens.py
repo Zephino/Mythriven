@@ -5,6 +5,9 @@
 import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
+from figure_kit import person
+from build_gothic import rim
+from build_avalon import hound
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -22,165 +25,324 @@ def figure(c, step, robe, skin, hair, legs="k", x0=14, top=18, bottom=50):
 # --- Hyperborea (Herodotus 3.116, 4.13-36; Pindar, Pythian 10) --------------------------------------------------------
 
 def arimaspian(c, f):
-    """An Arimaspian (Herodotus 4.27: "one-eyed men" of the far north who steal gold from the griffins): a fur-clad raider
-    with a single great eye."""
+    """An Arimaspian (Herodotus 4.27: "one-eyed men" of the far north who steal gold from the griffins): a raider in a
+    fur hood and a fur coat belted with a pouch of stolen gold, a single great eye in the middle of his face, and an axe."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "k")
-    c.rect(5, 8, 14, 18, "f"); c.row(12, 5, 14, "F")
-    ellipse(c, 9, 5, 3.5, 3, "s"); ellipse(c, 9, 5, 1.5, 1.2, "w"); c.px(9, 5, "k")
-    c.rect(6, 1, 12, 2, "F"); c.rect(16, 3, 16, 17, "b"); c.rect(15, 2, 17, 4, "i")
+        c.rect(x + d, 18, x + 1 + d, 21, "F"); c.rect(x + d, 22, x + 2 + d, 23, "k")      # fur boots
+    poly(c, [(5, 9), (13, 9), (14, 19), (4, 19)], "f"); poly(c, [(5, 9), (7, 9), (6, 19), (4, 19)], "F")
+    c.row(19, 4, 14, "W"); c.row(18, 4, 14, "W")                                         # white fur hem
+    c.row(14, 5, 13, "b"); ellipse(c, 12, 15, 1.5, 1.5, "y"); c.px(12, 15, "Y")          # belt, pouch of gold
+    c.rect(3, 10, 4, 14, "F"); c.px(3, 15, "s")                                          # far arm
+    ellipse(c, 9, 5, 3.4, 3.4, "W"); ellipse(c, 9, 5, 2.6, 2.8, "s")                     # fur hood round the face
+    ellipse(c, 9, 4, 1.6, 1.4, "w"); c.px(9, 4, "k"); c.px(10, 4, "e"); c.row(2, 8, 10, "S")   # the single great eye
+    c.row(7, 8, 10, "h"); c.px(9, 8, "h")                                                # beard
+    poly(c, [(6, 2), (12, 2), (11, 0), (7, 0)], "W")
+    c.rect(15, 3, 15, 17, "b"); c.px(15, 18, "b")                                        # axe haft
+    poly(c, [(16, 3), (19, 1), (19, 7), (16, 6)], "i"); c.px(19, 1, "I"); c.px(19, 7, "I")
+    c.px(14, 12, "s")                                                                    # hand
 
 
-ARIMASPIAN_PAL = {"o": "#0e0a08", "k": "#1e1814", "f": "#8a6a48", "F": "#6a4e34", "s": "#d0a080", "w": "#f0ece4",
-                  "b": "#5a3a1a", "i": "#9aa0a8"}
+ARIMASPIAN_PAL = {"o": "#0e0a08", "k": "#1e1814", "f": "#8a6a48", "F": "#6a4e34", "W": "#e8e0d0", "s": "#d0a080",
+                  "S": "#a07a5a", "w": "#f0ece4", "e": "#4a8ac8", "h": "#4a3020", "b": "#5a3a1a", "i": "#b0b6be",
+                  "I": "#7a8088", "y": "#e8c040", "Y": "#fff0a0"}
 
 
 def young_griffin(c, f):
-    """A young griffin (Herodotus 3.116, 4.13: the griffins that guard the gold): a small eagle-headed, lion-bodied
-    beast on golden wings."""
+    """A young griffin (Herodotus 3.116, 4.13: the griffins that guard the gold): a small beast with an eagle's white
+    head and hooked golden beak and a lion's tawny body and tufted tail, flying on golden wings."""
     up = f % 2
-    poly(c, [(9, 7), (2, 1 if up else 6), (6, 9)], "y"); poly(c, [(11, 7), (18, 1 if up else 6), (14, 9)], "y")
-    ellipse(c, 10, 10, 4, 3, "t"); ellipse(c, 14, 6, 2, 2, "w"); poly(c, [(15, 6), (18, 7), (15, 8)], "y")
-    c.px(14, 5, "k"); c.px(6, 12, "t"); c.px(13, 13, "t")
+    poly(c, [(8, 7), (11, 7), (5, 0 if up else 13), (2, 1 if up else 12)], "Y")          # far wing
+    ellipse(c, 9, 9, 5, 2.6, "t"); c.row(11, 6, 12, "T")                                 # lion body
+    c.px(5, 11, "T"); c.px(4, 12, "T"); c.px(12, 11, "T"); c.px(13, 12, "T")            # tucked legs
+    for k in range(4):
+        c.px(4 - k, 8 - k // 2, "t")                                                     # tail
+    c.px(0, 6, "T"); c.px(1, 6, "T")                                                     # its tuft
+    ellipse(c, 15, 6, 2.6, 2.4, "w"); c.px(13, 5, "W")                                   # eagle head
+    c.px(16, 5, "k")
+    c.px(17, 6, "y"); c.px(18, 7, "y"); c.px(17, 7, "Y")                                 # hooked beak
+    poly(c, [(9, 7), (12, 7), (14, 0 if up else 14), (10, 1 if up else 13)], "y")        # near wing
+    for k in range(3):
+        c.px(10 + k, (2 if up else 12) + (k if up else -k), "Y")                         # feather lines
 
 
-YOUNG_GRIFFIN_PAL = {"o": "#2a1a08", "y": "#e8c040", "t": "#c8944a", "w": "#f0ece4", "k": "#1a1008"}
+YOUNG_GRIFFIN_PAL = {"o": "#2a1a08", "y": "#e8c040", "Y": "#b89028", "t": "#c8944a", "T": "#9a6a32", "w": "#f4f0e8",
+                     "W": "#c8c0b0", "k": "#1a1008"}
 
 
 def feather_flurry(c, f):
     """A flurry of the north's "feathers" (Herodotus 4.31: the air beyond the north wind is full of feathers, which he
-    took to be snow): a swirl of white flakes."""
-    for k in range(6):
-        a = k / 6 * math.tau + f * 0.4
-        c.px(7 + round(4 * math.cos(a)), 6 + round(4 * math.sin(a)), "w")
-        c.px(7 + round(2 * math.cos(a + 1)), 6 + round(2 * math.sin(a + 1)), "W")
+    took to be snow): white feathers and flakes tumbling round in the wind."""
+    for k in range(3):
+        a = k / 3 * math.tau + f * 0.5
+        x, y = 7 + 4 * math.cos(a), 6 + 3.6 * math.sin(a)
+        dx, dy = round(math.cos(a + 1.6)), round(math.sin(a + 1.6))
+        for t in (-1, 0, 1):
+            c.px(round(x) + dx * t, round(y) + dy * t, "w")                               # a little feather
+        c.px(round(x) + dx * 2, round(y) + dy * 2, "W")                                  # its quill
+        c.px(round(x) - dy, round(y) + dx, "W")
+    for k in range(3):
+        a = k / 3 * math.tau + 1 - f * 0.3
+        c.px(7 + round(2 * math.cos(a)), 6 + round(2 * math.sin(a)), "b")                # flakes
 
 
-FLURRY_PAL = {"o": "#6a7888", "w": "#ffffff", "W": "#c8d8e8"}
+FLURRY_PAL = {"o": "#6a7888", "w": "#ffffff", "W": "#c8d8e8", "b": "#e0ecf8"}
 
 
 def arimaspian_chieftain(c, step):
-    """The Arimaspian Chieftain (Herodotus 4.27): a great one-eyed raider of the north in furs and gold he has stolen
-    from the griffins."""
-    figure(c, step, "f", "s", "F")
-    c.rect(16, 18, 26, 30, "F"); c.row(24, 16, 26, "y"); c.px(18, 22, "y"); c.px(24, 22, "y")
-    c.rect(17, 9, 24, 13, "s"); ellipse(c, 21, 10, 2.5, 2, "w"); c.px(21, 10, "k")
-    c.rect(32, 8, 33, 44, "b"); poly(c, [(33, 8), (40, 6), (40, 14), (33, 12)], "i")
+    """The Arimaspian Chieftain (Herodotus 4.27): a great one-eyed raider of the north in a fur hood and a cloak of
+    furs, his single great eye glaring, hung with the gold he has stolen from the griffins (a torc at his neck, rings
+    on his arm, a sack bulging with it), and a broad axe."""
+    poly(c, [(4, 18), (12, 16), (14, 30), (6, 32)], "b"); c.px(7, 19, "y"); c.px(9, 23, "y"); c.px(6, 26, "Y")   # sack of gold
+    person(c, step, cx=20, skin="s", skin_d="S", hair="W", hair_d="V", hair_style="short", beard="h",
+           garment="tunic", robe="f", robe_d="F", legs="F", boots="k", belt="b", cloak=("F", "k"), arm_forward=True)
+    for x in (18, 22):
+        c.px(x, 10, "s"); c.px(x, 9, "s")                                                # paint out the two eyes
+    ellipse(c, 20, 9, 2, 1.6, "w"); c.px(20, 9, "k"); c.px(21, 9, "e"); c.row(7, 18, 22, "h")   # the single great eye
+    ellipse(c, 20, 5, 6, 3.5, "W"); c.rect(14, 5, 15, 12, "W"); c.rect(25, 5, 26, 12, "W")   # fur hood
+    for x in range(15, 26, 3):
+        c.px(x, 4, "V")
+    poly(c, [(13, 17), (27, 17), (25, 20), (15, 20)], "W"); c.row(18, 15, 25, "V")       # fur collar
+    c.row(16, 16, 24, "y"); c.px(16, 17, "Y"); c.px(24, 17, "Y")                         # gold torc
+    c.row(28, 15, 25, "b"); ellipse(c, 20, 28, 1.6, 1.4, "y")                            # belt and buckle
+    c.row(42, 13, 27, "W")                                                               # fur hem
+    c.px(29, 21, "y"); c.px(30, 22, "y"); c.px(31, 21, "y")                              # gold arm rings
+    c.rect(35, 2, 36, 44, "b")                                                           # the axe
+    poly(c, [(37, 4), (41, 0), (41, 14), (37, 11)], "i"); c.rect(41, 0, 41, 14, "I"); c.row(7, 37, 40, "I")
 
 
-CHIEFTAIN_PAL = dict(ARIMASPIAN_PAL, y="#e8c040")
+CHIEFTAIN_PAL = {"o": "#0e0a08", "k": "#2a1e16", "f": "#8a6a48", "F": "#6a4e34", "W": "#e8e0d0", "V": "#b8b0a0",
+                 "s": "#d0a080", "S": "#a07a5a", "w": "#f0ece4", "e": "#4a8ac8", "h": "#4a3020", "H": "#2a1a10",
+                 "m": "#7a4a3a", "b": "#5a3a1a", "i": "#b0b6be", "I": "#7a8088", "y": "#e8c040", "Y": "#fff0a0",
+                 "l": "#6a4e34"}
 
 
 def six_month_sleeper(c, step):
     """The Six-Month Sleeper (Herodotus 4.25: men of the far north who, it was said, sleep for six months of the year):
-    a heavy, shaggy northerner wrapped in furs, eyes half-closed."""
-    figure(c, step, "f", "s", "w", legs="F")
-    c.rect(12, 18, 30, 34, "F"); c.rect(16, 13, 25, 16, "w")
-    c.row(10, 17, 19, "k"); c.row(10, 22, 24, "k")
+    a huge, stooping old northerner wrapped in a great shaggy bearskin, frost on his shoulders and snow in his long
+    white hair and beard, his eyes heavy with sleep and his mouth wide in a yawn, leaning on a staff."""
+    poly(c, [(7, 14), (31, 14), (36, 52), (2, 52)], "F")                                 # the shaggy bearskin
+    poly(c, [(9, 14), (29, 14), (32, 50), (6, 50)], "f")
+    for y in range(18, 50, 4):
+        for x in range(6 + (y // 4) % 2 * 2, 33, 4):
+            c.px(x, y, "F"); c.px(x + 1, y + 1, "F")                                     # shaggy fur
+    for k, d in enumerate((-step, step)):
+        c.rect(13 + k * 9 + d, 50, 18 + k * 9 + d, 54, "k")                              # fur boots
+    ellipse(c, 19, 15, 12, 4, "w"); c.px(10, 14, "W"); c.px(26, 15, "W")                 # frost on his shoulders
+    ellipse(c, 19, 9, 6, 6.5, "s"); c.px(14, 10, "S")                                    # head, stooping forward
+    ellipse(c, 19, 4, 7, 4, "w"); c.rect(12, 4, 13, 18, "w"); c.rect(25, 4, 26, 16, "w")   # long white hair
+    c.row(9, 16, 18, "S"); c.row(9, 21, 23, "S"); c.row(10, 16, 18, "k"); c.row(10, 21, 23, "k")   # heavy-lidded eyes
+    c.px(19, 11, "S")
+    poly(c, [(14, 13), (24, 13), (23, 26), (19, 30), (15, 26)], "w")                     # long beard
+    for x, y in ((16, 17), (18, 22), (21, 19), (22, 24)):
+        c.px(x, y, "W")
+    ellipse(c, 19, 15, 2.2, 1.6, "m"); c.px(19, 15, "k")                                 # a wide yawn
+    c.rect(36, 6, 37, 54, "b"); c.px(36, 5, "B")                                         # staff
+    ellipse(c, 34, 27, 2.5, 2.5, "f"); ellipse(c, 36, 26, 1.8, 1.8, "s")                 # hand on it
+    for x, y in ((8, 24), (30, 30), (12, 40), (27, 44), (4, 48)):
+        c.px(x, y, "w")                                                                  # snow caught in the fur
 
 
-SLEEPER_PAL = {"o": "#0e0a08", "k": "#1e1814", "f": "#a89078", "F": "#7a6450", "s": "#e0c0a0", "w": "#e8e4dc"}
+SLEEPER_PAL = {"o": "#0e0a08", "k": "#1e1814", "f": "#8a7058", "F": "#5e4a38", "s": "#e0c0a0", "S": "#b89878",
+               "w": "#f4f4f8", "W": "#c0c8d4", "m": "#5a2a20", "b": "#6a4a2a", "B": "#8a6a44"}
 
 
 def griffin_matriarch(c, step):
-    """The Griffin Matriarch (Herodotus 4.13; the gold-guarding griffins): a great griffin, eagle's head and wings on a
-    lion's body, her feathers flecked with gold."""
-    poly(c, [(26, 22), (6, 4 - step), (22, 26)], "y"); poly(c, [(34, 22), (54, 4 + step), (38, 26)], "Y")
-    ellipse(c, 30, 32, 16, 9, "t")
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(18 + k * 8 + d, 38, 20 + k * 8 + d, 48, "T")
-    ellipse(c, 48, 22, 7, 7, "w"); poly(c, [(54, 22), (60, 26), (53, 27)], "y"); c.px(49, 20, "k")
-    for k in range(10):
-        c.px(13 - k, 30 + k // 3, "t")
+    """The Griffin Matriarch (Herodotus 4.13; the gold-guarding griffins): a great griffin with a lion's tawny body,
+    an eagle's white head with a crest and a hooked golden beak, an eagle's taloned forelegs and a lion's hind legs, a
+    tufted tail, and great golden wings raised high, flecked with gold."""
+    def wing(x0, y0, tip, back, col, shade):
+        """A broad raised wing: a filled shape from the shoulder to the tip, with feather lines inside it and
+        scalloped feather tips along its trailing edge."""
+        poly(c, [(x0, y0), (x0 + (tip[0] - x0) * 0.2, y0 - 6), tip, back], col)
+        for k in range(1, 6):                                                            # feather lines, inside only
+            t = k / 6
+            bx, by = back[0] + (tip[0] - back[0]) * t, back[1] + (tip[1] - back[1]) * t
+            for j in range(10):
+                x, y = round(bx + (x0 - bx) * j / 14), round(by + (y0 - by) * j / 14)
+                if 0 <= x < c.w and 0 <= y < c.h and c.g[y][x] == col:
+                    c.px(x, y, shade)
+            c.px(round(bx), round(by) + 1, col)                                           # scalloped tips
+    wing(30, 26, (6, 2 - step), (16, 24), "Y", "T")                                                # far wing
+    for x, d in ((17, -step), (42, step)):                                               # far legs
+        c.rect(x + d, 38, x + 3 + d, 50, "T")
+    for i in range(18):                                                                  # lion's tail with its tuft
+        t = i / 17
+        ellipse(c, 12 - t * 8, 32 + t * 10 - t * t * 8, 1.3, 1.3, "t")
+    ellipse(c, 4, 36, 2.5, 2.5, "T")
+    ellipse(c, 28, 34, 16, 8, "t"); ellipse(c, 26, 38, 13, 4, "T")                      # lion body
+    ellipse(c, 27, 31, 12, 4, "u")                                                       # light on its back
+    c.rect(13 - step, 38, 17 - step, 47, "t"); c.rect(12 - step, 48, 18 - step, 50, "T")   # lion hind leg
+    c.rect(38 + step, 38, 41 + step, 47, "w"); c.rect(37 + step, 48, 42 + step, 49, "y")   # eagle foreleg
+    c.px(36 + step, 50, "y"); c.px(39 + step, 50, "y"); c.px(42 + step, 50, "y")        # talons
+    poly(c, [(38, 22), (46, 16), (50, 26), (44, 36), (36, 34)], "w")                     # feathered chest and neck
+    c.px(42, 30, "W"); c.px(40, 26, "W"); c.px(44, 24, "W")
+    ellipse(c, 49, 15, 6, 5.5, "w"); c.px(45, 17, "W")                                   # eagle head
+    poly(c, [(44, 11), (40, 6), (46, 9)], "w"); poly(c, [(46, 10), (44, 4), (49, 9)], "W")   # crest
+    c.px(51, 13, "k"); c.px(51, 12, "y"); c.row(11, 50, 53, "W")                         # fierce eye, brow
+    poly(c, [(54, 13), (61, 15), (61, 19), (58, 21), (55, 18)], "y")                     # hooked golden beak
+    c.px(59, 20, "Y"); c.px(58, 21, "Y"); c.row(17, 55, 59, "Y")
+    wing(32, 26, (50, 0 + step), (24, 18), "y", "Y")                                               # near wing, raised
+    for x, y in ((24, 30), (31, 33), (20, 35), (35, 31)):
+        c.px(x, y, "y")                                                                  # gold flecks
 
 
-MATRIARCH_PAL = {"o": "#2a1a08", "y": "#e8c040", "Y": "#c8a030", "t": "#c8944a", "T": "#a8743a", "w": "#f0ece4",
-                 "k": "#1a1008"}
+MATRIARCH_PAL = {"o": "#2a1a08", "y": "#e8c040", "Y": "#b89028", "t": "#c8944a", "T": "#9a6a32", "u": "#dcae6a",
+                 "w": "#f4f0e8", "W": "#c8c0b0", "k": "#1a1008"}
 
 
 # --- The Empyrean (Aratus, Phaenomena; Ptolemy, Almagest; Hyginus 2.21-36; Ovid, Met. 2, Fasti 5; Apollodorus 1.4) ----
 
 def star_hound(c, f):
-    """A star hound (Aratus; Hyginus 2.35-36: Orion's dogs set among the stars): a hound picked out in points of light."""
-    s = STEP[f]
-    ellipse(c, 11, 9, 7, 3, "d")
-    for k, d in enumerate((-s, s, s, -s)):
-        c.rect(5 + k * 4 + d, 11, 5 + k * 4 + d, 15, "d")
-    poly(c, [(16, 5), (22, 7), (22, 10), (16, 10)], "d")
-    for x, y in ((6, 8), (11, 7), (16, 9), (20, 7), (5, 14), (13, 14)):
+    """A star hound (Aratus; Hyginus 2.35-36: Orion's dogs set among the stars): a lean hound of the night sky, deep
+    blue edged with starlight, with bright stars at its eye, shoulder and haunch."""
+    hound(c, f, "d", "D")
+    rim(c, "dD", "b")
+    for x, y in ((6, 8), (13, 8), (17, 7), (4, 13), (12, 14)):
         c.px(x, y, "w")
+    c.px(19, 5, "y")                                                                     # its eye, the brightest star
 
 
-STAR_HOUND_PAL = {"o": "#0a0c1a", "d": "#2a3060", "w": "#f0f4ff"}
+STAR_HOUND_PAL = {"o": "#0a0c1a", "k": "#0a0c1a", "d": "#2a3470", "D": "#1c2454", "b": "#6a8ae0", "w": "#f0f4ff",
+                  "y": "#fff4a0"}
 
 
 def star_mote(c, f):
-    """A star mote: a small bright point of the sky, twinkling."""
+    """A star mote (Aratus: the countless lesser stars no one has named): a small bright star with a soft glow,
+    twinkling."""
     for d in range(-2, 3):
-        c.px(5 + d, 5, "w" if d == 0 else "y"); c.px(5, 5 + d, "w" if d == 0 else "y")
+        c.px(5 + d, 5, "y"); c.px(5, 5 + d, "y")
+    c.px(4, 4, "g"); c.px(6, 6, "g"); c.px(4, 6, "g"); c.px(6, 4, "g")
+    c.px(5, 5, "w"); c.px(5, 4, "w"); c.px(5, 6, "w"); c.px(4, 5, "w"); c.px(6, 5, "w")
     if f % 2:
-        c.px(3, 3, "y"); c.px(7, 7, "y"); c.px(3, 7, "y"); c.px(7, 3, "y")
+        c.px(5, 0, "y"); c.px(5, 10, "y"); c.px(0, 5, "y"); c.px(10, 5, "y")             # the twinkle
 
 
-STAR_MOTE_PAL = {"o": "#1a1a30", "w": "#ffffff", "y": "#f0e080"}
+STAR_MOTE_PAL = {"o": "#1a1a30", "w": "#ffffff", "y": "#f0e080", "g": "#a08a40"}
 
 
 def comet(c, f):
-    """A comet (Aratus: the hairy stars): a bright head with a long streaming tail."""
-    ellipse(c, 16, 6, 2.5, 2.5, "w")
-    for k in range(12):
-        c.px(13 - k, 6 - k // 4 + (k + f) % 2, "y" if k < 6 else "b")
+    """A comet (Aristotle, Meteorologica 1.6-7: the "hairy stars"): a blazing head trailing long streaming hair of
+    light, white near the head, then gold, then blue."""
+    for strand, (dy, n) in enumerate(((-2, 10), (0, 15), (2, 11), (-1, 13), (1, 12))):
+        for k in range(n):
+            x = 14 - k
+            y = 6 + dy * k / 10 + math.sin(k * 0.6 + f + strand) * 0.6
+            c.px(x, round(y), "w" if k < 3 else ("y" if k < 8 else "b"))
+    ellipse(c, 16, 6, 3, 3, "y"); ellipse(c, 16, 6, 2, 2, "w")
+    c.px(19, 6, "Y"); c.px(16, 3, "Y"); c.px(16, 9, "Y")
 
 
-COMET_PAL = {"o": "#1a1a30", "w": "#ffffff", "y": "#f0e0a0", "b": "#8aa8e8"}
+COMET_PAL = {"o": "#1a1a30", "w": "#ffffff", "y": "#f0d080", "Y": "#fff8d0", "b": "#7a98e0"}
 
 
 def scorpion(c, step):
     """The Scorpion (Hyginus 2.26; Ovid, Fasti 5.537-544): the great scorpion Earth sent to kill Orion, set among the
-    stars; drawn in the dark of the sky with stars at its joints, its tail curled to strike."""
-    ellipse(c, 26, 32, 12, 7, "d")
-    for k in range(8):
-        a = math.pi * (1.1 + k * 0.12)
-        c.rect(26 + round(math.cos(a) * 14) - k, 30 - k * 3, 28 + round(math.cos(a) * 14) - k, 32 - k * 3, "d")
-    poly(c, [(33, 8), (37, 2), (36, 9)], "r")
-    for side in (-1, 1):
-        for k in range(3):
-            c.px(26 + side * (12 + k * 3), 36 + k + (step if k % 2 else -step), "d")
-        ellipse(c, 26 + side * 18, 24, 4, 3, "d")
-    for x, y in ((26, 32), (20, 30), (32, 30), (30, 18), (33, 10), (44, 24), (8, 24)):
-        c.px(x, y, "w")
+    stars: a scorpion of the night sky edged with starlight, seen from the side, its great pincers reaching forward,
+    its legs braced, and its jointed tail arched high over its back with the sting glowing red; Antares burns red at
+    its heart."""
+    def seg(ax, ay, bx, by, r, col):
+        for t in range(9):
+            ellipse(c, ax + (bx - ax) * t / 8, ay + (by - ay) * t / 8, r, r, col)
+    for k in range(4):                                                                   # far legs
+        x = 16 + k * 6 - (step if k % 2 else -step)
+        seg(x + 2, 36, x - 1, 39, 1.0, "D"); seg(x - 1, 39, x - 3, 44, 0.8, "D")
+    seg(38, 34, 44, 28, 1.6, "D"); ellipse(c, 47, 27, 3, 2.2, "D")                       # far pincer
+    poly(c, [(48, 25), (51, 23), (50, 27)], "D")
+    pts = []
+    for k in range(9):                                                                   # the tail, arched over its back
+        a = math.pi * (1.0 + k * 0.1)
+        rad = 13 - k * 0.6
+        pts.append((22 + math.cos(a) * rad, 31 + math.sin(a) * rad * 1.6, 3.4 - k * 0.22))
+    for (ax, ay, r), (bx, by, _r) in zip(pts, pts[1:]):
+        seg(ax, ay, bx, by, r, "d")
+    for x, y, r in pts[1::2]:
+        c.px(round(x), round(y + r - 1), "D")                                            # its joints
+    tx, ty = pts[-1][0], pts[-1][1]
+    ellipse(c, tx + 2, ty + 2, 2.6, 2.2, "d")                                            # the sting, pointing down
+    poly(c, [(tx + 2, ty + 3), (tx + 6, ty + 9), (tx + 4, ty + 3)], "r"); c.px(round(tx + 6), round(ty + 9), "R")
+    ellipse(c, 24, 35, 13, 5, "d"); ellipse(c, 24, 38, 11, 2, "D")                       # body
+    for x in (16, 21, 26, 31):
+        c.rect(x, 31, x, 39, "D")                                                        # its plates
+    ellipse(c, 37, 35, 5, 4, "d"); c.px(40, 33, "w"); c.px(39, 33, "r")                  # head and eyes
+    for k in range(4):                                                                   # near legs
+        x = 18 + k * 6 + (step if k % 2 else -step)
+        seg(x, 37, x + 3, 40, 1.1, "d"); seg(x + 3, 40, x + 1, 44, 0.9, "d")
+    seg(40, 36, 44, 38, 1.8, "d"); seg(44, 38, 46, 34, 1.6, "d")                         # near arm
+    ellipse(c, 46, 32, 4.4, 3.2, "d")                                                    # near pincer
+    poly(c, [(47, 29), (51, 25), (51, 30)], "d"); poly(c, [(48, 34), (51, 36), (47, 35)], "d")
+    rim(c, "dD", "b")
+    for x, y in ((24, 33), (16, 34), (32, 34), (10, 24), (14, 13), (24, 10), (47, 32)):
+        c.px(x, y, "w")                                                                  # its stars
+    ellipse(c, 26, 35, 1.2, 1.2, "R"); c.px(26, 35, "r")                                 # Antares, red at its heart
 
 
-SCORPION_PAL = {"o": "#0a0c1a", "d": "#3a2a4a", "r": "#e83a6a", "w": "#f0f4ff"}
+SCORPION_PAL = {"o": "#0a0c1a", "d": "#3a2a5a", "D": "#261c40", "b": "#9a7ae0", "r": "#ff5a6a", "R": "#c02a4a",
+                "w": "#f0f4ff"}
 
 
 def great_bear(c, step):
     """The Great Bear (Ovid, Metamorphoses 2.401-530; Aratus 26-62): Callisto, turned into a bear and set among the
-    stars, where she turns round the pole and never sinks into the sea; a great bear of night-blue picked out in her
-    seven bright stars."""
-    ellipse(c, 30, 30, 22, 12, "d")
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(14 + k * 10 + d, 38, 18 + k * 10 + d, 48, "D")
-    ellipse(c, 50, 24, 9, 8, "d"); c.px(54, 22, "w"); c.px(46, 16, "d"); c.px(53, 16, "d")
-    for x, y in ((10, 26), (16, 24), (22, 24), (28, 26), (34, 30), (40, 28), (44, 24)):
-        c.rect(x, y, x + 1, y + 1, "w")
+    stars, where she turns round the pole and never sinks into the sea: a great bear of night-blue edged with
+    starlight, humped at the shoulder, with a broad head and small round ears, her long starry tail as the old sky
+    maps drew it, and her seven bright stars."""
+    for x, d in ((14, step), (40, -step)):                                               # far legs
+        c.rect(x + d, 34, x + 6 + d, 46, "D"); c.rect(x - 1 + d, 46, x + 7 + d, 48, "k")
+    tail = []
+    for i in range(16):                                                                  # the long starry tail
+        t = i / 15
+        tail.append((9 - t * 9, 26 - t * 4 + t * t * 6))
+    for x, y in tail:
+        ellipse(c, x, y, 2.2 - 0.8 * (abs(x - 9) / 9), 2.2 - 0.8 * (abs(x - 9) / 9), "d")
+    ellipse(c, 28, 30, 20, 11, "d"); ellipse(c, 38, 24, 10, 7, "d")                      # body, shoulder hump
+    ellipse(c, 27, 35, 17, 5, "D")                                                       # belly in shadow
+    for x, y in ((14, 24), (20, 22), (26, 21), (32, 20), (18, 30), (24, 32), (34, 28)):
+        c.px(x, y, "D"); c.px(x + 1, y + 1, "D")                                         # fur
+    c.rect(20 - step, 34, 26 - step, 46, "d"); c.rect(19 - step, 46, 27 - step, 48, "k")   # near legs
+    c.rect(44 + step, 32, 50 + step, 46, "d"); c.rect(43 + step, 46, 51 + step, 48, "k")
+    for x in (20, 23, 26):
+        c.px(x - step, 48, "w")                                                          # claws
+    ellipse(c, 51, 26, 8, 7, "d"); ellipse(c, 50, 30, 6, 3, "D")                         # broad head
+    poly(c, [(55, 24), (61, 26), (61, 30), (55, 31)], "d"); ellipse(c, 61, 27, 1.2, 1.2, "k")   # snout, nose
+    ellipse(c, 46, 19, 2.4, 2.4, "d"); ellipse(c, 53, 19, 2.4, 2.4, "d")                 # small round ears
+    rim(c, "dD", "b")
+    c.px(54, 25, "w"); c.px(53, 25, "y")                                                 # eye
+    stars = [tail[15], tail[10], tail[5], (12, 23), (14, 31), (26, 32), (26, 23)]          # the seven stars
+    for x, y in stars:
+        x, y = round(x), round(y)
+        c.px(x, y, "w"); c.px(x - 1, y, "y"); c.px(x + 1, y, "y"); c.px(x, y - 1, "y"); c.px(x, y + 1, "y")
 
 
-BEAR_PAL = {"o": "#06081a", "d": "#2a3a6a", "D": "#1e2a50", "w": "#ffffff"}
+BEAR_PAL = {"o": "#06081a", "d": "#2a3a72", "D": "#1c2854", "b": "#6a8ae0", "k": "#141c3a", "w": "#ffffff",
+            "y": "#c8d4ff"}
 
 
 def orion(c, step):
-    """Orion (Apollodorus 1.4.3-5; Aratus): the giant hunter, with his club and the three bright stars of his belt."""
-    figure(c, step, "d", "s", "h", legs="D")
-    c.rect(16, 18, 26, 34, "D"); c.row(28, 16, 26, "y")
-    c.px(18, 28, "w"); c.px(21, 28, "w"); c.px(24, 28, "w")                                        # the belt's three stars
-    c.rect(32, 4, 35, 30, "b"); ellipse(c, 33, 4, 3, 3, "b")                                       # his club
-    c.rect(4, 20, 9, 26, "y")
+    """Orion (Apollodorus 1.4.3-5; Aratus; Ptolemy, Almagest 8: the stars of his shoulders, belt, sword and pelt): the
+    giant hunter as he stands in the sky, a figure of deep night-blue edged with starlight, raising his club, a pelt
+    over his forward arm, the three bright stars of his belt, his sword hanging from it, red Betelgeuse at his shoulder
+    and blue-white Rigel at his foot."""
+    person(c, step, cx=18, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="short", beard="h",
+           garment="tunic", robe="d", robe_d="D", legs="s", boots="D", belt="y", arm_forward=True, eye="w")
+    poly(c, [(30, 22), (37, 20), (39, 34), (36, 40), (32, 36)], "p")                     # the pelt over his arm
+    for y in range(24, 38, 3):
+        c.px(35, y, "P")
+    c.px(38, 40, "P"); c.px(33, 39, "P")
+    c.rect(8, 4, 10, 24, "b"); ellipse(c, 9, 4, 3, 3.5, "b"); c.px(8, 3, "B"); c.px(10, 6, "B")   # his club, raised
+    ellipse(c, 10, 24, 2, 2, "s")                                                        # the hand that raises it
+    c.rect(16, 30, 16, 40, "i"); c.row(30, 14, 18, "y")                                  # the sword hanging from his belt
+    rim(c, "sSdDhH", "c")
+    for x in (15, 18, 21):
+        c.px(x, 28, "w"); c.px(x, 27, "y")                                               # the belt's three stars
+    for x, y, col in ((12, 17, "r"), (24, 17, "w"), (20, 52, "c"), (14, 52, "w"), (18, 3, "w")):
+        c.px(x, y, col); c.px(x - 1, y, "y"); c.px(x + 1, y, "y")                        # Betelgeuse, Rigel and the rest
+    c.px(16, 36, "w")                                                                    # the star in his sword
 
 
-ORION_PAL = {"o": "#06081a", "k": "#141a30", "d": "#2a3a6a", "D": "#1e2a50", "s": "#d8c0a0", "h": "#3a2a1a",
-             "y": "#d8b860", "w": "#ffffff", "b": "#6a4a2a"}
+ORION_PAL = {"o": "#06081a", "k": "#141a30", "s": "#3a4c8e", "S": "#2a3a72", "d": "#24306a", "D": "#18204e",
+             "h": "#1a2250", "H": "#121840", "m": "#121840", "c": "#8aa8f0", "y": "#c8d4ff", "w": "#ffffff",
+             "r": "#ff7a5a", "p": "#7a6a5a", "P": "#5a4a3e", "b": "#5a4a3a", "B": "#3a3028", "i": "#c8d0e8",
+             "l": "#3a4c8e"}
 
 
 # --- The Glass Mountain (Grimm KHM 25, KHM 196; Andersen, "The Snow Queen", 1844) -------------------------------------
@@ -358,13 +520,13 @@ if __name__ == "__main__":
     kit.build_boss("feather_flurry", feather_flurry, FLURRY_PAL, doc(feather_flurry.__doc__), (14, 12), (7, 11), walk, folder="enemies")
     kit.build_boss("arimaspian_chieftain", arimaspian_chieftain, CHIEFTAIN_PAL, doc(arimaspian_chieftain.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("six_month_sleeper", six_month_sleeper, SLEEPER_PAL, doc(six_month_sleeper.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("griffin_matriarch", griffin_matriarch, MATRIARCH_PAL, doc(griffin_matriarch.__doc__), (62, 52), (30, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("griffin_matriarch", griffin_matriarch, MATRIARCH_PAL, doc(griffin_matriarch.__doc__), (64, 54), (30, 52), [0, 1, 0, -1, 0])
     kit.build_boss("star_hound", star_hound, STAR_HOUND_PAL, doc(star_hound.__doc__), (24, 16), (11, 15), walk, folder="enemies")
     kit.build_boss("star_mote", star_mote, STAR_MOTE_PAL, doc(star_mote.__doc__), (11, 11), (5, 10), walk, folder="enemies")
     kit.build_boss("comet", comet, COMET_PAL, doc(comet.__doc__), (20, 12), (10, 11), walk, folder="enemies")
     kit.build_boss("scorpion", scorpion, SCORPION_PAL, doc(scorpion.__doc__), (52, 46), (26, 44), [0, 1, 0, -1, 0])
     kit.build_boss("great_bear", great_bear, BEAR_PAL, doc(great_bear.__doc__), (62, 50), (30, 48), [0, 1, 0, -1, 0])
-    kit.build_boss("orion", orion, ORION_PAL, doc(orion.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("orion", orion, ORION_PAL, doc(orion.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("white_bee", white_bee, WHITE_BEE_PAL, doc(white_bee.__doc__), (13, 13), (6, 12), walk, folder="enemies")
     kit.build_boss("snowflake_guard", snowflake_guard, SNOW_GUARD_PAL, doc(snowflake_guard.__doc__), (20, 20), (10, 19), walk, folder="enemies")
     kit.build_boss("seven_ravens", seven_ravens, RAVENS_PAL, doc(seven_ravens.__doc__), (60, 40), (30, 38), [0, 1, 0, -1, 0])

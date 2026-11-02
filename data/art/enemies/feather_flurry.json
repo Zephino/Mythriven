@@ -1,5 +1,5 @@
 {
- "_doc": "A flurry of the north's \"feathers\" (Herodotus 4.31: the air beyond the north wind is full of feathers, which he took to be snow): a swirl of white flakes. Built by tools/art/build_heavens.py.",
+ "_doc": "A flurry of the north's \"feathers\" (Herodotus 4.31: the air beyond the north wind is full of feathers, which he took to be snow): white feathers and flakes tumbling round in the wind. Built by tools/art/build_heavens.py.",
  "size": [
   14,
   12
@@ -11,81 +11,82 @@
  "palette": {
   "o": "#6a7888",
   "w": "#ffffff",
-  "W": "#c8d8e8"
+  "W": "#c8d8e8",
+  "b": "#e0ecf8"
  },
  "frames": {
   "idle": [
    [
     "..............",
     "..............",
-    ".....o...o....",
-    "....owo.owo...",
-    ".....oWoWo....",
-    "...o.oo.oo.o..",
-    "..owoWo.oWowo.",
-    "...o.oo.oo.o..",
-    ".....oWoWo....",
-    "....owo.owo...",
-    ".....o...o....",
-    ".............."
+    "....oooo......",
+    "...owwwWo.....",
+    "....oWoobo.o..",
+    ".....o..o.owo.",
+    "...oobo..oWwo.",
+    "..oWooo.o.owo.",
+    "...owoWobooWo.",
+    "....owo.o..o..",
+    ".....owo......",
+    "......o......."
    ]
   ],
   "walk": [
    [
     "..............",
+    "......oooo....",
+    ".....owwwWo...",
+    "......oWoo....",
+    "......obo.....",
+    "....o..o......",
+    "...oWo...oo.o.",
+    "...owbo.obWowo",
+    "...owWo..oowo.",
+    "...owo...owo..",
+    "....o...oWo...",
+    ".........o...."
+   ],
+   [
+    "..............",
+    "..............",
+    "........oooo..",
+    "...o...owwwWo.",
+    "..oWo.oboWoo..",
+    "..owo..o.o....",
+    "..owWo...o....",
+    "..owobo.obo...",
+    "...o.o.oWowo..",
+    "........owo...",
+    ".......owo....",
+    "......oWo....."
+   ],
+   [
+    "..............",
+    "...o..........",
+    "..oWo....o....",
+    "..owo.o.owo...",
+    "..owWobo.owo..",
+    "..owo.o.oWowo.",
+    "...o....obooWo",
+    "......o..o..o.",
+    ".....obo......",
+    ".....ooWo.....",
+    "....oWwwwo....",
+    ".....oooo....."
+   ],
+   [
     ".......o......",
-    "......owo.....",
-    "...o...o..o...",
-    "..owoooWoowo..",
-    "...ooWoooWo...",
-    ".....o...o....",
-    "....oWoooWoo..",
-    "...owooWooowo.",
-    "....o..o...o..",
-    "......owo.....",
-    ".......o......"
-   ],
-   [
-    "..............",
-    "........o.....",
-    "....o..owo....",
-    "...owo.oo.....",
-    "....o.oWoo.o..",
-    ".....oWooWowo.",
-    "...o.oo.oo.o..",
-    "..owoWooWo....",
-    "...o.ooWo.o...",
-    "......oo.owo..",
-    ".....owo..o...",
-    "......o......."
-   ],
-   [
-    "..............",
-    "......o.......",
-    ".....owo..o...",
-    "......o.oowo..",
-    "...o.oWoWoo...",
-    "..owooo.oo....",
-    "...ooWo.oWoo..",
-    ".....oo.ooowo.",
-    "....ooWoWo.o..",
-    "...owoo.o.....",
-    "....o..owo....",
-    "........o....."
-   ],
-   [
-    "..............",
-    ".......o......",
-    "......owo.....",
-    "....o..o...o..",
-    "...owooWooowo.",
-    "....oWoooWoo..",
-    ".....o...o....",
-    "...ooWoooWo...",
-    "..owoooWoowo..",
-    "...o...o..o...",
-    "......owo.....",
-    ".......o......"
+    "......oWo.....",
+    ".....owo......",
+    "....owo.......",
+    "...owoWo...o..",
+    "....oobo.oowo.",
+    "......o.obWwo.",
+    ".....oo..oowo.",
+    "...ooWbo..oWo.",
+    "..oWwwwo...o..",
+    "...oooo.......",
+    ".............."
    ]
   ]
  }
