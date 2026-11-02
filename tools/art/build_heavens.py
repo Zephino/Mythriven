@@ -319,18 +319,18 @@ SCORPION_PAL = {"o": "#0a0c1a", "l": "#5a4a8a", "d": "#3a2a5a", "D": "#261c40", 
 def great_bear(c, step):
     """The Great Bear (Ovid, Metamorphoses 2.401-530; Aratus 26-62): Callisto, turned into a bear and set among the
     stars, where she turns round the pole and never sinks into the sea: a great shaggy bear of night-blue edged with
-    starlight, with a heavy shoulder hump, her head carried low with a long snout and small round ears, thick legs on
+    starlight, with a low shoulder hump, a broad head carried low with a long snout and ears at the back, thick legs on
     broad clawed paws, and her seven bright stars along her back."""
     poly(c, [(19 + step, 30), (25 + step, 30), (25 + step, 44), (19 + step, 44)], "D")       # far hind leg
     c.rect(18 + step, 44, 26 + step, 46, "k")
     poly(c, [(32 - step, 30), (38 - step, 30), (38 - step, 44), (32 - step, 44)], "D")       # far foreleg
     c.rect(31 - step, 44, 39 - step, 46, "k")
-    poly(c, [(4, 28), (6, 20), (12, 16), (22, 16), (30, 13), (36, 10), (39, 12), (41, 18), (42, 24), (43, 31),
+    poly(c, [(4, 28), (6, 20), (12, 17), (22, 17), (30, 16), (35, 15), (39, 17), (41, 21), (42, 25), (43, 31),
              (44, 34), (36, 36), (18, 36), (10, 34)], "d")                               # body, humped at the shoulder
     poly(c, [(10, 31), (44, 31), (44, 34), (36, 36), (18, 36), (10, 34)], "D")           # belly in shadow
-    poly(c, [(8, 19), (12, 16), (22, 16), (30, 13), (36, 10), (42, 12), (40, 14), (30, 16), (20, 19), (10, 21)], "l")   # light along the back
+    poly(c, [(8, 19), (12, 17), (22, 17), (30, 16), (35, 15), (39, 17), (37, 18), (30, 18), (20, 19), (10, 21)], "l")   # light along the back
     ellipse(c, 4, 23, 2, 1.6, "d")                                                       # stubby tail
-    for x, y in ((14, 23), (20, 22), (26, 21), (32, 18), (38, 16), (17, 28), (24, 27), (31, 25), (38, 23), (42, 20)):
+    for x, y in ((14, 23), (20, 22), (26, 21), (32, 20), (37, 20), (17, 28), (24, 27), (31, 25), (38, 23), (40, 26)):
         c.px(x, y, "D")                                                                  # shaggy fur
     poly(c, [(8, 22), (21, 23), (21, 33), (19, 39), (20, 44), (12, 44), (12, 38), (8, 32)], "d")   # near hind leg
     c.rect(11 - step, 44, 21 - step, 47, "k"); c.row(44, 12 - step, 20 - step, "D")
@@ -362,7 +362,7 @@ def great_bear(c, step):
         c.px(40, y, "D")                                                                 # the line of the neck
     rim(c, "dDl", "b")
     c.rect(49, 29, 50, 29, "k"); c.px(49, 28, "w")                                       # eye
-    for x, y in ((12, 22), (18, 20), (24, 22), (30, 19), (36, 15), (41, 17), (28, 27)):    # the seven stars
+    for x, y in ((12, 22), (18, 20), (24, 21), (30, 19), (35, 18), (39, 21), (28, 27)):    # the seven stars
         c.px(x, y, "w"); c.px(x - 1, y, "y"); c.px(x + 1, y, "y")
 
 
@@ -371,24 +371,21 @@ BEAR_PAL = {"o": "#06081a", "d": "#3a4f9a", "D": "#24326a", "l": "#5068b8", "b":
 
 
 def orion(c, step):
-    """Orion (Apollodorus 1.4.3-5; Aratus; Ptolemy, Almagest 8: the stars of his shoulders, belt, sword and pelt): the
+    """Orion (Apollodorus 1.4.3-5; Aratus; Ptolemy, Almagest 8: the stars of his shoulders, belt and sword): the
     giant hunter, broad and bearded, in a tunic of deep night-blue spangled with stars, raising a great knotted club
-    over his head, a lion's pelt hanging from his forward arm, a gold belt set with three bright stars and a sword
+    over his head, a gold belt set with three bright stars and a sword
     hanging from it; red Betelgeuse burns at his shoulder and blue-white Rigel at his foot."""
     person(c, step, cx=20, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="short", beard="h",
            garment="tunic", robe="d", robe_d="D", legs="s", boots="b", belt="y", arm_forward=True)
     for y in range(12, 17):
         c.px(18 + (y % 2), y, "H"); c.px(22 - (y % 2), y, "H")                           # curls in his beard
-    poly(c, [(11, 18), (8, 16), (7, 10), (9, 9), (11, 15), (13, 17)], "s")               # far arm raised
-    c.rect(5, 2, 8, 12, "b"); ellipse(c, 6, 3, 3.5, 3.5, "b")                            # the great knotted club
-    c.px(4, 2, "B"); c.px(8, 5, "B"); c.px(5, 7, "B"); c.px(7, 10, "B"); c.px(3, 4, "B")
-    ellipse(c, 8, 10, 2, 2, "s")                                                         # fist round it
-    poly(c, [(31, 21), (37, 20), (39, 34), (37, 42), (34, 44), (32, 36)], "p")           # the lion's pelt
-    poly(c, [(31, 21), (33, 21), (33, 36), (32, 36)], "P")
-    for y in range(24, 42, 3):
-        c.px(36, y, "P")
-    c.px(35, 45, "P"); c.px(38, 43, "P"); c.px(33, 45, "P")                              # its paws hanging
-    ellipse(c, 34, 22, 2.4, 2, "s")                                                      # his hand under it
+    c.rect(11, 17, 13, 19, "d")                                                          # sleeve
+    for t in range(6):
+        c.rect(11 - t // 2, 16 - t, 12 - t // 2, 16 - t, "s")                            # upper arm, raised
+    c.px(10, 12, "S"); c.px(9, 11, "s"); c.px(9, 10, "s")                                # forearm
+    c.rect(5, 0, 8, 10, "b"); ellipse(c, 6, 2, 3, 3, "b")                                # the great knotted club
+    c.px(4, 1, "B"); c.px(8, 4, "B"); c.px(5, 6, "B"); c.px(7, 9, "B"); c.px(3, 3, "B")
+    ellipse(c, 9, 9, 1.6, 1.6, "s"); c.px(10, 9, "S")                                    # fist round it
     for x, y in ((15, 21), (24, 23), (17, 33), (23, 37), (19, 26)):
         c.px(x, y, "c")                                                                  # stars on his tunic
     c.rect(15, 29, 15, 41, "i"); c.row(29, 13, 17, "y"); c.px(15, 41, "I")               # sword hanging from the belt

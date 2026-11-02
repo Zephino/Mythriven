@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.66
+Date: 11/02/2026
+Time: 12:07 AM
+
+### Changes
+- **The Great Bear's shoulder made smaller.** Her shoulder hump is lower, so her back runs more evenly and her head no longer looks small against it.
+- **Orion's arms fixed.** The lion's pelt hanging from his forward arm made it look swollen, so it is gone; his raised club arm is redrawn slim, with a sleeve, a forearm and a fist round the club.
+
+### Reason
+The owner said the bear's shoulder looked huge compared to its head, and asked whether Orion's arm had been stung by bees.
+
 ## Version 00.03.65
 Date: 11/02/2026
 Time: 12:02 AM
