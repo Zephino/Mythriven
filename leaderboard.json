@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-10-31T19:06:56.630Z",
+	"updated": "2026-11-02T17:52:35.493Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -62,6 +62,63 @@
 			],
 			"version": "00.02.52",
 			"date": "2026-10-31T18:05:19.563Z"
+		},
+		{
+			"name": "Tiny",
+			"hero": "heracles",
+			"time_s": 2111,
+			"level": 64,
+			"kills": 51661,
+			"weapons": [
+				{
+					"id": "labor_breaker",
+					"level": 1
+				},
+				{
+					"id": "oblivion",
+					"level": 1
+				},
+				{
+					"id": "heros_blade",
+					"level": 1
+				},
+				{
+					"id": "quake_hammer",
+					"level": 1
+				},
+				{
+					"id": "breeze",
+					"level": 8
+				}
+			],
+			"passives": [
+				{
+					"id": "hourglass",
+					"level": 5
+				},
+				{
+					"id": "belt_of_strength",
+					"level": 5
+				},
+				{
+					"id": "ferrymans_coin",
+					"level": 5
+				},
+				{
+					"id": "seers_eye",
+					"level": 5
+				},
+				{
+					"id": "bronze_aegis",
+					"level": 5
+				},
+				{
+					"id": "lodestone",
+					"level": 5
+				}
+			],
+			"version": "00.03.77",
+			"date": "2026-11-02T17:52:35.493Z"
 		},
 		{
 			"name": "Tiny",
