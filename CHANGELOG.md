@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.55
+Date: 11/02/2026
+Time: 10:00 PM
+
+### Changes
+- **The Kraken no longer needs water.** The sea painted at its base is gone. It has come ashore instead: its great mottled body is propped up on thick arms spread over the ground, their tips curling, with two more arms raised high and curling over. The golden eye, suckers and mottled patches stay.
+
+### Reason
+The Kraken stays in one spot on Libertalia's sand, so the sea painted under it looked like a puddle on the beach. The owner chose to have it not look like it needs water rather than adding a pool of sea to the ground.
+
 ## Version 00.03.54
 Date: 11/02/2026
 Time: 9:41 PM

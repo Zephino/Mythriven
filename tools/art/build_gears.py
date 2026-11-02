@@ -346,56 +346,54 @@ MISSON_PAL = {"o": "#0a0a10", "k": "#1a1a22", "u": "#2a3a7a", "w": "#ece4d4", "s
 
 
 def kraken(c, step):
-    """The Kraken (Pontoppidan, 1752-53): a sea-beast so vast that its back, rising out of the sea, was taken for a
-    cluster of small islands, its arms like the masts of ships, able to pull down the greatest ship. A great mottled
-    mantle rising from the sea with a huge golden eye, long thick arms rising high out of the water and curling over at
-    their tips, pale suckers along them, and the sea foaming round it."""
-    def arm(x0, y0, height, lean, phase, width, col, shade, mirror=False):
-        """A long arm rising out of the water, swaying, then curling over at its tip; suckers along its inner side."""
+    """The Kraken (Pontoppidan, 1752-53): a sea-beast so vast that its back was taken for a cluster of small islands,
+    its arms like the masts of ships, able to pull down the greatest ship. Come ashore: a great mottled mantle with a
+    huge golden eye, propped on thick arms spread over the ground and curling at their tips, two more arms raised high
+    and curling over, pale suckers along them."""
+    def arm(x0, y0, length, ang, curl, phase, width, col, shade):
+        """A thick arm from (x0, y0) heading at `ang`, swaying, curling at its tip (curl > 0 turns clockwise);
+        suckers along its inner side."""
         pts = []
         x, y = float(x0), float(y0)
-        ang = -math.pi / 2 + lean * 0.15
-        n = int(height * 1.4)
+        n = int(length * 1.4)
         for t in range(n):
             u = t / (n - 1)
-            if u > 0.62:
-                ang += lean * 0.16                                                       # the curl at the tip
+            if u > 0.6:
+                ang += curl * 0.16                                                       # the curl at the tip
             ang += math.sin(u * 4 + phase + step * 0.5) * 0.03
             x += math.cos(ang) * 0.9; y += math.sin(ang) * 0.9
-            pts.append((2 * x0 - x if mirror else x, y))
-        if mirror:
-            lean = -lean
-        for t, (px, py) in enumerate(pts):
+            pts.append((x, y, ang))
+        side = 1 if curl > 0 else -1
+        for t, (px, py, _a) in enumerate(pts):
             r = width * (1 - t / len(pts) * 0.8)
             ellipse(c, px, py, r, r, col)
-        for t, (px, py) in enumerate(pts):
+        for t, (px, py, pa) in enumerate(pts):
             r = width * (1 - t / len(pts) * 0.8)
+            nx, ny = -math.sin(pa) * side, math.cos(pa) * side                          # towards the inside of the curl
             if t % 4 == 2 and r > 1.2:
-                c.px(round(px - lean * (r - 0.6)), round(py), "p")                       # suckers
+                c.px(round(px + nx * (r - 0.6)), round(py + ny * (r - 0.6)), "p")        # suckers
             if t % 3 == 0:
-                c.px(round(px + lean * (r - 0.6)), round(py), shade)                     # shading along its back
-    arm(8, 62, 44, -1, 0.0, 3.6, "r", "R"); arm(82, 62, 44, -1, 1.6, 3.6, "r", "R", mirror=True)      # the outer arms, rising high
-    ellipse(c, 45, 52, 28, 15, "R")                                                      # the vast mantle
-    ellipse(c, 45, 48, 24, 13, "r")
-    ellipse(c, 38, 41, 11, 5, "l")                                                       # light on its back
-    for x, y in ((28, 48), (34, 54), (50, 42), (56, 50), (44, 56), (62, 46), (24, 54), (40, 38)):
+                c.px(round(px - nx * (r - 0.6)), round(py - ny * (r - 0.6)), shade)      # shading along its back
+    sway = math.sin(step * 1.6) * 0.08
+    arm(28, 34, 40, -math.pi / 2 - 0.55 + sway, 1, 0.0, 3.4, "r", "R")                  # the raised arms
+    arm(62, 34, 40, -math.pi / 2 + 0.55 - sway, -1, 1.6, 3.4, "r", "R")
+    arm(30, 46, 30, math.pi / 2 + 1.0, 1, 0.4, 3.8, "R", "o")                           # the arms behind, on the ground
+    arm(60, 46, 30, math.pi / 2 - 1.0, -1, 2.0, 3.8, "R", "o")
+    ellipse(c, 45, 36, 24, 15, "R")                                                      # the vast mantle
+    ellipse(c, 45, 33, 21, 13, "r")
+    ellipse(c, 38, 26, 10, 5, "l")                                                       # light on its back
+    for x, y in ((28, 34), (34, 40), (50, 27), (56, 36), (44, 42), (62, 32), (26, 40), (40, 23)):
         ellipse(c, x, y, 2.2, 1.6, "R")                                                  # mottled, island-like patches
-    arm(22, 62, 30, -1, 0.8, 3.0, "a", "R"); arm(68, 62, 30, -1, 2.4, 3.0, "a", "R", mirror=True)     # the inner arms, in front
-    ellipse(c, 57, 46, 5.5, 4.5, "W"); ellipse(c, 57, 46, 4, 3.4, "y")                   # the huge golden eye
-    c.rect(57, 44, 57, 48, "k"); c.px(56, 44, "w")                                       # slit pupil, gleam
-    c.row(42, 52, 62, "R")                                                               # a heavy lid
-    for x in range(0, c.w):                                                              # the sea round it
-        y = 60 + round(math.sin(x * 0.45 + step) * 1.2)
-        for yy in range(y, c.h):
-            if c.g[yy][x] == "." or yy > y + 1:
-                c.px(x, yy, "b" if yy > y + 2 else "B")
-        if (x + step) % 5 == 0:
-            c.px(x, y - 1, "w"); c.px(min(x + 1, c.w - 1), y, "w")                       # foam
+    arm(36, 46, 26, math.pi / 2 + 0.45, 1, 0.8, 3.6, "a", "R")                          # the arms in front, propping it up
+    arm(54, 46, 26, math.pi / 2 - 0.45, -1, 2.4, 3.6, "a", "R")
+    arm(45, 48, 20, math.pi / 2 + 0.05, 1, 3.1, 3.2, "a", "R")
+    ellipse(c, 57, 33, 5.5, 4.5, "W"); ellipse(c, 57, 33, 4, 3.4, "y")                   # the huge golden eye
+    c.rect(57, 31, 57, 35, "k"); c.px(56, 31, "w")                                       # slit pupil, gleam
+    c.row(29, 52, 62, "R")                                                               # a heavy lid
 
 
 KRAKEN_PAL = {"o": "#120608", "r": "#8a3a4a", "R": "#6a2a3a", "p": "#e8b0b8", "y": "#f0d040", "w": "#e8f0f4",
-              "l": "#a85a68", "W": "#f4ecd0", "k": "#1a0a0a", "B": "#4a7a9a", "a": "#a04a5a",
-              "b": "#3a6a9a"}
+              "l": "#a85a68", "W": "#f4ecd0", "k": "#1a0a0a", "B": "#4a7a9a", "a": "#a04a5a"}
 
 
 # --- The Hollow Hills (Paracelsus 1566; British fairy-hill folklore; Baum, Ozma of Oz, 1907) --------------------------
