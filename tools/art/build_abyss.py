@@ -6,7 +6,7 @@ import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
 from figure_kit import person
-from build_gothic import rim
+from build_gothic import rim, empusa as gothic_beast
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -305,167 +305,228 @@ WHITE_DRAGON_PAL = {"o": "#2a2a38", "w": "#eef2f4", "W": "#b8c8dc", "c": "#d8e4e
 
 
 def atlantean_hoplite(c, f):
-    """An Atlantean hoplite (Critias 119a: the heavy-armed soldiers): a soldier in a bronze helmet with a round shield
-    and spear."""
+    """An Atlantean hoplite (Critias 119a: the heavy-armed soldiers): a soldier in a crested bronze helmet and bronze
+    cuirass over a white tunic, bronze greaves, a round bronze shield bearing Poseidon's trident, and a spear."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 17, x + 1 + d, 22, "k")
-    c.rect(6, 8, 13, 17, "t"); c.rect(7, 2, 12, 7, "s")
-    c.rect(6, 0, 13, 3, "b"); c.rect(8, 0, 11, 0, "r")
-    ellipse(c, 4, 12, 3.5, 4.5, "b"); c.px(4, 12, "B")
-    c.rect(16, 0, 16, 20, "w"); c.px(16, 0, "b")
+        c.rect(x + d, 17, x + 1 + d, 20, "s"); c.rect(x + d, 19, x + 1 + d, 22, "b"); c.row(23, x + d, x + 2 + d, "k")   # greaves
+    poly(c, [(6, 14), (13, 14), (14, 17), (5, 17)], "t"); c.row(17, 5, 14, "T")          # tunic skirt
+    c.rect(6, 8, 13, 14, "b"); c.rect(6, 8, 7, 14, "B"); c.px(9, 10, "Y"); c.px(11, 11, "Y")   # bronze cuirass
+    ellipse(c, 9, 5, 3, 3, "s"); c.px(10, 5, "k")
+    ellipse(c, 9, 3, 3.6, 3, "b"); c.rect(6, 3, 7, 7, "b"); c.px(11, 5, "B")             # bronze helmet, cheek-guard
+    for x in range(5, 13):
+        c.px(x, 0 - (1 if 7 <= x <= 10 else 0), "r")                                     # its red crest
+    ellipse(c, 3, 13, 3.6, 4.6, "b"); ellipse(c, 3, 13, 2.6, 3.6, "Y")                    # round shield
+    c.rect(3, 10, 3, 16, "B"); c.px(2, 10, "B"); c.px(4, 10, "B")                        # Poseidon's trident on it
+    c.rect(16, 0, 16, 21, "w"); poly(c, [(15, 1), (16, -2), (17, 1)], "i"); c.px(15, 11, "s")   # spear
 
 
-HOPLITE_PAL = {"o": "#120e0a", "k": "#2a1e14", "t": "#c8b890", "s": "#c8946a", "b": "#c8963a", "B": "#8a5a1a",
-               "r": "#a83a2a", "w": "#7a5a3a"}
+HOPLITE_PAL = {"o": "#120e0a", "k": "#2a1e14", "t": "#ece4d0", "T": "#b8b0a0", "s": "#c8946a", "b": "#c8963a",
+               "B": "#8a5a1a", "Y": "#e8c060", "r": "#a83a2a", "w": "#7a5a3a", "i": "#c8ccd4"}
 
 
 def atlantean_slinger(c, f):
-    """An Atlantean slinger (Critias 119b): a light-armed soldier in a short tunic, whirling his sling."""
+    """An Atlantean slinger (Critias 119b: the light-armed slingers): a light-armed soldier in a short sea-blue tunic and
+    a headband, a pouch of stones at his belt, whirling his sling round over his head."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 17, x + 1 + d, 22, "k")
-    c.rect(6, 8, 13, 16, "t"); c.rect(7, 2, 12, 7, "s"); c.rect(7, 1, 12, 2, "h")
-    a = f * 1.2
-    c.px(14, 5, "s"); c.px(15 + round(2 * math.cos(a)), 3 + round(2 * math.sin(a)), "g")
+        c.rect(x + d, 16, x + 1 + d, 21, "s"); c.row(22, x + d, x + 2 + d, "k"); c.row(23, x + d, x + 2 + d, "k")
+    poly(c, [(6, 8), (13, 8), (14, 16), (5, 16)], "t"); poly(c, [(6, 8), (8, 8), (7, 16), (5, 16)], "T")
+    c.row(13, 6, 13, "b"); ellipse(c, 5, 14, 1.6, 1.6, "b"); c.px(5, 13, "g")            # belt, pouch of stones
+    c.rect(4, 9, 4, 12, "s")                                                             # far arm
+    ellipse(c, 9, 5, 3, 3, "s"); c.px(10, 5, "k"); c.row(2, 6, 12, "h"); c.row(3, 6, 6, "h")   # head, hair
+    c.row(3, 7, 12, "w")                                                                 # headband
+    c.px(13, 7, "s"); c.px(14, 5, "s"); c.px(14, 4, "s")                                 # arm raised
+    a = f * 1.3
+    cx, cy = 14 + round(4 * math.cos(a)), 1 + round(1.6 * math.sin(a))
+    for t in range(4):
+        c.px(14 + round((cx - 14) * t / 3), 3 + round((cy - 3) * t / 3), "b")            # the sling's cords
+    c.px(cx, cy, "g"); c.px(cx + 1, cy, "g")                                             # the stone, whirling
+    for k in range(5):
+        a2 = a - 0.5 - k * 0.5
+        c.px(14 + round(4 * math.cos(a2)), 1 + round(1.6 * math.sin(a2)), "W")           # its blur
 
 
-SLINGER_PAL = {"o": "#120e0a", "k": "#2a1e14", "t": "#3a6a9a", "s": "#c8946a", "h": "#2a1a10", "g": "#8a8a8a"}
+SLINGER_PAL = {"o": "#120e0a", "k": "#2a1e14", "t": "#3a6a9a", "T": "#2a4e74", "s": "#c8946a", "h": "#2a1a10",
+               "w": "#ece4d0", "b": "#7a5a3a", "g": "#9a9a9a", "W": "#c8d8e8"}
 
 
 def poseidons_bull(c, step):
-    """Poseidon's Bull (Critias 119d-e: the bulls that ranged free in Poseidon's temple): a great white bull with
-    gilded horns, head lowered to charge."""
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(12 + k * 9 + d, 34, 16 + k * 9 + d, 45, "W"); c.rect(12 + k * 9 + d, 44, 16 + k * 9 + d, 45, "k")
-    ellipse(c, 26, 28, 18, 9, "w")
-    ellipse(c, 36, 22, 10, 9, "w")
-    c.row(36, 12, 42, "W"); c.row(35, 14, 40, "W")
-    ellipse(c, 48, 30, 6, 7, "w"); c.rect(46, 34, 52, 37, "p"); c.px(48, 36, "k"); c.px(51, 36, "k")
-    poly(c, [(44, 25), (40, 18), (38, 14), (42, 17), (46, 24)], "y")
-    poly(c, [(52, 25), (56, 18), (58, 14), (56, 19), (53, 26)], "y")
-    c.px(46, 28, "k"); c.px(51, 28, "k")
-    for k in range(8):
-        c.px(8 - k // 2, 26 + k, "W")
-    c.rect(4, 33, 5, 35, "k")
+    """Poseidon's Bull (Critias 119d-e: the bulls that ranged free in Poseidon's temple, hunted by the kings "with staves
+    and nooses" and sacrificed at the pillar of orichalcum): a great white bull, head lowered to charge, its horns
+    gilded, sea-spray about it (drawn on the bull body of Empusa)."""
+    gothic_beast("bull")(c, step)
 
 
-POSEIDON_BULL_PAL = {"o": "#1a1a20", "w": "#f0ece4", "W": "#c8c4bc", "p": "#d8a8a0", "y": "#e8c040", "k": "#1a1a20"}
+POSEIDON_BULL_PAL = {"o": "#2a2218", "k": "#f0ece4", "K": "#c0b8a8", "b": "#f0ece4", "B": "#c0b8a8", "h": "#f0c840",
+                     "H": "#b8901c", "y": "#2a2a40", "l": "#ffffff", "g": "#9ad0f0", "s": "#f0ece4", "v": "#f0ece4"}
 
 
 def gadeirus(c, step):
-    """Gadeirus (Critias 114b: Atlas' twin, king of the land toward the Pillars of Heracles): a king in a sea-blue robe
-    with a gold diadem and a trident-headed staff."""
-    figure(c, step, "b", "s", "h")
-    c.row(3, 15, 26, "y"); c.px(20, 2, "y")
-    c.rect(13, 24, 29, 25, "y")
-    c.rect(33, 4, 34, 48, "w")
-    for x in (31, 33, 36):
-        c.rect(x, 0, x, 5, "y")
-    c.row(5, 31, 36, "y")
+    """Gadeirus (Critias 114b: Atlas' twin, king of the land toward the Pillars of Heracles, called Eumelus in Greek): a
+    king with a short dark beard, a gold diadem, a sea-blue robe with a wave-patterned hem under a sea-green cloak,
+    gold arm-rings, and a staff headed with Poseidon's trident."""
+    person(c, step, cx=20, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="short", beard="h",
+           garment="robe", robe="b", robe_d="B", robe_l="l", belt="y", boots="k", cloak=("g", "G"), arm_forward=True,
+           crown="y")
+    for x in range(13, 28, 3):
+        c.px(x, 51, "l"); c.px(x + 1, 50, "l"); c.px(x + 2, 51, "l")                    # waves along his hem
+    c.px(31, 22, "y"); c.px(32, 22, "y")                                                 # gold arm-ring
+    c.rect(34, 6, 35, 52, "w")                                                           # the trident staff
+    for x in (31, 34, 38):
+        c.rect(x, 0, x + (1 if x == 34 else 0), 5, "y"); c.px(x, 0, "Y")
+    c.row(5, 31, 38, "y")
 
 
-GADEIRUS_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#2a5a8a", "s": "#c8946a", "h": "#3a2a1a", "y": "#e8c040",
-                "w": "#7a5a3a"}
+GADEIRUS_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#2a5a8a", "B": "#1e4268", "l": "#8ab8e0", "g": "#2a7a6a",
+                "G": "#1a5a4a", "s": "#c8946a", "S": "#a06a3e", "h": "#3a2a1a", "H": "#24180e", "m": "#8a4a3a",
+                "y": "#e8c040", "Y": "#fff0a0", "w": "#7a5a3a"}
 
 
 def atlas_king(c, step):
-    """Atlas (Critias 114a, 116: the first king of Atlantis, not the Titan): a tall king in deep blue, a cloak of
-    gleaming orichalcum red-gold, and a crown."""
-    figure(c, step, "b", "s", "h")
-    poly(c, [(12, 18), (30, 18), (34, 50), (8, 50)], "r")
-    c.rect(15, 18, 27, 50, "b")
-    for x in range(15, 28, 3):
-        c.rect(x, 1, x + 1, 4, "y")
-    c.row(4, 15, 28, "y"); c.row(16, 18, 23, "h")
+    """Atlas (Critias 114a, 116: the first king of Atlantis, Poseidon's eldest son, not the Titan): a tall elder king
+    with white hair and a long white beard, a tall gold crown, a robe of deep blue edged with gold, a cloak of gleaming
+    orichalcum red-gold, and a golden sceptre."""
+    person(c, step, cx=20, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="shoulder", beard="h",
+           garment="robe", robe="b", robe_d="B", robe_l="l", belt="y", boots="k", cloak=("r", "R"), arm_forward=True)
+    for x in range(15, 26, 2):
+        c.rect(x, 1, x, 4, "y"); c.px(x, 0, "Y")                                         # tall gold crown
+    c.row(4, 15, 25, "y"); c.px(20, 3, "j")
+    poly(c, [(16, 12), (24, 12), (23, 24), (20, 28), (17, 24)], "h")                     # long white beard
+    c.px(18, 18, "H"); c.px(21, 22, "H")
+    for y in range(26, 52, 3):
+        c.px(17, y, "y")                                                                 # gold edging
+    for x, y in ((9, 30), (31, 36), (11, 44)):
+        c.px(x, y, "Y")                                                                  # orichalcum gleaming
+    c.rect(35, 8, 35, 50, "y"); ellipse(c, 35, 7, 2, 2, "y"); c.px(35, 7, "j")          # golden sceptre
 
 
-ATLAS_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#1e3a6a", "s": "#c8946a", "h": "#e8e4dc", "y": "#e8c040",
-             "r": "#d86a3a"}
+ATLAS_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#1e3a6a", "B": "#14284e", "l": "#e8c040", "s": "#c8946a",
+             "S": "#a06a3e", "h": "#ece8e0", "H": "#b8b4ac", "m": "#8a4a3a", "y": "#e8c040", "Y": "#fff0a0",
+             "r": "#d86a3a", "R": "#a84a22", "j": "#4ac0e0"}
 
 
 # --- Ginnungagap (Völuspá 3; Vafþrúðnismál 35; Gylfaginning 4-7) ---------------------------------------------------
 
 def venom_rime(c, f):
     """Venom rime (Gylfaginning 5: the Élivágar's venom hardened like slag, and rime grew over it): a crawling heap of
-    pale green-white ice with dark venom showing through."""
+    pale ice crust with icicle spikes, sickly green venom glowing through its cracks and dripping from it, two cold
+    eyes."""
     s = STEP[f]
-    ellipse(c, 10, 14, 8, 7, "w")
-    ellipse(c, 10, 15, 5, 4, "g")
-    for x, y in ((6, 9), (13, 8), (10, 6), (15, 12)):
-        c.px(x, y, "W")
-    c.px(8, 12, "k"); c.px(12, 12, "k")
-    c.rect(3 + s, 20, 5 + s, 21, "W"); c.rect(15 - s, 20, 17 - s, 21, "W")
+    for x, d in ((4, s), (8, -s), (12, s), (16, -s)):
+        c.rect(x + d, 18, x + 1 + d, 20, "W"); c.px(x + d, 21, "g")                      # crawling feet, dripping
+    ellipse(c, 10, 14, 8.5, 6.5, "w"); ellipse(c, 9, 16, 7, 3.5, "w")
+    for x, h in ((4, 3), (7, 5), (10, 6), (13, 4), (16, 3)):
+        poly(c, [(x - 1, 10), (x + 1, 10), (x, 10 - h)], "W")                            # icicle spikes
+    for x, y in ((6, 15), (7, 16), (9, 15), (11, 16), (12, 17), (14, 15), (8, 17)):
+        c.px(x, y, "g")                                                                  # venom glowing through
+    c.px(10, 16, "G"); c.px(13, 16, "G")
+    c.px(7, 12, "k"); c.px(12, 12, "k"); c.px(7, 11, "i"); c.px(12, 11, "i")             # cold eyes
 
 
-VENOM_RIME_PAL = {"o": "#1a2a24", "w": "#d0e8e0", "W": "#f4fcff", "g": "#4a7a5a", "k": "#102018"}
+VENOM_RIME_PAL = {"o": "#1a2a24", "w": "#d0e8e0", "W": "#f4fcff", "g": "#5aaa4a", "G": "#a8f070", "k": "#102018",
+                  "i": "#a8e0f8"}
 
 
 def rime_drop(c, f):
-    """A rime drop (Gylfaginning 5: the drops of thawing rime that quickened with life): a falling drop of meltwater
-    with a glint of life in it."""
+    """A rime drop (Gylfaginning 5: the drops of thawing rime that quickened with life): a drop of meltwater with a
+    bright highlight, a tiny face and a glint of warm life inside it."""
     up = f % 2
-    poly(c, [(5, 1 + up), (2, 7), (5, 10), (8, 7)], "w")
-    c.px(4, 6, "W"); c.px(5, 7, "y")
+    poly(c, [(5, 0 + up), (1, 6), (2, 9), (5, 11), (8, 9), (9, 6)], "w")
+    c.px(3, 5, "W"); c.px(3, 6, "W"); c.px(4, 4, "W")                                    # highlight
+    c.px(4, 7, "k"); c.px(6, 7, "k")                                                     # tiny eyes
+    c.px(5, 9, "y"); c.px(6, 9, "Y")                                                     # the spark of life
 
 
-RIME_DROP_PAL = {"o": "#2a3a4a", "w": "#c8e4f8", "W": "#ffffff", "y": "#ffd060"}
+RIME_DROP_PAL = {"o": "#2a3a4a", "w": "#a8d4f0", "W": "#ffffff", "k": "#2a4a6a", "y": "#ffd060", "Y": "#fff4c0"}
 
 
 def audhumla(c, step):
-    """Auðumbla (Gylfaginning 6: the first cow, made from the dripping rime): a vast, pale, hornless cow with frost in
-    her coat and four streams of milk."""
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(12 + k * 9 + d, 34, 16 + k * 9 + d, 46, "W"); c.rect(12 + k * 9 + d, 45, 16 + k * 9 + d, 46, "k")
-    ellipse(c, 28, 26, 20, 11, "w")
-    for x, y in ((18, 22), (26, 18), (34, 24), (22, 30), (38, 30)):
-        c.px(x, y, "i"); c.px(x + 1, y, "i")
-    ellipse(c, 50, 22, 7, 7, "w"); c.rect(52, 25, 57, 29, "p"); c.px(51, 20, "k")
-    poly(c, [(46, 16), (44, 12), (48, 15)], "W")
-    c.rect(24, 36, 30, 38, "p")
-    for k in range(4):
-        c.px(24 + k * 2, 39 + k % 2, "m")
-    for k in range(8):
-        c.px(8 - k // 2, 24 + k, "W")
+    """Auðumbla (Gylfaginning 6: the first cow, made from the dripping rime, whose four rivers of milk fed Ymir, and who
+    licked the salty rime-blocks): a vast, pale, hornless cow with frost glittering in her coat, a pink udder and four
+    streams of milk (drawn on the bull body of Empusa)."""
+    gothic_beast("bull")(c, step)
+    for y in range(c.h):
+        for x in range(c.w):
+            if c.g[y][x] in "hH":
+                c.g[y][x] = "."                                                          # no horns
+    poly(c, [(46, 21), (44, 17), (49, 20)], "k"); c.px(46, 19, "p")                      # a soft ear
+    ellipse(c, 30, 43, 4, 2, "p"); c.px(28, 45, "P"); c.px(30, 45, "P"); c.px(32, 45, "P")   # udder
+    for k, x in enumerate((27, 29, 31, 33)):
+        for t in range(3):
+            c.px(x, 47 + t + (k + step) % 2, "m")                                        # four streams of milk
+    for x, y in ((14, 26), (20, 30), (26, 24), (34, 28), (40, 26), (18, 36), (30, 34), (12, 32)):
+        c.px(x, y, "i"); c.px(x + 1, y + 1, "I")                                         # frost in her coat
 
 
-AUDHUMLA_PAL = {"o": "#2a2a34", "w": "#ece8e0", "W": "#c8ccd4", "i": "#c8e4f8", "p": "#d8a8a8", "k": "#2a2a34",
-                "m": "#ffffff"}
+AUDHUMLA_PAL = {"o": "#2a2a34", "k": "#ece8e0", "K": "#c0c4cc", "b": "#ece8e0", "B": "#c0c4cc", "h": "#ece8e0",
+                "H": "#c0c4cc", "y": "#2a2a40", "l": "#ffffff", "g": "#c8e4f8", "s": "#ece8e0", "v": "#ece8e0",
+                "p": "#e0a8a8", "P": "#b88080", "m": "#ffffff", "i": "#a8d4f0", "I": "#e0f4ff"}
 
 
 def bergelmir(c, step):
-    """Bergelmir (Vafþrúðnismál 35; Gylfaginning 7: the frost giant who lived through the flood of Ymir's blood on his
-    lúðr): a frost giant with a rime-white beard, grey-blue skin, his furs dark with blood at the hem, an oar in his
-    hand."""
-    figure(c, step, "f", "s", "w", legs="F")
-    poly(c, [(16, 15), (27, 15), (24, 30), (19, 30)], "w"); c.row(48, 11, 31, "r"); c.row(49, 11, 31, "r")
-    c.rect(33, 4, 34, 44, "b"); c.rect(32, 38, 35, 48, "b")
+    """Bergelmir (Vafþrúðnismál 35; Gylfaginning 7: the one frost giant who lived through the flood of Ymir's blood, on
+    his lúðr): a huge frost giant with grey-blue skin, a great rime-white beard and hair, heavy furs whose hem is dark
+    with blood, frost on his shoulders, gripping a long oar."""
+    person(c, step, cx=19, skin="s", skin_d="S", hair="g", hair_d="F", hair_style="short", beard="w",
+           garment="tunic", robe="f", robe_d="F", legs="F", boots="k", belt="b", arm_forward=True, eye="k")
+    c.px(17, 10, "i"); c.px(21, 10, "i")                                                 # icy glints in his eyes
+    poly(c, [(15, 12), (23, 12), (23, 22), (19, 26), (15, 22)], "w")                     # great rime-white beard
+    for x, y in ((17, 18), (20, 22), (18, 26), (21, 15)):
+        c.px(x, y, "W")
+    poly(c, [(11, 17), (27, 17), (28, 21), (10, 21)], "W")                               # frost on his fur collar
+    for x, y in ((12, 18), (16, 17), (24, 18), (26, 20)):
+        c.px(x, y, "i")
+    c.row(39, 12, 26, "r"); c.row(40, 12, 26, "R"); c.px(14, 41, "r"); c.px(22, 41, "r")   # hem dark with blood
+    for t in range(48):                                                                  # the long oar
+        c.px(35 - t // 16, 4 + t, "b"); c.px(36 - t // 16, 4 + t, "B")
+    poly(c, [(31, 44), (35, 44), (35, 54), (31, 54)], "b"); c.rect(31, 44, 31, 54, "B")  # its blade
+    ellipse(c, 34, 23, 2, 2, "s")                                                        # hand on it
 
 
-BERGELMIR_PAL = {"o": "#0e1218", "k": "#1e2430", "f": "#5a6a7a", "F": "#3a4654", "s": "#8aa0b8", "w": "#eef4fa",
-                 "r": "#8a1a1a", "b": "#6a4a2a"}
+BERGELMIR_PAL = {"o": "#0e1218", "k": "#1e2430", "f": "#5a6a7a", "F": "#3a4654", "s": "#7a94b4", "S": "#5a7496",
+                 "g": "#8a98a8",
+                 "w": "#eef4fa", "W": "#b8c8d8", "i": "#c8e8ff", "m": "#4a5a70", "r": "#8a1a1a", "R": "#5a0e0e",
+                 "b": "#6a4a2a", "B": "#4a3018", "l": "#3a4654"}
 
 
 def void_herald(form):
-    """The Herald of the Void (Mythriven's own, in the Eddas' Ginnungagap): a tall, faceless shape of darkness standing
-    between rime and fire, one or the other burning along its edges."""
+    """The Herald of the Void (Mythriven's own, in the Eddas' Ginnungagap): a tall, faceless, hooded shape of nothing
+    standing between rime and fire, its robe a hole into the starry void, two cold points for eyes, arms spread. In
+    rime its edges bristle with icicle shards and a pale cold glow; in fire, flames lick up its shoulders and hem."""
     def draw(c, step):
-        edge, glow = ("i", "w") if form == "rime" else ("r", "y")
+        rime = form == "rime"
+        edge, glow, hot = ("i", "w", "I") if rime else ("r", "y", "R")
         for k, d in enumerate((-step, step)):
-            c.rect(16 + k * 6 + d, 46, 18 + k * 6 + d, 52, "k")
-        poly(c, [(20, 2), (26, 2), (36, 48), (10, 48)], "k")
-        poly(c, [(21, 6), (25, 6), (32, 46), (14, 46)], "K")
-        for y in range(4, 48, 4):
-            w = 3 + y // 4
-            c.px(23 - w, y, edge); c.px(23 + w, y, edge)
-        c.px(21, 10, glow); c.px(25, 10, glow)
-        for k in range(5):
-            c.px(8 + k * 7, 50 - (k % 2) * 2, edge)
+            c.rect(19 + k * 5 + d, 50, 21 + k * 5 + d, 54, "k")
+        poly(c, [(16, 12), (30, 12), (38, 50), (8, 50)], "k")                            # the long robe
+        poly(c, [(12, 18), (6, 30), (8, 33), (15, 24)], "k"); poly(c, [(34, 18), (40, 30), (38, 33), (31, 24)], "k")   # arms spread
+        ellipse(c, 23, 9, 7, 7.5, "k"); poly(c, [(16, 9), (23, 0), (30, 9)], "k")        # pointed hood
+        ellipse(c, 23, 11, 4.5, 4.5, "v"); poly(c, [(19, 18), (27, 18), (33, 47), (13, 47)], "v")   # the void within
+        for x, y in ((21, 24), (25, 30), (19, 36), (27, 40), (23, 44), (17, 42), (29, 34), (22, 12)):
+            c.px(x, y, "s")                                                              # stars in the void
+        c.px(21, 10, glow); c.px(25, 10, glow)                                           # two cold points
+        rim(c, "k", edge)
+        if rime:
+            for x, y, h in ((8, 50, 4), (14, 50, 3), (32, 50, 3), (38, 50, 4), (6, 30, 3), (40, 30, 3), (16, 12, 3), (30, 12, 3)):
+                for t in range(h):
+                    c.px(x, y + t if y >= 30 else y - t, hot)                            # icicle shards
+            for x, y in ((4, 26 + step), (42, 24 - step), (23, 0)):
+                c.px(x, y, glow)
+        else:
+            for x in range(9, 38, 3):
+                hgt = 2 + (x + step) % 3
+                for t in range(hgt):
+                    c.px(x, 50 - t, edge if t < hgt - 1 else glow)                       # flames at the hem
+            for x, y in ((14, 14), (31, 14), (11, 18), (35, 18)):
+                c.px(x, y - 1 - (step % 2), glow); c.px(x, y, edge)                      # flames on the shoulders
+            for x, y in ((5, 32 + step), (41, 30 - step)):
+                c.px(x, y, glow); c.px(x, y + 1, hot)                                    # fire in its hands
     return draw
 
 
-VOID_HERALD_PAL = {"o": "#05050a", "k": "#0e0e18", "K": "#1e1a30", "i": "#c8e4f8", "w": "#ffffff", "r": "#e8602a",
-                   "y": "#ffd060"}
+VOID_HERALD_PAL = {"o": "#05050a", "k": "#16142a", "v": "#06060e", "s": "#c8c8f0", "i": "#a8e0f8", "I": "#e0f6ff",
+                   "w": "#ffffff", "r": "#e8602a", "R": "#a83a1a", "y": "#ffd060"}
 
 
 if __name__ == "__main__":
@@ -484,12 +545,12 @@ if __name__ == "__main__":
     kit.build_boss("white_dragon", white_dragon, WHITE_DRAGON_PAL, doc(white_dragon.__doc__), (72, 56), (34, 54), [0, 1, 0, -1, 0])
     kit.build_boss("atlantean_hoplite", atlantean_hoplite, HOPLITE_PAL, doc(atlantean_hoplite.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("atlantean_slinger", atlantean_slinger, SLINGER_PAL, doc(atlantean_slinger.__doc__), (20, 24), (10, 23), walk, folder="enemies")
-    kit.build_boss("poseidons_bull", poseidons_bull, POSEIDON_BULL_PAL, doc(poseidons_bull.__doc__), (58, 48), (28, 46), [0, 1, 0, -1, 0])
+    kit.build_boss("poseidons_bull", poseidons_bull, POSEIDON_BULL_PAL, doc(poseidons_bull.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
     kit.build_boss("gadeirus", gadeirus, GADEIRUS_PAL, doc(gadeirus.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("atlas_king", atlas_king, ATLAS_PAL, doc(atlas_king.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("venom_rime", venom_rime, VENOM_RIME_PAL, doc(venom_rime.__doc__), (20, 22), (10, 21), walk, folder="enemies")
     kit.build_boss("rime_drop", rime_drop, RIME_DROP_PAL, doc(rime_drop.__doc__), (11, 12), (5, 11), walk, folder="enemies")
-    kit.build_boss("audhumla", audhumla, AUDHUMLA_PAL, doc(audhumla.__doc__), (60, 48), (30, 46), [0, 1, 0, -1, 0])
+    kit.build_boss("audhumla", audhumla, AUDHUMLA_PAL, doc(audhumla.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
     kit.build_boss("bergelmir", bergelmir, BERGELMIR_PAL, doc(bergelmir.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("void_herald", void_herald("rime"), VOID_HERALD_PAL, doc(void_herald.__doc__), (46, 56), (23, 54), [0, 1, 0, -1, 0])
     for form in ("rime", "fire"):

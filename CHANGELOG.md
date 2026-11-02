@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.72
+Date: 11/02/2026
+Time: 8:03 AM
+
+### Changes
+Remade every sprite in Atlantis and Ginnungagap (owner's request):
+- **Poseidon's Bull:** drawn on the great bull body (the Cretan Bull's), white with gilded horns, head lowered to charge, with sea-spray about it.
+- **Gadeirus:** a king with a short dark beard and a gold diadem, in a sea-blue robe with waves along the hem under a sea-green cloak, with a gold arm-ring and a trident staff.
+- **Atlas:** an elder king with white hair and a long white beard, a tall gold crown, a deep blue robe edged with gold, a gleaming orichalcum red-gold cloak and a golden sceptre.
+- **Atlantean hoplite:** a red-crested bronze helmet, a bronze cuirass, a white tunic, bronze greaves, a round bronze shield bearing Poseidon's trident, and a spear.
+- **Atlantean slinger:** a short sea-blue tunic, a white headband, a pouch of stones, whirling his sling over his head.
+- **Auðumbla:** the first cow, on the same great body but hornless, with soft ears, frost glittering in her coat, a pink udder and four streams of milk.
+- **Bergelmir:** a frost giant with grey-blue skin, grey hair, a rime-white beard and icy glints in his eyes, in heavy furs with frost on the collar and a hem dark with blood, gripping a long oar.
+- **The Herald of the Void:** a tall, hooded, faceless shape whose robe is a hole into the starry void, with two cold points for eyes and its arms spread; in rime its edges glow pale with icicle shards, in fire flames lick up its shoulders and hem.
+- **Venom rime:** a crawling heap of pale ice with icicle spikes, sickly green venom glowing through it and dripping from its feet, and two cold eyes.
+- **Rime drop:** a drop of meltwater with a bright highlight, tiny eyes and a warm spark of life inside it.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for every sprite in Atlantis and Ginnungagap to be remade.
+
 ## Version 00.03.71
 Date: 11/02/2026
 Time: 7:55 AM

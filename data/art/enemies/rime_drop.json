@@ -1,5 +1,5 @@
 {
- "_doc": "A rime drop (Gylfaginning 5: the drops of thawing rime that quickened with life): a falling drop of meltwater with a glint of life in it. Built by tools/art/build_abyss.py.",
+ "_doc": "A rime drop (Gylfaginning 5: the drops of thawing rime that quickened with life): a drop of meltwater with a bright highlight, a tiny face and a glint of warm life inside it. Built by tools/art/build_abyss.py.",
  "size": [
   11,
   12
@@ -10,83 +10,85 @@
  ],
  "palette": {
   "o": "#2a3a4a",
-  "w": "#c8e4f8",
+  "w": "#a8d4f0",
   "W": "#ffffff",
-  "y": "#ffd060"
+  "k": "#2a4a6a",
+  "y": "#ffd060",
+  "Y": "#fff4c0"
  },
  "frames": {
   "idle": [
    [
-    "...........",
     "....oo.....",
-    "...owwo....",
     "...owwo....",
     "..owwwwo...",
     "..owwwwo...",
     ".owwWwwwo..",
-    ".owwwywo...",
-    "..owwwo....",
-    "...owo.....",
-    "....o......",
-    "..........."
+    "owwWwwwwwo.",
+    "owwWwwwwwo.",
+    "owwwkwkwo..",
+    ".owwwwwwo..",
+    "..owwyYo...",
+    "...owwo....",
+    "....oo....."
    ]
   ],
   "walk": [
    [
     "...........",
-    "...........",
     "....oo.....",
     "...owwo....",
-    "..owwwo....",
     "..owwwwo...",
     ".owwWwwwo..",
-    ".owwwywo...",
-    "..owwwo....",
-    "...owo.....",
-    "....o......",
-    "..........."
+    "owwWwwwwwo.",
+    "owwWwwwwwo.",
+    "owwwkwkwo..",
+    ".owwwwwwo..",
+    "..owwyYo...",
+    "...owwo....",
+    "....oo....."
+   ],
+   [
+    "....oo.....",
+    "...owwo....",
+    "..owwwwo...",
+    "..owwwwo...",
+    ".owwWwwwo..",
+    "owwWwwwwwo.",
+    "owwWwwwwwo.",
+    "owwwkwkwo..",
+    ".owwwwwwo..",
+    "..owwyYo...",
+    "...owwo....",
+    "....oo....."
    ],
    [
     "...........",
     "....oo.....",
     "...owwo....",
-    "...owwo....",
-    "..owwwwo...",
     "..owwwwo...",
     ".owwWwwwo..",
-    ".owwwywo...",
-    "..owwwo....",
-    "...owo.....",
-    "....o......",
-    "..........."
+    "owwWwwwwwo.",
+    "owwWwwwwwo.",
+    "owwwkwkwo..",
+    ".owwwwwwo..",
+    "..owwyYo...",
+    "...owwo....",
+    "....oo....."
    ],
    [
-    "...........",
-    "...........",
     "....oo.....",
-    "...owwo....",
-    "..owwwo....",
-    "..owwwwo...",
-    ".owwWwwwo..",
-    ".owwwywo...",
-    "..owwwo....",
-    "...owo.....",
-    "....o......",
-    "..........."
-   ],
-   [
-    "...........",
-    "....oo.....",
-    "...owwo....",
     "...owwo....",
     "..owwwwo...",
     "..owwwwo...",
     ".owwWwwwo..",
-    ".owwwywo...",
-    "..owwwo....",
-    "...owo.....",
-    "....o......",
-    "..........."
+    "owwWwwwwwo.",
+    "owwWwwwwwo.",
+    "owwwkwkwo..",
+    ".owwwwwwo..",
+    "..owwyYo...",
+    "...owwo....",
+    "....oo....."
    ]
   ]
  }
