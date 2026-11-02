@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.65
+Date: 11/02/2026
+Time: 12:02 AM
+
+### Changes
+- **The Great Bear's head made bigger.** A broader head with a deeper snout and a heavier jaw, in proportion with her body; her shoulder is cut back a little to make room.
+
+### Reason
+The owner said the bear looked like a big body with a little head.
+
 ## Version 00.03.64
 Date: 11/02/2026
 Time: 11:58 PM
