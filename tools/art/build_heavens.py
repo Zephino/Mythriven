@@ -6,7 +6,7 @@ import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
 from figure_kit import person
-from build_gothic import rim
+from build_gothic import rim, raven as gothic_raven
 from build_avalon import hound
 
 STEP = [0, -1, 0, 1, 0]
@@ -403,168 +403,311 @@ ORION_PAL = {"o": "#06081a", "k": "#1a1410", "s": "#c88a5a", "S": "#a06a3e", "d"
 
 # --- The Glass Mountain (Grimm KHM 25, KHM 196; Andersen, "The Snow Queen", 1844) -------------------------------------
 
+class _Offset:
+    """Draws onto a canvas shifted by (dx, dy), so a small figure can be placed several times on one picture."""
+    def __init__(self, c, dx, dy):
+        self.c, self.dx, self.dy = c, dx, dy
+        self.w, self.h, self.g = c.w, c.h, c.g
+
+    def px(self, x, y, col):
+        self.c.px(x + self.dx, y + self.dy, col)
+
+    def rect(self, x0, y0, x1, y1, col):
+        self.c.rect(x0 + self.dx, y0 + self.dy, x1 + self.dx, y1 + self.dy, col)
+
+    def row(self, y, x0, x1, col):
+        self.rect(x0, y, x1, y, col)
+
+
 def white_bee(c, f):
-    """A white bee (Andersen: "the white bees are swarming", the grandmother's name for snowflakes): a snowflake with
-    little wings."""
+    """A white bee (Andersen: "the white bees are swarming", the grandmother's name for snowflakes): a six-armed
+    snowflake with little frosty wings beating and two dark eyes at its heart."""
+    up = f % 2
+    ellipse(c, 4, 2 if up else 4, 2, 1.4, "W"); ellipse(c, 8, 2 if up else 4, 2, 1.4, "W")   # little wings
     for k in range(6):
-        a = k / 6 * math.tau + f * 0.3
-        for r in (1, 2, 3):
-            c.px(6 + round(r * math.cos(a)), 6 + round(r * math.sin(a)), "w" if r < 3 else "b")
+        a = math.radians(30 + k * 60)
+        for r in (1, 2, 3, 4):
+            c.px(6 + round(r * math.cos(a)), 7 + round(r * math.sin(a)), "w" if r < 4 else "b")
+        bx, by = 6 + 3 * math.cos(a), 7 + 3 * math.sin(a)
+        c.px(round(bx + 1.2 * math.cos(a + 1.2)), round(by + 1.2 * math.sin(a + 1.2)), "b")   # side branches
+        c.px(round(bx + 1.2 * math.cos(a - 1.2)), round(by + 1.2 * math.sin(a - 1.2)), "b")
+    c.px(6, 7, "b"); c.px(5, 7, "k"); c.px(7, 7, "k")
 
 
-WHITE_BEE_PAL = {"o": "#6a7888", "w": "#ffffff", "b": "#c8e0f0"}
+WHITE_BEE_PAL = {"o": "#6a7888", "w": "#ffffff", "W": "#d8ecfa", "b": "#a8d0ec", "k": "#2a3a4a"}
 
 
 def snowflake_guard(c, f):
     """A snowflake guard of the Snow Queen (Andersen, 7th story: her advance guard of living snowflakes, shaped like
-    horrid hedgehogs, knotted snakes and little fat bears): a squat white bear-shape of packed snow."""
+    horrid hedgehogs, knotted snakes and little fat bears): a little fat bear of packed snow with icy spines bristling
+    along its back like a hedgehog's, glaring eyes and icy fangs."""
     s = STEP[f]
-    ellipse(c, 10, 10, 7, 6, "w"); ellipse(c, 10, 4, 4, 3, "w")
-    c.px(8, 3, "k"); c.px(12, 3, "k"); c.px(6, 1, "w"); c.px(14, 1, "w")
-    for k, d in enumerate((-s, s)):
-        c.rect(6 + k * 6 + d, 15, 8 + k * 6 + d, 18, "b")
-    for x, y in ((5, 8), (14, 11), (9, 13)):
-        c.px(x, y, "b")
+    for x, d in ((5, -s), (11, s)):
+        c.rect(x + d, 14, x + 2 + d, 18, "b"); c.row(19, x + d, x + 2 + d, "B")         # stubby legs
+    ellipse(c, 9, 11, 7, 5, "w"); ellipse(c, 8, 14, 6, 2, "b")                           # fat body
+    for k in range(6):
+        x = 3 + k * 2
+        c.px(x, 6, "i"); c.px(x - 1, 5, "i"); c.px(x - 2, 4, "I")                       # icy spines
+    ellipse(c, 15, 8, 3.6, 3.2, "w"); c.px(13, 5, "w"); c.px(17, 5, "w")                # head, round ears
+    c.px(16, 7, "k"); c.px(15, 6, "B"); c.px(17, 6, "B")                                 # glaring eye, brow
+    c.px(18, 9, "B"); c.row(10, 15, 18, "k"); c.px(16, 11, "i"); c.px(18, 11, "i")      # snout, mouth, icy fangs
 
 
-SNOW_GUARD_PAL = {"o": "#4a5a6a", "w": "#f4f8fc", "b": "#c8dcec", "k": "#2a3a4a"}
+SNOW_GUARD_PAL = {"o": "#4a5a6a", "w": "#f4f8fc", "b": "#c8dcec", "B": "#8aa4bc", "k": "#2a3a4a", "i": "#a8e0f8",
+                  "I": "#e0f6ff"}
 
 
 def seven_ravens(c, step):
     """The Seven Ravens (Grimm, KHM 25): seven brothers changed into ravens by their father's hasty word, who live in
-    the glass mountain; their little sister freed them. Seven black ravens flying together as one."""
-    for k in range(7):
-        x = 8 + (k % 4) * 12 + (k // 4) * 6
-        y = 10 + (k // 4) * 16 + ((k + step) % 2) * 2
-        poly(c, [(x, y), (x - 7, y - 5 + step), (x - 3, y + 2)], "k"); poly(c, [(x + 2, y), (x + 9, y - 5 - step), (x + 5, y + 2)], "k")
-        ellipse(c, x + 1, y + 2, 3, 2, "K"); c.px(x + 4, y + 1, "y")
+    the glass mountain; their little sister freed them. Seven big black ravens flying together, wedge-tailed and
+    heavy-beaked, their wings beating out of time."""
+    for k, (x, y) in enumerate(((40, 26), (2, 22), (22, 26), (12, 12), (32, 13), (24, 1), (42, 3))):
+        gothic_raven(_Offset(c, x, y), (k + step) % 2)
 
 
-RAVENS_PAL = {"o": "#2a2a34", "k": "#141418", "K": "#1e1e24", "y": "#e8c040"}
+RAVENS_PAL = {"o": "#3a3a46", "k": "#141418", "K": "#26262e", "B": "#4a4a56", "w": "#c8c8d0"}
 
 
 def rinkrank(c, step):
-    """Old Rinkrank (Grimm, KHM 196): the old man with the long grey beard who lived in the glass mountain and made the
-    king's daughter his servant, until she caught his beard in the window."""
-    figure(c, step, "b", "s", "g", legs="B")
-    poly(c, [(15, 12), (27, 12), (25, 44), (17, 44)], "g")                                          # the long grey beard
-    c.rect(30, 20, 31, 46, "B"); c.rect(29, 18, 32, 20, "B")
+    """Old Rinkrank (Grimm, KHM 196): the old man who lived in the glass mountain and made the king's daughter his
+    servant; he came and went by a ladder he let down, and she caught his long grey beard in the window and would not
+    let go until he gave it to her. A bald old man with a grey fringe and bushy brows, a beard down to his knees, a
+    shabby brown coat, carrying his ladder."""
+    for t in range(45):                                                                  # the ladder, behind him
+        c.px(31 - t // 22, 8 + t, "L"); c.px(37 - t // 22, 8 + t, "L")
+    for y in range(11, 52, 5):
+        c.row(y, 31 - (y - 8) // 22, 37 - (y - 8) // 22, "w")
+    person(c, step, cx=20, skin="s", skin_d="S", hair="g", hair_d="G", hair_style="short", garment="robe",
+           robe="b", robe_d="B", robe_l="n", belt="k", boots="k", head_y=12)
+    c.row(6, 17, 23, "s"); c.row(7, 16, 24, "s"); c.px(18, 7, "S")                       # bald crown
+    c.row(10, 16, 18, "g"); c.row(10, 22, 24, "g")                                       # bushy grey brows
+    ellipse(c, 20, 14, 1.5, 1.4, "S")                                                    # big nose
+    poly(c, [(16, 15), (24, 15), (25, 28), (23, 40), (20, 46), (17, 40), (15, 28)], "g")   # beard to his knees
+    for x, y in ((18, 20), (21, 24), (19, 30), (22, 34), (20, 40), (17, 26), (23, 22)):
+        c.px(x, y, "G")
+    ellipse(c, 29, 32, 1.8, 1.8, "s")                                                    # hand on the ladder
 
 
-RINKRANK_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#5a4a3a", "B": "#3a2e24", "s": "#e0c0a0", "g": "#b8b8b8"}
+RINKRANK_PAL = {"o": "#0e0a08", "k": "#1e1814", "b": "#6a5040", "B": "#4a3828", "n": "#7e6250", "s": "#e0c0a0",
+                "S": "#b89878", "g": "#c0c0c0", "G": "#8a8a8a", "m": "#8a5a4a", "L": "#7a5a3a", "w": "#9a7a54",
+                "l": "#4a3828"}
 
 
 def snow_queen(c, step):
     """The Snow Queen (Andersen, 1844): "a lady, tall and slender, and dazzling white; her cloak and cap were of snow".
-    Her palace walls were driven snow; she kissed Kai, and he no longer felt the cold."""
-    figure(c, step, "w", "s", "W", legs="b")
-    poly(c, [(10, 18), (32, 18), (36, 52), (6, 52)], "W")
-    poly(c, [(14, 18), (28, 18), (31, 50), (11, 50)], "w")
-    for k in range(5):
-        c.px(14 + k * 3, 1 - k % 2, "i"); c.px(14 + k * 3, 2, "i")                                 # an icy crown
-    c.rect(14, 3, 27, 4, "i")
-    c.px(18, 10, "b"); c.px(23, 10, "b")
+    Her palace walls were driven snow; she kissed Kai, and he no longer felt the cold. Pale as ice, with long silver
+    hair, a crown of icicles, a high collar and cloak of snow, a gown glittering with frost, and frost spilling from her
+    outstretched hand."""
+    poly(c, [(10, 17), (32, 17), (39, 54), (3, 54)], "W")                                # cloak of snow
+    poly(c, [(10, 17), (14, 17), (8, 54), (3, 54)], "B")
+    for x, y in ((6, 40), (36, 46), (10, 30), (33, 34)):
+        c.px(x, y, "i")
+    person(c, step, cx=21, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="long", garment="gown",
+           robe="w", robe_d="W", robe_l="i", belt="i", boots="b", eye="b", mouth="m", arm_forward=True, head_y=12)
+    for x, h in ((16, 3), (18, 5), (20, 4), (21, 7), (22, 4), (24, 5), (26, 3)):
+        c.rect(x, 7 - h, x, 6, "i"); c.px(x, 7 - h, "I")                                 # crown of icicles
+    c.row(7, 16, 26, "I")
+    poly(c, [(13, 18), (15, 15), (21, 20), (27, 15), (29, 18), (27, 22), (15, 22)], "w")   # high collar of snow
+    c.px(15, 16, "W"); c.px(27, 16, "W")
+    for x, y in ((18, 28), (24, 33), (19, 40), (25, 45), (16, 47), (22, 36)):
+        c.px(x, y, "i")                                                                  # frost on her gown
+    for x, y in ((38, 21), (40, 24), (37, 27), (39, 19), (41, 22)):
+        c.px(x, y, "I")                                                                  # frost from her hand
 
 
-SNOW_QUEEN_PAL = {"o": "#4a5a6a", "k": "#2a3a4a", "w": "#f4f8fc", "W": "#c8dcec", "s": "#f0f4f8", "b": "#5a8ab0",
-                  "i": "#a8e0f8"}
+SNOW_QUEEN_PAL = {"o": "#4a5a6a", "k": "#2a3a4a", "w": "#f4f8fc", "W": "#c8dcec", "B": "#a8bccc", "s": "#eef2f8",
+                  "S": "#c8d4e0", "h": "#e8f0f8", "H": "#b0c4d8", "b": "#5a8ab0", "m": "#8aa8c8", "i": "#a8e0f8",
+                  "I": "#e0f6ff", "l": "#c8dcec"}
 
 
 # --- Demos Oneiron (Odyssey 19.560-569, 24.12; Ovid, Metamorphoses 11.583-649) -----------------------------------------
 
 def dream(c, f):
     """A dream (Ovid 11.613-615: empty dreams lie all about the House of Sleep, as many as the ears of the harvest, the
-    leaves of the woods, the sands of the shore): a pale wisp with a dim face."""
+    leaves of the woods, the sands of the shore): a pale, glowing wisp with sleepy closed eyes, trailing away into
+    nothing, little stars twinkling round it."""
     s = STEP[f]
-    poly(c, [(4, 4), (10, 4), (12, 11 + s), (2, 11 - s)], "w")
-    c.px(6, 6, "k"); c.px(8, 6, "k")
-    c.px(3, 12, "W"); c.px(11, 12 - s, "W")
+    poly(c, [(3, 6), (11, 6), (10, 10), (7 + s, 13), (6 - s, 11), (4, 10)], "W")         # trailing wisp
+    ellipse(c, 7, 5, 4.5, 4, "w"); ellipse(c, 6, 4, 2.5, 2, "l")                         # glowing head
+    c.px(5, 6, "k"); c.px(6, 6, "k"); c.px(8, 6, "k"); c.px(9, 6, "k")                   # closed sleepy eyes
+    c.px(7, 8, "p")
+    if f % 2:
+        c.px(1, 2, "y"); c.px(12, 9, "y")                                                # twinkling stars
+    else:
+        c.px(12, 1, "y"); c.px(1, 9, "y")
 
 
-DREAM_PAL = {"o": "#3a2a5a", "w": "#d8c8f0", "W": "#a890d0", "k": "#4a3a6a"}
+DREAM_PAL = {"o": "#3a2a5a", "w": "#d8c8f0", "W": "#a890d0", "l": "#f0e8ff", "k": "#5a4a7a", "p": "#c890c8",
+             "y": "#fff0a0"}
 
 
 def nightmare_beast(c, f):
-    """A nightmare beast (Ovid 11.638-640: the shapes of beasts that Phobetor brings): a shadowy wolf-like beast with
-    too many glowing eyes."""
+    """A nightmare beast (Ovid 11.638-640: the shapes of beasts that Phobetor brings): a shadowy wolf-like beast with a
+    bristling mane, too many glowing eyes, bared fangs, and smoke trailing from it."""
     s = STEP[f]
-    ellipse(c, 11, 9, 7, 3.5, "k")
-    for k, d in enumerate((-s, s, s, -s)):
-        c.rect(5 + k * 4 + d, 11, 5 + k * 4 + d, 15, "K")
-    poly(c, [(16, 5), (22, 7), (22, 10), (16, 10)], "k")
-    for x, y in ((18, 6), (20, 7), (17, 8)):
-        c.px(x, y, "r")
     for k in range(5):
-        c.px(4 - k, 8 + k % 2, "p")
+        c.px(3 - k, 7 + (k + f) % 2, "p"); c.px(4 - k, 9 + (k + f + 1) % 2, "p")         # smoky tail
+    ellipse(c, 10, 8, 7, 3.5, "k")
+    for k, d in enumerate((-s, s, s, -s)):
+        x = 5 + k * 3 + d
+        c.rect(x, 10, x + 1, 14, "K" if k % 2 else "k"); c.px(x + 1, 15, "w")
+    for x in range(5, 16, 2):
+        c.px(x, 4, "k"); c.px(x - 1, 3, "K")                                             # bristling mane
+    poly(c, [(15, 4), (21, 6), (23, 9), (16, 11)], "k"); poly(c, [(15, 4), (16, 1), (18, 5)], "k")   # head, ear
+    c.row(9, 18, 23, "m"); c.px(19, 10, "w"); c.px(22, 10, "w")                          # open jaws, fangs
+    for x, y in ((17, 6), (19, 7), (18, 5), (20, 5)):
+        c.px(x, y, "r")                                                                  # too many eyes
 
 
-NIGHTMARE_PAL = {"o": "#120a1a", "k": "#2a1a3a", "K": "#1a1028", "r": "#f04a8a", "p": "#6a3a8a"}
+NIGHTMARE_PAL = {"o": "#120a1a", "k": "#2a1a3a", "K": "#1a1028", "r": "#f04a8a", "p": "#6a3a8a", "w": "#e8e0f0",
+                 "m": "#5a0a2a"}
 
 
 def phantasos(form):
-    """Phantasos (Ovid 11.641-643): the dream-shaper of things without life: earth, rock, water, wood. Here as a rock
-    with a sleeping face, or as a figure of water."""
-    def draw(c, step):
-        if form == "rock":
-            ellipse(c, 24, 32, 20, 16, "g"); ellipse(c, 22, 28, 14, 10, "G")
-            c.row(28, 17, 20, "k"); c.row(28, 26, 29, "k"); c.row(36, 20, 27, "k")
-            for x, y in ((10, 24), (36, 36), (30, 20)):
-                c.px(x, y, "l"); c.px(x + 1, y, "l")
-            return
-        for y in range(8, 50):
-            w = 4 + int(8 * math.sin(min(y, 46) / 46 * math.pi)) + ((y + step) % 5 == 0)
-            c.rect(24 - w, y, 24 + w, y, "b" if (y + step) % 4 else "B")
-        c.px(21, 16, "w"); c.px(27, 16, "w")
-        for k in range(5):
-            c.px(14 + k * 5, 50 + k % 2, "B")
-    return draw
+    """Phantasos (Ovid 11.641-643): the dream-shaper of things without life: earth, rock, water, wood. Here as a
+    standing stone with a sleeping face, mossy and cracked, dream-light drifting round it; or as a figure of water
+    rising from a pool, its arms flowing and splashing."""
+    def rock(c, step):
+        poly(c, [(10, 52), (8, 30), (12, 14), (20, 6), (30, 5), (37, 12), (40, 28), (39, 52)], "g")   # the stone
+        poly(c, [(10, 52), (8, 30), (12, 14), (17, 10), (14, 30), (15, 52)], "G")
+        poly(c, [(30, 5), (37, 12), (39, 24), (32, 12)], "l")                            # light on its shoulder
+        for t in range(10):
+            c.px(22 - t // 4, 8 + t, "G")                                                # cracks
+        c.row(42, 12, 37, "G"); c.row(43, 14, 30, "k")
+        c.row(21, 17, 21, "G"); c.row(21, 27, 31, "G")                                   # heavy brows
+        c.row(24, 17, 21, "k"); c.px(16, 23, "k"); c.px(22, 23, "k")                     # closed, sleeping eyes
+        c.row(24, 27, 31, "k"); c.px(26, 23, "k"); c.px(32, 23, "k")
+        poly(c, [(23, 22), (26, 22), (27, 31), (22, 31)], "l"); c.rect(22, 24, 22, 31, "G")   # nose ridge
+        c.row(35, 20, 29, "k"); c.row(36, 21, 28, "G")                                   # mouth, slack in sleep
+        for x, y in ((14, 47), (15, 48), (32, 49), (33, 48), (20, 8), (21, 7), (28, 6), (34, 46)):
+            c.px(x, y, "m")                                                              # moss
+        c.rect(5, 50, 7, 52, "G"); c.rect(41, 50, 43, 52, "G")                           # rubble at its foot
+        for x, y in ((3, 12 + step), (44, 18 - step), (5, 32), (45, 38 + step), (40, 6)):
+            c.px(x, y, "p"); c.px(x + 1, y, "P")                                         # dream-light drifting
+
+    def water(c, step):
+        ellipse(c, 24, 50, 20, 4, "b"); ellipse(c, 24, 49, 18, 2.5, "B")                 # the pool
+        poly(c, [(16, 50), (18, 36), (14, 24), (16, 18), (32, 18), (34, 24), (30, 36), (32, 50)], "b")   # body of water
+        for k in range(3):
+            for y in range(18, 50):
+                x = 19 + k * 5 + round(math.sin((y + step * 2) / 3 + k))
+                if c.g[y][x] == "b":
+                    c.px(x, y, "B")                                                      # currents flowing down it
+        for t in range(10):                                                              # arm flowing down
+            ellipse(c, 15 - t * 0.8, 21 + t * 1.2, 2.2 - t * 0.1, 2.2 - t * 0.1, "b")
+        for t in range(10):                                                              # arm raised
+            ellipse(c, 33 + t * 0.7, 20 - t * 1.0, 2.2 - t * 0.1, 2.2 - t * 0.1, "b")
+        for x, y in ((40, 8), (42, 10), (39, 6), (43, 7), (6, 34), (8, 36), (5, 32)):
+            c.px(x, y, "w")                                                              # splashes
+        ellipse(c, 24, 12, 6, 6, "b"); ellipse(c, 23, 10, 3, 2.5, "B")                   # head
+        poly(c, [(18, 8), (24, 2), (33, 5), (30, 9)], "B"); c.px(33, 6, "w"); c.px(34, 8, "w")   # a crest like a wave
+        c.px(21, 12, "w"); c.px(27, 12, "w"); c.row(15, 22, 26, "d")                     # glowing eyes, mouth
+        for x, y in ((10, 46 + step), (38, 45 - step), (24, 44)):
+            c.px(x, y, "w")                                                              # drops
+    return rock if form == "rock" else water
 
 
-PHANTASOS_PAL = {"o": "#0e1020", "g": "#6a6878", "G": "#7e7c8c", "k": "#2a2838", "l": "#7a8a5a", "b": "#5a8ad0",
-                 "B": "#8ab0e8", "w": "#ffffff"}
+PHANTASOS_PAL = {"o": "#0e1020", "g": "#6a6878", "G": "#4a4858", "l": "#8e8c9c", "k": "#2a2838", "m": "#6a8a4a",
+                 "p": "#c8a8f0", "P": "#8a6ac0", "b": "#4a7ac0", "B": "#8ab8f0", "w": "#ffffff", "d": "#1a3a6a"}
 
 
 def morpheus(c, step):
-    """Morpheus (Ovid 11.633-638): the dream-shaper of men, who copies a man's walk, face and voice, and his very dress;
-    a winged youth in grey, his face half a mask."""
-    for side in (-1, 1):
-        for k in range(7):
-            x = 21 + side * (10 + k * 2)
-            c.rect(min(x, x + side), 12 + k, max(x, x + side), 26 - k // 2, "w" if k % 2 else "W")
-    figure(c, step, "g", "s", "h")
-    c.rect(21, 7, 25, 15, "W")                                                                       # half a mask
+    """Morpheus (Ovid 11.633-638): the dream-shaper of men, who copies a man's walk, face and voice, and his very
+    dress, better than any other. A slender youth in a grey robe and a deep violet cloak, with little wings at his
+    temples, a poppy at his belt, holding up a pale mask: the face he will wear."""
+    person(c, step, cx=21, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="short", garment="robe",
+           robe="g", robe_d="G", robe_l="l", belt="y", boots="k", cloak=("p", "P"), arm_forward=True)
+    for side in (-1, 1):                                                                 # wings at his temples:
+        x0 = 21 + side * 5                                                               # small fans of feathers
+        for ang, length, col in ((20, 7, "W"), (40, 7, "w"), (60, 5, "w")):
+            a = math.radians(ang)
+            for t in range(length):
+                c.px(x0 + side * round(t * math.cos(a)), 9 - round(t * math.sin(a)), col)
+    c.px(17, 29, "r"); c.px(18, 29, "r"); c.px(17, 30, "r"); c.px(18, 30, "k")           # a poppy at his belt
+    ellipse(c, 38, 21, 3.5, 4.4, "m"); c.px(37, 20, "k"); c.px(39, 20, "k")              # the mask he holds up
+    c.row(23, 37, 39, "M"); c.px(38, 22, "M"); c.px(36, 18, "M")
+    c.px(35, 25, "p"); c.px(35, 26, "p"); c.px(34, 27, "P")                              # its ribbon
 
 
-MORPHEUS_PAL = {"o": "#120e1a", "k": "#1e1828", "g": "#6a6478", "s": "#e8d8c8", "h": "#2a2030", "w": "#e8e4f0",
-                "W": "#b8b0c8"}
+MORPHEUS_PAL = {"o": "#120e1a", "k": "#1e1828", "g": "#6a6480", "G": "#4e4862", "l": "#8a84a0", "p": "#3a2a5a",
+                "P": "#2a1e44", "s": "#e8d8c8", "S": "#c0a890", "h": "#2a2030", "H": "#1a1420", "w": "#f0ecf8",
+                "W": "#b8b0cc", "m": "#f4f0e8", "M": "#b8b0a0", "y": "#c8a8e8", "r": "#d8304a", "b": "#1e1828",
+                "e": "#1e1828"}
 
 
 def phobetor(form):
     """Phobetor (Ovid 11.638-641): "called Icelus by the gods, Phobetor by mortal men", who becomes a beast, a bird or a
-    long serpent: the bringer of nightmares."""
-    def draw(c, step):
-        if form == "beast":
-            ellipse(c, 26, 30, 18, 10, "k")
-            for k, d in enumerate((-step, step, step, -step)):
-                c.rect(12 + k * 9 + d, 36, 15 + k * 9 + d, 48, "K")
-            poly(c, [(42, 18), (56, 22), (56, 30), (42, 32)], "k")
-            for x, y in ((46, 21), (49, 23), (52, 21), (47, 25)):
-                c.px(x, y, "r")
-            c.row(30, 50, 56, "w")
-            return
-        if form == "bird":
-            poly(c, [(28, 26), (2, 8 + step * 2), (22, 32)], "k"); poly(c, [(32, 26), (58, 8 - step * 2), (38, 32)], "K")
-            ellipse(c, 30, 30, 7, 6, "k"); poly(c, [(34, 26), (42, 28), (34, 31)], "p"); c.px(33, 27, "r")
-            for k in range(4):
-                c.px(26 - k * 2, 38 + k, "K")
-            return
-        for k in range(16):
-            ellipse(c, 8 + k * 3, 34 + round(6 * math.sin(k / 2.2 + step * 0.5)), 4, 3, "k" if k % 2 else "p")
-        ellipse(c, 56, 30, 5, 4, "k"); c.px(58, 29, "r"); c.row(32, 60, 63, "r")
-    return draw
+    long serpent: the bringer of nightmares. As a beast, a shaggy black wolf-thing with a bristling mane, a cluster of
+    glowing eyes, gaping fanged jaws and smoke trailing from it; as a bird, a huge ragged black bird with a hooked
+    beak, its wings spread wide; as a serpent, a long striped serpent rearing from its coils, crested and fanged."""
+    def beast(c, step):
+        for x, d in ((16, step), (44, -step)):                                           # far legs
+            c.rect(x + d, 36, x + 3 + d, 48, "K"); c.px(x + d, 49, "w"); c.px(x + 3 + d, 49, "w")
+        for k in range(9):                                                               # smoke trailing
+            c.px(9 - k, 26 + round(2 * math.sin(k + step)), "p"); c.px(10 - k, 30 + round(2 * math.sin(k + 2 + step)), "p")
+        ellipse(c, 28, 30, 18, 10, "k"); ellipse(c, 28, 36, 15, 4, "K")
+        for x in range(12, 46, 3):
+            poly(c, [(x, 24), (x + 3, 24), (x - 2, 15 + (x % 2) * 2)], "k"); c.px(x - 1, 18 + (x % 2) * 2, "p")   # mane
+        for x, d in ((22, -step), (40, step)):                                           # near legs
+            c.rect(x + d, 36, x + 4 + d, 48, "k")
+            for k in range(3):
+                c.px(x + d + k * 2, 49, "w")                                             # claws
+        poly(c, [(44, 20), (46, 11), (49, 19)], "k")                                     # ear
+        poly(c, [(42, 20), (52, 18), (60, 23), (62, 29), (56, 31), (44, 32)], "k")       # head
+        poly(c, [(48, 33), (61, 32), (57, 38), (48, 37)], "K")                           # lower jaw, gaping
+        c.rect(50, 31, 60, 32, "m")
+        for x in (52, 55, 58):
+            c.px(x, 33, "w")                                                             # fangs
+        c.px(53, 36, "w"); c.px(57, 35, "w")
+        for x, y in ((48, 22), (51, 23), (54, 22), (49, 25), (53, 26), (56, 24)):
+            c.px(x, y, "r")                                                              # a cluster of glowing eyes
+        rim(c, "kK", "p")
+
+    def bird(c, step):
+        poly(c, [(28, 24), (10, 4 - step * 2), (3, 9), (14, 20), (24, 30)], "K")         # far wing
+        for k in range(5):
+            poly(c, [(4 + k * 4, 9 + k * 3), (2 + k * 4, 14 + k * 3), (7 + k * 4, 12 + k * 3)], "K")   # ragged feathers
+        poly(c, [(24, 32), (12, 42), (17, 44), (20, 40), (22, 45), (27, 36)], "k")        # ragged tail
+        ellipse(c, 32, 30, 8, 7, "k")                                                    # body
+        for x in (29, 34):
+            c.rect(x, 36, x, 42, "K"); c.px(x - 1, 43, "w"); c.px(x + 1, 43, "w")        # talons
+        poly(c, [(34, 24), (54, 4 + step * 2), (62, 9), (50, 22), (40, 30)], "k")        # near wing
+        for k in range(5):
+            poly(c, [(60 - k * 4, 9 + k * 3), (62 - k * 4, 14 + k * 3), (57 - k * 4, 12 + k * 3)], "k")
+        ellipse(c, 41, 22, 4.5, 4, "k"); poly(c, [(39, 19), (37, 14), (42, 18)], "k")    # head, ragged crest
+        poly(c, [(44, 21), (53, 23), (51, 27), (44, 25)], "p"); c.px(52, 27, "p"); c.px(51, 28, "p")   # hooked beak
+        c.px(42, 21, "r"); c.px(40, 22, "r")                                             # glowing eyes
+        rim(c, "kK", "p")
+
+    def serpent(c, step):
+        def bez(p0, p1, p2, p3, t):
+            u = 1 - t
+            return (u ** 3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t ** 3 * p3[0],
+                    u ** 3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t ** 3 * p3[1])
+        pts = []
+        for k in range(60):                                                              # the coils
+            t = k / 59
+            pts.append((4 + 40 * t, 45 - 7 * abs(math.sin(2 * math.pi * t + step * 0.3)), 1.5 + 3.2 * t))
+        for k in range(36):                                                              # rearing up
+            x, y = bez((44, 45), (60, 38), (40, 24), (50, 16), k / 35)
+            pts.append((x, y, 4.6 - 0.6 * k / 35))
+        for x, y, r in pts:
+            ellipse(c, x, y, r, r, "K")
+        for i, (x, y, r) in enumerate(pts):
+            ellipse(c, x - 0.5, y - 0.6, max(r - 1.2, 0.6), max(r - 1.2, 0.6), "p" if (i // 5) % 2 else "k")   # stripes
+        ellipse(c, 52, 13, 5.5, 4, "k")                                                  # broad head
+        poly(c, [(55, 11), (61, 13), (60, 17), (54, 17)], "k")
+        for x in range(46, 56, 2):
+            c.px(x, 9 - (x % 4 == 0), "p")                                               # crest
+        c.px(54, 12, "r"); c.px(56, 12, "r")                                             # eyes
+        c.px(58, 17, "w"); c.px(60, 17, "w")                                             # fangs
+        c.px(62, 15, "r"); c.px(63, 14, "r"); c.px(63, 16, "r")                          # forked tongue
+        rim(c, "kK", "p")
+    return {"beast": beast, "bird": bird, "serpent": serpent}[form]
 
 
-PHOBETOR_PAL = {"o": "#0a0612", "k": "#2a1a3a", "K": "#1a1028", "p": "#5a2a7a", "r": "#f04a8a", "w": "#e8e0f0"}
+PHOBETOR_PAL = {"o": "#0a0612", "k": "#2a1a3a", "K": "#1a1028", "p": "#6a3a9a", "r": "#f04a8a", "w": "#e8e0f0",
+                "m": "#5a0a2a"}
 
 
 if __name__ == "__main__":

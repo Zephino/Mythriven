@@ -1,5 +1,5 @@
 {
- "_doc": "A white bee (Andersen: \"the white bees are swarming\", the grandmother's name for snowflakes): a snowflake with little wings. Built by tools/art/build_heavens.py.",
+ "_doc": "A white bee (Andersen: \"the white bees are swarming\", the grandmother's name for snowflakes): a six-armed snowflake with little frosty wings beating and two dark eyes at its heart. Built by tools/art/build_heavens.py.",
  "size": [
   13,
   13
@@ -11,86 +11,88 @@
  "palette": {
   "o": "#6a7888",
   "w": "#ffffff",
-  "b": "#c8e0f0"
+  "W": "#d8ecfa",
+  "b": "#a8d0ec",
+  "k": "#2a3a4a"
  },
  "frames": {
   "idle": [
    [
     ".............",
     ".............",
-    "....o...o....",
-    "...obo.obo...",
-    "....owowo....",
-    "...oowowoo...",
-    "..obwwowwbo..",
-    "...ooowwoo...",
-    "....owowo....",
-    "....oboobo...",
-    ".....o..o....",
-    ".............",
-    "............."
+    "...ooooooo...",
+    "..oWWWbWWWo..",
+    ".oWWbbwbbWWo.",
+    "..obWWwWWbo..",
+    ".obowwwwwobo.",
+    "..oookbkooo..",
+    ".obwwowowwbo.",
+    "..oboowoobo..",
+    "...obbwbbo...",
+    "....ooboo....",
+    "......o......"
    ]
   ],
   "walk": [
    [
-    ".............",
-    ".............",
-    ".....o.......",
-    "....obo.o....",
-    "...ooowobo...",
-    "..obwowwo....",
-    "...oowowoo...",
-    "....owwowbo..",
-    "...obowooo...",
-    "....o.obo....",
-    ".......o.....",
-    ".............",
-    "............."
+    "...ooo.ooo...",
+    "..oWWWoWWWo..",
+    ".oWWWWWWWWWo.",
+    "..oWWWbWWWo..",
+    "...obbwbbo...",
+    "..oboowoobo..",
+    ".obowwwwwobo.",
+    "..oookbkooo..",
+    ".obwwowowwbo.",
+    "..oboowoobo..",
+    "...obbwbbo...",
+    "....ooboo....",
+    "......o......"
    ],
    [
     ".............",
     ".............",
-    "......o......",
-    "....oobo.....",
-    "...obowooo...",
-    "...owwwowbo..",
-    "...oowowoo...",
-    "..obwowwwo...",
-    "...ooowobo...",
-    ".....oboo....",
-    "......o......",
-    ".............",
-    "............."
+    "...ooooooo...",
+    "..oWWWbWWWo..",
+    ".oWWbbwbbWWo.",
+    "..obWWwWWbo..",
+    ".obowwwwwobo.",
+    "..oookbkooo..",
+    ".obwwowowwbo.",
+    "..oboowoobo..",
+    "...obbwbbo...",
+    "....ooboo....",
+    "......o......"
+   ],
+   [
+    "...ooo.ooo...",
+    "..oWWWoWWWo..",
+    ".oWWWWWWWWWo.",
+    "..oWWWbWWWo..",
+    "...obbwbbo...",
+    "..oboowoobo..",
+    ".obowwwwwobo.",
+    "..oookbkooo..",
+    ".obwwowowwbo.",
+    "..oboowoobo..",
+    "...obbwbbo...",
+    "....ooboo....",
+    "......o......"
    ],
    [
     ".............",
     ".............",
-    ".......o.....",
-    "....ooobo....",
-    "...obwowo....",
-    "...oowwooo...",
-    "..obwwowwbo..",
-    "...ooowwoo...",
-    "....owowbo...",
-    "....obooo....",
-    ".....o.......",
-    ".............",
-    "............."
-   ],
-   [
-    ".............",
-    ".............",
-    ".....o.......",
-    "....obooo....",
-    "....owowbo...",
-    "...ooowwoo...",
-    "..obwwowwbo..",
-    "...oowwooo...",
-    "...obwowo....",
-    "....ooobo....",
-    ".......o.....",
-    ".............",
-    "............."
+    "...ooooooo...",
+    "..oWWWbWWWo..",
+    ".oWWbbwbbWWo.",
+    "..obWWwWWbo..",
+    ".obowwwwwobo.",
+    "..oookbkooo..",
+    ".obwwowowwbo.",
+    "..oboowoobo..",
+    "...obbwbbo...",
+    "....ooboo....",
+    "......o......"
    ]
   ]
  }

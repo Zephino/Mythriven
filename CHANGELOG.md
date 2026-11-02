@@ -2,6 +2,29 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.68
+Date: 11/02/2026
+Time: 12:30 AM
+
+### Changes
+Remade every sprite in the Glass Mountain and Demos Oneiron (owner's request):
+- **The Seven Ravens:** seven big black wedge-tailed ravens flying together, their wings beating out of time.
+- **Old Rinkrank:** a bald old man with a grey fringe, bushy brows, a big nose and a grey beard down to his knees, in a shabby brown coat, holding his ladder.
+- **The Snow Queen:** pale as ice, with long silver hair, a crown of icicles, a high collar and cloak of snow, a gown glittering with frost, and frost spilling from her outstretched hand.
+- **White bee:** a six-armed snowflake with side branches, little frosty wings and two dark eyes.
+- **Snowflake guard:** a little fat bear of packed snow with icy spines along its back, glaring eyes and icy fangs.
+- **Phantasos:** as a mossy, cracked standing stone with a sleeping face and dream-light drifting round it; and as a figure of water rising from a pool, with currents running down it, one arm flowing down and one raised in a splash, and a crest like a wave.
+- **Morpheus:** a slender youth in a grey robe and deep violet cloak, with small feathered wings at his temples and a poppy at his belt, holding up a pale mask, the face he will wear.
+- **Phobetor**, in three forms:
+  - **Beast:** a shaggy black wolf-thing with a bristling mane, a cluster of glowing eyes, gaping fanged jaws and smoke trailing from it.
+  - **Bird:** a huge ragged black bird with a hooked beak and wings spread wide.
+  - **Serpent:** a long striped serpent rearing from its coils, crested and fanged, with a forked tongue.
+- **Dream:** a pale glowing wisp with sleepy closed eyes, little stars twinkling round it.
+- **Nightmare beast:** a shadowy wolf-thing with a bristling mane, too many glowing eyes, fangs and a smoky tail.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for every sprite in the Glass Mountain and Demos Oneiron to be remade.
+
 ## Version 00.03.67
 Date: 11/02/2026
 Time: 12:17 AM
