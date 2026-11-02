@@ -268,6 +268,15 @@ def scorpion(c, step):
     stars: a scorpion of the night sky edged with starlight, seen from the side, its segmented body low to the ground on
     eight legs, its great pincers reaching forward, and its jointed tail curled high over its back with the sting
     glowing red; Antares burns red at its heart."""
+    def claw(x0, y0, col, light):
+        """A scorpion's claw facing forward, its two fingers open."""
+        for dy, row in enumerate(("......xxxx.", "..xxxxxxxxx", ".xxxxxx....", "xxxxxx.....", ".xxxxxx....",
+                                  "..xxxxxxxx.", "......xxx..")):
+            for dx, ch in enumerate(row):
+                if ch == "x":
+                    c.px(x0 + dx, y0 + dy, col)
+        c.row(y0 + 2, x0 + 2, x0 + 4, light)
+
     def line(pts, r, col):
         for (ax, ay), (bx, by) in zip(pts, pts[1:]):
             for t in range(9):
@@ -276,8 +285,8 @@ def scorpion(c, step):
         x = 20 + k * 5 + 2
         lift = step if k % 2 else -step
         line([(x, 35), (x - 2, 37), (x - 4 + lift, 43)], 0.7, "D")
-    line([(40, 31), (44, 26), (47, 27)], 1.2, "D")                                       # far pincer
-    ellipse(c, 49, 26, 3, 2, "D"); c.px(52, 24, "D"); c.px(53, 25, "D"); c.px(52, 28, "D")
+    line([(39, 31), (42, 27), (45, 26)], 0.9, "D")                                       # far arm
+    claw(45, 22, "D", "D")                                                               # far claw, raised
     for k, (x, y, r) in enumerate(((11, 29, 3.0), (8, 23, 2.8), (9, 17, 2.7), (13, 12, 2.5), (19, 9, 2.3))):
         ellipse(c, x, y, r, r, "d"); c.px(round(x - r + 1), y, "D")                      # tail segments, curling up
         if k:
@@ -289,22 +298,21 @@ def scorpion(c, step):
     for k in range(1, 6):
         c.rect(13 + k * 4, 30, 13 + k * 4, 36, "D")
     c.row(37, 13, 36, "D")
-    ellipse(c, 39, 33, 4.5, 3.6, "d")                                                    # head
-    c.px(40, 30, "w"); c.px(42, 31, "w")                                                 # eyes
+    poly(c, [(34, 29), (40, 29), (43, 31), (43, 36), (34, 37)], "d")                     # head, a rounded shield
+    c.row(29, 35, 39, "l"); c.px(41, 30, "w"); c.px(39, 30, "w")                         # eyes on top
     for k in range(4):                                                                   # near legs
         x = 18 + k * 5
         lift = -step if k % 2 else step
         line([(x, 36), (x - 2, 38), (x - 4 + lift, 44)], 0.8, "d")
-    line([(42, 34), (45, 31), (47, 33)], 1.4, "d")                                       # near pincer
-    ellipse(c, 48, 33, 3.4, 2.4, "d")
-    poly(c, [(49, 31), (52, 29), (51, 32)], "d"); poly(c, [(49, 35), (52, 36), (50, 34)], "d")
-    rim(c, "dD", "b")
-    for x, y in ((15, 32), (31, 31), (11, 23), (13, 12), (39, 33), (48, 33)):
+    line([(42, 34), (44, 37), (46, 34)], 1.0, "d")                                       # near arm, bent forward
+    claw(46, 30, "d", "l")                                                               # near claw, open
+    rim(c, "dl", "b")
+    for x, y in ((15, 32), (31, 31), (11, 23), (13, 12), (37, 33), (49, 33)):
         c.px(x, y, "w")                                                                  # its stars
     ellipse(c, 23, 32, 1.2, 1.2, "R"); c.px(23, 32, "r")                                 # Antares, red at its heart
 
 
-SCORPION_PAL = {"o": "#0a0c1a", "d": "#3a2a5a", "D": "#261c40", "b": "#9a7ae0", "r": "#ff5a6a", "R": "#c02a4a",
+SCORPION_PAL = {"o": "#0a0c1a", "l": "#5a4a8a", "d": "#3a2a5a", "D": "#261c40", "b": "#9a7ae0", "r": "#ff5a6a", "R": "#c02a4a",
                 "w": "#f0f4ff"}
 
 
@@ -562,7 +570,7 @@ if __name__ == "__main__":
     kit.build_boss("star_hound", star_hound, STAR_HOUND_PAL, doc(star_hound.__doc__), (24, 16), (11, 15), walk, folder="enemies")
     kit.build_boss("star_mote", star_mote, STAR_MOTE_PAL, doc(star_mote.__doc__), (11, 11), (5, 10), walk, folder="enemies")
     kit.build_boss("comet", comet, COMET_PAL, doc(comet.__doc__), (20, 12), (10, 11), walk, folder="enemies")
-    kit.build_boss("scorpion", scorpion, SCORPION_PAL, doc(scorpion.__doc__), (52, 46), (26, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("scorpion", scorpion, SCORPION_PAL, doc(scorpion.__doc__), (58, 46), (26, 44), [0, 1, 0, -1, 0])
     kit.build_boss("great_bear", great_bear, BEAR_PAL, doc(great_bear.__doc__), (62, 50), (30, 48), [0, 1, 0, -1, 0])
     kit.build_boss("orion", orion, ORION_PAL, doc(orion.__doc__), (42, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("white_bee", white_bee, WHITE_BEE_PAL, doc(white_bee.__doc__), (13, 13), (6, 12), walk, folder="enemies")

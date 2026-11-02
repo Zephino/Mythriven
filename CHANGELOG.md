@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.63
+Date: 11/02/2026
+Time: 11:52 PM
+
+### Changes
+- **The Scorpion's front redrawn.** Its head is now a rounded shield with eyes on top. Its two arms bend forward to proper claws, each with two fingers held open: the near claw lower and lit, the far claw raised behind it in shadow. The picture is a little wider so the claws fit.
+
+### Reason
+The owner said the front of the Scorpion looked weird.
+
 ## Version 00.03.62
 Date: 11/02/2026
 Time: 11:47 PM
