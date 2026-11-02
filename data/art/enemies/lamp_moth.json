@@ -1,5 +1,5 @@
 {
- "_doc": "A lamp moth (the lamplit balconies of the southern city): a pale, dusty moth. Built by tools/art/build_otherworlds.py.",
+ "_doc": "A lamp moth (the lamplit balconies of the house opposite): a pale, dusty moth with eye-spots on its wings, feathery antennae and a furry body, fluttering. Built by tools/art/build_otherworlds.py.",
  "size": [
   14,
   12
@@ -10,83 +10,86 @@
  ],
  "palette": {
   "o": "#2a241e",
-  "w": "#e0d4c0",
-  "W": "#c8bca8",
-  "b": "#5a4a3a"
+  "w": "#e8dcc8",
+  "W": "#b8ac98",
+  "b": "#5a4a3a",
+  "y": "#e8c060",
+  "f": "#c8b49a",
+  "F": "#8a7a64"
  },
  "frames": {
   "idle": [
    [
     "..............",
-    "..............",
-    "..............",
-    ".....o..o.....",
-    ".oo.oboobooo..",
-    "owwooobboWWWo.",
-    "owwwwwbbWWWWo.",
-    ".owwwwbbWWWo..",
-    ".owwoobboWWo..",
-    "..oo.obbooo...",
-    "......oo......",
-    ".............."
+    "....o....o....",
+    "...oFo..oFo...",
+    ".oo.oFooFooo..",
+    "owwoooffowwwo.",
+    "owwwwwffwwwwo.",
+    "wwwbwwffwwbwwo",
+    "wWwywwffwwywWo",
+    "owwwooffwwwoo.",
+    ".ooo.offooo...",
+    ".....offo.....",
+    ".....oFo......"
    ]
   ],
   "walk": [
    [
-    "..............",
     ".o.........o..",
-    "owo.......oWo.",
-    "owwo.o..ooWWo.",
-    "owwwoboobWWWo.",
-    "owwwwobbWWWo..",
-    ".owwwwbbWWWo..",
-    ".owwwwbbWWWo..",
-    ".owwoobboWWo..",
-    "..oo.obbooo...",
-    "......oo......",
-    ".............."
+    "owo.o....oowo.",
+    "owwoFo..oFwwo.",
+    "wwwboFooFwbwwo",
+    "wWwywoffwwywWo",
+    "wwwwwwffwwwwwo",
+    "owwwwwffwwwwo.",
+    ".owwwwffwwwo..",
+    "..owooffwwo...",
+    "...o.offoo....",
+    ".....offo.....",
+    ".....oFo......"
    ],
    [
     "..............",
-    "..............",
-    "..............",
-    ".....o..o.....",
-    ".oo.oboobooo..",
-    "owwooobboWWWo.",
-    "owwwwwbbWWWWo.",
-    ".owwwwbbWWWo..",
-    ".owwoobboWWo..",
-    "..oo.obbooo...",
-    "......oo......",
-    ".............."
+    "....o....o....",
+    "...oFo..oFo...",
+    ".oo.oFooFooo..",
+    "owwoooffowwwo.",
+    "owwwwwffwwwwo.",
+    "wwwbwwffwwbwwo",
+    "wWwywwffwwywWo",
+    "owwwooffwwwoo.",
+    ".ooo.offooo...",
+    ".....offo.....",
+    ".....oFo......"
    ],
    [
-    "..............",
     ".o.........o..",
-    "owo.......oWo.",
-    "owwo.o..ooWWo.",
-    "owwwoboobWWWo.",
-    "owwwwobbWWWo..",
-    ".owwwwbbWWWo..",
-    ".owwwwbbWWWo..",
-    ".owwoobboWWo..",
-    "..oo.obbooo...",
-    "......oo......",
-    ".............."
+    "owo.o....oowo.",
+    "owwoFo..oFwwo.",
+    "wwwboFooFwbwwo",
+    "wWwywoffwwywWo",
+    "wwwwwwffwwwwwo",
+    "owwwwwffwwwwo.",
+    ".owwwwffwwwo..",
+    "..owooffwwo...",
+    "...o.offoo....",
+    ".....offo.....",
+    ".....oFo......"
    ],
    [
     "..............",
-    "..............",
-    "..............",
-    ".....o..o.....",
-    ".oo.oboobooo..",
-    "owwooobboWWWo.",
-    "owwwwwbbWWWWo.",
-    ".owwwwbbWWWo..",
-    ".owwoobboWWo..",
-    "..oo.obbooo...",
-    "......oo......",
-    ".............."
+    "....o....o....",
+    "...oFo..oFo...",
+    ".oo.oFooFooo..",
+    "owwoooffowwwo.",
+    "owwwwwffwwwwo.",
+    "wwwbwwffwwbwwo",
+    "wWwywwffwwywWo",
+    "owwwooffwwwoo.",
+    ".ooo.offooo...",
+    ".....offo.....",
+    ".....oFo......"
    ]
   ]
  }

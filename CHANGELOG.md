@@ -2,6 +2,28 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.78
+Date: 11/02/2026
+Time: 5:29 PM
+
+### Changes
+Remade every sprite in the Shadow's Court and the Knockers' Deep (owner's request):
+- **The Learned Man:** a gaunt, stooped scholar with thin grey hair and round spectacles, in a long grey coat and white cravat, with a quill behind his ear and a stack of books under his arm.
+- **The Princess Who Saw Too Clearly:** golden hair coiled high and a small gold crown, wide bright eyes with light glinting off them, a lace collar, a pale silk gown with a sash and a jewelled hem, holding a little fan.
+- **The Shadow:** a gentleman all in black, with a tall hat, a frock coat with tails, a white shirt-front and cravat, rings glinting and a gold-knobbed cane; his face is dark as a shadow with pale violet eyes, and his feet fade into a pool of shadow.
+- **Living shadow:** a thin, long-limbed blackness edged in faint violet, trailing into a pool of shadow.
+- **Lamp moth:** a pale dusty moth with eye-spots on its wings, feathery antennae and a furry body.
+- **The Old Knocker:** a gnarled old man with a long white beard and a big nose, in a tinner's hard hat with a candle stuck on it in clay and a leather jerkin, with a pick over his shoulder.
+- **Joan the Wad:** a little piskie woman with pointed ears and wild brown hair, in a green dress and brown shawl, laughing, holding up a burning wad of straw that lights her face.
+- **The Spriggan:** an ugly, knotted grey-brown fairy with a huge hooked nose, small glowing eyes, pointed ears, root-like hair, a snaggle-toothed grin, very long arms with knobbly hands, bandy legs, a ragged mossy tunic and a pouch of gold. His swollen form is the same figure, blown up to a giant's size.
+- **Spriggan, knocker and piskie:**
+  - the spriggan is a squat, scowling little treasure guard clutching a gold coin;
+  - the knocker is a tiny miner in a candle-lit cap, swinging his hammer;
+  - the piskie is a laughing sprite in green with a pointed red cap and a bobbing light.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for every sprite in the Shadow's Court and the Knockers' Deep to be remade.
+
 ## Version 00.03.77
 Date: 11/02/2026
 Time: 8:37 AM

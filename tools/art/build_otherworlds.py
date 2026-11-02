@@ -6,6 +6,7 @@ import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
 from figure_kit import person
+from build_gothic import rim
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -276,152 +277,258 @@ PHANTOM_PAL = {"o": "#4a6a6a", "b": "#7a9c94", "B": "#5a7a74", "y": "#c8f0e0", "
 # --- The Shadow's Court (Andersen, "The Shadow", 1847) ---------------------------------------------------------------
 
 def living_shadow(c, f):
-    """A living shadow (Andersen, "The Shadow"): a flat, man-shaped blackness that walks about by itself."""
+    """A living shadow (Andersen, "The Shadow"): a flat, man-shaped blackness, long-limbed and thin, that walks about by
+    itself, its edges faintly violet, its feet trailing away into a pool of shadow."""
     s = STEP[f]
+    ellipse(c, 10, 22, 8, 1.6, "K")                                                      # the pool it trails into
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 16, x + 1 + d, 22, "k")
-    poly(c, [(6, 8), (13, 8), (14, 17), (5, 17)], "k")
-    ellipse(c, 9, 4, 3, 3.5, "k")
-    c.rect(3, 9, 4, 15, "K"); c.rect(15, 9, 16, 15, "K")
-    c.px(8, 4, "p"); c.px(11, 4, "p")
+        c.rect(x + d, 15, x + 1 + d, 21, "k")
+    poly(c, [(6, 7), (13, 7), (14, 16), (5, 16)], "k")                                   # thin body
+    poly(c, [(6, 8), (3, 12), (2, 18), (4, 18), (5, 13)], "k"); poly(c, [(13, 8), (16, 12), (17, 18), (15, 18), (14, 13)], "k")   # long arms
+    ellipse(c, 9, 3.5, 2.8, 3.2, "k")
+    rim(c, "k", "p")
+    c.px(8, 3, "e"); c.px(10, 3, "e")                                                    # faint eyes
 
 
-LIVING_SHADOW_PAL = {"o": "#05040a", "k": "#14101c", "K": "#1e1a28", "p": "#5a4a7a"}
+LIVING_SHADOW_PAL = {"o": "#05040a", "k": "#14101c", "K": "#1e1a28", "p": "#4a3a6a", "e": "#a888e0"}
 
 
 def lamp_moth(c, f):
-    """A lamp moth (the lamplit balconies of the southern city): a pale, dusty moth."""
+    """A lamp moth (the lamplit balconies of the house opposite): a pale, dusty moth with eye-spots on its wings,
+    feathery antennae and a furry body, fluttering."""
     up = f % 2
-    poly(c, [(6, 6), (1, 2 if up else 5), (2, 9), (6, 8)], "w"); poly(c, [(7, 6), (12, 2 if up else 5), (11, 9), (7, 8)], "W")
-    c.rect(6, 5, 7, 9, "b"); c.px(5, 4, "b"); c.px(8, 4, "b")
+    t = 1 if up else 4
+    poly(c, [(6, 5), (1, t), (0, t + 4), (3, 9), (6, 8)], "w"); poly(c, [(7, 5), (12, t), (13, t + 4), (10, 9), (7, 8)], "w")
+    c.px(3, t + 2, "b"); c.px(10, t + 2, "b"); c.px(3, t + 3, "y"); c.px(10, t + 3, "y")   # eye-spots
+    c.px(1, t + 3, "W"); c.px(12, t + 3, "W")
+    c.rect(6, 4, 7, 10, "f"); c.px(6, 11, "F")                                           # furry body
+    c.px(5, 3, "F"); c.px(4, 2, "F"); c.px(8, 3, "F"); c.px(9, 2, "F")                   # feathery antennae
 
 
-LAMP_MOTH_PAL = {"o": "#2a241e", "w": "#e0d4c0", "W": "#c8bca8", "b": "#5a4a3a"}
+LAMP_MOTH_PAL = {"o": "#2a241e", "w": "#e8dcc8", "W": "#b8ac98", "b": "#5a4a3a", "y": "#e8c060", "f": "#c8b49a",
+                 "F": "#8a7a64"}
 
 
 def learned_man(c, step):
     """The Learned Man (Andersen, "The Shadow"): the kind scholar from the cold north, grown so thin and grey that he
-    looks like a shadow himself, a book under his arm."""
-    figure(c, step, "g", "s", "h", x0=15)
-    c.rect(12, 24, 16, 32, "b"); c.row(28, 12, 16, "w")
-    c.rect(19, 9, 25, 10, "k"); c.px(18, 10, "k"); c.px(26, 10, "k")
+    looks like a shadow himself: gaunt and stooped, with thin grey hair, round spectacles, a long grey coat and a
+    white cravat, a quill behind his ear and a stack of books under his arm."""
+    person(c, step, cx=21, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="short", garment="robe",
+           robe="g", robe_d="G", robe_l="l", belt=None, boots="k", eye="k")
+    c.px(16, 13, "S"); c.px(25, 13, "S")                                                 # gaunt cheeks
+    c.rect(18, 9, 19, 10, "i"); c.rect(22, 9, 23, 10, "i"); c.px(20, 9, "k")             # round spectacles
+    c.px(19, 10, "k"); c.px(23, 10, "k")
+    poly(c, [(19, 15), (23, 15), (22, 21), (20, 21)], "w")                               # white cravat
+    for y in range(22, 50, 4):
+        c.px(22, y, "k")                                                                 # buttons
+    c.rect(26, 3, 26, 8, "q"); c.px(27, 2, "q"); c.px(25, 2, "Q")                        # quill behind his ear
+    for k, col in enumerate(("r", "n", "u")):                                            # stack of books under his arm
+        c.rect(7 - k, 26 + k * 3, 15 - k, 28 + k * 3, col); c.row(27 + k * 3, 7 - k, 7 - k, "w")
+    for x, y in ((12, 52), (30, 52)):
+        c.px(x, y, "K")
 
 
-LEARNED_MAN_PAL = {"o": "#0e0e12", "k": "#1e1e24", "g": "#6a6a74", "s": "#c8c4c0", "h": "#9a9aa4", "b": "#5a2a1a",
-                   "w": "#e8e0d0"}
+LEARNED_MAN_PAL = {"o": "#0e0e12", "k": "#1e1e24", "K": "#2a2a34", "g": "#6a6a74", "G": "#4e4e58", "l": "#8a8a94",
+                   "s": "#d0c8c0", "S": "#a8a098", "h": "#9a9aa4", "H": "#6a6a74", "m": "#8a6a6a", "w": "#e8e0d0",
+                   "i": "#c8e0f0", "q": "#f0f0f0", "Q": "#a8a8a8", "r": "#7a2a1a", "n": "#2a4a6a", "u": "#4a6a2a"}
 
 
 def clear_sighted_princess(c, step):
-    """The Princess Who Saw Too Clearly (Andersen, "The Shadow"): a king's daughter in a pale silk gown and a small
-    crown, her eyes wide and bright."""
-    figure(c, step, "w", "s", "y")
-    poly(c, [(10, 30), (34, 30), (38, 50), (6, 50)], "W")
-    c.rect(16, 1, 27, 3, "y"); c.px(18, 0, "y"); c.px(21, 0, "y"); c.px(24, 0, "y")
-    c.rect(17, 9, 19, 11, "b"); c.rect(23, 9, 25, 11, "b"); c.px(18, 10, "k"); c.px(24, 10, "k")
+    """The Princess Who Saw Too Clearly (Andersen, "The Shadow": she suffered from seeing far too clearly): a king's
+    daughter with golden hair coiled high, a small gold crown, wide bright eyes that glint like light, a lace collar, and
+    a pale silk gown with a sash and a jewelled hem, holding a little fan."""
+    person(c, step, cx=21, skin="s", skin_d="S", hair="y", hair_d="Y", hair_style="bun", garment="gown",
+           robe="w", robe_d="W", robe_l="v", belt="p", boots="k", arm_forward=True, crown="y", eye="b")
+    c.rect(18, 9, 19, 10, "b"); c.rect(23, 9, 24, 10, "b")                               # wide, bright eyes
+    c.px(18, 9, "L"); c.px(23, 9, "L")
+    for x, y in ((15, 7), (27, 7), (14, 10), (28, 10)):
+        c.px(x, y, "L")                                                                  # light glinting off them
+    poly(c, [(16, 16), (21, 19), (26, 16), (25, 19), (21, 21), (17, 19)], "v")            # lace collar
+    for x in range(12, 31, 3):
+        c.px(x, 52, "j")                                                                 # jewelled hem
+    poly(c, [(35, 20), (40, 16), (41, 21), (36, 23)], "p"); c.px(38, 19, "w")            # little fan
 
 
-PRINCESS_PAL = {"o": "#120e14", "k": "#1e1a24", "w": "#e8e4f4", "W": "#c8c4dc", "s": "#f0dcd0", "y": "#e8c040",
-                "b": "#a8d8ff"}
+PRINCESS_PAL = {"o": "#120e14", "k": "#1e1a24", "w": "#ece8f6", "W": "#c4c0da", "v": "#ffffff", "s": "#f0dcd0",
+                "S": "#c8b0a4", "y": "#e8c040", "Y": "#b08a20", "b": "#4aa0e8", "L": "#e8f8ff", "p": "#c87ab0",
+                "j": "#4ae0c8", "m": "#c87a7a", "l": "#ece8f6"}
 
 
 def the_shadow(c, step):
-    """The Shadow (Andersen, "The Shadow"): the shadow turned gentleman, all in black, very fine, in a tall hat, with
-    rings on his fingers and a face as dark as a shadow's."""
-    figure(c, step, "k", "d", "k")
-    c.rect(16, 0, 27, 3, "k"); c.rect(14, 3, 29, 4, "k")
-    c.rect(19, 18, 24, 22, "w")
-    c.px(18, 10, "p"); c.px(24, 10, "p")
-    for x, y in ((12, 32), (31, 32)):
-        c.px(x, y, "y")
+    """The Shadow (Andersen, "The Shadow"): the shadow turned gentleman, all in black and very fine: a tall black hat, a
+    black frock coat, a white shirt-front and cravat, rings glinting on his fingers, a cane with a gold knob, a face as
+    dark as a shadow with pale violet eyes, and his feet fading into a pool of shadow."""
+    ellipse(c, 21, 53, 12, 2, "K")                                                       # the pool of shadow
+    person(c, step, cx=21, skin="d", skin_d="k", hair="k", hair_d="k", hair_style="short", garment="tunic",
+           robe="k", robe_d="K", legs="k", boots="k", belt=None, arm_forward=True, eye="p", mouth="k")
+    poly(c, [(14, 17), (28, 17), (30, 40), (26, 42), (21, 34), (16, 42), (12, 40)], "k")   # frock coat and tails
+    poly(c, [(19, 17), (23, 17), (23, 26), (19, 26)], "w"); c.px(21, 18, "k"); c.px(21, 21, "k")   # shirt-front
+    c.row(17, 19, 23, "w")                                                               # cravat
+    c.rect(15, 0, 27, 4, "k"); c.row(5, 12, 30, "k"); c.row(4, 15, 27, "K")              # tall black hat
+    c.px(35, 23, "y"); c.px(7, 31, "y")                                                  # rings glinting
+    c.rect(36, 24, 36, 52, "K"); ellipse(c, 36, 23, 1.6, 1.6, "y")                       # cane, gold knob
+    rim(c, "kK", "q")
+    c.px(19, 10, "p"); c.px(23, 10, "p")
 
 
-THE_SHADOW_PAL = {"o": "#05040a", "k": "#14101c", "d": "#2e2838", "w": "#e8e4f0", "p": "#a888e0", "y": "#e8c040"}
+THE_SHADOW_PAL = {"o": "#05040a", "k": "#14101c", "K": "#241e30", "d": "#2e2838", "w": "#e8e4f0", "p": "#c8a8f0",
+                  "y": "#e8c040", "q": "#3e3456", "m": "#14101c", "l": "#14101c"}
 
 
 # --- The Knockers' Deep (Hunt, 1865; Bottrell, 1870-73) --------------------------------------------------------------
 
 def spriggan(c, f):
     """A spriggan (Hunt, 1865: the ugliest of the Cornish fairies, guarding buried treasure): a squat, grey-brown,
-    big-headed little man with a scowl."""
+    big-headed little man with pointed ears, a huge nose, a scowl, long knobbly arms and a ragged mossy tunic, a gold
+    coin clutched in his hand."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "k")
-    c.rect(5, 10, 14, 18, "b")
-    ellipse(c, 9, 6, 5, 4.5, "s")
-    c.px(7, 5, "k"); c.px(11, 5, "k"); c.row(8, 7, 11, "k")
-    c.rect(3, 11, 4, 16, "s"); c.rect(15, 11, 16, 16, "s")
+        c.rect(x + d, 18, x + 1 + d, 21, "s"); c.row(22, x - 1 + d, x + 2 + d, "k"); c.row(23, x - 1 + d, x + 2 + d, "k")
+    poly(c, [(5, 11), (14, 11), (15, 18), (4, 18)], "b"); c.px(5, 18, "B"); c.px(9, 18, "B"); c.px(13, 18, "B")   # ragged tunic
+    c.px(7, 13, "m"); c.px(11, 15, "m")                                                  # moss
+    poly(c, [(5, 11), (3, 13), (2, 18), (4, 18), (5, 14)], "s"); c.px(2, 19, "S")        # long knobbly arms
+    poly(c, [(14, 11), (16, 13), (17, 18), (15, 18), (14, 14)], "s"); c.px(17, 19, "y")  # with a gold coin
+    ellipse(c, 9, 6, 5, 4.5, "s"); c.px(5, 7, "S")                                       # big head
+    poly(c, [(4, 5), (0, 2), (4, 7)], "s"); poly(c, [(14, 5), (18, 2), (14, 7)], "s")    # pointed ears
+    c.row(4, 6, 8, "S"); c.row(4, 10, 12, "S")                                           # scowling brows
+    c.px(7, 5, "e"); c.px(11, 5, "e")
+    ellipse(c, 9, 7, 1.4, 1.6, "S"); c.px(9, 9, "S")                                     # huge nose
+    c.row(10, 7, 11, "k"); c.px(8, 10, "w")                                              # scowl, a snaggle tooth
+    c.row(1, 7, 11, "h"); c.px(6, 2, "h"); c.px(12, 2, "h")                              # wiry hair
 
 
-SPRIGGAN_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "s": "#8a7a6a"}
+SPRIGGAN_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "B": "#3a2e22", "s": "#8a7a6a", "S": "#64564a",
+                "m": "#4a6a3a", "y": "#f0c840", "e": "#e8c040", "w": "#e8e0d0", "h": "#3a3028"}
 
 
 def knocker(c, f):
-    """A knocker (Hunt, 1865: the little folk of the tin mines): a tiny miner-imp with a hammer, mid-knock."""
+    """A knocker (Hunt, 1865: the little folk of the tin mines, who knock where the rich lodes lie): a tiny big-headed
+    miner-imp in a tinner's cap with a candle on it, swinging his hammer mid-knock."""
     up = f % 2
-    c.rect(4, 6, 8, 10, "b"); ellipse(c, 6, 4, 2.5, 2, "s"); c.px(5, 4, "k"); c.px(7, 4, "k")
-    c.rect(9, 2 + up, 9, 7, "w"); c.rect(8, 1 + up, 11, 2 + up, "i")
-    c.px(4, 11, "k"); c.px(8, 11, "k")
+    c.px(4, 11, "k"); c.px(5, 11, "k"); c.px(8, 11, "k"); c.px(9, 11, "k")               # feet
+    c.rect(4, 7, 8, 10, "b"); c.px(4, 8, "B")                                            # body
+    ellipse(c, 6, 5, 3, 2.6, "s"); c.px(5, 5, "k"); c.px(7, 5, "k"); c.px(6, 6, "S")     # big head
+    c.row(2, 3, 9, "h"); c.rect(4, 1, 8, 2, "h"); c.px(6, 0, "y")                        # tinner's cap with a candle
+    c.px(9, 7, "s")
+    if up:
+        c.rect(10, 1, 10, 6, "w"); c.rect(9, 0, 12, 1, "i")                              # hammer raised
+    else:
+        c.rect(10, 7, 12, 7, "w"); c.rect(12, 6, 12, 9, "i"); c.px(12, 10, "y")          # hammer down, a spark
 
 
-KNOCKER_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#6a5a42", "s": "#a8907a", "w": "#7a5a3a", "i": "#8a8e96"}
+KNOCKER_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#6a5a42", "B": "#4a3e2c", "s": "#a8907a", "S": "#806a56",
+               "h": "#4a3a2a", "y": "#ffd060", "w": "#7a5a3a", "i": "#9aa0a8"}
 
 
 def piskie(c, f):
-    """A piskie (Hunt, 1865: the little laughing folk who lead people astray): a tiny green-clad sprite, laughing,
-    with a spark of light."""
+    """A piskie (Hunt, 1865: the little laughing folk who lead people astray): a tiny sprite in green with a pointed red
+    cap, laughing, hopping, with a little glowing light bobbing beside it."""
     up = f % 2
-    c.rect(4, 6 - up, 7, 10 - up, "g"); ellipse(c, 5, 3 - up, 2, 2, "s"); c.px(5, 3 - up, "k")
-    poly(c, [(4, 1 - up), (6, -2 - up), (7, 1 - up)], "g")
-    c.px(10, 2 + up, "y"); c.px(11, 3 + up, "y")
+    c.px(4, 11 - up, "k"); c.px(7, 11 - up, "k")
+    c.rect(4, 7 - up, 7, 10 - up, "g"); c.px(4, 8 - up, "G")                             # green coat
+    ellipse(c, 5.5, 4.5 - up, 2.2, 2, "s"); c.px(5, 4 - up, "k"); c.px(7, 4 - up, "k"); c.px(6, 6 - up, "m")   # laughing face
+    poly(c, [(3, 3 - up), (8, 3 - up), (4, -1 - up)], "r")                               # pointed red cap
+    c.px(2, 8 - up, "s"); c.px(9, 7 - up, "s")
+    ellipse(c, 11, 4 + up, 1.4, 1.4, "y"); c.px(11, 4 + up, "Y")                         # the bobbing light
 
 
-PISKIE_PAL = {"o": "#10180a", "k": "#1e1814", "g": "#5a9a3a", "s": "#e0c0a0", "y": "#f8e080"}
+PISKIE_PAL = {"o": "#10180a", "k": "#1e1814", "g": "#5a9a3a", "G": "#3a6a24", "s": "#e0c0a0", "m": "#a84a3a",
+              "r": "#c83a2a", "y": "#f8e080", "Y": "#ffffff"}
 
 
 def old_knocker(c, step):
-    """The Old Knocker (Hunt, 1865): the oldest knocker of the mine, a gnarled little old man in a tinner's hat with a
-    candle stuck on it, and a pick in his hand."""
-    figure(c, step, "b", "s", "w", x0=15, top=22)
-    c.rect(15, 5, 29, 7, "h"); c.rect(18, 2, 26, 5, "h"); c.rect(21, 0, 22, 2, "y")
-    poly(c, [(18, 26), (26, 26), (24, 38), (20, 38)], "w")
-    c.rect(33, 16, 34, 44, "t"); poly(c, [(28, 16), (40, 14), (40, 17), (28, 18)], "i")
+    """The Old Knocker (Hunt, 1865): the oldest knocker of the mine, a gnarled little old man with a long white beard,
+    a big nose and bright eyes, in a tinner's hard hat with a candle stuck on it in a lump of clay, a leather jerkin,
+    and a miner's pick over his shoulder."""
+    person(c, step, cx=20, skin="s", skin_d="S", hair="w", hair_d="W", hair_style="short", beard="w",
+           garment="tunic", robe="b", robe_d="B", legs="l", boots="k", belt="t", arm_forward=True, head_y=14)
+    ellipse(c, 20, 16, 1.6, 1.4, "S")                                                    # big nose
+    poly(c, [(15, 17), (25, 17), (24, 30), (20, 35), (16, 30)], "w")                     # long white beard
+    c.px(18, 22, "W"); c.px(21, 26, "W"); c.px(19, 30, "W")
+    ellipse(c, 20, 8, 7, 3, "h"); c.row(10, 11, 29, "h"); c.row(11, 12, 28, "H")         # tinner's hard hat
+    ellipse(c, 20, 5, 1.6, 1.2, "c"); c.rect(20, 1, 20, 4, "w"); c.px(20, 0, "y"); c.px(21, 0, "Y")   # candle in clay
+    for t in range(30):                                                                  # pick over his shoulder
+        c.px(34 - t // 3, 36 - t, "t")
+    poly(c, [(22, 6), (26, 4), (31, 5), (25, 7)], "i"); c.px(31, 6, "i")
+    ellipse(c, 33, 26, 2, 2, "s")
 
 
-OLD_KNOCKER_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "s": "#c8a888", "w": "#e8e4dc", "h": "#4a3a2a",
-                   "y": "#f8d060", "t": "#6a4a2a", "i": "#8a8e96"}
+OLD_KNOCKER_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#6a4e34", "B": "#4a3424", "l": "#5a4a3a", "s": "#c8a888",
+                   "S": "#a08066", "w": "#ece8e0", "W": "#b8b4ac", "h": "#5a4a36", "H": "#3a2e22", "c": "#9a7a5a",
+                   "y": "#ffd060", "Y": "#fff4c0", "t": "#6a4a2a", "i": "#9aa0a8", "m": "#8a5a4a"}
 
 
 def joan_the_wad(c, step):
-    """Joan the Wad (Hunt, 1865: "Jack o' the lantern, Joan the wad"): a little piskie woman in green and brown, holding
-    up a burning wad of straw that lights her laughing face."""
-    figure(c, step, "g", "s", "h", x0=14, top=24, bottom=50)
-    c.rect(30, 14, 31, 30, "t")
-    ellipse(c, 30, 11, 4, 5, "r"); ellipse(c, 30, 12, 2, 3, "y")
-    c.row(19, 18, 23, "k")
+    """Joan the Wad (Hunt, 1865: "Jack o' the lantern, Joan the wad"): a little piskie woman with pointed ears and wild
+    brown hair, in a green dress and a brown shawl, barefoot, laughing, holding up a burning wad of straw that lights
+    her face."""
+    person(c, step, cx=18, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="shoulder", garment="gown",
+           robe="g", robe_d="G", robe_l="v", belt="h", boots="s", ears=True, arm_forward=True, mouth="m")
+    poly(c, [(11, 17), (25, 17), (23, 26), (13, 26)], "u"); c.px(14, 24, "U"); c.px(22, 24, "U")   # brown shawl
+    for x, y in ((13, 3), (23, 3), (12, 6), (24, 6)):
+        c.px(x, y, "h")                                                                  # wild hair
+    c.row(13, 17, 19, "m")                                                               # laughing
+    c.rect(31, 12, 32, 24, "t")                                                          # the wad of straw on its stick
+    ellipse(c, 31.5, 10, 3, 3, "t"); c.px(30, 11, "T"); c.px(33, 10, "T")
+    for x, y, col in ((31, 6 - step, "r"), (30, 5, "r"), (32, 4 + step, "y"), (31, 3, "y"), (33, 7, "r"), (29, 7, "y"), (31, 1, "Y")):
+        c.px(x, y, col)                                                                  # burning
+    for x, y in ((27, 9), (26, 12), (24, 8)):
+        c.px(x, y, "L")                                                                  # its light on her
 
 
-JOAN_PAL = {"o": "#10140a", "k": "#1e1814", "g": "#4a7a3a", "s": "#e0c0a0", "h": "#6a4a2a", "t": "#c8a860",
-            "r": "#e8702a", "y": "#ffd060"}
+JOAN_PAL = {"o": "#10140a", "k": "#1e1814", "g": "#4a7a3a", "G": "#345a28", "v": "#6a9a52", "s": "#e8c8a8",
+            "S": "#c0a080", "h": "#6a4a2a", "H": "#4a3018", "m": "#a84a3a", "u": "#7a5a3a", "U": "#5a4028",
+            "t": "#c8a860", "T": "#9a7a3a", "r": "#e8702a", "y": "#ffd060", "Y": "#fff8d0", "L": "#ffe8a0",
+            "l": "#e8c8a8", "b": "#e8c8a8"}
 
 
 def great_spriggan(scale):
-    """The Spriggan (Hunt, 1865; Bottrell, 1870-73: the treasure guard who can swell to a giant's size): an ugly,
-    knotted grey-brown fairy with long arms, small in his own shape and huge when swollen."""
+    """The Spriggan (Hunt, 1865; Bottrell, 1870-73: the treasure guard who can swell to a giant's size): an ugly, knotted
+    grey-brown fairy, hunched and lumpy, with a big head, a huge hooked nose, small glowing eyes, pointed ears, wild
+    hair like roots, a wide snaggle-toothed grin, very long arms with knobbly hands, short bandy legs, a ragged mossy
+    tunic and a pouch of gold at his belt; small in his own shape and huge when swollen."""
+    def base(c, step):
+        for x, d in ((16, -step), (26, step)):                                           # short bandy legs
+            poly(c, [(x + d, 40), (x + 5 + d, 40), (x + 6 + d, 50), (x + 1 + d, 50)], "s")
+            c.rect(x - 1 + d, 50, x + 7 + d, 52, "S"); c.px(x + d, 53, "k"); c.px(x + 6 + d, 53, "k")
+        poly(c, [(12, 20), (34, 20), (36, 42), (10, 42)], "b")                           # hunched, lumpy body
+        ellipse(c, 23, 26, 10, 6, "b"); ellipse(c, 18, 30, 4, 5, "B")
+        for x in range(10, 37, 4):
+            c.px(x, 42, "B"); c.px(x + 1, 43, "B")                                       # ragged hem
+        for x, y in ((16, 24), (28, 30), (20, 36), (31, 24)):
+            c.px(x, y, "m"); c.px(x + 1, y, "m")                                         # moss
+        c.row(38, 11, 35, "B"); ellipse(c, 30, 40, 2.6, 2.2, "u"); c.px(30, 39, "y"); c.px(31, 41, "y")   # belt, pouch of gold
+        poly(c, [(12, 21), (6, 26), (4, 44), (8, 45), (10, 30)], "s")                    # very long arms
+        poly(c, [(34, 21), (40, 26), (42, 44), (38, 45), (36, 30)], "s")
+        for x in (6, 40):
+            ellipse(c, x, 46, 3, 2.6, "s"); c.px(x - 2, 48, "k"); c.px(x, 49, "k"); c.px(x + 2, 48, "k")   # knobbly hands
+        c.px(5, 34, "S"); c.px(41, 34, "S")
+        ellipse(c, 23, 12, 10, 9, "s"); c.px(14, 13, "S"); c.px(15, 16, "S")             # big head
+        poly(c, [(14, 9), (6, 3), (13, 13)], "s"); poly(c, [(32, 9), (40, 3), (33, 13)], "s")   # pointed ears
+        for x in range(14, 33, 2):
+            c.px(x, 3 + (x % 3), "h"); c.px(x + 1, 2 + (x % 4), "h")                     # wild hair like roots
+        c.row(8, 17, 21, "S"); c.row(8, 25, 29, "S")                                     # knotted brows
+        c.px(19, 10, "e"); c.px(27, 10, "e")                                             # small glowing eyes
+        poly(c, [(22, 10), (25, 10), (27, 16), (24, 18), (22, 16)], "S")                 # huge hooked nose
+        c.row(19, 17, 29, "k"); c.px(18, 18, "k"); c.px(28, 18, "k")                     # wide grin
+        c.px(20, 19, "w"); c.px(24, 19, "w"); c.px(27, 19, "w")                          # snaggle teeth
+
     def draw(c, step):
-        k = scale
-        for i, d in enumerate((-step, step)):
-            c.rect(int((14 + i * 12) * k) + d, int(40 * k), int((20 + i * 12) * k) + d, int(52 * k), "b")
-        ellipse(c, int(23 * k), int(30 * k), 14 * k, 12 * k, "b")
-        ellipse(c, int(23 * k), int(12 * k), 9 * k, 8 * k, "s")
-        c.px(int(19 * k), int(11 * k), "e"); c.px(int(27 * k), int(11 * k), "e")
-        c.row(int(16 * k), int(19 * k), int(27 * k), "k")
-        c.rect(int(4 * k), int(22 * k), int(9 * k), int(44 * k), "s"); c.rect(int(37 * k), int(22 * k), int(42 * k), int(44 * k), "s")
-        for x, y in ((16, 26), (28, 34), (20, 38)):
-            c.px(int(x * k), int(y * k), "B")
+        if scale == 1.0:
+            base(c, step)
+            return
+        small = kit.Canvas(46, 56)
+        base(small, step)
+        for y in range(c.h):
+            for x in range(c.w):
+                sx, sy = int(x / scale), int(y / scale)
+                if sy < small.h and sx < small.w and small.g[sy][sx] != ".":
+                    c.px(x, y, small.g[sy][sx])
     return draw
 
 
-SPRIGGAN_BOSS_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "B": "#3a2e22", "s": "#8a7a6a", "e": "#e8c040"}
+SPRIGGAN_BOSS_PAL = {"o": "#120e0a", "k": "#1e1814", "b": "#5a4a3a", "B": "#3a2e22", "s": "#8a7a6a", "S": "#64564a",
+                     "e": "#ffd040", "m": "#4a6a3a", "h": "#3a3028", "w": "#e8e0d0", "u": "#7a5a3a", "y": "#f0c840"}
 
 
 if __name__ == "__main__":
