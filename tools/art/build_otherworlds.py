@@ -5,6 +5,7 @@
 import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
+from figure_kit import person
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -66,39 +67,75 @@ HOUND_PAL = {"o": "#2a1e1e", "w": "#f4f0ec", "W": "#d8d4cc", "r": "#c82a2a", "k"
 
 
 def fomor(c, step):
-    """The Fomor (Coimín's lay: the Fomorian giant Oisín fought for three days and nights): a huge, misshapen giant,
-    grey-green, heavy-browed, a club over his shoulder."""
-    for k, d in enumerate((-step, step)):
-        c.rect(18 + k * 14 + d, 42, 25 + k * 14 + d, 54, "G")
-    ellipse(c, 30, 30, 17, 14, "g")
-    ellipse(c, 30, 12, 9, 8, "g")
-    for x in (26, 34):
-        ellipse(c, x, 11, 2, 1.5, "w"); c.px(x, 11, "k")
-    c.row(16, 26, 34, "k")
-    c.rect(8, 22, 13, 40, "G"); c.rect(47, 22, 52, 40, "G")
-    c.rect(50, 4, 54, 24, "b"); ellipse(c, 52, 4, 4, 4, "b")
-    c.rect(18, 36, 42, 40, "f")
+    """The Fomor (Coimín's lay: the Fomorian giant Oisín fought for three days and nights; the Fomorians, the old sea
+    raiders, later told of as misshapen): a huge hunched sea-giant with grey-green skin crusted with barnacles,
+    seaweed for hair and beard, one great bulging eye and one small squinting one, tusks jutting up from his jaw, long
+    arms, a hide wrapped round his waist hung with weed, and a great knotted club over his shoulder."""
+    for x, d in ((16, -step), (34, step)):                                               # short, thick, bowed legs
+        c.rect(x + d, 42, x + 8 + d, 53, "g"); c.rect(x + d, 42, x + 2 + d, 53, "G")
+        c.rect(x - 1 + d, 53, x + 9 + d, 56, "G"); c.px(x + 1 + d, 56, "k"); c.px(x + 5 + d, 56, "k")
+    poly(c, [(8, 20), (50, 20), (46, 42), (12, 42)], "g")                                # hulking torso
+    poly(c, [(8, 20), (15, 20), (17, 42), (12, 42)], "G")
+    ellipse(c, 29, 35, 12, 7, "g"); ellipse(c, 25, 37, 6, 4, "G")                        # gut
+    c.row(27, 18, 26, "G"); c.row(27, 32, 40, "G")
+    poly(c, [(12, 40), (46, 40), (47, 47), (42, 45), (37, 48), (31, 45), (25, 48), (19, 45), (13, 47)], "f")   # hide
+    for x in (16, 28, 40):
+        c.rect(x, 42, x, 50, "m"); c.px(x + 1, 51, "M")                                  # weed hanging from it
+    poly(c, [(8, 20), (2, 26), (1, 44), (7, 46), (10, 28)], "G")                         # long far arm
+    ellipse(c, 4, 47, 4, 3.4, "g"); c.px(3, 48, "G")                                     # huge fist
+    for t in range(30):                                                                  # the knotted club
+        x, y = 47 + t * 0.3, 30 - t
+        ellipse(c, x, y, 1.8 + t * 0.06, 1.8 + t * 0.06, "b")
+    ellipse(c, 56, 3, 4.5, 4, "b")
+    for x, y in ((52, 16), (54, 8), (57, 4), (50, 22)):
+        c.px(x, y, "B"); c.px(x + 1, y, "B")                                             # its knots
+    poly(c, [(44, 20), (51, 22), (52, 32), (46, 33), (45, 26)], "g")                     # near arm, gripping the club
+    ellipse(c, 48, 31, 3.6, 3.2, "g"); c.px(46, 30, "G")
+    ellipse(c, 28, 14, 8.5, 7.5, "g"); c.px(20, 15, "G"); c.px(21, 17, "G")             # lumpy head, sunk low
+    c.row(9, 21, 35, "G"); c.row(10, 20, 24, "G")                                        # heavy brow
+    ellipse(c, 24, 13, 2.6, 2.4, "w"); c.px(24, 13, "k"); c.px(25, 13, "r")             # one great bulging eye
+    c.row(13, 31, 33, "k"); c.px(32, 12, "G")                                            # one small, squinting
+    ellipse(c, 29, 16, 1.6, 1.4, "G")                                                    # nose
+    c.row(19, 23, 34, "k"); c.px(24, 18, "w"); c.px(25, 17, "w"); c.px(33, 18, "w"); c.px(32, 17, "w")   # mouth, tusks
+    for x in range(19, 38, 2):
+        c.px(x, 6 + (x % 3), "m"); c.px(x, 7 + (x % 3), "M")                             # seaweed hair
+    for x, y0 in ((19, 10), (37, 10), (21, 8), (35, 9)):
+        c.rect(x, y0, x, y0 + 8, "m")
+    for x in range(24, 34, 2):
+        c.rect(x, 20, x, 24 + (x % 4), "m")                                              # weedy beard
+    for x, y in ((12, 22), (14, 25), (40, 23), (43, 26), (18, 32), (38, 36), (10, 30)):
+        c.px(x, y, "c"); c.px(x + 1, y, "C")                                             # barnacles
 
 
-FOMOR_PAL = {"o": "#10140e", "g": "#7a8a6a", "G": "#5a6a4a", "w": "#f0ece0", "k": "#141810", "b": "#5a3a1a",
-             "f": "#6a4a2a"}
+FOMOR_PAL = {"o": "#10140e", "g": "#6e8a6a", "G": "#4e6a4c", "w": "#f0ece0", "k": "#141810", "r": "#a83a2a",
+             "b": "#5a3a1a", "B": "#3a2410", "f": "#6a4a2a", "m": "#3a6a3a", "M": "#24482a", "c": "#d8d4c4",
+             "C": "#9a968a"}
 
 
 def finvarra(c, step):
-    """Finvarra (Lady Wilde, 1887: the king of the fairies of the West, under the hill of Knockma): a slender fairy
-    king in black and silver with a silver crown, on whose cloak the gold of the hills glints."""
-    figure(c, step, "k", "s", "h")
-    poly(c, [(12, 18), (30, 18), (34, 50), (8, 50)], "K")
-    c.rect(15, 18, 27, 50, "k")
-    for x, y in ((11, 30), (31, 34), (13, 44), (29, 46)):
-        c.px(x, y, "y")
-    for x in range(15, 28, 4):
-        c.rect(x, 1, x + 1, 4, "w")
-    c.row(4, 15, 28, "w"); c.row(22, 16, 26, "w")
+    """Finvarra (Lady Wilde, 1887: the king of the fairies of the West, under the hill of Knockma): a slender, handsome
+    fairy king with black hair to his shoulders, a trimmed black beard and a pale face, a silver crown, a tunic of black
+    worked with silver, high boots, a long black
+    cloak lined with deep green on which the gold of the hills glints, and a silver wand with a glowing tip."""
+    person(c, step, cx=20, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="shoulder",
+           garment="tunic", robe="k", robe_d="K", legs="K", boots="k", belt="w", cloak=("K", "g"), arm_forward=True,
+           crown="w", eye="e")
+    c.row(13, 19, 21, "S"); c.px(20, 15, "h"); c.px(20, 16, "h"); c.px(19, 15, "h"); c.px(21, 15, "h")   # pointed beard
+    for x, h in ((16, 2), (18, 3), (20, 4), (22, 3), (24, 2)):
+        c.rect(x, 5 - h, x, 4, "w")                                                      # points of the silver crown
+    c.px(20, 1, "j")
+    for y in range(19, 39, 3):
+        c.px(19, y, "w"); c.px(21, y + 1, "w")                                           # silver worked down his tunic
+    c.row(39, 14, 26, "w")
+    for x, y in ((9, 26), (31, 32), (8, 40), (33, 44), (12, 48), (30, 22), (6, 50)):
+        c.px(x, y, "y")                                                                  # the gold of the hills glinting
+    c.rect(35, 10, 35, 26, "w")                                                          # silver wand
+    ellipse(c, 35, 9, 1.6, 1.6, "j"); c.px(35, 8, "J"); c.px(33, 7 - step, "J"); c.px(37, 6 + step, "J")
 
 
-FINVARRA_PAL = {"o": "#0e0a10", "k": "#1e1a24", "K": "#2e2a3a", "s": "#f0e0d0", "h": "#e8e0c8", "w": "#d8dce8",
-                "y": "#e8c040"}
+FINVARRA_PAL = {"o": "#0e0a10", "k": "#1e1a24", "K": "#2e2a3a", "g": "#1e4a32", "s": "#f0e0d0", "S": "#c8b0a0",
+                "h": "#14101a", "H": "#0a080e", "e": "#2a6a4a", "m": "#a86a6a", "w": "#d8dce8", "y": "#e8c040",
+                "j": "#a8f0c8", "J": "#e8fff4", "l": "#2e2a3a", "b": "#2e2a3a"}
 
 
 # --- Hy-Brasil (O'Flaherty, 1684; the O-Brazile pamphlet, 1675; the Flying Dutchman, 1795-1821) --------------------
@@ -159,24 +196,46 @@ NECROMANCER_PAL = {"o": "#0e0a10", "k": "#1e1a24", "s": "#d8c0a8", "w": "#e8e4dc
 
 
 def flying_dutchman(pal_phantom):
-    """The Flying Dutchman (Barrington, 1795; Blackwood's, 1821): Vanderdecken's ship, a high-sterned Dutch ship with
-    torn sails, beating against the wind."""
+    """The Flying Dutchman (Barrington, 1795; Blackwood's, 1821): Vanderdecken's ship, a high-sterned Dutch ship
+    beating against the wind for ever: a curved, planked hull with a gold stripe and gunports, a high stern castle with
+    lit windows and a lantern, a bowsprit, three masts with their yards and torn, billowing square sails, rigging, and
+    a tattered flag."""
     def draw(c, step):
-        poly(c, [(4, 34), (58, 34), (52, 46), (12, 46)], "b")
-        c.rect(44, 26, 56, 34, "b"); c.row(30, 46, 54, "y")
-        c.row(38, 8, 54, "B")
-        for x in (14, 30, 46):
-            c.rect(x, 4, x + 1, 34, "m")
-        for x, top in ((10, 6), (26, 4), (42, 8)):
-            poly(c, [(x, top + step), (x + 10, top + 2), (x + 9, top + 18), (x + 1, top + 16 - step)], "s")
-            c.px(x + 4, top + 8, "S"); c.px(x + 6, top + 11, "S")
+        for x0, x1 in ((20, 5), (34, 5), (48, 5), (20, 64), (48, 66)):                   # rigging
+            n = abs(x1 - x0)
+            for t in range(n):
+                c.px(x0 + (x1 - x0) * t // n, 4 + t * 26 // n, "r")
+        for x in (20, 34, 48):
+            c.rect(x, 3, x + 1, 36, "m")                                                 # masts
+        for x, top, wide in ((20, 5, 8), (34, 3, 9), (48, 7, 7)):                        # torn, billowing sails
+            for k, (y0, y1, w) in enumerate(((top, top + 9, wide - 2), (top + 11, top + 23, wide))):
+                c.row(y0, x - w - 1, x + w + 2, "m")                                     # the yard
+                poly(c, [(x - w, y0 + 1), (x + w + 1, y0 + 1), (x + w + 3 + step, y1), (x + 2, y1 + 2), (x - w + 2 + step, y1)], "s")
+                for yy in range(y0 + 2, y1, 3):
+                    c.px(x - w + 2 + (yy % 4), yy, "S")                                  # its folds
+                c.px(x + w - 1, y1 - 1, "."); c.px(x + w - 2, y1 - 2, "."); c.px(x - 2, y0 + 4 + k, ".")   # torn holes
+        poly(c, [(20, 3), (13, 1), (16, 3 + step), (12, 5)], "f")                         # tattered flag at the mast-head
+        for t in range(10):
+            c.px(58 + t, 35 - t // 2, "m")                                               # bowsprit
+        poly(c, [(4, 30), (18, 33), (54, 33), (66, 30), (61, 42), (52, 47), (14, 47), (8, 42)], "b")   # curved hull
+        poly(c, [(4, 22), (19, 24), (19, 34), (4, 31)], "b"); c.row(22, 4, 18, "y")       # high stern castle
+        for x in (7, 11, 15):
+            c.rect(x, 26, x + 1, 28, "w")                                                # its lit windows
+        c.px(5, 20, "y"); c.px(5, 19, "w")                                               # stern lantern
+        c.row(33, 18, 56, "y"); c.row(36, 7, 62, "y")                                    # rail, gold stripe
+        for y in (39, 42, 45):
+            c.row(y, 9, 58 - (y - 39), "B")                                              # planking
+        for x in range(22, 56, 7):
+            c.rect(x, 37, x + 1, 38, "B")                                                # gunports
+        for x, y in ((2, 46), (66, 44), (36, 49), (14, 49), (56, 49)):
+            c.px(x, y, "S")                                                              # spray
     return draw
 
 
-DUTCHMAN_PAL = {"o": "#0a0a0e", "b": "#3a2a1a", "B": "#24180e", "y": "#c8a040", "m": "#2a1e14", "s": "#c8c0a8",
-                "S": "#5a5448"}
-PHANTOM_PAL = {"o": "#6a8a8a", "b": "#8aa8a0", "B": "#6a8a84", "y": "#c8e0d0", "m": "#7a9a94", "s": "#d8ece4",
-               "S": "#a8c8c0"}
+DUTCHMAN_PAL = {"o": "#0a0a0e", "b": "#4a3220", "B": "#2a1a0e", "y": "#c8a040", "m": "#2a1e14", "s": "#d0c8b0",
+                "S": "#8a8270", "r": "#5a4a3a", "f": "#7a1a1a", "w": "#ffd070"}
+PHANTOM_PAL = {"o": "#4a6a6a", "b": "#7a9c94", "B": "#5a7a74", "y": "#c8f0e0", "m": "#6a8c86", "s": "#d8f4ec",
+               "S": "#a0c8c0", "r": "#8ab0a8", "f": "#a8d8cc", "w": "#e8fff8"}
 
 
 # --- The Shadow's Court (Andersen, "The Shadow", 1847) ---------------------------------------------------------------
@@ -343,8 +402,8 @@ if __name__ == "__main__":
     kit.build_boss("dutchman_sailor", dutchman_sailor, SAILOR_PAL, doc(dutchman_sailor.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("great_black_rabbit", great_black_rabbit, GREAT_RABBIT_PAL, doc(great_black_rabbit.__doc__), (50, 40), (24, 38), [0, 1, 0, -1, 0])
     kit.build_boss("obrazile_necromancer", obrazile_necromancer, NECROMANCER_PAL, doc(obrazile_necromancer.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("flying_dutchman", flying_dutchman(False), DUTCHMAN_PAL, doc(flying_dutchman.__doc__), (62, 50), (31, 48), [0, 1, 0, -1, 0])
-    kit.build_boss("flying_dutchman_phantom", flying_dutchman(True), PHANTOM_PAL, doc(flying_dutchman.__doc__ + " Here, as a phantom."), (62, 50), (31, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("flying_dutchman", flying_dutchman(False), DUTCHMAN_PAL, doc(flying_dutchman.__doc__), (70, 52), (35, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("flying_dutchman_phantom", flying_dutchman(True), PHANTOM_PAL, doc(flying_dutchman.__doc__ + " Here, as a phantom."), (70, 52), (35, 50), [0, 1, 0, -1, 0])
     kit.build_boss("living_shadow", living_shadow, LIVING_SHADOW_PAL, doc(living_shadow.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("lamp_moth", lamp_moth, LAMP_MOTH_PAL, doc(lamp_moth.__doc__), (14, 12), (7, 11), walk, folder="enemies")
     kit.build_boss("learned_man", learned_man, LEARNED_MAN_PAL, doc(learned_man.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])

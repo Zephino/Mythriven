@@ -2,6 +2,30 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.75
+Date: 11/02/2026
+Time: 8:21 AM
+
+### Changes
+- **The Fomor remade:**
+  - a huge, hunched sea-giant with grey-green skin crusted with barnacles;
+  - seaweed for hair and beard;
+  - one great bulging eye and one small squinting one, and tusks jutting from his jaw;
+  - long arms and a huge fist;
+  - a hide round his waist hung with weed;
+  - a great knotted club over his shoulder.
+- **Finvarra remade:** a slender fairy king with black hair to his shoulders, a pale face, green eyes and a small pointed beard. He wears a silver crown, a black tunic worked with silver, and a long black cloak lined with deep green with the gold of the hills glinting on it, and holds a silver wand with a glowing tip.
+- **The Flying Dutchman made to look better**, as a ship and as a phantom:
+  - a curved, planked hull with a gold stripe and gunports;
+  - a high stern castle with lit windows and a stern lantern;
+  - a bowsprit, and three masts with their yards;
+  - torn, billowing square sails with folds and holes;
+  - rigging, a tattered flag and spray at the waterline.
+  The phantom is the same ship in ghostly green.
+
+### Reason
+In Tír na nÓg and Hy-Brasil, the owner liked the ships but wanted them to look better, and asked for the Fomor and Finvarra to be redone.
+
 ## Version 00.03.74
 Date: 11/02/2026
 Time: 8:14 AM
