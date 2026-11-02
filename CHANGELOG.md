@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.56
+Date: 11/02/2026
+Time: 11:00 PM
+
+### Changes
+- **The Kraken redrawn as a giant squid.** A long pointed body standing upright, with fins at its tip and speckles down its back; great glaring yellow eyes and a hooked beak; thick arms spread over the ground and curling at their tips; and two long tentacles raised high, swaying, with broad clubbed ends lined with suckers. It stands taller than before. Still no sea under it.
+
+### Reason
+The owner felt the last Kraken looked like a cartoon octopus and chose a giant squid shape instead: more monster, less cute.
+
 ## Version 00.03.55
 Date: 11/02/2026
 Time: 10:00 PM
