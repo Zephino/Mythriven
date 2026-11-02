@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.62
+Date: 11/02/2026
+Time: 11:47 PM
+
+### Changes
+- **The Griffin Matriarch remade from scratch.**
+  - **Body:** a lion's sleek tawny body with a rounded haunch, a tucked belly, a deep chest and light along her back.
+  - **Legs:** a lion's hind legs with a proper hock and paw, and eagle forelegs feathered white to the knee, then scaly gold with talons and black claws.
+  - **Tail:** a curling lion's tail with a dark tuft.
+  - **Neck and head:** a long, curved white feathered neck and a fierce eagle head with pointed ears, a heavy brow and a hooked golden beak.
+  - **Wings:** great golden wings raised up and swept back over her body, now fitting fully inside the picture.
+  - **Gold flecks** in her coat.
+
+### Reason
+The owner asked for the Griffin Matriarch to be remade altogether.
+
 ## Version 00.03.61
 Date: 11/02/2026
 Time: 11:42 PM

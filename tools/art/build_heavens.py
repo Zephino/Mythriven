@@ -148,9 +148,10 @@ SLEEPER_PAL = {"o": "#0e0a08", "k": "#1e1814", "f": "#8a7058", "F": "#5e4a38", "
 
 
 def griffin_matriarch(c, step):
-    """The Griffin Matriarch (Herodotus 4.13; the gold-guarding griffins): a great griffin with a lion's tawny body,
-    an eagle's white head with a crest and a hooked golden beak, an eagle's taloned forelegs and a lion's hind legs, a
-    tufted tail, and great golden wings raised high, flecked with gold."""
+    """The Griffin Matriarch (Herodotus 4.13; the gold-guarding griffins): a great griffin with a lion's sleek tawny body,
+    haunches and tufted tail, an eagle's taloned forelegs feathered to the knee, a long feathered neck and a fierce
+    white eagle's head with pointed ears and a hooked golden beak, and great golden wings raised up and swept back,
+    her feathers flecked with gold."""
     def feather(x, y, dx, dy, length, col, shade):
         n = math.hypot(dx, dy)
         dx, dy = dx / n, dy / n
@@ -160,8 +161,6 @@ def griffin_matriarch(c, step):
         c.px(round(x + dx * length), round(y + dy * length), shade)
 
     def wing(sh, wr, tip, col, shade, light):
-        """A bird's wing raised up and swept back over the body: a feathered leading edge (shoulder, wrist, tip) facing
-        forward, long primary feathers fanning back from wrist to tip, shorter secondaries from shoulder to wrist."""
         poly(c, [sh, wr, tip, (tip[0] - 14, tip[1] + 10), (sh[0] - 14, sh[1] - 2)], col)
         for k in range(7):                                                               # primaries, fanning back
             t = k / 6
@@ -177,27 +176,41 @@ def griffin_matriarch(c, step):
         for t in range(10):
             x = wr[0] + (tip[0] - wr[0]) * t / 9; y = wr[1] + (tip[1] - wr[1]) * t / 9
             c.px(round(x), round(y), light); c.px(round(x) + 1, round(y), col)
-    wing((38, 24), (37, 8 - step), (31, 0 - step), "Y", "T", "y")                       # far wing, raised
-    for x, d in ((17, -step), (42, step)):                                               # far legs
-        c.rect(x + d, 38, x + 3 + d, 50, "T")
-    for i in range(18):                                                                  # lion's tail with its tuft
-        t = i / 17
-        ellipse(c, 12 - t * 8, 32 + t * 10 - t * t * 8, 1.3, 1.3, "t")
-    ellipse(c, 4, 36, 2.5, 2.5, "T")
-    ellipse(c, 28, 34, 16, 8, "t"); ellipse(c, 26, 38, 13, 4, "T")                      # lion body
-    ellipse(c, 27, 31, 12, 4, "u")                                                       # light on its back
-    c.rect(13 - step, 38, 17 - step, 47, "t"); c.rect(12 - step, 48, 18 - step, 50, "T")   # lion hind leg
-    c.rect(38 + step, 38, 41 + step, 47, "w"); c.rect(37 + step, 48, 42 + step, 49, "y")   # eagle foreleg
-    c.px(36 + step, 50, "y"); c.px(39 + step, 50, "y"); c.px(42 + step, 50, "y")        # talons
-    poly(c, [(38, 22), (46, 16), (50, 26), (44, 36), (36, 34)], "w")                     # feathered chest and neck
-    c.px(42, 30, "W"); c.px(40, 26, "W"); c.px(44, 24, "W")
-    ellipse(c, 49, 15, 6, 5.5, "w"); c.px(45, 17, "W")                                   # eagle head
-    poly(c, [(44, 11), (40, 6), (46, 9)], "w"); poly(c, [(46, 10), (44, 4), (49, 9)], "W")   # crest
-    c.px(51, 13, "k"); c.px(51, 12, "y"); c.row(11, 50, 53, "W")                         # fierce eye, brow
-    poly(c, [(54, 13), (61, 15), (61, 19), (58, 21), (55, 18)], "y")                     # hooked golden beak
-    c.px(59, 20, "Y"); c.px(58, 21, "Y"); c.row(17, 55, 59, "Y")
-    wing((34, 26), (31, 10 + step), (23, 2 + step), "y", "Y", "u")                                               # near wing, raised
-    for x, y in ((24, 30), (31, 33), (20, 35), (35, 31)):
+
+    def talons(x, y, col):
+        c.px(x - 2, y, col); c.px(x - 3, y + 1, "k")                                     # back toe
+        for dx in (1, 3, 5):
+            c.px(x + dx - 1, y, col); c.px(x + dx, y + 1, "k")                           # three toes forward, black claws
+
+    wing((36, 24), (35, 11 - step), (29, 4 - step), "Y", "T", "y")                        # far wing
+    poly(c, [(15 + step, 36), (20 + step, 36), (19 + step, 44), (16 + step, 49), (12 + step, 49), (14 + step, 44)], "T")   # far hind leg
+    c.rect(41 - step, 38, 43 - step, 48, "Y"); talons(42 - step, 49, "Y")               # far foreleg
+    for i in range(20):                                                                  # the lion's tail
+        t = i / 19
+        ellipse(c, 8 - t * 6, 30 - t * 10 + t * t * 14, 1.3, 1.3, "t")
+    ellipse(c, 2, 34, 2.4, 2.8, "T"); c.px(1, 36, "k")                                   # its tuft
+    ellipse(c, 13, 33, 8, 8, "t")                                                        # haunch
+    ellipse(c, 25, 33, 12, 6, "t")                                                       # barrel, belly tucked
+    ellipse(c, 36, 32, 8, 8, "t")                                                        # deep chest
+    poly(c, [(14, 38), (36, 37), (34, 40), (16, 40)], "T")                               # belly shadow
+    ellipse(c, 24, 28, 12, 2.5, "u")                                                     # light along the back
+    poly(c, [(9, 32), (18, 32), (18, 40), (14, 46), (17, 49), (10, 50), (8, 46), (11, 41)], "t")   # near hind leg
+    c.px(10, 38, "T"); c.px(15, 44, "T"); ellipse(c, 13, 49.5, 3.5, 1.2, "T")           # hock, paw
+    wing((34, 26), (31, 12 + step), (23, 5 + step), "y", "Y", "u")                       # near wing
+    poly(c, [(33, 30), (40, 22), (44, 12), (50, 12), (50, 20), (46, 30), (42, 38), (34, 38)], "w")   # feathered neck
+    for x, y in ((40, 26), (43, 21), (45, 16), (38, 32), (42, 30), (46, 24)):
+        c.px(x, y, "W"); c.px(x + 1, y + 1, "W")                                         # feather scallops
+    poly(c, [(36, 36), (42, 36), (41, 42), (37, 42)], "w")                               # feathered upper foreleg
+    c.px(38, 40, "W"); c.px(40, 39, "W")
+    c.rect(38 + step, 42, 40 + step, 48, "y"); talons(39 + step, 49, "y")               # scaly lower leg, talons
+    c.px(39 + step, 44, "Y"); c.px(39 + step, 46, "Y")
+    poly(c, [(45, 8), (46, 3), (48, 8)], "w"); poly(c, [(48, 7), (50, 2), (51, 8)], "W")   # pointed ears
+    ellipse(c, 50, 13, 5.5, 4.8, "w"); c.px(46, 15, "W"); c.px(47, 16, "W")             # eagle head
+    c.row(10, 49, 54, "W"); c.px(53, 11, "W")                                            # fierce brow
+    c.px(52, 12, "k"); c.px(51, 12, "y")                                                 # eye
+    poly(c, [(54, 11), (58, 12), (61, 15), (60, 19), (58, 17), (54, 17)], "y")           # hooked golden beak
+    c.px(60, 19, "Y"); c.px(59, 18, "Y"); c.row(16, 55, 58, "Y"); c.px(55, 12, "Y")      # its hook and gape
+    for x, y in ((20, 30), (28, 31), (24, 35), (32, 30), (11, 31)):
         c.px(x, y, "y")                                                                  # gold flecks
 
 
