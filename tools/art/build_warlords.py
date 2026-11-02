@@ -421,30 +421,55 @@ MAN_AT_ARMS_PAL = {"o": "#0e0c0a", "k": "#2a2420", "m": "#8a8e96", "M": "#5a5e66
 
 def questing_beast(c, step):
     """The Questing Beast (Malory 1.19): "the head like a serpent's head, and a body like a leopard, buttocks like a
-    lion, and footed like an hart", with a noise in its belly like thirty couple of hounds questing."""
-    hoofed_leg(c, 14 - step, 32, 50, "L", "L", "k", bend=-1)                             # far legs
-    hoofed_leg(c, 38 + step, 32, 50, "Y", "Y", "k")
-    poly(c, [(10, 28), (16, 22), (30, 22), (42, 20), (46, 26), (44, 36), (30, 38), (16, 38), (10, 34)], "y")   # leopard's body
-    ellipse(c, 14, 30, 8, 8, "l")                                                        # lion's haunches
-    for x, y in ((20, 26), (26, 30), (32, 25), (38, 29), (24, 34), (34, 34), (29, 27), (40, 24)):
-        c.px(x, y, "k"); c.px(x + 1, y, "k"); c.px(x, y + 1, "k")                        # leopard spots
-    for i in range(10):
-        c.px(6 - i // 2, 26 + i, "l")                                                    # lion's tail
-    ellipse(c, 2, 36, 2, 2, "L")                                                         # its tuft
-    for t in range(16):                                                                  # the long serpent neck
-        x = 43 + t * 0.6; y = 24 - t * 1.0
-        ellipse(c, x, y, 2.4, 2.2, "g")
-        if t % 2:
-            c.px(round(x), round(y), "G")                                                # scales
-    poly(c, [(48, 6), (56, 7), (60, 10), (56, 13), (48, 12)], "g")                       # serpent's head
-    c.px(52, 8, "y"); c.px(53, 8, "k")
-    c.row(11, 57, 61, "r"); c.px(62, 10, "r"); c.px(62, 12, "r")                         # forked tongue
-    hoofed_leg(c, 18 + step, 34, 50, "l", "L", "k", bend=-1)                             # near legs: a hart's
-    hoofed_leg(c, 42 - step, 34, 50, "y", "Y", "k")
+    lion, and footed like an hart", with a noise in its belly like thirty couple of hounds questing. A long, sleek,
+    rosette-spotted leopard's body flowing into tawny lion's haunches and a tufted tail, slim jointed hart's legs with
+    hooves, and a long scaly serpent's neck rising from the chest in an S to a serpent's head with a forked tongue."""
+    def hart_leg(x, col, shade, hind):
+        """A slender hart's leg: a thigh tapering to a knee (or a hock bent back), a thin shank, a small hoof."""
+        knee = 44
+        bend = -2 if hind else 0
+        poly(c, [(x - 2, 32), (x + 2, 32), (x + 1, knee), (x, knee)], col)
+        for y in range(knee, 50):
+            c.px(x + bend * (y - knee) // 6, y, col)
+        c.px(x + bend, 44 if hind else 45, shade)
+        c.rect(x + bend - 1, 50, x + bend + 1, 51, "k")                                  # small cloven hoof
+    hart_leg(17 - step, "L", "L", True); hart_leg(41 + step, "Y", "Y", False)             # far legs, in shadow
+    for i in range(16):                                                                  # the lion's tail, curving
+        t = i / 15
+        c.px(round(9 - t * 6), round(27 + t * 10 - t * t * 4), "l")
+        c.px(round(9 - t * 6), round(28 + t * 10 - t * t * 4), "L")
+    ellipse(c, 3, 34, 2, 2.2, "L")                                                       # its tuft
+    # One smooth body: the lion's haunches at the back, the long leopard's body forward to a deep chest
+    poly(c, [(10, 28), (14, 23), (22, 21), (32, 23), (42, 21), (49, 25), (48, 34), (44, 38), (36, 37), (28, 34),
+             (20, 36), (12, 35)], "y")                                                   # arched back, tucked waist, deep chest
+    ellipse(c, 15, 29, 7, 7, "y")
+    for y in range(20, 40):                                                              # the haunches are a lion's: tawny
+        for x in range(6, 24):
+            edge = x + (y - 20) * 0.3
+            if c.g[y][x] == "y" and (edge < 20 or (edge < 24 and (x + y) % 2 == 0)):
+                c.px(x, y, "l")                                                          # blending into the leopard
+    poly(c, [(36, 36), (46, 35), (44, 38), (36, 38)], "Y"); poly(c, [(12, 33), (20, 35), (14, 36)], "L")   # shadows
+    for cx, cy in ((26, 26), (32, 30), (38, 25), (29, 34), (36, 34), (43, 29), (24, 31)):   # leopard rosettes
+        for dx, dy in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+            c.px(cx + dx, cy + dy, "k")
+        c.px(cx, cy, "Y")
+    for t in range(20):                                                                  # the serpent's neck, rising in an S
+        u = t / 19
+        x = 46 + u * 8 + math.sin(u * math.pi * 1.5) * 4
+        y = 26 - u * 20
+        ellipse(c, x, y, 2.6 - u * 0.6, 2.4 - u * 0.5, "g")
+        c.px(round(x - 1), round(y), "G" if t % 2 else "g")                              # scales
+        c.px(round(x + 1), round(y + 1), "p")                                            # pale scaled belly
+    poly(c, [(50, 4), (58, 3), (63, 6), (59, 9), (51, 9)], "g")                          # the serpent's head
+    c.row(8, 54, 60, "G"); c.px(55, 5, "y"); c.px(56, 5, "k")                            # jaw line, yellow eye
+    c.px(60, 9, "w")                                                                     # fang
+    c.row(7, 63, 65, "r"); c.px(66, 6, "r"); c.px(66, 8, "r")                            # forked tongue
+    hart_leg(20 + step, "l", "L", True); hart_leg(44 - step, "y", "Y", False)             # near legs: a hart's
 
 
 QUESTING_PAL = {"o": "#120a04", "y": "#d8a848", "Y": "#a87a2a", "k": "#2a1a0a", "l": "#b07a3a", "L": "#8a5a24",
-                "g": "#4a7a4a", "G": "#2e5a2e", "r": "#e83a2a"}
+                "g": "#4a7a4a", "G": "#2e5a2e", "r": "#e83a2a",
+                "p": "#a8c890", "w": "#f0ece0"}
 
 
 def morgan_le_fay(c, step):
@@ -507,7 +532,7 @@ if __name__ == "__main__":
     kit.build_boss("hugi", hugi, HUGI_PAL, doc(hugi.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("utgarda_loki", utgarda_loki(False), UTGARD_PAL, doc(utgarda_loki.__doc__), (42, 60), (21, 58), [0, 1, 0, -1, 0])
     kit.build_boss("man_at_arms", man_at_arms, MAN_AT_ARMS_PAL, doc(man_at_arms.__doc__), (20, 24), (10, 23), walk, folder="enemies")
-    kit.build_boss("questing_beast", questing_beast, QUESTING_PAL, doc(questing_beast.__doc__), (62, 52), (30, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("questing_beast", questing_beast, QUESTING_PAL, doc(questing_beast.__doc__), (68, 54), (32, 52), [0, 1, 0, -1, 0])
     kit.build_boss("morgan_le_fay", morgan_le_fay, MORGAN_PAL, doc(morgan_le_fay.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("vortigern", vortigern, VORTIGERN_PAL, doc(vortigern.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     print("wrote the Warlords' art")

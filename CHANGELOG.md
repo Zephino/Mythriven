@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.52
+Date: 11/02/2026
+Time: 9:04 PM
+
+### Changes
+- **The Questing Beast remade again** (owner's request). One smooth animal now, instead of parts stuck together: a long leopard's body with a gently arched back, a tucked-in waist and a deep chest, covered in rosette spots, blending into tawny lion's haunches and a curving tufted tail; four slender hart's legs (a thigh tapering to a knee or hock, a thin shank, a small cloven hoof), front pair under the chest and back pair under the haunches; and a long serpent's neck rising from the chest in an S-curve, with scales and a pale belly, to a serpent's head with a yellow eye, a fang and a forked tongue.
+
+### Reason
+The owner asked for the Questing Beast to be remade.
+
 ## Version 00.03.51
 Date: 11/02/2026
 Time: 7:31 PM
