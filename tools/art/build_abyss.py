@@ -466,28 +466,54 @@ AUDHUMLA_PAL = {"o": "#2a2a34", "k": "#ece8e0", "K": "#c0c4cc", "b": "#ece8e0", 
 
 def bergelmir(c, step):
     """Bergelmir (Vafþrúðnismál 35; Gylfaginning 7: the one frost giant who lived through the flood of Ymir's blood, on
-    his lúðr): a huge frost giant with grey-blue skin, a great rime-white beard and hair, heavy furs whose hem is dark
-    with blood, frost on his shoulders, gripping a long oar."""
-    person(c, step, cx=19, skin="s", skin_d="S", hair="g", hair_d="F", hair_style="short", beard="w",
-           garment="tunic", robe="f", robe_d="F", legs="F", boots="k", belt="b", arm_forward=True, eye="k")
-    c.px(17, 10, "i"); c.px(21, 10, "i")                                                 # icy glints in his eyes
-    poly(c, [(15, 12), (23, 12), (23, 22), (19, 26), (15, 22)], "w")                     # great rime-white beard
-    for x, y in ((17, 18), (20, 22), (18, 26), (21, 15)):
+    his lúðr): a hulking frost giant with grey-blue skin, huge shoulders and a small head hunched between them, a heavy
+    brow over pale glowing eyes, wild grey-white hair and a long rime-white beard hung with icicles; a shaggy fur
+    mantle crusted with frost, a ragged fur kilt whose hem is dark with blood, fur-wrapped legs, and his long oar held
+    upright beside him."""
+    for x, d in ((14, -step), (27, step)):                                               # fur-wrapped legs
+        c.rect(x + d, 44, x + 6 + d, 54, "s"); c.rect(x + d, 44, x + 1 + d, 54, "S")
+        c.rect(x - 1 + d, 52, x + 7 + d, 57, "F"); c.row(52, x - 1 + d, x + 7 + d, "W")   # fur boots
+        c.row(58, x - 1 + d, x + 7 + d, "k")
+    c.rect(40, 2, 41, 46, "n"); c.rect(40, 2, 40, 46, "B")                               # the long oar, upright
+    poly(c, [(38, 44), (43, 44), (44, 58), (37, 58)], "n"); c.rect(37, 46, 37, 58, "B")
+    poly(c, [(8, 20), (40, 20), (37, 38), (11, 38)], "s")                                # huge torso
+    poly(c, [(8, 20), (14, 20), (15, 38), (11, 38)], "S")
+    c.row(29, 15, 22, "S"); c.row(29, 27, 34, "S"); c.px(24, 33, "S"); c.px(24, 35, "S")   # chest and belly
+    poly(c, [(10, 37), (38, 37), (39, 46), (35, 44), (31, 47), (27, 44), (23, 47), (19, 44), (15, 47), (9, 46)], "f")   # ragged fur kilt
+    for x in (12, 18, 25, 32):
+        c.rect(x, 39, x, 44, "F")
+    for x, y in ((10, 46), (15, 47), (16, 46), (23, 47), (24, 46), (31, 47), (32, 46), (39, 46)):
+        c.px(x, y, "r")                                                                  # its hem dark with blood
+    c.row(45, 11, 38, "R")
+    poly(c, [(8, 20), (4, 24), (3, 38), (8, 40), (11, 27)], "s"); poly(c, [(8, 20), (6, 22), (5, 38), (3, 38), (4, 24)], "S")   # far arm hanging
+    ellipse(c, 5, 41, 3.4, 3, "s"); c.px(4, 42, "S")
+    for y in (27, 31, 35):
+        c.px(3, y, "b"); c.px(2, y + 1, "i")                                             # icicles from his arm
+    poly(c, [(36, 20), (43, 22), (44, 30), (40, 33), (37, 27)], "s")                     # near arm, gripping the oar
+    ellipse(c, 41, 31, 3.4, 3, "s"); c.px(40, 30, "S"); c.px(42, 32, "S")
+    poly(c, [(5, 22), (12, 15), (36, 15), (43, 22), (38, 24), (33, 21), (15, 21), (10, 24)], "f")   # shaggy fur mantle
+    for x in range(6, 43, 3):
+        c.px(x, 23 - (x % 2), "F")
+    for x, y in ((9, 18), (14, 16), (33, 16), (39, 19), (24, 15)):
+        c.px(x, y, "i"); c.px(x + 1, y, "w")                                             # frost crusting it
+    ellipse(c, 24, 12, 6, 6, "s"); c.px(19, 13, "S"); c.px(19, 14, "S")                   # small head, hunched forward
+    ellipse(c, 24, 7, 7, 3.5, "W"); c.px(17, 9, "W"); c.px(31, 9, "W")                   # wild grey-white hair
+    for x in (18, 21, 24, 27, 30):
+        c.px(x, 3 - (x % 2), "W")
+    c.row(10, 20, 28, "D")                                                               # heavy brow
+    c.rect(21, 11, 22, 12, "D"); c.rect(26, 11, 27, 12, "D")                             # deep-set eyes
+    c.px(21, 11, "i"); c.px(26, 11, "i")                                                 # glowing pale
+    c.rect(23, 12, 24, 15, "S")                                                          # big nose
+    poly(c, [(18, 15), (30, 15), (29, 26), (24, 31), (19, 26)], "w")                     # long rime-white beard
+    for x, y in ((21, 19), (25, 22), (22, 25), (27, 18), (24, 27)):
         c.px(x, y, "W")
-    poly(c, [(11, 17), (27, 17), (28, 21), (10, 21)], "W")                               # frost on his fur collar
-    for x, y in ((12, 18), (16, 17), (24, 18), (26, 20)):
-        c.px(x, y, "i")
-    c.row(39, 12, 26, "r"); c.row(40, 12, 26, "R"); c.px(14, 41, "r"); c.px(22, 41, "r")   # hem dark with blood
-    for t in range(48):                                                                  # the long oar
-        c.px(35 - t // 16, 4 + t, "b"); c.px(36 - t // 16, 4 + t, "B")
-    poly(c, [(31, 44), (35, 44), (35, 54), (31, 54)], "b"); c.rect(31, 44, 31, 54, "B")  # its blade
-    ellipse(c, 34, 23, 2, 2, "s")                                                        # hand on it
+    for x in (21, 24, 27):
+        c.px(x, 30 - abs(x - 24) // 2, "b"); c.px(x, 31 - abs(x - 24) // 2, "i")       # icicles from the beard
 
 
-BERGELMIR_PAL = {"o": "#0e1218", "k": "#1e2430", "f": "#5a6a7a", "F": "#3a4654", "s": "#7a94b4", "S": "#5a7496",
-                 "g": "#8a98a8",
-                 "w": "#eef4fa", "W": "#b8c8d8", "i": "#c8e8ff", "m": "#4a5a70", "r": "#8a1a1a", "R": "#5a0e0e",
-                 "b": "#6a4a2a", "B": "#4a3018", "l": "#3a4654"}
+BERGELMIR_PAL = {"o": "#0e1218", "k": "#1e2430", "s": "#7a94b4", "S": "#5a7496", "D": "#2e3a50", "f": "#5e5248",
+                 "F": "#3e342c", "w": "#eef4fa", "W": "#c0ccd8", "i": "#e0f6ff", "b": "#8ac8ec", "n": "#6a4a2a", "B": "#4a3018",
+                 "r": "#8a1a1a", "R": "#5a1a1a"}
 
 
 def void_herald(form):
@@ -551,7 +577,7 @@ if __name__ == "__main__":
     kit.build_boss("venom_rime", venom_rime, VENOM_RIME_PAL, doc(venom_rime.__doc__), (20, 22), (10, 21), walk, folder="enemies")
     kit.build_boss("rime_drop", rime_drop, RIME_DROP_PAL, doc(rime_drop.__doc__), (11, 12), (5, 11), walk, folder="enemies")
     kit.build_boss("audhumla", audhumla, AUDHUMLA_PAL, doc(audhumla.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
-    kit.build_boss("bergelmir", bergelmir, BERGELMIR_PAL, doc(bergelmir.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("bergelmir", bergelmir, BERGELMIR_PAL, doc(bergelmir.__doc__), (48, 60), (24, 58), [0, 1, 0, -1, 0])
     kit.build_boss("void_herald", void_herald("rime"), VOID_HERALD_PAL, doc(void_herald.__doc__), (46, 56), (23, 54), [0, 1, 0, -1, 0])
     for form in ("rime", "fire"):
         kit.build_boss("void_herald_" + form, void_herald(form), VOID_HERALD_PAL, doc(void_herald.__doc__ + " Here, as %s." % form),

@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.73
+Date: 11/02/2026
+Time: 8:09 AM
+
+### Changes
+- **Bergelmir remade from scratch** as a hulking frost giant, bigger than before:
+  - huge grey-blue shoulders and chest, with his small head hunched forward between them;
+  - a heavy brow over deep-set, pale glowing eyes, wild grey-white hair, and a long rime-white beard hung with icicles;
+  - a shaggy fur mantle crusted with frost, and icicles on his arm;
+  - a ragged fur kilt whose hem is dark with blood, and fur-wrapped legs and boots;
+  - his long oar held upright beside him.
+
+### Reason
+The owner asked for Bergelmir to be remade.
+
 ## Version 00.03.72
 Date: 11/02/2026
 Time: 8:03 AM
