@@ -4,7 +4,9 @@
 # Run: python3 build_gears.py from tools/art/.
 import math
 import hero_kit as kit
-from hero_kit import ellipse, poly
+from hero_kit import ellipse, poly, Canvas
+from figure_kit import person
+from build_gothic import empusa as gothic_beast, wolf as wolf_body, WOLF_WALK
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -22,13 +24,19 @@ def figure(c, step, robe, skin, hair, legs="k", x0=14, top=18, bottom=50):
 # --- Lemnos (Iliad 1.590-594, 18.373-420; Odyssey 7.91-94; Apollodorus 1.9.23, 1.9.26; Argonautica 4.1638-1688) ---
 
 def bronze_automaton(c, f):
-    """A bronze automaton of Hephaestus' forge (Iliad 18: his self-moving works): a jointed bronze man, rivets showing."""
+    """A bronze automaton of Hephaestus' forge (Iliad 18: his self-moving works): a jointed bronze man, rivets at every
+    joint, a gear turning in his chest, eyes glowing like coals."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "B")
-    c.rect(5, 8, 14, 18, "z"); c.row(12, 5, 14, "B"); c.px(7, 10, "y"); c.px(12, 10, "y"); c.px(7, 15, "y"); c.px(12, 15, "y")
-    c.rect(6, 1, 12, 7, "z"); c.rect(7, 3, 11, 4, "k"); c.px(8, 3, "r"); c.px(10, 3, "r")
-    c.rect(3, 9, 4, 16, "B"); c.rect(15, 9, 16, 16, "B")
+        c.rect(x + d, 16, x + 1 + d, 18, "z"); c.px(x + d, 19, "y"); c.rect(x + d, 20, x + 1 + d, 22, "B")   # jointed legs
+    poly(c, [(5, 8), (14, 8), (13, 15), (6, 15)], "z"); poly(c, [(5, 8), (7, 8), (7, 15), (6, 15)], "B")
+    ellipse(c, 9, 11, 2, 2, "B"); c.px(9, 11, "y"); c.px(9, 9, "y"); c.px(11, 11, "y"); c.px(7, 11, "y")   # turning gear
+    c.rect(6, 15, 13, 16, "B")
+    c.rect(3, 9, 4, 12, "z"); c.px(3, 13, "y"); c.rect(3, 14, 4, 16, "B")             # jointed arms
+    c.rect(15, 9, 16, 12, "z"); c.px(16, 13, "y"); c.rect(15, 14, 16, 16, "B")
+    c.rect(7, 2, 12, 7, "z"); c.row(2, 7, 12, "y"); c.rect(7, 2, 7, 7, "B")            # head
+    c.px(8, 4, "r"); c.px(11, 4, "r"); c.row(6, 8, 11, "B")                            # glowing eyes, mouth-slot
+    c.px(9, 1, "y"); c.px(10, 1, "y")
 
 
 AUTOMATON_PAL = {"o": "#1a0e04", "z": "#c08a3a", "B": "#8a5a24", "y": "#f0d070", "k": "#2a1a0a", "r": "#f05a2a"}
@@ -36,11 +44,17 @@ AUTOMATON_PAL = {"o": "#1a0e04", "z": "#c08a3a", "B": "#8a5a24", "y": "#f0d070",
 
 def golden_handmaiden(c, f):
     """A golden handmaiden (Iliad 18.417-420: "made of gold, like living girls; they have understanding, speech and
-    strength"): a maiden of gold in a long gown."""
+    strength"): a maiden all of gold, her hair bound up, in a long pleated gown, gleaming."""
     s = STEP[f]
-    poly(c, [(6, 8), (13, 8), (15, 21), (4, 21)], "y"); c.rect(6, 8, 13, 10, "Y")
-    ellipse(c, 9, 5, 3, 3, "y"); c.rect(6, 1, 12, 3, "Y"); c.px(8, 5, "k"); c.px(10, 5, "k")
-    c.px(15, 10 + s, "w"); c.px(16, 9 + s, "w")
+    poly(c, [(6, 9), (13, 9), (15, 22), (4, 22)], "y"); poly(c, [(6, 9), (8, 9), (7, 22), (4, 22)], "Y")   # gown
+    for x in (8, 10, 12):
+        c.rect(x, 14, x, 21, "Y")                                                          # pleats
+    c.row(13, 6, 13, "w")                                                                  # girdle
+    c.rect(3, 10, 4, 15, "Y"); c.rect(15, 10, 16, 15, "y")                                 # arms
+    ellipse(c, 9, 5, 3, 3.4, "y"); ellipse(c, 9, 2, 3.2, 1.8, "Y"); ellipse(c, 9, 0, 1.5, 1, "Y")   # head, bound hair
+    c.px(8, 5, "k"); c.px(11, 5, "k")
+    c.px(7, 4, "w"); c.px(12, 11, "w"); c.px(5, 18, "w"); c.px(16, 9, "w")                 # gleam
+    c.px(9 - s, 22, "Y"); c.px(11 + s, 22, "Y")
 
 
 HANDMAIDEN_PAL = {"o": "#3a2a04", "y": "#e8c040", "Y": "#b08a20", "k": "#4a3410", "w": "#fff4b0"}
@@ -48,138 +62,216 @@ HANDMAIDEN_PAL = {"o": "#3a2a04", "y": "#e8c040", "Y": "#b08a20", "k": "#4a3410"
 
 def aeetes_bulls(c, step):
     """The Bulls of Aeetes (Apollodorus 1.9.23): two bronze-footed bulls Hephaestus made, which breathed fire; Jason had
-    to yoke them and plough with them. Two bronze bulls under a yoke, flame at their mouths."""
-    for row, (dy, col) in enumerate(((0, "z"), (14, "Z"))):
-        ellipse(c, 26, 22 + dy, 16, 7, col)
-        for k, d in enumerate((-step, step, step, -step)):
-            c.rect(14 + k * 8 + d, 26 + dy, 16 + k * 8 + d, 34 + dy, "B")
-        poly(c, [(40, 17 + dy), (50, 19 + dy), (50, 25 + dy), (40, 27 + dy)], col); c.px(45, 19 + dy, "r")
-        c.px(42, 15 + dy, "w"); c.px(47, 15 + dy, "w")
-        for k in range(4):
-            c.px(51 + k, 21 + dy + (k + step) % 2, "y"); c.px(52 + k, 22 + dy, "r")                 # fire
-    c.rect(36, 12, 38, 40, "b")                                                                       # the yoke
+    to yoke them and plough with them. Two great bronze bulls side by side, heads lowered, riveted, flame pouring from
+    their mouths (drawn on the bull body of Empusa)."""
+    far = Canvas(56, 56)
+    gothic_beast("bull")(far, -step)
+    dark = {"k": "m", "K": "M", "b": "M", "B": "M", "h": "M", "H": "M", "l": "m", "y": "y", "g": "f"}
+    for y in range(56):
+        for x in range(56):
+            ch = far.g[y][x]
+            if ch != "." and 0 <= x + 12 < c.w and 0 <= y - 6 < c.h:
+                c.px(x + 12, y - 6, dark.get(ch, ch))                                      # the far bull, behind
+    near = Canvas(56, 56)
+    gothic_beast("bull")(near, step)
+    for y in range(56):
+        for x in range(56):
+            if near.g[y][x] != ".":
+                c.px(x, y, near.g[y][x])
+    for x, y in ((14, 26), (22, 22), (30, 20), (38, 22), (18, 34), (30, 34)):
+        c.px(x, y, "y")                                                                    # rivets
+    for x0, y0 in ((52, 35), (64, 29)):                                                    # fire pouring from their mouths
+        for i in range(9):
+            r = 1 + i * 0.4
+            ellipse(c, x0 + i * 1.6, y0 + i * 0.5, r, r * 0.8, "f" if i > 3 else "F")
+        c.px(x0 + 2, y0, "w")
 
 
-BULLS_PAL = {"o": "#1a0e04", "z": "#c08a3a", "Z": "#a8763a", "B": "#6a4a1a", "r": "#f05a2a", "y": "#ffd040",
-             "w": "#e8dcc0", "b": "#5a3a1a"}
+BULLS_PAL = {"o": "#1a0e04", "k": "#c08a3a", "K": "#8a5a24", "b": "#c08a3a", "B": "#8a5a24", "h": "#e0c070",
+             "H": "#a8843a", "l": "#f0c878", "y": "#ffd040", "g": "#f08a2a", "m": "#9a6a2a", "M": "#6a4418",
+             "f": "#f05a2a", "F": "#ffd040", "w": "#fff8d0", "s": "#c08a3a", "v": "#c08a3a"}
 
 
 def gold_silver_hound(gold):
     """The gold and silver hounds of Alcinous (Odyssey 7.91-94): dogs Hephaestus made with cunning skill to guard the
-    house of great-hearted Alcinous, immortal and ageless all their days."""
-    def draw(c, step):
-        main, dark = ("y", "Y") if gold else ("s", "S")
-        ellipse(c, 24, 26, 15, 7, main)
-        for k, d in enumerate((-step, step, step, -step)):
-            c.rect(12 + k * 8 + d, 30, 14 + k * 8 + d, 42, dark)
-        poly(c, [(36, 16), (48, 18), (48, 24), (36, 26)], main); c.px(42, 18, "k")
-        c.px(37, 13, main); c.px(38, 12, main); c.row(24, 44, 48, "k")
-        for k in range(8):
-            c.px(8 - k // 2, 24 - k // 3, dark)
-    return draw
+    house of great-hearted Alcinous, immortal and ageless all their days. A great hound of gleaming gold or of silver,
+    standing guard, mouth closed (drawn on the wolf body)."""
+    return wolf_body()
 
 
-HOUNDS_PAL = {"o": "#1a1408", "y": "#e8c040", "Y": "#b08a20", "s": "#d8dce4", "S": "#a0a6b0", "k": "#2a2010"}
+HOUNDS_GOLD_PAL = {"o": "#2a1a04", "k": "#3a2404", "f": "#e8c040", "F": "#b08a20", "D": "#8a6410", "l": "#fff0a0",
+                   "y": "#ffffff", "r": "#8a2020", "w": "#fff8e0"}
+HOUNDS_SILVER_PAL = {"o": "#1a1c24", "k": "#20242c", "f": "#d8dce4", "F": "#a0a6b0", "D": "#7a808a", "l": "#ffffff",
+                     "y": "#5a8ab8", "r": "#8a2020", "w": "#ffffff"}
 
 
 def talos(hot):
     """Talos (Argonautica 4.1638-1688; Apollodorus 1.9.26): the bronze giant who guarded Crete, running round it three
-    times a day and hurling rocks at ships; one vein ran from his neck to his ankle, stopped by a bronze nail."""
+    times a day and hurling rocks at ships; one vein ran from his neck to his ankle, stopped by a bronze nail. A huge,
+    heavily muscled man of bronze, short curled hair, blank glowing eyes, the vein running down him to the nail in his
+    ankle; red-hot when he heats himself."""
     def draw(c, step):
-        main, dark = ("r", "R") if hot else ("z", "Z")
-        for k, d in enumerate((-step, step)):
-            c.rect(16 + k * 12 + d, 48, 21 + k * 12 + d, 64, dark)
-        c.rect(30 + step, 62, 32 + step, 63, "y")                                                     # the nail
-        c.rect(12, 22, 40, 48, main); c.row(32, 12, 40, dark); c.row(40, 12, 40, dark)
-        c.rect(5, 24, 11, 44, dark); c.rect(41, 24, 47, 44, dark)
-        c.rect(18, 6, 34, 21, main); c.rect(20, 11, 32, 13, "k"); c.px(23, 12, "y"); c.px(29, 12, "y")
-        for k in range(26):
-            c.px(26, 21 + k * 2 if 21 + k * 2 < 62 else 61, "v")                                       # the one vein
+        m, d, l = ("r", "R", "y") if hot else ("z", "Z", "l")
+        for k, dd in enumerate((-step, step)):                                             # massive legs
+            x = 16 + k * 12 + dd
+            poly(c, [(x, 46), (x + 7, 46), (x + 6, 64), (x + 1, 64)], m); c.rect(x, 64, x + 7, 67, d)
+            c.rect(x + 2, 50, x + 2, 62, d)
+        poly(c, [(12, 22), (42, 22), (38, 40), (16, 40)], m)                               # huge chest
+        c.row(29, 18, 36, d); c.rect(27, 24, 27, 40, d); c.row(34, 19, 35, d); c.row(38, 20, 34, d)   # muscles
+        poly(c, [(15, 40), (39, 40), (41, 48), (13, 48)], d); c.row(40, 15, 39, l)          # bronze kilt, its rim
+        for side in (-1, 1):                                                               # great arms
+            x = 27 + side * 17
+            poly(c, [(x - 4, 21), (x + 4, 21), (x + side * 2 + 3, 40), (x + side * 2 - 3, 40)], m)
+            c.px(x, 27, d); c.px(x, 28, d)
+            ellipse(c, x + side * 2, 42, 3.5, 3.5, m)
+        c.rect(23, 17, 31, 22, m)                                                          # thick neck
+        ellipse(c, 27, 11, 7, 8, m); ellipse(c, 27, 5, 7, 3.5, d)                          # head, curled hair
+        for x in range(21, 34, 2):
+            c.px(x, 4, l)
+        c.rect(23, 11, 25, 11, "w"); c.rect(29, 11, 31, 11, "w")                           # blank glowing eyes
+        c.px(27, 13, d); c.row(16, 25, 29, d)
+        for y in range(18, 64):
+            c.px(26 + (y // 9) % 2, y, "v")                                                # the one vein, neck to ankle
+        c.rect(26, 63, 28, 64, "n"); c.px(27, 62, "n")                                     # the bronze nail in his ankle
+        for x, y in ((18, 26), (36, 25), (24, 36), (10, 30)):
+            c.px(x, y, l)                                                                  # gleam
     return draw
 
 
-TALOS_PAL = {"o": "#1a0a04", "z": "#c08a3a", "Z": "#8a5a24", "r": "#f06a2a", "R": "#c83a10", "y": "#ffe070",
-             "k": "#2a1408", "v": "#a83a2a"}
+TALOS_PAL = {"o": "#1a0a04", "z": "#c08a3a", "Z": "#8a5a24", "l": "#f0c878", "r": "#f06a2a", "R": "#c83a10",
+             "y": "#ffe070", "w": "#fff8d0", "v": "#8a2a10", "n": "#f0e0a0"}
 
 
-# --- The Goblin Market (Christina Rossetti, Goblin Market, 1862) -------------------------------------------------------
+# --- The Goblin Market (Christina Rossetti, Goblin Market, 1862) ------------------------------------------------------
+
+def goblin_face(c, cx, cy, kind):
+    """A goblin merchant's animal face (Rossetti: "one had a cat's face, one whisked a tail, one tramped at a rat's
+    pace ... one like a wombat prowled obtuse and furry"): cat, rat or wombat."""
+    if kind == "cat":
+        ellipse(c, cx, cy, 3.5, 3, "c")
+        poly(c, [(cx - 3, cy - 2), (cx - 3, cy - 6), (cx - 1, cy - 3)], "c")
+        poly(c, [(cx + 3, cy - 2), (cx + 3, cy - 6), (cx + 1, cy - 3)], "c")
+        c.px(cx - 1, cy - 1, "y"); c.px(cx + 1, cy - 1, "y"); c.px(cx, cy + 1, "p")
+        c.px(cx - 4, cy + 1, "w"); c.px(cx + 4, cy + 1, "w")                               # whiskers
+    elif kind == "rat":
+        ellipse(c, cx, cy, 3, 2.6, "g")
+        poly(c, [(cx + 2, cy - 1), (cx + 6, cy + 1), (cx + 2, cy + 2)], "g"); c.px(cx + 6, cy + 1, "p")   # snout
+        ellipse(c, cx - 2, cy - 3, 1.6, 1.6, "p"); ellipse(c, cx + 1, cy - 3, 1.6, 1.6, "p")             # round ears
+        c.px(cx + 1, cy - 1, "k")
+    else:
+        ellipse(c, cx, cy, 4, 3.4, "W")                                                    # wombat: blunt and furry
+        c.rect(cx - 1, cy + 1, cx + 2, cy + 2, "k"); c.px(cx - 2, cy - 1, "k"); c.px(cx + 2, cy - 1, "k")
+        c.px(cx - 3, cy - 3, "W"); c.px(cx + 3, cy - 3, "W")
+
 
 def goblin_man(c, f):
-    """A goblin merchant-man (Rossetti: "one had a cat's face, one whisked a tail"): a small cat-faced goblin in a brown
-    coat, a basket of fruit on his arm."""
+    """A goblin merchant-man (Rossetti: "one had a cat's face, one whisked a tail"): a small cat-faced goblin in a
+    patched brown coat, his tail whisking, a basket of fruit on his arm."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 16, x + 1 + d, 20, "k")
-    c.rect(5, 8, 13, 16, "b")
-    ellipse(c, 9, 5, 3.5, 3, "c"); c.px(6, 2, "c"); c.px(12, 2, "c"); c.px(8, 5, "y"); c.px(10, 5, "y")
-    ellipse(c, 15, 13, 3, 2, "B"); c.px(14, 11, "r"); c.px(16, 11, "p"); c.px(15, 10, "y")
+        c.rect(x + d, 16, x + 1 + d, 19, "k"); c.rect(x - 1 + d, 20, x + 1 + d, 20, "k")
+    poly(c, [(5, 9), (13, 9), (14, 17), (4, 17)], "b"); c.px(6, 12, "B"); c.px(11, 14, "B")   # patched coat
+    for i in range(5):
+        c.px(3 - i // 2, 13 - i + s, "c")                                                  # whisking tail
+    goblin_face(c, 9, 5, "cat")
+    ellipse(c, 15, 13, 3, 2, "B"); c.px(14, 11, "r"); c.px(16, 11, "q"); c.px(15, 12, "y")   # basket of fruit
 
 
 GOBLIN_PAL = {"o": "#120a06", "k": "#2a1a10", "b": "#6a4a2a", "B": "#8a6a3a", "c": "#8a7a5a", "y": "#e8d040",
-              "r": "#c82a2a", "p": "#7a2a8a"}
+              "p": "#d89a8a", "w": "#d8d0c0", "g": "#7a7068", "W": "#6a5a48", "r": "#c82a3a", "q": "#e88a2a",
+              "v": "#6a2a8a"}
 
 
 def rat_goblin(c, f):
-    """A rat-paced goblin (Rossetti: "one tramped at a rat's pace"): a small grey goblin scurrying like a rat."""
+    """A rat-paced goblin (Rossetti: "one tramped at a rat's pace"): a small grey goblin scurrying on all fours like a
+    rat, a long bare tail behind, a little pack of fruit on its back."""
     s = STEP[f]
-    ellipse(c, 8, 8, 5, 3, "g"); poly(c, [(12, 6), (15, 8), (12, 10)], "g"); c.px(13, 7, "r")
-    for k, d in enumerate((-s, s, s, -s)):
-        c.px(5 + k * 2 + d, 11, "G")
-    for k in range(5):
-        c.px(3 - k, 8 + k // 2, "p")
+    for i in range(6):
+        c.px(2 - i // 3, 8 + i // 2, "p")                                                  # long bare tail
+    ellipse(c, 8, 8, 5, 3, "g"); c.row(10, 4, 12, "G")
+    poly(c, [(12, 6), (16, 8), (12, 10)], "g"); c.px(16, 8, "p"); c.px(13, 7, "r")         # snout, red eye
+    ellipse(c, 11, 4, 1.5, 1.5, "p")                                                       # round ear
+    ellipse(c, 7, 4, 2.5, 1.8, "b"); c.px(6, 3, "q"); c.px(8, 3, "r")                      # pack of fruit
+    for x, d in ((5, s), (8, -s), (11, s)):
+        c.px(x + d, 11, "G"); c.px(x + d, 12, "G")
 
 
-RAT_PAL = {"o": "#120c0a", "g": "#7a7068", "G": "#4a4440", "r": "#e8203a", "p": "#c89a8a"}
+RAT_PAL = {"o": "#120c0a", "g": "#7a7068", "G": "#4a4440", "r": "#e8203a", "p": "#c89a8a", "b": "#6a4a2a",
+           "q": "#e88a2a"}
 
 
 def ratel_goblin(c, step):
     """The Ratel Goblin (Rossetti: "one like a ratel tumbled hurry skurry"): a squat goblin like a honey badger, black
-    below and grey-white along its back, tumbling head over heels."""
-    ellipse(c, 24, 28, 18, 11, "k"); ellipse(c, 24, 22, 16, 6, "w")
-    for k, d in enumerate((-step, step, step, -step)):
-        c.rect(12 + k * 7 + d, 34, 14 + k * 7 + d, 42, "k")
-    ellipse(c, 40, 26, 6, 5, "k"); c.px(42, 24, "y"); c.rect(44, 27, 46, 28, "w")
-    for k in range(6):
-        c.px(8 + k, 36 + (k + step) % 2, "y")                                                       # dust as it tumbles
+    below with a broad grey-white mantle from its brow to its tail, short strong legs with long claws, small fierce
+    eyes."""
+    for k, (x, d) in enumerate(((12, -step), (20, step), (32, step), (40, -step))):       # short strong legs, long claws
+        poly(c, [(x - 2, 30), (x + 3, 30), (x + 3, 40), (x - 2, 40)], "k")
+        for t in range(3):
+            c.px(x - 1 + t * 2 + d, 41, "w")
+    poly(c, [(6, 28), (12, 20), (36, 18), (44, 22), (46, 32), (40, 36), (10, 36)], "k")    # the squat body
+    poly(c, [(8, 26), (14, 19), (38, 17), (44, 22), (40, 23), (14, 25)], "w")             # grey-white mantle along the back
+    for x in range(14, 40, 3):
+        c.px(x, 22, "W")
+    ellipse(c, 46, 28, 5, 4.5, "k")                                                        # head
+    poly(c, [(42, 22), (49, 24), (47, 26), (42, 25)], "w")                                 # the mantle over its brow
+    c.px(48, 27, "y"); c.px(51, 30, "w"); c.px(50, 31, "w")                                # fierce eye, teeth
+    for i in range(4):
+        c.px(5 - i, 27 + i // 2, "k")                                                      # short tail
 
 
-RATEL_PAL = {"o": "#0a0806", "k": "#1e1a18", "w": "#d8d4cc", "y": "#e8c040"}
+RATEL_PAL = {"o": "#0a0806", "k": "#1e1a18", "w": "#d8d4cc", "W": "#a8a49c", "y": "#e8c040"}
 
 
 def snail_goblin(c, step):
-    """The Snail Goblin (Rossetti: "one crawled like a snail"): a fat goblin crawling under a great spiral shell, its
-    trail glistening behind it."""
-    for x in range(0, 44, 3):
-        c.px(x, 46, "s")                                                                              # the slime trail
-    poly(c, [(4, 40), (44, 40), (48, 46), (2, 46)], "b")
-    for r in range(14, 2, -3):
-        ellipse(c, 24, 26, r, r, "h" if r % 2 else "H")
-    c.rect(40, 30, 46, 40, "b"); ellipse(c, 44, 30, 4, 4, "b"); c.px(45, 29, "k")
-    c.px(46, 24, "b"); c.px(47, 22, "b"); c.px(43, 24, "b"); c.px(43, 22, "b")
+    """The Snail Goblin (Rossetti: "one crawled like a snail"): a fat goblin crawling under a great spiral shell, with
+    a goblin's grinning face and eyes on stalks, its slime trail glistening behind it."""
+    for x in range(0, 46, 2):
+        c.px(x, 47, "s"); c.px(x + 1, 46, "S")                                             # the slime trail
+    poly(c, [(4, 46), (40, 46), (46, 40), (44, 34), (36, 36), (8, 40)], "b")               # the long soft foot
+    poly(c, [(36, 40), (46, 40), (44, 44), (38, 44)], "B")
+    ellipse(c, 20, 26, 15, 14, "h")                                                        # the great shell
+    for i in range(70):                                                                    # its spiral
+        a = i * 0.18
+        r = 14 - i * 0.19
+        if r > 1:
+            c.px(round(20 + r * math.cos(a)), round(26 + r * math.sin(a)), "H")
+    ellipse(c, 16, 20, 5, 3, "l")                                                          # gloss
+    ellipse(c, 41, 34, 5, 5, "b")                                                          # goblin's head
+    for sx, top in ((39, 24), (44, 22)):                                                   # eyes on stalks
+        c.rect(sx, top, sx, 31, "b"); ellipse(c, sx, top, 1.5, 1.5, "w"); c.px(sx, top, "k")
+    c.row(36, 38, 44, "k"); c.px(39, 37, "w"); c.px(43, 37, "w")                           # a sly grin
 
 
-SNAIL_PAL = {"o": "#120c08", "b": "#8a7a5a", "h": "#a8703a", "H": "#7a4a24", "k": "#1a1008", "s": "#a8d8a0"}
+SNAIL_PAL = {"o": "#120c08", "b": "#8a7a5a", "B": "#6a5a40", "h": "#a8703a", "H": "#6a4024", "l": "#d8a870",
+             "k": "#1a1008", "s": "#a8d8a0", "S": "#c8f0c0", "w": "#f0ece0"}
 
 
 def goblin_merchants(c, step):
-    """The Goblin Merchant-Men (Rossetti: "Come buy our orchard fruits, come buy, come buy"): a crowd of little goblin
-    merchants with laden trays and baskets of fruit, crying their wares."""
-    for k, (x, face) in enumerate(((8, "c"), (24, "g"), (40, "c"))):
-        dy = (step if k % 2 else -step)
-        for d in (-1, 1):
-            c.rect(x + d * 2, 44 + dy, x + d * 2 + 1, 50, "k")
-        c.rect(x - 5, 30 + dy, x + 5, 44 + dy, "b")
-        ellipse(c, x, 26 + dy, 4, 4, face); c.px(x - 1, 25 + dy, "y"); c.px(x + 2, 25 + dy, "y")
-        c.px(x - 3, 22 + dy, face); c.px(x + 3, 22 + dy, face)
-    poly(c, [(2, 18), (48, 18), (44, 24), (6, 24)], "B")                                              # a laden tray
-    for x, col in ((8, "r"), (14, "p"), (20, "y"), (26, "r"), (32, "o2"), (38, "p"), (44, "y")):
-        ellipse(c, x, 16, 2.5, 2.5, col if col != "o2" else "q")
+    """The Goblin Merchant-Men (Rossetti: "Come buy our orchard fruits, come buy, come buy"): three goblin merchants
+    with a cat's face, a rat's and a wombat's, in patched coats and hoods, holding up between them a tray heaped with
+    fruit, crying their wares."""
+    poly(c, [(2, 16), (48, 16), (46, 19), (4, 19)], "B")                                   # the tray
+    for i, (x, col) in enumerate(((5, "r"), (9, "v"), (13, "y"), (17, "q"), (21, "r"), (25, "v"), (29, "y"),
+                                  (33, "q"), (37, "r"), (41, "v"), (45, "y"))):
+        ellipse(c, x, 13 + (i % 2), 2, 2, col); c.px(x - 1, 12 + (i % 2), "w")              # heaped fruit, shining
+    ellipse(c, 15, 10, 2, 2, "q"); ellipse(c, 27, 10, 2, 2, "r"); ellipse(c, 35, 10, 2, 2, "v")
+    for k, (x, face) in enumerate(((9, "cat"), (25, "rat"), (41, "wombat"))):
+        dy = step if k % 2 else -step
+        for lx in (x - 3, x + 2):
+            c.rect(lx, 44 + dy, lx + 1, 50, "k"); c.rect(lx - 1, 51, lx + 2, 52, "k")
+        poly(c, [(x - 6, 27), (x + 6, 27), (x + 7, 45), (x - 7, 45)], "b")                 # patched coat
+        c.px(x - 3, 33, "B"); c.px(x + 2, 38, "B"); c.row(36, x - 6, x + 6, "k")
+        c.rect(x - 7, 19, x - 6, 28, "b"); c.rect(x + 6, 19, x + 7, 28, "b")               # arms up to the tray
+        goblin_face(c, x, 23 + dy, face)
+        poly(c, [(x - 4, 19 + dy), (x, 15 + dy), (x + 4, 19 + dy)], "B") if face != "cat" else None   # hood
+    for i in range(6):
+        c.px(2 - i // 3, 40 - i + step, "c")                                               # a whisking tail
 
 
-MERCHANTS_PAL = dict(GOBLIN_PAL, g="#7a8a5a", q="#e88a2a")
+MERCHANTS_PAL = dict(GOBLIN_PAL)
 
 
-# --- Libertalia (A General History of the Pyrates, 1724; Pontoppidan, Natural History of Norway, 1752-53) -------------
+# --- Libertalia (A General History of the Pyrates, 1724; Pontoppidan, 1752) -------------------------------------------
 
 def buccaneer(c, f):
     """A buccaneer of Libertalia (the General History of the Pyrates): a sailor in a striped shirt and head-scarf with a
@@ -358,10 +450,10 @@ if __name__ == "__main__":
     walk = [0, 1, 2, 3, 4]
     kit.build_boss("bronze_automaton", bronze_automaton, AUTOMATON_PAL, doc(bronze_automaton.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("golden_handmaiden", golden_handmaiden, HANDMAIDEN_PAL, doc(golden_handmaiden.__doc__), (20, 24), (10, 23), walk, folder="enemies")
-    kit.build_boss("aeetes_bulls", aeetes_bulls, BULLS_PAL, doc(aeetes_bulls.__doc__), (58, 52), (28, 50), [0, 1, 0, -1, 0])
-    kit.build_boss("gold_silver_hounds", gold_silver_hound(True), HOUNDS_PAL, doc(gold_silver_hound.__doc__), (52, 46), (24, 44), [0, 1, 0, -1, 0])
-    kit.build_boss("gold_silver_hounds_gold", gold_silver_hound(True), HOUNDS_PAL, doc(gold_silver_hound.__doc__ + " The gold hound."), (52, 46), (24, 44), [0, 1, 0, -1, 0])
-    kit.build_boss("gold_silver_hounds_silver", gold_silver_hound(False), HOUNDS_PAL, doc(gold_silver_hound.__doc__ + " The silver hound."), (52, 46), (24, 44), [0, 1, 0, -1, 0])
+    kit.build_boss("aeetes_bulls", aeetes_bulls, BULLS_PAL, doc(aeetes_bulls.__doc__), (82, 56), (34, 54), [0, 1, 0, -1, 0])
+    kit.build_boss("gold_silver_hounds", gold_silver_hound(True), HOUNDS_GOLD_PAL, doc(gold_silver_hound.__doc__), (74, 54), (36, 52), WOLF_WALK)
+    kit.build_boss("gold_silver_hounds_gold", gold_silver_hound(True), HOUNDS_GOLD_PAL, doc(gold_silver_hound.__doc__ + " The gold hound."), (74, 54), (36, 52), WOLF_WALK)
+    kit.build_boss("gold_silver_hounds_silver", gold_silver_hound(False), HOUNDS_SILVER_PAL, doc(gold_silver_hound.__doc__ + " The silver hound."), (74, 54), (36, 52), WOLF_WALK)
     kit.build_boss("talos", talos(False), TALOS_PAL, doc(talos.__doc__), (54, 68), (26, 66), [0, 1, 0, -1, 0])
     kit.build_boss("talos_hot", talos(True), TALOS_PAL, doc(talos.__doc__ + " Here, red-hot."), (54, 68), (26, 66), [0, 1, 0, -1, 0])
     kit.build_boss("goblin_man", goblin_man, GOBLIN_PAL, doc(goblin_man.__doc__), (20, 22), (10, 21), walk, folder="enemies")

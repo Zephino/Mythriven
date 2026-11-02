@@ -2,6 +2,23 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.53
+Date: 11/02/2026
+Time: 9:14 PM
+
+### Changes
+- **Lemnos and the Goblin Market remade** (owner: all of them).
+  - **The Bulls of Aeëtes:** two great bronze bulls side by side, heads lowered, riveted, fire pouring from their mouths (drawn on the bull body of Empusa).
+  - **The Gold and Silver Hounds:** a gleaming gold hound and a silver one with a blue eye, standing guard with their mouths closed (drawn on the wolf body).
+  - **Talos:** a huge, heavily muscled bronze man with short curled hair and blank glowing eyes, the one vein running from his neck down to the bronze nail in his ankle; and the same giant red-hot.
+  - **The bronze automaton:** a jointed bronze man with rivets at every joint, a gear in his chest and glowing eyes. **The golden handmaiden:** a maiden all of gold with her hair bound up, a pleated gown and a gleam.
+  - **The goblins** now have the animal faces of Rossetti's poem (a cat's face, a rat's, a wombat's). **The goblin man** is cat-faced, his tail whisking, with a basket of fruit; **the rat-paced goblin** scurries on all fours like a rat with a long bare tail and a pack of fruit; **the Goblin Merchant-Men** are three goblins (cat, rat and wombat) in patched coats holding up a tray heaped with shining fruit.
+  - **The Ratel Goblin:** a squat honey badger, black with a broad grey-white mantle from brow to tail, short strong legs with long claws, a fierce eye and teeth.
+  - **The Snail Goblin:** a great glossy spiral shell on a long soft foot, a goblin's head with eyes on stalks and a sly grin, its slime trail glistening.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for everything in Lemnos and the Goblin Market to be remade.
+
 ## Version 00.03.52
 Date: 11/02/2026
 Time: 9:04 PM
