@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.54
+Date: 11/02/2026
+Time: 9:41 PM
+
+### Changes
+- **The Kraken remade** (owner's request). A great mottled mantle rising out of the sea (patchy like the "islands" sailors mistook it for), with light on its back and a huge golden eye with a slit pupil under a heavy lid; four long, thick arms rising out of the water, swaying and curling over at their tips, with pale suckers along their inner sides (the two in front a lighter shade so they stand out); and the sea foaming round it. It is bigger than before.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time; in Libertalia and the Hollow Hills, the owner asked for the Kraken to be remade.
+
 ## Version 00.03.53
 Date: 11/02/2026
 Time: 9:14 PM

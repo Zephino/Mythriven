@@ -347,19 +347,54 @@ MISSON_PAL = {"o": "#0a0a10", "k": "#1a1a22", "u": "#2a3a7a", "w": "#ece4d4", "s
 
 def kraken(c, step):
     """The Kraken (Pontoppidan, 1752-53): a sea-beast so vast that its back, rising out of the sea, was taken for a
-    cluster of small islands; its arms could pull down the greatest ship."""
-    ellipse(c, 40, 38, 30, 14, "r"); ellipse(c, 40, 34, 22, 8, "R")
-    c.px(32, 30, "y"); c.px(48, 30, "y")
-    for k in range(6):
-        ax = 6 + k * 13
-        for t in range(16):
-            x = ax + round(4 * math.sin(t / 3 + k + step * 0.6))
-            c.rect(x, 40 - t * 2, x + 2, 42 - t * 2, "r" if t % 3 else "p")
-    for x in range(0, 82, 4):
-        c.px(x, 54, "w"); c.px(x + 1, 53, "b")
+    cluster of small islands, its arms like the masts of ships, able to pull down the greatest ship. A great mottled
+    mantle rising from the sea with a huge golden eye, long thick arms rising high out of the water and curling over at
+    their tips, pale suckers along them, and the sea foaming round it."""
+    def arm(x0, y0, height, lean, phase, width, col, shade, mirror=False):
+        """A long arm rising out of the water, swaying, then curling over at its tip; suckers along its inner side."""
+        pts = []
+        x, y = float(x0), float(y0)
+        ang = -math.pi / 2 + lean * 0.15
+        n = int(height * 1.4)
+        for t in range(n):
+            u = t / (n - 1)
+            if u > 0.62:
+                ang += lean * 0.16                                                       # the curl at the tip
+            ang += math.sin(u * 4 + phase + step * 0.5) * 0.03
+            x += math.cos(ang) * 0.9; y += math.sin(ang) * 0.9
+            pts.append((2 * x0 - x if mirror else x, y))
+        if mirror:
+            lean = -lean
+        for t, (px, py) in enumerate(pts):
+            r = width * (1 - t / len(pts) * 0.8)
+            ellipse(c, px, py, r, r, col)
+        for t, (px, py) in enumerate(pts):
+            r = width * (1 - t / len(pts) * 0.8)
+            if t % 4 == 2 and r > 1.2:
+                c.px(round(px - lean * (r - 0.6)), round(py), "p")                       # suckers
+            if t % 3 == 0:
+                c.px(round(px + lean * (r - 0.6)), round(py), shade)                     # shading along its back
+    arm(8, 62, 44, -1, 0.0, 3.6, "r", "R"); arm(82, 62, 44, -1, 1.6, 3.6, "r", "R", mirror=True)      # the outer arms, rising high
+    ellipse(c, 45, 52, 28, 15, "R")                                                      # the vast mantle
+    ellipse(c, 45, 48, 24, 13, "r")
+    ellipse(c, 38, 41, 11, 5, "l")                                                       # light on its back
+    for x, y in ((28, 48), (34, 54), (50, 42), (56, 50), (44, 56), (62, 46), (24, 54), (40, 38)):
+        ellipse(c, x, y, 2.2, 1.6, "R")                                                  # mottled, island-like patches
+    arm(22, 62, 30, -1, 0.8, 3.0, "a", "R"); arm(68, 62, 30, -1, 2.4, 3.0, "a", "R", mirror=True)     # the inner arms, in front
+    ellipse(c, 57, 46, 5.5, 4.5, "W"); ellipse(c, 57, 46, 4, 3.4, "y")                   # the huge golden eye
+    c.rect(57, 44, 57, 48, "k"); c.px(56, 44, "w")                                       # slit pupil, gleam
+    c.row(42, 52, 62, "R")                                                               # a heavy lid
+    for x in range(0, c.w):                                                              # the sea round it
+        y = 60 + round(math.sin(x * 0.45 + step) * 1.2)
+        for yy in range(y, c.h):
+            if c.g[yy][x] == "." or yy > y + 1:
+                c.px(x, yy, "b" if yy > y + 2 else "B")
+        if (x + step) % 5 == 0:
+            c.px(x, y - 1, "w"); c.px(min(x + 1, c.w - 1), y, "w")                       # foam
 
 
-KRAKEN_PAL = {"o": "#120608", "r": "#8a3a4a", "R": "#6a2a3a", "p": "#c87a8a", "y": "#f0d040", "w": "#e8f0f4",
+KRAKEN_PAL = {"o": "#120608", "r": "#8a3a4a", "R": "#6a2a3a", "p": "#e8b0b8", "y": "#f0d040", "w": "#e8f0f4",
+              "l": "#a85a68", "W": "#f4ecd0", "k": "#1a0a0a", "B": "#4a7a9a", "a": "#a04a5a",
               "b": "#3a6a9a"}
 
 
@@ -466,7 +501,7 @@ if __name__ == "__main__":
     kit.build_boss("gull", gull, GULL_PAL, doc(gull.__doc__), (20, 12), (10, 11), walk, folder="enemies")
     kit.build_boss("sea_serpent", sea_serpent, SERPENT_PAL, doc(sea_serpent.__doc__), (70, 50), (34, 48), [0, 1, 0, -1, 0])
     kit.build_boss("misson", misson, MISSON_PAL, doc(misson.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("kraken", kraken, KRAKEN_PAL, doc(kraken.__doc__), (82, 58), (40, 56), [0, 1, 0, -1, 0])
+    kit.build_boss("kraken", kraken, KRAKEN_PAL, doc(kraken.__doc__), (90, 70), (44, 68), [0, 1, 0, -1, 0])
     kit.build_boss("nome", nome, NOME_PAL, doc(nome.__doc__), (20, 22), (10, 21), walk, folder="enemies")
     kit.build_boss("gnome", gnome, GNOME_PAL, doc(gnome.__doc__), (20, 22), (10, 21), walk, folder="enemies")
     kit.build_boss("kaliko", kaliko, KALIKO_PAL, doc(kaliko.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
