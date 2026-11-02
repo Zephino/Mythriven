@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.58
+Date: 11/02/2026
+Time: 11:20 PM
+
+### Changes
+- **README rewritten as a guide to playing the game.** It now covers: the play link; how to play in one minute; the controls for keyboard and mouse, gamepad and touch; how a run goes (the Ages, bosses, the Unraveling, what gold you keep); level-up cards, saving a level-up, rerolls and banish; chests and evolutions; the elements and their combos; the gods (shrines, trials, meters, Resonance, infusions); the places to explore (ruins, hoards, lairs, the Trader, hidden groves, mountains); the 16 Heroes and how to unlock each; the Hall of Legends, secrets, Omens and Swift Mode; all 54 levels by pack and how they open; online co-op; saving and cloud saves; useful settings; and tips. The old build-phase table and developer notes were replaced by a short "For developers" section pointing to START_HERE.md. Every fact was checked against the game's code and data.
+
+### Reason
+The owner asked for the README to become instructions on how to play the game.
+
 ## Version 00.03.57
 Date: 11/02/2026
 Time: 11:09 PM
