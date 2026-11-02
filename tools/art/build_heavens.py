@@ -283,66 +283,77 @@ SCORPION_PAL = {"o": "#0a0c1a", "d": "#3a2a5a", "D": "#261c40", "b": "#9a7ae0", 
 
 def great_bear(c, step):
     """The Great Bear (Ovid, Metamorphoses 2.401-530; Aratus 26-62): Callisto, turned into a bear and set among the
-    stars, where she turns round the pole and never sinks into the sea: a great bear of night-blue edged with
-    starlight, humped at the shoulder, with a broad head and small round ears, her long starry tail as the old sky
-    maps drew it, and her seven bright stars."""
-    for x, d in ((14, step), (40, -step)):                                               # far legs
-        c.rect(x + d, 34, x + 6 + d, 46, "D"); c.rect(x - 1 + d, 46, x + 7 + d, 48, "k")
-    tail = []
-    for i in range(16):                                                                  # the long starry tail
-        t = i / 15
-        tail.append((9 - t * 9, 26 - t * 4 + t * t * 6))
-    for x, y in tail:
-        ellipse(c, x, y, 2.2 - 0.8 * (abs(x - 9) / 9), 2.2 - 0.8 * (abs(x - 9) / 9), "d")
-    ellipse(c, 28, 30, 20, 11, "d"); ellipse(c, 38, 24, 10, 7, "d")                      # body, shoulder hump
-    ellipse(c, 27, 35, 17, 5, "D")                                                       # belly in shadow
-    for x, y in ((14, 24), (20, 22), (26, 21), (32, 20), (18, 30), (24, 32), (34, 28)):
-        c.px(x, y, "D"); c.px(x + 1, y + 1, "D")                                         # fur
-    c.rect(20 - step, 34, 26 - step, 46, "d"); c.rect(19 - step, 46, 27 - step, 48, "k")   # near legs
-    c.rect(44 + step, 32, 50 + step, 46, "d"); c.rect(43 + step, 46, 51 + step, 48, "k")
-    for x in (20, 23, 26):
+    stars, where she turns round the pole and never sinks into the sea: a great shaggy bear of night-blue edged with
+    starlight, with a heavy shoulder hump, her head carried low with a long snout and small round ears, thick legs on
+    broad clawed paws, and her seven bright stars along her back."""
+    poly(c, [(19 + step, 30), (25 + step, 30), (25 + step, 44), (19 + step, 44)], "D")       # far hind leg
+    c.rect(18 + step, 44, 26 + step, 46, "k")
+    poly(c, [(32 - step, 30), (38 - step, 30), (38 - step, 44), (32 - step, 44)], "D")       # far foreleg
+    c.rect(31 - step, 44, 39 - step, 46, "k")
+    poly(c, [(4, 28), (6, 20), (12, 16), (22, 16), (30, 13), (36, 10), (41, 12), (44, 18), (47, 24), (48, 31),
+             (44, 34), (36, 36), (18, 36), (10, 34)], "d")                               # body, humped at the shoulder
+    poly(c, [(10, 31), (44, 31), (44, 34), (36, 36), (18, 36), (10, 34)], "D")           # belly in shadow
+    poly(c, [(8, 19), (12, 16), (22, 16), (30, 13), (36, 10), (42, 12), (40, 14), (30, 16), (20, 19), (10, 21)], "l")   # light along the back
+    ellipse(c, 4, 23, 2, 1.6, "d")                                                       # stubby tail
+    for x, y in ((14, 23), (20, 22), (26, 21), (32, 18), (38, 16), (17, 28), (24, 27), (31, 25), (38, 23), (42, 20)):
+        c.px(x, y, "D")                                                                  # shaggy fur
+    poly(c, [(8, 22), (21, 23), (21, 33), (19, 39), (20, 44), (12, 44), (12, 38), (8, 32)], "d")   # near hind leg
+    c.rect(11 - step, 44, 21 - step, 47, "k"); c.row(44, 12 - step, 20 - step, "D")
+    poly(c, [(36, 24), (45, 24), (45, 38), (44, 44), (37, 44), (37, 36)], "d")            # near foreleg
+    c.rect(36 + step, 44, 47 + step, 47, "k"); c.row(44, 37 + step, 46 + step, "D")
+    for x in (13, 16, 19):
         c.px(x - step, 48, "w")                                                          # claws
-    ellipse(c, 51, 26, 8, 7, "d"); ellipse(c, 50, 30, 6, 3, "D")                         # broad head
-    poly(c, [(55, 24), (61, 26), (61, 30), (55, 31)], "d"); ellipse(c, 61, 27, 1.2, 1.2, "k")   # snout, nose
-    ellipse(c, 46, 19, 2.4, 2.4, "d"); ellipse(c, 53, 19, 2.4, 2.4, "d")                 # small round ears
-    rim(c, "dD", "b")
-    c.px(54, 25, "w"); c.px(53, 25, "y")                                                 # eye
-    stars = [tail[15], tail[10], tail[5], (12, 23), (14, 31), (26, 32), (26, 23)]          # the seven stars
-    for x, y in stars:
-        x, y = round(x), round(y)
-        c.px(x, y, "w"); c.px(x - 1, y, "y"); c.px(x + 1, y, "y"); c.px(x, y - 1, "y"); c.px(x, y + 1, "y")
+    for x in (40, 43, 46):
+        c.px(x + step, 48, "w")
+    ellipse(c, 50, 23, 2.4, 2.4, "d"); ellipse(c, 55, 23, 2.4, 2.4, "d")                 # small round ears
+    c.px(50, 23, "D"); c.px(55, 23, "D")
+    ellipse(c, 53, 29, 5.5, 5, "d"); c.row(25, 50, 56, "l")                              # head, carried low
+    poly(c, [(56, 27), (61, 29), (61, 33), (55, 34)], "d")                               # snout
+    for t in range(9):
+        c.px(48 + t, 32 + t // 3, "D")                                                   # jaw line
+    ellipse(c, 61, 30, 1.2, 1.2, "k"); c.row(33, 58, 60, "k")                            # nose, mouth
+    rim(c, "dDl", "b")
+    c.px(56, 28, "w"); c.px(55, 28, "k")                                                 # eye
+    for x, y in ((12, 22), (18, 20), (24, 22), (30, 19), (36, 15), (41, 17), (28, 27)):    # the seven stars
+        c.px(x, y, "w"); c.px(x - 1, y, "y"); c.px(x + 1, y, "y")
 
 
-BEAR_PAL = {"o": "#06081a", "d": "#2a3a72", "D": "#1c2854", "b": "#6a8ae0", "k": "#141c3a", "w": "#ffffff",
-            "y": "#c8d4ff"}
+BEAR_PAL = {"o": "#06081a", "d": "#3a4f9a", "D": "#24326a", "l": "#5068b8", "b": "#8aa8f8", "k": "#141c3a",
+            "w": "#ffffff", "y": "#c8d4ff"}
 
 
 def orion(c, step):
     """Orion (Apollodorus 1.4.3-5; Aratus; Ptolemy, Almagest 8: the stars of his shoulders, belt, sword and pelt): the
-    giant hunter as he stands in the sky, a figure of deep night-blue edged with starlight, raising his club, a pelt
-    over his forward arm, the three bright stars of his belt, his sword hanging from it, red Betelgeuse at his shoulder
-    and blue-white Rigel at his foot."""
-    person(c, step, cx=18, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="short", beard="h",
-           garment="tunic", robe="d", robe_d="D", legs="s", boots="D", belt="y", arm_forward=True, eye="w")
-    poly(c, [(30, 22), (37, 20), (39, 34), (36, 40), (32, 36)], "p")                     # the pelt over his arm
-    for y in range(24, 38, 3):
-        c.px(35, y, "P")
-    c.px(38, 40, "P"); c.px(33, 39, "P")
-    c.rect(8, 4, 10, 24, "b"); ellipse(c, 9, 4, 3, 3.5, "b"); c.px(8, 3, "B"); c.px(10, 6, "B")   # his club, raised
-    ellipse(c, 10, 24, 2, 2, "s")                                                        # the hand that raises it
-    c.rect(16, 30, 16, 40, "i"); c.row(30, 14, 18, "y")                                  # the sword hanging from his belt
-    rim(c, "sSdDhH", "c")
-    for x in (15, 18, 21):
-        c.px(x, 28, "w"); c.px(x, 27, "y")                                               # the belt's three stars
-    for x, y, col in ((12, 17, "r"), (24, 17, "w"), (20, 52, "c"), (14, 52, "w"), (18, 3, "w")):
-        c.px(x, y, col); c.px(x - 1, y, "y"); c.px(x + 1, y, "y")                        # Betelgeuse, Rigel and the rest
-    c.px(16, 36, "w")                                                                    # the star in his sword
+    giant hunter, broad and bearded, in a tunic of deep night-blue spangled with stars, raising a great knotted club
+    over his head, a lion's pelt hanging from his forward arm, a gold belt set with three bright stars and a sword
+    hanging from it; red Betelgeuse burns at his shoulder and blue-white Rigel at his foot."""
+    person(c, step, cx=20, skin="s", skin_d="S", hair="h", hair_d="H", hair_style="short", beard="h",
+           garment="tunic", robe="d", robe_d="D", legs="s", boots="b", belt="y", arm_forward=True)
+    for y in range(12, 17):
+        c.px(18 + (y % 2), y, "H"); c.px(22 - (y % 2), y, "H")                           # curls in his beard
+    poly(c, [(11, 18), (8, 16), (7, 10), (9, 9), (11, 15), (13, 17)], "s")               # far arm raised
+    c.rect(5, 2, 8, 12, "b"); ellipse(c, 6, 3, 3.5, 3.5, "b")                            # the great knotted club
+    c.px(4, 2, "B"); c.px(8, 5, "B"); c.px(5, 7, "B"); c.px(7, 10, "B"); c.px(3, 4, "B")
+    ellipse(c, 8, 10, 2, 2, "s")                                                         # fist round it
+    poly(c, [(31, 21), (37, 20), (39, 34), (37, 42), (34, 44), (32, 36)], "p")           # the lion's pelt
+    poly(c, [(31, 21), (33, 21), (33, 36), (32, 36)], "P")
+    for y in range(24, 42, 3):
+        c.px(36, y, "P")
+    c.px(35, 45, "P"); c.px(38, 43, "P"); c.px(33, 45, "P")                              # its paws hanging
+    ellipse(c, 34, 22, 2.4, 2, "s")                                                      # his hand under it
+    for x, y in ((15, 21), (24, 23), (17, 33), (23, 37), (19, 26)):
+        c.px(x, y, "c")                                                                  # stars on his tunic
+    c.rect(15, 29, 15, 41, "i"); c.row(29, 13, 17, "y"); c.px(15, 41, "I")               # sword hanging from the belt
+    for x in (17, 20, 23):
+        c.px(x, 28, "w")                                                                 # the belt's three stars
+    for x, y, col in ((26, 17, "r"), (16, 52, "c")):
+        c.px(x, y, col); c.px(x - 1, y, "Y"); c.px(x + 1, y, "Y"); c.px(x, y - 1, "Y")   # Betelgeuse, Rigel
 
 
-ORION_PAL = {"o": "#06081a", "k": "#141a30", "s": "#3a4c8e", "S": "#2a3a72", "d": "#24306a", "D": "#18204e",
-             "h": "#1a2250", "H": "#121840", "m": "#121840", "c": "#8aa8f0", "y": "#c8d4ff", "w": "#ffffff",
-             "r": "#ff7a5a", "p": "#7a6a5a", "P": "#5a4a3e", "b": "#5a4a3a", "B": "#3a3028", "i": "#c8d0e8",
-             "l": "#3a4c8e"}
+ORION_PAL = {"o": "#06081a", "k": "#1a1410", "s": "#c88a5a", "S": "#a06a3e", "d": "#24306a", "D": "#18204e",
+             "h": "#2a1a10", "H": "#140c06", "m": "#7a3a2a", "c": "#c8d4ff", "Y": "#fff4c0", "w": "#ffffff",
+             "r": "#ff7a3a", "p": "#c8944a", "P": "#9a6a32", "b": "#6a4a2a", "B": "#4a3220", "i": "#c8d0e8",
+             "I": "#8a90a0", "y": "#e8c040", "l": "#c88a5a"}
 
 
 # --- The Glass Mountain (Grimm KHM 25, KHM 196; Andersen, "The Snow Queen", 1844) -------------------------------------

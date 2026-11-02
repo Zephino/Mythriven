@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.60
+Date: 11/02/2026
+Time: 11:37 PM
+
+### Changes
+- **The Great Bear redrawn as a proper bear.** A heavy shoulder hump with light along her back, her head carried low and forward on a dipping neck, with a snout, a nose and small round ears; thick legs on broad clawed paws; a stubby tail instead of the long starry one. She keeps her night-blue colour, starlit edge and seven stars.
+- **Orion redrawn as a real giant hunter** rather than a dark silhouette. Broad, bearded and sun-browned, in a tunic of deep night-blue spangled with stars, raising a great knotted club over his head, a lion's pelt hanging from his forward arm, a gold belt with three bright stars and a sword hanging from it, with red Betelgeuse at his shoulder and Rigel at his foot.
+
+### Reason
+The owner said the Great Bear didn't look like a bear and asked for Orion to be reworked.
+
 ## Version 00.03.59
 Date: 11/02/2026
 Time: 11:28 PM
