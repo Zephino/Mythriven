@@ -2,6 +2,24 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.51
+Date: 11/02/2026
+Time: 7:31 PM
+
+### Changes
+- **Utgard and Logres remade** (owner: all of them).
+  - **Logi** ("Wildfire"): a giant made of fire, with a head, shoulders and raised arms of flame, a white-hot heart, flames licking up from his head, dark coal eyes, a wide hungry mouth (he ate the trough too), and sparks.
+  - **Hugi** ("Thought"): a slim, pale, half-see-through youth caught mid-stride, leaning into the run with his arms swinging and his hair streaming back, speed lines behind him.
+  - **Útgarða-Loki:** a towering giant king with a long grey beard and a silver crown, in blue with a fur mantle and a cloak, holding up the great drinking horn Thor could not empty. **His illusion** is the same shape, pale and shot through with mist.
+  - **The Utgard thrall:** a big, rough servant with shaggy hair and beard, in a shaggy fur jerkin, bare-armed, with a cudgel. **The phantom:** a pale, half-there figure with hollow eyes, reaching, its lower half trailing into mist.
+  - **The Questing Beast** (Malory: a serpent's head, a leopard's body, a lion's haunches, a hart's feet): a spotted leopard body, tawny lion's haunches and tufted tail, slim jointed deer's legs with hooves, and a long scaly serpent neck and head with a forked tongue.
+  - **Morgan le Fay:** pale, with long black hair, a gold circlet and green eyes, a dark green gown and a black velvet mantle, holding Excalibur's jewelled scabbard.
+  - **Vortigern:** a grim grey-bearded king with a gold crown, in mail under a red cloak, his sword raised in his fist.
+  - **The man-at-arms:** a mail shirt with rings, a conical helm with a nose-guard, a red round shield with an iron boss, and a spear.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for everything in Utgard and Logres to be remade.
+
 ## Version 00.03.50
 Date: 11/02/2026
 Time: 7:23 PM

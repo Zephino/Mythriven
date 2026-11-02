@@ -5,7 +5,7 @@ import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
 from figure_kit import person
-from build_gothic import raven as raven_body, empusa as gothic_beast
+from build_gothic import raven as raven_body, empusa as gothic_beast, hoofed_leg
 
 STEP = [0, -1, 0, 1, 0]
 
@@ -262,145 +262,224 @@ ASTERION_PAL = {"o": "#0e0806", "s": "#a86a44", "S": "#7a4a2a", "l": "#3a2418", 
 # --- Utgard (Snorri, Gylfaginning 44-47) ------------------------------------------------------------------------------
 
 def utgard_thrall(c, f):
-    """A thrall of Utgard's hall (Gylfaginning 46: the great hall full of giants on benches): a big rough giant's
-    servant in furs, carrying a cudgel."""
+    """A thrall of Utgard's hall (Gylfaginning 46: the great hall full of giants on benches): a big, rough giant's
+    servant with shaggy hair and beard, in a shaggy fur jerkin, bare-armed, carrying a cudgel."""
     s = STEP[f]
     for x, d in ((7, -s), (12, s)):
-        c.rect(x + d, 19, x + 2 + d, 24, "k")
-    c.rect(5, 8, 15, 19, "f"); c.row(13, 5, 15, "F")
-    ellipse(c, 10, 5, 3.5, 3, "s"); c.rect(7, 1, 13, 3, "h"); c.rect(8, 7, 12, 9, "h")
-    c.rect(17, 3, 18, 17, "b")
+        c.rect(x + d, 19, x + 2 + d, 23, "F"); c.rect(x - 1 + d, 24, x + 3 + d, 25, "k")
+    poly(c, [(4, 9), (16, 9), (17, 19), (3, 19)], "f")                                   # fur jerkin
+    for x, y in ((5, 11), (8, 13), (12, 12), (15, 14), (6, 16), (11, 17), (14, 18)):
+        c.px(x, y, "F")                                                                  # shaggy fur
+    c.row(15, 4, 16, "b")
+    c.rect(2, 10, 3, 17, "s"); c.rect(17, 10, 18, 15, "s")                               # bare arms
+    ellipse(c, 10, 5, 3.6, 3.4, "s")
+    ellipse(c, 10, 2, 4, 2, "h"); c.rect(6, 2, 7, 7, "h"); c.rect(13, 2, 14, 7, "h")     # shaggy hair
+    poly(c, [(7, 6), (13, 6), (12, 10), (10, 11), (8, 10)], "h")                         # beard
+    c.px(9, 4, "k"); c.px(12, 4, "k")
+    c.rect(18, 2, 20, 16, "b"); ellipse(c, 19, 2, 2, 2, "b"); c.px(18, 1, "B")           # cudgel
 
 
-THRALL_PAL = {"o": "#100c08", "k": "#2a2018", "f": "#8a7458", "F": "#6a5640", "s": "#c8a888", "h": "#8a6a40",
-              "b": "#5a3a1a"}
+THRALL_PAL = {"o": "#100c08", "k": "#2a2018", "f": "#8a7458", "F": "#5a4630", "s": "#c8a888", "h": "#8a6a40",
+              "b": "#5a3a1a", "B": "#3a2410"}
 
 
 def utgard_phantom(c, f):
-    """A phantom of Utgard (Gylfaginning 47: all of it was illusion): a pale, half-there shape that bursts at a blow."""
+    """A phantom of Utgard (Gylfaginning 47: all of it was illusion): a pale, half-there figure with hollow eyes, its
+    lower half trailing away into mist, that bursts at a blow."""
     s = STEP[f]
-    poly(c, [(6, 4), (10, 4), (12, 13 + s), (4, 13 - s)], "w")
-    c.px(7, 6, "k"); c.px(9, 6, "k")
-    for x in range(4, 13, 2):
-        c.px(x, 14 + (x + f) % 2, "W")
+    ellipse(c, 8, 4, 3, 3.4, "w")
+    poly(c, [(4, 7), (12, 7), (13, 12), (11, 16), (5, 16), (3, 12)], "w")
+    poly(c, [(4, 7), (6, 7), (5, 16), (3, 12)], "W")
+    c.rect(6, 3, 6, 4, "k"); c.rect(10, 3, 10, 4, "k"); c.px(8, 6, "k")                  # hollow eyes, mouth
+    c.rect(1, 8, 3, 9, "w"); c.rect(13, 8, 15, 9, "w")                                   # reaching arms
+    for i, x in enumerate(range(4, 13, 2)):
+        c.px(x, 16 + (i + f) % 2, "W"); c.px(x + 1, 17 - (i + s) % 2, "m")              # trailing into mist
+    for x, y in ((2, 3), (14, 4), (1, 12), (15, 13)):
+        c.px(x, y, "m")
 
 
-PHANTOM_PAL = {"o": "#4a5468", "w": "#d8dcec", "W": "#a8b0c8", "k": "#2a3040"}
+PHANTOM_PAL = {"o": "#4a5468", "w": "#d8dcec", "W": "#a8b0c8", "k": "#2a3040", "m": "#c0c8e0"}
 
 
 def utgarda_loki(copy):
     """Utgarda-Loki (Gylfaginning 44-47): the king of the giants of Utgard, so tall that Thor had to bend his head back
-    to see over him, master of illusions."""
+    to see over him, master of illusions, who set Thor to drink from a horn whose end lay in the sea. A towering giant
+    king with a long grey beard and a silver crown, in blue with a fur mantle, holding the great drinking horn. (His
+    illusion is the same shape, pale and made of mist.)"""
     def draw(c, step):
-        figure(c, step, "g" if not copy else "G", "s", "h", x0=14, top=20, bottom=52)
-        c.rect(16, 20, 26, 30, "G" if not copy else "g")
-        c.rect(14, 2, 27, 4, "y"); c.px(15, 1, "y"); c.px(21, 1, "y"); c.px(26, 1, "y")
-        poly(c, [(16, 15), (25, 15), (24, 26), (17, 26)], "h")                                   # long beard
+        person(c, step, cx=21, head_y=10, hair="h", hair_d="H", hair_style="shoulder", beard="h", garment="robe",
+               robe="g", robe_d="G", belt="y", crown="y", arm_forward=True, boots="k", cloak=("G", "k"))
+        poly(c, [(10, 17), (32, 17), (33, 22), (9, 22)], "f"); c.row(17, 11, 31, "F")    # fur mantle
+        poly(c, [(16, 12), (26, 12), (26, 22), (24, 28), (21, 32), (18, 28), (16, 22)], "h")   # long beard
+        for x in (18, 21, 24):
+            for y in range(15, 29, 2):
+                if c.g[y][x] == "h":
+                    c.px(x, y, "H")
+        c.row(8, 17, 20, "H"); c.row(8, 22, 25, "H"); c.px(19, 10, "e"); c.px(23, 10, "e")   # brows, eyes
+        for i, (x, y) in enumerate(((34, 18), (36, 17), (38, 15), (39, 12), (39, 9), (38, 6))):
+            ellipse(c, x, y, 0.8 + i * 0.35, 0.8 + i * 0.35, "d")                        # the drinking horn
+        c.row(5, 36, 40, "y")
         if copy:
-            for y in range(0, 58, 3):
-                for x in range(4, 40, 4):
-                    if (x + y) % 3 == 0 and y < len(c.g) and x < len(c.g[y]) and c.g[y][x] in ("g", "G", "h"):
-                        c.px(x, y, "m")
+            for y in range(c.h):
+                for x in range(c.w):
+                    if c.g[y][x] not in (".", "o") and (x * 3 + y * 5) % 7 == 0:
+                        c.px(x, y, "m")                                                  # mist through the illusion
     return draw
 
 
-UTGARD_PAL = {"o": "#0a0c14", "k": "#2a2a34", "g": "#4a5a7a", "G": "#3a4a6a", "s": "#c8b8a8", "h": "#a8a0a0",
-              "y": "#c8c8d0", "m": "#c8d0f0"}
+UTGARD_PAL = {"o": "#0a0c14", "k": "#2a2a34", "g": "#4a5a7a", "G": "#3a4a6a", "s": "#c8b8a8", "S": "#9a8a7a",
+              "h": "#a8a0a0", "H": "#787070", "y": "#c8c8d0", "m": "#c8d0f0", "f": "#8a7a6a", "F": "#c8bca8",
+              "d": "#d8c8a0", "e": "#5a7aa0"}
+ILLUSION_PAL = {"o": "#4a5468", "k": "#8a92a8", "g": "#a8b4cc", "G": "#94a0b8", "s": "#d8dce4", "S": "#b8c0cc",
+                "h": "#d8dce4", "H": "#b0b8c8", "y": "#e8ecf4", "m": "#f0f4ff", "f": "#c0c8d8", "F": "#e0e4f0",
+                "d": "#e8e8f0", "e": "#8a9ab8"}
 
 
 def logi(c, step):
     """Logi (Gylfaginning 46-47): "Wildfire", who ate the meat, the bones and the trough itself in the eating contest
-    against Loki. A tall figure made of leaping flame."""
-    for y in range(4, 58):
-        w = 3 + int(9 * math.sin(min(y, 50) / 50 * math.pi)) + ((y + step * 2) % 4 == 0)
-        c.rect(21 - w, y, 21 + w, y, "r" if y > 40 else ("y" if (y + step) % 5 else "w"))
-    for k in range(5):
-        c.px(14 + k * 3, 2 - (k + step) % 2, "y")
-    c.px(18, 14, "k"); c.px(24, 14, "k"); c.rect(18, 20, 24, 21, "k")
+    against Loki. A tall giant made of fire: head, shoulders and arms of flame with a white-hot heart, flames licking up
+    from him, dark coal eyes and a wide, hungry mouth."""
+    def flame_fill(points, hot):
+        poly(c, points, "r")
+        xs = [p[0] for p in points]; ys = [p[1] for p in points]
+        for y in range(min(ys), max(ys) + 1):
+            row = [x for x in range(min(xs), max(xs) + 1) if c.g[y][x] == "r"]
+            if len(row) > 4:
+                for x in row[2:-2]:
+                    c.px(x, y, "y")
+                if len(row) > 8 and hot:
+                    for x in row[4:-4]:
+                        c.px(x, y, "w")
+    flame_fill([(14, 20), (28, 20), (30, 40), (26, 56), (16, 56), (12, 40)], True)       # the body
+    for k, d in enumerate((-step, step)):                                                # arms of flame, raised
+        side = -1 if k == 0 else 1
+        x = 21 + side * 8
+        flame_fill([(x - 2, 22), (x + 2, 22), (x + side * 6 + 2, 8 + d * 2), (x + side * 6 - 2, 8 + d * 2)], False)
+    flame_fill([(16, 6), (26, 6), (27, 18), (21, 22), (15, 18)], True)                   # the head
+    for i, x in enumerate(range(13, 31, 3)):                                             # flames licking up
+        h = 3 + (i + step) % 3
+        poly(c, [(x, 7), (x + 2, 7), (x + 1, 7 - h)], "y" if i % 2 else "r")
+    c.rect(18, 11, 19, 12, "k"); c.rect(23, 11, 24, 12, "k")                             # coal eyes
+    poly(c, [(17, 15), (25, 15), (24, 19), (18, 19)], "k"); c.row(15, 18, 24, "r")       # the wide, hungry mouth
+    for x, y in ((8, 30), (34, 34), (6, 44), (36, 46), (20, 2)):
+        c.px(x, y - step, "y")                                                           # sparks
 
 
-LOGI_PAL = {"o": "#4a1004", "r": "#c83a10", "y": "#f0a020", "w": "#fff0a0", "k": "#5a1a04"}
+LOGI_PAL = {"o": "#4a1004", "r": "#c83a10", "y": "#f0a020", "w": "#fff0a0", "k": "#3a0a02"}
 
 
 def hugi(c, step):
-    """Hugi (Gylfaginning 46-47): the young man who outran Thjalfi three times; he was Utgarda-Loki's thought. A slim
-    pale runner, caught mid-stride, hair streaming."""
-    for k, d in enumerate((-step * 3, step * 3)):
-        c.rect(17 + k * 5 + d, 42, 19 + k * 5 + d, 54, "s")
-    c.rect(15, 20, 26, 42, "w"); c.rect(15, 32, 26, 34, "W")
-    c.rect(17, 8, 25, 18, "s"); c.px(19, 12, "k"); c.px(23, 12, "k")
-    for k in range(10):
-        c.px(15 - k, 8 + k // 3, "h"); c.px(15 - k, 9 + k // 3, "h")                               # hair streaming back
+    """Hugi (Gylfaginning 46-47): the young man who outran Thjalfi three times; he was Utgarda-Loki's thought, and
+    nothing is as fast as thought. A slim, pale, half-see-through youth caught mid-stride, leaning into the run, arms
+    swinging, hair streaming back, speed lines behind."""
+    d = step * 2
+    poly(c, [(22, 40), (25, 40), (31 + d, 48), (34 + d, 54), (30 + d, 54), (28 + d, 49)], "s")   # forward leg, bent
+    poly(c, [(18, 40), (21, 40), (14 - d, 48), (10 - d, 52), (8 - d, 50), (12 - d, 46)], "S")    # back leg, pushing off
+    poly(c, [(17, 20), (27, 18), (28, 30), (24, 42), (17, 42), (16, 30)], "w")           # body, leaning forward
+    poly(c, [(17, 20), (20, 20), (19, 42), (17, 42), (16, 30)], "W")
+    c.row(32, 16, 27, "b")                                                               # girdle
+    poly(c, [(26, 22), (29, 22), (34 + d, 30), (31 + d, 32)], "s")                       # forward arm
+    poly(c, [(17, 22), (14, 22), (9 - d, 28), (12 - d, 30)], "S")                        # back arm
+    ellipse(c, 25, 12, 4.5, 5, "s"); c.px(27, 11, "k"); c.px(28, 13, "S")                # face, turned forward
+    ellipse(c, 23, 8, 4.5, 2.5, "h")
+    for k in range(12):
+        c.px(20 - k, 8 + k // 3, "h"); c.px(20 - k, 9 + k // 3, "H")                     # hair streaming back
     for k in range(4):
-        c.row(26 + k * 4, 2, 10 - k * 2, "W")                                                       # speed lines
+        c.row(22 + k * 6, 0, 8 - k * 2, "W")                                             # speed lines
+    for y in range(0, c.h):
+        for x in range(c.w):
+            if c.g[y][x] in "wsS" and (x + y * 3) % 9 == 0:
+                c.px(x, y, "m")                                                          # half see-through
 
 
-HUGI_PAL = {"o": "#2a3040", "s": "#e8dcd0", "w": "#e8eef8", "W": "#a8b8d8", "k": "#1a2030", "h": "#d8d0b0"}
+HUGI_PAL = {"o": "#2a3040", "s": "#e8dcd0", "S": "#c0b4ac", "w": "#e8eef8", "W": "#a8b8d8", "k": "#1a2030",
+            "h": "#d8d0b0", "H": "#b0a888", "b": "#a8b8d8", "m": "#c8d4ec"}
 
 
 # --- Logres (Geoffrey of Monmouth 6.17-8.2; Malory, Le Morte d'Arthur 1.19-20, 4.14) ----------------------------------
 
 def man_at_arms(c, f):
-    """A man-at-arms of Vortigern's Britain (Geoffrey of Monmouth): a soldier in a mail shirt and conical helm with a
-    round shield and a spear."""
+    """A man-at-arms of Vortigern's Britain (Geoffrey of Monmouth): a soldier in a mail shirt and a conical helm with a
+    nose-guard, a red round shield with an iron boss, and a spear."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 18, x + 1 + d, 22, "k")
-    c.rect(5, 8, 14, 18, "m"); c.row(12, 5, 14, "M"); c.rect(5, 16, 14, 18, "r")
-    ellipse(c, 9, 5, 3, 3, "s"); poly(c, [(6, 3), (9, -1), (12, 3)], "M"); c.rect(9, 3, 9, 6, "M")
-    ellipse(c, 4, 13, 3, 4, "r"); c.px(4, 13, "y")
-    c.rect(16, 0, 16, 20, "b")
+        c.rect(x + d, 17, x + 1 + d, 21, "l"); c.rect(x + d, 22, x + 2 + d, 22, "k")    # wrapped legs
+    poly(c, [(5, 8), (14, 8), (15, 17), (4, 17)], "m")                                  # mail shirt
+    for y in range(9, 17, 2):
+        for x in range(5 + y % 2, 15, 2):
+            c.px(x, y, "M")                                                              # its rings
+    c.row(13, 5, 14, "b")
+    ellipse(c, 9, 5, 3, 3, "s"); c.px(10, 5, "k")
+    poly(c, [(6, 3), (9, -1), (12, 3)], "m"); c.row(3, 6, 12, "M"); c.rect(9, 3, 9, 6, "M")   # conical helm, nose-guard
+    ellipse(c, 3, 12, 3, 4, "r"); ellipse(c, 3, 12, 1, 1, "i"); c.px(1, 10, "R"); c.px(5, 14, "R")   # round shield
+    c.rect(16, 0, 16, 20, "b"); poly(c, [(15, 1), (16, -2), (17, 1)], "i"); c.px(15, 10, "s")
 
 
-MAN_AT_ARMS_PAL = {"o": "#0e0c0a", "k": "#2a2420", "m": "#8a8e96", "M": "#5a5e66", "r": "#7a2a2a", "s": "#d8b090",
-                   "y": "#e0b040", "b": "#6a4a2a"}
+MAN_AT_ARMS_PAL = {"o": "#0e0c0a", "k": "#2a2420", "m": "#8a8e96", "M": "#5a5e66", "r": "#8a2a2a", "R": "#5a1a1a",
+                   "s": "#d8b090", "y": "#e0b040", "b": "#6a4a2a", "i": "#b8bcc4", "l": "#6a5a44"}
 
 
 def questing_beast(c, step):
     """The Questing Beast (Malory 1.19): "the head like a serpent's head, and a body like a leopard, buttocks like a
     lion, and footed like an hart", with a noise in its belly like thirty couple of hounds questing."""
-    ellipse(c, 30, 30, 16, 8, "y")
-    for x, y in ((20, 27), (26, 31), (32, 27), (38, 31), (24, 34), (34, 34)):
-        c.px(x, y, "k"); c.px(x + 1, y, "k")                                                     # leopard spots
-    ellipse(c, 16, 30, 7, 8, "l")                                                                # lion's haunches
-    for k, d in enumerate((-step, step, step, -step)):
-        x = 12 + k * 9 + d * 2
-        c.rect(x, 34, x + 1, 46, "y" if k > 1 else "l"); c.rect(x, 46, x + 1, 48, "k")          # hart's feet
-    for t in range(14):
-        c.rect(44 + t // 2, 26 - t, 46 + t // 2, 28 - t, "g")                                    # serpent neck
-    ellipse(c, 52, 11, 5, 3, "g"); c.px(54, 10, "r"); c.row(12, 55, 58, "r")
-    for k in range(6):
-        c.px(8 - k, 26 + k, "l")
+    hoofed_leg(c, 14 - step, 32, 50, "L", "L", "k", bend=-1)                             # far legs
+    hoofed_leg(c, 38 + step, 32, 50, "Y", "Y", "k")
+    poly(c, [(10, 28), (16, 22), (30, 22), (42, 20), (46, 26), (44, 36), (30, 38), (16, 38), (10, 34)], "y")   # leopard's body
+    ellipse(c, 14, 30, 8, 8, "l")                                                        # lion's haunches
+    for x, y in ((20, 26), (26, 30), (32, 25), (38, 29), (24, 34), (34, 34), (29, 27), (40, 24)):
+        c.px(x, y, "k"); c.px(x + 1, y, "k"); c.px(x, y + 1, "k")                        # leopard spots
+    for i in range(10):
+        c.px(6 - i // 2, 26 + i, "l")                                                    # lion's tail
+    ellipse(c, 2, 36, 2, 2, "L")                                                         # its tuft
+    for t in range(16):                                                                  # the long serpent neck
+        x = 43 + t * 0.6; y = 24 - t * 1.0
+        ellipse(c, x, y, 2.4, 2.2, "g")
+        if t % 2:
+            c.px(round(x), round(y), "G")                                                # scales
+    poly(c, [(48, 6), (56, 7), (60, 10), (56, 13), (48, 12)], "g")                       # serpent's head
+    c.px(52, 8, "y"); c.px(53, 8, "k")
+    c.row(11, 57, 61, "r"); c.px(62, 10, "r"); c.px(62, 12, "r")                         # forked tongue
+    hoofed_leg(c, 18 + step, 34, 50, "l", "L", "k", bend=-1)                             # near legs: a hart's
+    hoofed_leg(c, 42 - step, 34, 50, "y", "Y", "k")
 
 
-QUESTING_PAL = {"o": "#120a04", "y": "#d8a848", "k": "#2a1a0a", "l": "#b07a3a", "g": "#4a7a4a", "r": "#e83a2a"}
+QUESTING_PAL = {"o": "#120a04", "y": "#d8a848", "Y": "#a87a2a", "k": "#2a1a0a", "l": "#b07a3a", "L": "#8a5a24",
+                "g": "#4a7a4a", "G": "#2e5a2e", "r": "#e83a2a"}
 
 
 def morgan_le_fay(c, step):
     """Morgan le Fay (Malory 4.14): King Arthur's sister, a great sorceress, who stole Excalibur's scabbard and threw it
-    into a lake. A queen in dark green and black, holding the jewelled scabbard."""
-    figure(c, step, "v", "s", "h")
-    c.rect(16, 18, 26, 26, "V"); c.rect(13, 6, 15, 24, "h"); c.rect(26, 6, 28, 24, "h")
-    c.rect(14, 1, 27, 3, "y")
-    c.rect(31, 18, 33, 40, "r"); c.px(32, 22, "y"); c.px(32, 28, "w"); c.px(32, 34, "y")            # the scabbard
+    into a lake. A pale queen with long black hair and a gold circlet, in a dark green gown with a black velvet mantle,
+    holding the jewelled scabbard."""
+    person(c, step, cx=20, hair="h", hair_d="H", hair_style="long", garment="gown", robe="v", robe_d="V",
+           robe_l="L", belt="y", crown="y", cloak=("k", "K"), arm_forward=True, eye="e", boots="K")
+    c.rect(33, 12, 35, 38, "r"); c.rect(33, 12, 35, 13, "y"); c.rect(33, 37, 35, 38, "y")   # the jewelled scabbard
+    c.px(34, 18, "w"); c.px(34, 24, "y"); c.px(34, 30, "w")
 
 
-MORGAN_PAL = {"o": "#0a0a0c", "k": "#14121a", "v": "#1e4a2e", "V": "#14301e", "s": "#ecdcd0", "h": "#1a1418",
+MORGAN_PAL = {"o": "#0a0a0c", "k": "#14121a", "K": "#0a0810", "m": "#a83a4a", "e": "#3a8a5a", "v": "#1e4a2e",
+              "V": "#14301e", "L": "#3a7a4a", "s": "#ecdcd0", "S": "#c8b8b0", "h": "#1a1418", "H": "#0a080c",
               "y": "#e0b840", "r": "#6a1a24", "w": "#d8e8f0"}
 
 
 def vortigern(c, step):
     """Vortigern (Geoffrey of Monmouth 6.6-8.2): the usurper king of the Britons, who built a tower on Snowdon that
-    fell down every night, and was burned in another tower by Aurelius. A crowned king in a red cloak, grim and grey."""
-    figure(c, step, "r", "s", "h")
-    c.rect(16, 18, 26, 30, "m"); c.row(24, 16, 26, "M")
-    c.rect(16, 13, 25, 17, "h")
-    c.rect(14, 1, 27, 3, "y"); c.px(15, 0, "y"); c.px(21, 0, "y"); c.px(26, 0, "y")
-    c.rect(33, 10, 34, 44, "M"); c.rect(31, 10, 36, 11, "y")
+    fell down every night, and was burned in another tower by Aurelius. A grim, grey-bearded king with a gold crown, in
+    mail under a red cloak, his sword drawn."""
+    person(c, step, cx=20, hair="h", hair_d="H", hair_style="short", beard="h", garment="tunic", robe="m",
+           robe_d="M", legs="M", boots="k", belt="b", crown="y", cloak=("r", "R"), arm_forward=True)
+    for y in range(18, 40, 2):
+        for x in range(15 + y % 2, 26, 2):
+            if c.g[y][x] == "m":
+                c.px(x, y, "M")                                                          # mail rings
+    c.row(8, 17, 19, "H"); c.row(8, 21, 23, "H"); c.px(20, 13, "H")                      # grim brows
+    c.rect(34, 6, 35, 19, "i"); c.px(34, 5, "i"); c.rect(32, 20, 37, 21, "y")           # his sword, raised in his fist
+    c.rect(34, 22, 35, 22, "b")
 
 
-VORTIGERN_PAL = {"o": "#0e0a08", "k": "#1a1410", "r": "#8a2020", "s": "#d8b090", "h": "#7a7470", "m": "#7a7e86",
-                 "M": "#5a5e66", "y": "#d8b040"}
+VORTIGERN_PAL = {"o": "#0e0a08", "k": "#1a1410", "m": "#7a7e86", "M": "#5a5e66", "r": "#8a2020", "R": "#5a1414",
+                 "s": "#d8b090", "S": "#a8805e", "h": "#7a7470", "H": "#4a4440", "y": "#d8b040", "b": "#5a3a1a",
+                 "i": "#d0d4dc"}
 
 
 if __name__ == "__main__":
@@ -422,7 +501,7 @@ if __name__ == "__main__":
     kit.build_boss("asterion", asterion, ASTERION_PAL, doc(asterion.__doc__), (50, 60), (25, 58), [0, 1, 0, -1, 0])
     kit.build_boss("utgard_thrall", utgard_thrall, THRALL_PAL, doc(utgard_thrall.__doc__), (22, 26), (11, 25), walk, folder="enemies")
     kit.build_boss("utgard_phantom", utgard_phantom, PHANTOM_PAL, doc(utgard_phantom.__doc__), (16, 18), (8, 17), walk, folder="enemies")
-    kit.build_boss("utgard_illusion", utgarda_loki(True), UTGARD_PAL, doc(utgarda_loki.__doc__ + " Here, one of his illusions."),
+    kit.build_boss("utgard_illusion", utgarda_loki(True), ILLUSION_PAL, doc(utgarda_loki.__doc__ + " Here, one of his illusions."),
                    (42, 60), (21, 58), [0, 1, 0, -1, 0], folder="enemies")
     kit.build_boss("logi", logi, LOGI_PAL, doc(logi.__doc__), (42, 60), (21, 58), [0, 1, 0, 1, 0])
     kit.build_boss("hugi", hugi, HUGI_PAL, doc(hugi.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
