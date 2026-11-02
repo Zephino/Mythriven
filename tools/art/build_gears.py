@@ -274,75 +274,143 @@ MERCHANTS_PAL = dict(GOBLIN_PAL)
 # --- Libertalia (A General History of the Pyrates, 1724; Pontoppidan, 1752) -------------------------------------------
 
 def buccaneer(c, f):
-    """A buccaneer of Libertalia (the General History of the Pyrates): a sailor in a striped shirt and head-scarf with a
-    cutlass."""
+    """A buccaneer of Libertalia (the General History of the Pyrates): a sailor in a striped shirt, a red sash and a red
+    head-scarf knotted behind, knee breeches and bare shins, a gold ring in his ear and a curved cutlass."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 17, x + 1 + d, 21, "k")
-    for y in range(8, 17):
-        c.row(y, 5, 13, "w" if y % 2 else "u")
-    ellipse(c, 9, 5, 3, 3, "s"); c.rect(6, 1, 12, 3, "r"); c.px(13, 2, "r")
-    c.rect(15, 6, 15, 14, "i"); c.rect(14, 14, 16, 15, "y")
+        c.rect(x + d, 15, x + 2 + d, 18, "n"); c.rect(x + d, 19, x + 1 + d, 21, "s")   # breeches, bare shins
+        c.rect(x + d, 22, x + 2 + d, 23, "k")
+    for y in range(7, 15):
+        c.row(y, 5, 14, "w" if y % 2 else "u")                                           # striped shirt
+        c.px(5, y, "W" if y % 2 else "U")
+    c.rect(3, 8, 4, 12, "u"); c.px(3, 9, "w"); c.px(3, 11, "w"); c.px(3, 13, "S")       # far arm
+    c.row(14, 5, 14, "r"); c.row(15, 5, 14, "R"); c.px(5, 16, "r"); c.px(4, 17, "R")   # red sash
+    c.rect(15, 8, 16, 11, "u"); c.px(15, 9, "w"); c.px(16, 12, "s")                      # near arm
+    for x, y in ((17, 11), (17, 10), (18, 9), (18, 8), (18, 7), (17, 6)):
+        c.px(x, y, "i")                                                                  # curved cutlass
+    c.px(19, 8, "I"); c.row(12, 15, 18, "y")
+    ellipse(c, 9, 4, 3, 3, "s"); c.px(7, 5, "S")
+    c.px(9, 4, "k"); c.px(12, 4, "k"); c.row(6, 9, 12, "S"); c.px(11, 6, "m")          # eyes, stubble
+    ellipse(c, 9, 2, 3.6, 2, "r"); c.row(1, 7, 11, "R")                                  # head-scarf
+    c.px(5, 3, "r"); c.px(4, 4, "R"); c.px(4, 5, "r")                                    # knotted tails
+    c.px(6, 5, "h"); c.px(6, 6, "y")                                                     # hair, earring
 
 
-BUCCANEER_PAL = {"o": "#0e0a08", "k": "#2a2420", "w": "#ece4d4", "u": "#3a5a8a", "s": "#c8946a", "r": "#b02a2a",
-                 "i": "#c8ccd4", "y": "#d8b040"}
+BUCCANEER_PAL = {"o": "#0e0a08", "k": "#2a2420", "w": "#ece4d4", "W": "#b8b0a4", "u": "#3a5a8a", "U": "#2a4268",
+                 "s": "#c8946a", "S": "#a07450", "r": "#b02a2a", "R": "#7a1a1a", "n": "#2a3448", "h": "#2a1a10",
+                 "i": "#d8dce4", "I": "#8a8e96", "y": "#d8b040", "m": "#7a4a3a"}
 
 
 def musketeer(c, f):
-    """A pirate musketeer of Libertalia: a sailor in a long coat and tricorne hat with a long musket."""
+    """A pirate musketeer of Libertalia: a sailor in a long red coat with brass buttons and a powder belt across it, a
+    black tricorne trimmed with gold, holding a long musket across his body."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 17, x + 1 + d, 21, "k")
-    poly(c, [(5, 8), (13, 8), (15, 18), (3, 18)], "c")
-    ellipse(c, 9, 5, 3, 3, "s"); poly(c, [(4, 2), (14, 2), (12, 4), (6, 4)], "k")
-    c.rect(14, 4, 15, 18, "b"); c.rect(14, 2, 15, 4, "i")
+        c.rect(x + d, 19, x + 1 + d, 21, "l"); c.rect(x + d, 22, x + 2 + d, 23, "k")
+    poly(c, [(5, 7), (13, 7), (15, 19), (3, 19)], "c")                                  # long coat
+    poly(c, [(5, 7), (7, 7), (6, 19), (3, 19)], "C")
+    c.rect(9, 8, 9, 19, "C")
+    for y in range(9, 19, 3):
+        c.px(10, y, "y")                                                                 # brass buttons
+    for t in range(9):
+        c.px(5 + t, 8 + t, "b")                                                          # powder belt
+    c.rect(3, 8, 4, 13, "C")
+    for t in range(19):                                                                  # the musket, held across him
+        x, y = 3 + t * 15 // 18, 18 - t * 17 // 18
+        c.px(x, y, "b" if t < 7 else "i")
+    c.px(7, 14, "s"); c.px(13, 8, "s")                                                   # hands
+    ellipse(c, 9, 4, 3, 3, "s"); c.px(7, 5, "S"); c.px(9, 4, "k"); c.px(12, 4, "k"); c.px(10, 6, "m")
+    c.rect(6, 0, 12, 1, "k"); c.row(2, 4, 14, "k"); c.px(4, 1, "k"); c.px(14, 1, "k")   # tricorne
+    c.row(2, 5, 13, "y")
+    c.px(6, 4, "h"); c.px(6, 5, "h")
 
 
-MUSKETEER_PAL = {"o": "#0e0a08", "k": "#1e1a18", "c": "#6a2a2a", "s": "#c8946a", "b": "#5a3a1a", "i": "#8a8e96"}
+MUSKETEER_PAL = {"o": "#0e0a08", "k": "#1e1a18", "c": "#9a2a2a", "C": "#6a1a1a", "s": "#c8946a", "S": "#a07450",
+                 "b": "#6a4a2a", "i": "#8a8e96", "y": "#e0b040", "l": "#d8d0bc", "h": "#2a1a10", "m": "#7a4a3a"}
 
 
 def gull(c, f):
-    """A gull over the bay of Libertalia."""
+    """A gull over the bay of Libertalia: white, with grey wings tipped black, a yellow bill with a red spot."""
     up = f % 2
-    poly(c, [(9, 7), (1, 3 if up else 9), (5, 8)], "w"); poly(c, [(11, 7), (19, 3 if up else 9), (15, 8)], "w")
-    c.px(1, 3 if up else 9, "k"); c.px(19, 3 if up else 9, "k")
-    ellipse(c, 10, 8, 3, 2, "w"); c.px(13, 7, "y")
+    tip = 0 if up else 10
+    poly(c, [(8, 6), (11, 6), (6, tip + 1), (3, tip)], "G")                              # far wing
+    c.px(3, tip, "k"); c.px(4, tip, "k")
+    ellipse(c, 10, 7, 4.5, 2, "w"); c.row(8, 7, 12, "W")                                 # body
+    c.px(5, 7, "w"); c.px(4, 6, "W")                                                     # tail
+    ellipse(c, 14, 5, 2, 2, "w"); c.px(15, 5, "k")                                       # head, eye
+    c.px(16, 6, "y"); c.px(17, 6, "y"); c.px(17, 7, "r")                                 # bill
+    poly(c, [(9, 6), (12, 6), (15, tip + 1), (13, tip)], "g")                            # near wing
+    c.px(15, tip + 1, "k"); c.px(14, tip, "k")
 
 
-GULL_PAL = {"o": "#4a5058", "w": "#ecf0f0", "k": "#2a2a2a", "y": "#e0b030"}
+GULL_PAL = {"o": "#4a5058", "w": "#f4f6f6", "W": "#c8ccd0", "g": "#a8b0b8", "G": "#8a929a", "k": "#1e1e22",
+            "y": "#e8c030", "r": "#d83a2a"}
 
 
 def sea_serpent(c, step):
-    """The great sea serpent (Pontoppidan, 1752-53): a vast serpent with a horse-like head and a mane, rising from the
-    sea in great coils, each coil like a hump above the waves."""
-    for k in range(4):
-        x = 4 + k * 13
-        for t in range(10):
-            ellipse(c, x + t, 36 - round(10 * math.sin(t / 9 * math.pi)) + step, 3, 3, "g" if t % 3 else "G")
-    poly(c, [(56, 18), (66, 22), (66, 28), (56, 30)], "g"); c.px(61, 21, "r")
-    for k in range(6):
-        c.px(55 - k, 16 + k, "m"); c.px(54 - k, 17 + k, "m")                                    # the mane
-    for x in range(0, 70, 4):
-        c.px(x, 46, "w"); c.px(x + 1, 45, "b")                                                    # the waves
+    """The great sea serpent (Pontoppidan, 1752-53): a vast serpent lying in great coils "like a row of casks", with a
+    head like a horse's and a long mane. Its coils hump along the ground behind it as it rears up its neck."""
+    def bez(p0, p1, p2, p3, t):
+        u = 1 - t
+        return (u ** 3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t ** 3 * p3[0],
+                u ** 3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t ** 3 * p3[1])
+    pts = []
+    for k in range(60):                                                                  # the coils, humping along
+        t = k / 59
+        pts.append((2 + 44 * t, 50 - 13 * abs(math.sin(3 * math.pi * t + step * 0.25)), 1.4 + 3.4 * t))
+    for k in range(40):                                                                  # the neck, rearing up
+        x, y = bez((46, 50), (60, 40), (38, 26), (52, 16), k / 39)
+        pts.append((x, y, 4.8 - 0.8 * k / 39))
+    for x, y, r in pts:
+        ellipse(c, x, y, r, r, "G")
+    for x, y, r in pts:
+        ellipse(c, x - 0.6, y - 0.8, max(r - 1.3, 0.6), max(r - 1.3, 0.6), "g")
+    for i, (x, y, r) in enumerate(pts):
+        if r > 2 and i % 2 == 0:
+            c.px(round(x + 0.5), round(y + r - 1), "y")                                  # pale belly
+        if r > 2 and i % 5 == 0:
+            c.px(round(x - 1), round(y - 1), "G")                                        # scales
+    for i in range(60, 100, 3):                                                          # the long mane
+        x, y, r = pts[i]
+        c.px(round(x - r - 1), round(y), "m"); c.px(round(x - r - 2), round(y + 1), "M")
+        c.px(round(x - r), round(y - 1), "m")
+    ellipse(c, 53, 13, 5, 4.5, "g")                                                      # the horse-like head
+    poly(c, [(55, 9), (66, 13), (67, 17), (55, 18)], "g")                                # long muzzle
+    c.row(17, 56, 67, "G"); c.row(18, 57, 65, "G")                                       # jaw
+    for x in range(58, 67, 2):
+        c.px(x, 16, "w")                                                                 # teeth
+    c.px(66, 13, "k"); c.px(55, 11, "r"); c.px(56, 11, "r"); c.px(55, 10, "k")          # nostril, red eye
+    c.px(50, 8, "m"); c.px(49, 7, "m"); c.px(52, 7, "M")                                 # forelock
 
 
-SERPENT_PAL = {"o": "#08140e", "g": "#3a6a5a", "G": "#2a4a40", "r": "#e83a2a", "m": "#8a3a2a", "w": "#e8f0f4",
-               "b": "#3a6a9a"}
+SERPENT_PAL = {"o": "#08140e", "g": "#3a7a62", "G": "#24503e", "y": "#c8d8a0", "r": "#e83a2a", "k": "#0a0a0a",
+               "m": "#9a3a2a", "M": "#6a2418", "w": "#f0ece0"}
 
 
 def misson(c, step):
-    """Captain Misson (the General History of the Pyrates, 1724): the gentleman-captain who founded Libertalia, in a fine
-    blue coat and tricorne, a sword at his side and a spyglass in hand."""
-    figure(c, step, "u", "s", "k")
-    c.rect(16, 18, 26, 30, "w"); c.rect(20, 18, 22, 30, "y")
-    poly(c, [(11, 3), (31, 3), (28, 6), (14, 6)], "k")
-    c.rect(32, 20, 37, 22, "y")
-    c.rect(6, 30, 7, 46, "i"); c.rect(5, 30, 8, 31, "y")
+    """Captain Misson (the General History of the Pyrates, 1724): the gentleman-captain who founded Libertalia, in a long
+    blue coat with gold buttons and cuffs, a white cravat, white stockings, a black tricorne trimmed with gold, a sword
+    at his side and a spyglass in hand."""
+    c.rect(9, 30, 10, 31, "y")                                                           # sword hilt, then scabbard
+    for t in range(16):
+        c.px(9 - t // 3, 32 + t, "k")
+    person(c, step, cx=20, hair="h", hair_d="H", hair_style="short", garment="tunic", robe="u", robe_d="U",
+           legs="w", boots="k", arm_forward=True)
+    poly(c, [(15, 28), (25, 28), (27, 40), (13, 40)], "u")                               # coat skirts
+    poly(c, [(15, 28), (17, 28), (16, 40), (13, 40)], "U")
+    c.rect(20, 28, 20, 40, "U")
+    c.rect(19, 15, 21, 20, "w"); c.px(20, 21, "w")                                       # cravat
+    for y in range(22, 39, 3):
+        c.px(22, y, "y")                                                                 # gold buttons
+    c.rect(31, 21, 33, 23, "y")                                                          # gold cuff
+    c.rect(33, 22, 39, 23, "y"); c.px(39, 22, "Y"); c.rect(33, 21, 34, 21, "Y")          # spyglass
+    c.rect(15, 2, 25, 4, "k"); c.row(5, 12, 28, "k"); c.px(12, 4, "k"); c.px(28, 4, "k")   # tricorne
+    c.row(5, 13, 27, "y")
 
 
-MISSON_PAL = {"o": "#0a0a10", "k": "#1a1a22", "u": "#2a3a7a", "w": "#ece4d4", "s": "#d8b090", "y": "#d8b040",
-              "i": "#c8ccd4"}
+MISSON_PAL = {"o": "#0a0a10", "k": "#1a1a22", "u": "#2a3a8a", "U": "#1a2660", "w": "#ece4d4", "s": "#d8b090",
+              "S": "#b08868", "h": "#3a2a1a", "H": "#24180e", "m": "#9a5a4a", "y": "#d8b040", "Y": "#fff0a0",
+              "l": "#ece4d4", "b": "#1a1a22"}
 
 
 def kraken(c, step):
@@ -413,82 +481,152 @@ KRAKEN_PAL = {"o": "#120608", "r": "#8a3a4a", "R": "#6a2a3a", "p": "#e8b0b8", "y
 # --- The Hollow Hills (Paracelsus 1566; British fairy-hill folklore; Baum, Ozma of Oz, 1907) --------------------------
 
 def nome(c, f):
-    """A Nome (Baum, Ozma of Oz): one of the little rock-coloured people of the underground kingdom, round and
-    knobbly, with a pick."""
+    """A Nome (Baum, Ozma of Oz): one of the little rock-coloured people of the underground kingdom, round and knobbly,
+    with a bushy beard, a leather cap and a pick over his shoulder."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 16, x + 1 + d, 20, "G")
-    ellipse(c, 9, 11, 5, 5, "g"); ellipse(c, 9, 5, 3.5, 3, "g"); c.px(8, 5, "k"); c.px(10, 5, "k")
-    c.px(6, 9, "G"); c.px(12, 13, "G")
-    c.rect(15, 4, 15, 15, "b"); c.rect(13, 3, 17, 4, "i")
+        c.rect(x + d, 19, x + 1 + d, 22, "G"); c.rect(x + d, 23, x + 2 + d, 23, "k")
+    ellipse(c, 9, 15, 5, 4.5, "g"); ellipse(c, 7, 16, 2.5, 3.5, "G")                    # round body
+    c.px(11, 13, "G"); c.px(12, 17, "G"); c.px(9, 18, "G")                               # knobbly
+    c.row(16, 5, 13, "b"); c.px(10, 16, "y")                                             # belt
+    for t in range(13):
+        c.px(5 + t * 11 // 12, 19 - t * 16 // 12, "b")                                   # pick handle
+    for x, y in ((12, 2), (13, 2), (14, 3), (15, 3), (16, 3), (17, 4), (18, 5), (11, 3), (10, 4)):
+        c.px(x, y, "i")                                                                  # pick head
+    ellipse(c, 9, 7, 4, 4, "g"); c.px(6, 8, "G")                                         # head
+    c.px(8, 6, "k"); c.px(11, 6, "k"); ellipse(c, 11, 8, 1.5, 1.2, "G")                 # eyes, big nose
+    poly(c, [(6, 9), (13, 9), (12, 13), (9, 14), (6, 12)], "v"); c.px(8, 11, "V"); c.px(11, 12, "V")   # beard
+    c.row(3, 6, 12, "b"); c.row(4, 5, 13, "b")                                           # leather cap
+    c.px(14, 12, "g"); c.px(15, 11, "g")                                                 # hand on the pick
 
 
-NOME_PAL = {"o": "#0e0c0a", "g": "#8a7a68", "G": "#5a4e42", "k": "#1a1410", "b": "#6a4a2a", "i": "#9aa0a8"}
+NOME_PAL = {"o": "#0e0c0a", "g": "#8a7a68", "G": "#5e5244", "k": "#1a1410", "b": "#6a4a2a", "i": "#a8aeb6",
+            "v": "#c8c0b4", "V": "#9a9284", "y": "#d8b040"}
 
 
 def gnome(c, f):
     """A gnome (Paracelsus, Liber de Nymphis, 1566: the spirits of earth, who pass through rock and stone as we pass
-    through air): a small bearded earth-spirit in a pointed hood, glowing faintly."""
+    through air): a small earth-spirit with a long white beard, a tall pointed red hood, a moss-green coat, and a
+    lantern glowing in the dark."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 17, x + 1 + d, 20, "k")
-    poly(c, [(5, 9), (13, 9), (14, 17), (4, 17)], "v")
-    ellipse(c, 9, 7, 3, 2.5, "s"); poly(c, [(6, 9), (12, 9), (9, 14)], "w")
-    poly(c, [(5, 5), (9, -1), (13, 5)], "r")
-    c.px(15, 9 + s, "y"); c.px(16, 8 + s, "y")
+        c.rect(x + d, 19, x + 1 + d, 21, "V"); c.rect(x + d, 22, x + 2 + d, 23, "k")
+    poly(c, [(5, 10), (13, 10), (15, 19), (3, 19)], "v"); poly(c, [(5, 10), (7, 10), (6, 19), (3, 19)], "V")
+    c.row(15, 4, 14, "b"); c.px(9, 15, "y")                                              # belt
+    c.rect(3, 11, 4, 15, "V"); c.px(3, 16, "s")                                          # far arm
+    ellipse(c, 9, 8, 3.2, 2.6, "s"); c.px(8, 7, "k"); c.px(11, 7, "k"); c.px(12, 8, "S")   # face, nose
+    poly(c, [(6, 9), (12, 9), (12, 13), (9, 16), (6, 13)], "w"); c.px(8, 12, "W"); c.px(10, 14, "W")   # beard
+    poly(c, [(5, 7), (13, 7), (12, 4), (8, 1), (2, -1), (6, 4)], "r")                    # tall pointed hood
+    poly(c, [(5, 7), (7, 7), (6, 4), (2, -1)], "R")
+    c.rect(13, 11, 15, 12, "v"); c.px(16, 12, "s")                                       # near arm, holding up
+    c.px(17, 12, "k"); c.rect(16, 13, 18, 16, "y"); c.px(17, 14, "Y"); c.row(17, 16, 18, "k")   # the lantern
+    for x, y in ((15, 14), (19, 14), (17, 18), (19, 16), (15, 16)):
+        c.px(x, y, "L")                                                                  # its glow
 
 
-GNOME_PAL = {"o": "#0e0a08", "k": "#2a1e14", "v": "#5a6a3a", "s": "#d8a888", "w": "#e8e4dc", "r": "#a83a2a",
-             "y": "#c8f080"}
+GNOME_PAL = {"o": "#0e0a08", "k": "#2a1e14", "v": "#5a7a3a", "V": "#3e5a28", "s": "#d8a888", "S": "#b08068",
+             "w": "#ece8e0", "W": "#b8b4ac", "r": "#b83a2a", "R": "#842418", "b": "#4a3020", "y": "#f0d060",
+             "Y": "#fff8c0", "L": "#c8f080"}
 
 
 def kaliko(c, step):
-    """Kaliko (Baum, Ozma of Oz): the Nome King's chief steward, a Nome in a fine robe with a great ring of keys, who
-    knows every tunnel of the kingdom."""
-    figure(c, step, "p", "g", "G", legs="G")
-    c.rect(16, 18, 26, 26, "P")
-    for a in range(10):
-        c.px(30 + round(3 * math.cos(a / 10 * 6.28)), 32 + round(3 * math.sin(a / 10 * 6.28)), "y")
-    c.px(32, 36, "y"); c.px(33, 37, "y")
+    """Kaliko (Baum, Ozma of Oz): the Nome King's chief steward, a rock-coloured Nome with a short grey beard in a rich
+    purple robe trimmed with gold, a velvet cap, a gold chain of office, and a great ring of keys, for he knows every
+    tunnel of the kingdom."""
+    person(c, step, cx=20, skin="g", skin_d="G", hair="p", hair_d="P", hair_style="none", beard="v",
+           garment="gown", robe="p", robe_d="P", robe_l="q", belt="y", boots="k", eye="k", head_y=12)
+    ellipse(c, 21, 15, 1.6, 1.3, "G")                                                    # big Nome nose
+    ellipse(c, 20, 7, 5.5, 3, "p"); c.row(9, 15, 25, "P"); c.px(20, 4, "y")             # velvet cap
+    for x in range(14, 27):
+        c.px(x, 20 + abs(x - 20) // 3, "y")                                              # chain of office
+    c.rect(19, 23, 21, 25, "y"); c.px(20, 24, "j")
+    c.row(53, 11, 29, "y")                                                               # gold hem
+    for a in range(16):                                                                  # the great ring of keys
+        c.px(30 + round(4 * math.cos(a / 16 * 6.28)), 36 + round(4 * math.sin(a / 16 * 6.28)), "y")
+    for x, y in ((27, 40), (30, 41), (33, 40)):
+        c.rect(x, y, x, y + 4, "Y"); c.px(x + 1, y + 4, "Y"); c.px(x + 1, y + 2, "Y")   # keys
 
 
-KALIKO_PAL = {"o": "#0e0a08", "k": "#1e1814", "p": "#6a3a7a", "P": "#4a2a5a", "g": "#8a7a68", "G": "#5a4e42",
-              "y": "#e8c040"}
+KALIKO_PAL = {"o": "#0e0a08", "k": "#1e1814", "p": "#6a3a8a", "P": "#4a2664", "q": "#8a5aa8", "g": "#8a7a68",
+              "G": "#5e5244", "v": "#a8a49c", "y": "#e8c040", "Y": "#c8a030", "j": "#4ae0c8", "m": "#4a3a30",
+              "l": "#5e5244", "b": "#1e1814", "s": "#8a7a68", "S": "#5e5244"}
 
 
 def hammer_giant(c, step):
     """The Giant with the Hammer (Baum, Ozma of Oz, ch. 13): a huge man of cast iron who stands beside the narrow road
-    to the Nome King's kingdom and pounds it with his iron hammer without ever stopping."""
-    for k in range(2):
-        c.rect(14 + k * 16, 50, 21 + k * 16, 70, "I")
-    c.rect(10, 22, 44, 50, "i"); c.row(30, 10, 44, "I"); c.row(40, 10, 44, "I")
-    for x in (14, 22, 32, 40):
-        c.px(x, 26, "y"); c.px(x, 46, "y")                                                          # rivets
-    c.rect(18, 4, 36, 21, "i"); c.rect(21, 10, 33, 12, "k"); c.px(24, 11, "r"); c.px(30, 11, "r")
-    c.rect(4, 24, 9, 44, "I"); c.rect(45, 24 - step * 6, 50, 44, "I")
-    c.rect(47, 2 - step * 6, 48, 24 - step * 6, "b"); c.rect(41, -2 - step * 6, 54, 6 - step * 6, "I")       # the hammer
+    to the Nome King's kingdom and pounds it with his great iron hammer without ever stopping: plated and riveted, eyes
+    glowing red in his visor, the hammer swung high and brought down on the road."""
+    def limb(x0, y0, x1, y1, r, col):
+        n = int(max(abs(x1 - x0), abs(y1 - y0))) + 1
+        for t in range(n + 1):
+            ellipse(c, x0 + (x1 - x0) * t / n, y0 + (y1 - y0) * t / n, r, r, col)
+    for x in (16, 32):                                                                   # legs
+        c.rect(x, 50, x + 8, 69, "i"); c.rect(x, 50, x + 2, 69, "I")
+        c.row(58, x, x + 8, "I"); c.px(x + 4, 58, "y"); c.px(x + 6, 58, "y")             # knee joint
+        c.rect(x - 1, 68, x + 10, 71, "I"); c.row(68, x, x + 9, "i")
+    c.rect(14, 44, 42, 50, "I"); c.row(45, 15, 41, "i")                                  # hips
+    if step:
+        hands, head = (40, 12), (42, 0, 56, 9)                                           # hammer raised high
+        handle = [(40, 12), (49, 5)]
+    else:
+        hands, head = (44, 44), (44, 61, 57, 71)                                         # hammer brought down
+        handle = [(44, 44), (50, 62)]
+    limb(12, 22, hands[0] - 2, hands[1] + 2, 3.5, "I")                                   # far arm
+    poly(c, [(10, 20), (46, 20), (42, 46), (14, 46)], "i")                               # plated chest
+    poly(c, [(10, 20), (15, 20), (17, 46), (14, 46)], "I")
+    for y in (28, 37):
+        c.row(y, 13, 43, "I")
+        for x in range(16, 42, 5):
+            c.px(x, y - 2, "y"); c.px(x, y + 2, "y")                                     # rivets along the seams
+    ellipse(c, 12, 22, 5, 4, "I"); ellipse(c, 44, 22, 5, 4, "i")                         # shoulders
+    c.rect(20, 6, 36, 19, "i"); c.rect(20, 6, 22, 19, "I"); c.row(6, 20, 36, "y")        # head
+    c.rect(23, 11, 34, 12, "k"); c.px(26, 11, "r"); c.px(31, 11, "r"); c.px(27, 11, "R"); c.px(32, 11, "R")
+    c.rect(26, 15, 30, 16, "I")                                                          # mouth-grille
+    for t in range(14):
+        x = handle[0][0] + (handle[1][0] - handle[0][0]) * t / 13
+        y = handle[0][1] + (handle[1][1] - handle[0][1]) * t / 13
+        c.rect(round(x), round(y), round(x) + 1, round(y) + 1, "b")                      # the haft
+    c.rect(*head, "I"); c.rect(head[0] + 1, head[1] + 1, head[2] - 1, head[1] + 3, "i")  # the hammer-head
+    limb(44, 22, hands[0], hands[1], 3.8, "i")                                           # near arm
+    ellipse(c, hands[0], hands[1], 3, 3, "I")
 
 
-HAMMER_GIANT_PAL = {"o": "#0a0a0c", "i": "#5a5e66", "I": "#3a3e46", "y": "#9aa0a8", "k": "#14161a", "r": "#e83a2a",
-                    "b": "#4a3a2a"}
+HAMMER_GIANT_PAL = {"o": "#0a0a0c", "i": "#62666e", "I": "#3e424a", "y": "#9aa0a8", "k": "#14161a", "r": "#ff4a2a",
+                    "R": "#a82a1a", "b": "#4a3a2a"}
 
 
 def nome_king(c, step):
     """The Nome King (Baum, Ozma of Oz): Roquat, a round, fat little king of the Nomes with a long white beard and a
-    jolly-looking face that hid a cruel heart, in a robe of rich colours and a jewelled crown, who turned his visitors
-    into ornaments."""
+    jolly-looking face that hid a cruel heart, in a robe of rich colours trimmed with ermine and a jewelled crown, a
+    sceptre in his hand; he turned his visitors into ornaments."""
     for k, d in enumerate((-step, step)):
-        c.rect(15 + k * 8 + d, 46, 18 + k * 8 + d, 54, "G")
-    ellipse(c, 21, 34, 14, 13, "r"); ellipse(c, 21, 36, 10, 9, "R")
-    for x, y in ((12, 30), (30, 30), (16, 42), (26, 42)):
-        c.px(x, y, "j")
-    ellipse(c, 21, 14, 7, 7, "g"); c.px(18, 13, "k"); c.px(24, 13, "k")
-    poly(c, [(15, 16), (27, 16), (24, 30), (18, 30)], "w")
-    c.rect(14, 4, 28, 7, "y"); c.px(15, 3, "y"); c.px(21, 2, "j"); c.px(27, 3, "y")
+        c.rect(15 + k * 8 + d, 46, 18 + k * 8 + d, 51, "G"); c.rect(14 + k * 8 + d, 52, 19 + k * 8 + d, 54, "k")
+    ellipse(c, 21, 35, 14, 13, "R"); ellipse(c, 23, 34, 12, 12, "r")                     # round robed belly
+    for x, y in ((28, 28), (30, 36), (26, 42)):
+        c.px(x, y, "q")                                                                  # sheen
+    poly(c, [(9, 42), (33, 42), (31, 48), (11, 48)], "w"); c.rect(20, 22, 23, 47, "w")  # ermine trim
+    for x, y in ((12, 45), (17, 44), (26, 45), (30, 44), (21, 30), (22, 38), (15, 47), (28, 47)):
+        c.px(x, y, "k")                                                                  # ermine tails
+    ellipse(c, 7, 33, 3, 4, "R"); ellipse(c, 6, 37, 2, 2, "g")                           # far arm
+    c.rect(36, 10, 36, 44, "y"); ellipse(c, 36, 9, 2.4, 2.4, "y"); c.px(36, 9, "j")     # sceptre
+    ellipse(c, 34, 32, 3.5, 4, "r"); ellipse(c, 36, 35, 2, 2, "g")                       # near arm, holding it
+    poly(c, [(13, 18), (29, 18), (28, 30), (21, 38), (14, 30)], "W")                     # long white beard
+    for x, y in ((17, 24), (19, 28), (24, 26), (22, 32), (26, 22)):
+        c.px(x, y, "V")
+    ellipse(c, 21, 13, 7.5, 7, "g"); c.px(14, 14, "G")                                   # big round head
+    c.px(16, 15, "p"); c.px(26, 15, "p"); c.px(17, 16, "p"); c.px(25, 16, "p")           # rosy cheeks
+    c.px(18, 12, "k"); c.px(24, 12, "k"); c.row(10, 17, 19, "W"); c.row(10, 23, 25, "W")   # eyes, white brows
+    ellipse(c, 21, 14, 1.6, 1.4, "G")                                                    # nose
+    c.row(17, 16, 26, "W"); c.row(19, 19, 23, "m"); c.px(18, 18, "m"); c.px(24, 18, "m")   # moustache, jolly grin
+    c.rect(13, 3, 29, 7, "y"); c.row(7, 13, 29, "Y")                                     # jewelled crown
+    for x in (13, 17, 21, 25, 29):
+        c.rect(x, 0, x, 2, "y")
+    c.px(17, 5, "j"); c.px(21, 5, "e"); c.px(25, 5, "j"); c.px(21, 0, "e")
 
 
-NOME_KING_PAL = {"o": "#0e0a08", "r": "#8a2a6a", "R": "#a83a8a", "j": "#4ae0c8", "g": "#a89078", "G": "#5a4e42",
-                 "k": "#1a1410", "w": "#f0ece4", "y": "#e8c040"}
+NOME_KING_PAL = {"o": "#0e0a08", "r": "#a83a8a", "R": "#7a2a6a", "q": "#c860a8", "j": "#4ae0c8", "e": "#e83a3a",
+                 "g": "#a89078", "G": "#7a6450", "k": "#1a1410", "w": "#f4f0e8", "W": "#f0ece4", "V": "#c0bab0",
+                 "y": "#e8c040", "Y": "#b08a20", "p": "#d87a7a", "m": "#5a2a20"}
 
 
 if __name__ == "__main__":
@@ -508,14 +646,14 @@ if __name__ == "__main__":
     kit.build_boss("ratel_goblin", ratel_goblin, RATEL_PAL, doc(ratel_goblin.__doc__), (50, 46), (24, 44), [0, 1, 0, -1, 0])
     kit.build_boss("snail_goblin", snail_goblin, SNAIL_PAL, doc(snail_goblin.__doc__), (50, 50), (24, 48), [0, 1, 0, -1, 0])
     kit.build_boss("goblin_merchants", goblin_merchants, MERCHANTS_PAL, doc(goblin_merchants.__doc__), (50, 54), (24, 52), [0, 1, 0, -1, 0])
-    kit.build_boss("buccaneer", buccaneer, BUCCANEER_PAL, doc(buccaneer.__doc__), (20, 22), (10, 21), walk, folder="enemies")
-    kit.build_boss("musketeer", musketeer, MUSKETEER_PAL, doc(musketeer.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("buccaneer", buccaneer, BUCCANEER_PAL, doc(buccaneer.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("musketeer", musketeer, MUSKETEER_PAL, doc(musketeer.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("gull", gull, GULL_PAL, doc(gull.__doc__), (20, 12), (10, 11), walk, folder="enemies")
-    kit.build_boss("sea_serpent", sea_serpent, SERPENT_PAL, doc(sea_serpent.__doc__), (70, 50), (34, 48), [0, 1, 0, -1, 0])
+    kit.build_boss("sea_serpent", sea_serpent, SERPENT_PAL, doc(sea_serpent.__doc__), (70, 56), (34, 54), [0, 1, 0, -1, 0])
     kit.build_boss("misson", misson, MISSON_PAL, doc(misson.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("kraken", kraken, KRAKEN_PAL, doc(kraken.__doc__), (90, 90), (44, 88), [0, 1, 0, -1, 0])
-    kit.build_boss("nome", nome, NOME_PAL, doc(nome.__doc__), (20, 22), (10, 21), walk, folder="enemies")
-    kit.build_boss("gnome", gnome, GNOME_PAL, doc(gnome.__doc__), (20, 22), (10, 21), walk, folder="enemies")
+    kit.build_boss("nome", nome, NOME_PAL, doc(nome.__doc__), (20, 24), (10, 23), walk, folder="enemies")
+    kit.build_boss("gnome", gnome, GNOME_PAL, doc(gnome.__doc__), (20, 24), (10, 23), walk, folder="enemies")
     kit.build_boss("kaliko", kaliko, KALIKO_PAL, doc(kaliko.__doc__), (40, 56), (20, 54), [0, 1, 0, -1, 0])
     kit.build_boss("hammer_giant", hammer_giant, HAMMER_GIANT_PAL, doc(hammer_giant.__doc__), (58, 74), (27, 72), [0, 1, 0, 1, 0])
     kit.build_boss("nome_king", nome_king, NOME_KING_PAL, doc(nome_king.__doc__), (42, 56), (21, 54), [0, 1, 0, -1, 0])

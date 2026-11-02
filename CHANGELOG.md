@@ -2,6 +2,26 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.57
+Date: 11/02/2026
+Time: 11:09 PM
+
+### Changes
+Remade the rest of Libertalia and the Hollow Hills (owner's request):
+- **The Sea Serpent:** a long green serpent with shading, a pale belly and scales, its coils humping along the ground behind it as it rears up its neck; a horse-like head with a red eye, teeth and a long red mane. No sea under it now.
+- **Captain Misson:** a gentleman-captain in a long blue coat with gold buttons and cuffs, a white cravat, white stockings, a gold-trimmed tricorne, a sword at his side and a brass spyglass held out.
+- **Buccaneer:** striped shirt, red sash and knotted head-scarf, knee breeches, a gold earring and a curved cutlass.
+- **Musketeer:** long red coat with brass buttons and a powder belt, a gold-trimmed tricorne, the musket held across him.
+- **Gull:** white with grey, black-tipped wings and a yellow bill with a red spot.
+- **Kaliko:** a rock-coloured Nome with a grey beard in a rich purple robe trimmed with gold, a velvet cap, a chain of office and a great ring of keys.
+- **The Giant with the Hammer:** a man-shaped iron giant, plated and riveted, red eyes in his visor, swinging his great hammer high and bringing it down on the road.
+- **The Nome King:** a fat jolly king with rosy cheeks, a grin and a long white beard, in a purple robe trimmed with ermine, a jewelled crown and a sceptre.
+- **Nome:** round and knobbly, with a big nose, a bushy beard, a leather cap and a pick over his shoulder.
+- **Gnome:** a tall pointed red hood, a long white beard, a moss-green coat and a glowing lantern.
+
+### Reason
+The owner liked the new Kraken and asked for the rest of these two realms to be remade too.
+
 ## Version 00.03.56
 Date: 11/02/2026
 Time: 11:00 PM
