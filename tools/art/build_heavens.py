@@ -6,7 +6,7 @@ import math
 import hero_kit as kit
 from hero_kit import ellipse, poly
 from figure_kit import person
-from build_gothic import rim, raven as gothic_raven
+from build_gothic import rim, raven as gothic_raven, wolf as gothic_wolf, WOLF_WALK
 from build_avalon import hound
 
 STEP = [0, -1, 0, 1, 0]
@@ -640,43 +640,63 @@ def phobetor(form):
     long serpent: the bringer of nightmares. As a beast, a shaggy black wolf-thing with a bristling mane, a cluster of
     glowing eyes, gaping fanged jaws and smoke trailing from it; as a bird, a huge ragged black bird with a hooked
     beak, its wings spread wide; as a serpent, a long striped serpent rearing from its coils, crested and fanged."""
-    def beast(c, step):
-        for x, d in ((16, step), (44, -step)):                                           # far legs
-            c.rect(x + d, 36, x + 3 + d, 48, "K"); c.px(x + d, 49, "w"); c.px(x + 3 + d, 49, "w")
-        for k in range(9):                                                               # smoke trailing
-            c.px(9 - k, 26 + round(2 * math.sin(k + step)), "p"); c.px(10 - k, 30 + round(2 * math.sin(k + 2 + step)), "p")
-        ellipse(c, 28, 30, 18, 10, "k"); ellipse(c, 28, 36, 15, 4, "K")
-        for x in range(12, 46, 3):
-            poly(c, [(x, 24), (x + 3, 24), (x - 2, 15 + (x % 2) * 2)], "k"); c.px(x - 1, 18 + (x % 2) * 2, "p")   # mane
-        for x, d in ((22, -step), (40, step)):                                           # near legs
-            c.rect(x + d, 36, x + 4 + d, 48, "k")
-            for k in range(3):
-                c.px(x + d + k * 2, 49, "w")                                             # claws
-        poly(c, [(44, 20), (46, 11), (49, 19)], "k")                                     # ear
-        poly(c, [(42, 20), (52, 18), (60, 23), (62, 29), (56, 31), (44, 32)], "k")       # head
-        poly(c, [(48, 33), (61, 32), (57, 38), (48, 37)], "K")                           # lower jaw, gaping
-        c.rect(50, 31, 60, 32, "m")
-        for x in (52, 55, 58):
-            c.px(x, 33, "w")                                                             # fangs
-        c.px(53, 36, "w"); c.px(57, 35, "w")
-        for x, y in ((48, 22), (51, 23), (54, 22), (49, 25), (53, 26), (56, 24)):
-            c.px(x, y, "r")                                                              # a cluster of glowing eyes
-        rim(c, "kK", "p")
+    wolf_body = gothic_wolf(snarl=True, big_head=True)
+
+    def beast(c, legs):
+        """On the great wolf's body: smoke trailing from its back and tail, bristling hackles, and a cluster of eyes."""
+        wolf_body(c, legs)
+        for x in range(20, 50, 3):
+            for y in range(6, 24):
+                if c.g[y][x] in "fD":
+                    c.px(x, y - 1, "D"); c.px(x - 1, y - 2, "D"); break                  # bristling hackles
+        for x, y in ((57, 9), (59, 7), (62, 9), (58, 11), (63, 7)):
+            c.px(x, y, "r")                                                              # too many eyes
+        c.px(60, 10, "r"); c.px(61, 10, "r")
+        rim(c, "fFD", "p")
+        step = legs[0] // 3
+        for k in range(10):                                                              # smoke trailing away
+            c.px(6 - k // 2, 36 + k, "p"); c.px(4 - k // 3 + step, 30 + k, "P")
+
+    def feather(c, x, y, dx, dy, length, col, shade):
+        n = math.hypot(dx, dy)
+        dx, dy = dx / n, dy / n
+        for t in range(int(length)):
+            px, py = round(x + dx * t), round(y + dy * t)
+            c.px(px, py, col); c.px(px + 1, py, shade if t > 1 else col)
+
+    def wing(c, sh, wr, tip, col, shade):
+        """A ragged wing raised high: a leading edge from shoulder to wrist to tip, long fingered flight feathers hanging
+        back from it, of uneven length."""
+        poly(c, [sh, wr, tip, (tip[0] - 8, tip[1] + 14), (sh[0] - 10, sh[1] + 6)], col)
+        for k in range(7):
+            t = k / 6
+            x, y = wr[0] + (tip[0] - wr[0]) * t, wr[1] + (tip[1] - wr[1]) * t
+            feather(c, x, y, -0.6, 1, 13 + t * 5 + (k % 2) * 3, col, shade)
+        for k in range(5):
+            t = k / 5
+            x, y = sh[0] + (wr[0] - sh[0]) * t, sh[1] + (wr[1] - sh[1]) * t
+            feather(c, x, y, -0.4, 1, 10 + (k % 2) * 2, col, shade)
+        for t in range(10):
+            x = sh[0] + (wr[0] - sh[0]) * t / 9; y = sh[1] + (wr[1] - sh[1]) * t / 9
+            ellipse(c, x, y, 1.6, 1.6, col)
 
     def bird(c, step):
-        poly(c, [(28, 24), (10, 4 - step * 2), (3, 9), (14, 20), (24, 30)], "K")         # far wing
-        for k in range(5):
-            poly(c, [(4 + k * 4, 9 + k * 3), (2 + k * 4, 14 + k * 3), (7 + k * 4, 12 + k * 3)], "K")   # ragged feathers
-        poly(c, [(24, 32), (12, 42), (17, 44), (20, 40), (22, 45), (27, 36)], "k")        # ragged tail
-        ellipse(c, 32, 30, 8, 7, "k")                                                    # body
-        for x in (29, 34):
-            c.rect(x, 36, x, 42, "K"); c.px(x - 1, 43, "w"); c.px(x + 1, 43, "w")        # talons
-        poly(c, [(34, 24), (54, 4 + step * 2), (62, 9), (50, 22), (40, 30)], "k")        # near wing
-        for k in range(5):
-            poly(c, [(60 - k * 4, 9 + k * 3), (62 - k * 4, 14 + k * 3), (57 - k * 4, 12 + k * 3)], "k")
-        ellipse(c, 41, 22, 4.5, 4, "k"); poly(c, [(39, 19), (37, 14), (42, 18)], "k")    # head, ragged crest
-        poly(c, [(44, 21), (53, 23), (51, 27), (44, 25)], "p"); c.px(52, 27, "p"); c.px(51, 28, "p")   # hooked beak
-        c.px(42, 21, "r"); c.px(40, 22, "r")                                             # glowing eyes
+        wing(c, (30, 24), (24, 8 - step), (10, 2 - step), "K", "q")                      # far wing, raised back
+        poly(c, [(22, 30), (8, 38), (10, 42), (14, 40), (15, 44), (19, 41), (21, 44), (25, 34)], "k")   # fanned tail
+        c.px(12, 40, "q"); c.px(17, 41, "q")
+        ellipse(c, 30, 29, 9, 6, "k"); ellipse(c, 33, 31, 5, 3, "q")                     # body, ragged breast
+        for x, y in ((31, 30), (34, 32), (29, 33), (36, 30)):
+            c.px(x, y, "K")
+        for x0 in (31, 35):                                                              # talons reaching forward
+            for t in range(6):
+                c.px(x0 + t // 2, 34 + t, "K")
+            c.px(x0 + 2, 40, "w"); c.px(x0 + 4, 40, "w"); c.px(x0, 41, "w")
+        poly(c, [(34, 26), (39, 18), (44, 18), (40, 28)], "k")                           # neck
+        ellipse(c, 43, 17, 4.5, 4, "k"); poly(c, [(40, 14), (37, 9), (42, 13)], "k")    # head, ragged crest
+        poly(c, [(46, 15), (55, 17), (55, 21), (52, 19), (46, 20)], "p")                 # long hooked beak
+        c.px(54, 22, "p"); c.px(53, 22, "p")
+        c.px(44, 16, "r"); c.px(42, 16, "r"); c.px(43, 17, "m")                          # glowing eyes
+        wing(c, (33, 23), (30, 6 + step), (22, 0 + step), "k", "K")                      # near wing, raised back
         rim(c, "kK", "p")
 
     def serpent(c, step):
@@ -706,8 +726,10 @@ def phobetor(form):
     return {"beast": beast, "bird": bird, "serpent": serpent}[form]
 
 
-PHOBETOR_PAL = {"o": "#0a0612", "k": "#2a1a3a", "K": "#1a1028", "p": "#6a3a9a", "r": "#f04a8a", "w": "#e8e0f0",
-                "m": "#5a0a2a"}
+PHOBETOR_PAL = {"o": "#0a0612", "k": "#2a1a3a", "K": "#1a1028", "q": "#3a2650", "p": "#6a3a9a", "r": "#f04a8a",
+                "w": "#e8e0f0", "m": "#5a0a2a"}
+PHOBETOR_BEAST_PAL = {"o": "#0a0612", "k": "#0a0612", "f": "#2e1e40", "F": "#20142e", "D": "#160c22", "l": "#4a3262",
+                      "w": "#e8e0f0", "r": "#f04a8a", "y": "#f04a8a", "g": "#6a3a9a", "p": "#6a3a9a", "P": "#4a2a72"}
 
 
 if __name__ == "__main__":
@@ -738,8 +760,10 @@ if __name__ == "__main__":
         kit.build_boss("phantasos_" + form, phantasos(form), PHANTASOS_PAL, doc(phantasos.__doc__ + " Here, as %s." % form),
                        (48, 54), (24, 52), [0, 1, 0, 1, 0])
     kit.build_boss("morpheus", morpheus, MORPHEUS_PAL, doc(morpheus.__doc__), (44, 56), (21, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("phobetor", phobetor("beast"), PHOBETOR_PAL, doc(phobetor.__doc__), (64, 52), (30, 50), [0, 1, 0, -1, 0])
-    for form in ("beast", "bird", "serpent"):
+    kit.build_boss("phobetor", phobetor("beast"), PHOBETOR_BEAST_PAL, doc(phobetor.__doc__), (74, 54), (36, 52), WOLF_WALK)
+    kit.build_boss("phobetor_beast", phobetor("beast"), PHOBETOR_BEAST_PAL, doc(phobetor.__doc__ + " Here, as a beast."),
+                   (74, 54), (36, 52), WOLF_WALK)
+    for form in ("bird", "serpent"):
         kit.build_boss("phobetor_" + form, phobetor(form), PHOBETOR_PAL, doc(phobetor.__doc__ + " Here, as a %s." % form),
                        (64, 52), (30, 50), [0, 1, 0, -1, 0])
     print("wrote the Heavens' art")

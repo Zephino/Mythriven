@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.69
+Date: 11/02/2026
+Time: 7:24 AM
+
+### Changes
+- **Phobetor's beast form redrawn** on the great wolf body (the one Fenrir, Bisclavret and the Beast of Gévaudan use): a lean shadow-black wolf edged in violet, with bristling hackles along its back, a snarling fanged mouth, a cluster of glowing pink eyes, and smoke trailing from its tail.
+- **Phobetor's bird form redrawn:** a huge ragged black bird with both wings raised high and swept back, long fingered flight feathers of uneven length, a fanned tail, a ragged crest, glowing eyes, a long hooked beak, and talons reaching forward.
+
+### Reason
+The owner asked for Phobetor's beast and bird forms to be redone.
+
 ## Version 00.03.68
 Date: 11/02/2026
 Time: 12:30 AM
