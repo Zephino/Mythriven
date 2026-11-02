@@ -325,7 +325,7 @@ def great_bear(c, step):
     c.rect(18 + step, 44, 26 + step, 46, "k")
     poly(c, [(32 - step, 30), (38 - step, 30), (38 - step, 44), (32 - step, 44)], "D")       # far foreleg
     c.rect(31 - step, 44, 39 - step, 46, "k")
-    poly(c, [(4, 28), (6, 20), (12, 16), (22, 16), (30, 13), (36, 10), (41, 12), (44, 18), (47, 24), (48, 31),
+    poly(c, [(4, 28), (6, 20), (12, 16), (22, 16), (30, 13), (36, 10), (40, 12), (42, 18), (44, 24), (46, 31),
              (44, 34), (36, 36), (18, 36), (10, 34)], "d")                               # body, humped at the shoulder
     poly(c, [(10, 31), (44, 31), (44, 34), (36, 36), (18, 36), (10, 34)], "D")           # belly in shadow
     poly(c, [(8, 19), (12, 16), (22, 16), (30, 13), (36, 10), (42, 12), (40, 14), (30, 16), (20, 19), (10, 21)], "l")   # light along the back
@@ -340,15 +340,24 @@ def great_bear(c, step):
         c.px(x - step, 48, "w")                                                          # claws
     for x in (40, 43, 46):
         c.px(x + step, 48, "w")
-    ellipse(c, 50, 23, 2.4, 2.4, "d"); ellipse(c, 55, 23, 2.4, 2.4, "d")                 # small round ears
-    c.px(50, 23, "D"); c.px(55, 23, "D")
-    ellipse(c, 53, 29, 5.5, 5, "d"); c.row(25, 50, 56, "l")                              # head, carried low
-    poly(c, [(56, 27), (61, 29), (61, 33), (55, 34)], "d")                               # snout
-    for t in range(9):
-        c.px(48 + t, 32 + t // 3, "D")                                                   # jaw line
-    ellipse(c, 61, 30, 1.2, 1.2, "k"); c.row(33, 58, 60, "k")                            # nose, mouth
+    head = ("..dd.dd.........",                                                          # the head in profile:
+            ".dDddDd.........",                                                          # ears at the back,
+            ".dddddddl.......",                                                          # forehead sloping down
+            "ddddddddddl.....",                                                          # into a long snout,
+            "dddddddEdddddl..",                                                          # a heavy jaw,
+            "ddddddddddddddkk",                                                          # a black nose
+            "dddddddddddddddk",
+            ".dddddddddddddk.",
+            "..DDDDDDDDDDk...",
+            "...DDDDDDD......")
+    for dy, row in enumerate(head):
+        for dx, ch in enumerate(row):
+            if ch != ".":
+                c.px(46 + dx, 25 + dy, ch)
+    for y in range(27, 35):
+        c.px(46, y, "D")                                                                 # the line of the neck
     rim(c, "dDl", "b")
-    c.px(56, 28, "w"); c.px(55, 28, "k")                                                 # eye
+    c.px(53, 29, "w"); c.px(54, 29, "k")                                                 # eye
     for x, y in ((12, 22), (18, 20), (24, 22), (30, 19), (36, 15), (41, 17), (28, 27)):    # the seven stars
         c.px(x, y, "w"); c.px(x - 1, y, "y"); c.px(x + 1, y, "y")
 
