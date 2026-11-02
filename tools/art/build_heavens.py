@@ -151,19 +151,33 @@ def griffin_matriarch(c, step):
     """The Griffin Matriarch (Herodotus 4.13; the gold-guarding griffins): a great griffin with a lion's tawny body,
     an eagle's white head with a crest and a hooked golden beak, an eagle's taloned forelegs and a lion's hind legs, a
     tufted tail, and great golden wings raised high, flecked with gold."""
-    def wing(x0, y0, tip, back, col, shade):
-        """A broad raised wing: a filled shape from the shoulder to the tip, with feather lines inside it and
-        scalloped feather tips along its trailing edge."""
-        poly(c, [(x0, y0), (x0 + (tip[0] - x0) * 0.2, y0 - 6), tip, back], col)
-        for k in range(1, 6):                                                            # feather lines, inside only
+    def feather(x, y, dx, dy, length, col, shade):
+        n = math.hypot(dx, dy)
+        dx, dy = dx / n, dy / n
+        for t in range(int(length)):
+            px, py = round(x + dx * t), round(y + dy * t)
+            c.px(px, py, col); c.px(px + 1, py, shade if t > 1 else col)
+        c.px(round(x + dx * length), round(y + dy * length), shade)
+
+    def wing(sh, wr, tip, col, shade, light):
+        """A bird's wing raised up and swept back over the body: a feathered leading edge (shoulder, wrist, tip) facing
+        forward, long primary feathers fanning back from wrist to tip, shorter secondaries from shoulder to wrist."""
+        poly(c, [sh, wr, tip, (tip[0] - 14, tip[1] + 10), (sh[0] - 14, sh[1] - 2)], col)
+        for k in range(7):                                                               # primaries, fanning back
             t = k / 6
-            bx, by = back[0] + (tip[0] - back[0]) * t, back[1] + (tip[1] - back[1]) * t
-            for j in range(10):
-                x, y = round(bx + (x0 - bx) * j / 14), round(by + (y0 - by) * j / 14)
-                if 0 <= x < c.w and 0 <= y < c.h and c.g[y][x] == col:
-                    c.px(x, y, shade)
-            c.px(round(bx), round(by) + 1, col)                                           # scalloped tips
-    wing(30, 26, (6, 2 - step), (16, 24), "Y", "T")                                                # far wing
+            x, y = wr[0] + (tip[0] - wr[0]) * t, wr[1] + (tip[1] - wr[1]) * t
+            feather(x, y, -1, 0.9 - t * 0.6, 12 + t * 6, col, shade)
+        for k in range(5):                                                               # secondaries
+            t = k / 5
+            x, y = sh[0] + (wr[0] - sh[0]) * t, sh[1] + (wr[1] - sh[1]) * t
+            feather(x, y, -1, 0.5, 11, col, shade)
+        for t in range(10):                                                              # the leading edge
+            x = sh[0] + (wr[0] - sh[0]) * t / 9; y = sh[1] + (wr[1] - sh[1]) * t / 9
+            ellipse(c, x, y, 1.8, 1.8, col); c.px(round(x) + 1, round(y), light)
+        for t in range(10):
+            x = wr[0] + (tip[0] - wr[0]) * t / 9; y = wr[1] + (tip[1] - wr[1]) * t / 9
+            c.px(round(x), round(y), light); c.px(round(x) + 1, round(y), col)
+    wing((38, 24), (37, 8 - step), (31, 0 - step), "Y", "T", "y")                       # far wing, raised
     for x, d in ((17, -step), (42, step)):                                               # far legs
         c.rect(x + d, 38, x + 3 + d, 50, "T")
     for i in range(18):                                                                  # lion's tail with its tuft
@@ -182,7 +196,7 @@ def griffin_matriarch(c, step):
     c.px(51, 13, "k"); c.px(51, 12, "y"); c.row(11, 50, 53, "W")                         # fierce eye, brow
     poly(c, [(54, 13), (61, 15), (61, 19), (58, 21), (55, 18)], "y")                     # hooked golden beak
     c.px(59, 20, "Y"); c.px(58, 21, "Y"); c.row(17, 55, 59, "Y")
-    wing(32, 26, (50, 0 + step), (24, 18), "y", "Y")                                               # near wing, raised
+    wing((34, 26), (31, 10 + step), (23, 2 + step), "y", "Y", "u")                                               # near wing, raised
     for x, y in ((24, 30), (31, 33), (20, 35), (35, 31)):
         c.px(x, y, "y")                                                                  # gold flecks
 
@@ -238,43 +252,43 @@ COMET_PAL = {"o": "#1a1a30", "w": "#ffffff", "y": "#f0d080", "Y": "#fff8d0", "b"
 
 def scorpion(c, step):
     """The Scorpion (Hyginus 2.26; Ovid, Fasti 5.537-544): the great scorpion Earth sent to kill Orion, set among the
-    stars: a scorpion of the night sky edged with starlight, seen from the side, its great pincers reaching forward,
-    its legs braced, and its jointed tail arched high over its back with the sting glowing red; Antares burns red at
-    its heart."""
-    def seg(ax, ay, bx, by, r, col):
-        for t in range(9):
-            ellipse(c, ax + (bx - ax) * t / 8, ay + (by - ay) * t / 8, r, r, col)
+    stars: a scorpion of the night sky edged with starlight, seen from the side, its segmented body low to the ground on
+    eight legs, its great pincers reaching forward, and its jointed tail curled high over its back with the sting
+    glowing red; Antares burns red at its heart."""
+    def line(pts, r, col):
+        for (ax, ay), (bx, by) in zip(pts, pts[1:]):
+            for t in range(9):
+                ellipse(c, ax + (bx - ax) * t / 8, ay + (by - ay) * t / 8, r, r, col)
     for k in range(4):                                                                   # far legs
-        x = 16 + k * 6 - (step if k % 2 else -step)
-        seg(x + 2, 36, x - 1, 39, 1.0, "D"); seg(x - 1, 39, x - 3, 44, 0.8, "D")
-    seg(38, 34, 44, 28, 1.6, "D"); ellipse(c, 47, 27, 3, 2.2, "D")                       # far pincer
-    poly(c, [(48, 25), (51, 23), (50, 27)], "D")
-    pts = []
-    for k in range(9):                                                                   # the tail, arched over its back
-        a = math.pi * (1.0 + k * 0.1)
-        rad = 13 - k * 0.6
-        pts.append((22 + math.cos(a) * rad, 31 + math.sin(a) * rad * 1.6, 3.4 - k * 0.22))
-    for (ax, ay, r), (bx, by, _r) in zip(pts, pts[1:]):
-        seg(ax, ay, bx, by, r, "d")
-    for x, y, r in pts[1::2]:
-        c.px(round(x), round(y + r - 1), "D")                                            # its joints
-    tx, ty = pts[-1][0], pts[-1][1]
-    ellipse(c, tx + 2, ty + 2, 2.6, 2.2, "d")                                            # the sting, pointing down
-    poly(c, [(tx + 2, ty + 3), (tx + 6, ty + 9), (tx + 4, ty + 3)], "r"); c.px(round(tx + 6), round(ty + 9), "R")
-    ellipse(c, 24, 35, 13, 5, "d"); ellipse(c, 24, 38, 11, 2, "D")                       # body
-    for x in (16, 21, 26, 31):
-        c.rect(x, 31, x, 39, "D")                                                        # its plates
-    ellipse(c, 37, 35, 5, 4, "d"); c.px(40, 33, "w"); c.px(39, 33, "r")                  # head and eyes
+        x = 20 + k * 5 + 2
+        lift = step if k % 2 else -step
+        line([(x, 35), (x - 2, 37), (x - 4 + lift, 43)], 0.7, "D")
+    line([(40, 31), (44, 26), (47, 27)], 1.2, "D")                                       # far pincer
+    ellipse(c, 49, 26, 3, 2, "D"); c.px(52, 24, "D"); c.px(53, 25, "D"); c.px(52, 28, "D")
+    for k, (x, y, r) in enumerate(((11, 29, 3.0), (8, 23, 2.8), (9, 17, 2.7), (13, 12, 2.5), (19, 9, 2.3))):
+        ellipse(c, x, y, r, r, "d"); c.px(round(x - r + 1), y, "D")                      # tail segments, curling up
+        if k:
+            c.px(x, round(y + r), "D")                                                   # joints
+    ellipse(c, 24, 9, 2.6, 2.2, "d")                                                     # the bulb of the sting
+    c.px(27, 10, "r"); c.px(28, 11, "r"); c.px(28, 12, "R"); c.px(27, 13, "R")          # the sting, hooked down
+    for k in range(6):                                                                   # segmented body
+        ellipse(c, 15 + k * 4, 33 - (1 if 1 <= k <= 4 else 0), 3, 4.4, "d")
+    for k in range(1, 6):
+        c.rect(13 + k * 4, 30, 13 + k * 4, 36, "D")
+    c.row(37, 13, 36, "D")
+    ellipse(c, 39, 33, 4.5, 3.6, "d")                                                    # head
+    c.px(40, 30, "w"); c.px(42, 31, "w")                                                 # eyes
     for k in range(4):                                                                   # near legs
-        x = 18 + k * 6 + (step if k % 2 else -step)
-        seg(x, 37, x + 3, 40, 1.1, "d"); seg(x + 3, 40, x + 1, 44, 0.9, "d")
-    seg(40, 36, 44, 38, 1.8, "d"); seg(44, 38, 46, 34, 1.6, "d")                         # near arm
-    ellipse(c, 46, 32, 4.4, 3.2, "d")                                                    # near pincer
-    poly(c, [(47, 29), (51, 25), (51, 30)], "d"); poly(c, [(48, 34), (51, 36), (47, 35)], "d")
+        x = 18 + k * 5
+        lift = -step if k % 2 else step
+        line([(x, 36), (x - 2, 38), (x - 4 + lift, 44)], 0.8, "d")
+    line([(42, 34), (45, 31), (47, 33)], 1.4, "d")                                       # near pincer
+    ellipse(c, 48, 33, 3.4, 2.4, "d")
+    poly(c, [(49, 31), (52, 29), (51, 32)], "d"); poly(c, [(49, 35), (52, 36), (50, 34)], "d")
     rim(c, "dD", "b")
-    for x, y in ((24, 33), (16, 34), (32, 34), (10, 24), (14, 13), (24, 10), (47, 32)):
+    for x, y in ((15, 32), (31, 31), (11, 23), (13, 12), (39, 33), (48, 33)):
         c.px(x, y, "w")                                                                  # its stars
-    ellipse(c, 26, 35, 1.2, 1.2, "R"); c.px(26, 35, "r")                                 # Antares, red at its heart
+    ellipse(c, 23, 32, 1.2, 1.2, "R"); c.px(23, 32, "r")                                 # Antares, red at its heart
 
 
 SCORPION_PAL = {"o": "#0a0c1a", "d": "#3a2a5a", "D": "#261c40", "b": "#9a7ae0", "r": "#ff5a6a", "R": "#c02a4a",

@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.61
+Date: 11/02/2026
+Time: 11:42 PM
+
+### Changes
+- **The Scorpion redrawn.** Seen from the side, with a segmented body low to the ground on eight jointed legs, great pincers reaching forward, and a jointed tail of five segments curled high over its back, ending in a bulb and a red hooked sting. It keeps its starlit edge, its stars and red Antares at its heart.
+- **The Griffin Matriarch's wings redrawn.** Both wings are now raised up and swept back over her body like an eagle's, with a feathered leading edge, long flight feathers fanning back and shorter ones below. They no longer hide behind her head.
+
+### Reason
+The owner asked for the Scorpion to be fixed and said the Griffin Matriarch's wings looked weird.
+
 ## Version 00.03.60
 Date: 11/02/2026
 Time: 11:37 PM
