@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.67
+Date: 11/02/2026
+Time: 12:17 AM
+
+### Changes
+- **The Great Bear's hump removed.** Her back is now broad and level from rump to shoulder, with her ears showing above it; her stars and the light along her back follow the new line.
+
+### Reason
+The owner said the bear looked like it had a hunchback.
+
 ## Version 00.03.66
 Date: 11/02/2026
 Time: 12:07 AM

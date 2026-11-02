@@ -319,18 +319,18 @@ SCORPION_PAL = {"o": "#0a0c1a", "l": "#5a4a8a", "d": "#3a2a5a", "D": "#261c40", 
 def great_bear(c, step):
     """The Great Bear (Ovid, Metamorphoses 2.401-530; Aratus 26-62): Callisto, turned into a bear and set among the
     stars, where she turns round the pole and never sinks into the sea: a great shaggy bear of night-blue edged with
-    starlight, with a low shoulder hump, a broad head carried low with a long snout and ears at the back, thick legs on
+    starlight, with a broad, level back, a broad head carried low with a long snout and ears at the back, thick legs on
     broad clawed paws, and her seven bright stars along her back."""
     poly(c, [(19 + step, 30), (25 + step, 30), (25 + step, 44), (19 + step, 44)], "D")       # far hind leg
     c.rect(18 + step, 44, 26 + step, 46, "k")
     poly(c, [(32 - step, 30), (38 - step, 30), (38 - step, 44), (32 - step, 44)], "D")       # far foreleg
     c.rect(31 - step, 44, 39 - step, 46, "k")
-    poly(c, [(4, 28), (6, 20), (12, 17), (22, 17), (30, 16), (35, 15), (39, 17), (41, 21), (42, 25), (43, 31),
+    poly(c, [(4, 28), (6, 21), (12, 19), (22, 19), (30, 19), (36, 19), (40, 20), (41, 23), (42, 26), (43, 31),
              (44, 34), (36, 36), (18, 36), (10, 34)], "d")                               # body, humped at the shoulder
     poly(c, [(10, 31), (44, 31), (44, 34), (36, 36), (18, 36), (10, 34)], "D")           # belly in shadow
-    poly(c, [(8, 19), (12, 17), (22, 17), (30, 16), (35, 15), (39, 17), (37, 18), (30, 18), (20, 19), (10, 21)], "l")   # light along the back
+    poly(c, [(8, 21), (12, 19), (22, 19), (30, 19), (36, 19), (40, 20), (37, 21), (30, 21), (20, 21), (10, 22)], "l")   # light along the back
     ellipse(c, 4, 23, 2, 1.6, "d")                                                       # stubby tail
-    for x, y in ((14, 23), (20, 22), (26, 21), (32, 20), (37, 20), (17, 28), (24, 27), (31, 25), (38, 23), (40, 26)):
+    for x, y in ((14, 24), (20, 23), (26, 23), (32, 22), (37, 23), (17, 28), (24, 27), (31, 25), (38, 23), (40, 26)):
         c.px(x, y, "D")                                                                  # shaggy fur
     poly(c, [(8, 22), (21, 23), (21, 33), (19, 39), (20, 44), (12, 44), (12, 38), (8, 32)], "d")   # near hind leg
     c.rect(11 - step, 44, 21 - step, 47, "k"); c.row(44, 12 - step, 20 - step, "D")
@@ -362,7 +362,7 @@ def great_bear(c, step):
         c.px(40, y, "D")                                                                 # the line of the neck
     rim(c, "dDl", "b")
     c.rect(49, 29, 50, 29, "k"); c.px(49, 28, "w")                                       # eye
-    for x, y in ((12, 22), (18, 20), (24, 21), (30, 19), (35, 18), (39, 21), (28, 27)):    # the seven stars
+    for x, y in ((12, 23), (18, 21), (24, 22), (30, 21), (35, 21), (39, 23), (28, 27)):    # the seven stars
         c.px(x, y, "w"); c.px(x - 1, y, "y"); c.px(x + 1, y, "y")
 
 
