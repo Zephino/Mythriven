@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.77
+Date: 11/02/2026
+Time: 8:37 AM
+
+### Changes
+- **The Necromancer of O'Brazile remade:**
+  - a gaunt old sorcerer in a deep grey hood, with sunken cheeks, shadowed brows and eyes glowing sea-green;
+  - a long white beard;
+  - a black gown sewn with silver signs;
+  - his far hand raised to cast, with sea-green sparks;
+  - a gnarled staff topped with a glowing sea-green stone;
+  - the sea-mist of his spell curling round his feet.
+
+### Reason
+The owner asked for the Necromancer of O'Brazile to be remade.
+
 ## Version 00.03.76
 Date: 11/02/2026
 Time: 8:32 AM

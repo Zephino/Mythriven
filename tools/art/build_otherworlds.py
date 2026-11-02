@@ -182,17 +182,45 @@ GREAT_RABBIT_PAL = {"o": "#0a0a0e", "k": "#24222a", "K": "#3a3844", "w": "#e8e4d
 
 
 def obrazile_necromancer(c, step):
-    """The Necromancer of O'Brazile (the 1675 pamphlet: the enchanter whose spell hid the island): an old man in a
-    black gown sewn with silver signs, a staff topped with a sea-green stone."""
-    figure(c, step, "k", "s", "w")
-    poly(c, [(16, 15), (27, 15), (24, 32), (19, 32)], "w")
-    for x, y in ((14, 36), (26, 40), (18, 46), (28, 30)):
-        c.px(x, y, "e"); c.px(x + 1, y + 1, "e")
-    c.rect(33, 6, 34, 50, "b"); ellipse(c, 33, 5, 3, 3, "g")
+    """The Necromancer of O'Brazile (the 1675 pamphlet: the enchanter whose spell hid the island until fire was lit on
+    its shore): a gaunt old man in a deep grey hood, with a long white beard, sunken cheeks and eyes glowing sea-green,
+    in a black gown sewn with silver signs, a staff topped with a glowing sea-green stone, his other hand raised to
+    cast, and the sea-mist of his spell curling round his feet."""
+    person(c, step, cx=20, skin="s", skin_d="S", hair="w", hair_d="W", hair_style="none", beard="w",
+           garment="gown", robe="k", robe_d="K", robe_l="e", belt="e", boots="K", cloak=("h", "H"), arm_forward=True,
+           eye="g")
+    ellipse(c, 20, 8, 7, 7.5, "h"); poly(c, [(13, 8), (20, -1), (27, 8)], "h")          # deep grey hood
+    poly(c, [(13, 9), (16, 9), (15, 20), (12, 18)], "H"); poly(c, [(24, 9), (27, 9), (28, 18), (25, 20)], "H")
+    ellipse(c, 20, 10, 4, 4.6, "s"); c.px(17, 12, "S"); c.px(23, 12, "S")               # gaunt face in it
+    c.row(8, 17, 19, "H"); c.row(8, 21, 23, "H")                                         # shadowed brows
+    c.px(18, 10, "g"); c.px(22, 10, "g")                                                 # eyes glowing sea-green
+    c.px(20, 12, "S")
+    poly(c, [(17, 13), (23, 13), (23, 22), (20, 28), (17, 22)], "w")                     # long white beard
+    c.px(19, 17, "W"); c.px(21, 21, "W"); c.px(20, 24, "W")
+    for x, y, sign in ((16, 32, 0), (23, 36, 1), (18, 42, 2), (24, 46, 0), (15, 48, 1)):   # silver signs on his gown
+        if sign == 0:
+            c.px(x, y, "e"); c.px(x - 1, y, "e"); c.px(x + 1, y, "e"); c.px(x, y - 1, "e"); c.px(x, y + 1, "e")
+        elif sign == 1:
+            c.px(x, y, "e"); c.px(x + 1, y - 1, "e"); c.px(x + 1, y + 1, "e")
+        else:
+            c.px(x, y, "e"); c.px(x + 1, y, "e"); c.px(x, y + 1, "e"); c.px(x + 1, y + 1, "e")
+    poly(c, [(12, 18), (9, 12), (7, 6), (9, 5), (12, 12), (14, 16)], "K")                # far arm raised to cast
+    ellipse(c, 8, 4, 1.8, 1.8, "s")
+    for x, y in ((6, 1 - step), (10, 0 + step), (5, 4), (11, 2)):
+        c.px(x, y, "g")                                                                  # sea-green sparks
+    c.rect(35, 8, 36, 52, "b"); c.px(35, 8, "B")                                         # staff
+    poly(c, [(33, 6), (35, 3), (38, 3), (39, 6), (36, 9)], "b")                          # gnarled head
+    ellipse(c, 36, 4, 2, 2, "g"); c.px(36, 3, "G")                                       # glowing sea-green stone
+    for k in range(8):                                                                   # sea-mist curling at his feet
+        x = 4 + k * 5 + step
+        c.px(x, 52 - (k % 2), "m"); c.px(x + 1, 52 - (k % 2), "m"); c.px(x + 2, 51 - (k % 2), "M")
+    for x, y in ((2, 48), (38, 47), (6, 44)):
+        c.px(x, y, "M"); c.px(x + 1, y, "m")
 
 
-NECROMANCER_PAL = {"o": "#0e0a10", "k": "#1e1a24", "s": "#d8c0a8", "w": "#e8e4dc", "e": "#c8ccd8", "b": "#5a3a1a",
-                   "g": "#4ac0a0"}
+NECROMANCER_PAL = {"o": "#0e0a10", "k": "#1e1a24", "K": "#2e2a36", "h": "#4a4a5a", "H": "#32323e", "s": "#d0bca8",
+                   "S": "#a08a78", "w": "#e8e4dc", "W": "#b8b4ac", "e": "#c8ccd8", "b": "#5a3a1a", "B": "#3a2410",
+                   "g": "#4ae0b0", "G": "#c8fff0", "m": "#c8d0d8", "M": "#9aa4b0", "l": "#1e1a24"}
 
 
 def flying_dutchman(pal_phantom):
