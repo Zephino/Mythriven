@@ -2,6 +2,31 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.79
+Date: 11/02/2026
+Time: 5:45 PM
+
+### Changes
+Remade every sprite in Mount Pelion and Dovrefjell (owner's request):
+- **The centaur body:**
+  - a barrel, a rounded rump, a deep chest and a belly in shadow;
+  - a flowing tail;
+  - a muscled man's torso with shoulders and arms;
+  - a bearded head with wild hair, its face showing.
+  It is shared, so the centaur raider, centaur slinger and Arcadia's centaur change with it.
+- **Eurytus:** red-faced, holding up a great embossed gold wine-bowl, with wine slopping over.
+- **Rhoetus:** swinging a burning brand, blazing at the top.
+- **Nessus:** dark, with an arrow in his back and venomed blood on his flank.
+- **The trolls** share a new Norwegian troll's head: shaggy hair, small eyes, a big ear and a long drooping nose with a wart.
+  - **Dovre troll:** a lumpy green-grey troll with a pot belly in a mossy hide, a cow's tail with a tuft, and a knotted club.
+  - **Troll brat:** a big-headed troll child with a tufted tail, reaching out to pinch.
+  - **The Hedal Trolls:** three huge grey trolls shoulder to shoulder. The two at the sides have empty sockets and grope with their hands; the middle one holds up the single glowing eye.
+  - **The Mountain King:** an old troll king with a huge drooping nose, big ears and a long white beard. He wears a gold crown, a red cloak with an ermine collar over a green robe, and carries a sceptre, with his tufted cow's tail hanging below.
+- **The Great Bøyg:** a vast heap of slimy coils of darkness with a dull sheen along them, no face at all, and mist creeping from under it.
+
+### Reason
+The owner is going over all the new sprites, two realms at a time, and asked for every sprite in Mount Pelion and Dovrefjell to be remade.
+
 ## Version 00.03.78
 Date: 11/02/2026
 Time: 5:29 PM
