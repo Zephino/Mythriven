@@ -95,12 +95,12 @@ func _ready() -> void:
 	_trait_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_trait_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_trait_label)
-	# The Hero's health bar, and their weapons and levels under it, down the left edge under the top bar
+	# The Hero's health bar filling the top-left corner, and their weapons and levels under it, down the left edge
 	# (owner requests 11/03/2026).
 	var vitals := VBoxContainer.new()
 	vitals.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	vitals.offset_left = margin_px
-	vitals.offset_top = row.offset_top + Data.cfg_float("ui.min_touch_target_px") + margin_px
+	vitals.offset_top = row.offset_top                                                   # in the top-left corner
 	vitals.add_theme_constant_override("separation", int(Data.cfg_float("ui.hud_weapon_gap_px")) * 2)
 	vitals.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(vitals)

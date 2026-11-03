@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.90
+Date: 11/03/2026
+Time: 7:13 AM
+
+### Changes
+- **The health bar now fills the top-left corner**, just under the experience bar, level with the timer and level badge. It is bigger (230 × 30 px, from 150 × 22) with larger numbers. The weapon slots move up right under it.
+
+### Reason
+The owner asked for the health bar to take up the empty space in the top-left corner, with the weapons moved up under it.
+
 ## Version 00.03.89
 Date: 11/03/2026
 Time: 6:54 AM
