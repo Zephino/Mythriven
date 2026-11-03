@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-11-03T00:42:50.426Z",
+	"updated": "2026-11-03T01:36:02.851Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -339,6 +339,67 @@
 			],
 			"version": "00.02.43",
 			"date": "2026-10-31T16:42:52.159Z"
+		},
+		{
+			"name": "EatMyNoodle",
+			"hero": "tomoe_gozen",
+			"time_s": 865,
+			"level": 30,
+			"kills": 8059,
+			"weapons": [
+				{
+					"id": "sword_and_bow",
+					"level": 6
+				},
+				{
+					"id": "javelin",
+					"level": 4
+				},
+				{
+					"id": "bronze_sword",
+					"level": 4
+				},
+				{
+					"id": "war_hammer",
+					"level": 3
+				},
+				{
+					"id": "frost",
+					"level": 4
+				},
+				{
+					"id": "throwing_axe",
+					"level": 2
+				}
+			],
+			"passives": [
+				{
+					"id": "seers_eye",
+					"level": 3
+				},
+				{
+					"id": "hourglass",
+					"level": 3
+				},
+				{
+					"id": "winged_sandals",
+					"level": 2
+				},
+				{
+					"id": "lodestone",
+					"level": 2
+				},
+				{
+					"id": "golden_apple",
+					"level": 1
+				},
+				{
+					"id": "ferrymans_coin",
+					"level": 1
+				}
+			],
+			"version": "00.03.85",
+			"date": "2026-11-03T01:36:02.851Z"
 		},
 		{
 			"name": "Tiny",
