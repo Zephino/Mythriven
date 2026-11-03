@@ -182,6 +182,8 @@
     "min_touch_target_px": 72,
     "recap_height_px": 250,
     "results_max_height_frac": 0.94,
+    "notice_width_px": 520,
+    "notice_dim_color": "#000000a0",
     "tip_color": "#ffe08a",
     "god_button_min_px": 72,
     "screen_margin_px": 16,

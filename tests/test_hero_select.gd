@@ -35,3 +35,12 @@ func test_a_boss_unlock_names_the_boss_and_where_it_is_fought() -> void:
 	var text: String = HeroSelect.unlock_text(HeroRules.find("rostam"))
 	assert_string_contains(text, tr("BOSS_WHITE_DIV_NAME"), "Rostam's unlock names the White Div")
 	assert_string_contains(text, tr("LEVEL_MAZANDARAN_NAME"), "and Mazandaran")
+
+
+func test_a_notice_is_a_small_box_not_a_full_page() -> void:
+	var notice: NoticeScreen = add_child_autofree(NoticeScreen.make("UI_PLAY", "UI_PLAY_CHECKING", false))
+	await wait_process_frames(3)
+	var view: Vector2 = notice.get_viewport().get_visible_rect().size
+	assert_true(notice.compact(), "notices use the compact layout")
+	assert_lt(notice._column.size.y, view.y * 0.5, "the box is only as tall as its words")
+	assert_lt(notice._column.size.x, view.x * 0.6, "and narrow")

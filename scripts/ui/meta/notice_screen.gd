@@ -36,6 +36,15 @@ func has_back() -> bool:
 	return _with_ok
 
 
+## A small box in the middle of the dimmed screen, not a full page (owner request 11/03/2026).
+func compact() -> bool:
+	return true
+
+
+func page_width() -> float:
+	return Data.cfg_float("ui.notice_width_px")
+
+
 func build() -> void:
 	set_title(tr_key(_title_key))
 	add_line(_text if _text != "" else tr_key(_text_key))

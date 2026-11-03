@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.93
+Date: 11/03/2026
+Time: 7:57 AM
+
+### Changes
+- **Short messages are now a small box, not a full page.** "Getting ready…" (shown while the game checks your account isn't playing on another device) and the other notices used the whole-page menu layout. They are now:
+  - a small box in the middle of the screen, only as tall as its words (520 px wide, `ui.notice_width_px`);
+  - over the screen behind, which is dimmed instead of hidden (`ui.notice_dim_color`).
+
+  It applies to every notice (playing elsewhere, sign-in and cloud-save messages, and so on).
+- Test added to tests/test_hero_select.gd.
+
+### Reason
+The owner asked why the "Getting ready" screen was so big: it doesn't need to be the full page.
+
 ## Version 00.03.92
 Date: 11/03/2026
 Time: 7:22 AM

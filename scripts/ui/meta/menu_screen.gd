@@ -31,9 +31,16 @@ func _ready() -> void:
 	var root := Control.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(root)
-	var backdrop := MenuBackdrop.new()
-	backdrop.show_heroes = shows_heroes()
-	root.add_child(backdrop)
+	if compact():
+		# A short message: a small box over the screen behind, dimmed (owner request 11/03/2026).
+		var dim := ColorRect.new()
+		dim.color = Color.html(Data.cfg_string("ui.notice_dim_color"))
+		dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+		root.add_child(dim)
+	else:
+		var backdrop := MenuBackdrop.new()
+		backdrop.show_heroes = shows_heroes()
+		root.add_child(backdrop)
 	# Contents stay clear of phone notches; the backdrop fills the whole screen.
 	var safe := SafeAreaBox.new()
 	root.add_child(safe)
@@ -59,7 +66,7 @@ func _ready() -> void:
 	# Wide pages (lists with details, cards) use more of the screen, but never more than there is.
 	var room: float = get_viewport().get_visible_rect().size.x - margin_px * 2.0
 	column.custom_minimum_size = Vector2(minf(page_width(), room), 0)
-	column.size_flags_vertical = Control.SIZE_EXPAND_FILL if not shows_logo() else Control.SIZE_SHRINK_CENTER
+	column.size_flags_vertical = Control.SIZE_SHRINK_CENTER if shows_logo() or compact() else Control.SIZE_EXPAND_FILL
 	middle.add_child(column)
 	_column = column
 	var box := VBoxContainer.new()
@@ -88,7 +95,7 @@ func _ready() -> void:
 	var scroll := ScrollContainer.new()
 	_scroll = scroll
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	if shows_logo():
+	if shows_logo() or compact():
 		scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	box.add_child(scroll)
@@ -113,6 +120,12 @@ func has_back() -> bool:
 ## (owner decisions 10/31/2026: list + detail pages, item cards, the Hall's tabs).
 func page_width() -> float:
 	return Data.cfg_float("ui.menu_column_px")
+
+
+## A short message (a notice): a small box, only as tall as its words, in the middle of the dimmed screen,
+## instead of a full page over the painted backdrop.
+func compact() -> bool:
+	return false
 
 
 ## The title screen shows the logo above its column, and the Heroes on the backdrop.
@@ -152,7 +165,7 @@ func refresh() -> void:
 	if _host != null:
 		_host.refresh()
 		return
-	_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED if shows_logo() else ScrollContainer.SCROLL_MODE_AUTO
+	_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED if shows_logo() or compact() else ScrollContainer.SCROLL_MODE_AUTO
 	_rows.size_flags_vertical = Control.SIZE_FILL
 	for child: Node in _rows.get_children():
 		_rows.remove_child(child)

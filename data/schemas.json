@@ -208,6 +208,8 @@
               "banner_s": "number",
               "recap_height_px": "number",
               "results_max_height_frac": "number",
+              "notice_width_px": "number",
+              "notice_dim_color": "string",
               "tip_color": "string"
             }
           },
