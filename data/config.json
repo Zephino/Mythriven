@@ -166,6 +166,7 @@
     "damage_number_rise_px_s": 24,
     "min_touch_target_px": 72,
     "recap_height_px": 250,
+    "results_max_height_frac": 0.94,
     "tip_color": "#ffe08a",
     "god_button_min_px": 72,
     "screen_margin_px": 16,

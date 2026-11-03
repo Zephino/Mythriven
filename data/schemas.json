@@ -192,6 +192,7 @@
               "banner_outline_px": "number",
               "banner_s": "number",
               "recap_height_px": "number",
+              "results_max_height_frac": "number",
               "tip_color": "string"
             }
           },

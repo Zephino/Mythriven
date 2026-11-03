@@ -6,6 +6,9 @@ extends CanvasLayer
 ## (same Hero and level), Change Hero, and the Hall of Legends.
 
 var _panel: PanelContainer
+## The whole screen scrolls when it is taller than the window (a small window or big text).
+var _outer: ScrollContainer
+var _box: VBoxContainer
 var _summary: Label
 var _tip: Label
 var _name: LineEdit
@@ -36,8 +39,13 @@ func _ready() -> void:
 	_panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	_panel.grow_vertical = Control.GROW_DIRECTION_BOTH
 	root.add_child(_panel)
+	_outer = ScrollContainer.new()
+	_outer.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_outer.follow_focus = true
+	_panel.add_child(_outer)
 	var box := VBoxContainer.new()
-	_panel.add_child(box)
+	_box = box
+	_outer.add_child(box)
 	var title := Label.new()
 	title.text = "UI_FALLEN_TITLE"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -77,6 +85,17 @@ func _ready() -> void:
 	_lobby_button = _add_button(box, "UI_BACK_TO_COOP_LOBBY", _on_coop_lobby)
 	_title_button = _add_button(box, "UI_BACK_TO_TITLE", _on_title)
 	visible = false
+	get_viewport().size_changed.connect(_fit)
+
+
+## Fits the screen to the window: as tall as its contents, but never taller than the safe area, scrolling the rest.
+func _fit() -> void:
+	if _box == null:
+		return
+	var need: Vector2 = _box.get_combined_minimum_size()
+	var room: float = SafeArea.rect(get_viewport()).size.y * Data.cfg_float("ui.results_max_height_frac")
+	_outer.custom_minimum_size = Vector2(need.x, minf(need.y, room))
+	_panel.reset_size()
 
 
 ## Shows the screen with one line of summary per entry. `entry` is this run's
@@ -107,6 +126,8 @@ func show_summary(lines: PackedStringArray, entry: Dictionary = {}, can_submit: 
 		_board_status.text = ""
 	_link_focus()
 	visible = true
+	_fit()
+	_outer.scroll_vertical = 0
 	(_retry if _retry.visible else _lobby_button).grab_focus()
 
 

@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.83
+Date: 11/03/2026
+Time: 7:46 PM
+
+### Changes
+- **The end-of-run screen now fits the window.** When its contents are taller than the screen (a small window, or a big text size), the whole screen scrolls instead of running off the bottom, so every button can always be reached. Scroll with the mouse wheel or by dragging, or move through the buttons with a gamepad or keyboard and the screen follows. A screen that already fits is unchanged. How tall it may get is set in data/config.json (`ui.results_max_height_frac`).
+- New test: tests/test_death_screen.gd.
+
+### Reason
+The owner found that the end-of-run menu was cut off at the bottom of the screen with no way to reach it.
+
 ## Version 00.03.82
 Date: 11/03/2026
 Time: 7:31 PM
