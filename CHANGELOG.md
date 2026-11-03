@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.91
+Date: 11/03/2026
+Time: 7:17 AM
+
+### Changes
+- **The health bar is now a health orb**, in the top-left corner over the weapon slots.
+  - A round glass orb that fills with red from the bottom as far as the Hero's health, with the number in its middle and a glint on the glass.
+  - The pale band showing the last hit and the low-health pulse stay.
+  - It takes far less room than the bar, which suits phones.
+  - Size in data/config.json (`ui.hud_hp_orb_px`, 68 px).
+- **The middle of the top bar is left empty for phone cameras.** The level badge, timer and gold now sit to the left of the middle, and the kills, monsters alive and pause button to the right. A gap of 140 px (`ui.hud_camera_gap_px`) is left in the centre of the top edge, where a phone's front camera usually sits.
+
+### Reason
+The owner asked for the health display to be an orb, since phones have little room, and found the kills and alive counter hidden behind their phone's front camera.
+
 ## Version 00.03.90
 Date: 11/03/2026
 Time: 7:13 AM

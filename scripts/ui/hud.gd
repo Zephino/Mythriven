@@ -46,19 +46,36 @@ func _ready() -> void:
 	row.alignment = BoxContainer.ALIGNMENT_CENTER
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(row)
+	# Two halves either side of an empty gap in the middle of the top edge, where a phone's front camera usually
+	# sits (owner report 11/03/2026: the kills counter was hidden behind the camera): level, timer and gold on the
+	# left of it; kills and pause on the right.
+	var left_half := HBoxContainer.new()
+	left_half.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	left_half.alignment = BoxContainer.ALIGNMENT_END
+	left_half.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(left_half)
+	var gap := Control.new()
+	gap.custom_minimum_size.x = Data.cfg_float("ui.hud_camera_gap_px")
+	gap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(gap)
+	var right_half := HBoxContainer.new()
+	right_half.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	right_half.alignment = BoxContainer.ALIGNMENT_BEGIN
+	right_half.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(right_half)
 	_badge = Button.new()
 	_badge.add_to_group(TouchJoystick.BLOCKERS)
 	_badge.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	_badge.custom_minimum_size = Vector2.ONE * Data.cfg_float("ui.min_touch_target_px")
 	_badge.focus_mode = Control.FOCUS_NONE
 	_badge.pressed.connect(_on_badge_pressed)
-	row.add_child(_badge)
+	left_half.add_child(_badge)
 	# The timer, with the frame rate over it when it's switched on, the pair centred in the bar.
 	var clock := VBoxContainer.new()
 	clock.alignment = BoxContainer.ALIGNMENT_CENTER
 	clock.add_theme_constant_override("separation", -4)
 	clock.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	row.add_child(clock)
+	left_half.add_child(clock)
 	_fps_label = _make_label()
 	_fps_label.add_theme_font_size_override("font_size", roundi(ThemeDB.get_default_theme().default_font_size * Data.cfg_float("ui.hud_alive_scale")))
 	_fps_label.modulate = Color(1, 1, 1, 0.85)
@@ -70,7 +87,7 @@ func _ready() -> void:
 	counts.alignment = BoxContainer.ALIGNMENT_CENTER
 	counts.add_theme_constant_override("separation", -4)
 	counts.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	row.add_child(counts)
+	right_half.add_child(counts)
 	_kills_label = _make_label()
 	counts.add_child(_kills_label)
 	_alive_label = _make_label()
@@ -78,7 +95,7 @@ func _ready() -> void:
 	_alive_label.modulate = Color(1, 1, 1, 0.85)
 	counts.add_child(_alive_label)
 	_gold_label = _make_label()
-	row.add_child(_gold_label)
+	left_half.add_child(_gold_label)
 	var pause := Button.new()
 	pause.add_to_group(TouchJoystick.BLOCKERS)
 	pause.text = "UI_PAUSE_BUTTON"
@@ -87,7 +104,7 @@ func _ready() -> void:
 	pause.pressed.connect(func() -> void:
 		if pause_menu != null:
 			pause_menu.open())
-	row.add_child(pause)
+	right_half.add_child(pause)
 	_trait_label = Label.new()
 	_trait_label.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
 	_trait_label.set_anchors_preset(Control.PRESET_TOP_WIDE)

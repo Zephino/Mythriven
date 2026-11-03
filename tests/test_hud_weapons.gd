@@ -43,14 +43,14 @@ func test_no_new_weapon_is_offered_once_five_are_carried() -> void:
 		assert_ne(card.get("kind"), LevelUpRules.WEAPON_NEW, "no new weapon cards with all five slots full")
 
 
-func test_the_health_bar_shows_the_heros_health() -> void:
+func test_the_health_orb_shows_the_heros_health() -> void:
 	var bar: HudHealth = add_child_autofree(HudHealth.new())
 	_player.hp = _player.max_hp * 0.5
 	bar._process(0.016)
-	assert_eq(bar._text, tr("UI_HUD_HP") % [ceili(_player.hp), ceili(_player.max_hp)], "it shows the numbers")
+	assert_eq(bar._text, tr("UI_HUD_HP") % ceili(_player.hp), "it shows the Hero's health")
 	assert_almost_eq(bar._shown_fraction, 0.5, 0.001, "and fills halfway")
 	assert_false(bar._low, "half health isn't low")
 	_player.hp = _player.max_hp * 0.1
 	bar._process(0.016)
-	assert_true(bar._low, "a tenth is: the bar pulses")
+	assert_true(bar._low, "a tenth is: the orb pulses")
 	assert_gt(bar._trail_fraction, bar._shown_fraction, "and the pale strip shows what the hit took")
