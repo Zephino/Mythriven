@@ -147,6 +147,10 @@
                 "items": "string"
               },
               "hud_alive_scale": "number",
+              "hud_weapon_slot_px": "number",
+              "hud_weapon_gap_px": "number",
+              "hud_weapon_level_scale": "number",
+              "hud_weapon_empty_alpha": "number",
               "menu_column_px": "number",
               "menu_wide_px": "number",
               "menu_list_px": "number",

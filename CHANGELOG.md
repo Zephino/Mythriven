@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.88
+Date: 11/03/2026
+Time: 6:50 AM
+
+### Changes
+- **Heroes now carry at most 5 weapons** (was 6): the Hero's own weapon and 4 more. With all five slots full, level-ups offer only upgrades to the weapons you have. Passives stay at 6. The number is `level_up.max_weapons` in data/config.json.
+- **Your weapons are shown on screen during a run**, down the left edge under the top bar.
+  - Each weapon has a slot with its picture and its level beside it: "Lv 3", "MAX" (in gold) at the top level, or "EVO" (gold) once evolved.
+  - Faint empty slots show how many weapons you can still pick up.
+  - The slots update when you gain, level, evolve or infuse a weapon.
+  - Sizes are in data/config.json (`ui.hud_weapon_*`).
+- GAME_DESIGN.md (dated note) and the README updated for the 5 weapon slots. New tests: tests/test_hud_weapons.gd.
+
+### Reason
+The owner asked that Heroes hold only 4 or 5 weapons at a time (5 chosen; easy to change to 4), and for a spot on the screen showing them and their levels.
+
 ## Version 00.03.87
 Date: 11/03/2026
 Time: 6:33 AM
