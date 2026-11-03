@@ -2,6 +2,30 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.82
+Date: 11/03/2026
+Time: 7:31 PM
+
+### Changes
+Remade every sprite in the City of Brass and the Sea King's Hall (owner's request):
+- **Brass soldier:** a brass automaton with rivets and jointed legs, a crested helmet with a glowing visor slit, a round shield embossed with a sun, and a curved sword.
+- **Locust:** a segmented green-brown locust with big bent hind legs, feelers and whirring wings.
+- **The Watcher on the Wall:** a veiled figure of shimmering light on a brass battlement with crenellations and courses of brick, its veil streaming, both arms held out to beckon, light glittering round it.
+- **The Queen's Guardians:** two tall jointed automatons, one steel and one brass, with crested helmets, glowing eye-slits, riveted breastplates and jointed limbs, each raising a sword.
+- **The Brass Horseman:** a rider and horse of polished brass, the horse with a haunch, an arched neck, a mane and a flowing tail, the rider in a pointed helmet with a round shield, his spear levelled high with a red pennant.
+- **Water snake:** a fat, slimy, blotched snake with a sheen, yellow eyes and a flickering tongue.
+- **Silver fish:** a shining fish with a forked tail, fins and glinting scales.
+- **The Polyp Wood:** a thicket of slimy stalks rising from the sea floor, each crowned with writhing, pink-tipped grasping arms; one clutches a skull, and bones lie among their roots.
+- **The Witch's Water Snakes:** a knot of fat, blotched, slimy snakes, two rearing up with jaws open and tongues out.
+- **The Sea Witch:**
+  - a squat, heavy old witch with grey-green skin, yellow eyes and a wide mouth;
+  - long sea-weed hair;
+  - a ragged dark robe hung with shells and little bones;
+  - a fat water-snake coiled round her shoulders, and a toad on her outstretched hand.
+
+### Reason
+The owner asked for every sprite in the City of Brass and the Sea King's Hall, the last of the new realms, to be remade.
+
 ## Version 00.03.81
 Date: 11/03/2026
 Time: 7:21 PM

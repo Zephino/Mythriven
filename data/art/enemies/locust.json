@@ -1,5 +1,5 @@
 {
- "_doc": "A locust (the desert road): a long green-brown grasshopper with whirring wings. Built by tools/art/build_frontiers.py.",
+ "_doc": "A locust (the desert road): a long green-brown locust with big bent hind legs for leaping, feelers, and its wings whirring. Built by tools/art/build_frontiers.py.",
  "size": [
   14,
   12
@@ -13,81 +13,82 @@
   "g": "#8a8a3a",
   "G": "#5a5a2a",
   "w": "#d8d4b0",
+  "W": "#a8a480",
   "k": "#1a1408"
  },
  "frames": {
   "idle": [
    [
-    "..............",
-    ".........o....",
-    "........owo...",
-    "......oowwo...",
-    ".....owwwwwo..",
-    "..ooowwoooooo.",
+    "........o.....",
+    ".......owo....",
+    "......owwwo.o.",
+    ".....owWwwooGo",
+    "....owwwwwwooG",
+    "..oowwwooogggo",
     ".oggggggggggko",
-    ".oggggggggggo.",
-    "..oooooooooo..",
-    "...oGooGo.....",
-    "..oGo..o......",
-    "...o.........."
+    ".ogGgGgGgGgggo",
+    "..oooGoooGooo.",
+    "...oGooo.oGo..",
+    "....ooGGo.o...",
+    "......oo......"
    ]
   ],
   "walk": [
    [
     "..............",
     "..............",
-    ".........o....",
-    ".......oowo...",
-    ".....oowwwwo..",
-    "..ooowwoooooo.",
+    "........o...o.",
+    "......oowo.oGo",
+    ".....owWwwoooG",
+    "..ooowwooogggo",
     ".oggggggggggko",
-    ".oggggggggggo.",
-    "..oooooooooo..",
-    "...oGooGo.....",
-    "..oGo..o......",
-    "...o.........."
+    ".ogGgGgGgGgggo",
+    "..oooGoooGooo.",
+    "...oGooo.oGo..",
+    "....ooGGo.o...",
+    "......oo......"
+   ],
+   [
+    "........o.....",
+    ".......owo....",
+    "......owwwo.o.",
+    ".....owWwwooGo",
+    "....owwwwwwooG",
+    "..oowwwooogggo",
+    ".oggggggggggko",
+    ".ogGgGgGgGgggo",
+    "..oooGoooGooo.",
+    "...oGooo.oGo..",
+    "....ooGGo.o...",
+    "......oo......"
    ],
    [
     "..............",
-    ".........o....",
-    "........owo...",
-    "......oowwo...",
-    ".....owwwwwo..",
-    "..ooowwoooooo.",
+    "..............",
+    "........o...o.",
+    "......oowo.oGo",
+    ".....owWwwoooG",
+    "..ooowwooogggo",
     ".oggggggggggko",
-    ".oggggggggggo.",
-    "..oooooooooo..",
-    "...oGooGo.....",
-    "..oGo..o......",
-    "...o.........."
+    ".ogGgGgGgGgggo",
+    "..oooGoooGooo.",
+    "...oGooo.oGo..",
+    "....ooGGo.o...",
+    "......oo......"
    ],
    [
-    "..............",
-    "..............",
-    ".........o....",
-    ".......oowo...",
-    ".....oowwwwo..",
-    "..ooowwoooooo.",
+    "........o.....",
+    ".......owo....",
+    "......owwwo.o.",
+    ".....owWwwooGo",
+    "....owwwwwwooG",
+    "..oowwwooogggo",
     ".oggggggggggko",
-    ".oggggggggggo.",
-    "..oooooooooo..",
-    "...oGooGo.....",
-    "..oGo..o......",
-    "...o.........."
-   ],
-   [
-    "..............",
-    ".........o....",
-    "........owo...",
-    "......oowwo...",
-    ".....owwwwwo..",
-    "..ooowwoooooo.",
-    ".oggggggggggko",
-    ".oggggggggggo.",
-    "..oooooooooo..",
-    "...oGooGo.....",
-    "..oGo..o......",
-    "...o.........."
+    ".ogGgGgGgGgggo",
+    "..oooGoooGooo.",
+    "...oGooo.oGo..",
+    "....ooGGo.o...",
+    "......oo......"
    ]
   ]
  }

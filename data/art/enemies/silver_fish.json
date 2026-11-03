@@ -1,5 +1,5 @@
 {
- "_doc": "A silver fish (Andersen: the little fish that swim in and out of the Sea King's windows). Built by tools/art/build_frontiers.py.",
+ "_doc": "A silver fish (Andersen: the little fish that swim in and out of the Sea King's windows, as birds fly into our houses): a shining fish with a forked tail and fins, scales glinting. Built by tools/art/build_frontiers.py.",
  "size": [
   12,
   10
@@ -18,66 +18,66 @@
  "frames": {
   "idle": [
    [
-    "............",
-    "............",
-    "o...ooooo...",
+    "......o.....",
+    ".....oSo....",
+    "o...oSSSo...",
     "So.ossssso..",
-    "SSossssskso.",
-    "SSssssssssso",
-    "Sooswwwwwso.",
-    "o..ossssso..",
-    "....ooooo...",
-    "............"
+    "oSosswsssko.",
+    "oSsssSSwssso",
+    "SooSwSSSSSo.",
+    "o..osSSSso..",
+    "....ooSoo...",
+    "......o....."
    ]
   ],
   "walk": [
    [
-    "............",
-    "............",
-    "....ooooo...",
-    "o..ossssso..",
-    "Soossssskso.",
-    "Sossssssssso",
-    "o.oswwwwwso.",
+    "......o.....",
+    ".....oSo....",
+    "....oSSSo...",
     "...ossssso..",
-    "....ooooo...",
-    "............"
+    "..osswsssko.",
+    ".osssSSwssso",
+    "..oSwSSSSSo.",
+    "...osSSSso..",
+    "....ooSoo...",
+    "......o....."
    ],
    [
-    "............",
-    "............",
-    "o...ooooo...",
+    "......o.....",
+    ".....oSo....",
+    "o...oSSSo...",
     "So.ossssso..",
-    "SSossssskso.",
-    "SSssssssssso",
-    "Sooswwwwwso.",
-    "o..ossssso..",
-    "....ooooo...",
-    "............"
+    "oSosswsssko.",
+    "oSsssSSwssso",
+    "SooSwSSSSSo.",
+    "o..osSSSso..",
+    "....ooSoo...",
+    "......o....."
    ],
    [
-    "............",
-    "............",
-    "....ooooo...",
-    "o..ossssso..",
-    "Soossssskso.",
-    "Sossssssssso",
-    "o.oswwwwwso.",
+    "......o.....",
+    ".....oSo....",
+    "....oSSSo...",
     "...ossssso..",
-    "....ooooo...",
-    "............"
+    "..osswsssko.",
+    ".osssSSwssso",
+    "..oSwSSSSSo.",
+    "...osSSSso..",
+    "....ooSoo...",
+    "......o....."
    ],
    [
-    "............",
-    "............",
-    "o...ooooo...",
+    "......o.....",
+    ".....oSo....",
+    "o...oSSSo...",
     "So.ossssso..",
-    "SSossssskso.",
-    "SSssssssssso",
-    "Sooswwwwwso.",
-    "o..ossssso..",
-    "....ooooo...",
-    "............"
+    "oSosswsssko.",
+    "oSsssSSwssso",
+    "SooSwSSSSSo.",
+    "o..osSSSso..",
+    "....ooSoo...",
+    "......o....."
    ]
   ]
  }

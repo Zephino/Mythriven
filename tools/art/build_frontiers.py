@@ -309,147 +309,256 @@ MOUNTAIN_KING_PAL = dict(TROLL_PAL, r="#8a2a2a", R="#5a1a1a", W="#ece8e0", V="#b
 # --- The City of Brass ("The City of Brass", the Nights; Burton, 1885; no jinn) --------------------------------------
 
 def brass_soldier(c, f):
-    """A brass soldier (the tale's brass figures): a stiff automaton of polished brass with a round shield."""
+    """A brass soldier (the tale's brass figures, still keeping watch in the silent city): a stiff automaton of polished
+    brass with rivets at its joints, a crested helmet with a glowing visor slit, a round shield embossed with a sun, and
+    a curved sword."""
     s = STEP[f]
     for x, d in ((7, -s), (11, s)):
-        c.rect(x + d, 17, x + 1 + d, 22, "B")
-    c.rect(6, 8, 13, 17, "y"); c.row(12, 6, 13, "B")
-    c.rect(7, 2, 12, 7, "y"); c.rect(8, 4, 11, 4, "k")
-    ellipse(c, 4, 12, 3, 4, "B"); c.px(4, 12, "y")
-    c.rect(15, 4, 15, 18, "s")
+        c.rect(x + d, 17, x + 1 + d, 21, "B"); c.px(x + d, 19, "Y"); c.row(22, x + d, x + 2 + d, "B")   # jointed legs
+    poly(c, [(6, 8), (13, 8), (12, 16), (7, 16)], "y"); c.rect(6, 8, 7, 16, "B"); c.px(11, 9, "Y")   # breastplate
+    for x, y in ((8, 10), (11, 12), (8, 14)):
+        c.px(x, y, "B")                                                                  # rivets
+    c.row(16, 6, 13, "B")
+    c.rect(7, 2, 12, 7, "y"); c.rect(7, 2, 7, 7, "B"); c.row(4, 8, 12, "k"); c.px(10, 4, "r"); c.px(12, 4, "r")   # helmet, glowing slit
+    for x in range(7, 13):
+        c.px(x, 1 - (1 if 9 <= x <= 10 else 0), "Y")                                    # crest
+    ellipse(c, 3, 12, 3, 4, "B"); ellipse(c, 3, 12, 2, 3, "y"); c.px(3, 12, "Y")         # round shield, a sun on it
+    c.px(2, 10, "Y"); c.px(4, 14, "Y")
+    for x, y in ((15, 13), (16, 12), (16, 11), (16, 10), (17, 9), (17, 8), (17, 7)):
+        c.px(x, y, "s")                                                                  # curved sword
+    c.px(14, 13, "Y"); c.px(15, 14, "Y")
 
 
-BRASS_SOLDIER_PAL = {"o": "#2a1a08", "k": "#1a1008", "y": "#d8a840", "B": "#9a6a1a", "s": "#c8ccd4"}
+BRASS_SOLDIER_PAL = {"o": "#2a1a08", "k": "#1a1008", "y": "#d8a840", "Y": "#f8e088", "B": "#8a5a14", "s": "#d8dce4",
+                     "r": "#ff7a3a"}
 
 
 def locust(c, f):
-    """A locust (the desert road): a long green-brown grasshopper with whirring wings."""
+    """A locust (the desert road): a long green-brown locust with big bent hind legs for leaping, feelers, and its
+    wings whirring."""
     up = f % 2
-    c.rect(2, 6, 11, 7, "g"); c.px(12, 6, "k")
-    poly(c, [(4, 6), (10, 2 + up), (11, 5)], "w")
-    c.px(4, 9, "G"); c.px(7, 9, "G"); c.px(3, 10, "G")
+    for x in range(2, 11):
+        c.px(x, 6, "g"); c.px(x, 7, "G" if x % 2 else "g")                               # segmented body
+    ellipse(c, 11, 6, 1.6, 1.4, "g"); c.px(12, 6, "k"); c.px(13, 4, "G"); c.px(12, 3, "G")   # head, eye, feelers
+    poly(c, [(4, 6), (9, 1 + up * 2), (11, 5)], "w"); c.px(7, 3 + up, "W")               # whirring wing
+    c.px(5, 8, "G"); c.px(4, 9, "G"); c.px(6, 10, "G"); c.px(7, 10, "G")                 # big bent hind leg
+    c.px(9, 8, "G"); c.px(10, 9, "G")                                                    # forelegs
 
 
-LOCUST_PAL = {"o": "#1a1408", "g": "#8a8a3a", "G": "#5a5a2a", "w": "#d8d4b0", "k": "#1a1408"}
+LOCUST_PAL = {"o": "#1a1408", "g": "#8a8a3a", "G": "#5a5a2a", "w": "#d8d4b0", "W": "#a8a480", "k": "#1a1408"}
 
 
 def wall_watcher(c, step):
-    """The Watcher on the Wall ("The City of Brass": the vision that beckoned each man who climbed the wall): a tall,
-    veiled figure of shimmering light standing on a brass battlement, one hand raised to beckon."""
-    c.rect(4, 42, 38, 52, "B"); c.row(42, 4, 38, "y")
-    for x in range(4, 38, 8):
-        c.rect(x, 38, x + 4, 42, "B")
-    poly(c, [(15, 10), (27, 10), (31, 40), (11, 40)], "w")
-    ellipse(c, 21, 7, 5, 5, "W")
-    c.rect(28, 4 - step, 30, 14, "W")
-    for x, y in ((14, 20), (26, 26), (18, 34)):
-        c.px(x, y, "y")
+    """The Watcher on the Wall ("The City of Brass": the vision that beckoned each man who climbed the wall, so that he
+    cried "Thou art beautiful!" and threw himself down): a tall, veiled figure of shimmering light standing on the
+    city's brass battlement, its veil streaming, both arms held out to beckon, light glittering round it."""
+    c.rect(2, 42, 40, 52, "B"); c.row(42, 2, 40, "y")                                    # the brass battlement
+    for y in (45, 48, 51):
+        for x in range(2 + (y % 2) * 3, 40, 6):
+            c.px(x, y, "D")                                                              # its courses
+    for x in range(2, 40, 8):
+        c.rect(x, 37, x + 4, 41, "B"); c.row(37, x, x + 4, "y")                          # crenellations
+    poly(c, [(16, 12), (26, 12), (31, 40), (11, 40)], "w")                               # gown of light
+    poly(c, [(16, 12), (19, 12), (15, 40), (11, 40)], "W")
+    poly(c, [(15, 6), (27, 6), (34 + step, 30), (24, 14), (18, 14), (8 - step, 30)], "v")   # veil streaming
+    ellipse(c, 21, 8, 4, 4.5, "W"); c.px(20, 8, "y"); c.px(23, 8, "y")                   # veiled head, eyes glinting
+    for side in (-1, 1):                                                                 # arms held out, beckoning
+        for t in range(9):
+            c.px(21 + side * (5 + t), 18 - t // 3 - (step if side > 0 else 0), "W")
+        c.px(21 + side * 14, 14 - (step if side > 0 else 0), "y")
+    for x, y in ((6, 10 + step), (36, 8 - step), (10, 24), (34, 22), (21, 1), (4, 32)):
+        c.px(x, y, "y"); c.px(x + 1, y, "W")                                             # glittering
 
 
-WATCHER_PAL = {"o": "#4a3a20", "w": "#f4ecd8", "W": "#fff8e8", "y": "#e8c040", "B": "#9a6a1a"}
+WATCHER_PAL = {"o": "#4a3a20", "w": "#f4ecd8", "W": "#fff8e8", "v": "#e8dcc0", "y": "#f8d860", "B": "#9a6a1a",
+               "D": "#6a4a10"}
 
 
 def queens_guardians(c, step):
-    """The Queen's Guardians ("The City of Brass": two automatons with swords beside the dead queen's bier): two
-    figures, one of steel and one of brass, each with a raised sword."""
-    for k, (body, dark) in enumerate((("s", "S"), ("y", "B"))):
-        x0 = 4 + k * 22
-        for i, d in enumerate((-step, step)):
-            c.rect(x0 + 3 + i * 6 + d, 44, x0 + 5 + i * 6 + d, 54, dark)
-        c.rect(x0, 18, x0 + 14, 44, body); c.row(30, x0, x0 + 14, dark)
-        c.rect(x0 + 3, 6, x0 + 11, 16, body); c.rect(x0 + 4, 10, x0 + 10, 10, "k")
-        c.rect(x0 + 16, 2, x0 + 17, 30, "W"); c.rect(x0 + 14, 28, x0 + 19, 29, dark)
+    """The Queen's Guardians ("The City of Brass": two automatons, one of steel and one of brass, standing with swords
+    on either side of the dead queen's bier): two tall jointed figures, one steel and one brass, crested helmets with
+    glowing eye-slits, riveted breastplates, jointed arms and legs, each raising a sword."""
+    def guard(x0, body, shade, light, d):
+        for lx, dd in ((x0 + 3, -d), (x0 + 9, d)):                                       # jointed legs
+            c.rect(lx + dd, 40, lx + 2 + dd, 47, body); c.rect(lx + dd, 47, lx + 2 + dd, 48, shade)
+            c.rect(lx + dd, 49, lx + 2 + dd, 54, body); c.row(54, lx - 1 + dd, lx + 3 + dd, shade)
+        poly(c, [(x0, 18), (x0 + 14, 18), (x0 + 12, 38), (x0 + 2, 38)], body)           # breastplate
+        poly(c, [(x0, 18), (x0 + 3, 18), (x0 + 4, 38), (x0 + 2, 38)], shade)
+        c.rect(x0 + 9, 20, x0 + 10, 30, light)
+        for y in (22, 28, 34):
+            c.px(x0 + 4, y, shade); c.px(x0 + 12, y, shade)                              # rivets
+        c.rect(x0 + 1, 38, x0 + 13, 40, shade)                                           # hip-plate
+        c.rect(x0 + 3, 6, x0 + 11, 16, body); c.rect(x0 + 3, 6, x0 + 4, 16, shade)       # helmet
+        c.row(11, x0 + 5, x0 + 10, "k"); c.px(x0 + 7, 11, "r"); c.px(x0 + 9, 11, "r")   # glowing eye-slit
+        for x in range(x0 + 3, x0 + 12):
+            c.px(x, 5 - (1 if x0 + 6 <= x <= x0 + 8 else 0), light)                      # crest
+        c.rect(x0 - 2, 19, x0, 30, shade); c.px(x0 - 1, 24, light)                       # far arm, jointed
+        c.rect(x0 + 14, 18, x0 + 16, 24, body); c.px(x0 + 15, 21, light)                 # near arm, raised
+        c.rect(x0 + 15, 14, x0 + 17, 18, body)
+        c.rect(x0 + 16, 0, x0 + 17, 14, "W"); c.px(x0 + 16, 0, "w")                      # the sword
+        c.rect(x0 + 13, 14, x0 + 20, 15, shade)                                          # its guard
+    guard(4, "s", "S", "w", -step)
+    guard(26, "y", "B", "Y", step)
 
 
-GUARDIANS_PAL = {"o": "#1a1408", "k": "#1a1008", "s": "#a8acb4", "S": "#6a6e76", "y": "#d8a840", "B": "#9a6a1a",
-                 "W": "#e8ecf4"}
+GUARDIANS_PAL = {"o": "#1a1408", "k": "#1a1008", "s": "#a8acb4", "S": "#6a6e76", "w": "#e8ecf4", "y": "#d8a840",
+                 "B": "#8a5a14", "Y": "#f8e088", "W": "#e8ecf4", "r": "#ff7a3a"}
 
 
 def brass_horseman(c, step):
-    """The Brass Horseman ("The City of Brass": the horseman of brass on a pillar, spear in hand, who points the way):
-    a rider and horse all of brass, the spear levelled."""
-    for i, d in enumerate((-step, step, step, -step)):
-        c.rect(14 + i * 8 + d, 36, 16 + i * 8 + d, 50, "B")
-    ellipse(c, 28, 32, 16, 7, "y")
-    poly(c, [(40, 30), (48, 18), (54, 22), (46, 34)], "y"); c.px(51, 21, "k")
-    c.rect(24, 12, 32, 28, "y"); c.rect(25, 4, 31, 11, "y"); c.rect(24, 2, 32, 4, "B")
-    c.px(27, 7, "k"); c.px(30, 7, "k")
-    c.rect(18, 16, 60, 17, "B"); poly(c, [(60, 14), (64, 16), (60, 19)], "s")
-    for i in range(6):
-        c.px(12 - i, 30 + i, "B")
+    """The Brass Horseman ("The City of Brass": the horseman of brass on a pillar in the desert, spear in hand, who
+    points the way when he is turned): a rider and horse all of polished brass, the horse with an arched neck, a mane
+    and a flowing tail, the rider in a pointed helmet with a round shield, his long spear levelled with a pennant."""
+    def seg(ax, ay, bx, by, w, col):
+        n = max(abs(bx - ax), abs(by - ay), 1)
+        for t in range(n + 1):
+            ellipse(c, ax + (bx - ax) * t / n, ay + (by - ay) * t / n, w, w, col)
+    for x, d, hind in ((16, step, True), (40, -step, False)):                            # far legs
+        seg(x, 36, x - (2 if hind else 0), 43, 1.8, "B"); seg(x - (2 if hind else 0), 43, x - (1 if hind else 0) + d, 49, 1.1, "B")
+        c.rect(x - 2 + d, 50, x + 1 + d, 51, "D")
+    for i in range(14):                                                                  # flowing tail
+        t = i / 13
+        ellipse(c, 10 - 5 * math.sin(t * 1.6), 28 + 14 * t, 1.6, 1.6, "B")
+    ellipse(c, 16, 32, 8, 7, "y"); ellipse(c, 28, 33, 12, 6.5, "y"); ellipse(c, 38, 32, 6, 7, "y")   # haunch, barrel, chest
+    ellipse(c, 27, 37, 10, 2.4, "B"); ellipse(c, 24, 27, 10, 2, "Y")                     # shadow, gleam
+    for x, d, hind in ((20, -step, True), (43, step, False)):                            # near legs
+        seg(x, 36, x - (2 if hind else 0), 43, 2, "y"); seg(x - (2 if hind else 0), 43, x - (1 if hind else 0) + d, 49, 1.2, "y")
+        c.rect(x - 2 + d, 50, x + 1 + d, 51, "D")
+    seg(40, 28, 46, 21, 3.2, "y")                                                        # arched neck
+    poly(c, [(44, 18), (52, 21), (56, 26), (53, 28), (47, 25)], "y")                     # head
+    c.px(50, 22, "k"); c.px(55, 26, "D"); poly(c, [(45, 18), (46, 15), (48, 18)], "y")   # eye, nostril, ear
+    for t in range(9):
+        c.px(round(41 + t * 0.6), round(27 - t * 1.0), "D"); c.px(round(40 + t * 0.6), round(27 - t * 1.0), "B")   # mane
+    poly(c, [(26, 14), (34, 14), (34, 28), (26, 28)], "y"); c.rect(26, 14, 27, 28, "B")  # rider's body
+    c.px(31, 18, "Y"); c.px(31, 22, "Y")
+    c.rect(28, 28, 32, 34, "B")                                                          # leg against the horse
+    ellipse(c, 30, 9, 3.4, 3.8, "y"); c.px(32, 9, "k")                                   # head
+    poly(c, [(26, 8), (34, 8), (30, 1)], "B"); c.px(30, 1, "Y")                          # pointed helmet
+    ellipse(c, 25, 21, 4, 5, "B"); ellipse(c, 25, 21, 2.6, 3.6, "y"); c.px(25, 21, "Y")  # round shield
+    c.rect(20, 12, 63, 13, "D"); c.row(12, 20, 63, "B")                                  # the spear, levelled high
+    poly(c, [(63, 10), (66, 12), (63, 15)], "s")
+    poly(c, [(56, 13), (61, 14 + step), (56, 17)], "r")                                  # pennant
+    c.rect(34, 13, 36, 17, "y")                                                          # his arm holding it
 
 
-HORSEMAN_PAL = {"o": "#2a1a08", "k": "#1a1008", "y": "#d8a840", "B": "#9a6a1a", "s": "#c8ccd4"}
+HORSEMAN_PAL = {"o": "#2a1a08", "k": "#1a1008", "y": "#d8a840", "Y": "#f8e088", "B": "#9a6a1a", "D": "#6a4210",
+                "s": "#d8dce4", "r": "#b03a2a"}
 
 
 # --- The Sea King's Hall (Andersen, "The Little Mermaid", 1837) -------------------------------------------------------
 
 def water_snake(c, f):
-    """A water snake (Andersen: the Sea Witch's fat water-snakes, "her little chickens"): a thick, slimy green-brown
-    snake, swimming."""
-    for k in range(9):
-        ellipse(c, 2 + k * 2, 12 + round(3 * math.sin(k / 1.6 + f * 0.8)), 2.5, 2, "g" if k % 2 else "G")
-    ellipse(c, 19, 12 + round(3 * math.sin(8 / 1.6 + f * 0.8)), 3, 2.5, "g"); c.px(20, 11 + round(3 * math.sin(8 / 1.6 + f * 0.8)), "y")
+    """A water snake (Andersen: the Sea Witch's ugly, fat water-snakes, "her little chickens"): a thick, slimy
+    green-brown snake with dark blotches and a slimy sheen, swimming, with yellow eyes and a flickering tongue."""
+    pts = []
+    for k in range(11):
+        pts.append((2 + k * 1.7, 12 + 3 * math.sin(k / 1.6 + f * 0.8), 1.4 + k * 0.12))
+    for x, y, r in pts:
+        ellipse(c, x, y, r + 0.6, r + 0.6, "G")
+    for i, (x, y, r) in enumerate(pts):
+        ellipse(c, x, y - 0.3, r, r, "g")
+        if i % 3 == 1:
+            c.px(round(x), round(y), "G")                                                # blotches
+        c.px(round(x), round(y - r), "l")                                                # slimy sheen
+    hy = 12 + round(3 * math.sin(10 / 1.6 + f * 0.8))
+    ellipse(c, 20, hy, 3, 2.4, "g"); c.px(21, hy - 1, "y"); c.px(23, hy, "G")            # broad head, eye
+    if f % 2:
+        c.px(23, hy + 1, "r"); c.px(23, hy + 2, "r")                                     # tongue
 
 
-WATER_SNAKE_PAL = {"o": "#0e140a", "g": "#5a6a3a", "G": "#3a4a2a", "y": "#e8d040"}
+WATER_SNAKE_PAL = {"o": "#0e140a", "g": "#5a6a3a", "G": "#3a4a2a", "l": "#8a9a5a", "y": "#e8d040", "r": "#c83a3a"}
 
 
 def silver_fish(c, f):
-    """A silver fish (Andersen: the little fish that swim in and out of the Sea King's windows)."""
+    """A silver fish (Andersen: the little fish that swim in and out of the Sea King's windows, as birds fly into our
+    houses): a shining fish with a forked tail and fins, scales glinting."""
     up = f % 2
-    ellipse(c, 6, 5, 4, 2.5, "s"); poly(c, [(2, 5), (0, 2 + up), (0, 8 - up)], "S")
-    c.px(8, 4, "k"); c.row(6, 4, 8, "w")
+    ellipse(c, 6, 5, 4, 2.5, "s"); ellipse(c, 6, 6, 3, 1.2, "S")
+    poly(c, [(2, 5), (0, 2 + up), (1, 5), (0, 8 - up)], "S")                             # forked tail
+    poly(c, [(5, 3), (7, 1), (8, 3)], "S"); c.px(6, 8, "S")                              # fins
+    c.px(9, 4, "k"); c.px(5, 4, "w"); c.px(7, 5, "w"); c.px(4, 6, "w")                    # eye, glints
 
 
 SILVER_FISH_PAL = {"o": "#2a3a4a", "s": "#c8d8e8", "S": "#8aa0b8", "w": "#ffffff", "k": "#1a2a3a"}
 
 
 def polyp_wood(c, step):
-    """The Polyp Wood (Andersen: the polyps round the Sea Witch's house, half animal and half plant, like
-    hundred-headed snakes, holding the white bones of drowned men): a thicket of slimy, writhing green arms rising from
-    the sea floor."""
-    ellipse(c, 30, 48, 24, 6, "G")
+    """The Polyp Wood (Andersen: the polyps round the Sea Witch's house, half animal and half plant, like hundred-headed
+    snakes growing out of the ground, whose slimy arms seize whatever comes near and never let go; in their grip lie
+    the white bones of drowned men): a thicket of slimy stalks rising from the sea floor, each crowned with writhing,
+    grasping arms with pink tips, one clutching a skull, bones among their roots."""
+    ellipse(c, 30, 49, 26, 5, "G"); ellipse(c, 30, 48, 24, 3, "g")                       # the sea floor
     for k in range(7):
-        x0 = 8 + k * 7
-        for y in range(48, 10 + (k % 3) * 6, -1):
-            x = x0 + round(3 * math.sin(y / 5.0 + k + step * 0.5))
-            c.rect(x, y, x + 2, y, "g" if (y + k) % 4 else "G")
-        c.px(x0 + round(3 * math.sin(11 / 5.0 + k)), 10 + (k % 3) * 6, "p")
-    c.rect(20, 44, 30, 45, "w"); c.px(19, 43, "w"); c.px(31, 43, "w")
+        x0 = 6 + k * 8
+        top = 14 + (k % 3) * 7
+        for y in range(48, top, -1):                                                     # the stalk, swaying
+            x = x0 + round(2.5 * math.sin(y / 6.0 + k + step * 0.5))
+            c.rect(x, y, x + 2, y, "g"); c.px(x, y, "G")
+        cx = x0 + round(2.5 * math.sin(top / 6.0 + k + step * 0.5)) + 1
+        for a in range(5):                                                               # its crown of grasping arms
+            ang = -math.pi / 2 + (a - 2) * 0.6
+            for t in range(6):
+                bend = t * 0.15 * (1 if a % 2 else -1)
+                px_, py_ = cx + round(t * math.cos(ang + bend)), top + round(t * math.sin(ang + bend))
+                c.px(px_, py_, "g" if t < 4 else "p")
+        ellipse(c, cx, top + 1, 1.6, 1.6, "G")
+    ellipse(c, 42, 20, 3, 2.6, "w"); c.px(41, 20, "k"); c.px(43, 20, "k"); c.row(22, 41, 43, "k")   # a skull in their grip
+    c.rect(14, 46, 24, 46, "w"); c.px(13, 45, "w"); c.px(25, 45, "w")                   # bones among the roots
+    c.rect(34, 47, 40, 47, "w"); c.px(33, 46, "w"); c.px(41, 48, "w")
 
 
-POLYP_PAL = {"o": "#0e140a", "g": "#6a8a4a", "G": "#4a6a3a", "p": "#c87a8a", "w": "#e8e4dc"}
+POLYP_PAL = {"o": "#0e140a", "g": "#6a8a4a", "G": "#4a6a3a", "p": "#e08a9a", "w": "#e8e4dc", "k": "#2a2a24"}
 
 
 def witch_snakes(c, step):
-    """The Witch's Water Snakes (Andersen: the Sea Witch's "little chickens"): a knot of great fat water-snakes,
-    coiled and rearing."""
-    for k in range(14):
-        a = k / 14 * math.tau
-        ellipse(c, 28 + round(16 * math.cos(a)), 34 + round(9 * math.sin(a)), 5, 4, "g" if k % 2 else "G")
-    for x, h in ((18, 14), (36, 8)):
-        for y in range(34, h, -1):
-            c.rect(x + round(2 * math.sin(y / 3.0 + step)), y, x + 3 + round(2 * math.sin(y / 3.0 + step)), y, "g")
-        ellipse(c, x + 2, h, 4, 3, "G"); c.px(x + 3, h - 1, "y")
+    """The Witch's Water Snakes (Andersen: the Sea Witch's great fat water-snakes, her "little chickens"): a knot of
+    great fat snakes coiled together, blotched and slimy, two of them rearing up with jaws open and tongues out."""
+    for k in range(16):                                                                  # the coiled knot
+        a = k / 16 * math.tau + step * 0.1
+        x, y = 28 + 16 * math.cos(a), 36 + 7 * math.sin(a)
+        ellipse(c, x, y, 5.5, 4.5, "G"); ellipse(c, x, y - 0.6, 4.6, 3.6, "g")
+        c.px(round(x), round(y - 3.4), "l")
+        if k % 3 == 0:
+            c.px(round(x), round(y), "G"); c.px(round(x) + 1, round(y), "G")             # blotches
+    for x0, top, side in ((16, 10, -1), (40, 6, 1)):                                     # two rearing up
+        for y in range(36, top, -1):
+            x = x0 + round(2 * math.sin(y / 3.0 + step + x0))
+            c.rect(x, y, x + 3, y, "g"); c.px(x, y, "G"); c.px(x + 3, y, "l")
+        hx = x0 + round(2 * math.sin(top / 3.0 + step + x0))
+        ellipse(c, hx + 2 + side, top, 4, 3, "g"); c.px(hx + 2 + side * 2, top - 1, "y")
+        c.row(top + 2, hx + side * 3, hx + 4 + side * 3, "k")                            # jaws open
+        c.px(hx + 2 + side * 5, top + 2, "r"); c.px(hx + 2 + side * 6, top + 3, "r")    # tongue
 
 
-SNAKES_PAL = WATER_SNAKE_PAL
+SNAKES_PAL = dict(WATER_SNAKE_PAL, k="#0e140a")
 
 
 def sea_witch(c, step):
-    """The Sea Witch (Andersen, 1837; not any film): a squat old witch on the sea floor, her hair like sea-weed, a fat
-    water-snake round her shoulders and a toad on her hand."""
-    figure(c, step, "d", "s", "g")
-    c.rect(10, 4, 14, 26, "g"); c.rect(29, 4, 33, 26, "g")
-    for k in range(10):
-        c.px(12 + k * 2, 20 + round(2 * math.sin(k)), "G")
-    ellipse(c, 34, 32, 3, 2, "t"); c.px(35, 31, "y")
-    c.px(18, 10, "y"); c.px(23, 10, "y")
+    """The Sea Witch (Andersen, 1837; not any film): a squat, heavy old witch of the sea floor with grey-green skin and
+    a wide mouth, her long hair like sea-weed, a ragged dark robe hung with shells and little bones, a great fat
+    water-snake coiled round her shoulders, and a toad sitting on her outstretched hand."""
+    person(c, step, cx=20, skin="s", skin_d="S", hair="g", hair_d="G", hair_style="long", garment="gown",
+           robe="d", robe_d="D", robe_l="q", belt="w", boots="D", arm_forward=True, eye="y", mouth="k", head_y=12)
+    poly(c, [(9, 30), (31, 30), (34, 52), (6, 52)], "d"); poly(c, [(9, 30), (13, 30), (9, 52), (6, 52)], "D")   # squat, heavy
+    for x, y in ((12, 40), (26, 36), (18, 46), (28, 48)):
+        c.px(x, y, "w"); c.px(x + 1, y, "e")                                             # shells and little bones
+    for k in range(7):                                                                   # sea-weed hair
+        x = 14 + k * 2
+        c.rect(x, 5, x, 22 + (k % 3) * 2, "g" if k % 2 else "G")
+    ellipse(c, 20, 12, 4.6, 5, "s"); c.px(16, 13, "S")                                   # face
+    c.px(18, 11, "y"); c.px(22, 11, "y"); c.row(15, 17, 23, "k"); c.px(19, 16, "k")      # eyes, wide mouth
+    for k in range(13):                                                                  # the fat snake round her shoulders
+        a = math.pi * (0.95 + k / 12 * 1.1)
+        x, y = 20 + 11 * math.cos(a), 21 + 4 * math.sin(a) + (2 if k > 9 else 0)
+        ellipse(c, x, y, 2.2, 2, "n"); c.px(round(x), round(y) - 1, "N")
+    ellipse(c, 31, 22, 2.4, 2, "n"); c.px(32, 21, "y")
+    ellipse(c, 35, 21, 2.6, 2, "t"); c.px(35, 20, "y"); c.px(37, 20, "y"); c.px(33, 22, "T")   # the toad on her hand
 
 
-SEA_WITCH_PAL = {"o": "#0a0e10", "k": "#141a1e", "d": "#2a3a3a", "s": "#8aa098", "g": "#3a5a2a", "G": "#5a6a3a",
-                 "t": "#6a7a3a", "y": "#e8d040"}
+SEA_WITCH_PAL = {"o": "#0a0e10", "k": "#141a1e", "d": "#2a3a3a", "D": "#1a2626", "q": "#3a4e4e", "s": "#8aa098",
+                 "S": "#6a8078", "g": "#3a5a2a", "G": "#2a4220", "y": "#e8d040", "w": "#e8e4dc", "e": "#d8a8a0",
+                 "n": "#5a6a3a", "N": "#8a9a5a", "t": "#6a7a3a", "T": "#4a5a2a", "m": "#141a1e", "l": "#2a3a3a",
+                 "b": "#1a2626"}
 
 
 if __name__ == "__main__":
@@ -470,7 +579,7 @@ if __name__ == "__main__":
     kit.build_boss("locust", locust, LOCUST_PAL, doc(locust.__doc__), (14, 12), (7, 11), walk, folder="enemies")
     kit.build_boss("wall_watcher", wall_watcher, WATCHER_PAL, doc(wall_watcher.__doc__), (42, 54), (21, 52), [0, 1, 0, -1, 0])
     kit.build_boss("queens_guardians", queens_guardians, GUARDIANS_PAL, doc(queens_guardians.__doc__), (48, 56), (24, 54), [0, 1, 0, -1, 0])
-    kit.build_boss("brass_horseman", brass_horseman, HORSEMAN_PAL, doc(brass_horseman.__doc__), (66, 52), (32, 50), [0, 1, 0, -1, 0])
+    kit.build_boss("brass_horseman", brass_horseman, HORSEMAN_PAL, doc(brass_horseman.__doc__), (68, 54), (32, 52), [0, 1, 0, -1, 0])
     kit.build_boss("water_snake", water_snake, WATER_SNAKE_PAL, doc(water_snake.__doc__), (24, 20), (12, 19), walk, folder="enemies")
     kit.build_boss("silver_fish", silver_fish, SILVER_FISH_PAL, doc(silver_fish.__doc__), (12, 10), (6, 9), walk, folder="enemies")
     kit.build_boss("polyp_wood", polyp_wood, POLYP_PAL, doc(polyp_wood.__doc__), (60, 54), (30, 52), [0, 1, 0, -1, 0])
