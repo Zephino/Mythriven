@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-11-03T12:08:34.879Z",
+	"updated": "2026-11-03T12:53:58.843Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -339,6 +339,63 @@
 			],
 			"version": "00.02.43",
 			"date": "2026-10-31T16:42:52.159Z"
+		},
+		{
+			"name": "EatMyNoodle",
+			"hero": "heracles",
+			"time_s": 1073,
+			"level": 25,
+			"kills": 8849,
+			"weapons": [
+				{
+					"id": "great_club",
+					"level": 6
+				},
+				{
+					"id": "spark",
+					"level": 3
+				},
+				{
+					"id": "throwing_axe",
+					"level": 3
+				},
+				{
+					"id": "bronze_sword",
+					"level": 5
+				},
+				{
+					"id": "breeze",
+					"level": 1
+				}
+			],
+			"passives": [
+				{
+					"id": "seers_eye",
+					"level": 5
+				},
+				{
+					"id": "mirrored_shield",
+					"level": 4
+				},
+				{
+					"id": "winged_sandals",
+					"level": 1
+				},
+				{
+					"id": "golden_apple",
+					"level": 1
+				},
+				{
+					"id": "belt_of_strength",
+					"level": 5
+				},
+				{
+					"id": "votive_bell",
+					"level": 1
+				}
+			],
+			"version": "00.03.92",
+			"date": "2026-11-03T12:53:58.843Z"
 		},
 		{
 			"name": "EatMyNoodle",
