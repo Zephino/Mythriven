@@ -3,13 +3,15 @@ extends Node2D
 ## Ambrosia (GAME_DESIGN.md: XP, leveling, pickups / Special pickups): heals
 ## 30 HP. Enemies sometimes drop one. Like XP orbs it flies to a player inside
 ## their pickup radius, but only to a player who is hurt, so it's never
-## wasted. A small fixed pool; when full, the oldest is reused.
+## wasted. Ambrosia left lying fades away after pickups.ambrosia_life_s, blinking in its last moments (owner request
+## 11/03/2026). A small fixed pool; when full, the oldest is reused.
 
 var _capacity: int = 0
 var _next: int = 0
 var _active := PackedByteArray()
 var _pos := PackedVector2Array()
 var _speed := PackedFloat32Array()
+var _age := PackedFloat32Array()
 var _multimesh: MultiMesh
 var _texture: Texture2D
 
@@ -24,6 +26,7 @@ func setup() -> void:
 	_active.resize(_capacity)
 	_pos.resize(_capacity)
 	_speed.resize(_capacity)
+	_age.resize(_capacity)
 	_multimesh = PlaceholderArt.make_multimesh(_capacity)
 	var drawer := MultiMeshInstance2D.new()
 	drawer.multimesh = _multimesh
@@ -50,9 +53,8 @@ func drop(at: Vector2) -> void:
 	_active[slot] = 1
 	_pos[slot] = at
 	_speed[slot] = 0.0
-	var size: float = Data.cfg_float("pickups.ambrosia_size_px")
-	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, at))
-	_multimesh.set_instance_color(slot, Color.html(Data.cfg_string("pickups.ambrosia_color")))
+	_age[slot] = 0.0
+	_update_instance(slot)
 
 
 ## Each kill has a small chance to drop Ambrosia (rolled on the run's loot generator); wild animals a much better one
@@ -72,9 +74,18 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 
 func _process(delta: float) -> void:
 	var accel: float = Data.cfg_float("xp.fly_accel_px_s2")
+	var life: float = Data.cfg_float("pickups.ambrosia_life_s")
 	for i: int in _capacity:
 		if _active[i] == 0:
 			continue
+		if _speed[i] <= 0.0 and life > 0.0:                                              # lying Ambrosia fades away
+			_age[i] += delta
+			if _age[i] >= life:
+				_active[i] = 0
+				_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2.ZERO, 0.0, Vector2.ZERO))
+				continue
+			if life - _age[i] <= Data.cfg_float("pickups.decay_blink_s"):
+				_update_instance(i)
 		var player: Player = _nearest_hurt_player(_pos[i])
 		if player == null:
 			_speed[i] = 0.0
@@ -96,6 +107,9 @@ func _process(delta: float) -> void:
 func _update_instance(slot: int) -> void:
 	var size: float = Data.cfg_float("pickups.ambrosia_size_px")
 	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, _pos[slot]))
+	var colour := Color.html(Data.cfg_string("pickups.ambrosia_color"))
+	colour.a *= XpOrbs.decay_alpha(_age[slot], Data.cfg_float("pickups.ambrosia_life_s")) if _speed[slot] <= 0.0 else 1.0
+	_multimesh.set_instance_color(slot, colour)
 
 
 func _nearest_hurt_player(from: Vector2) -> Player:

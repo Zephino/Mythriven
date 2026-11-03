@@ -371,7 +371,8 @@
     "fly_accel_px_s2": 600,
     "merge_check_s": 1.0,
     "merge_far_px": 400,
-    "merge_cell_px": 160
+    "merge_cell_px": 160,
+    "orb_life_s": 60
   },
 
   "level_up": {
@@ -426,7 +427,13 @@
     "elite_gold": 20,
     "pile_coins": 6,
     "gold_size_px": 9,
-    "gold_color": "#ffd040"
+    "gold_color": "#ffd040",
+    "_decay_doc": "Owner request 11/03/2026: pickups left lying fade away (XP orbs: xp.orb_life_s). In their last decay_blink_s they blink; one already flying to a player never fades. 0 = never fades.",
+    "gold_life_s": 60,
+    "ambrosia_life_s": 60,
+    "decay_blink_s": 5,
+    "decay_blink_hz": 4,
+    "decay_blink_alpha": 0.3
   },
 
   "projectiles": { "max_player_projectiles": 200 },

@@ -3,8 +3,9 @@ extends Node2D
 ## Gold coins (GAME_DESIGN.md: XP, leveling, pickups / Gold drops): 5% from
 ## normal enemies, guaranteed from elites, piles from chests and points of
 ## interest. Coins inside a player's pickup radius fly to them. Gold is the
-## run's money: spent at the Wandering Trader or banked at the end. A small
-## fixed pool; when full, the coin's value goes to the nearest coin.
+## run's money: spent at the Wandering Trader or banked at the end. Coins left lying fade away after
+## pickups.gold_life_s, blinking in their last moments (owner request 11/03/2026). A small fixed pool; when full, a new
+## coin takes the place of the oldest one lying on the ground and carries its gold.
 
 var _capacity: int = 0
 var _active := PackedByteArray()
@@ -12,6 +13,7 @@ var _pos := PackedVector2Array()
 var _value := PackedFloat32Array()
 var _speed := PackedFloat32Array()
 var _flying := PackedByteArray()
+var _age := PackedFloat32Array()
 var _multimesh: MultiMesh
 var _texture: Texture2D
 
@@ -29,6 +31,7 @@ func setup() -> void:
 	_value.resize(_capacity)
 	_speed.resize(_capacity)
 	_flying.resize(_capacity)
+	_age.resize(_capacity)
 	_multimesh = PlaceholderArt.make_multimesh(_capacity)
 	var drawer := MultiMeshInstance2D.new()
 	drawer.multimesh = _multimesh
@@ -50,16 +53,30 @@ func drop(at: Vector2, value: float) -> void:
 	dropped.emit(at, value)
 	var slot: int = _active.find(0)
 	if slot == -1:
-		var nearest: int = _nearest_coin(at)
-		if nearest != -1:
-			_value[nearest] += value
-		return
+		slot = _oldest_lying()
+		if slot == -1:
+			var nearest: int = _nearest_coin(at)
+			if nearest != -1:
+				_value[nearest] += value
+			return
+		value += _value[slot]                                                            # takes the oldest coin's place
 	_active[slot] = 1
 	_pos[slot] = at
 	_value[slot] = value
 	_speed[slot] = 0.0
 	_flying[slot] = 0
+	_age[slot] = 0.0
 	_update_instance(slot)
+
+
+func _oldest_lying() -> int:
+	var best: int = -1
+	var best_age: float = -1.0
+	for i: int in _capacity:
+		if _active[i] != 0 and _flying[i] == 0 and _age[i] > best_age:
+			best_age = _age[i]
+			best = i
+	return best
 
 
 ## Drops `total` gold as several coins scattered around `at` (chests, hoards).
@@ -100,9 +117,18 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 
 func _process(delta: float) -> void:
 	var accel: float = Data.cfg_float("xp.fly_accel_px_s2")
+	var life: float = Data.cfg_float("pickups.gold_life_s")
 	for i: int in _capacity:
 		if _active[i] == 0:
 			continue
+		if _flying[i] == 0 and life > 0.0:                                               # lying coins fade away
+			_age[i] += delta
+			if _age[i] >= life:
+				_active[i] = 0
+				_multimesh.set_instance_transform_2d(i, Transform2D(0.0, Vector2.ZERO, 0.0, Vector2.ZERO))
+				continue
+			if life - _age[i] <= Data.cfg_float("pickups.decay_blink_s"):
+				_update_instance(i)
 		var player: Player = _nearest_player(_pos[i])
 		if player == null:
 			continue
@@ -125,7 +151,9 @@ func _process(delta: float) -> void:
 func _update_instance(slot: int) -> void:
 	var size: float = Data.cfg_float("pickups.gold_size_px")
 	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, _pos[slot]))
-	_multimesh.set_instance_color(slot, Color.html(Data.cfg_string("pickups.gold_color")))
+	var colour := Color.html(Data.cfg_string("pickups.gold_color"))
+	colour.a *= XpOrbs.decay_alpha(_age[slot], Data.cfg_float("pickups.gold_life_s")) if _flying[slot] == 0 else 1.0
+	_multimesh.set_instance_color(slot, colour)
 
 
 func _nearest_coin(at: Vector2) -> int:

@@ -445,7 +445,8 @@
               "fly_accel_px_s2": "number",
               "merge_check_s": "number",
               "merge_far_px": "number",
-              "merge_cell_px": "number"
+              "merge_cell_px": "number",
+              "orb_life_s": "number"
             }
           },
           "level_up": {
@@ -510,7 +511,12 @@
               "elite_gold": "number",
               "pile_coins": "number",
               "gold_size_px": "number",
-              "gold_color": "string"
+              "gold_color": "string",
+              "gold_life_s": "number",
+              "ambrosia_life_s": "number",
+              "decay_blink_s": "number",
+              "decay_blink_hz": "number",
+              "decay_blink_alpha": "number"
             }
           },
           "projectiles": {

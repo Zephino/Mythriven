@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.94
+Date: 11/03/2026
+Time: 8:02 AM
+
+### Changes
+- **Drops left on the ground now fade away.** XP gems, gold coins and Ambrosia disappear 60 seconds after they drop. In their last 5 seconds they blink, so you can see they're about to go. Anything already flying to a Hero never fades. Times are in data/config.json (`xp.orb_life_s`, `pickups.gold_life_s`, `pickups.ambrosia_life_s`, `pickups.decay_blink_*`; 0 = never fades).
+- **New gems always appear.** When the ground is full of gems (600), a new gem takes the place of the oldest one lying on the ground, where the enemy fell. It carries the old gem's XP too, so nothing is lost. Gold coins work the same way, and Ambrosia already did. Before, a new gem's XP was quietly added to the nearest old gem, so no new gems showed up.
+- When distant gems merge into one, it lasts as long as the newest of them.
+- Tests added to tests/test_progression.gd.
+
+### Reason
+The owner asked for a decay timer on things that drop to the ground, and for new gems to override old ones so new gems always keep appearing.
+
 ## Version 00.03.93
 Date: 11/03/2026
 Time: 7:57 AM

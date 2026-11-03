@@ -3,7 +3,9 @@ extends Node2D
 ## XP orbs (GAME_DESIGN.md: XP, leveling, pickups). Enemies drop small (1),
 ## medium (5), or large (25) orbs. Orbs inside a player's pickup radius fly
 ## to them. Above 300 orbs on the ground, distant orbs merge into bigger
-## ones. Pooled data drawn with one MultiMesh: nothing is created during play.
+## ones. Orbs left lying fade away after xp.orb_life_s, blinking in their last moments (owner request 11/03/2026);
+## when the pool is full a new orb takes the place of the oldest one lying on the ground and carries its XP, so new
+## orbs always appear where enemies fall. Pooled data drawn with one MultiMesh: nothing is created during play.
 
 var pickup_audio: PickupAudio = null
 
@@ -13,6 +15,8 @@ var _pos := PackedVector2Array()
 var _value := PackedFloat32Array()
 var _speed := PackedFloat32Array()
 var _flying := PackedByteArray()
+## How long each orb has lain on the ground.
+var _age := PackedFloat32Array()
 var _count: int = 0
 var _merge_timer: float = 0.0
 var _multimesh: MultiMesh
@@ -31,6 +35,7 @@ func setup() -> void:
 	_value.resize(_capacity)
 	_speed.resize(_capacity)
 	_flying.resize(_capacity)
+	_age.resize(_capacity)
 	var sizes: Array = Data.cfg("xp.orb_size_px")
 	var colors: Array = Data.cfg("xp.orb_colors")
 	for value: Variant in Data.cfg("xp.orb_values"):
@@ -52,20 +57,46 @@ func count() -> int:
 	return _count
 
 
-## Drops an orb worth `value` XP. If the pool is full, the value is added to
-## the nearest existing orb so no XP is lost.
+## Drops an orb worth `value` XP. If the pool is full, the new orb takes the place of the oldest one lying on the
+## ground and carries its XP too, so new orbs always appear and no XP is lost.
 func drop(at: Vector2, value: float) -> void:
 	var slot: int = _active.find(0)
 	if slot == -1:
-		_add_to_nearest(at, value)
-		return
+		slot = _oldest_lying()
+		if slot == -1:
+			_add_to_nearest(at, value)
+			return
+		value += _value[slot]
+	else:
+		_count += 1
 	_active[slot] = 1
 	_pos[slot] = at
 	_value[slot] = value
 	_speed[slot] = 0.0
 	_flying[slot] = 0
-	_count += 1
+	_age[slot] = 0.0
 	_update_instance(slot)
+
+
+## The orb that has lain on the ground longest (not one already flying to a player), or -1.
+func _oldest_lying() -> int:
+	var best: int = -1
+	var best_age: float = -1.0
+	for i: int in _capacity:
+		if _active[i] != 0 and _flying[i] == 0 and _age[i] > best_age:
+			best_age = _age[i]
+			best = i
+	return best
+
+
+## How visible a pickup is as it ages: fully, then blinking in its last decay_blink_s, so it's clear it's going.
+static func decay_alpha(age: float, life: float) -> float:
+	if life <= 0.0:
+		return 1.0
+	var left: float = life - age
+	if left > Data.cfg_float("pickups.decay_blink_s"):
+		return 1.0
+	return Data.cfg_float("pickups.decay_blink_alpha") if int(left * Data.cfg_float("pickups.decay_blink_hz") * 2.0) % 2 == 0 else 1.0
 
 
 ## Debug "magnet": every orb flies to the nearest player (like a Lodestone Shard).
@@ -91,9 +122,17 @@ func on_origin_shifted(shift_px: Vector2, _shift_chunks: Vector2i) -> void:
 func _process(delta: float) -> void:
 	var accel: float = Data.cfg_float("xp.fly_accel_px_s2")
 	var start_speed: float = Data.cfg_float("xp.fly_speed_px_s")
+	var life: float = Data.cfg_float("xp.orb_life_s")
 	for i: int in _capacity:
 		if _active[i] == 0:
 			continue
+		if _flying[i] == 0 and life > 0.0:                                               # lying orbs fade away
+			_age[i] += delta
+			if _age[i] >= life:
+				_remove(i)
+				continue
+			if life - _age[i] <= Data.cfg_float("pickups.decay_blink_s"):
+				_update_instance(i)
 		var player: Player = _nearest_player(_pos[i])
 		if player == null:
 			continue
@@ -134,6 +173,7 @@ func merge_distant() -> void:
 			continue
 		var keeper: int = keepers[cell]
 		_value[keeper] += _value[i]
+		_age[keeper] = minf(_age[keeper], _age[i])                                     # the merged orb lasts as long as the newest
 		_update_instance(keeper)
 		_remove(i)
 
@@ -172,7 +212,9 @@ func _update_instance(slot: int) -> void:
 			tier = t
 	var size: float = _tier_sizes[tier]
 	_multimesh.set_instance_transform_2d(slot, Transform2D(0.0, PixelArt.pickup_scale(_texture, size), 0.0, _pos[slot]))
-	_multimesh.set_instance_color(slot, _tier_colors[tier])
+	var colour: Color = _tier_colors[tier]
+	colour.a *= decay_alpha(_age[slot], Data.cfg_float("xp.orb_life_s")) if _flying[slot] == 0 else 1.0
+	_multimesh.set_instance_color(slot, colour)
 
 
 func _nearest_player(from: Vector2) -> Player:

@@ -118,6 +118,36 @@ func test_distant_orbs_merge_without_losing_xp() -> void:
 	assert_almost_eq(float(orbs._value[orbs._active.find(1)]), 50.0, 0.001)
 
 
+func test_orbs_left_lying_fade_away_but_flying_ones_dont() -> void:
+	var orbs := XpOrbs.new()
+	_parent.add_child(orbs)
+	orbs.setup()
+	var far := Vector2(5000, 5000)
+	orbs.drop(far, 3.0)
+	var life: float = Data.cfg_float("xp.orb_life_s")
+	orbs._process(life * 0.5)
+	assert_eq(orbs.count(), 1, "still there halfway through")
+	assert_lt(XpOrbs.decay_alpha(life - 1.0, life), 1.01, "it blinks near the end")
+	orbs._process(life * 0.6)
+	assert_eq(orbs.count(), 0, "gone once its time is up")
+
+
+func test_a_full_pool_replaces_the_oldest_orb_and_keeps_its_xp() -> void:
+	var orbs := XpOrbs.new()
+	_parent.add_child(orbs)
+	orbs.setup()
+	orbs.set_process(false)
+	var far := Vector2(5000, 5000)
+	for i: int in orbs._capacity:
+		orbs.drop(far + Vector2(i % 40, floorf(i / 40.0)), 1.0)
+		orbs._age[i] = 10.0 if i == 7 else 1.0                                          # orb 7 is the oldest
+	var spot := Vector2(-3000, -3000)
+	orbs.drop(spot, 2.0)
+	assert_eq(orbs.count(), orbs._capacity, "the pool stays full")
+	assert_eq(orbs._pos[7], spot, "the new orb appears where it fell, in the oldest orb's place")
+	assert_almost_eq(float(orbs._value[7]), 3.0, 0.001, "carrying the old orb's XP too")
+
+
 func test_run_log_has_time_cause_and_build() -> void:
 	_player.cause_of_death = "placeholder_chaser"
 	GameAuthority.run.elapsed_s = 123.4
