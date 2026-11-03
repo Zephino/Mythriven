@@ -96,15 +96,38 @@ CENTAUR_PAL = {"S": "#a8744a", "o": "#120e0a", "h": "#5a3a1e", "b": "#8a6040", "
 EURYTUS_PAL = dict(CENTAUR_PAL, s="#d88a6a", S="#b0664a")
 
 
+class _Down:
+    """Draws onto a canvas shifted down by dy (to leave room above a figure)."""
+    def __init__(self, c, dy):
+        self.c, self.dy, self.w, self.h, self.g = c, dy, c.w, c.h, c.g
+
+    def px(self, x, y, col):
+        self.c.px(x, y + self.dy, col)
+
+    def rect(self, x0, y0, x1, y1, col):
+        self.c.rect(x0, y0 + self.dy, x1, y1 + self.dy, col)
+
+    def row(self, y, x0, x1, col):
+        self.c.row(y + self.dy, x0, x1, col)
+
+
 def eurytus(c, step):
     """Eurytus (Ovid, Met. 12.219-240: "wildest of the wild centaurs", drunk at the wedding): a big red-faced centaur
-    with a great embossed wine-bowl held up in both hands, wine slopping over."""
+    holding a great embossed wine-bowl high over his head in both hands, red wine slopping over its rim."""
     def bowl(c, r):
-        ellipse(c, r(42), r(6), 6, 3, "y"); c.rect(r(37), r(4), r(47), r(5), "r"); c.row(r(7), r(38), r(46), "Y")
-        for x in (38, 41, 44):
-            c.px(x, 7, "Y")                                                              # embossing
-    centaur(c, step, 1.0, bowl)
-    c.px(47, 8, "r"); c.px(48, 10, "r"); c.px(37, 7, "r"); c.px(47, 12, "r")             # wine slopping over
+        for (ax, ay), (bx, by), col in (((40, 14), (45, -2), "s"), ((30, 15), (27, -2), "S")):   # both arms raised
+            n = max(abs(bx - ax), abs(by - ay))
+            for t in range(n + 1):
+                ellipse(c, ax + (bx - ax) * t / n, ay + (by - ay) * t / n, 1.3, 1.3, col)
+        ellipse(c, 45, -3, 1.6, 1.6, "s"); ellipse(c, 27, -3, 1.6, 1.6, "S")            # hands
+        poly(c, [(24, -8), (48, -8), (44, -3), (28, -3)], "y")                           # the wide, shallow bowl
+        c.row(-8, 24, 48, "Y"); c.rect(34, -3, 38, -2, "Y")                              # its rim and foot
+        c.row(-9, 26, 46, "r")                                                           # the wine in it
+        for x in (29, 33, 37, 41):
+            c.px(x, -6, "Y")                                                             # embossing
+        for x, y in ((23, -7), (22, -5), (49, -7), (50, -5), (50, -3), (22, -3)):
+            c.px(x, y, "r")                                                              # slopping over the rim
+    centaur(_Down(c, 10), step, 1.0, bowl)
 
 
 def rhoetus(c, step):
@@ -435,7 +458,7 @@ if __name__ == "__main__":
     walk = [0, 1, 2, 3, 4]
     kit.build_boss("centaur_raider", centaur_raider, CENTAUR_PAL, doc(centaur_raider.__doc__), (28, 30), (13, 29), walk, folder="enemies")
     kit.build_boss("centaur_slinger", centaur_slinger, CENTAUR_PAL, doc(centaur_slinger.__doc__), (28, 30), (13, 29), walk, folder="enemies")
-    kit.build_boss("eurytus", eurytus, EURYTUS_PAL, doc(eurytus.__doc__), (56, 60), (26, 58), [0, 1, 0, -1, 0])
+    kit.build_boss("eurytus", eurytus, EURYTUS_PAL, doc(eurytus.__doc__), (56, 70), (26, 68), [0, 1, 0, -1, 0])
     kit.build_boss("rhoetus", rhoetus, CENTAUR_PAL, doc(rhoetus.__doc__), (56, 60), (26, 58), [0, 1, 0, -1, 0])
     kit.build_boss("nessus", nessus, NESSUS_PAL, doc(nessus.__doc__), (56, 60), (26, 58), [0, 1, 0, -1, 0])
     kit.build_boss("dovre_troll", dovre_troll, DOVRE_TROLL_PAL, doc(dovre_troll.__doc__), (26, 28), (12, 27), walk, folder="enemies")

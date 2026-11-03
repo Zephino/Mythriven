@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.81
+Date: 11/03/2026
+Time: 7:21 PM
+
+### Changes
+- **Eurytus fixed.** His wine-bowl no longer covers his face. He now holds a wide, shallow, embossed gold bowl with a foot high above his head in both hands, his arms raised out at the sides, with red wine slopping over its rim. His picture is taller to make room for it.
+
+### Reason
+The owner asked for Eurytus to be fixed.
+
 ## Version 00.03.80
 Date: 11/03/2026
 Time: 7:15 PM
