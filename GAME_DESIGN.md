@@ -566,6 +566,7 @@ Damage over time (Burn, Poison) skips Armor. Damage to the player works the same
 | Longbow | Bow | targeted, long range | Volley (+ Hourglass) |
 | Bronze Sword | Blade | melee arc | Hero's Blade (+ Belt of Strength) |
 | War Hammer | Blunt | melee, knockback | Quake Hammer (+ Bronze Aegis) |
+| Bronze Spear *(added 11/03/2026, owner request)* | Spear/Polearm | thrust, piercing a line | Phalanx (+ Bronze Aegis): thrusts in every direction at once |
 
 ### Level-up choices
 

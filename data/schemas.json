@@ -1400,6 +1400,10 @@
               "type": "string",
               "optional": true
             },
+            "ring": {
+              "type": "bool",
+              "optional": true
+            },
             "quake": {
               "type": "object",
               "optional": true,

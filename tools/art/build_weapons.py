@@ -188,6 +188,20 @@ def spear_and_shield():
     return p
 
 
+def bronze_spear():
+    """A hoplite's bronze spear (the dory): a long ash shaft with a leather grip-binding, a bronze leaf-shaped head with
+    a raised midrib, and a bronze butt-spike (the sauroter)."""
+    p = Pic(7, 38, (3, 22))
+    p.col(3, 9, 35, "c"); p.col(4, 9, 35, "C")
+    for i, w in enumerate([0, 1, 1, 2, 2, 2, 1, 1, 0]):
+        p.rect(3 - w, i, 3 + w, i, "g"); p.px(3 + w, i, "G")
+    p.col(3, 1, 7, "u"); p.px(3, 0, "s")                           # the midrib, a glint at the point
+    p.rect(2, 8, 4, 8, "G")                                        # socket
+    p.rect(3, 20, 4, 24, "b"); p.px(3, 22, "B")                    # leather grip-binding
+    p.rect(3, 36, 4, 37, "g"); p.px(4, 37, "G")                    # butt-spike
+    return p
+
+
 def gae_bolg():
     """The Gáe Bolg: a dark red shaft, and a head with rows of barbs pointing back (thirty barbs in the tales) so it
     can't be pulled out."""
@@ -423,7 +437,7 @@ PROJECTILES = {
 WEAPONS = {
     "great_club": (great_club, 0.45), "bronze_sword": (bronze_sword, 0.45), "sword_and_bow": (tachi, 0.35),
     "excalibur": (excalibur, 0.45), "war_hammer": (war_hammer, 0.4), "throwing_axe": (throwing_axe, 0.4),
-    "javelin": (javelin, 0.12), "spear_and_shield": (spear_and_shield, 0.12), "gae_bolg": (gae_bolg, 0.12),
+    "javelin": (javelin, 0.12), "bronze_spear": (bronze_spear, 0.12), "spear_and_shield": (spear_and_shield, 0.12), "gae_bolg": (gae_bolg, 0.12),
     "scathach_spear": (scathach_spear, 0.12), "longbow": (longbow, 0.1), "great_bow": (great_bow, 0.1),
     "huntress_bow": (huntress_bow, 0.1), "bladed_discus": (bladed_discus, 0.0), "sling_of_lugh": (sling_of_lugh, -0.2),
     "runo_song": (runo_song, 0.0), "orpheus_lyre": (orpheus_lyre, 0.0), "giant_sword": (giant_sword, 0.1),

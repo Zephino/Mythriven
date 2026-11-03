@@ -229,6 +229,8 @@ WEAPON_LONGBOW_NAME,Longbow
 WEAPON_LONGBOW_DESC,Long-range arrows at the nearest enemy.
 WEAPON_BRONZE_SWORD_NAME,Bronze Sword
 WEAPON_BRONZE_SWORD_DESC,Quick wide sword arcs toward the nearest enemy.
+WEAPON_BRONZE_SPEAR_NAME,Bronze Spear
+WEAPON_BRONZE_SPEAR_DESC,Thrusts a long bronze spear at the nearest enemy, piercing every enemy in a line.
 WEAPON_WAR_HAMMER_NAME,War Hammer
 WEAPON_WAR_HAMMER_DESC,Slow hammer blows that knock enemies far back.
 LABOR_HUD,"Labor %d: %s (%s)"
@@ -338,6 +340,8 @@ WEAPON_SUN_DISC_NAME,Sun Disc
 WEAPON_SUN_DISC_DESC,"Wider, heavier discs."
 WEAPON_RAIN_OF_JAVELINS_NAME,Rain of Javelins
 WEAPON_RAIN_OF_JAVELINS_DESC,A fan of javelins.
+WEAPON_PHALANX_NAME,Phalanx
+WEAPON_PHALANX_DESC,A wall of spears: thrusts in every direction at once.
 WEAPON_VOLLEY_NAME,Volley
 WEAPON_VOLLEY_DESC,A wide volley of arrows.
 WEAPON_HEROS_BLADE_NAME,Hero's Blade

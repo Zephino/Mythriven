@@ -109,3 +109,38 @@ func test_damage_numbers_pool_does_not_grow() -> void:
 	for i: int in before * 3:
 		numbers.show_number(i, Vector2.ZERO, "crit" if i % 7 == 0 else "normal")
 	assert_eq(numbers.get_child_count(), before)
+
+
+func test_the_bronze_spear_thrusts_through_a_line_of_enemies() -> void:
+	var spear: WeaponInstance = GameAuthority.give_weapon(_player, "bronze_spear")
+	var near: int = _enemies.spawn(CHASER, Vector2(30, 0))
+	var far: int = _enemies.spawn(CHASER, Vector2(80, 0))
+	var aside: int = _enemies.spawn(CHASER, Vector2(0, 80))
+	_refresh_hash()
+	var near_hp: float = _enemies.hp[near]
+	var far_hp: float = _enemies.hp[far]
+	var aside_hp: float = _enemies.hp[aside]
+	_combat._process(0.016)
+	assert_eq(spear.attacks_made, 1)
+	assert_true(_was_hit(near, near_hp), "the nearest enemy is hit")
+	assert_true(_was_hit(far, far_hp), "and the one behind it, in the same line")
+	assert_false(_was_hit(aside, aside_hp), "but not one off to the side")
+
+
+func test_the_phalanx_thrusts_all_round_and_comes_from_the_spear_and_aegis() -> void:
+	var recipe: Dictionary = GameAuthority.find_weapon("bronze_spear").get("evolution", {})
+	assert_eq(recipe.get("passive", ""), "bronze_aegis", "Bronze Spear + Bronze Aegis")
+	assert_eq(recipe.get("into", ""), "phalanx", "evolves into the Phalanx")
+	GameAuthority.give_weapon(_player, "phalanx")
+	var right: int = _enemies.spawn(CHASER, Vector2(40, 0))
+	var left: int = _enemies.spawn(CHASER, Vector2(-40, 0))
+	_refresh_hash()
+	var right_hp: float = _enemies.hp[right]
+	var left_hp: float = _enemies.hp[left]
+	_combat._process(0.016)
+	assert_true(_was_hit(right, right_hp), "the target is hit")
+	assert_true(_was_hit(left, left_hp), "and so is an enemy on the far side: a ring of spears")
+
+
+func _was_hit(slot: int, hp_before: float) -> bool:
+	return _enemies.active[slot] == 0 or _enemies.hp[slot] < hp_before

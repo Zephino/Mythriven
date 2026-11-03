@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.87
+Date: 11/03/2026
+Time: 6:33 AM
+
+### Changes
+- **New level-up weapon: the Bronze Spear.** A hoplite's long spear, with a bronze leaf-shaped head, a leather grip and a butt-spike. It thrusts at the nearest enemy and pierces every enemy in a line. Like the other weapons it has 8 levels: more damage, reach and width, and faster thrusts.
+  - Any Hero can find it on level-up cards from the start.
+  - It is a Spear/Polearm weapon, so the spear experts (Scáthach, Benkei, Tomoe Gozen) get their bonus with it: at level 8 they thrust two spears at once, fanned round the target.
+  - The "Many Shots" Boon adds an extra spear too.
+- **Its evolution: the Phalanx** (Bronze Spear at level 8 + Bronze Aegis, at the next chest): a wall of spears that thrusts in six directions all round the Hero at once. The recipe goes in the Codex when found.
+- Spear thrusts can now fire more than one spear at a time (fanned, or all round). The Heroes' own spears are unchanged.
+- GAME_DESIGN.md: the Bronze Spear and the Phalanx added to the general weapons table, with a dated note. New tests in tests/test_weapons.gd; the evolution count in tests/test_chests.gd goes from 16 to 17.
+
+### Reason
+The owner asked for spears in the level-up weapons. The only one before was the Javelin (thrown), and the stabbing spears came only with their Heroes. The owner chose a stabbing spear with an evolution.
+
 ## Version 00.03.86
 Date: 11/03/2026
 Time: 8:39 PM

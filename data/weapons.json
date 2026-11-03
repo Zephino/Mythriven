@@ -2481,6 +2481,121 @@
     "persists": false
   },
   {
+    "id": "bronze_spear",
+    "name_key": "WEAPON_BRONZE_SPEAR_NAME",
+    "desc_key": "WEAPON_BRONZE_SPEAR_DESC",
+    "element": "physical",
+    "categories": [
+      "spear"
+    ],
+    "targeting": "targeted",
+    "pattern": "thrust",
+    "in_level_up_pool": true,
+    "levels": [
+      {
+        "damage": 13,
+        "cooldown": 1.2,
+        "hit_interval": 0,
+        "range_px": 95,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 14,
+        "count": 1,
+        "spread_deg": 24
+      },
+      {
+        "damage": 15,
+        "cooldown": 1.2,
+        "hit_interval": 0,
+        "range_px": 95,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 14,
+        "count": 1,
+        "spread_deg": 24
+      },
+      {
+        "damage": 15,
+        "cooldown": 1.2,
+        "hit_interval": 0,
+        "range_px": 110,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 14,
+        "count": 1,
+        "spread_deg": 24
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.1,
+        "hit_interval": 0,
+        "range_px": 110,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 16,
+        "count": 1,
+        "spread_deg": 24
+      },
+      {
+        "damage": 19,
+        "cooldown": 1.05,
+        "hit_interval": 0,
+        "range_px": 110,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 16,
+        "count": 1,
+        "spread_deg": 24
+      },
+      {
+        "damage": 23,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 110,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 16,
+        "count": 1,
+        "spread_deg": 24
+      },
+      {
+        "damage": 23,
+        "cooldown": 1.0,
+        "hit_interval": 0,
+        "range_px": 120,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 18,
+        "count": 1,
+        "spread_deg": 24
+      },
+      {
+        "damage": 29,
+        "cooldown": 0.95,
+        "hit_interval": 0,
+        "range_px": 120,
+        "area": 1.0,
+        "knockback": 80,
+        "width_px": 18,
+        "count": 1,
+        "spread_deg": 24
+      }
+    ],
+    "tier_names": [],
+    "evolution": {
+      "passive": "bronze_aegis",
+      "into": "phalanx"
+    },
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "unlock": {
+      "type": "starting"
+    },
+    "placeholder_color": "#d0a048",
+    "persists": false
+  },
+  {
     "id": "labor_breaker",
     "name_key": "WEAPON_LABOR_BREAKER_NAME",
     "desc_key": "WEAPON_LABOR_BREAKER_DESC",
@@ -3136,6 +3251,43 @@
       "radius_px": 48,
       "damage_mult": 0.6
     }
+  },
+  {
+    "id": "phalanx",
+    "name_key": "WEAPON_PHALANX_NAME",
+    "desc_key": "WEAPON_PHALANX_DESC",
+    "element": "physical",
+    "categories": [
+      "spear"
+    ],
+    "targeting": "targeted",
+    "pattern": "thrust",
+    "ring": true,
+    "in_level_up_pool": false,
+    "levels": [
+      {
+        "damage": 58,
+        "cooldown": 0.95,
+        "hit_interval": 0,
+        "range_px": 125,
+        "area": 1.0,
+        "knockback": 120,
+        "width_px": 20,
+        "count": 6,
+        "spread_deg": 24
+      }
+    ],
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit"
+    ],
+    "unlock": {
+      "type": "evolution"
+    },
+    "placeholder_color": "#d0a048",
+    "persists": false,
+    "evolved_from": "bronze_spear"
   },
   {
     "id": "excalibur",
