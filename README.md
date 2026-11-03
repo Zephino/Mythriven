@@ -94,7 +94,7 @@ Elite monsters drop **chests**, and bosses and treasure spots drop big golden on
 **Evolution:** a **level-8 weapon** plus **its matching passive** turns into a much stronger weapon at the **next chest**. Every recipe you discover is written in the **Codex**.
 
 ### Elements
-Weapons and gods carry **elements**, and each one does something extra:
+Weapons, spells and gods carry **elements**, and each one does something extra. There is a spell for every element: **Ember** (Fire), **Frost** (Ice), **Spark** (Lightning), **Splash** (Water) and **Stone** (Earth) from the start, and **Breeze** (Wind), **Glimmer** (Holy) and **Shade** (Dark) bought in the Hall of Legends. Spells rename as they level up (Splash → Torrent → Riptide).
 
 | Element | Effect |
 | --- | --- |

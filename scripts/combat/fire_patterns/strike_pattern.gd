@@ -1,8 +1,8 @@
 class_name StrikePattern
 extends FirePattern
-## Random strikes (Spark): each attack calls `count` strikes down on random
+## Random strikes (Spark, Stone): each attack calls `count` strikes down on random
 ## enemies in range (or random spots when none), hitting everything inside a
-## small circle.
+## small circle. "strike_look": "burst" shows a burst in the spell's element (Stone's rock) instead of a bolt.
 
 
 func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: CombatSystem) -> void:
@@ -20,5 +20,8 @@ func fire(weapon: WeaponInstance, player: Player, aim: Dictionary, combat: Comba
 		var center: Vector2 = combat.enemies.positions[target] if target != -1 else \
 				player.position + Vector2.from_angle(rng.randf() * TAU) * rng.randf() * reach
 		combat.hit_circle(center, strike_radius, weapon, player, 1.0)
-		combat.effects.spawn_bolt(center, Elements.color(weapon.element()), weapon.data.has("evolved_from"))
+		if str(weapon.data.get("strike_look", "bolt")) == "burst":                     # Stone: rock bursting up
+			combat.effects.spawn_burst(center, weapon.element(), weapon.data.has("evolved_from"))
+		else:
+			combat.effects.spawn_bolt(center, Elements.color(weapon.element()), weapon.data.has("evolved_from"))
 		combat.effects.spawn_ring(center, strike_radius, combat.effect_color(weapon))

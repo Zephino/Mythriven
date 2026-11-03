@@ -2,6 +2,27 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.96
+Date: 11/03/2026
+Time: 8:31 AM
+
+### Changes
+- **Two new spells, so every element now has one.** Both are on the level-up cards from the start and use the spell slots. The names are the design's own tier names (GAME_DESIGN.md: Spell tier names).
+- **Splash (Water)** renames as it levels: Splash → Torrent → Riptide.
+  - A wide wave rolls at the nearest enemy, through everything in its way, pushing enemies back; hits can Soak.
+  - It sets up **Conduct**: Lightning on Soaked enemies chains between them.
+  - From level 5 it sends two waves.
+  - **Evolves into Deluge** with the **Votive Bell**: a fan of four great waves that always Soak.
+- **Stone (Earth)** renames as it levels: Stone → Quake → Landslide.
+  - Spikes of rock burst up under random enemies nearby, with pebbles and dust; hits can Poison.
+  - More bursts as it levels: two from level 3, three from level 6.
+  - **Evolves into Worldbreaker** with the **Lodestone**: five wider bursts that always Poison.
+- Strike spells can now show a burst in their element instead of a lightning bolt (`strike_look`).
+- GAME_DESIGN.md: the two new evolution recipes added with a dated note. The README lists a spell for every element. Tests added to tests/test_weapons.gd; the evolution count in tests/test_chests.gd goes from 17 to 19.
+
+### Reason
+Water and Earth were the two elements with no spell; the owner said yes to adding them.
+
 ## Version 00.03.95
 Date: 11/03/2026
 Time: 8:25 AM

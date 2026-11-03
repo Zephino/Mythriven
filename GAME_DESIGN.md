@@ -793,6 +793,8 @@ Weapon at level 8 + its paired passive owned → the next chest (from elites, bo
 | Breeze | Winged Sandals | Cyclone |
 | Glimmer | Golden Apple | Judgment |
 | Shade | Lodestone | Oblivion |
+| Splash *(added 11/03/2026, owner request)* | Votive Bell | Deluge |
+| Stone *(added 11/03/2026, owner request)* | Lodestone | Worldbreaker |
 | Throwing Axe | Seer's Eye | Cleaver Storm |
 | Bladed Discus | Votive Bell | Sun Disc |
 

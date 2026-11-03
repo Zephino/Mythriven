@@ -165,6 +165,8 @@ REACTION_SPREAD,Spread!
 WEAPON_EMBER_DESC,Fire bolts at the nearest enemy; hits can Burn.
 WEAPON_FROST_DESC,"A spread of ice shards; hits Chill, and three Chills Freeze."
 WEAPON_SPARK_DESC,Lightning strikes random enemies nearby; hits can Shock.
+WEAPON_SPLASH_DESC,A wide wave rolls at the nearest enemy, pushing enemies back; hits can Soak.
+WEAPON_STONE_DESC,Spikes of rock burst up under random enemies nearby; hits can Poison.
 WEAPON_BREEZE_DESC,"A wide wave of wind in the direction you move, pushing enemies back and spreading their statuses."
 WEAPON_GLIMMER_DESC,Holy lights circle you and strike enemies they pass.
 WEAPON_SHADE_DESC,"A dark aura harms nearby enemies, can Hex them, and heals you a little for each one it touches."
@@ -353,6 +355,8 @@ WEAPON_HEROS_BLADE_DESC,Huge sweeping cuts.
 WEAPON_QUAKE_HAMMER_NAME,Quake Hammer
 WEAPON_QUAKE_HAMMER_DESC,Every blow quakes.
 WEAPON_INFERNO_DESC,More bolts that always Burn.
+WEAPON_DELUGE_DESC,A fan of great waves that always Soak.
+WEAPON_WORLDBREAKER_DESC,More and wider bursts of rock that always Poison.
 WEAPON_ABSOLUTE_ZERO_DESC,More shards that always Chill.
 WEAPON_TEMPEST_DESC,Many more strikes.
 WEAPON_CYCLONE_DESC,"A huge, hard-pushing wave."

@@ -1272,6 +1272,281 @@
     "persists": false
   },
   {
+    "id": "splash",
+    "name_key": "SPELL_WATER_T1",
+    "desc_key": "WEAPON_SPLASH_DESC",
+    "element": "water",
+    "categories": [
+      "spell"
+    ],
+    "targeting": "targeted",
+    "pattern": "forward",
+    "in_level_up_pool": true,
+    "levels": [
+      {
+        "damage": 7,
+        "cooldown": 1.5,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.0,
+        "knockback": 150,
+        "count": 1,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.6
+      },
+      {
+        "damage": 8,
+        "cooldown": 1.5,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.0,
+        "knockback": 150,
+        "count": 1,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.6
+      },
+      {
+        "damage": 9,
+        "cooldown": 1.45,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.05,
+        "knockback": 150,
+        "count": 1,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.65
+      },
+      {
+        "damage": 10,
+        "cooldown": 1.4,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.05,
+        "knockback": 150,
+        "count": 1,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.7
+      },
+      {
+        "damage": 11,
+        "cooldown": 1.4,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.1,
+        "knockback": 150,
+        "count": 2,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.7
+      },
+      {
+        "damage": 13,
+        "cooldown": 1.35,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.1,
+        "knockback": 150,
+        "count": 2,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.75
+      },
+      {
+        "damage": 14,
+        "cooldown": 1.3,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.15,
+        "knockback": 150,
+        "count": 2,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.8
+      },
+      {
+        "damage": 16,
+        "cooldown": 1.25,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.2,
+        "knockback": 150,
+        "count": 2,
+        "spread_deg": 24,
+        "speed_px_s": 170,
+        "lifetime_s": 1.3,
+        "radius_px": 12,
+        "pierce": 99,
+        "status_chance": 0.85
+      }
+    ],
+    "tier_names": [
+      "SPELL_WATER_T1",
+      "SPELL_WATER_T2",
+      "SPELL_WATER_T3",
+      "SPELL_WATER_T4"
+    ],
+    "evolution": {
+      "passive": "votive_bell",
+      "into": "deluge"
+    },
+    "infusion_hooks": [
+      "on_hit",
+      "projectile"
+    ],
+    "unlock": {
+      "type": "starting"
+    },
+    "placeholder_color": "#4a9ae8",
+    "persists": false
+  },
+  {
+    "id": "stone",
+    "name_key": "SPELL_EARTH_T1",
+    "desc_key": "WEAPON_STONE_DESC",
+    "element": "earth",
+    "categories": [
+      "spell"
+    ],
+    "targeting": "random",
+    "pattern": "strike",
+    "strike_look": "burst",
+    "in_level_up_pool": true,
+    "levels": [
+      {
+        "damage": 9,
+        "cooldown": 1.7,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.0,
+        "knockback": 0,
+        "count": 1,
+        "radius_px": 18,
+        "status_chance": 0.5
+      },
+      {
+        "damage": 10,
+        "cooldown": 1.7,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.0,
+        "knockback": 0,
+        "count": 1,
+        "radius_px": 18,
+        "status_chance": 0.5
+      },
+      {
+        "damage": 11,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.05,
+        "knockback": 0,
+        "count": 2,
+        "radius_px": 18,
+        "status_chance": 0.55
+      },
+      {
+        "damage": 13,
+        "cooldown": 1.6,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.05,
+        "knockback": 0,
+        "count": 2,
+        "radius_px": 18,
+        "status_chance": 0.55
+      },
+      {
+        "damage": 14,
+        "cooldown": 1.5,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.1,
+        "knockback": 0,
+        "count": 2,
+        "radius_px": 18,
+        "status_chance": 0.6
+      },
+      {
+        "damage": 16,
+        "cooldown": 1.5,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.1,
+        "knockback": 0,
+        "count": 3,
+        "radius_px": 18,
+        "status_chance": 0.6
+      },
+      {
+        "damage": 18,
+        "cooldown": 1.4,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.15,
+        "knockback": 0,
+        "count": 3,
+        "radius_px": 18,
+        "status_chance": 0.65
+      },
+      {
+        "damage": 21,
+        "cooldown": 1.4,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.2,
+        "knockback": 0,
+        "count": 3,
+        "radius_px": 18,
+        "status_chance": 0.7
+      }
+    ],
+    "tier_names": [
+      "SPELL_EARTH_T1",
+      "SPELL_EARTH_T2",
+      "SPELL_EARTH_T3",
+      "SPELL_EARTH_T4"
+    ],
+    "evolution": {
+      "passive": "lodestone",
+      "into": "worldbreaker"
+    },
+    "infusion_hooks": [
+      "on_hit",
+      "area"
+    ],
+    "unlock": {
+      "type": "starting"
+    },
+    "placeholder_color": "#a8804a",
+    "persists": false
+  },
+  {
     "id": "gae_bolg",
     "name_key": "WEAPON_GAE_BOLG_NAME",
     "desc_key": "WEAPON_GAE_BOLG_DESC",
@@ -2966,6 +3241,85 @@
     "placeholder_color": "#9a5cff",
     "persists": false,
     "evolved_from": "shade"
+  },
+  {
+    "id": "deluge",
+    "name_key": "SPELL_WATER_T4",
+    "desc_key": "WEAPON_DELUGE_DESC",
+    "element": "water",
+    "categories": [
+      "spell"
+    ],
+    "targeting": "targeted",
+    "pattern": "forward",
+    "in_level_up_pool": false,
+    "levels": [
+      {
+        "damage": 32,
+        "cooldown": 1.25,
+        "hit_interval": 0,
+        "range_px": 220,
+        "area": 1.3,
+        "knockback": 180,
+        "count": 4,
+        "spread_deg": 60,
+        "speed_px_s": 170,
+        "lifetime_s": 1.4,
+        "radius_px": 16,
+        "pierce": 99,
+        "status_chance": 1.0
+      }
+    ],
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit",
+      "projectile"
+    ],
+    "unlock": {
+      "type": "evolution"
+    },
+    "placeholder_color": "#4a9ae8",
+    "persists": false,
+    "evolved_from": "splash"
+  },
+  {
+    "id": "worldbreaker",
+    "name_key": "SPELL_EARTH_T4",
+    "desc_key": "WEAPON_WORLDBREAKER_DESC",
+    "element": "earth",
+    "categories": [
+      "spell"
+    ],
+    "targeting": "random",
+    "pattern": "strike",
+    "strike_look": "burst",
+    "in_level_up_pool": false,
+    "levels": [
+      {
+        "damage": 42,
+        "cooldown": 1.4,
+        "hit_interval": 0,
+        "range_px": 240,
+        "area": 1.3,
+        "knockback": 0,
+        "count": 5,
+        "radius_px": 22,
+        "status_chance": 1.0
+      }
+    ],
+    "tier_names": [],
+    "evolution": null,
+    "infusion_hooks": [
+      "on_hit",
+      "area"
+    ],
+    "unlock": {
+      "type": "evolution"
+    },
+    "placeholder_color": "#a8804a",
+    "persists": false,
+    "evolved_from": "stone"
   },
   {
     "id": "thirty_barbs",

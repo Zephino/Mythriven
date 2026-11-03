@@ -86,7 +86,7 @@ func test_no_evolution_without_the_paired_passive() -> void:
 
 func test_every_recipe_has_an_evolved_weapon_about_twice_as_strong() -> void:
 	var recipes: Array[Dictionary] = EvolutionRules.all_recipes()
-	assert_eq(recipes.size(), 17)
+	assert_eq(recipes.size(), 19)
 	for recipe: Dictionary in recipes:
 		var base: Dictionary = GameAuthority.find_weapon(str(recipe["weapon"]))
 		var into: Dictionary = GameAuthority.find_weapon(str(recipe["into"]))

@@ -144,3 +144,23 @@ func test_the_phalanx_thrusts_all_round_and_comes_from_the_spear_and_aegis() -> 
 
 func _was_hit(slot: int, hp_before: float) -> bool:
 	return _enemies.active[slot] == 0 or _enemies.hp[slot] < hp_before
+
+
+func test_splash_and_stone_are_spells_any_hero_can_find() -> void:
+	for id: String in ["splash", "stone"]:
+		var entry: Dictionary = GameAuthority.find_weapon(id)
+		assert_true(LevelUpRules.is_spell(entry), "%s is a spell" % id)
+		assert_true(bool(entry.get("in_level_up_pool", false)), "%s is on the level-up cards" % id)
+		assert_true(LevelUpRules.is_unlocked(entry, "weapons_unlocked"), "%s is there from the start" % id)
+	assert_eq(GameAuthority.find_weapon("splash")["element"], "water")
+	assert_eq(GameAuthority.find_weapon("stone")["element"], "earth")
+
+
+func test_stone_bursts_up_under_a_nearby_enemy() -> void:
+	var stone: WeaponInstance = GameAuthority.give_weapon(_player, "stone")
+	var near: int = _enemies.spawn(CHASER, Vector2(60, 0))
+	_refresh_hash()
+	var near_hp: float = _enemies.hp[near]
+	_combat._process(0.016)
+	assert_eq(stone.attacks_made, 1)
+	assert_true(_was_hit(near, near_hp), "the rock bursts up under it")
