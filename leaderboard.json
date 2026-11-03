@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-11-02T17:52:35.493Z",
+	"updated": "2026-11-03T00:42:50.426Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -449,6 +449,31 @@
 			],
 			"version": "00.01.25",
 			"date": "2026-10-29T19:56:16.930Z"
+		},
+		{
+			"name": "EatMyNoodle",
+			"hero": "tomoe_gozen",
+			"time_s": 80,
+			"level": 5,
+			"kills": 220,
+			"weapons": [
+				{
+					"id": "sword_and_bow",
+					"level": 1
+				},
+				{
+					"id": "spark",
+					"level": 3
+				}
+			],
+			"passives": [
+				{
+					"id": "winged_sandals",
+					"level": 1
+				}
+			],
+			"version": "00.03.82",
+			"date": "2026-11-03T00:42:50.426Z"
 		},
 		{
 			"name": "DanK",
