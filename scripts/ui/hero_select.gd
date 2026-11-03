@@ -182,10 +182,9 @@ func _bottom_row(box: VBoxContainer, buttons: Array[Control], columns: int) -> v
 	back_button.custom_minimum_size = Vector2(touch * 2.4, touch)
 	back_button.pressed.connect(_on_back)
 	row.add_child(back_button)
-	board.focus_neighbor_right = board.get_path_to(palette)
 	palette.focus_neighbor_left = palette.get_path_to(board)
 	palette.focus_neighbor_right = palette.get_path_to(back_button)
-	back_button.focus_neighbor_left = back_button.get_path_to(palette)
+	_update_palette()
 	# Down from the bottom row reaches the Leaderboard button; up or down from it returns to the Heroes.
 	for i: int in buttons.size():
 		if i + columns >= buttons.size():
@@ -246,16 +245,37 @@ static func unlock_text(hero: Dictionary) -> String:
 
 func _remember(hero_id: String) -> void:
 	_last_hero = hero_id
+	_update_palette()
 
 
-## Cycles the palette of the Hero last selected (more unlock with mastery).
+## The Color button shows only for a Hero who has unlocked another colour (with mastery: time played as them).
+func _update_palette() -> void:
+	if _palette == null:
+		return
+	var hero: Dictionary = HeroRules.find(_last_hero)
+	var can_change: bool = not hero.is_empty() and HeroRules.is_unlocked(hero) and Rewards.mastery(_last_hero) > 1
+	_palette.visible = can_change
+	var board: Control = _palette.get_parent().get_child(0)
+	var back_button: Control = _palette.get_parent().get_child(2)
+	var right_of_board: Control = _palette if can_change else back_button
+	board.focus_neighbor_right = board.get_path_to(right_of_board)
+	back_button.focus_neighbor_left = back_button.get_path_to(_palette if can_change else board)
+	if can_change:
+		_show_palette_name()
+
+
+func _show_palette_name() -> void:
+	var index: int = int((SaveGame.setting("palette", {}) as Dictionary).get(_last_hero, 0))
+	_palette.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
+	_palette.text = tr("UI_HERO_COLOR_N") % [tr(str(HeroRules.find(_last_hero).get("name_key", ""))), index]
+
+
+## Cycles the palette of the Hero last selected (more unlock with mastery; the button shows only once one has).
 func _on_palette() -> void:
 	if _last_hero == "":
 		return
 	Rewards.next_palette(_last_hero)
-	var index: int = int((SaveGame.setting("palette", {}) as Dictionary).get(_last_hero, 0))
-	_palette.auto_translate_mode = Node.AUTO_TRANSLATE_MODE_DISABLED
-	_palette.text = tr("UI_HERO_COLOR_N") % [tr(str(HeroRules.find(_last_hero).get("name_key", ""))), index]
+	_show_palette_name()
 
 
 func _on_back() -> void:

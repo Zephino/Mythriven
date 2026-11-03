@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.84
+Date: 11/03/2026
+Time: 7:50 PM
+
+### Changes
+- **The Color button on Hero select now shows only when it can do something.** It stays hidden until the Hero you have picked has unlocked another colour (with mastery: 30 minutes played as them unlocks the first). Once it shows, it names the Hero and the colour chosen, and keyboard and gamepad move straight from Leaderboard to Back while it is hidden.
+- New test: tests/test_hero_select.gd.
+
+### Reason
+The owner found the Color button did nothing when pressed (no colours were unlocked yet) and asked that it not show up until the player can change their Hero's colour.
+
 ## Version 00.03.83
 Date: 11/03/2026
 Time: 7:46 PM
