@@ -2,6 +2,31 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.80
+Date: 11/03/2026
+Time: 7:15 PM
+
+### Changes
+Remade Mount Pelion and Dovrefjell again, bigger and with more shading (owner's request):
+- **The centaur body redrawn from scratch:**
+  - a horse's rounded haunch, barrel and deep chest, with light along the back and a shadowed belly;
+  - slim jointed legs with knees, hocks and hooves, and a flowing tail;
+  - a bigger man's torso with shoulders, chest and arms;
+  - a bearded head with wild hair and a clear face.
+  The bosses are bigger (Eurytus with his gold wine-bowl, Rhoetus with his blazing brand, Nessus with the arrow in his back and venomed blood on his flank). The centaur raider, slinger and Arcadia's centaur share the new body.
+- **The trolls redrawn from scratch** on one shared Norwegian troll body:
+  - huge and hunched, with a mossy back that has a little fir tree grown on it;
+  - short bowed legs, big feet, and long arms with huge hands;
+  - a heavy-browed head thrust forward with small eyes, a big ear, shaggy hair and a long drooping nose with a wart;
+  - a cow's tail with a tuft.
+  - **The Hedal Trolls:** three of them, the two behind with empty sockets and the one in front holding up the single glowing eye.
+  - **The Mountain King:** a crowned troll king with a long white beard, a red cloak and a sceptre.
+  - **The Dovre troll** carries a club; **the troll brat** is a small round troll child, pinching.
+- **The Great Bøyg** redrawn as a towering mound of thick, wet coils looping over and under each other, glistening along their tops, with ooze dripping and mist swirling round its foot.
+
+### Reason
+The owner asked for Mount Pelion and Dovrefjell to be remade again: the centaurs and trolls looked off, the Bøyg was just a blob, and everything was too small and flat.
+
 ## Version 00.03.79
 Date: 11/02/2026
 Time: 5:45 PM

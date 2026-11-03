@@ -266,13 +266,13 @@ def centaur(c, f):
     pine trees): a horse's body with a man's bearded chest, arms and head, a pine branch raised to strike (drawn on the
     Mount Pelion centaur body)."""
     def pine(c, r):
-        c.rect(r(42), r(0), r(43), r(16), "t")                                           # the pine branch
-        for y in range(r(0), r(10), 2):
+        c.rect(r(42), r(0), r(43), r(14), "t")                                           # the pine branch
+        for y in range(r(0), r(8), 2):
             c.px(r(41), y, "p"); c.px(r(44), y + 1, "p")
-    pelion_centaur(c, STEP[f], 0.6, pine)
+    pelion_centaur(c, STEP[f], 0.5, pine)
 
 
-CENTAUR_PAL = {"o": "#120c08", "h": "#5a3a1e", "b": "#8a5a34", "H": "#3a2412", "s": "#d8a880", "S": "#a8744a",
+CENTAUR_PAL = {"o": "#120c08", "h": "#5a3a1e", "b": "#8a5a34", "L": "#a87a50", "H": "#3a2412", "s": "#d8a880", "S": "#a8744a",
                "t": "#5a3a1a", "p": "#3a6a3a"}
 
 
