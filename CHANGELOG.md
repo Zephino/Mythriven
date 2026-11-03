@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.92
+Date: 11/03/2026
+Time: 7:22 AM
+
+### Changes
+- **Mythriven has its own icon** in place of Godot's: a carved gold M (the title logo's letter) in a laurel wreath tied with a red ribbon, on the game's dark purple, in pixel art.
+  - It shows on the browser tab, in the window on PC, and as the app icon when the game is installed on a phone or desktop.
+  - Built by tools/art/build_icon.py into icon.png (the project's icon, `application/config/icon`) and assets/icons/icon_144/180/512.png (the web app's icons in export_presets.cfg).
+
+### Reason
+The owner asked for the Godot icon to be replaced, and approved the drawn icon ("use that icon, push it").
+
 ## Version 00.03.91
 Date: 11/03/2026
 Time: 7:17 AM
