@@ -2,6 +2,22 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.89
+Date: 11/03/2026
+Time: 6:54 AM
+
+### Changes
+- **A health bar on the HUD**, at the top left, just above the weapon slots so the two read as one panel.
+  - A framed red bar with the Hero's health in numbers on it, for example "93 / 150", with a little shine along its top.
+  - When a hit lands, a pale strip shows how much it took, then shrinks away.
+  - Below 30% health the bar pulses.
+  - Sizes, colours and the low-health line are in data/config.json (`ui.hud_hp_*`).
+- The small bar over the Hero stays as it was.
+- Test added to tests/test_hud_weapons.gd.
+
+### Reason
+The owner asked for a health gauge on the screen, at the top or the bottom, made to look good with the weapon slots.
+
 ## Version 00.03.88
 Date: 11/03/2026
 Time: 6:50 AM

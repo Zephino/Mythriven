@@ -3,8 +3,8 @@ extends CanvasLayer
 ## In-game HUD (GAME_DESIGN.md: Screens / In-game HUD): the XP bar across the
 ## top, the run timer, kills, the level badge (banked level-ups; tap to open
 ## the level-up screen), run gold, a pause button for touch screens, and a
-## line from the Hero's Legend Trait (for Heracles, his current Labor), and the Hero's weapons with their levels
-## down the left edge (HudWeapons). The timer shows the personal best for this Hero and level until it's passed.
+## line from the Hero's Legend Trait (for Heracles, his current Labor), and the Hero's health bar (HudHealth) with
+## their weapons and levels under it (HudWeapons), down the left edge. The timer shows the personal best for this Hero and level until it's passed.
 
 var level_up_screen: LevelUpScreen
 var pause_menu: PauseMenu
@@ -95,12 +95,17 @@ func _ready() -> void:
 	_trait_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_trait_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_trait_label)
-	# The Hero's weapons and their levels, down the left edge under the top bar (owner request 11/03/2026).
-	var weapons := HudWeapons.new()
-	weapons.set_anchors_preset(Control.PRESET_TOP_LEFT)
-	weapons.offset_left = margin_px
-	weapons.offset_top = row.offset_top + Data.cfg_float("ui.min_touch_target_px") + margin_px
-	root.add_child(weapons)
+	# The Hero's health bar, and their weapons and levels under it, down the left edge under the top bar
+	# (owner requests 11/03/2026).
+	var vitals := VBoxContainer.new()
+	vitals.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	vitals.offset_left = margin_px
+	vitals.offset_top = row.offset_top + Data.cfg_float("ui.min_touch_target_px") + margin_px
+	vitals.add_theme_constant_override("separation", int(Data.cfg_float("ui.hud_weapon_gap_px")) * 2)
+	vitals.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(vitals)
+	vitals.add_child(HudHealth.new())
+	vitals.add_child(HudWeapons.new())
 
 
 func _process(_delta: float) -> void:
