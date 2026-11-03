@@ -96,6 +96,7 @@ func _fit() -> void:
 	var room: float = SafeArea.rect(get_viewport()).size.y * Data.cfg_float("ui.results_max_height_frac")
 	_outer.custom_minimum_size = Vector2(need.x, minf(need.y, room))
 	_panel.reset_size()
+	_panel.set_anchors_and_offsets_preset(Control.PRESET_CENTER, Control.PRESET_MODE_MINSIZE)   # centred again at its new size
 
 
 ## Shows the screen with one line of summary per entry. `entry` is this run's

@@ -2,6 +2,16 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.86
+Date: 11/03/2026
+Time: 8:39 PM
+
+### Changes
+- **The end-of-run screen really fits now.** 00.03.83 made it the right height for a short window, but it wasn't centred again afterwards. It hung off the bottom of the screen, so its buttons couldn't be reached or clicked. It is now re-centred at its new size, so the whole screen is always on screen, with a scroll bar on the right for whatever doesn't fit. Checked with a screenshot in a short window, and the test now checks that the screen sits wholly on screen.
+
+### Reason
+The owner, playing in a short browser window, found the end-of-run screen still running off the bottom, with nothing clickable.
+
 ## Version 00.03.85
 Date: 11/03/2026
 Time: 7:59 PM

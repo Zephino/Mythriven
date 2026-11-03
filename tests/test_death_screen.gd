@@ -21,6 +21,8 @@ func test_a_tall_results_screen_fits_the_window_and_scrolls() -> void:
 	await wait_process_frames(2)
 	assert_true(screen._box.get_combined_minimum_size().y > room, "the contents are taller than the window")
 	assert_true(screen._panel.get_combined_minimum_size().y <= room, "but the screen itself fits inside it")
+	var view: Rect2 = screen.get_viewport().get_visible_rect()
+	assert_true(view.encloses(screen._panel.get_global_rect().grow(-1.0)), "and sits wholly on screen, centred again")
 	assert_true(screen._outer.is_ancestor_of(screen._title_button), "and the last button is in the part that scrolls")
 	screen._title_button.grab_focus()
 	await wait_process_frames(2)
