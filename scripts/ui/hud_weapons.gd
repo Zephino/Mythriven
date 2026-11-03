@@ -2,7 +2,9 @@ class_name HudWeapons
 extends VBoxContainer
 ## The Hero's weapons down the left edge of the screen during a run (owner request 11/03/2026: a spot on the screen
 ## to see them and what level they are): one slot per weapon carried, with its picture and its level ("MAX" at the
-## top level, "EVO" once evolved), and faint empty slots for the ones still free (level_up.max_weapons in all).
+## top level, "EVO" once evolved), and faint empty slots for the ones still free: the weapons first
+## (level_up.max_weapons), then, after a small gap, the spells (level_up.max_spells; owner request: 5 weapons and
+## 3 spells).
 ## It rebuilds only when a weapon is gained, levelled, evolved or infused.
 
 var _shown: String = ""
@@ -29,9 +31,24 @@ func _rebuild(weapons: Array[WeaponInstance]) -> void:
 	for child: Node in get_children():
 		child.queue_free()
 	var side: float = Data.cfg_float("ui.hud_weapon_slot_px")
-	for i: int in Data.cfg_int("level_up.max_weapons"):
+	for spells: bool in [false, true]:
+		if spells:
+			var gap := Control.new()                                                     # weapons above, spells below
+			gap.custom_minimum_size.y = Data.cfg_float("ui.hud_weapon_gap_px") * 2.0
+			gap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			add_child(gap)
+		var held: Array[WeaponInstance] = []
+		for weapon: WeaponInstance in weapons:
+			if LevelUpRules.is_spell(weapon.data) == spells:
+				held.append(weapon)
+		_rebuild_group(held, LevelUpRules.slot_limit(spells), side, "spell" if spells else "weapon")
+
+
+func _rebuild_group(weapons: Array[WeaponInstance], slots: int, side: float, kind: String) -> void:
+	for i: int in slots:
 		var line := HBoxContainer.new()
 		line.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		line.set_meta("slot_kind", kind)
 		add_child(line)
 		var slot := PanelContainer.new()
 		slot.mouse_filter = Control.MOUSE_FILTER_IGNORE

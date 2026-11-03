@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.95
+Date: 11/03/2026
+Time: 8:25 AM
+
+### Changes
+- **5 weapons and 3 spells.** Spells (Ember, Frost, Spark, Breeze, Glimmer, Shade and their evolved forms, and Väinämöinen's and Orpheus's own spells) now have **3 slots of their own**, apart from the **5 weapon slots**.
+  - A level-up offers a new spell only while a spell slot is free, and a new weapon only while a weapon slot is free.
+  - Passives stay at 6.
+  - The limits are `level_up.max_weapons` and `level_up.max_spells` in data/config.json.
+- The slots down the left edge now show the 5 weapons first and then, after a small gap, the 3 spells, each with its level, and faint empty slots for the ones still free.
+- GAME_DESIGN.md (dated note) and the README updated. Tests updated in tests/test_hud_weapons.gd.
+
+### Reason
+The owner asked for Heroes to carry 5 weapons and 3 spells.
+
 ## Version 00.03.94
 Date: 11/03/2026
 Time: 8:02 AM

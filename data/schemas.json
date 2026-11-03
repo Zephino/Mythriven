@@ -465,6 +465,7 @@
               "high_luck_threshold": "number",
               "max_weapons": "number",
               "max_passives": "number",
+              "max_spells": "number",
               "owned_item_weight": "number",
               "new_item_weight": "number",
               "stat_card_weight": "number",

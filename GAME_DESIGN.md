@@ -753,7 +753,7 @@ The level-up card shows the tier change ("Flame → **Blaze**") with a distinct 
 
 ## Weapons, passives, evolutions, and divine infusions
 
-Heroes hold up to **5 weapons** *(was 6; changed 11/03/2026, owner request: "4 or 5"; the weapons and their levels are shown down the left edge of the screen)* **and 6 passives** per run; weapons level 1–8, then change along two clear axes: a matching **passive** decides the weapon's evolved *form*, and a bound **god** decides its *element* (divine infusion). Both can apply to the same weapon.
+Heroes hold up to **5 weapons and 3 spells** *(was 6 weapons of any kind; changed 11/03/2026, owner requests: "4 or 5" weapons, then "5 weapons and 3 spells": spells have their own slots; the weapons, spells and their levels are shown down the left edge of the screen)* **and 6 passives** per run; weapons level 1–8, then change along two clear axes: a matching **passive** decides the weapon's evolved *form*, and a bound **god** decides its *element* (divine infusion). Both can apply to the same weapon.
 
 **Weapons** \[Launch: 18, including Javelin, Longbow, Bronze Sword, and War Hammer from Core mechanics\]
 

@@ -388,6 +388,7 @@
     "coop_turn_s": 20,
     "high_luck_threshold": 0.3,
     "max_weapons": 5,
+    "max_spells": 3,
     "max_passives": 6,
     "owned_item_weight": 1.5,
     "new_item_weight": 1.0,

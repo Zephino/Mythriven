@@ -48,10 +48,14 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 			var up: Dictionary = _card(WEAPON_UP, weapon.id(), weapon.level, weapon.level + 1)
 			up["expert"] = weapon.expert
 			cards.append(up)
-	if player.weapons.size() < Data.cfg_int("level_up.max_weapons"):
+	var weapon_room: bool = has_room(player, false)
+	var spell_room: bool = has_room(player, true)
+	if weapon_room or spell_room:
 		var weapons: Variant = Data.get_file(GameAuthority.WEAPONS_FILE)
 		for entry: Variant in (weapons if weapons is Array else []):
 			var weapon_id: String = str(entry["id"])
+			if not (spell_room if is_spell(entry) else weapon_room):
+				continue
 			if bool(entry.get("in_level_up_pool", false)) and not owned.has(weapon_id) and not _banished(weapon_id) \
 					and is_unlocked(entry, "weapons_unlocked"):
 				var new_card: Dictionary = _card(WEAPON_NEW, weapon_id, 0, 1)
@@ -68,6 +72,26 @@ static func item_cards(player: Player) -> Array[Dictionary]:
 		elif level == 0 and player.passives.size() < Data.cfg_int("level_up.max_passives"):
 			cards.append(_card(PASSIVE_NEW, passive_id, 0, 1))
 	return cards
+
+
+## Spells (the "spell" category) have their own slots, apart from the other weapons (owner request 11/03/2026: 5
+## weapons and 3 spells).
+static func is_spell(entry: Dictionary) -> bool:
+	return (entry.get("categories", []) as Array).has("spell")
+
+
+## How many weapons, or spells, a Hero may carry.
+static func slot_limit(spells: bool) -> int:
+	return Data.cfg_int("level_up.max_spells") if spells else Data.cfg_int("level_up.max_weapons")
+
+
+## True while the Hero has a free weapon slot (or, with `spells`, a free spell slot).
+static func has_room(player: Player, spells: bool) -> bool:
+	var held: int = 0
+	for weapon: WeaponInstance in player.weapons:
+		if is_spell(weapon.data) == spells:
+			held += 1
+	return held < slot_limit(spells)
 
 
 ## False for weapons and passives that must be unlocked first (with gold, an

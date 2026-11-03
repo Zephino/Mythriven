@@ -84,7 +84,7 @@ So fighting to the end always pays better than quitting.
 - **Reroll** gives you new cards. You get one free at the start and another every 5 levels. After that, rerolls cost gold.
 - **Banish** (with a Banish token from the Trader) removes something from your cards for the rest of the run.
 
-**Slots:** you can carry **5 weapons** (your Hero's own weapon and 4 more) and **6 passives**. Your weapons and their levels are shown down the left side of the screen. Weapons go up to **level 8**, and passives to level 5. Each Hero is an **expert** with some kinds of weapons, which get an extra shot at level 8.
+**Slots:** you can carry **5 weapons** (your Hero's own weapon counts as one), **3 spells** (Ember, Frost, Spark and the like have their own slots) and **6 passives**. Your weapons, spells and their levels are shown down the left side of the screen. Weapons go up to **level 8**, and passives to level 5. Each Hero is an **expert** with some kinds of weapons, which get an extra shot at level 8.
 
 When everything is full and maxed, cards become **Gold** or **Heal**. The **Auto-collect** setting can pick these for you.
 
