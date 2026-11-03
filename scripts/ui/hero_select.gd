@@ -4,7 +4,7 @@ extends CanvasLayer
 ## tradition, role, stats, Legend Trait, passive, and signature weapon, plus
 ## their mastery; locked Heroes show how to unlock them. Picking one starts the
 ## run on the level chosen in level select, with the Omens switched on in the
-## Hall of Legends. Color cycles the palettes mastery has unlocked; Back
+## Hall of Legends. Color (shown once mastery has unlocked one) cycles the palettes; Back
 ## returns to the menus. On phones and small windows the Heroes are a list
 ## beside the picked one's card, with a big button to play as them. Keyboard, gamepad, and touch all work; the first Hero
 ## is focused when the screen opens.
@@ -160,39 +160,33 @@ func _show(hero_id: String) -> void:
 		_play.disabled = true
 
 
-## Leaderboard, Color and Back under the Heroes.
+## Back (on the left) and Color under the Heroes. Color shows only once the picked Hero has a colour to switch to.
 func _bottom_row(box: VBoxContainer, buttons: Array[Control], columns: int) -> void:
 	var touch: float = Data.cfg_float("ui.min_touch_target_px")
 	var row := HBoxContainer.new()
-	row.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_child(row)
-	var board := Button.new()
-	board.text = "UI_LEADERBOARD"
-	board.custom_minimum_size = Vector2(touch * 2.4, touch)
-	board.pressed.connect(_on_view_board.bind(board))
-	row.add_child(board)
+	var back_button := Button.new()
+	back_button.text = "UI_BACK"
+	back_button.custom_minimum_size = Vector2(touch * 2.4, touch)
+	back_button.pressed.connect(_on_back)
+	row.add_child(back_button)
 	var palette := Button.new()
 	_palette = palette
 	palette.text = "UI_HERO_COLOR"
 	palette.custom_minimum_size = Vector2(touch * 2.4, touch)
 	palette.pressed.connect(_on_palette)
 	row.add_child(palette)
-	var back_button := Button.new()
-	back_button.text = "UI_BACK"
-	back_button.custom_minimum_size = Vector2(touch * 2.4, touch)
-	back_button.pressed.connect(_on_back)
-	row.add_child(back_button)
-	palette.focus_neighbor_left = palette.get_path_to(board)
-	palette.focus_neighbor_right = palette.get_path_to(back_button)
-	_update_palette()
-	# Down from the bottom row reaches the Leaderboard button; up or down from it returns to the Heroes.
+	palette.focus_neighbor_left = palette.get_path_to(back_button)
+	# Down from the bottom row reaches Back; up or down from it returns to the Heroes.
 	for i: int in buttons.size():
 		if i + columns >= buttons.size():
-			buttons[i].focus_neighbor_bottom = buttons[i].get_path_to(board)
+			buttons[i].focus_neighbor_bottom = buttons[i].get_path_to(back_button)
 	if not buttons.is_empty():
-		board.focus_neighbor_top = board.get_path_to(buttons[0])
-		board.focus_neighbor_bottom = board.get_path_to(buttons[0])
+		back_button.focus_neighbor_top = back_button.get_path_to(buttons[0])
+		back_button.focus_neighbor_bottom = back_button.get_path_to(buttons[0])
 		buttons[0].grab_focus()
+	_update_palette()
 
 
 ## Every line shown on a Hero's card.
@@ -239,8 +233,23 @@ static func unlock_text(hero: Dictionary) -> String:
 			return TranslationServer.translate("UI_HERO_UNLOCK_ACHIEVEMENT") % AchievementRules.display_name(
 					str(unlock.get("achievement", "")))
 		"defeat_boss":
-			return TranslationServer.translate("UI_HERO_UNLOCK_BOSS")
+			return _boss_unlock_text(str(unlock.get("boss", "")))
 	return TranslationServer.translate("UI_HERO_UNLOCK_SECRET")
+
+
+## "Unlock: defeat the White Div in Mazandaran." The boss is named, with the level it is fought on.
+static func _boss_unlock_text(boss_id: String) -> String:
+	var boss_name: String = ""
+	var listed: Variant = Data.get_file("bosses.json")
+	if listed is Array:
+		for boss: Variant in listed:
+			if boss is Dictionary and str((boss as Dictionary).get("id", "")) == boss_id:
+				boss_name = TranslationServer.translate(str((boss as Dictionary).get("name_key", "")))
+	for level: Dictionary in LevelRules.all():
+		if (level.get("bosses", {}) as Dictionary).values().has(boss_id) and boss_name != "":
+			return TranslationServer.translate("UI_HERO_UNLOCK_BOSS_AT") % [boss_name,
+					TranslationServer.translate(str(level.get("name_key", "")))]
+	return TranslationServer.translate("UI_HERO_UNLOCK_BOSS")
 
 
 func _remember(hero_id: String) -> void:
@@ -255,11 +264,8 @@ func _update_palette() -> void:
 	var hero: Dictionary = HeroRules.find(_last_hero)
 	var can_change: bool = not hero.is_empty() and HeroRules.is_unlocked(hero) and Rewards.mastery(_last_hero) > 1
 	_palette.visible = can_change
-	var board: Control = _palette.get_parent().get_child(0)
-	var back_button: Control = _palette.get_parent().get_child(2)
-	var right_of_board: Control = _palette if can_change else back_button
-	board.focus_neighbor_right = board.get_path_to(right_of_board)
-	back_button.focus_neighbor_left = back_button.get_path_to(_palette if can_change else board)
+	var back_button: Control = _palette.get_parent().get_child(0)
+	back_button.focus_neighbor_right = back_button.get_path_to(_palette) if can_change else NodePath("")
 	if can_change:
 		_show_palette_name()
 
@@ -281,12 +287,6 @@ func _on_palette() -> void:
 func _on_back() -> void:
 	back.emit()
 	queue_free()
-
-
-func _on_view_board(board: Button) -> void:
-	var screen := LeaderboardScreen.new()
-	screen.closed.connect(board.grab_focus)
-	add_child(screen)
 
 
 func _on_pressed(hero_id: String) -> void:

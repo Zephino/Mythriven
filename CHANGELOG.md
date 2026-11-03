@@ -2,6 +2,21 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.85
+Date: 11/03/2026
+Time: 7:59 PM
+
+### Changes
+- **Hero select: no Leaderboard button, and Back is on the left.**
+  - The Leaderboard button is gone from under the Heroes. It also didn't work there: the board opened behind the Hero select screen.
+  - The leaderboard is still on the title screen, in the Hall of Legends and on the end-of-run screen.
+  - Back now sits at the bottom left, with the Color button beside it when a Hero has a colour to switch to.
+- **Hero unlock text now names the boss and where it's fought.** "Unlock: defeat them as a boss." was wrong for Rostam (unlocked by beating the White Div) and Hou Yi (the Ten Suns), and vague for the rest. It now reads, for example, "Unlock: defeat The White Div in Mazandaran."
+- Tests added to tests/test_hero_select.gd.
+
+### Reason
+The owner asked why there was a Leaderboard button on Hero select ("it's not needed and it doesn't work anyway") and to put Back on the right or left. The wrong unlock text was spotted in the same screenshot.
+
 ## Version 00.03.84
 Date: 11/03/2026
 Time: 7:50 PM

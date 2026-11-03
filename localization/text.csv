@@ -732,6 +732,7 @@ UI_HERO_COLOR_N,%s: color %d
 UI_HERO_UNLOCK_GOLD,Unlock in the Hall of Legends for %d gold.
 UI_HERO_UNLOCK_ACHIEVEMENT,Unlock: %s.
 UI_HERO_UNLOCK_BOSS,Unlock: defeat them as a boss.
+UI_HERO_UNLOCK_BOSS_AT,Unlock: defeat %s in %s.
 UI_HERO_UNLOCK_SECRET,A secret Hero.
 UI_OMENS_ACTIVE,Omens: %s
 UI_TIMER_BEST,%s (best %s)
