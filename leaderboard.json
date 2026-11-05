@@ -1,6 +1,6 @@
 {
 	"_about": "Mythriven shared leaderboard. Written only by the leaderboard Worker; edits by hand are overwritten.",
-	"updated": "2026-11-04T06:25:14.355Z",
+	"updated": "2026-11-05T13:24:49.244Z",
 	"entries": [
 		{
 			"name": "Tiny",
@@ -168,6 +168,75 @@
 			],
 			"version": "00.02.52",
 			"date": "2026-10-31T19:06:56.630Z"
+		},
+		{
+			"name": "Tiny",
+			"hero": "scathach",
+			"time_s": 2104,
+			"level": 78,
+			"kills": 63160,
+			"weapons": [
+				{
+					"id": "scathach_spear",
+					"level": 8
+				},
+				{
+					"id": "heros_blade",
+					"level": 1
+				},
+				{
+					"id": "phalanx",
+					"level": 1
+				},
+				{
+					"id": "cleaver_storm",
+					"level": 1
+				},
+				{
+					"id": "quake_hammer",
+					"level": 1
+				},
+				{
+					"id": "oblivion",
+					"level": 1
+				},
+				{
+					"id": "splash",
+					"level": 8
+				},
+				{
+					"id": "worldbreaker",
+					"level": 1
+				}
+			],
+			"passives": [
+				{
+					"id": "seers_eye",
+					"level": 5
+				},
+				{
+					"id": "ferrymans_coin",
+					"level": 5
+				},
+				{
+					"id": "hourglass",
+					"level": 5
+				},
+				{
+					"id": "lodestone",
+					"level": 5
+				},
+				{
+					"id": "belt_of_strength",
+					"level": 5
+				},
+				{
+					"id": "bronze_aegis",
+					"level": 5
+				}
+			],
+			"version": "00.03.96",
+			"date": "2026-11-05T13:24:49.244Z"
 		},
 		{
 			"name": "Tiny",
