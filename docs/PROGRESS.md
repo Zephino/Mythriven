@@ -14,6 +14,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-11-08 — Tooling — Director video start sync and freeze trimming (Claude, 00.04.01)
+- What changed: `--director-go=<file>` makes the shot list wait (game paused) until the recorder is filming; `trim_freezes.py` cuts frozen stretches (about 5 s at each chapter change); the runner logs fps and enemy count every 5 s.
+- Files touched: scripts/core/director_mode.gd, director_runner.gd; tools/video/record.sh, trim_freezes.py; tests/test_director.gd; VERSION, project.godot, CHANGELOG.md.
+- Unfinished / next: not rebuilt on Railway yet (owner to say). The previous run confirmed the level-up freeze fix: 4 chapters, 113 s.
+
+
 ## 2026-11-08 — Bug — Director video stuck at a level-up screen (Claude, 00.04.00)
 - Cause (likely, not confirmed in godot.log): tour.json set `auto_pick` off, so the first natural level-up screen paused the game and the paused runner never continued; the recording ran to its 150 s limit.
 - Fix: auto_pick on in every chapter and by default; DirectorRunner runs while paused; record.sh prints Director messages, clip length and frozen stretches to the Railway logs.

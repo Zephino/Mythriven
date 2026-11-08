@@ -24,7 +24,8 @@ export LIBGL_ALWAYS_SOFTWARE=1
 # tool, scripts/core/director_mode.gd) and the game plays that shot list itself.
 DIRECTOR_ARGS=()
 if [ -n "${VIDEO_SHOTS:-}" ]; then
-  DIRECTOR_ARGS=(-- "--director=/game/tools/video/shots/${VIDEO_SHOTS}")
+  rm -f /tmp/director.go
+  DIRECTOR_ARGS=(-- "--director=/game/tools/video/shots/${VIDEO_SHOTS}" "--director-go=/tmp/director.go")
   echo "[record] Director mode: ${VIDEO_SHOTS}"
 fi
 godot --path /game --rendering-driver opengl3 --audio-driver Dummy \
@@ -42,8 +43,10 @@ else
   echo "[record] recording ${SECONDS_TO_RECORD}s at ${FPS} fps"
   ffmpeg -y -loglevel warning -f x11grab -framerate "$FPS" -video_size "${W}x${H}" -i :99 \
          -t "$SECONDS_TO_RECORD" -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p \
-         -movflags +faststart "$OUT/mythriven-gameplay.mp4" 2>"$OUT/ffmpeg.log" &
+         -movflags +faststart "$OUT/raw.mp4" 2>"$OUT/ffmpeg.log" &
   FFMPEG_PID=$!
+  # Director mode waits for this file, so the recording is already running when the shot list starts.
+  sleep 2; touch /tmp/director.go
   if [ -n "${VIDEO_SHOTS:-}" ]; then
     # The shot list ends the game; stop recording then (finish the MP4 cleanly).
     ( while kill -0 "$GODOT_PID" 2>/dev/null; do sleep 1; done; kill -INT "$FFMPEG_PID" 2>/dev/null ) &
@@ -53,10 +56,9 @@ else
   wait "$FFMPEG_PID"
   echo "[record] done"
   kill "$TAIL_PID" 2>/dev/null || true
-  # Checks the AI can read in the logs: how long the clip is, and any stretch where the picture froze.
-  echo "[record] clip length (s): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT/mythriven-gameplay.mp4" 2>&1)"
-  echo "[record] frozen picture (3 s or more):"
-  ffmpeg -i "$OUT/mythriven-gameplay.mp4" -vf "freezedetect=n=-55dB:d=3" -an -f null - 2>&1 | grep -E "freeze_(start|duration)" || echo "[record]   none"
+  echo "[record] raw clip length (s): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT/raw.mp4" 2>&1)"
+  python3 "$HERE/trim_freezes.py" "$OUT/raw.mp4" "$OUT/mythriven-gameplay.mp4" 2>&1 | grep -E "^\[trim\]"
+  echo "[record] final clip length (s): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT/mythriven-gameplay.mp4" 2>&1)"
 fi
 
 kill "$GODOT_PID" 2>/dev/null || true

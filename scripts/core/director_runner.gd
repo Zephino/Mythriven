@@ -13,6 +13,7 @@ var _wait_left: float = 0.0
 var _commands: DirectorCommands
 var _ended_s: float = -1.0
 var _quit_all: bool = false
+var _log_left: float = 5.0
 
 
 func _ready() -> void:
@@ -32,9 +33,23 @@ func _ready() -> void:
 		GameAuthority.run.debug_used = true
 	GameAuthority.run_ended.connect(_on_run_ended)
 	print("Director mode: %d steps" % _steps.size())
+	# Wait for the recorder's go file (first chapter only), with the game frozen at its first frame.
+	if not DirectorMode.started and DirectorMode.go_file() != "":
+		get_tree().paused = true
 
 
 func _process(delta: float) -> void:
+	if not DirectorMode.started:
+		var go: String = DirectorMode.go_file()
+		if go != "" and not FileAccess.file_exists(go):
+			return
+		DirectorMode.started = true
+		get_tree().paused = false
+	_log_left -= delta
+	if _log_left <= 0.0:
+		_log_left = 5.0
+		var enemies: EnemyManager = GameAuthority.enemies
+		print("Director mode: fps %d, enemies %d" % [Engine.get_frames_per_second(), enemies.active_count() if enemies != null else 0])
 	if _ended_s >= 0.0:
 		_ended_s -= delta
 		if _ended_s <= 0.0:

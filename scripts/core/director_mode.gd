@@ -18,6 +18,9 @@ extends RefCounted
 ## in tools/video/README.md.
 
 const ARG_PREFIX := "--director="
+## Optional: --director-go=<file>. The shot list waits (the game stays paused) until that file exists,
+## so a recorder can start filming first.
+const GO_PREFIX := "--director-go="
 const COMMANDS := {
 	"wait": ["seconds"],
 	"set_time": ["seconds"],
@@ -49,6 +52,8 @@ static var _cache: Dictionary = {}
 static var _loaded: bool = false
 ## Which chapter is being filmed (kept while the scene reloads between chapters).
 static var chapter_index: int = 0
+## True once the shot list has started (the go file, if any, has appeared).
+static var started: bool = false
 
 
 ## True only in a debug, non-web build started with --director=<shot list>.
@@ -69,6 +74,14 @@ static func path_from_args(args: PackedStringArray) -> String:
 	for arg: String in args:
 		if arg.begins_with(ARG_PREFIX):
 			return arg.substr(ARG_PREFIX.length())
+	return ""
+
+
+## The file after --director-go= in the arguments ("" when absent).
+static func go_file() -> String:
+	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with(GO_PREFIX):
+			return arg.substr(GO_PREFIX.length())
 	return ""
 
 

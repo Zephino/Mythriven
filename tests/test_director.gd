@@ -82,3 +82,7 @@ func test_example_chapters_pick_level_up_cards_themselves() -> void:
 		for step: Dictionary in chapter["steps"]:
 			if step["do"] == "auto_pick":
 				assert_true(bool(step["on"]), "a level-up screen would pause the video")
+
+
+func test_start_waits_for_the_go_file_only_when_asked() -> void:
+	assert_eq(DirectorMode.go_file(), "")

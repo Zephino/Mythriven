@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.04.01
+Date: 11/08/2026
+Time: 5:50 PM
+
+### Changes
+- **Director video: the recording now starts before the shot list does.** The first chapter used to begin when the game launched, so about 18 seconds of it ran before the recorder was filming. The recorder now passes `--director-go=<file>`; the game stays paused at its first frame until that file exists, which the recorder creates once ffmpeg is running.
+- **Frozen pauses are cut out.** `tools/video/trim_freezes.py` removes stretches of 3 s or more where the picture doesn't change (the pause while the game loads the next chapter was about 5 s each). The raw recording is kept as `raw.mp4`; `mythriven-gameplay.mp4` is the trimmed one.
+- The director runner prints the frame rate and enemy count every 5 s into the Railway logs, so a slow dense scene can be seen without watching.
+
+### Reason
+The first full director run (113 s, no longer stuck) showed three frozen pauses of about 5 s at chapter changes and a first chapter that was missing its opening. Not run in Godot's editor yet.
+
 ## Version 00.04.00
 Date: 11/08/2026
 Time: 5:25 PM
