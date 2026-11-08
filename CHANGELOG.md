@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.97
+Date: 11/08/2026
+Time: 4:14 PM
+
+### Changes
+- **A kit for recording a gameplay video on Railway**, in `tools/video/` (Dockerfile, `record.sh`, `bot.sh`, `serve.py`, README) plus a root `.dockerignore`. It runs the game on a virtual screen, a simple bot presses keys (Space through menus and level-up cards, WASD to walk), ffmpeg records it, and the MP4 is served from a Railway URL.
+- No game code, scenes, data or assets changed.
+
+### Reason
+The owner wants a gameplay video to show the game to other people. Not tested in Godot yet: Godot can't be downloaded in the cloud container, so the first Railway run is the test.
+
 ## Version 00.03.96
 Date: 11/03/2026
 Time: 8:31 AM

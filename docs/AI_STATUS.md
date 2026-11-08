@@ -1,6 +1,6 @@
 # AI Development Handoff
 
-Last updated: 2026-10-29
+Last updated: 2026-11-08 — added tools/video/ (Railway gameplay recorder, 00.03.97), untested in Godot; branch ccr-7d7d24e4-mxvs7s
 Agent: Claude Code (cloud), developer mode
 Branch: `main` (owner asked for direct pushes to `main`, and for only `main` and `data` to exist on GitHub)
 Task: Phase 20 (Co-op and cloud saves) through the owner's Cloudflare Worker

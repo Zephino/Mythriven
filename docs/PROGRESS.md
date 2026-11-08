@@ -14,6 +14,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-11-08 — Tooling — Gameplay video recorder for Railway (Claude, 00.03.97)
+- What changed: `tools/video/` records a bot-played clip of the game on Railway (virtual screen + ffmpeg) and serves the MP4. No game code touched.
+- Files touched: tools/video/*, .dockerignore, VERSION, project.godot (version only), CHANGELOG.md, docs/PROGRESS.md, docs/AI_STATUS.md.
+- Unfinished / next: not run yet (Godot can't be downloaded in the cloud container); first Railway run is the test. Software rendering may be slow; no sound in the clip.
+
+
 ## 2026-10-29 — Review of Phases 1–20 and Pack 2–4 plan (Claude, 00.01.34)
 - What changed: owner playtest results recorded (co-op between a PC and a phone works and is fun; phones work); review of all 20 phases written (Approved with fixes); plan for Packs 2, 3, and 4 written from the design.
 - Files touched: docs/reviews/PHASE_01-20_REVIEW.md, docs/PACK_PLAN.md, docs/PROGRESS.md, docs/AI_STATUS.md, docs/BUILD_PLAN.md (pointer only).
