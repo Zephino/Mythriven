@@ -16,6 +16,9 @@ var _quit_all: bool = false
 
 
 func _ready() -> void:
+	# Keep running while the game is paused (a level-up screen, a menu), so a
+	# step is never stuck behind a pause.
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	var list: Dictionary = DirectorMode.current()
 	_steps = list.get("steps", [])
 	_commands = DirectorCommands.new()
@@ -23,6 +26,8 @@ func _ready() -> void:
 	add_child(_commands)
 	if bool(list.get("god_mode", true)):
 		_commands.run({"do": "god_mode", "on": true})
+	# Level-up screens pause the game: pick the first card for the Hero unless the list says not to.
+	_commands.run({"do": "auto_pick", "on": bool(list.get("auto_pick", true))})
 	if GameAuthority.run != null:
 		GameAuthority.run.debug_used = true
 	GameAuthority.run_ended.connect(_on_run_ended)

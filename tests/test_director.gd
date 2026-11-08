@@ -73,3 +73,12 @@ func test_loadout_weapons_exist_and_fit_the_slots() -> void:
 					others += 1
 			assert_lte(spells, Data.cfg_int("level_up.max_spells"), "too many spells in a loadout")
 			assert_lte(others, Data.cfg_int("level_up.max_weapons"), "too many weapons in a loadout")
+
+
+func test_example_chapters_pick_level_up_cards_themselves() -> void:
+	var text: String = FileAccess.get_file_as_string("res://tools/video/shots/tour.json")
+	var list: Dictionary = DirectorMode.parse(text)["list"]
+	for chapter: Dictionary in DirectorMode.chapters_of(list):
+		for step: Dictionary in chapter["steps"]:
+			if step["do"] == "auto_pick":
+				assert_true(bool(step["on"]), "a level-up screen would pause the video")

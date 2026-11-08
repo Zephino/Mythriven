@@ -2,6 +2,17 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.04.00
+Date: 11/08/2026
+Time: 5:25 PM
+
+### Changes
+- **Fix: the director video froze on a level-up screen.** The example list turned auto-pick off, so the first level-up screen paused the game and nothing picked a card. Auto-pick is now on in every chapter and by default, and the director runner keeps going while the game is paused.
+- The recorder now shows the game's Director messages and errors in the Railway logs, and after recording prints the clip length and any frozen stretch of 3 s or more, so a stuck video can be spotted without watching it. A test checks the example list picks cards itself.
+
+### Reason
+The owner saw the video stuck at a menu. The recording ran to its full time limit instead of ending when the shot list finished, which fits a game paused by the level-up screen. Not confirmed in Godot's own log yet.
+
 ## Version 00.03.99
 Date: 11/08/2026
 Time: 5:40 PM

@@ -9,7 +9,7 @@
    "steps": [
     {
      "do": "auto_pick",
-     "on": false
+     "on": true
     },
     {
      "do": "loadout",
@@ -115,7 +115,7 @@
    "steps": [
     {
      "do": "auto_pick",
-     "on": false
+     "on": true
     },
     {
      "do": "loadout",
@@ -221,7 +221,7 @@
    "steps": [
     {
      "do": "auto_pick",
-     "on": false
+     "on": true
     },
     {
      "do": "loadout",
@@ -326,7 +326,7 @@
    "steps": [
     {
      "do": "auto_pick",
-     "on": false
+     "on": true
     },
     {
      "do": "loadout",

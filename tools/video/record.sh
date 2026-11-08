@@ -36,6 +36,9 @@ if ! kill -0 "$GODOT_PID" 2>/dev/null; then
   echo "[record] Godot exited early; see godot.log"
   tail -n 40 "$OUT/godot.log"
 else
+  # Show the game's own messages (Director mode steps, errors) in the Railway logs.
+  tail -n 0 -F "$OUT/godot.log" 2>/dev/null | grep --line-buffered -E "Director mode|ERROR|SCRIPT ERROR|Parse Error" &
+  TAIL_PID=$!
   echo "[record] recording ${SECONDS_TO_RECORD}s at ${FPS} fps"
   ffmpeg -y -loglevel warning -f x11grab -framerate "$FPS" -video_size "${W}x${H}" -i :99 \
          -t "$SECONDS_TO_RECORD" -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p \
@@ -49,6 +52,11 @@ else
   fi
   wait "$FFMPEG_PID"
   echo "[record] done"
+  kill "$TAIL_PID" 2>/dev/null || true
+  # Checks the AI can read in the logs: how long the clip is, and any stretch where the picture froze.
+  echo "[record] clip length (s): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$OUT/mythriven-gameplay.mp4" 2>&1)"
+  echo "[record] frozen picture (3 s or more):"
+  ffmpeg -i "$OUT/mythriven-gameplay.mp4" -vf "freezedetect=n=-55dB:d=3" -an -f null - 2>&1 | grep -E "freeze_(start|duration)" || echo "[record]   none"
 fi
 
 kill "$GODOT_PID" 2>/dev/null || true

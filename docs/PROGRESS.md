@@ -14,6 +14,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-11-08 — Bug — Director video stuck at a level-up screen (Claude, 00.04.00)
+- Cause (likely, not confirmed in godot.log): tour.json set `auto_pick` off, so the first natural level-up screen paused the game and the paused runner never continued; the recording ran to its 150 s limit.
+- Fix: auto_pick on in every chapter and by default; DirectorRunner runs while paused; record.sh prints Director messages, clip length and frozen stretches to the Railway logs.
+- Files touched: scripts/core/director_runner.gd, tools/video/record.sh, tools/video/shots/tour.json, tests/test_director.gd, VERSION, project.godot, CHANGELOG.md.
+
+
 ## 2026-11-08 — Tooling — Director chapters and loadouts (Claude, 00.03.99)
 - What changed: director shot lists can have several chapters (a Hero, level, seed and steps each; the scene reloads between them), plus a `loadout` command and `level` on `give_weapon`. `tour.json` is now four Heroes on four Pack 1 levels.
 - Files touched: scripts/core/director_mode.gd, director_runner.gd, director_commands.gd; tests/test_director.gd; tools/video/shots/tour.json, README.md; VERSION, project.godot, CHANGELOG.md.
