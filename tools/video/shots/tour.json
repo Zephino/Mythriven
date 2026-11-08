@@ -1,37 +1,430 @@
 {
-  "_doc": "Example shot list (about 80 s): a calm start, then the screen filling with monsters, then a late-game stress shot. See tools/video/README.md for every command.",
-  "hero": "heracles",
-  "level": "aegean_shore",
-  "seed": 20261108,
-  "god_mode": true,
-  "steps": [
-    {"do": "auto_pick", "on": true},
-    {"do": "density", "mult": 0.25},
-    {"do": "autopilot", "on": true},
-    {"do": "wait", "seconds": 8},
-    {"do": "levels", "count": 4},
-    {"do": "density", "mult": 1.0},
-    {"do": "wait", "seconds": 8},
-    {"do": "teleport", "radius": 5000, "clear": true},
-    {"do": "set_time", "seconds": 300},
-    {"do": "density", "mult": 3.0},
-    {"do": "wait", "seconds": 10},
-    {"do": "teleport", "radius": 6000, "clear": true},
-    {"do": "levels", "count": 12},
-    {"do": "give_weapon", "id": "great_club"},
-    {"do": "set_time", "seconds": 900},
-    {"do": "enemy_hp", "mult": 0.5},
-    {"do": "fill"},
-    {"do": "wait", "seconds": 12},
-    {"do": "enemy_hp", "mult": 4.0},
-    {"do": "density", "mult": 6.0},
-    {"do": "fill"},
-    {"do": "wait", "seconds": 14},
-    {"do": "elite"},
-    {"do": "wait", "seconds": 8},
-    {"do": "density", "mult": 0.3},
-    {"do": "kill_all"},
-    {"do": "wait", "seconds": 6},
-    {"do": "quit"}
-  ]
+ "_doc": "Example shot list (about 2 minutes): four Heroes on four Pack 1 levels, each going from a light, simple start (one or two weapons) to a dense late-game screen with a full loadout. See tools/video/README.md for every command.",
+ "chapters": [
+  {
+   "hero": "heracles",
+   "level": "aegean_shore",
+   "seed": 20261108,
+   "god_mode": true,
+   "steps": [
+    {
+     "do": "auto_pick",
+     "on": false
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "great_club"
+     ],
+     "level": 1
+    },
+    {
+     "do": "density",
+     "mult": 0.25
+    },
+    {
+     "do": "autopilot",
+     "on": true
+    },
+    {
+     "do": "wait",
+     "seconds": 6
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "great_club",
+      "throwing_axe",
+      "ember"
+     ],
+     "level": 4
+    },
+    {
+     "do": "set_time",
+     "seconds": 240
+    },
+    {
+     "do": "density",
+     "mult": 2.0
+    },
+    {
+     "do": "teleport",
+     "radius": 5000,
+     "clear": true
+    },
+    {
+     "do": "wait",
+     "seconds": 8
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "great_club",
+      "throwing_axe",
+      "bladed_discus",
+      "ember",
+      "frost"
+     ],
+     "level": 8
+    },
+    {
+     "do": "set_time",
+     "seconds": 900
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 0.6
+    },
+    {
+     "do": "density",
+     "mult": 6.0
+    },
+    {
+     "do": "fill"
+    },
+    {
+     "do": "teleport",
+     "radius": 6000
+    },
+    {
+     "do": "wait",
+     "seconds": 10
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 1.0
+    },
+    {
+     "do": "kill_all"
+    },
+    {
+     "do": "density",
+     "mult": 1.0
+    },
+    {
+     "do": "wait",
+     "seconds": 3
+    }
+   ]
+  },
+  {
+   "hero": "cu_chulainn",
+   "level": "midgards_edge",
+   "seed": 20261109,
+   "god_mode": true,
+   "steps": [
+    {
+     "do": "auto_pick",
+     "on": false
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "gae_bolg"
+     ],
+     "level": 1
+    },
+    {
+     "do": "density",
+     "mult": 0.25
+    },
+    {
+     "do": "autopilot",
+     "on": true
+    },
+    {
+     "do": "wait",
+     "seconds": 6
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "gae_bolg",
+      "frost",
+      "spark"
+     ],
+     "level": 4
+    },
+    {
+     "do": "set_time",
+     "seconds": 240
+    },
+    {
+     "do": "density",
+     "mult": 2.0
+    },
+    {
+     "do": "teleport",
+     "radius": 5000,
+     "clear": true
+    },
+    {
+     "do": "wait",
+     "seconds": 8
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "gae_bolg",
+      "frost",
+      "spark",
+      "breeze",
+      "javelin"
+     ],
+     "level": 8
+    },
+    {
+     "do": "set_time",
+     "seconds": 900
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 0.6
+    },
+    {
+     "do": "density",
+     "mult": 6.0
+    },
+    {
+     "do": "fill"
+    },
+    {
+     "do": "teleport",
+     "radius": 6000
+    },
+    {
+     "do": "wait",
+     "seconds": 10
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 1.0
+    },
+    {
+     "do": "kill_all"
+    },
+    {
+     "do": "density",
+     "mult": 1.0
+    },
+    {
+     "do": "wait",
+     "seconds": 3
+    }
+   ]
+  },
+  {
+   "hero": "atalanta",
+   "level": "the_two_lands",
+   "seed": 20261110,
+   "god_mode": true,
+   "steps": [
+    {
+     "do": "auto_pick",
+     "on": false
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "huntress_bow"
+     ],
+     "level": 1
+    },
+    {
+     "do": "density",
+     "mult": 0.25
+    },
+    {
+     "do": "autopilot",
+     "on": true
+    },
+    {
+     "do": "wait",
+     "seconds": 6
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "huntress_bow",
+      "javelin"
+     ],
+     "level": 4
+    },
+    {
+     "do": "set_time",
+     "seconds": 240
+    },
+    {
+     "do": "density",
+     "mult": 2.0
+    },
+    {
+     "do": "teleport",
+     "radius": 5000,
+     "clear": true
+    },
+    {
+     "do": "wait",
+     "seconds": 8
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "huntress_bow",
+      "javelin",
+      "longbow",
+      "breeze",
+      "glimmer"
+     ],
+     "level": 8
+    },
+    {
+     "do": "set_time",
+     "seconds": 900
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 0.6
+    },
+    {
+     "do": "density",
+     "mult": 6.0
+    },
+    {
+     "do": "fill"
+    },
+    {
+     "do": "teleport",
+     "radius": 6000
+    },
+    {
+     "do": "wait",
+     "seconds": 10
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 1.0
+    },
+    {
+     "do": "kill_all"
+    },
+    {
+     "do": "density",
+     "mult": 1.0
+    },
+    {
+     "do": "wait",
+     "seconds": 3
+    }
+   ]
+  },
+  {
+   "hero": "tomoe_gozen",
+   "level": "the_misty_isles",
+   "seed": 20261111,
+   "god_mode": true,
+   "steps": [
+    {
+     "do": "auto_pick",
+     "on": false
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "sword_and_bow"
+     ],
+     "level": 1
+    },
+    {
+     "do": "density",
+     "mult": 0.25
+    },
+    {
+     "do": "autopilot",
+     "on": true
+    },
+    {
+     "do": "wait",
+     "seconds": 6
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "sword_and_bow",
+      "shade"
+     ],
+     "level": 4
+    },
+    {
+     "do": "set_time",
+     "seconds": 240
+    },
+    {
+     "do": "density",
+     "mult": 2.0
+    },
+    {
+     "do": "teleport",
+     "radius": 5000,
+     "clear": true
+    },
+    {
+     "do": "wait",
+     "seconds": 8
+    },
+    {
+     "do": "loadout",
+     "weapons": [
+      "sword_and_bow",
+      "bronze_sword",
+      "longbow",
+      "shade",
+      "splash"
+     ],
+     "level": 8
+    },
+    {
+     "do": "set_time",
+     "seconds": 900
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 0.6
+    },
+    {
+     "do": "density",
+     "mult": 6.0
+    },
+    {
+     "do": "fill"
+    },
+    {
+     "do": "teleport",
+     "radius": 6000
+    },
+    {
+     "do": "wait",
+     "seconds": 10
+    },
+    {
+     "do": "enemy_hp",
+     "mult": 1.0
+    },
+    {
+     "do": "kill_all"
+    },
+    {
+     "do": "density",
+     "mult": 1.0
+    },
+    {
+     "do": "wait",
+     "seconds": 3
+    },
+    {
+     "do": "quit"
+    }
+   ]
+  }
+ ]
 }

@@ -42,3 +42,34 @@ func test_the_example_shot_lists_are_valid() -> void:
 
 func test_enemy_hp_multiplier_defaults_to_one() -> void:
 	assert_eq(RunState.new(1, {}).director_hp_mult, 1.0)
+
+
+func test_chapters_are_checked_and_walked_through() -> void:
+	var good: String = '{"chapters":[{"hero":"heracles","steps":[{"do":"wait","seconds":1}]},{"hero":"atalanta","steps":[{"do":"loadout","weapons":["longbow"]}]}]}'
+	var result: Dictionary = DirectorMode.parse(good)
+	assert_eq((result["errors"] as PackedStringArray).size(), 0)
+	assert_eq(DirectorMode.chapters_of(result["list"]).size(), 2)
+	var bad: Dictionary = DirectorMode.parse('{"chapters":[{"steps":[{"do":"loadout"}]},"x"]}')
+	assert_eq((bad["errors"] as PackedStringArray).size(), 2)
+	assert_eq((DirectorMode.parse('{"chapters":[]}')["errors"] as PackedStringArray).size(), 1)
+	assert_eq(DirectorMode.chapters_of({"steps": []}).size(), 1)
+
+
+func test_loadout_weapons_exist_and_fit_the_slots() -> void:
+	var text: String = FileAccess.get_file_as_string("res://tools/video/shots/tour.json")
+	var list: Dictionary = DirectorMode.parse(text)["list"]
+	for chapter: Dictionary in DirectorMode.chapters_of(list):
+		for step: Dictionary in chapter["steps"]:
+			if step["do"] != "loadout":
+				continue
+			var spells: int = 0
+			var others: int = 0
+			for id: Variant in step["weapons"] as Array:
+				var data: Dictionary = GameAuthority.find_weapon(str(id))
+				assert_false(data.is_empty(), "unknown weapon %s" % id)
+				if (data.get("categories", []) as Array).has("spell"):
+					spells += 1
+				else:
+					others += 1
+			assert_lte(spells, Data.cfg_int("level_up.max_spells"), "too many spells in a loadout")
+			assert_lte(others, Data.cfg_int("level_up.max_weapons"), "too many weapons in a loadout")

@@ -2,6 +2,19 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.99
+Date: 11/08/2026
+Time: 5:40 PM
+
+### Changes
+- **Director mode can film several Heroes and set their weapons.**
+  - **Chapters:** a shot list can hold `chapters`, each with its own Hero, level, seed and steps. When one ends (or the Hero dies) the game starts a new run for the next, and quits after the last.
+  - **Loadout:** a new `loadout` command replaces the Hero's weapons with a list at a chosen level (and `give_weapon` takes a `level`), so each shot shows different weapons.
+- `tools/video/shots/tour.json` is now four chapters: Heracles, Cu Chulainn, Atalanta and Tomoe Gozen on the four Pack 1 levels, each going from a light start to a dense late-game screen with a full loadout (within 5 weapons and 3 spells). Tests added for chapters and loadouts.
+
+### Reason
+The owner wants the AI's video to show several different characters and different weapons. Not run in Godot yet.
+
 ## Version 00.03.98
 Date: 11/08/2026
 Time: 5:05 PM

@@ -14,6 +14,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-11-08 — Tooling — Director chapters and loadouts (Claude, 00.03.99)
+- What changed: director shot lists can have several chapters (a Hero, level, seed and steps each; the scene reloads between them), plus a `loadout` command and `level` on `give_weapon`. `tour.json` is now four Heroes on four Pack 1 levels.
+- Files touched: scripts/core/director_mode.gd, director_runner.gd, director_commands.gd; tests/test_director.gd; tools/video/shots/tour.json, README.md; VERSION, project.godot, CHANGELOG.md.
+- Unfinished / next: not run in Godot; reloading the scene between chapters is the first thing to check in a local run. No video remade (owner asked to wait).
+
+
 ## 2026-11-08 — Tooling — Director mode for the AI's videos (Claude, 00.03.98)
 - What changed: AI-only director mode (debug, non-web build, `--director=<shot list>`): skips menus, picks Hero/level/seed, runs a shot list (time, teleport, density, enemy HP, fill, spawn, levels, weapons, walk/autopilot, HUD, zoom). `record.sh` takes `VIDEO_SHOTS`.
 - Files touched: scripts/core/director_mode.gd, director_runner.gd, director_commands.gd (new); main.gd, run_state.gd, enemy_manager.gd, meta_progress.gd (small hooks); data/config.json, data/schemas.json (`director` block); tests/test_director.gd; tools/video/*; VERSION, project.godot, CHANGELOG.md, docs/AI_STATUS.md.

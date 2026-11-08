@@ -78,7 +78,9 @@ func run(step: Dictionary) -> float:
 		"max_build":
 			_max_build(player)
 		"give_weapon":
-			GameAuthority.give_weapon(player, str(step["id"]))
+			_give(player, str(step["id"]), int(step.get("level", 1)))
+		"loadout":
+			_loadout(player, step)
 		"walk":
 			_walk(Vector2(float(step.get("dx", 0.0)), float(step.get("dy", 0.0))))
 			_walk_left = float(step["seconds"])
@@ -192,6 +194,24 @@ func _gain_levels(run_state: RunState, player: Player, count: int) -> void:
 			GameAuthority.apply_card(player, cards[0])
 	if _level_up != null:
 		_level_up.close()
+
+
+## Replaces the Hero's weapons with exactly these ("weapons": ids; "level": 1-8 for all of them).
+func _loadout(player: Player, step: Dictionary) -> void:
+	player.weapons.clear()
+	for id: Variant in step["weapons"] as Array:
+		_give(player, str(id), int(step.get("level", 1)))
+
+
+func _give(player: Player, weapon_id: String, level: int) -> void:
+	var weapon: WeaponInstance = GameAuthority.give_weapon(player, weapon_id)
+	if weapon != null:
+		weapon.level = clampi(level, 1, 8)
+		player.refresh_stats()
+
+
+func _exit_tree() -> void:
+	_walk(Vector2.ZERO)
 
 
 func _max_build(player: Player) -> void:

@@ -11,6 +11,9 @@ extends RefCounted
 ##
 ## A shot list is a JSON object: {"hero": "heracles", "level": "aegean_shore",
 ## "seed": 1234, "god_mode": true, "steps": [{"do": "wait", "seconds": 3}, ...]}.
+## For several Heroes or levels in one video, give {"chapters": [ {...}, {...} ]}
+## instead: each chapter is a shot list of its own (hero, level, seed, steps) and
+## the game starts a new run for the next one when a chapter's steps are done.
 ## COMMANDS lists every "do" and the keys it needs; the commands are described
 ## in tools/video/README.md.
 
@@ -33,6 +36,7 @@ const COMMANDS := {
 	"levels": ["count"],
 	"max_build": [],
 	"give_weapon": ["id"],
+	"loadout": ["weapons"],
 	"walk": ["seconds"],
 	"autopilot": ["on"],
 	"auto_pick": ["on"],
@@ -43,6 +47,8 @@ const COMMANDS := {
 
 static var _cache: Dictionary = {}
 static var _loaded: bool = false
+## Which chapter is being filmed (kept while the scene reloads between chapters).
+static var chapter_index: int = 0
 
 
 ## True only in a debug, non-web build started with --director=<shot list>.
@@ -73,28 +79,65 @@ static func parse(text: String) -> Dictionary:
 	if not parsed is Dictionary:
 		return {"list": {}, "errors": PackedStringArray(["The shot list must be a JSON object."])}
 	var list: Dictionary = parsed
-	if not list.get("steps", null) is Array:
-		errors.append("The shot list needs a \"steps\" array.")
+	if list.has("chapters"):
+		var chapters: Variant = list["chapters"]
+		if not chapters is Array or (chapters as Array).is_empty():
+			errors.append("\"chapters\" must be a list with at least one chapter.")
+		else:
+			for i: int in (chapters as Array).size():
+				var chapter: Variant = (chapters as Array)[i]
+				if not chapter is Dictionary:
+					errors.append("Chapter %d is not an object." % (i + 1))
+				else:
+					_check_steps(chapter as Dictionary, "Chapter %d: " % (i + 1), errors)
 	else:
-		var steps: Array = list["steps"]
-		for i: int in steps.size():
-			if not steps[i] is Dictionary:
-				errors.append("Step %d is not an object." % (i + 1))
-				continue
-			var step: Dictionary = steps[i]
-			var command: String = str(step.get("do", ""))
-			if not COMMANDS.has(command):
-				errors.append("Step %d: unknown command \"%s\"." % [i + 1, command])
-				continue
-			for key: String in COMMANDS[command]:
-				if not step.has(key):
-					errors.append("Step %d (%s): missing \"%s\"." % [i + 1, command, key])
+		_check_steps(list, "", errors)
 	return {"list": list if errors.is_empty() else {}, "errors": errors}
+
+
+## The chapters of a shot list (a list without "chapters" is one chapter).
+static func chapters_of(list: Dictionary) -> Array:
+	if list.has("chapters"):
+		return list["chapters"]
+	return [list] if not list.is_empty() else []
+
+
+## The chapter being filmed now.
+static func current() -> Dictionary:
+	var all: Array = chapters_of(shot_list())
+	return all[mini(chapter_index, all.size() - 1)] if not all.is_empty() else {}
+
+
+## Moves to the next chapter. False when that was the last one.
+static func advance() -> bool:
+	if chapter_index + 1 >= chapters_of(shot_list()).size():
+		return false
+	chapter_index += 1
+	return true
+
+
+static func _check_steps(holder: Dictionary, prefix: String, errors: PackedStringArray) -> void:
+	if not holder.get("steps", null) is Array:
+		errors.append(prefix + "needs a \"steps\" array.")
+		return
+	var steps: Array = holder["steps"]
+	for i: int in steps.size():
+		if not steps[i] is Dictionary:
+			errors.append("%sStep %d is not an object." % [prefix, i + 1])
+			continue
+		var step: Dictionary = steps[i]
+		var command: String = str(step.get("do", ""))
+		if not COMMANDS.has(command):
+			errors.append("%sStep %d: unknown command \"%s\"." % [prefix, i + 1, command])
+			continue
+		for key: String in COMMANDS[command]:
+			if not step.has(key):
+				errors.append("%sStep %d (%s): missing \"%s\"." % [prefix, i + 1, command, key])
 
 
 ## Picks the Hero, level, and seed named in the shot list. Called before the menus would show.
 static func prepare() -> void:
-	var list: Dictionary = shot_list()
+	var list: Dictionary = current()
 	var hero_id: String = str(list.get("hero", ""))
 	if HeroRules.find(hero_id).is_empty():
 		hero_id = str(HeroRules.all()[0].get("id", ""))

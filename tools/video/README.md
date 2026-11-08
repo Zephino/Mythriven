@@ -41,10 +41,14 @@ Each step is `{"do": "<command>", ...}`, done in order. Only `wait`, `walk` and 
 | `auto_spawn` | `on` | Turns the normal spawning on or off. |
 | `god_mode`, `heal`, `player_hp` | `on` / `fraction` | Invincible, full heal, or set the Hero's HP (0.1 = nearly dead, for drama). |
 | `levels` | `count` | Gains levels, taking the first card each time, with no screen. `max_build` fills every slot at max level. |
-| `give_weapon` | `id` | Gives a weapon. |
+| `loadout` | `weapons`, `level` | Replaces the Hero's weapons with exactly this list (ids from `data/weapons.json`; `level` 1–8 for all). Keep to 5 weapons and 3 spells. `give_weapon` (`id`, `level`) adds one. |
 | `walk` | `dx`,`dy`,`seconds` | Holds a direction (each from -1 to 1) for that long. `autopilot` (`on`) wanders in changing directions. |
 | `auto_pick` | `on` | Picks the first card whenever a level-up screen opens. |
 | `hud`, `zoom` | `on` / `value` | Hides or shows the HUD; sets the camera zoom. |
 | `quit` | | Ends the game (the recording stops). It also ends by itself after the last step or the Hero's death. |
 
-`shots/tour.json` is a full example. Not run in Godot yet: the first Railway run will show what needs fixing.
+**Several Heroes or levels in one video:** use `{"chapters": [ {...}, {...} ]}` instead of one `hero`/`steps`. Each chapter has its own
+`hero`, `level`, `seed`, `god_mode` and `steps`. When a chapter's steps are done (or the Hero dies) the game starts a new run for the next one,
+and quits after the last (or at a `quit` step). Set `VIDEO_SECONDS` to a bit more than the total.
+
+`shots/tour.json` is a full example (four Heroes on four Pack 1 levels, each from a light start with one or two weapons to a dense screen with a full loadout, about 2 minutes: use `VIDEO_SECONDS=150`). Not run in Godot yet: the first Railway run will show what needs fixing.
