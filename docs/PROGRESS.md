@@ -14,6 +14,12 @@ Cursor adds an entry after every task. Newest at the top.
 - Unfinished / next:
 -->
 
+## 2026-11-08 — Tooling — Director mode for the AI's videos (Claude, 00.03.98)
+- What changed: AI-only director mode (debug, non-web build, `--director=<shot list>`): skips menus, picks Hero/level/seed, runs a shot list (time, teleport, density, enemy HP, fill, spawn, levels, weapons, walk/autopilot, HUD, zoom). `record.sh` takes `VIDEO_SHOTS`.
+- Files touched: scripts/core/director_mode.gd, director_runner.gd, director_commands.gd (new); main.gd, run_state.gd, enemy_manager.gd, meta_progress.gd (small hooks); data/config.json, data/schemas.json (`director` block); tests/test_director.gd; tools/video/*; VERSION, project.godot, CHANGELOG.md, docs/AI_STATUS.md.
+- Unfinished / next: not run in Godot (GUT tests included but unrun); the first Railway run with `VIDEO_SHOTS=tour.json` is the test. No video remade yet (owner asked to wait).
+
+
 ## 2026-11-08 — Tooling — Gameplay video recorder for Railway (Claude, 00.03.97)
 - What changed: `tools/video/` records a bot-played clip of the game on Railway (virtual screen + ffmpeg) and serves the MP4. No game code touched.
 - Files touched: tools/video/*, .dockerignore, VERSION, project.godot (version only), CHANGELOG.md, docs/PROGRESS.md, docs/AI_STATUS.md.

@@ -2,7 +2,8 @@
 # Starts a virtual screen, runs Mythriven on it, lets a simple bot play,
 # records the screen with ffmpeg, then serves the MP4 on $PORT.
 # Settings (Railway variables, all optional):
-#   VIDEO_SECONDS (default 90)  VIDEO_FPS (30)  VIDEO_WIDTH (1280)  VIDEO_HEIGHT (720)
+#   VIDEO_SECONDS (default 90; the longest the clip may be)
+#   VIDEO_SHOTS (a file name in tools/video/shots/, e.g. tour.json)  VIDEO_FPS (30)  VIDEO_WIDTH (1280)  VIDEO_HEIGHT (720)
 set -u
 SECONDS_TO_RECORD="${VIDEO_SECONDS:-90}"
 FPS="${VIDEO_FPS:-30}"
@@ -19,8 +20,15 @@ sleep 2
 
 echo "[record] starting Mythriven (software rendering, no sound)"
 export LIBGL_ALWAYS_SOFTWARE=1
+# VIDEO_SHOTS=<file in tools/video/shots/> turns on Director mode (the AI's filming
+# tool, scripts/core/director_mode.gd) and the game plays that shot list itself.
+DIRECTOR_ARGS=()
+if [ -n "${VIDEO_SHOTS:-}" ]; then
+  DIRECTOR_ARGS=(-- "--director=/game/tools/video/shots/${VIDEO_SHOTS}")
+  echo "[record] Director mode: ${VIDEO_SHOTS}"
+fi
 godot --path /game --rendering-driver opengl3 --audio-driver Dummy \
-      --resolution "${W}x${H}" --position 0,0 >"$OUT/godot.log" 2>&1 &
+      --resolution "${W}x${H}" --position 0,0 "${DIRECTOR_ARGS[@]}" >"$OUT/godot.log" 2>&1 &
 GODOT_PID=$!
 sleep 12   # let the title screen appear
 
@@ -33,7 +41,12 @@ else
          -t "$SECONDS_TO_RECORD" -c:v libx264 -preset veryfast -crf 20 -pix_fmt yuv420p \
          -movflags +faststart "$OUT/mythriven-gameplay.mp4" 2>"$OUT/ffmpeg.log" &
   FFMPEG_PID=$!
-  bash "$HERE/bot.sh" "$SECONDS_TO_RECORD" "$GODOT_PID" &
+  if [ -n "${VIDEO_SHOTS:-}" ]; then
+    # The shot list ends the game; stop recording then (finish the MP4 cleanly).
+    ( while kill -0 "$GODOT_PID" 2>/dev/null; do sleep 1; done; kill -INT "$FFMPEG_PID" 2>/dev/null ) &
+  else
+    bash "$HERE/bot.sh" "$SECONDS_TO_RECORD" "$GODOT_PID" &
+  fi
   wait "$FFMPEG_PID"
   echo "[record] done"
 fi

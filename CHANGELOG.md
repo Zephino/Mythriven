@@ -2,6 +2,18 @@
 
 One entry per change request, newest first (see `.cursor/rules/changelog.mdc`). The version here always matches `VERSION`. Work from before this changelog existed (versions 00.01.00–00.01.05: Phases 1–6 and the web link) is logged in `docs/PROGRESS.md`.
 
+## Version 00.03.98
+Date: 11/08/2026
+Time: 5:05 PM
+
+### Changes
+- **Director mode: a filming tool only the AI can use.** Started with `--director=<shot list>` in a debug, non-web build (a player can't switch it on). It skips the menus, picks the Hero, level (even locked ones) and seed from the shot list, then plays the list's steps: jump the time, teleport around the map, set monster density, enemy HP and the Hero's HP, fill the screen to the 500 cap, spawn monsters and elites, gain levels, give weapons, walk or autopilot, auto-pick level-up cards, hide the HUD, zoom, and quit. Runs count as debug runs (no leaderboard).
+- New: `scripts/core/director_mode.gd` (gate and shot list checks), `director_runner.gd`, `director_commands.gd`; `RunState.director_hp_mult`; a `director` block in `data/config.json` and its schema; tests in `tests/test_director.gd`; `tools/video/shots/tour.json` (an example) and the command table in `tools/video/README.md`; `record.sh` takes `VIDEO_SHOTS`.
+- Small hooks: `main.gd` (menus skipped, runner added), `meta_progress.gd` (any level in director mode), `enemy_manager.gd` (HP multiplier on new enemies).
+
+### Reason
+The owner wants the AI to make videos that show several points of the game, from light to very dense monsters. Not run in Godot yet; the new tests have not been run.
+
 ## Version 00.03.97
 Date: 11/08/2026
 Time: 4:14 PM

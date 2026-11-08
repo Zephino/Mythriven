@@ -1,6 +1,12 @@
 {
   "_doc": "Every tuning number in Mythriven lives here, never in code. Values come from GAME_DESIGN.md; many are placeholders until their phase is built. Keys starting with '_' are notes and are ignored by the loader. The required fields and their types are listed in data/schemas.json; if you add, rename, or remove a key here, update that file too.",
 
+  "director": {
+    "_doc": "Director mode (AI video tool; see scripts/core/director_mode.gd). Only runs in a debug build started with --director=<shot list>. autopilot_turn_s: how often the autopilot picks a new walking direction. end_delay_s: seconds the game stays open after the last step or the Hero's death, so the final frames are recorded.",
+    "autopilot_turn_s": 1.5,
+    "end_delay_s": 2.0
+  },
+
   "debug": {
     "_doc": "Debug menu (dev builds only). F1 on PC, a tap with this many fingers on mobile.",
     "menu_touch_fingers": 3,

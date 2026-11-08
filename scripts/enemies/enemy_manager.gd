@@ -171,6 +171,8 @@ func spawn(type_id: String, at: Vector2) -> int:
 	var growth: float = 1.0 if bool(data.get("boss", false)) else LevelScaling.hp_mult(LevelScaling.current_level()) * RunArc.hp_mult(elapsed)
 	if GameAuthority.run != null:
 		growth *= GameAuthority.run.coop_boss_hp_mult if bool(data.get("boss", false)) else GameAuthority.run.coop_hp_mult
+		if not bool(data.get("boss", false)):
+			growth *= GameAuthority.run.director_hp_mult
 	max_hp[slot] = float(data["hp"]) * growth
 	hp[slot] = max_hp[slot]
 	radius[slot] = float(data["radius_px"])

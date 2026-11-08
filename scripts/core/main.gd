@@ -20,6 +20,8 @@ var _level_up: LevelUpScreen
 
 func _ready() -> void:
 	MenuKeys.install()
+	if DirectorMode.is_active():
+		DirectorMode.prepare()
 	var hero_id: String = GameAuthority.selected_hero_id
 	if hero_id != "" and not HeroRules.find(hero_id).is_empty():
 		_start()
@@ -37,6 +39,8 @@ func _start() -> void:
 	var joystick := TouchJoystick.new()
 	_build_world(joystick)
 	_build_ui(joystick)
+	if DirectorMode.is_active():
+		add_child(DirectorRunner.new())
 
 
 func _build_world(joystick: TouchJoystick) -> void:

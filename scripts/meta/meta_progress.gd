@@ -52,6 +52,9 @@ func _ready() -> void:
 
 ## The level the next run is on: the one chosen if it's unlocked, else the first.
 func selected_level() -> String:
+	# Director mode (the AI filming the game) may start on any level.
+	if DirectorMode.is_active() and not GameAuthority.find_level(level_id).is_empty():
+		return level_id
 	for level: Dictionary in LevelRules.all():
 		if str(level.get("id", "")) == level_id and LevelRules.is_unlocked(level):
 			return level_id

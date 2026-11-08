@@ -57,6 +57,8 @@ var omen_charge_mult: float = 1.0
 var coop_players: int = 1
 var coop_hp_mult: float = 1.0
 var coop_boss_hp_mult: float = 1.0
+## Director mode only (DirectorMode): multiplies the HP of enemies spawned from now on.
+var director_hp_mult: float = 1.0
 
 
 func _init(run_seed: int, level_entry: Dictionary) -> void:
